@@ -158,10 +158,13 @@ namespace StardewValley
       Game1.delayedActions.Add(delayedAction);
     }
 
-    public static void functionAfterDelay(DelayedAction.delayedBehavior func, int timer) => Game1.delayedActions.Add(new DelayedAction(timer)
+    public static void functionAfterDelay(DelayedAction.delayedBehavior func, int timer)
     {
-      behavior = func
-    });
+      Game1.delayedActions.Add(new DelayedAction(timer)
+      {
+        behavior = func
+      });
+    }
 
     public void doGlobalFade() { return Game1.globalFadeToBlack(this.afterFadeBehavior); }
 

@@ -332,10 +332,13 @@ namespace StardewValley
       return true;
     }
 
-    public virtual void AddRenovationBound(Rectangle bound) => this.renovationBounds.Add(new List<Rectangle>()
+    public virtual void AddRenovationBound(Rectangle bound)
     {
-      bound
-    });
+      this.renovationBounds.Add(new List<Rectangle>()
+      {
+        bound
+      });
+    }
 
     public virtual void AddRenovationBound(List<Rectangle> bounds) { return this.renovationBounds.Add(bounds); }
 

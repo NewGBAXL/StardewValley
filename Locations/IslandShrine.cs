@@ -37,10 +37,13 @@ namespace StardewValley.Locations
       this.AddMissingPedestals();
     }
 
-    public override List<Vector2> GetAdditionalWalnutBushes() => new List<Vector2>()
+    public override List<Vector2> GetAdditionalWalnutBushes()
     {
-      new Vector2(23f, 34f)
-    };
+      return new List<Vector2>()
+      {
+        new Vector2(23f, 34f)
+      };
+    }
 
     public virtual void AddMissingPedestals()
     {

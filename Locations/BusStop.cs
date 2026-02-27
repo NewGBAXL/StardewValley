@@ -237,14 +237,17 @@ namespace StardewValley.Locations
       Game1.freezeControls = true;
     }
 
-    private void busStartMovingOff(int extraInfo) => Game1.globalFadeToBlack((Game1.afterFadeFunction) (() =>
+    private void busStartMovingOff(int extraInfo)
     {
-      Game1.globalFadeToClear();
-      this.localSound("batFlap");
-      this.drivingOff = true;
-      this.localSound("busDriveOff");
-      Game1.changeMusicTrack("none");
-    }));
+      Game1.globalFadeToBlack((Game1.afterFadeFunction) (() =>
+      {
+        Game1.globalFadeToClear();
+        this.localSound("batFlap");
+        this.drivingOff = true;
+        this.localSound("busDriveOff");
+        Game1.changeMusicTrack("none");
+      }));
+    }
 
     private void pamReturnedToSpot(Character c, GameLocation l)
     {

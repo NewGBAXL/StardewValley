@@ -4942,8 +4942,10 @@ label_76:
       }
     }
 
-    public static void performTenMinuteClockUpdate() => Game1.hooks.OnGame1_PerformTenMinuteClockUpdate((Action) (() =>
+    public static void performTenMinuteClockUpdate()
     {
+      Game1.hooks.OnGame1_PerformTenMinuteClockUpdate((Action) (() =>
+      {
       int trulyDarkTime = Game1.getTrulyDarkTime();
       Game1.gameTimeInterval = 0;
       if (Game1.IsMasterGame)
@@ -5059,6 +5061,7 @@ label_76:
         return;
       Game1.netWorldState.Value.UpdateFromGame1();
     }));
+    }
 
     public static bool shouldPlayMorningSong(bool loading_game = false) { return !Game1.eventUp && (double) Game1.options.musicVolumeLevel > 0.025 && Game1.timeOfDay < 1200 && (loading_game || Game1.currentSong == null || Game1.requestedMusicTrack.ToLower().Contains("ambient")); }
 
@@ -7523,8 +7526,10 @@ label_82:
       Game1.weatherIcon = 1;
     }
 
-    public static void showEndOfNightStuff() => Game1.hooks.OnGame1_ShowEndOfNightStuff((Action) (() =>
+    public static void showEndOfNightStuff()
     {
+      Game1.hooks.OnGame1_ShowEndOfNightStuff((Action) (() =>
+      {
       bool flag1 = false;
       if (Game1.player.displayedShippedItems.Count > 0)
       {
@@ -7556,6 +7561,7 @@ label_82:
         Game1.activeClickableMenu = (IClickableMenu) new SaveGameMenu();
       }
     }));
+    }
 
     private static void updateWallpaperInSeedShop()
     {

@@ -65,21 +65,24 @@ namespace StardewValley
       this.phaseTimer = 5000;
     }
 
-    private void addStar(Vector2 pos, Event e) => e.aboveMapSprites.Add(new TemporaryAnimatedSprite()
+    private void addStar(Vector2 pos, Event e)
     {
-      texture = this.tempText,
-      local = true,
-      position = pos,
-      initialPosition = pos,
-      sourceRect = new Rectangle(408, 459, 7, 7),
-      scale = 4f,
-      sourceRectStartingPos = new Vector2(408f, 459f),
-      animationLength = 6,
-      totalNumberOfLoops = 99999,
-      interval = (float) (150 + Game1.random.Next(-20, 21)),
-      layerDepth = 1f,
-      overrideLocationDestroy = true
-    });
+      e.aboveMapSprites.Add(new TemporaryAnimatedSprite()
+      {
+        texture = this.tempText,
+        local = true,
+        position = pos,
+        initialPosition = pos,
+        sourceRect = new Rectangle(408, 459, 7, 7),
+        scale = 4f,
+        sourceRectStartingPos = new Vector2(408f, 459f),
+        animationLength = 6,
+        totalNumberOfLoops = 99999,
+        interval = (float) (150 + Game1.random.Next(-20, 21)),
+        layerDepth = 1f,
+        overrideLocationDestroy = true
+      });
+    }
 
     public void draw(SpriteBatch b)
     {

@@ -575,14 +575,17 @@ namespace StardewValley.Locations
       this.busMotion = new Vector2(-6f, 0.0f);
     }
 
-    private void busStartMovingOff(int extraInfo) => Game1.globalFadeToBlack((Game1.afterFadeFunction) (() =>
+    private void busStartMovingOff(int extraInfo)
     {
-      Game1.globalFadeToClear();
-      this.localSound("batFlap");
-      this.drivingOff = true;
-      this.localSound("busDriveOff");
-      Game1.changeMusicTrack("none");
-    }));
+      Game1.globalFadeToBlack((Game1.afterFadeFunction) (() =>
+      {
+        Game1.globalFadeToClear();
+        this.localSound("batFlap");
+        this.drivingOff = true;
+        this.localSound("busDriveOff");
+        Game1.changeMusicTrack("none");
+      }));
+    }
 
     public override void performTouchAction(string fullActionString, Vector2 playerStandingPosition)
     {

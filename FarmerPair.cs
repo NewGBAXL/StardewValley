@@ -13,11 +13,14 @@ namespace StardewValley
     public long Farmer1;
     public long Farmer2;
 
-    public static FarmerPair MakePair(long f1, long f2) => new FarmerPair()
+    public static FarmerPair MakePair(long f1, long f2)
     {
-      Farmer1 = Math.Min(f1, f2),
-      Farmer2 = Math.Max(f1, f2)
-    };
+      return new FarmerPair()
+      {
+        Farmer1 = Math.Min(f1, f2),
+        Farmer2 = Math.Max(f1, f2)
+      };
+    }
 
     public bool Contains(long f) { return this.Farmer1 == f || this.Farmer2 == f; }
 

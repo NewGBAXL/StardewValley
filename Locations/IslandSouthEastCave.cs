@@ -203,16 +203,19 @@ namespace StardewValley.Locations
       base.cleanupBeforePlayerExit();
     }
 
-    private void addFlame(Vector2 tileLocation, float sort_offset_tiles = 2.25f) => this.temporarySprites.Add(new TemporaryAnimatedSprite("LooseSprites\\Cursors", new Microsoft.Xna.Framework.Rectangle(276, 1985, 12, 11), tileLocation * 64f, false, 0.0f, Color.White)
+    private void addFlame(Vector2 tileLocation, float sort_offset_tiles = 2.25f)
     {
-      interval = 50f,
-      totalNumberOfLoops = 99999,
-      animationLength = 4,
-      light = true,
-      lightRadius = 2f,
-      scale = 4f,
-      layerDepth = (float) (((double) tileLocation.Y + (double) sort_offset_tiles) * 64.0 / 10000.0)
-    });
+      this.temporarySprites.Add(new TemporaryAnimatedSprite("LooseSprites\\Cursors", new Microsoft.Xna.Framework.Rectangle(276, 1985, 12, 11), tileLocation * 64f, false, 0.0f, Color.White)
+      {
+        interval = 50f,
+        totalNumberOfLoops = 99999,
+        animationLength = 4,
+        light = true,
+        lightRadius = 2f,
+        scale = 4f,
+        layerDepth = (float) (((double) tileLocation.Y + (double) sort_offset_tiles) * 64.0 / 10000.0)
+      });
+    }
 
     public override void drawAboveAlwaysFrontLayer(SpriteBatch b)
     {

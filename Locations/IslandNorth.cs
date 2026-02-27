@@ -525,10 +525,13 @@ namespace StardewValley.Locations
       return merchantTradeStock;
     }
 
-    public override List<Vector2> GetAdditionalWalnutBushes() => new List<Vector2>()
+    public override List<Vector2> GetAdditionalWalnutBushes()
     {
-      new Vector2(56f, 27f)
-    };
+      return new List<Vector2>()
+      {
+        new Vector2(56f, 27f)
+      };
+    }
 
     public override void digUpArtifactSpot(int xLocation, int yLocation, Farmer who)
     {

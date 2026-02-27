@@ -138,7 +138,10 @@ label_3:
       return instance;
     }
 
-    internal static Func<T, DeepCloneState, T> GetClonerForValueType<T>() => (Func<T, DeepCloneState, T>) DeepClonerCache.GetOrAddStructAsObject<object>(typeof (T), (Func<Type, object>) (delegate(t) { return DeepClonerGenerator.GenerateCloner(t; }, false)));
+    internal static Func<T, DeepCloneState, T> GetClonerForValueType<T>()
+    {
+      return (Func<T, DeepCloneState, T>) DeepClonerCache.GetOrAddStructAsObject<object>(typeof(T), (Func<Type, object>)(delegate(Type t) { return DeepClonerGenerator.GenerateCloner(t, false); }), false);
+    }
 
     private static object GenerateCloner(Type t, bool asObject) { return DeepClonerSafeTypes.CanReturnSameObject(t) && asObject && !t.IsValueType() ? (object) null : DeepClonerExprGenerator.GenerateClonerInternal(t, asObject); }
 

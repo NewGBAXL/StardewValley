@@ -1218,14 +1218,17 @@ namespace StardewValley
 
     public bool ShouldHandleAnimationSound() { return !LocalMultiplayer.IsLocalMultiplayer(true) || this.IsLocalPlayer; }
 
-    public static List<Item> initialTools() => new List<Item>()
+    public static List<Item> initialTools()
     {
-      (Item) new Axe(),
-      (Item) new Hoe(),
-      (Item) new WateringCan(),
-      (Item) new Pickaxe(),
-      (Item) new MeleeWeapon(47)
-    };
+      return new List<Item>()
+      {
+        (Item) new Axe(),
+        (Item) new Hoe(),
+        (Item) new WateringCan(),
+        (Item) new Pickaxe(),
+        (Item) new MeleeWeapon(47)
+      };
+    }
 
     private void playHarpEmoteSound()
     {

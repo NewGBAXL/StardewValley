@@ -109,12 +109,15 @@ namespace StardewValley.Locations
       return base.performToolAction(t, tileX, tileY);
     }
 
-    public override List<Vector2> GetAdditionalWalnutBushes() => new List<Vector2>()
+    public override List<Vector2> GetAdditionalWalnutBushes()
     {
-      new Vector2(54f, 18f),
-      new Vector2(25f, 30f),
-      new Vector2(15f, 3f)
-    };
+      return new List<Vector2>()
+      {
+        new Vector2(54f, 18f),
+        new Vector2(25f, 30f),
+        new Vector2(15f, 3f)
+      };
+    }
 
     public override void draw(SpriteBatch b)
     {

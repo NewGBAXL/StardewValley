@@ -1101,43 +1101,47 @@ namespace StardewValley.Locations
 
     public static string getAreaDisplayNameFromNumber(int areaNumber) { return Game1.content.LoadString("Strings\\Locations:CommunityCenter_AreaName_" + CommunityCenter.getAreaNameFromNumber(areaNumber).Replace(" ", "")); }
 
-    public static StaticTile[] getJunimoNoteTileFrames(int area, Map map) => area == 5 ? new StaticTile[13]
+    public static StaticTile[] getJunimoNoteTileFrames(int area, Map map)
     {
-      new StaticTile(map.GetLayer("Front"), map.TileSheets[0], BlendMode.Alpha, 1741),
-      new StaticTile(map.GetLayer("Front"), map.TileSheets[0], BlendMode.Alpha, 1741),
-      new StaticTile(map.GetLayer("Front"), map.TileSheets[0], BlendMode.Alpha, 1741),
-      new StaticTile(map.GetLayer("Front"), map.TileSheets[0], BlendMode.Alpha, 1741),
-      new StaticTile(map.GetLayer("Front"), map.TileSheets[0], BlendMode.Alpha, 1741),
-      new StaticTile(map.GetLayer("Front"), map.TileSheets[0], BlendMode.Alpha, 1741),
-      new StaticTile(map.GetLayer("Front"), map.TileSheets[0], BlendMode.Alpha, 1741),
-      new StaticTile(map.GetLayer("Front"), map.TileSheets[0], BlendMode.Alpha, 1741),
-      new StaticTile(map.GetLayer("Front"), map.TileSheets[0], BlendMode.Alpha, 1741),
-      new StaticTile(map.GetLayer("Front"), map.TileSheets[0], BlendMode.Alpha, 1773),
-      new StaticTile(map.GetLayer("Front"), map.TileSheets[0], BlendMode.Alpha, 1805),
-      new StaticTile(map.GetLayer("Front"), map.TileSheets[0], BlendMode.Alpha, 1805),
-      new StaticTile(map.GetLayer("Front"), map.TileSheets[0], BlendMode.Alpha, 1773)
-    } : new StaticTile[20]
-    {
-      new StaticTile(map.GetLayer("Buildings"), map.TileSheets[0], BlendMode.Alpha, 1833),
-      new StaticTile(map.GetLayer("Buildings"), map.TileSheets[0], BlendMode.Alpha, 1833),
-      new StaticTile(map.GetLayer("Buildings"), map.TileSheets[0], BlendMode.Alpha, 1833),
-      new StaticTile(map.GetLayer("Buildings"), map.TileSheets[0], BlendMode.Alpha, 1833),
-      new StaticTile(map.GetLayer("Buildings"), map.TileSheets[0], BlendMode.Alpha, 1833),
-      new StaticTile(map.GetLayer("Buildings"), map.TileSheets[0], BlendMode.Alpha, 1833),
-      new StaticTile(map.GetLayer("Buildings"), map.TileSheets[0], BlendMode.Alpha, 1833),
-      new StaticTile(map.GetLayer("Buildings"), map.TileSheets[0], BlendMode.Alpha, 1833),
-      new StaticTile(map.GetLayer("Buildings"), map.TileSheets[0], BlendMode.Alpha, 1833),
-      new StaticTile(map.GetLayer("Buildings"), map.TileSheets[0], BlendMode.Alpha, 1832),
-      new StaticTile(map.GetLayer("Buildings"), map.TileSheets[0], BlendMode.Alpha, 1824),
-      new StaticTile(map.GetLayer("Buildings"), map.TileSheets[0], BlendMode.Alpha, 1825),
-      new StaticTile(map.GetLayer("Buildings"), map.TileSheets[0], BlendMode.Alpha, 1826),
-      new StaticTile(map.GetLayer("Buildings"), map.TileSheets[0], BlendMode.Alpha, 1827),
-      new StaticTile(map.GetLayer("Buildings"), map.TileSheets[0], BlendMode.Alpha, 1828),
-      new StaticTile(map.GetLayer("Buildings"), map.TileSheets[0], BlendMode.Alpha, 1829),
-      new StaticTile(map.GetLayer("Buildings"), map.TileSheets[0], BlendMode.Alpha, 1830),
-      new StaticTile(map.GetLayer("Buildings"), map.TileSheets[0], BlendMode.Alpha, 1831),
-      new StaticTile(map.GetLayer("Buildings"), map.TileSheets[0], BlendMode.Alpha, 1832),
-      new StaticTile(map.GetLayer("Buildings"), map.TileSheets[0], BlendMode.Alpha, 1833)
-    };
+      if (area == 5)
+        return new StaticTile[13]
+        {
+          new StaticTile(map.GetLayer("Front"), map.TileSheets[0], BlendMode.Alpha, 1741),
+          new StaticTile(map.GetLayer("Front"), map.TileSheets[0], BlendMode.Alpha, 1741),
+          new StaticTile(map.GetLayer("Front"), map.TileSheets[0], BlendMode.Alpha, 1741),
+          new StaticTile(map.GetLayer("Front"), map.TileSheets[0], BlendMode.Alpha, 1741),
+          new StaticTile(map.GetLayer("Front"), map.TileSheets[0], BlendMode.Alpha, 1741),
+          new StaticTile(map.GetLayer("Front"), map.TileSheets[0], BlendMode.Alpha, 1741),
+          new StaticTile(map.GetLayer("Front"), map.TileSheets[0], BlendMode.Alpha, 1741),
+          new StaticTile(map.GetLayer("Front"), map.TileSheets[0], BlendMode.Alpha, 1741),
+          new StaticTile(map.GetLayer("Front"), map.TileSheets[0], BlendMode.Alpha, 1741),
+          new StaticTile(map.GetLayer("Front"), map.TileSheets[0], BlendMode.Alpha, 1773),
+          new StaticTile(map.GetLayer("Front"), map.TileSheets[0], BlendMode.Alpha, 1805),
+          new StaticTile(map.GetLayer("Front"), map.TileSheets[0], BlendMode.Alpha, 1805),
+          new StaticTile(map.GetLayer("Front"), map.TileSheets[0], BlendMode.Alpha, 1773)
+        };
+      return new StaticTile[20]
+      {
+        new StaticTile(map.GetLayer("Buildings"), map.TileSheets[0], BlendMode.Alpha, 1833),
+        new StaticTile(map.GetLayer("Buildings"), map.TileSheets[0], BlendMode.Alpha, 1833),
+        new StaticTile(map.GetLayer("Buildings"), map.TileSheets[0], BlendMode.Alpha, 1833),
+        new StaticTile(map.GetLayer("Buildings"), map.TileSheets[0], BlendMode.Alpha, 1833),
+        new StaticTile(map.GetLayer("Buildings"), map.TileSheets[0], BlendMode.Alpha, 1833),
+        new StaticTile(map.GetLayer("Buildings"), map.TileSheets[0], BlendMode.Alpha, 1833),
+        new StaticTile(map.GetLayer("Buildings"), map.TileSheets[0], BlendMode.Alpha, 1833),
+        new StaticTile(map.GetLayer("Buildings"), map.TileSheets[0], BlendMode.Alpha, 1833),
+        new StaticTile(map.GetLayer("Buildings"), map.TileSheets[0], BlendMode.Alpha, 1833),
+        new StaticTile(map.GetLayer("Buildings"), map.TileSheets[0], BlendMode.Alpha, 1832),
+        new StaticTile(map.GetLayer("Buildings"), map.TileSheets[0], BlendMode.Alpha, 1824),
+        new StaticTile(map.GetLayer("Buildings"), map.TileSheets[0], BlendMode.Alpha, 1825),
+        new StaticTile(map.GetLayer("Buildings"), map.TileSheets[0], BlendMode.Alpha, 1826),
+        new StaticTile(map.GetLayer("Buildings"), map.TileSheets[0], BlendMode.Alpha, 1827),
+        new StaticTile(map.GetLayer("Buildings"), map.TileSheets[0], BlendMode.Alpha, 1828),
+        new StaticTile(map.GetLayer("Buildings"), map.TileSheets[0], BlendMode.Alpha, 1829),
+        new StaticTile(map.GetLayer("Buildings"), map.TileSheets[0], BlendMode.Alpha, 1830),
+        new StaticTile(map.GetLayer("Buildings"), map.TileSheets[0], BlendMode.Alpha, 1831),
+        new StaticTile(map.GetLayer("Buildings"), map.TileSheets[0], BlendMode.Alpha, 1832),
+        new StaticTile(map.GetLayer("Buildings"), map.TileSheets[0], BlendMode.Alpha, 1833)
+      };
   }
 }

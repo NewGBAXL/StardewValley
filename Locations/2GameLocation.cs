@@ -2265,11 +2265,14 @@ namespace StardewValley
       }
     }
 
-    public Response[] createYesNoResponses() => new Response[2]
+    public Response[] createYesNoResponses()
     {
-      new Response("Yes", Game1.content.LoadString("Strings\\Lexicon:QuestionDialogue_Yes")).SetHotKey(Keys.Y),
-      new Response("No", Game1.content.LoadString("Strings\\Lexicon:QuestionDialogue_No")).SetHotKey(Keys.Escape)
-    };
+      return new Response[2]
+      {
+        new Response("Yes", Game1.content.LoadString("Strings\\Lexicon:QuestionDialogue_Yes")).SetHotKey(Keys.Y),
+        new Response("No", Game1.content.LoadString("Strings\\Lexicon:QuestionDialogue_No")).SetHotKey(Keys.Escape)
+      };
+    }
 
     public void createQuestionDialogue(string question, Response[] answerChoices, string dialogKey)
     {
@@ -7075,11 +7078,14 @@ label_386:
       }
     }
 
-    public void farmerFile() => Game1.multipleDialogues(new string[2]
+    public void farmerFile()
     {
-      Game1.content.LoadString("Strings\\UI:FarmerFile_1", (object) Game1.player.Name, (object) Game1.stats.StepsTaken, (object) Game1.stats.GiftsGiven, (object) Game1.stats.DaysPlayed, (object) Game1.stats.DirtHoed, (object) Game1.stats.ItemsCrafted, (object) Game1.stats.ItemsCooked, (object) Game1.stats.PiecesOfTrashRecycled).Replace('\n', '^'),
-      Game1.content.LoadString("Strings\\UI:FarmerFile_2", (object) Game1.stats.MonstersKilled, (object) Game1.stats.FishCaught, (object) Game1.stats.TimesFished, (object) Game1.stats.SeedsSown, (object) Game1.stats.ItemsShipped).Replace('\n', '^')
-    });
+      Game1.multipleDialogues(new string[2]
+      {
+        Game1.content.LoadString("Strings\\UI:FarmerFile_1", (object) Game1.player.Name, (object) Game1.stats.StepsTaken, (object) Game1.stats.GiftsGiven, (object) Game1.stats.DaysPlayed, (object) Game1.stats.DirtHoed, (object) Game1.stats.ItemsCrafted, (object) Game1.stats.ItemsCooked, (object) Game1.stats.PiecesOfTrashRecycled).Replace('\n', '^'),
+        Game1.content.LoadString("Strings\\UI:FarmerFile_2", (object) Game1.stats.MonstersKilled, (object) Game1.stats.FishCaught, (object) Game1.stats.TimesFished, (object) Game1.stats.SeedsSown, (object) Game1.stats.ItemsShipped).Replace('\n', '^')
+      });
+    }
 
     public void openItemChest(Location location, int whichObject)
     {
@@ -9508,11 +9514,14 @@ label_386:
       Rumble.rumbleAndFade(1f, (float) milliseconds);
     }
 
-    private void damagePlayers(Microsoft.Xna.Framework.Rectangle area, int damage) => this.damagePlayersEvent.Fire(new GameLocation.DamagePlayersEventArg()
+    private void damagePlayers(Microsoft.Xna.Framework.Rectangle area, int damage)
     {
-      Area = area,
-      Damage = damage
-    });
+      this.damagePlayersEvent.Fire(new GameLocation.DamagePlayersEventArg()
+      {
+        Area = area,
+        Damage = damage
+      });
+    }
 
     private void performDamagePlayers(GameLocation.DamagePlayersEventArg arg)
     {

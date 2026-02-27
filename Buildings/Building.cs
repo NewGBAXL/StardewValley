@@ -199,13 +199,15 @@ namespace StardewValley.Buildings
 
     public virtual string textureName() { return "Buildings\\" + (string) (NetFieldBase<string, NetString>) this.buildingType; }
 
-    public virtual void resetTexture() => this.texture = new Lazy<Texture2D>((Func<Texture2D>) (() =>
+    public virtual void resetTexture()
     {
-      Texture2D base_texture = Game1.content.Load<Texture2D>(this.textureName());
-      if (this.paintedTexture != null)
+      this.texture = new Lazy<Texture2D>((Func<Texture2D>) (() =>
       {
-        this.paintedTexture.Dispose();
-        this.paintedTexture = (Texture2D) null;
+        Texture2D base_texture = Game1.content.Load<Texture2D>(this.textureName());
+        if (this.paintedTexture != null)
+        {
+          this.paintedTexture.Dispose();
+          this.paintedTexture = (Texture2D) null;
       }
       this.paintedTexture = BuildingPainter.Apply(base_texture, this.textureName() + "_PaintMask", this.netBuildingPaintColor.Value);
       if (this.paintedTexture != null)

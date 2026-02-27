@@ -335,16 +335,18 @@ namespace StardewValley.Locations
       this.smokeTimer = 1250f;
     }
 
-    public Dictionary<ISalable, int[]> getBlueBoatStock() => new Dictionary<ISalable, int[]>()
+    public Dictionary<ISalable, int[]> getBlueBoatStock()
     {
+      return new Dictionary<ISalable, int[]>()
       {
-        (ISalable) new StardewValley.Object(Vector2.Zero, 40),
-        new int[2]{ 200, int.MaxValue }
-      },
-      {
-        (ISalable) new StardewValley.Object(Vector2.Zero, 41),
-        new int[2]{ 200, int.MaxValue }
-      },
+        {
+          (ISalable) new StardewValley.Object(Vector2.Zero, 40),
+          new int[2]{ 200, int.MaxValue }
+        },
+        {
+          (ISalable) new StardewValley.Object(Vector2.Zero, 41),
+          new int[2]{ 200, int.MaxValue }
+        }
       {
         (ISalable) new StardewValley.Object(Vector2.Zero, 42),
         new int[2]{ 200, int.MaxValue }

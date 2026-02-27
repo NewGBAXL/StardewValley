@@ -290,18 +290,20 @@ namespace StardewValley
       return (SpecialOrder) null;
     }
 
-    public void CheckReturnedDonations() => this.returnedDonationsMutex.RequestLock((Action) (() =>
+    public void CheckReturnedDonations()
     {
-      Dictionary<ISalable, int[]> itemPriceAndStock = new Dictionary<ISalable, int[]>();
-      foreach (Item returnedDonation in this.returnedDonations)
-        itemPriceAndStock[(ISalable) returnedDonation] = new int[2]
-        {
-          0,
-          returnedDonation.Stack
-        };
-      Game1.activeClickableMenu = (IClickableMenu) new ShopMenu(itemPriceAndStock, on_purchase: new Func<ISalable, Farmer, int, bool>(this.OnDonatedItemWithdrawn), on_sell: new Func<ISalable, bool>(this.OnReturnedDonationDeposited), context: "ReturnedDonations")
+      this.returnedDonationsMutex.RequestLock((Action) (() =>
       {
-        source = (object) this,
+        Dictionary<ISalable, int[]> itemPriceAndStock = new Dictionary<ISalable, int[]>();
+        foreach (Item returnedDonation in this.returnedDonations)
+          itemPriceAndStock[(ISalable) returnedDonation] = new int[2]
+          {
+            0,
+            returnedDonation.Stack
+          };
+        Game1.activeClickableMenu = (IClickableMenu) new ShopMenu(itemPriceAndStock, on_purchase: new Func<ISalable, Farmer, int, bool>(this.OnDonatedItemWithdrawn), on_sell: new Func<ISalable, bool>(this.OnReturnedDonationDeposited), context: "ReturnedDonations")
+        {
+          source = (object) this,
         behaviorBeforeCleanup = (Action<IClickableMenu>) (delegate(menu) { return this.returnedDonationsMutex.ReleaseLock()); }
       };
     }));

@@ -48,12 +48,15 @@ namespace StardewValley.Locations
       });
     }
 
-    private void changed(int whichRoom, int which) => this.pendingChanges.Add((Action) (() =>
+    private void changed(int whichRoom, int which)
     {
-      if (this.OnChange == null)
-        return;
-      this.OnChange(whichRoom, which);
-    }));
+      this.pendingChanges.Add((Action) (() =>
+      {
+        if (this.OnChange == null)
+          return;
+        this.OnChange(whichRoom, which);
+      }));
+    }
 
     protected override List<int> Serialize()
     {
