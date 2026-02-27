@@ -37,12 +37,12 @@ namespace StardewValley.BellsAndWhistles
       return (double) this.position.X < (double) (-147 * this.zoom) || (double) this.position.Y < (double) (-100 * this.zoom);
     }
 
-    public override Rectangle getBoundingBox(int xOffset, int yOffset) => new Rectangle((int) this.position.X, (int) this.position.Y, 147 * this.zoom, 100 * this.zoom);
+    public override Rectangle getBoundingBox(int xOffset, int yOffset) { return new Rectangle((int) this.position.X, (int) this.position.Y, 147 * this.zoom, 100 * this.zoom); }
 
     public override void draw(SpriteBatch b)
     {
     }
 
-    public override void drawAboveFrontLayer(SpriteBatch b) => b.Draw(Game1.mouseCursors, Game1.GlobalToLocal(this.position), new Rectangle?(new Rectangle(128, 0, 146, 99)), Color.White, !this.verticalFlip || !this.horizontalFlip ? 0.0f : 3.141593f, Vector2.Zero, (float) this.zoom, !this.verticalFlip || this.horizontalFlip ? (!this.horizontalFlip || this.verticalFlip ? SpriteEffects.None : SpriteEffects.FlipHorizontally) : SpriteEffects.FlipVertically, 1f);
+    public override void drawAboveFrontLayer(SpriteBatch b) { return b.Draw(Game1.mouseCursors, Game1.GlobalToLocal(this.position), new Rectangle?(new Rectangle(128, 0, 146, 99)), Color.White, !this.verticalFlip || !this.horizontalFlip ? 0.0f : 3.141593f, Vector2.Zero, (float) this.zoom, !this.verticalFlip || this.horizontalFlip ? (!this.horizontalFlip || this.verticalFlip ? SpriteEffects.None : SpriteEffects.FlipHorizontally) : SpriteEffects.FlipVertically, 1f); }
   }
 }

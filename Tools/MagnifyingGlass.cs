@@ -27,9 +27,9 @@ namespace StardewValley.Tools
       return (Item) one;
     }
 
-    protected override string loadDisplayName() => Game1.content.LoadString("Strings\\StringsFromCSFiles:MagnifyingGlass.cs.14119");
+    protected override string loadDisplayName() { return Game1.content.LoadString("Strings\\StringsFromCSFiles:MagnifyingGlass.cs.14119"); }
 
-    protected override string loadDescription() => Game1.content.LoadString("Strings\\StringsFromCSFiles:MagnifyingGlass.cs.14120");
+    protected override string loadDescription() { return Game1.content.LoadString("Strings\\StringsFromCSFiles:MagnifyingGlass.cs.14120"); }
 
     public override bool beginUsing(GameLocation location, int x, int y, Farmer who)
     {

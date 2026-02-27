@@ -134,9 +134,9 @@ namespace StardewValley.Menus
       this.snapCursorToCurrentSnappedComponent();
     }
 
-    public override bool autoCenterMouseCursorForGamepad() => false;
+    public override bool autoCenterMouseCursorForGamepad() { return false; }
 
-    private void playOpeningSound() => Game1.playSound("breathin");
+    private void playOpeningSound() { return Game1.playSound("breathin"); }
 
     public override void setUpForGamePadMode()
     {
@@ -187,7 +187,7 @@ namespace StardewValley.Menus
       afterDialogues();
     }
 
-    public void finishTyping() => this.characterIndexInDialogue = this.getCurrentString().Length;
+    public void finishTyping() { return this.characterIndexInDialogue = this.getCurrentString().Length; }
 
     public void beginOutro()
     {
@@ -196,7 +196,7 @@ namespace StardewValley.Menus
       Game1.playSound("breathout");
     }
 
-    public override void receiveRightClick(int x, int y, bool playSound = true) => this.receiveLeftClick(x, y, playSound);
+    public override void receiveRightClick(int x, int y, bool playSound = true) { return this.receiveLeftClick(x, y, playSound); }
 
     private void tryOutro()
     {
@@ -417,9 +417,12 @@ namespace StardewValley.Menus
       this.selectedResponse = this.currentlySnappedComponent.myID;
     }
 
-    public bool shouldDrawFriendshipJewel() => this.width >= 642 && !Game1.eventUp && !this.isQuestion && !this.friendshipJewel.Equals(Rectangle.Empty) && this.characterDialogue != null && this.characterDialogue.speaker != null && Game1.player.friendshipData.ContainsKey(this.characterDialogue.speaker.Name) && this.characterDialogue.speaker.Name != "Henchman";
+    public bool shouldDrawFriendshipJewel() { return this.width >= 642 && !Game1.eventUp && !this.isQuestion && !this.friendshipJewel.Equals(Rectangle.Empty) && this.characterDialogue != null && this.characterDialogue.speaker != null && Game1.player.friendshipData.ContainsKey(this.characterDialogue.speaker.Name) && this.characterDialogue.speaker.Name != "Henchman"; }
 
-    private void setUpQuestionIcon() => this.dialogueIcon = new TemporaryAnimatedSprite("LooseSprites\\Cursors", new Rectangle(330, 357, 7, 13), 100f, 6, 999999, new Vector2((float) (this.x + this.width - 40), (float) (this.y + this.height - 44)), false, false, 0.89f, 0.0f, Color.White, 4f, 0.0f, 0.0f, 0.0f, true)
+    private void setUpQuestionIcon()
+    {
+      this.dialogueIcon = new TemporaryAnimatedSprite("LooseSprites\\Cursors", new Rectangle(330, 357, 7, 13), 100f, 6, 999999, new Vector2((float) (this.x + this.width - 40), (float) (this.y + this.height - 44)), false, false, 0.89f, 0.0f, Color.White, 4f, 0.0f, 0.0f, 0.0f, true);
+    }
     {
       yPeriodic = true,
       yPeriodicLoopTime = 1500f,
@@ -481,7 +484,7 @@ namespace StardewValley.Menus
       this.heightForQuestions += 40;
     }
 
-    public bool isPortraitBox() => this.characterDialogue != null && this.characterDialogue.speaker != null && this.characterDialogue.speaker.Portrait != null && this.characterDialogue.showPortrait && Game1.options.showPortraits;
+    public bool isPortraitBox() { return this.characterDialogue != null && this.characterDialogue.speaker != null && this.characterDialogue.speaker.Portrait != null && this.characterDialogue.showPortrait && Game1.options.showPortraits; }
 
     public void drawBox(SpriteBatch b, int xPos, int yPos, int boxWidth, int boxHeight)
     {

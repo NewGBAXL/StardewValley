@@ -39,15 +39,15 @@ namespace StardewValley.Characters
 
     public Guid HorseId
     {
-      get => this.horseId.Value;
-      set => this.horseId.Value = value;
+      delegate(get) { return this.horseId.Value; };
+      delegate(set) { return this.horseId.Value = value; };
     }
 
     [XmlIgnore]
     public Farmer rider
     {
-      get => this.netRider.Value;
-      set => this.netRider.Value = value;
+      delegate(get) { return this.netRider.Value; };
+      delegate(set) { return this.netRider.Value = value; };
     }
 
     public Horse()
@@ -73,7 +73,7 @@ namespace StardewValley.Characters
       this.HorseId = horseId;
     }
 
-    public override bool canTalk() => false;
+    public override bool canTalk() { return false; }
 
     protected override void initNetFields()
     {
@@ -82,13 +82,13 @@ namespace StardewValley.Characters
       this.position.Field.AxisAlignedMovement = false;
     }
 
-    public Farmer getOwner() => this.ownerId.Value == 0L ? (Farmer) null : Game1.getFarmerMaybeOffline(this.ownerId.Value);
+    public Farmer getOwner() { return this.ownerId.Value == 0L ? (Farmer) null : Game1.getFarmerMaybeOffline(this.ownerId.Value); }
 
     public override void reloadSprite()
     {
     }
 
-    public override void dayUpdate(int dayOfMonth) => this.faceDirection(3);
+    public override void dayUpdate(int dayOfMonth) { return this.faceDirection(3); }
 
     public override Rectangle GetBoundingBox()
     {
@@ -98,7 +98,7 @@ namespace StardewValley.Characters
       return boundingBox;
     }
 
-    public override bool canPassThroughActionTiles() => false;
+    public override bool canPassThroughActionTiles() { return false; }
 
     public void squeezeForGate()
     {
@@ -354,7 +354,7 @@ namespace StardewValley.Characters
       }
     }
 
-    public override void collisionWithFarmerBehavior() => base.collisionWithFarmerBehavior();
+    public override void collisionWithFarmerBehavior() { return base.collisionWithFarmerBehavior(); }
 
     public void dismount(bool from_demolish = false)
     {
@@ -371,7 +371,7 @@ namespace StardewValley.Characters
           break;
         }
       }
-      if (stable != null && !from_demolish && !this.currentLocation.characters.Where<NPC>((Func<NPC, bool>) (c => c is Horse && (c as Horse).HorseId == this.HorseId)).Any<NPC>())
+      if (stable != null && !from_demolish && !this.currentLocation.characters.Where<NPC>((Func<NPC, bool>) (delegate(c) { return c is Horse && (c as Horse).HorseId == this.HorseId)).Any<NPC>()); }
         this.currentLocation.characters.Add((NPC) this);
       this.SyncPositionToRider();
       this.rider.TemporaryPassableTiles.Add(new Rectangle((int) this.dismountTile.X * 64, (int) this.dismountTile.Y * 64, 64, 64));

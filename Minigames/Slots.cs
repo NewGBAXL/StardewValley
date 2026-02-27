@@ -277,7 +277,7 @@ namespace StardewValley.Minigames
     {
     }
 
-    public bool overrideFreeMouseMovement() => Game1.options.SnappyMenus;
+    public bool overrideFreeMouseMovement() { return Game1.options.SnappyMenus; }
 
     public void receiveKeyPress(Keys k)
     {
@@ -485,9 +485,9 @@ namespace StardewValley.Minigames
     {
     }
 
-    public string minigameId() => nameof (Slots);
+    public string minigameId() { return nameof (Slots); }
 
-    public bool doMainGameUpdates() => false;
+    public bool doMainGameUpdates() { return false; }
 
     public bool forceQuit()
     {

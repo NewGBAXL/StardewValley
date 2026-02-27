@@ -51,7 +51,7 @@ namespace Force.DeepCloner.Helpers
 
       bool IEqualityComparer.Equals(object x, object y) => x == y;
 
-      public int GetHashCode(object obj) => RuntimeHelpers.GetHashCode(obj);
+      public int GetHashCode(object obj) { return RuntimeHelpers.GetHashCode(obj); }
     }
 
     private class MiniDictionary
@@ -227,7 +227,7 @@ namespace Force.DeepCloner.Helpers
         this._buckets[index] = count;
       }
 
-      private void Resize() => this.Resize(DeepCloneState.MiniDictionary.ExpandPrime(this._count));
+      private void Resize() { return this.Resize(DeepCloneState.MiniDictionary.ExpandPrime(this._count)); }
 
       private void Resize(int newSize)
       {

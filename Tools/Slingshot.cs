@@ -66,9 +66,9 @@ namespace StardewValley.Tools
       return LocalizedContentManager.CurrentLanguageCode != LocalizedContentManager.LanguageCode.en ? strArray[strArray.Length - 1] : this.Name;
     }
 
-    protected override string loadDescription() => Game1.content.Load<Dictionary<int, string>>("Data\\weapons")[(int) (NetFieldBase<int, NetInt>) this.initialParentTileIndex].Split('/')[1];
+    protected override string loadDescription() { return Game1.content.Load<Dictionary<int, string>>("Data\\weapons")[(int) (NetFieldBase<int, NetInt>) this.initialParentTileIndex].Split('/')[1]; }
 
-    public override bool doesShowTileLocationMarker() => false;
+    public override bool doesShowTileLocationMarker() { return false; }
 
     public Slingshot(int which = 32)
     {
@@ -180,11 +180,11 @@ namespace StardewValley.Tools
       this.canPlaySound = true;
     }
 
-    public Vector2 GetShootOrigin(Farmer who) => this.AdjustForHeight(new Vector2((float) who.getStandingX(), (float) who.getStandingY()), false);
+    public Vector2 GetShootOrigin(Farmer who) { return this.AdjustForHeight(new Vector2((float) who.getStandingX(), (float) who.getStandingY()), false); }
 
-    public Vector2 AdjustForHeight(Vector2 position, bool for_cursor = true) => !Game1.options.useLegacySlingshotFiring & for_cursor ? new Vector2(position.X, position.Y) : new Vector2(position.X, (float) ((double) position.Y - 32.0 - 8.0));
+    public Vector2 AdjustForHeight(Vector2 position, bool for_cursor = true) { return !Game1.options.useLegacySlingshotFiring & for_cursor ? new Vector2(position.X, position.Y) : new Vector2(position.X, (float) ((double) position.Y - 32.0 - 8.0)); }
 
-    public void finish() => this.finishEvent.Fire();
+    public void finish() { return this.finishEvent.Fire(); }
 
     private void doFinish()
     {
@@ -200,7 +200,7 @@ namespace StardewValley.Tools
       Game1.game1.controllerSlingshotSafeTime = 0.2f;
     }
 
-    public override bool canThisBeAttached(StardewValley.Object o) => o == null || !(bool) (NetFieldBase<bool, NetBool>) o.bigCraftable && ((int) (NetFieldBase<int, NetInt>) o.parentSheetIndex >= 378 && (int) (NetFieldBase<int, NetInt>) o.parentSheetIndex <= 390 || o.Category == -5 || o.Category == -79 || o.Category == -75 || (int) (NetFieldBase<int, NetInt>) o.parentSheetIndex == 441);
+    public override bool canThisBeAttached(StardewValley.Object o) { return o == null || !(bool) (NetFieldBase<bool, NetBool>) o.bigCraftable && ((int) (NetFieldBase<int, NetInt>) o.parentSheetIndex >= 378 && (int) (NetFieldBase<int, NetInt>) o.parentSheetIndex <= 390 || o.Category == -5 || o.Category == -79 || o.Category == -75 || (int) (NetFieldBase<int, NetInt>) o.parentSheetIndex == 441); }
 
     public override StardewValley.Object attach(StardewValley.Object o)
     {
@@ -243,9 +243,9 @@ namespace StardewValley.Tools
       return true;
     }
 
-    public virtual float GetAutoFireRate() => 0.3f;
+    public virtual float GetAutoFireRate() { return 0.3f; }
 
-    public virtual bool CanAutoFire() => false;
+    public virtual bool CanAutoFire() { return false; }
 
     private void updateAimPos()
     {
@@ -395,9 +395,9 @@ namespace StardewValley.Tools
       }
     }
 
-    public float GetSlingshotChargeTime() => this.pullStartTime < 0.0 ? 0.0f : Utility.Clamp((float) (Game1.currentGameTime.TotalGameTime.TotalSeconds - this.pullStartTime) / this.GetRequiredChargeTime(), 0.0f, 1f);
+    public float GetSlingshotChargeTime() { return this.pullStartTime < 0.0 ? 0.0f : Utility.Clamp((float) (Game1.currentGameTime.TotalGameTime.TotalSeconds - this.pullStartTime) / this.GetRequiredChargeTime(), 0.0f, 1f); }
 
-    public float GetRequiredChargeTime() => 0.3f;
+    public float GetRequiredChargeTime() { return 0.3f; }
 
     public override void draw(SpriteBatch b)
     {

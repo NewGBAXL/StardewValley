@@ -91,9 +91,9 @@ namespace StardewValley.Objects
       return true;
     }
 
-    public static bool CanHearCall(int which_phone_call) => (which_phone_call != 4 || Game1.player.eventsSeen.Contains(2120303)) && (which_phone_call != 6 || Game1.player.mailReceived.Contains("cursed_doll"));
+    public static bool CanHearCall(int which_phone_call) { return (which_phone_call != 4 || Game1.player.eventsSeen.Contains(2120303)) && (which_phone_call != 6 || Game1.player.mailReceived.Contains("cursed_doll")); }
 
-    public override void performRemoveAction(Vector2 tileLocation, GameLocation environment) => base.performRemoveAction(tileLocation, environment);
+    public override void performRemoveAction(Vector2 tileLocation, GameLocation environment) { return base.performRemoveAction(tileLocation, environment); }
 
     public override void updateWhenCurrentLocation(GameTime time, GameLocation environment)
     {

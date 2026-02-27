@@ -68,7 +68,7 @@ namespace StardewValley.Locations
     {
     }
 
-    public void onActivationChanged(NetBool field, bool old_value, bool new_value) => this.updateActivationVisuals();
+    public void onActivationChanged(NetBool field, bool old_value, bool new_value) { return this.updateActivationVisuals(); }
 
     protected override void resetSharedState()
     {

@@ -84,11 +84,11 @@ namespace StardewValley.Menus
         Game1.directionKeyPolling[index] = 250;
     }
 
-    public virtual bool HasFocus() => Game1.activeClickableMenu == this;
+    public virtual bool HasFocus() { return Game1.activeClickableMenu == this; }
 
-    public IClickableMenu GetChildMenu() => this._childMenu;
+    public IClickableMenu GetChildMenu() { return this._childMenu; }
 
-    public IClickableMenu GetParentMenu() => this._parentMenu;
+    public IClickableMenu GetParentMenu() { return this._parentMenu; }
 
     public void SetChildMenu(IClickableMenu menu)
     {
@@ -98,7 +98,7 @@ namespace StardewValley.Menus
       this._childMenu._parentMenu = this;
     }
 
-    public void AddDependency() => ++this._dependencies;
+    public void AddDependency() { return ++this._dependencies; }
 
     public void RemoveDependency()
     {
@@ -108,9 +108,9 @@ namespace StardewValley.Menus
       (this as IDisposable).Dispose();
     }
 
-    public bool HasDependencies() => this._dependencies > 0;
+    public bool HasDependencies() { return this._dependencies > 0; }
 
-    public virtual bool areGamePadControlsImplemented() => false;
+    public virtual bool areGamePadControlsImplemented() { return false; }
 
     public ClickableComponent getLastClickableComponentInThisListThatContainsThisXCoord(
       List<ClickableComponent> ccList,
@@ -299,7 +299,7 @@ namespace StardewValley.Menus
 
     /// <summary>Only use this if the child class overrides</summary>
     /// <param name="id"></param>
-    public virtual void setCurrentlySnappedComponentTo(int id) => this.currentlySnappedComponent = this.getComponentWithID(id);
+    public virtual void setCurrentlySnappedComponentTo(int id) { return this.currentlySnappedComponent = this.getComponentWithID(id); }
 
     public void moveCursorInDirection(int direction)
     {
@@ -506,7 +506,7 @@ namespace StardewValley.Menus
       }
     }
 
-    protected virtual bool _ShouldAutoSnapPrioritizeAlignedElements() => true;
+    protected virtual bool _ShouldAutoSnapPrioritizeAlignedElements() { return true; }
 
     public virtual bool IsAutomaticSnapValid(
       int direction,
@@ -541,7 +541,7 @@ namespace StardewValley.Menus
       return (ClickableComponent) null;
     }
 
-    public void initializeUpperRightCloseButton() => this.upperRightCloseButton = new ClickableTextureComponent(new Rectangle(this.xPositionOnScreen + this.width - 36, this.yPositionOnScreen - 8, 48, 48), Game1.mouseCursors, new Rectangle(337, 494, 12, 12), 4f);
+    public void initializeUpperRightCloseButton() { return this.upperRightCloseButton = new ClickableTextureComponent(new Rectangle(this.xPositionOnScreen + this.width - 36, this.yPositionOnScreen - 8, 48, 48), Game1.mouseCursors, new Rectangle(337, 494, 12, 12), 4f); }
 
     public virtual void drawBackground(SpriteBatch b)
     {
@@ -597,7 +597,7 @@ namespace StardewValley.Menus
     {
     }
 
-    public virtual bool shouldClampGamePadCursor() => false;
+    public virtual bool shouldClampGamePadCursor() { return false; }
 
     public virtual void releaseLeftClick(int x, int y)
     {
@@ -616,7 +616,7 @@ namespace StardewValley.Menus
       this.exitThisMenu();
     }
 
-    public virtual bool overrideSnappyMenuCursorMovementBan() => false;
+    public virtual bool overrideSnappyMenuCursorMovementBan() { return false; }
 
     public virtual void receiveRightClick(int x, int y, bool playSound = true)
     {
@@ -642,7 +642,7 @@ namespace StardewValley.Menus
     {
     }
 
-    public virtual ClickableComponent getCurrentlySnappedComponent() => this.currentlySnappedComponent;
+    public virtual ClickableComponent getCurrentlySnappedComponent() { return this.currentlySnappedComponent; }
 
     public virtual void receiveScrollWheelAction(int direction)
     {
@@ -669,7 +669,7 @@ namespace StardewValley.Menus
       this.upperRightCloseButton.draw(b);
     }
 
-    public virtual bool isWithinBounds(int x, int y) => x - this.xPositionOnScreen < this.width && x - this.xPositionOnScreen >= 0 && y - this.yPositionOnScreen < this.height && y - this.yPositionOnScreen >= 0;
+    public virtual bool isWithinBounds(int x, int y) { return x - this.xPositionOnScreen < this.width && x - this.xPositionOnScreen >= 0 && y - this.yPositionOnScreen < this.height && y - this.yPositionOnScreen >= 0; }
 
     public virtual void update(GameTime time)
     {
@@ -679,9 +679,9 @@ namespace StardewValley.Menus
     {
     }
 
-    public virtual bool shouldDrawCloseButton() => true;
+    public virtual bool shouldDrawCloseButton() { return true; }
 
-    public void exitThisMenuNoSound() => this.exitThisMenu(false);
+    public void exitThisMenuNoSound() { return this.exitThisMenu(false); }
 
     public void exitThisMenu(bool playSound = true)
     {
@@ -707,13 +707,13 @@ namespace StardewValley.Menus
       exitFunction();
     }
 
-    public virtual bool autoCenterMouseCursorForGamepad() => true;
+    public virtual bool autoCenterMouseCursorForGamepad() { return true; }
 
     public virtual void emergencyShutDown()
     {
     }
 
-    public virtual bool readyToClose() => true;
+    public virtual bool readyToClose() { return true; }
 
     protected void drawHorizontalPartition(
       SpriteBatch b,

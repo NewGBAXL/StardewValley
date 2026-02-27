@@ -42,7 +42,7 @@ namespace StardewValley.Objects
     [XmlIgnore]
     public bool zeroStack;
 
-    public Ring() => this.NetFields.AddFields((INetSerializable) this.price, (INetSerializable) this.indexInTileSheet, (INetSerializable) this.uniqueID);
+    public Ring() { return this.NetFields.AddFields((INetSerializable) this.price, (INetSerializable) this.indexInTileSheet, (INetSerializable) this.uniqueID); }
 
     public Ring(int which)
       : this()
@@ -199,7 +199,7 @@ namespace StardewValley.Objects
       }
     }
 
-    public override string getCategoryName() => Game1.content.LoadString("Strings\\StringsFromCSFiles:Ring.cs.1");
+    public override string getCategoryName() { return Game1.content.LoadString("Strings\\StringsFromCSFiles:Ring.cs.1"); }
 
     public virtual void onNewLocation(Farmer who, GameLocation environment)
     {
@@ -240,7 +240,7 @@ namespace StardewValley.Objects
       }
     }
 
-    public override int salePrice() => (int) (NetFieldBase<int, NetInt>) this.price;
+    public override int salePrice() { return (int) (NetFieldBase<int, NetInt>) this.price; }
 
     public virtual void onMonsterSlay(Monster m, GameLocation location, Farmer who)
     {
@@ -319,9 +319,9 @@ namespace StardewValley.Objects
       int indexInTileSheet = (int) (NetFieldBase<int, NetInt>) this.indexInTileSheet;
     }
 
-    public override int maximumStackSize() => 1;
+    public override int maximumStackSize() { return 1; }
 
-    public override int addToStack(Item stack) => 1;
+    public override int addToStack(Item stack) { return 1; }
 
     public override Point getExtraSpaceNeededForTooltipSpecialIcons(
       SpriteFont font,
@@ -345,9 +345,9 @@ namespace StardewValley.Objects
       return tooltipSpecialIcons;
     }
 
-    public virtual bool GetsEffectOfRing(int ring_index) => (int) (NetFieldBase<int, NetInt>) this.indexInTileSheet == ring_index;
+    public virtual bool GetsEffectOfRing(int ring_index) { return (int) (NetFieldBase<int, NetInt>) this.indexInTileSheet == ring_index; }
 
-    public virtual int GetEffectsOfRingMultiplier(int ring_index) => this.GetsEffectOfRing(ring_index) ? 1 : 0;
+    public virtual int GetEffectsOfRingMultiplier(int ring_index) { return this.GetsEffectOfRing(ring_index) ? 1 : 0; }
 
     public override void drawTooltip(
       SpriteBatch spriteBatch,
@@ -385,7 +385,7 @@ namespace StardewValley.Objects
       return Game1.parseText(this.description, Game1.smallFont, this.getDescriptionWidth());
     }
 
-    public override bool isPlaceable() => false;
+    public override bool isPlaceable() { return false; }
 
     [XmlIgnore]
     public override string DisplayName
@@ -396,13 +396,13 @@ namespace StardewValley.Objects
           this.loadDisplayFields();
         return this.displayName;
       }
-      set => this.displayName = value;
+      delegate(set) { return this.displayName = value; };
     }
 
     [XmlIgnore]
     public override int Stack
     {
-      get => this.zeroStack ? 0 : 1;
+      delegate(get) { return this.zeroStack ? 0 : 1; };
       set
       {
         if (value == 0)
@@ -429,7 +429,7 @@ namespace StardewValley.Objects
       return true;
     }
 
-    public virtual bool CanCombine(Ring ring) => !(ring is CombinedRing) && !(this is CombinedRing) && this.ParentSheetIndex != ring.ParentSheetIndex;
+    public virtual bool CanCombine(Ring ring) { return !(ring is CombinedRing) && !(this is CombinedRing) && this.ParentSheetIndex != ring.ParentSheetIndex; }
 
     public Ring Combine(Ring ring)
     {

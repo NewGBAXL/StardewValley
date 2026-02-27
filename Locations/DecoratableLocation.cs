@@ -446,7 +446,7 @@ namespace StardewValley.Locations
       this.objects.Add(new Vector2((float) newX, (float) newY), @object);
     }
 
-    public override bool CanFreePlaceFurniture() => true;
+    public override bool CanFreePlaceFurniture() { return true; }
 
     public virtual bool isTileOnWall(int x, int y)
     {
@@ -566,7 +566,7 @@ namespace StardewValley.Locations
       return this.IsFloorableOrWallpaperableTile(x, y, layer_name);
     }
 
-    public bool IsWallAndFloorTilesheet(string tilesheet_id) => tilesheet_id.StartsWith("x_WallsAndFloors_") || tilesheet_id == "walls_and_floors";
+    public bool IsWallAndFloorTilesheet(string tilesheet_id) { return tilesheet_id.StartsWith("x_WallsAndFloors_") || tilesheet_id == "walls_and_floors"; }
 
     protected bool IsFloorableOrWallpaperableTile(int x, int y, string layer_name)
     {
@@ -574,7 +574,7 @@ namespace StardewValley.Locations
       return layer != null && x < layer.LayerWidth && y < layer.LayerHeight && layer.Tiles[x, y] != null && layer.Tiles[x, y].TileSheet != null && this.IsWallAndFloorTilesheet(layer.Tiles[x, y].TileSheet.Id);
     }
 
-    public override void drawFloorDecorations(SpriteBatch b) => base.drawFloorDecorations(b);
+    public override void drawFloorDecorations(SpriteBatch b) { return base.drawFloorDecorations(b); }
 
     public override void TransferDataFromSavedLocation(GameLocation l)
     {
@@ -619,7 +619,7 @@ namespace StardewValley.Locations
       base.TransferDataFromSavedLocation(l);
     }
 
-    public Furniture getRandomFurniture(Random r) => this.furniture.Count > 0 ? this.furniture.ElementAt<Furniture>(r.Next(this.furniture.Count)) : (Furniture) null;
+    public Furniture getRandomFurniture(Random r) { return this.furniture.Count > 0 ? this.furniture.ElementAt<Furniture>(r.Next(this.furniture.Count)) : (Furniture) null; }
 
     public virtual int getFloorAt(Point p)
     {
@@ -647,7 +647,7 @@ namespace StardewValley.Locations
       return -1;
     }
 
-    public virtual int GetFirstFlooringTile() => 336;
+    public virtual int GetFirstFlooringTile() { return 336; }
 
     public virtual int GetFlooringIndex(int base_tile_sheet, int tile_x, int tile_y)
     {
@@ -667,11 +667,11 @@ namespace StardewValley.Locations
     }
 
     [Obsolete("Replaced by SetFloor.")]
-    protected virtual void doSetVisibleFloor(int whichRoom, int which) => this.SetFloor(which.ToString(), whichRoom.ToString());
+    protected virtual void doSetVisibleFloor(int whichRoom, int which) { return this.SetFloor(which.ToString(), whichRoom.ToString()); }
 
     [Obsolete("Replaced by SetWallpaper.")]
-    protected virtual void doSetVisibleWallpaper(int whichRoom, int which) => this.SetWallpaper(which.ToString(), whichRoom.ToString());
+    protected virtual void doSetVisibleWallpaper(int whichRoom, int which) { return this.SetWallpaper(which.ToString(), whichRoom.ToString()); }
 
-    public virtual List<Microsoft.Xna.Framework.Rectangle> getFloors() => new List<Microsoft.Xna.Framework.Rectangle>();
+    public virtual List<Microsoft.Xna.Framework.Rectangle> getFloors() { return new List<Microsoft.Xna.Framework.Rectangle>(); }
   }
 }

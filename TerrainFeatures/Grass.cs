@@ -60,9 +60,9 @@ namespace StardewValley.TerrainFeatures
       this.numberOfWeeds.Value = numberOfWeeds;
     }
 
-    public virtual string textureName() => "TerrainFeatures\\grass";
+    public virtual string textureName() { return "TerrainFeatures\\grass"; }
 
-    public override bool isPassable(Character c = null) => true;
+    public override bool isPassable(Character c = null) { return true; }
 
     public override void loadSprite()
     {
@@ -109,11 +109,11 @@ namespace StardewValley.TerrainFeatures
       }
     }
 
-    public override void OnAddedToLocation(GameLocation location, Vector2 tile) => this.loadSprite();
+    public override void OnAddedToLocation(GameLocation location, Vector2 tile) { return this.loadSprite(); }
 
-    public override Rectangle getBoundingBox(Vector2 tileLocation) => new Rectangle((int) ((double) tileLocation.X * 64.0), (int) ((double) tileLocation.Y * 64.0), 64, 64);
+    public override Rectangle getBoundingBox(Vector2 tileLocation) { return new Rectangle((int) ((double) tileLocation.X * 64.0), (int) ((double) tileLocation.Y * 64.0), 64, 64); }
 
-    public override Rectangle getRenderBounds(Vector2 tileLocation) => new Rectangle((int) ((double) tileLocation.X * 64.0) - 32, (int) ((double) tileLocation.Y * 64.0) - 32, 128, 112);
+    public override Rectangle getRenderBounds(Vector2 tileLocation) { return new Rectangle((int) ((double) tileLocation.X * 64.0) - 32, (int) ((double) tileLocation.Y * 64.0) - 32, 128, 112); }
 
     public override void doCollisionAction(
       Rectangle positionOfCollider,

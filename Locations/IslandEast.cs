@@ -270,7 +270,7 @@ namespace StardewValley.Locations
       DelayedAction.playSoundAfterDelay("gorilla_intro", 2000);
     }
 
-    public override bool isActionableTile(int xTile, int yTile, Farmer who) => base.isActionableTile(xTile, yTile, who);
+    public override bool isActionableTile(int xTile, int yTile, Farmer who) { return base.isActionableTile(xTile, yTile, who); }
 
     public override bool performAction(string action, Farmer who, Location tileLocation)
     {
@@ -410,7 +410,7 @@ namespace StardewValley.Locations
       temporarySpriteById.motion = new Vector2(0.0f, -3f);
       temporarySpriteById.animationLength = 2;
       temporarySpriteById.yStopCoordinate = 1280;
-      temporarySpriteById.reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (x => this.removeTemporarySpritesWithID(777));
+      temporarySpriteById.reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (delegate(x) { return this.removeTemporarySpritesWithID(777)); };
       this.temporarySprites.Add(temporarySpriteById);
       if (Game1.currentLocation != this)
         return;

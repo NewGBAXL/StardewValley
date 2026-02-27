@@ -60,7 +60,7 @@ namespace StardewValley.Monsters
       this.HideShadow = true;
     }
 
-    public bool IsRoyalSerpent() => this.segmentCount.Value > 1;
+    public bool IsRoyalSerpent() { return this.segmentCount.Value > 1; }
 
     public override bool TakesDamageFromHitbox(Rectangle area_of_effect)
     {

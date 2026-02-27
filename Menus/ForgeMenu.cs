@@ -146,9 +146,9 @@ namespace StardewValley.Menus
       this.snapCursorToCurrentSnappedComponent();
     }
 
-    public bool IsBusy() => this._timeUntilCraft > 0 || this._sparklingTimer > 0;
+    public bool IsBusy() { return this._timeUntilCraft > 0 || this._sparklingTimer > 0; }
 
-    public override bool readyToClose() => base.readyToClose() && this.heldItem == null && !this.IsBusy();
+    public override bool readyToClose() { return base.readyToClose() && this.heldItem == null && !this.IsBusy(); }
 
     public bool HighlightItems(Item i)
     {
@@ -207,7 +207,7 @@ namespace StardewValley.Menus
       this._ValidateCraft();
     }
 
-    public bool IsValidCraftIngredient(Item item) => item.canBeTrashed() || item is Tool && BaseEnchantment.GetAvailableEnchantmentsForItem(item as Tool).Count > 0;
+    public bool IsValidCraftIngredient(Item item) { return item.canBeTrashed() || item is Tool && BaseEnchantment.GetAvailableEnchantmentsForItem(item as Tool).Count > 0; }
 
     private void _rightIngredientSpotClicked()
     {
@@ -481,9 +481,9 @@ namespace StardewValley.Menus
       this.heldItem = (Item) null;
     }
 
-    protected virtual bool CheckHeldItem(Func<Item, bool> f = null) => f == null ? this.heldItem != null : f(this.heldItem);
+    protected virtual bool CheckHeldItem(Func<Item, bool> f = null) { return f == null ? this.heldItem != null : f(this.heldItem); }
 
-    public virtual int GetForgeCostAtLevel(int level) => 10 + level * 5;
+    public virtual int GetForgeCostAtLevel(int level) { return 10 + level * 5; }
 
     public virtual int GetForgeCost(Item left_item, Item right_item)
     {
@@ -550,7 +550,7 @@ namespace StardewValley.Menus
         this.displayedDescription = "";
     }
 
-    public bool IsValidCraft(Item left_item, Item right_item) => left_item != null && right_item != null && (left_item is Tool && (left_item as Tool).CanForge(right_item) || left_item is Ring && right_item is Ring && (left_item as Ring).CanCombine(right_item as Ring));
+    public bool IsValidCraft(Item left_item, Item right_item) { return left_item != null && right_item != null && (left_item is Tool && (left_item as Tool).CanForge(right_item) || left_item is Ring && right_item is Ring && (left_item as Ring).CanCombine(right_item as Ring)); }
 
     public Item CraftItem(Item left_item, Item right_item, bool forReal = false)
     {
@@ -625,7 +625,7 @@ namespace StardewValley.Menus
         this.startTailoringButton.tryHover(-999, -999);
     }
 
-    public bool CanFitCraftedItem() => this.craftResultDisplay.item == null || Utility.canItemBeAddedToThisInventoryList(this.craftResultDisplay.item, this.inventory.actualInventory);
+    public bool CanFitCraftedItem() { return this.craftResultDisplay.item == null || Utility.canItemBeAddedToThisInventoryList(this.craftResultDisplay.item, this.inventory.actualInventory); }
 
     public override void gameWindowSizeChanged(Rectangle oldBounds, Rectangle newBounds)
     {
@@ -849,7 +849,7 @@ namespace StardewValley.Menus
       }
     }
 
-    public virtual bool IsValidUnforge(bool ignore_right_slot_occupancy = false) => (ignore_right_slot_occupancy || this.rightIngredientSpot.item == null) && (this.leftIngredientSpot.item != null && this.leftIngredientSpot.item is MeleeWeapon && ((this.leftIngredientSpot.item as MeleeWeapon).GetTotalForgeLevels() > 0 || (this.leftIngredientSpot.item as MeleeWeapon).appearance.Value >= 0) || this.leftIngredientSpot.item != null && this.leftIngredientSpot.item is CombinedRing);
+    public virtual bool IsValidUnforge(bool ignore_right_slot_occupancy = false) { return (ignore_right_slot_occupancy || this.rightIngredientSpot.item == null) && (this.leftIngredientSpot.item != null && this.leftIngredientSpot.item is MeleeWeapon && ((this.leftIngredientSpot.item as MeleeWeapon).GetTotalForgeLevels() > 0 || (this.leftIngredientSpot.item as MeleeWeapon).appearance.Value >= 0) || this.leftIngredientSpot.item != null && this.leftIngredientSpot.item is CombinedRing); }
 
     public override void draw(SpriteBatch b)
     {
@@ -978,7 +978,7 @@ namespace StardewValley.Menus
       this.drawMouse(b);
     }
 
-    protected override void cleanupBeforeExit() => this._OnCloseMenu();
+    protected override void cleanupBeforeExit() { return this._OnCloseMenu(); }
 
     protected void _OnCloseMenu()
     {

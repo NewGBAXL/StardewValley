@@ -27,9 +27,9 @@ namespace StardewValley
       return this;
     }
 
-    public virtual bool AttemptActivity(Farm farm) => this._AttemptActivity(farm);
+    public virtual bool AttemptActivity(Farm farm) { return this._AttemptActivity(farm); }
 
-    protected virtual bool _AttemptActivity(Farm farm) => false;
+    protected virtual bool _AttemptActivity(Farm farm) { return false; }
 
     public bool Update(GameTime time)
     {
@@ -37,9 +37,9 @@ namespace StardewValley
       return this._Update(time);
     }
 
-    protected virtual bool _Update(GameTime time) => (double) this._age >= 10.0;
+    protected virtual bool _Update(GameTime time) { return (double) this._age >= 10.0; }
 
-    public bool IsPerformingActivity() => this._performingActivity;
+    public bool IsPerformingActivity() { return this._performingActivity; }
 
     public void BeginActivity()
     {
@@ -63,9 +63,9 @@ namespace StardewValley
     {
     }
 
-    public virtual bool IsTileBlockedFromSight(Vector2 tile) => false;
+    public virtual bool IsTileBlockedFromSight(Vector2 tile) { return false; }
 
-    public Rectangle GetFarmBounds(Farm farm) => new Rectangle(0, 0, farm.map.Layers[0].LayerWidth, farm.map.Layers[0].LayerHeight);
+    public Rectangle GetFarmBounds(Farm farm) { return new Rectangle(0, 0, farm.map.Layers[0].LayerWidth, farm.map.Layers[0].LayerHeight); }
 
     public Object GetRandomObject(Farm farm, Func<Object, bool> validator = null)
     {
@@ -104,6 +104,6 @@ namespace StardewValley
       return Utility.GetRandom<HoeDirt>(list);
     }
 
-    public Vector2 GetNearbyTile(Farm farm, Vector2 tile) => Utility.getRandomAdjacentOpenTile(tile, (GameLocation) farm);
+    public Vector2 GetNearbyTile(Farm farm, Vector2 tile) { return Utility.getRandomAdjacentOpenTile(tile, (GameLocation) farm); }
   }
 }

@@ -190,8 +190,8 @@ namespace StardewValley.Menus
       this.drawMouse(b);
     }
 
-    public bool showBackButton() => this.currentTab > 0;
+    public bool showBackButton() { return this.currentTab > 0; }
 
-    public bool showForwardButton() => this.itemsToList.Count > this.itemsPerCategoryPage * (this.currentTab + 1);
+    public bool showForwardButton() { return this.itemsToList.Count > this.itemsPerCategoryPage * (this.currentTab + 1); }
   }
 }

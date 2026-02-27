@@ -10,7 +10,7 @@ namespace StardewValley
 {
   public class HaymakerEnchantment : BaseWeaponEnchantment
   {
-    public override string GetName() => "Haymaker";
+    public override string GetName() { return "Haymaker"; }
 
     protected override void _OnCutWeed(Vector2 tile_location, GameLocation location, Farmer who)
     {

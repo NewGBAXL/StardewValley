@@ -415,7 +415,7 @@ namespace StardewValley.Locations
       this.lightMerchantLamps();
     }
 
-    private bool isTravelingDeserteMerchantHere() => Game1.currentSeason != "winter" || Game1.dayOfMonth < 15 || Game1.dayOfMonth > 17;
+    private bool isTravelingDeserteMerchantHere() { return Game1.currentSeason != "winter" || Game1.dayOfMonth < 15 || Game1.dayOfMonth > 17; }
 
     public override bool isCollidingPosition(
       Microsoft.Xna.Framework.Rectangle position,
@@ -700,9 +700,9 @@ namespace StardewValley.Locations
       Desert.boughtMagicRockCandy = false;
     }
 
-    public override bool isTilePlaceable(Vector2 v, Item item = null) => ((double) v.X < 33.0 || (double) v.X >= 46.0 || (double) v.Y < 20.0 || (double) v.Y >= 25.0) && base.isTilePlaceable(v, item);
+    public override bool isTilePlaceable(Vector2 v, Item item = null) { return ((double) v.X < 33.0 || (double) v.X >= 46.0 || (double) v.Y < 20.0 || (double) v.Y >= 25.0) && base.isTilePlaceable(v, item); }
 
-    public override bool shouldHideCharacters() => this.drivingOff || this.drivingBack;
+    public override bool shouldHideCharacters() { return this.drivingOff || this.drivingBack; }
 
     public override void draw(SpriteBatch spriteBatch)
     {

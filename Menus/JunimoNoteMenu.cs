@@ -131,7 +131,7 @@ namespace StardewValley.Menus
       this.snapCursorToCurrentSnappedComponent();
     }
 
-    protected override bool _ShouldAutoSnapPrioritizeAlignedElements() => !this.specificBundlePage;
+    protected override bool _ShouldAutoSnapPrioritizeAlignedElements() { return !this.specificBundlePage; }
 
     protected override void customSnapBehavior(int direction, int oldRegion, int oldID)
     {
@@ -289,9 +289,9 @@ namespace StardewValley.Menus
       ((CommunityCenter) Game1.getLocationFromName("CommunityCenter")).areaCompleteReward(whichArea);
     }
 
-    public virtual bool HighlightObjects(Item item) => this.partialDonationItem != null && this.currentPageBundle != null && this.currentPartialIngredientDescriptionIndex >= 0 ? this.currentPageBundle.IsValidItemForThisIngredientDescription(item, this.currentPageBundle.ingredients[this.currentPartialIngredientDescriptionIndex]) : Utility.highlightSmallObjects(item);
+    public virtual bool HighlightObjects(Item item) { return this.partialDonationItem != null && this.currentPageBundle != null && this.currentPartialIngredientDescriptionIndex >= 0 ? this.currentPageBundle.IsValidItemForThisIngredientDescription(item, this.currentPageBundle.ingredients[this.currentPartialIngredientDescriptionIndex]) : Utility.highlightSmallObjects(item); }
 
-    public override bool readyToClose() => !this.specificBundlePage && this.isReadyToCloseMenuOrBundle();
+    public override bool readyToClose() { return !this.specificBundlePage && this.isReadyToCloseMenuOrBundle(); }
 
     public override void receiveLeftClick(int x, int y, bool playSound = true)
     {
@@ -575,7 +575,7 @@ namespace StardewValley.Menus
       }
     }
 
-    public bool isReadyToCloseMenuOrBundle() => (!this.specificBundlePage || this.currentPageBundle == null || this.currentPageBundle.completionTimer <= 0) && this.heldItem == null;
+    public bool isReadyToCloseMenuOrBundle() { return (!this.specificBundlePage || this.currentPageBundle == null || this.currentPageBundle.completionTimer <= 0) && this.heldItem == null; }
 
     public override void receiveGamePadButton(Buttons b)
     {
@@ -756,7 +756,7 @@ namespace StardewValley.Menus
       Game1.activeClickableMenu.exitFunction = this.exitFunction != null ? this.exitFunction : new IClickableMenu.onExit(this.reOpenThisMenu);
     }
 
-    private void rewardGrabbed(Item item, Farmer who) => ((CommunityCenter) Game1.getLocationFromName("CommunityCenter")).bundleRewards[item.SpecialVariable] = false;
+    private void rewardGrabbed(Item item, Farmer who) { return ((CommunityCenter) Game1.getLocationFromName("CommunityCenter")).bundleRewards[item.SpecialVariable] = false; }
 
     private void checkIfBundleIsComplete()
     {
@@ -811,7 +811,7 @@ namespace StardewValley.Menus
       this.checkForRewards();
     }
 
-    private void restoreaAreaOnExit_AbandonedJojaMart() => ((AbandonedJojaMart) Game1.getLocationFromName("AbandonedJojaMart")).restoreAreaCutscene();
+    private void restoreaAreaOnExit_AbandonedJojaMart() { return ((AbandonedJojaMart) Game1.getLocationFromName("AbandonedJojaMart")).restoreAreaCutscene(); }
 
     private void restoreAreaOnExit()
     {

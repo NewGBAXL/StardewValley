@@ -94,13 +94,13 @@ namespace StardewValley
           this._description = this.loadDescription();
         return this._description;
       }
-      set => this._description = value;
+      delegate(set) { return this._description = value; };
     }
 
     public string BaseName
     {
-      get => (string) (NetFieldBase<string, NetString>) this.netName;
-      set => this.netName.Set(value);
+      delegate(get) { return (string) (NetFieldBase<string; }, NetString>) this.netName;
+      delegate(set) { return this.netName.Set(value); };
     }
 
     [XmlIgnore]
@@ -123,7 +123,7 @@ namespace StardewValley
             return this.displayName;
         }
       }
-      set => this.displayName = value;
+      delegate(set) { return this.displayName = value; };
     }
 
     public override string Name
@@ -144,12 +144,12 @@ namespace StardewValley
             return this.BaseName;
         }
       }
-      set => this.BaseName = value;
+      delegate(set) { return this.BaseName = value; };
     }
 
     public override int Stack
     {
-      get => (bool) (NetFieldBase<bool, NetBool>) this.stackable ? ((StardewValley.Tools.Stackable) this).NumberInStack : 1;
+      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.stackable ? ((StardewValley.Tools.Stackable) this).NumberInStack : 1;
       set
       {
         if (!(bool) (NetFieldBase<bool, NetBool>) this.stackable)
@@ -158,31 +158,31 @@ namespace StardewValley
       }
     }
 
-    public string Description => this.description;
+    public string delegate(Description) { return this.description; };
 
     [XmlIgnore]
     public int CurrentParentTileIndex
     {
-      get => (int) (NetFieldBase<int, NetInt>) this.currentParentTileIndex;
-      set => this.currentParentTileIndex.Set(value);
+      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.currentParentTileIndex;
+      delegate(set) { return this.currentParentTileIndex.Set(value); };
     }
 
     public int InitialParentTileIndex
     {
-      get => (int) (NetFieldBase<int, NetInt>) this.initialParentTileIndex;
-      set => this.initialParentTileIndex.Set(value);
+      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.initialParentTileIndex;
+      delegate(set) { return this.initialParentTileIndex.Set(value); };
     }
 
     public int IndexOfMenuItemView
     {
-      get => (int) (NetFieldBase<int, NetInt>) this.indexOfMenuItemView;
-      set => this.indexOfMenuItemView.Set(value);
+      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.indexOfMenuItemView;
+      delegate(set) { return this.indexOfMenuItemView.Set(value); };
     }
 
     [XmlIgnore]
     public int UpgradeLevel
     {
-      get => (int) (NetFieldBase<int, NetInt>) this.upgradeLevel;
+      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.upgradeLevel;
       set
       {
         this.upgradeLevel.Value = value;
@@ -192,26 +192,26 @@ namespace StardewValley
 
     public bool InstantUse
     {
-      get => (bool) (NetFieldBase<bool, NetBool>) this.instantUse;
-      set => this.instantUse.Value = value;
+      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.instantUse;
+      delegate(set) { return this.instantUse.Value = value; };
     }
 
     public bool IsEfficient
     {
-      get => (bool) (NetFieldBase<bool, NetBool>) this.isEfficient;
-      set => this.isEfficient.Value = value;
+      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.isEfficient;
+      delegate(set) { return this.isEfficient.Value = value; };
     }
 
     public float AnimationSpeedModifier
     {
-      get => (float) (NetFieldBase<float, NetFloat>) this.animationSpeedModifier;
-      set => this.animationSpeedModifier.Value = value;
+      delegate(get) { return (float) (NetFieldBase<float; }, NetFloat>) this.animationSpeedModifier;
+      delegate(set) { return this.animationSpeedModifier.Value = value; };
     }
 
     public bool Stackable
     {
-      get => (bool) (NetFieldBase<bool, NetBool>) this.stackable;
-      set => this.stackable.Value = value;
+      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.stackable;
+      delegate(set) { return this.stackable.Value = value; };
     }
 
     public Tool()
@@ -240,15 +240,15 @@ namespace StardewValley
       this.Category = -99;
     }
 
-    protected virtual void initNetFields() => this.NetFields.AddFields((INetSerializable) this.initialParentTileIndex, (INetSerializable) this.currentParentTileIndex, (INetSerializable) this.indexOfMenuItemView, (INetSerializable) this.stackable, (INetSerializable) this.instantUse, (INetSerializable) this.upgradeLevel, (INetSerializable) this.numAttachmentSlots, (INetSerializable) this.attachments, (INetSerializable) this.enchantments, (INetSerializable) this.isEfficient, (INetSerializable) this.animationSpeedModifier, (INetSerializable) this.previousEnchantments);
+    protected virtual void initNetFields() { return this.NetFields.AddFields((INetSerializable) this.initialParentTileIndex, (INetSerializable) this.currentParentTileIndex, (INetSerializable) this.indexOfMenuItemView, (INetSerializable) this.stackable, (INetSerializable) this.instantUse, (INetSerializable) this.upgradeLevel, (INetSerializable) this.numAttachmentSlots, (INetSerializable) this.attachments, (INetSerializable) this.enchantments, (INetSerializable) this.isEfficient, (INetSerializable) this.animationSpeedModifier, (INetSerializable) this.previousEnchantments); }
 
     protected abstract string loadDisplayName();
 
     protected abstract string loadDescription();
 
-    public override string getCategoryName() => this is MeleeWeapon && !(this as MeleeWeapon).isScythe(this.IndexOfMenuItemView) ? Game1.content.LoadString("Strings\\StringsFromCSFiles:Tool.cs.14303", (object) (this as MeleeWeapon).getItemLevel(), (int) (NetFieldBase<int, NetInt>) (this as MeleeWeapon).type == 1 ? (object) Game1.content.LoadString("Strings\\StringsFromCSFiles:Tool.cs.14304") : ((int) (NetFieldBase<int, NetInt>) (this as MeleeWeapon).type == 2 ? (object) Game1.content.LoadString("Strings\\StringsFromCSFiles:Tool.cs.14305") : (object) Game1.content.LoadString("Strings\\StringsFromCSFiles:Tool.cs.14306"))) : Game1.content.LoadString("Strings\\StringsFromCSFiles:Tool.cs.14307");
+    public override string getCategoryName() { return this is MeleeWeapon && !(this as MeleeWeapon).isScythe(this.IndexOfMenuItemView) ? Game1.content.LoadString("Strings\\StringsFromCSFiles:Tool.cs.14303", (object) (this as MeleeWeapon).getItemLevel(), (int) (NetFieldBase<int, NetInt>) (this as MeleeWeapon).type == 1 ? (object) Game1.content.LoadString("Strings\\StringsFromCSFiles:Tool.cs.14304") : ((int) (NetFieldBase<int, NetInt>) (this as MeleeWeapon).type == 2 ? (object) Game1.content.LoadString("Strings\\StringsFromCSFiles:Tool.cs.14305") : (object) Game1.content.LoadString("Strings\\StringsFromCSFiles:Tool.cs.14306"))) : Game1.content.LoadString("Strings\\StringsFromCSFiles:Tool.cs.14307"); }
 
-    public override Color getCategoryColor() => Color.DarkSlateGray;
+    public override Color getCategoryColor() { return Color.DarkSlateGray; }
 
     public virtual void draw(SpriteBatch b)
     {
@@ -379,9 +379,9 @@ namespace StardewValley
       this.CurrentParentTileIndex += num;
     }
 
-    public override int attachmentSlots() => (int) (NetFieldBase<int, NetInt>) this.numAttachmentSlots;
+    public override int attachmentSlots() { return (int) (NetFieldBase<int, NetInt>) this.numAttachmentSlots; }
 
-    public Farmer getLastFarmerToUse() => this.lastUser;
+    public Farmer getLastFarmerToUse() { return this.lastUser; }
 
     public virtual void leftClick(Farmer who)
     {
@@ -658,9 +658,9 @@ namespace StardewValley
       return false;
     }
 
-    public virtual bool onRelease(GameLocation location, int x, int y, Farmer who) => false;
+    public virtual bool onRelease(GameLocation location, int x, int y, Farmer who) { return false; }
 
-    public override bool canBeDropped() => false;
+    public override bool canBeDropped() { return false; }
 
     public virtual bool canThisBeAttached(Object o)
     {
@@ -995,7 +995,7 @@ label_3:
       return vector2List;
     }
 
-    public virtual bool doesShowTileLocationMarker() => true;
+    public virtual bool doesShowTileLocationMarker() { return true; }
 
     public override void drawInMenu(
       SpriteBatch spriteBatch,
@@ -1013,9 +1013,9 @@ label_3:
       Game1.drawWithBorder(((StardewValley.Tools.Stackable) this).NumberInStack.ToString() ?? "", Color.Black, Color.White, location + new Vector2(64f - Game1.dialogueFont.MeasureString(((StardewValley.Tools.Stackable) this).NumberInStack.ToString() ?? "").X, (float) (64.0 - (double) Game1.dialogueFont.MeasureString(((StardewValley.Tools.Stackable) this).NumberInStack.ToString() ?? "").Y * 3.0 / 4.0)), 0.0f, 0.5f, 1f);
     }
 
-    public override bool isPlaceable() => false;
+    public override bool isPlaceable() { return false; }
 
-    public override int maximumStackSize() => (bool) (NetFieldBase<bool, NetBool>) this.stackable ? 99 : -1;
+    public override int maximumStackSize() { return (bool) (NetFieldBase<bool, NetBool>) this.stackable ? 99 : -1; }
 
     public virtual void setNewTileIndexForUpgradeLevel()
     {
@@ -1079,7 +1079,7 @@ label_3:
       return stack1;
     }
 
-    public override string getDescription() => Game1.parseText(this.description, Game1.smallFont, this.getDescriptionWidth());
+    public override string getDescription() { return Game1.parseText(this.description, Game1.smallFont, this.getDescriptionWidth()); }
 
     public virtual void ClearEnchantments()
     {
@@ -1088,7 +1088,7 @@ label_3:
       this.enchantments.Clear();
     }
 
-    public virtual int GetMaxForges() => 0;
+    public virtual int GetMaxForges() { return 0; }
 
     public int GetSecondaryEnchantmentCount()
     {
@@ -1217,7 +1217,7 @@ label_3:
         enchantment.OnUnequip(who);
     }
 
-    public virtual bool CanUseOnStandingTile() => false;
+    public virtual bool CanUseOnStandingTile() { return false; }
 
     public virtual bool CanForge(Item item)
     {

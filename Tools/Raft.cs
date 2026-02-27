@@ -25,9 +25,9 @@ namespace StardewValley.Tools
       return (Item) one;
     }
 
-    protected override string loadDisplayName() => Game1.content.LoadString("Strings\\StringsFromCSFiles:Raft.cs.14204");
+    protected override string loadDisplayName() { return Game1.content.LoadString("Strings\\StringsFromCSFiles:Raft.cs.14204"); }
 
-    protected override string loadDescription() => Game1.content.LoadString("Strings\\StringsFromCSFiles:Raft.cs.14205");
+    protected override string loadDescription() { return Game1.content.LoadString("Strings\\StringsFromCSFiles:Raft.cs.14205"); }
 
     public override void DoFunction(GameLocation location, int x, int y, int power, Farmer who)
     {

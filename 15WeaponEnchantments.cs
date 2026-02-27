@@ -31,6 +31,6 @@ namespace StardewValley
       }
     }
 
-    public override string GetName() => "Crusader";
+    public override string GetName() { return "Crusader"; }
   }
 }

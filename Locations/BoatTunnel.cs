@@ -134,9 +134,9 @@ namespace StardewValley.Locations
       }
     }
 
-    public override bool isActionableTile(int xTile, int yTile, Farmer who) => !Game1.MasterPlayer.mailReceived.Contains("willyBoatFixed") && (xTile == 6 && yTile == 8 || xTile == 8 && yTile == 10) || base.isActionableTile(xTile, yTile, who);
+    public override bool isActionableTile(int xTile, int yTile, Farmer who) { return !Game1.MasterPlayer.mailReceived.Contains("willyBoatFixed") && (xTile == 6 && yTile == 8 || xTile == 8 && yTile == 10) || base.isActionableTile(xTile, yTile, who); }
 
-    public int GetTicketPrice() => 1000;
+    public int GetTicketPrice() { return 1000; }
 
     public override bool answerDialogue(Response answer)
     {
@@ -209,7 +209,7 @@ namespace StardewValley.Locations
       }), 1500);
     }
 
-    public override bool shouldShadowBeDrawnAboveBuildingsLayer(Vector2 p) => (double) p.Y <= 8.0 || (double) p.Y <= 10.0 && (double) p.X >= 4.0 && (double) p.X <= 8.0 || base.shouldShadowBeDrawnAboveBuildingsLayer(p);
+    public override bool shouldShadowBeDrawnAboveBuildingsLayer(Vector2 p) { return (double) p.Y <= 8.0 || (double) p.Y <= 10.0 && (double) p.X >= 4.0 && (double) p.X <= 8.0 || base.shouldShadowBeDrawnAboveBuildingsLayer(p); }
 
     public virtual void StartDeparture()
     {
@@ -476,7 +476,7 @@ namespace StardewValley.Locations
       this.forceWarpTimer = 0;
     }
 
-    public override bool catchOceanCrabPotFishFromThisSpot(int x, int y) => true;
+    public override bool catchOceanCrabPotFishFromThisSpot(int x, int y) { return true; }
 
     public override StardewValley.Object getFish(
       float millisecondsAfterNibble,
@@ -524,7 +524,7 @@ namespace StardewValley.Locations
       this.UpdateGateTileProperty();
     }
 
-    public Vector2 GetBoatPosition() => this.boatPosition + new Vector2((float) this._boatOffset, 0.0f);
+    public Vector2 GetBoatPosition() { return this.boatPosition + new Vector2((float) this._boatOffset, 0.0f); }
 
     public override void draw(SpriteBatch b)
     {

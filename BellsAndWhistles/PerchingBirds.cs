@@ -50,13 +50,13 @@ namespace StardewValley.BellsAndWhistles
       this.ResetLocalState();
     }
 
-    public int GetBirdWidth() => this._birdWidth;
+    public int GetBirdWidth() { return this._birdWidth; }
 
-    public int GetBirdHeight() => this._birdHeight;
+    public int GetBirdHeight() { return this._birdHeight; }
 
-    public Vector2 GetBirdOrigin() => this._birdOrigin;
+    public Vector2 GetBirdOrigin() { return this._birdOrigin; }
 
-    public Texture2D GetTexture() => this._birdSheet;
+    public Texture2D GetTexture() { return this._birdSheet; }
 
     public Point GetFreeBirdPoint(Bird bird = null, int clearance = 200)
     {
@@ -90,9 +90,9 @@ namespace StardewValley.BellsAndWhistles
       this._birdPointOccupancy[point] = bird;
     }
 
-    public bool ShouldBirdsRoost() => this.roosting;
+    public bool ShouldBirdsRoost() { return this.roosting; }
 
-    public Point[] GetCurrentBirdLocationList() => this.ShouldBirdsRoost() ? this._birdRoostLocations : this._birdLocations;
+    public Point[] GetCurrentBirdLocationList() { return this.ShouldBirdsRoost() ? this._birdRoostLocations : this._birdLocations; }
 
     public virtual void Update(GameTime time)
     {

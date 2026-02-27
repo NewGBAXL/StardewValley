@@ -318,7 +318,7 @@ namespace StardewValley.Minigames
     {
     }
 
-    private Rectangle clickableGrandpaLetterRect() => new Rectangle((int) Utility.getTopLeftPositionForCenteringOnScreen(Game1.viewport, 1294, 730).X + (286 - this.parallaxPan) * 4, (int) Utility.getTopLeftPositionForCenteringOnScreen(Game1.viewport, 1294, 730).Y + 218 + Math.Max(0, Math.Min(60, (this.grandpaSpeechTimer - 5000) / 8)), 524, 344);
+    private Rectangle clickableGrandpaLetterRect() { return new Rectangle((int) Utility.getTopLeftPositionForCenteringOnScreen(Game1.viewport, 1294, 730).X + (286 - this.parallaxPan) * 4, (int) Utility.getTopLeftPositionForCenteringOnScreen(Game1.viewport, 1294, 730).Y + 218 + Math.Max(0, Math.Min(60, (this.grandpaSpeechTimer - 5000) / 8)), 524, 344); }
 
     public void receiveLeftClick(int x, int y, bool playSound = true)
     {
@@ -390,7 +390,7 @@ namespace StardewValley.Minigames
       }
     }
 
-    public bool overrideFreeMouseMovement() => Game1.options.SnappyMenus;
+    public bool overrideFreeMouseMovement() { return Game1.options.SnappyMenus; }
 
     public void receiveKeyRelease(Keys k)
     {
@@ -490,10 +490,10 @@ namespace StardewValley.Minigames
     {
     }
 
-    public string minigameId() => (string) null;
+    public string minigameId() { return (string) null; }
 
-    public bool doMainGameUpdates() => false;
+    public bool doMainGameUpdates() { return false; }
 
-    public bool forceQuit() => false;
+    public bool forceQuit() { return false; }
   }
 }

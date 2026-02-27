@@ -238,7 +238,7 @@ namespace StardewValley.Characters
       }
     }
 
-    public override bool canPassThroughActionTiles() => false;
+    public override bool canPassThroughActionTiles() { return false; }
 
     public override void resetForNewDay(int dayOfMonth)
     {
@@ -248,7 +248,7 @@ namespace StardewValley.Characters
       this.sleptInBed.Value = false;
     }
 
-    protected override string translateName(string name) => name.TrimEnd();
+    protected override string translateName(string name) { return name.TrimEnd(); }
 
     public override void dayUpdate(int dayOfMonth)
     {
@@ -311,7 +311,7 @@ namespace StardewValley.Characters
       this.setCrawlerInNewDirection();
     }
 
-    public bool isInCrib() => this.getTileX() >= 15 && this.getTileX() <= 17 && this.getTileY() >= 3 && this.getTileY() <= 4;
+    public bool isInCrib() { return this.getTileX() >= 15 && this.getTileX() <= 17 && this.getTileY() >= 3 && this.getTileY() <= 4; }
 
     public void toss(Farmer who)
     {
@@ -383,7 +383,7 @@ namespace StardewValley.Characters
       }
     }
 
-    private void setState(int state) => this.setStateEvent.Fire(state);
+    private void setState(int state) { return this.setStateEvent.Fire(state); }
 
     private void doSetState(int state)
     {
@@ -471,9 +471,9 @@ namespace StardewValley.Characters
       }
     }
 
-    public override bool hasSpecialCollisionRules() => true;
+    public override bool hasSpecialCollisionRules() { return true; }
 
-    public override bool isColliding(GameLocation l, Vector2 tile) => !l.isTilePlaceable(tile);
+    public override bool isColliding(GameLocation l, Vector2 tile) { return !l.isTilePlaceable(tile); }
 
     public void tenMinuteUpdate()
     {
@@ -580,7 +580,7 @@ namespace StardewValley.Characters
       }
     }
 
-    public override bool canTalk() => Game1.player.friendshipData.ContainsKey(this.Name) && !Game1.player.friendshipData[this.Name].TalkedToToday;
+    public override bool canTalk() { return Game1.player.friendshipData.ContainsKey(this.Name) && !Game1.player.friendshipData[this.Name].TalkedToToday; }
 
     public override bool checkAction(Farmer who, GameLocation l)
     {
@@ -986,6 +986,6 @@ namespace StardewValley.Characters
       this.hat.Value.draw(b, this.getLocalPosition(Game1.viewport) + vector2 + new Vector2(30f, -42f), 1.333333f, 1f, layerDepth, direction);
     }
 
-    public override void behaviorOnLocalFarmerLocationEntry(GameLocation location) => this.reloadSprite();
+    public override void behaviorOnLocalFarmerLocationEntry(GameLocation location) { return this.reloadSprite(); }
   }
 }

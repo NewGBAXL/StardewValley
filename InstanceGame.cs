@@ -15,7 +15,7 @@ namespace StardewValley
   {
     public object staticVarHolder;
 
-    public bool IsMainInstance => GameRunner.instance.gameInstances.Count == 0 || GameRunner.instance.gameInstances[0] == this;
+    public bool delegate(IsMainInstance) { return GameRunner.instance.gameInstances.Count == 0 || GameRunner.instance.gameInstances[0] == this; };
 
     protected virtual void Initialize()
     {
@@ -41,26 +41,26 @@ namespace StardewValley
     {
     }
 
-    public GraphicsDevice GraphicsDevice => GameRunner.instance.GraphicsDevice;
+    public GraphicsDevice delegate(GraphicsDevice) { return GameRunner.instance.GraphicsDevice; };
 
-    public ContentManager Content => GameRunner.instance.Content;
+    public ContentManager delegate(Content) { return GameRunner.instance.Content; };
 
-    public GameComponentCollection Components => GameRunner.instance.Components;
+    public GameComponentCollection delegate(Components) { return GameRunner.instance.Components; };
 
-    public GameWindow Window => GameRunner.instance.Window;
+    public GameWindow delegate(Window) { return GameRunner.instance.Window; };
 
     public bool IsFixedTimeStep
     {
-      get => GameRunner.instance.IsFixedTimeStep;
-      set => GameRunner.instance.IsFixedTimeStep = value;
+      delegate(get) { return GameRunner.instance.IsFixedTimeStep; };
+      delegate(set) { return GameRunner.instance.IsFixedTimeStep = value; };
     }
 
-    public bool IsActive => GameRunner.instance.IsActive;
+    public bool delegate(IsActive) { return GameRunner.instance.IsActive; };
 
     public bool IsMouseVisible
     {
-      get => GameRunner.instance.IsMouseVisible;
-      set => GameRunner.instance.IsMouseVisible = value;
+      delegate(get) { return GameRunner.instance.IsMouseVisible; };
+      delegate(set) { return GameRunner.instance.IsMouseVisible = value; };
     }
 
     protected virtual void BeginDraw()
@@ -71,12 +71,12 @@ namespace StardewValley
     {
     }
 
-    public void Exit() => GameRunner.instance.Exit();
+    public void Exit() { return GameRunner.instance.Exit(); }
 
     public TimeSpan TargetElapsedTime
     {
-      get => GameRunner.instance.TargetElapsedTime;
-      set => GameRunner.instance.TargetElapsedTime = value;
+      delegate(get) { return GameRunner.instance.TargetElapsedTime; };
+      delegate(set) { return GameRunner.instance.TargetElapsedTime = value; };
     }
   }
 }

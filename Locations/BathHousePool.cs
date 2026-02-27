@@ -77,7 +77,7 @@ namespace StardewValley.Locations
       int num = (bool) (NetFieldBase<bool, NetBool>) Game1.player.swimming ? 1 : 0;
     }
 
-    public override void checkForMusic(GameTime time) => base.checkForMusic(time);
+    public override void checkForMusic(GameTime time) { return base.checkForMusic(time); }
 
     public override void drawAboveAlwaysFrontLayer(SpriteBatch b)
     {

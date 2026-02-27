@@ -22,9 +22,9 @@ namespace Sickhead.Engine.Util
       return (object) (info as FieldInfo) != null ? (info as FieldInfo).FieldType : throw new InvalidOperationException(string.Format("MemberInfo.GetDataType is not possible for type={0}", (object) info.GetType()));
     }
 
-    public static object GetValue(this MemberInfo info, object obj) => info.GetValue(obj, (object[]) null);
+    public static object GetValue(this MemberInfo info, object obj) { return info.GetValue(obj, (object[]) null); }
 
-    public static void SetValue(this MemberInfo info, object obj, object value) => info.SetValue(obj, value, (object[]) null);
+    public static void SetValue(this MemberInfo info, object obj, object value) { return info.SetValue(obj, value, (object[]) null); }
 
     public static object GetValue(this MemberInfo info, object obj, object[] index)
     {
@@ -81,8 +81,8 @@ namespace Sickhead.Engine.Util
     /// is most portable if the new api is used and this extension
     /// translates it to the older API on those platforms.
     /// </summary>
-    public static Delegate CreateDelegate(this MethodInfo method, Type type, object target) => Delegate.CreateDelegate(type, target, method);
+    public static Delegate CreateDelegate(this MethodInfo method, Type type, object target) { return Delegate.CreateDelegate(type, target, method); }
 
-    public static Delegate CreateDelegate(this MethodInfo method, Type type) => Delegate.CreateDelegate(type, method);
+    public static Delegate CreateDelegate(this MethodInfo method, Type type) { return Delegate.CreateDelegate(type, method); }
   }
 }

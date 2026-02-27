@@ -132,7 +132,7 @@ namespace StardewValley
       this.price.Value = 1;
     }
 
-    public virtual void repair() => this.ResetHealth((float) Game1.random.Next(-100, 101) / 100f);
+    public virtual void repair() { return this.ResetHealth((float) Game1.random.Next(-100, 101) / 100f); }
 
     public static void populateFenceDrawGuide()
     {
@@ -301,7 +301,7 @@ namespace StardewValley
       }
     }
 
-    public void toggleGate(Farmer who, bool open, bool is_toggling_counterpart = false) => this.toggleGate(who.currentLocation, open, is_toggling_counterpart, who);
+    public void toggleGate(Farmer who, bool open, bool is_toggling_counterpart = false) { return this.toggleGate(who.currentLocation, open, is_toggling_counterpart, who); }
 
     public override void performRemoveAction(Vector2 tileLocation, GameLocation environment)
     {
@@ -309,7 +309,7 @@ namespace StardewValley
       base.performRemoveAction(tileLocation, environment);
     }
 
-    public override void dropItem(GameLocation location, Vector2 origin, Vector2 destination) => location.debris.Add(new Debris(this.GetItemParentSheetIndex(), origin, destination));
+    public override void dropItem(GameLocation location, Vector2 origin, Vector2 destination) { return location.debris.Add(new Debris(this.GetItemParentSheetIndex(), origin, destination)); }
 
     public virtual int GetItemParentSheetIndex()
     {
@@ -578,7 +578,7 @@ namespace StardewValley
       }
     }
 
-    public virtual bool CanRepairWithThisItem(Item item) => (double) (float) (NetFieldBase<float, NetFloat>) this.health <= 1.0 && item is Object && ((int) (NetFieldBase<int, NetInt>) this.whichType == 1 && Utility.IsNormalObjectAtParentSheetIndex(item, 322) || (int) (NetFieldBase<int, NetInt>) this.whichType == 2 && Utility.IsNormalObjectAtParentSheetIndex(item, 323) || (int) (NetFieldBase<int, NetInt>) this.whichType == 3 && Utility.IsNormalObjectAtParentSheetIndex(item, 324) || (int) (NetFieldBase<int, NetInt>) this.whichType == 5 && Utility.IsNormalObjectAtParentSheetIndex(item, 298));
+    public virtual bool CanRepairWithThisItem(Item item) { return (double) (float) (NetFieldBase<float, NetFloat>) this.health <= 1.0 && item is Object && ((int) (NetFieldBase<int, NetInt>) this.whichType == 1 && Utility.IsNormalObjectAtParentSheetIndex(item, 322) || (int) (NetFieldBase<int, NetInt>) this.whichType == 2 && Utility.IsNormalObjectAtParentSheetIndex(item, 323) || (int) (NetFieldBase<int, NetInt>) this.whichType == 3 && Utility.IsNormalObjectAtParentSheetIndex(item, 324) || (int) (NetFieldBase<int, NetInt>) this.whichType == 5 && Utility.IsNormalObjectAtParentSheetIndex(item, 298)); }
 
     public override bool performDropDownAction(Farmer who)
     {
@@ -597,7 +597,7 @@ namespace StardewValley
       return Game1.content.Load<Texture2D>("LooseSprites\\Fence" + Math.Max(1, val2).ToString());
     }
 
-    public override void drawWhenHeld(SpriteBatch spriteBatch, Vector2 objectPosition, Farmer f) => spriteBatch.Draw(this.fenceTexture.Value, objectPosition - new Vector2(0.0f, 64f), new Rectangle?(new Rectangle(5 * Fence.fencePieceWidth % this.fenceTexture.Value.Bounds.Width, 5 * Fence.fencePieceWidth / this.fenceTexture.Value.Bounds.Width * Fence.fencePieceHeight, Fence.fencePieceWidth, Fence.fencePieceHeight)), Color.White, 0.0f, Vector2.Zero, 1f, SpriteEffects.None, (float) (f.getStandingY() + 1) / 10000f);
+    public override void drawWhenHeld(SpriteBatch spriteBatch, Vector2 objectPosition, Farmer f) { return spriteBatch.Draw(this.fenceTexture.Value, objectPosition - new Vector2(0.0f, 64f), new Rectangle?(new Rectangle(5 * Fence.fencePieceWidth % this.fenceTexture.Value.Bounds.Width, 5 * Fence.fencePieceWidth / this.fenceTexture.Value.Bounds.Width * Fence.fencePieceHeight, Fence.fencePieceWidth, Fence.fencePieceHeight)), Color.White, 0.0f, Vector2.Zero, 1f, SpriteEffects.None, (float) (f.getStandingY() + 1) / 10000f); }
 
     public override void drawInMenu(
       SpriteBatch spriteBatch,
@@ -635,7 +635,7 @@ namespace StardewValley
       return type == (int) (NetFieldBase<int, NetInt>) this.whichType || type == 4;
     }
 
-    public override bool isPassable() => (bool) (NetFieldBase<bool, NetBool>) this.isGate && (int) (NetFieldBase<int, NetInt>) this.gatePosition >= 88;
+    public override bool isPassable() { return (bool) (NetFieldBase<bool, NetBool>) this.isGate && (int) (NetFieldBase<int, NetInt>) this.gatePosition >= 88; }
 
     public override void draw(SpriteBatch b, int x, int y, float alpha = 1f)
     {

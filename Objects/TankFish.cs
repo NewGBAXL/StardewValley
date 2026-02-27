@@ -244,7 +244,7 @@ namespace StardewValley.Objects
       b.Draw(Game1.shadowTexture, Game1.GlobalToLocal(new Vector2(this.GetWorldPosition().X, (float) this._tank.GetTankBounds().Bottom - this.zPosition * 4f)), new Rectangle?(), Color.White * alpha * 0.75f, 0.0f, new Vector2((float) (Game1.shadowTexture.Width / 2), (float) (Game1.shadowTexture.Height / 2)), new Vector2(4f * scale1, 1f), SpriteEffects.None, this._tank.GetFishSortRegion().X - 1E-07f);
     }
 
-    public Vector2 GetWorldPosition() => new Vector2((float) this._tank.GetTankBounds().X + this.position.X, (float) ((double) this._tank.GetTankBounds().Bottom - (double) this.position.Y - (double) this.zPosition * 4.0));
+    public Vector2 GetWorldPosition() { return new Vector2((float) this._tank.GetTankBounds().X + this.position.X, (float) ((double) this._tank.GetTankBounds().Bottom - (double) this.position.Y - (double) this.zPosition * 4.0)); }
 
     public void ConstrainToTank()
     {
@@ -284,7 +284,7 @@ namespace StardewValley.Objects
       }
     }
 
-    public virtual float GetScale() => this.fishScale;
+    public virtual float GetScale() { return this.fishScale; }
 
     public Rectangle GetBounds()
     {

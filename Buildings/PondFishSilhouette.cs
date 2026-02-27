@@ -37,7 +37,7 @@ namespace StardewValley.Buildings
       this.ResetDartTime();
     }
 
-    public void ResetDartTime() => this.nextDart = Utility.Lerp(20f, 40f, (float) Game1.random.NextDouble());
+    public void ResetDartTime() { return this.nextDart = Utility.Lerp(20f, 40f, (float) Game1.random.NextDouble()); }
 
     public void Draw(SpriteBatch b)
     {
@@ -64,7 +64,7 @@ namespace StardewValley.Buildings
       b.Draw(Game1.objectSpriteSheet, Game1.GlobalToLocal(Game1.viewport, position), new Rectangle?(Game1.getSourceRectForStandardTileSheet(Game1.objectSpriteSheet, this._fishObject.ParentSheetIndex, 16, 16)), Color.Black * num3, rotation, origin, 4f * num2, effects, (float) ((double) this.position.Y / 10000.0 + 9.99999997475243E-07));
     }
 
-    public bool IsMoving() => (double) this._velocity.LengthSquared() > 0.0;
+    public bool IsMoving() { return (double) this._velocity.LengthSquared() > 0.0; }
 
     public void Update(float time)
     {

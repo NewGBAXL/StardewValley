@@ -17,16 +17,16 @@ namespace StardewValley
     {
     }
 
-    public bool IsDisposed => true;
+    public bool delegate(IsDisposed) { return true; };
 
-    public IAudioCategory GetCategory(string name) => this.category;
+    public IAudioCategory GetCategory(string name) { return this.category; }
 
-    public int GetCategoryIndex(string name) => -1;
+    public int GetCategoryIndex(string name) { return -1; }
 
     public void Dispose()
     {
     }
 
-    public AudioEngine Engine => (AudioEngine) null;
+    public AudioEngine delegate(Engine) { return (AudioEngine) null; };
   }
 }

@@ -10,9 +10,9 @@ namespace StardewValley
 {
   public class SwiftToolEnchantment : BaseEnchantment
   {
-    public override string GetName() => "Swift";
+    public override string GetName() { return "Swift"; }
 
-    public override bool CanApplyTo(Item item) => item is Tool && !(item is MilkPail) && !(item is MeleeWeapon) && !(item is Shears) && !(item is FishingRod) && !(item is Pan) && !(item is WateringCan) && !(item is Wand) && !(item is Slingshot);
+    public override bool CanApplyTo(Item item) { return item is Tool && !(item is MilkPail) && !(item is MeleeWeapon) && !(item is Shears) && !(item is FishingRod) && !(item is Pan) && !(item is WateringCan) && !(item is Wand) && !(item is Slingshot); }
 
     protected override void _ApplyTo(Item item)
     {

@@ -22,11 +22,11 @@ namespace Force.DeepCloner.Helpers
     protected abstract object DoCloneObject(object obj);
 
     /// <summary>Performs real shallow object clone</summary>
-    public static object CloneObject(object obj) => ShallowObjectCloner._instance.DoCloneObject(obj);
+    public static object CloneObject(object obj) { return ShallowObjectCloner._instance.DoCloneObject(obj); }
 
-    internal static bool IsSafeVariant() => ShallowObjectCloner._instance is ShallowObjectCloner.ShallowSafeObjectCloner;
+    internal static bool IsSafeVariant() { return ShallowObjectCloner._instance is ShallowObjectCloner.ShallowSafeObjectCloner; }
 
-    static ShallowObjectCloner() => ShallowObjectCloner._unsafeInstance = ShallowObjectCloner._instance;
+    static ShallowObjectCloner() { return ShallowObjectCloner._unsafeInstance = ShallowObjectCloner._instance; }
 
     /// <summary>Purpose of this method is testing variants</summary>
     internal static void SwitchTo(bool isSafe)
@@ -45,10 +45,10 @@ namespace Force.DeepCloner.Helpers
       static ShallowSafeObjectCloner()
       {
         MethodInfo privateMethod = typeof (object).GetPrivateMethod("MemberwiseClone");
-        ShallowObjectCloner.ShallowSafeObjectCloner._cloneFunc = ((Expression<Func<object, object>>) (obj => Expression.Call(obj, privateMethod))).Compile();
+        ShallowObjectCloner.ShallowSafeObjectCloner._cloneFunc = ((Expression<Func<object, object>>) (delegate(obj) { return Expression.Call(obj; }, privateMethod))).Compile();
       }
 
-      protected override object DoCloneObject(object obj) => ShallowObjectCloner.ShallowSafeObjectCloner._cloneFunc(obj);
+      protected override object DoCloneObject(object obj) { return ShallowObjectCloner.ShallowSafeObjectCloner._cloneFunc(obj); }
     }
   }
 }

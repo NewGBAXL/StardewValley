@@ -85,16 +85,19 @@ namespace StardewValley.Locations
       this.fridge.Value.updateWhenCurrentLocation(time, (GameLocation) this);
     }
 
-    public override void DayUpdate(int dayOfMonth) => base.DayUpdate(dayOfMonth);
+    public override void DayUpdate(int dayOfMonth) { return base.DayUpdate(dayOfMonth); }
 
-    public override List<Microsoft.Xna.Framework.Rectangle> getWalls() => new List<Microsoft.Xna.Framework.Rectangle>()
+    public override List<Microsoft.Xna.Framework.Rectangle> getWalls()
     {
-      new Microsoft.Xna.Framework.Rectangle(1, 1, 10, 3),
-      new Microsoft.Xna.Framework.Rectangle(18, 1, 11, 3),
-      new Microsoft.Xna.Framework.Rectangle(12, 5, 5, 2),
-      new Microsoft.Xna.Framework.Rectangle(17, 9, 2, 2),
-      new Microsoft.Xna.Framework.Rectangle(21, 9, 8, 2)
-    };
+      return new List<Microsoft.Xna.Framework.Rectangle>()
+      {
+        new Microsoft.Xna.Framework.Rectangle(1, 1, 10, 3),
+        new Microsoft.Xna.Framework.Rectangle(18, 1, 11, 3),
+        new Microsoft.Xna.Framework.Rectangle(12, 5, 5, 2),
+        new Microsoft.Xna.Framework.Rectangle(17, 9, 2, 2),
+        new Microsoft.Xna.Framework.Rectangle(21, 9, 8, 2)
+      };
+    }
 
     protected override void resetLocalState()
     {
@@ -118,13 +121,16 @@ namespace StardewValley.Locations
       }
     }
 
-    public override List<Microsoft.Xna.Framework.Rectangle> getFloors() => new List<Microsoft.Xna.Framework.Rectangle>()
+    public override List<Microsoft.Xna.Framework.Rectangle> getFloors()
     {
-      new Microsoft.Xna.Framework.Rectangle(1, 3, 11, 12),
-      new Microsoft.Xna.Framework.Rectangle(11, 7, 6, 9),
-      new Microsoft.Xna.Framework.Rectangle(18, 3, 11, 6),
-      new Microsoft.Xna.Framework.Rectangle(17, 11, 12, 6)
-    };
+      return new List<Microsoft.Xna.Framework.Rectangle>()
+      {
+        new Microsoft.Xna.Framework.Rectangle(1, 3, 11, 12),
+        new Microsoft.Xna.Framework.Rectangle(11, 7, 6, 9),
+        new Microsoft.Xna.Framework.Rectangle(18, 3, 11, 6),
+        new Microsoft.Xna.Framework.Rectangle(17, 11, 12, 6)
+      };
+    }
 
     protected override void initNetFields()
     {

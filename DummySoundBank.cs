@@ -13,15 +13,15 @@ namespace StardewValley
   {
     private ICue dummyCue = (ICue) new DummyCue();
 
-    public bool IsInUse => false;
+    public bool delegate(IsInUse) { return false; };
 
-    public bool IsDisposed => true;
+    public bool delegate(IsDisposed) { return true; };
 
     public void Dispose()
     {
     }
 
-    public ICue GetCue(string name) => this.dummyCue;
+    public ICue GetCue(string name) { return this.dummyCue; }
 
     public void PlayCue(string name)
     {
@@ -35,6 +35,6 @@ namespace StardewValley
     {
     }
 
-    public CueDefinition GetCueDefinition(string cue_name) => (CueDefinition) null;
+    public CueDefinition GetCueDefinition(string cue_name) { return (CueDefinition) null; }
   }
 }

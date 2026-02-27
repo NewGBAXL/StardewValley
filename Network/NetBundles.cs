@@ -24,12 +24,12 @@ namespace StardewValley.Network
       return num;
     }
 
-    protected override void WriteKey(BinaryWriter writer, int key) => writer.Write(key);
+    protected override void WriteKey(BinaryWriter writer, int key) { return writer.Write(key); }
 
-    protected override void setFieldValue(NetArray<bool, NetBool> field, int key, bool[] value) => field.Set((IList<bool>) value);
+    protected override void setFieldValue(NetArray<bool, NetBool> field, int key, bool[] value) { return field.Set((IList<bool>) value); }
 
-    protected override bool[] getFieldValue(NetArray<bool, NetBool> field) => field.ToArray<bool>();
+    protected override bool[] getFieldValue(NetArray<bool, NetBool> field) { return field.ToArray<bool>(); }
 
-    protected override bool[] getFieldTargetValue(NetArray<bool, NetBool> field) => field.ToArray<bool>();
+    protected override bool[] getFieldTargetValue(NetArray<bool, NetBool> field) { return field.ToArray<bool>(); }
   }
 }

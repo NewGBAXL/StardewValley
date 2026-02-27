@@ -25,14 +25,14 @@ namespace StardewValley.Tools
 
     public int WaterLeft
     {
-      get => this.waterLeft;
-      set => this.waterLeft = value;
+      delegate(get) { return this.waterLeft; };
+      delegate(set) { return this.waterLeft = value; };
     }
 
     public bool IsBottomless
     {
-      get => (bool) (NetFieldBase<bool, NetBool>) this.isBottomless;
-      set => this.isBottomless.Value = value;
+      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.isBottomless;
+      delegate(set) { return this.isBottomless.Value = value; };
     }
 
     public WateringCan()
@@ -56,9 +56,9 @@ namespace StardewValley.Tools
       return (Item) destination;
     }
 
-    protected override string loadDisplayName() => Game1.content.LoadString("Strings\\StringsFromCSFiles:WateringCan.cs.14324");
+    protected override string loadDisplayName() { return Game1.content.LoadString("Strings\\StringsFromCSFiles:WateringCan.cs.14324"); }
 
-    protected override string loadDescription() => Game1.content.LoadString("Strings\\StringsFromCSFiles:WateringCan.cs.14325");
+    protected override string loadDescription() { return Game1.content.LoadString("Strings\\StringsFromCSFiles:WateringCan.cs.14325"); }
 
     public override void drawInMenu(
       SpriteBatch spriteBatch,
@@ -77,7 +77,7 @@ namespace StardewValley.Tools
       spriteBatch.Draw(Game1.staminaRect, new Rectangle((int) location.X + 8, (int) location.Y + 64 - 16, (int) ((double) this.waterLeft / (double) this.waterCanMax * 48.0), 8), this.IsBottomless ? Color.BlueViolet * 1f * transparency : Color.DodgerBlue * 0.7f * transparency);
     }
 
-    public override string getDescription() => Game1.parseText(this.description + (Game1.player.hasWateringCanEnchantment ? Environment.NewLine + Environment.NewLine + Game1.content.LoadString("Strings\\StringsFromCSFiles:WateringCan_enchant") : ""), Game1.smallFont, this.getDescriptionWidth());
+    public override string getDescription() { return Game1.parseText(this.description + (Game1.player.hasWateringCanEnchantment ? Environment.NewLine + Environment.NewLine + Game1.content.LoadString("Strings\\StringsFromCSFiles:WateringCan_enchant") : ""), Game1.smallFont, this.getDescriptionWidth()); }
 
     public override void DoFunction(GameLocation location, int x, int y, int power, Farmer who)
     {
@@ -164,7 +164,7 @@ namespace StardewValley.Tools
       }
     }
 
-    public override bool CanUseOnStandingTile() => true;
+    public override bool CanUseOnStandingTile() { return true; }
 
     public override void tickUpdate(GameTime time, Farmer who)
     {

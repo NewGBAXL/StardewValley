@@ -16,8 +16,8 @@ namespace StardewValley.Monsters
 
     public Farmer who
     {
-      get => Game1.getFarmer(this.farmerId);
-      set => this.farmerId = value.UniqueMultiplayerID;
+      delegate(get) { return Game1.getFarmer(this.farmerId); };
+      delegate(set) { return this.farmerId = value.UniqueMultiplayerID; };
     }
 
     public ParryEventArgs()

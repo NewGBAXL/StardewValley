@@ -177,9 +177,9 @@ namespace StardewValley.Menus
       this.snapCursorToCurrentSnappedComponent();
     }
 
-    public bool IsBusy() => this._timeUntilCraft > 0;
+    public bool IsBusy() { return this._timeUntilCraft > 0; }
 
-    public override bool readyToClose() => base.readyToClose() && this.heldItem == null && !this.IsBusy();
+    public override bool readyToClose() { return base.readyToClose() && this.heldItem == null && !this.IsBusy(); }
 
     public bool HighlightItems(Item i)
     {
@@ -394,9 +394,9 @@ namespace StardewValley.Menus
       return true;
     }
 
-    protected virtual bool CheckHeldItem(Func<Item, bool> f = null) => f == null ? this.heldItem != null : f(this.heldItem);
+    protected virtual bool CheckHeldItem(Func<Item, bool> f = null) { return f == null ? this.heldItem != null : f(this.heldItem); }
 
-    public static bool IsWearingDyeable() => Game1.player.shirtItem.Value != null && Game1.player.shirtItem.Value.dyeable.Value || Game1.player.pantsItem.Value != null && Game1.player.pantsItem.Value.dyeable.Value;
+    public static bool IsWearingDyeable() { return Game1.player.shirtItem.Value != null && Game1.player.shirtItem.Value.dyeable.Value || Game1.player.pantsItem.Value != null && Game1.player.pantsItem.Value.dyeable.Value; }
 
     protected void _UpdateDescriptionText()
     {
@@ -528,7 +528,7 @@ namespace StardewValley.Menus
       this.drawMouse(b);
     }
 
-    protected override void cleanupBeforeExit() => this._OnCloseMenu();
+    protected override void cleanupBeforeExit() { return this._OnCloseMenu(); }
 
     protected void _OnCloseMenu()
     {

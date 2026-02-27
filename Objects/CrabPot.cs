@@ -146,9 +146,9 @@ namespace StardewValley.Objects
       this.directionOffset.Value = zero;
     }
 
-    protected bool checkLocation(GameLocation location, float tile_x, float tile_y) => location.doesTileHaveProperty((int) tile_x, (int) tile_y, "Water", "Back") == null || location.doesTileHaveProperty((int) tile_x, (int) tile_y, "Passable", "Buildings") != null;
+    protected bool checkLocation(GameLocation location, float tile_x, float tile_y) { return location.doesTileHaveProperty((int) tile_x, (int) tile_y, "Water", "Back") == null || location.doesTileHaveProperty((int) tile_x, (int) tile_y, "Passable", "Buildings") != null; }
 
-    public override bool canBePlacedInWater() => true;
+    public override bool canBePlacedInWater() { return true; }
 
     public override Item getOne()
     {

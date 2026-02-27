@@ -134,7 +134,7 @@ namespace StardewValley.Menus
       this.snapToDefaultClickableComponent();
     }
 
-    public override bool shouldClampGamePadCursor() => this.movingAnimal;
+    public override bool shouldClampGamePadCursor() { return this.movingAnimal; }
 
     public override void snapToDefaultClickableComponent()
     {
@@ -332,7 +332,7 @@ namespace StardewValley.Menus
       }
     }
 
-    public override bool overrideSnappyMenuCursorMovementBan() => this.movingAnimal;
+    public override bool overrideSnappyMenuCursorMovementBan() { return this.movingAnimal; }
 
     public void prepareForAnimalPlacement()
     {

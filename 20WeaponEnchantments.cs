@@ -10,6 +10,6 @@ namespace StardewValley
 {
   public class WateringCanEnchantment : BaseEnchantment
   {
-    public override bool CanApplyTo(Item item) => item is WateringCan;
+    public override bool CanApplyTo(Item item) { return item is WateringCan; }
   }
 }

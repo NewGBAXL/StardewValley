@@ -21,9 +21,9 @@ namespace StardewValley
 
     public NetFields NetFields { get; } = new NetFields();
 
-    public string Name => (string) (NetFieldBase<string, NetString>) this.name;
+    public string delegate(Name) { return (string) (NetFieldBase<string; }, NetString>) this.name;
 
-    public ReadyCheck() => this.NetFields.AddFields((INetSerializable) this.name, (INetSerializable) this.readyPlayers.NetFields, (INetSerializable) this.setPlayers.NetFields);
+    public ReadyCheck() { return this.NetFields.AddFields((INetSerializable) this.name, (INetSerializable) this.readyPlayers.NetFields, (INetSerializable) this.setPlayers.NetFields); }
 
     public ReadyCheck(string name)
       : this()
@@ -57,13 +57,13 @@ namespace StardewValley
       return true;
     }
 
-    public bool IsOtherFarmerReady(Farmer farmer) => this.setPlayers.Contains(farmer);
+    public bool IsOtherFarmerReady(Farmer farmer) { return this.setPlayers.Contains(farmer); }
 
-    public bool IsCancelable() => !this.setPlayers.Contains(Game1.player);
+    public bool IsCancelable() { return !this.setPlayers.Contains(Game1.player); }
 
-    public bool IsReady() => this.containsAllPlayers(this.setPlayers);
+    public bool IsReady() { return this.containsAllPlayers(this.setPlayers); }
 
-    public int GetNumberReady() => this.readyPlayers.Count;
+    public int GetNumberReady() { return this.readyPlayers.Count; }
 
     public int GetNumberRequired()
     {

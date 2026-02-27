@@ -216,9 +216,9 @@ namespace StardewValley.Tools
       return (Item) destination;
     }
 
-    protected override string loadDisplayName() => Game1.content.LoadString("Strings\\StringsFromCSFiles:FishingRod.cs.14041");
+    protected override string loadDisplayName() { return Game1.content.LoadString("Strings\\StringsFromCSFiles:FishingRod.cs.14041"); }
 
-    protected override string loadDescription() => (int) (NetFieldBase<int, NetInt>) this.upgradeLevel != 1 ? Game1.content.LoadString("Strings\\StringsFromCSFiles:FishingRod.cs.14042") : Game1.content.LoadString("Strings\\StringsFromCSFiles:FishingRod.cs.trainingRodDescription");
+    protected override string loadDescription() { return (int) (NetFieldBase<int, NetInt>) this.upgradeLevel != 1 ? Game1.content.LoadString("Strings\\StringsFromCSFiles:FishingRod.cs.14042") : Game1.content.LoadString("Strings\\StringsFromCSFiles:FishingRod.cs.trainingRodDescription"); }
 
     public override int salePrice()
     {
@@ -291,7 +291,7 @@ namespace StardewValley.Tools
             return this.BaseName;
         }
       }
-      set => this.BaseName = value;
+      delegate(set) { return this.BaseName = value; };
     }
 
     private int getAddedDistance(Farmer who)
@@ -305,11 +305,14 @@ namespace StardewValley.Tools
       return who.FishingLevel >= 1 ? 1 : 0;
     }
 
-    private Vector2 calculateBobberTile() => (Vector2) (NetPausableField<Vector2, NetVector2, NetVector2>) this.bobber with
+    private Vector2 calculateBobberTile()
     {
-      X = this.bobber.X / 64f,
-      Y = this.bobber.Y / 64f
-    };
+      return (Vector2) (NetPausableField<Vector2, NetVector2, NetVector2>) this.bobber with
+      {
+        X = this.bobber.X / 64f,
+        Y = this.bobber.Y / 64f
+      };
+    }
 
     public override void DoFunction(GameLocation location, int x, int y, int power, Farmer who)
     {
@@ -565,11 +568,11 @@ namespace StardewValley.Tools
       Game1.activeClickableMenu = (IClickableMenu) new BobberBar(extra, fishSize, treasure, this.attachments[1] != null ? this.attachments[1].ParentSheetIndex : -1);
     }
 
-    public int getBobberAttachmentIndex() => this.attachments[1] == null ? -1 : this.attachments[1].ParentSheetIndex;
+    public int getBobberAttachmentIndex() { return this.attachments[1] == null ? -1 : this.attachments[1].ParentSheetIndex; }
 
-    public int getBaitAttachmentIndex() => this.attachments[0] == null ? -1 : this.attachments[0].ParentSheetIndex;
+    public int getBaitAttachmentIndex() { return this.attachments[0] == null ? -1 : this.attachments[0].ParentSheetIndex; }
 
-    public bool inUse() => this.isFishing || this.isCasting || this.isTimingCast || this.isNibbling || this.isReeling || this.fishCaught;
+    public bool inUse() { return this.isFishing || this.isCasting || this.isTimingCast || this.isNibbling || this.isReeling || this.fishCaught; }
 
     public void donefishingEndFunction(int extra)
     {
@@ -728,8 +731,7 @@ namespace StardewValley.Tools
       bool caughtDouble = false,
       string itemCategory = "Object")
     {
-      this.pullFishFromWaterEvent.Fire((NetEventBinary.ArgWriter) (writer =>
-      {
+      this.pullFishFromWaterEvent.Fire((NetEventBinary.ArgWriter) (delegate(writer) { return {; }
         writer.Write(whichFish);
         writer.Write(fishSize);
         writer.Write(fishQuality);
@@ -1252,7 +1254,7 @@ namespace StardewValley.Tools
       }
     }
 
-    public void doneFishing(Farmer who, bool consumeBaitAndTackle = false) => this.doneFishingEvent.Fire(consumeBaitAndTackle);
+    public void doneFishing(Farmer who, bool consumeBaitAndTackle = false) { return this.doneFishingEvent.Fire(consumeBaitAndTackle); }
 
     private void doDoneFishing(bool consumeBaitAndTackle)
     {
@@ -1351,9 +1353,9 @@ namespace StardewValley.Tools
       this.castingEndEnableMovement();
     }
 
-    private void castingEndEnableMovement() => this.castingEndEnableMovementEvent.Fire();
+    private void castingEndEnableMovement() { return this.castingEndEnableMovementEvent.Fire(); }
 
-    private void doCastingEndEnableMovement() => Farmer.canMoveNow(this.lastUser);
+    private void doCastingEndEnableMovement() { return Farmer.canMoveNow(this.lastUser); }
 
     public override void tickUpdate(GameTime time, Farmer who)
     {
@@ -1876,9 +1878,9 @@ label_114:
       }
     }
 
-    private void startCasting() => this.startCastingEvent.Fire();
+    private void startCasting() { return this.startCastingEvent.Fire(); }
 
-    public void beginReeling() => this.isReeling = true;
+    public void beginReeling() { return this.isReeling = true; }
 
     private void doStartCasting()
     {
@@ -1921,7 +1923,7 @@ label_114:
       this.sparklingText = (SparklingText) null;
     }
 
-    public override bool doesShowTileLocationMarker() => false;
+    public override bool doesShowTileLocationMarker() { return false; }
 
     public void openTreasureMenuEndFunction(int extra)
     {

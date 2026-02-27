@@ -8,6 +8,6 @@ namespace StardewValley
 {
   public class ArtfulEnchantment : BaseWeaponEnchantment
   {
-    public override string GetName() => "Artful";
+    public override string GetName() { return "Artful"; }
   }
 }

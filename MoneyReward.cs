@@ -20,7 +20,7 @@ namespace StardewValley
       this.NetFields.AddFields((INetSerializable) this.amount, (INetSerializable) this.multiplier);
     }
 
-    public virtual int GetRewardMoneyAmount() => (int) ((double) this.amount.Value * (double) this.multiplier.Value);
+    public virtual int GetRewardMoneyAmount() { return (int) ((double) this.amount.Value * (double) this.multiplier.Value); }
 
     public override void Load(SpecialOrder order, Dictionary<string, string> data)
     {
@@ -30,6 +30,6 @@ namespace StardewValley
       this.multiplier.Value = float.Parse(order.Parse(data["Multiplier"]));
     }
 
-    public override void Grant() => base.Grant();
+    public override void Grant() { return base.Grant(); }
   }
 }

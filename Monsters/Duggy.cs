@@ -15,7 +15,7 @@ namespace StardewValley.Monsters
   {
     private double chanceToDisappear = 0.03;
 
-    public Duggy() => this.HideShadow = true;
+    public Duggy() { return this.HideShadow = true; }
 
     public Duggy(Vector2 position)
       : base(nameof (Duggy), position)

@@ -20,19 +20,19 @@ namespace StardewValley.Characters
     {
     }
 
-    public BotchedNetField(TNet net_field) => this.netField = net_field;
+    public BotchedNetField(TNet net_field) { return this.netField = net_field; }
 
     public T Value
     {
-      get => this.netField.Value;
-      set => this.netField.Value = value;
+      delegate(get) { return this.netField.Value; };
+      delegate(set) { return this.netField.Value = value; };
     }
 
-    public XmlSchema GetSchema() => (XmlSchema) null;
+    public XmlSchema GetSchema() { return (XmlSchema) null; }
 
-    public void WriteXml(XmlWriter writer) => writer.WriteValue((object) this.netField.Value);
+    public void WriteXml(XmlWriter writer) { return writer.WriteValue((object) this.netField.Value); }
 
-    protected virtual object _ParseValue(XmlReader reader) => (object) null;
+    protected virtual object _ParseValue(XmlReader reader) { return (object) null; }
 
     public void ReadXml(XmlReader reader)
     {

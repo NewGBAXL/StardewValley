@@ -26,8 +26,8 @@ namespace StardewValley
       meleeWeapon.knockback.Value -= (float) this.GetLevel();
     }
 
-    public override bool ShouldBeDisplayed() => false;
+    public override bool ShouldBeDisplayed() { return false; }
 
-    public override bool IsForge() => true;
+    public override bool IsForge() { return true; }
   }
 }

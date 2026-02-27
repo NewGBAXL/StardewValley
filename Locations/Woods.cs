@@ -57,7 +57,7 @@ namespace StardewValley.Locations
       this.statueAnimationEvent.onEvent += new NetEvent0.Event(this.doStatueAnimation);
     }
 
-    public bool localPlayerHasFoundStardrop() => Game1.player.hasOrWillReceiveMail("CF_Statue");
+    public bool localPlayerHasFoundStardrop() { return Game1.player.hasOrWillReceiveMail("CF_Statue"); }
 
     public override void checkForMusic(GameTime time)
     {

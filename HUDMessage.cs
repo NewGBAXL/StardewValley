@@ -41,7 +41,7 @@ namespace StardewValley
           return this.message;
         return this.type.Equals("Money") ? (this.add ? "+ " : "- ") + this.number.ToString() + "g" : (this.add ? "+ " : "- ") + this.number.ToString() + " " + this.type;
       }
-      set => this.message = value;
+      delegate(set) { return this.message = value; };
     }
 
     public HUDMessage(string message)

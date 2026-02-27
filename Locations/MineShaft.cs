@@ -111,74 +111,74 @@ namespace StardewValley.Locations
 
     public int mineLevel
     {
-      get => (int) (NetFieldBase<int, NetInt>) this.netMineLevel;
-      set => this.netMineLevel.Value = value;
+      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.netMineLevel;
+      delegate(set) { return this.netMineLevel.Value = value; };
     }
 
     private int stonesLeftOnThisLevel
     {
-      get => (int) (NetFieldBase<int, NetIntDelta>) this.netStonesLeftOnThisLevel;
-      set => this.netStonesLeftOnThisLevel.Value = value;
+      delegate(get) { return (int) (NetFieldBase<int; }, NetIntDelta>) this.netStonesLeftOnThisLevel;
+      delegate(set) { return this.netStonesLeftOnThisLevel.Value = value; };
     }
 
     private Vector2 tileBeneathLadder
     {
-      get => (Vector2) (NetFieldBase<Vector2, NetVector2>) this.netTileBeneathLadder;
-      set => this.netTileBeneathLadder.Value = value;
+      delegate(get) { return (Vector2) (NetFieldBase<Vector2; }, NetVector2>) this.netTileBeneathLadder;
+      delegate(set) { return this.netTileBeneathLadder.Value = value; };
     }
 
     private Vector2 tileBeneathElevator
     {
-      get => (Vector2) (NetFieldBase<Vector2, NetVector2>) this.netTileBeneathElevator;
-      set => this.netTileBeneathElevator.Value = value;
+      delegate(get) { return (Vector2) (NetFieldBase<Vector2; }, NetVector2>) this.netTileBeneathElevator;
+      delegate(set) { return this.netTileBeneathElevator.Value = value; };
     }
 
     private Point ElevatorLightSpot
     {
-      get => (Point) (NetFieldBase<Point, NetPoint>) this.netElevatorLightSpot;
-      set => this.netElevatorLightSpot.Value = value;
+      delegate(get) { return (Point) (NetFieldBase<Point; }, NetPoint>) this.netElevatorLightSpot;
+      delegate(set) { return this.netElevatorLightSpot.Value = value; };
     }
 
     private bool isSlimeArea
     {
-      get => (bool) (NetFieldBase<bool, NetBool>) this.netIsSlimeArea;
-      set => this.netIsSlimeArea.Value = value;
+      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.netIsSlimeArea;
+      delegate(set) { return this.netIsSlimeArea.Value = value; };
     }
 
     private bool isDinoArea
     {
-      get => (bool) (NetFieldBase<bool, NetBool>) this.netIsDinoArea;
-      set => this.netIsDinoArea.Value = value;
+      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.netIsDinoArea;
+      delegate(set) { return this.netIsDinoArea.Value = value; };
     }
 
     private bool isMonsterArea
     {
-      get => (bool) (NetFieldBase<bool, NetBool>) this.netIsMonsterArea;
-      set => this.netIsMonsterArea.Value = value;
+      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.netIsMonsterArea;
+      delegate(set) { return this.netIsMonsterArea.Value = value; };
     }
 
     private bool isQuarryArea
     {
-      get => (bool) (NetFieldBase<bool, NetBool>) this.netIsQuarryArea;
-      set => this.netIsQuarryArea.Value = value;
+      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.netIsQuarryArea;
+      delegate(set) { return this.netIsQuarryArea.Value = value; };
     }
 
     private bool ambientFog
     {
-      get => (bool) (NetFieldBase<bool, NetBool>) this.netAmbientFog;
-      set => this.netAmbientFog.Value = value;
+      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.netAmbientFog;
+      delegate(set) { return this.netAmbientFog.Value = value; };
     }
 
     private Microsoft.Xna.Framework.Color lighting
     {
-      get => (Microsoft.Xna.Framework.Color) (NetFieldBase<Microsoft.Xna.Framework.Color, NetColor>) this.netLighting;
-      set => this.netLighting.Value = value;
+      delegate(get) { return (Microsoft.Xna.Framework.Color) (NetFieldBase<Microsoft.Xna.Framework.Color; }, NetColor>) this.netLighting;
+      delegate(set) { return this.netLighting.Value = value; };
     }
 
     private Microsoft.Xna.Framework.Color fogColor
     {
-      get => (Microsoft.Xna.Framework.Color) (NetFieldBase<Microsoft.Xna.Framework.Color, NetColor>) this.netFogColor;
-      set => this.netFogColor.Value = value;
+      delegate(get) { return (Microsoft.Xna.Framework.Color) (NetFieldBase<Microsoft.Xna.Framework.Color; }, NetColor>) this.netFogColor;
+      delegate(set) { return this.netFogColor.Value = value; };
     }
 
     public MineShaft()
@@ -187,7 +187,7 @@ namespace StardewValley.Locations
       this.mapContent = Game1.game1.xTileContent.CreateTemporary();
     }
 
-    public override bool CanPlaceThisFurnitureHere(Furniture furniture) => false;
+    public override bool CanPlaceThisFurnitureHere(Furniture furniture) { return false; }
 
     public MineShaft(int level)
       : this()
@@ -228,9 +228,9 @@ namespace StardewValley.Locations
       });
     }
 
-    public override bool AllowMapModificationsInResetState() => true;
+    public override bool AllowMapModificationsInResetState() { return true; }
 
-    protected override LocalizedContentManager getMapLoader() => this.mapContent;
+    protected override LocalizedContentManager getMapLoader() { return this.mapContent; }
 
     private void setElevatorLit()
     {
@@ -327,7 +327,7 @@ namespace StardewValley.Locations
       return this.getMineArea() != 121 ? 0 : 2000;
     }
 
-    public Vector2 mineEntrancePosition(Farmer who) => !who.ridingMineElevator || this.tileBeneathElevator.Equals(Vector2.Zero) ? this.tileBeneathLadder : this.tileBeneathElevator;
+    public Vector2 mineEntrancePosition(Farmer who) { return !who.ridingMineElevator || this.tileBeneathElevator.Equals(Vector2.Zero) ? this.tileBeneathLadder : this.tileBeneathElevator; }
 
     private void generateContents()
     {
@@ -468,9 +468,9 @@ namespace StardewValley.Locations
       }
     }
 
-    public void chestConsumed() => Game1.player.chestConsumedMineLevels[this.mineLevel] = true;
+    public void chestConsumed() { return Game1.player.chestConsumedMineLevels[this.mineLevel] = true; }
 
-    public bool isLevelSlimeArea() => this.isSlimeArea;
+    public bool isLevelSlimeArea() { return this.isSlimeArea; }
 
     public void checkForMapAlterations(int x, int y)
     {
@@ -540,7 +540,7 @@ namespace StardewValley.Locations
       this.isFallingDownShaft = false;
     }
 
-    public int EnemyCount => this.characters.OfType<Monster>().Count<Monster>();
+    public int delegate(EnemyCount) { return this.characters.OfType<Monster>().Count<Monster>(); };
 
     public override void performTenMinuteUpdate(int timeOfDay)
     {
@@ -1357,9 +1357,9 @@ namespace StardewValley.Locations
       this.characters.Add((NPC) m);
     }
 
-    public bool isContainerPlatform(int x, int y) => this.map.GetLayer("Back").Tiles[x, y] != null && this.map.GetLayer("Back").Tiles[x, y].TileIndex == 257;
+    public bool isContainerPlatform(int x, int y) { return this.map.GetLayer("Back").Tiles[x, y] != null && this.map.GetLayer("Back").Tiles[x, y].TileIndex == 257; }
 
-    public bool mustKillAllMonstersToAdvance() => this.isSlimeArea || this.isMonsterArea || this.isDinoArea;
+    public bool mustKillAllMonstersToAdvance() { return this.isSlimeArea || this.isMonsterArea || this.isDinoArea; }
 
     public void createLadderAt(Vector2 p, string sound = "hoeHit")
     {
@@ -1369,7 +1369,7 @@ namespace StardewValley.Locations
       this.createLadderAtEvent[p] = true;
     }
 
-    public bool shouldCreateLadderOnThisLevel() => this.mineLevel != 77377 && this.mineLevel != 120;
+    public bool shouldCreateLadderOnThisLevel() { return this.mineLevel != 77377 && this.mineLevel != 120; }
 
     private void doCreateLadderAt(Vector2 p)
     {
@@ -1872,7 +1872,7 @@ namespace StardewValley.Locations
       return this.tileBeneathLadder.Equals(tileLocation) || this.tileBeneathElevator != Vector2.Zero && this.tileBeneathElevator.Equals(tileLocation) || base.isTileOccupied(tileLocation, characterToIgnore, ignoreAllCharacters);
     }
 
-    public bool isDarkArea() => (this.loadedDarkArea || this.mineLevel % 40 > 30) && this.getMineArea() != 40;
+    public bool isDarkArea() { return (this.loadedDarkArea || this.mineLevel % 40 > 30) && this.getMineArea() != 40; }
 
     public bool isTileClearForMineObjects(Vector2 v)
     {
@@ -1887,13 +1887,13 @@ namespace StardewValley.Locations
       }
     }
 
-    public override string getFootstepSoundReplacement(string footstep) => this.GetAdditionalDifficulty() > 0 && this.getMineArea() == 40 && this.mineLevel % 40 < 30 && footstep == "stoneStep" ? "grassyStep" : base.getFootstepSoundReplacement(footstep);
+    public override string getFootstepSoundReplacement(string footstep) { return this.GetAdditionalDifficulty() > 0 && this.getMineArea() == 40 && this.mineLevel % 40 < 30 && footstep == "stoneStep" ? "grassyStep" : base.getFootstepSoundReplacement(footstep); }
 
-    public bool isTileOnClearAndSolidGround(Vector2 v) => this.map.GetLayer("Back").Tiles[(int) v.X, (int) v.Y] != null && this.map.GetLayer("Front").Tiles[(int) v.X, (int) v.Y] == null && this.map.GetLayer("Buildings").Tiles[(int) v.X, (int) v.Y] == null && this.getTileIndexAt((int) v.X, (int) v.Y, "Back") != 77;
+    public bool isTileOnClearAndSolidGround(Vector2 v) { return this.map.GetLayer("Back").Tiles[(int) v.X, (int) v.Y] != null && this.map.GetLayer("Front").Tiles[(int) v.X, (int) v.Y] == null && this.map.GetLayer("Buildings").Tiles[(int) v.X, (int) v.Y] == null && this.getTileIndexAt((int) v.X, (int) v.Y, "Back") != 77; }
 
-    public bool isTileOnClearAndSolidGround(int x, int y) => this.map.GetLayer("Back").Tiles[x, y] != null && this.map.GetLayer("Front").Tiles[x, y] == null && this.getTileIndexAt(x, y, "Back") != 77;
+    public bool isTileOnClearAndSolidGround(int x, int y) { return this.map.GetLayer("Back").Tiles[x, y] != null && this.map.GetLayer("Front").Tiles[x, y] == null && this.getTileIndexAt(x, y, "Back") != 77; }
 
-    public bool isTileClearForMineObjects(int x, int y) => this.isTileClearForMineObjects(new Vector2((float) x, (float) y));
+    public bool isTileClearForMineObjects(int x, int y) { return this.isTileClearForMineObjects(new Vector2((float) x, (float) y)); }
 
     public void loadLevel(int level)
     {
@@ -2413,7 +2413,7 @@ namespace StardewValley.Locations
       return this.mineLevel > 120 ? Game1.netWorldState.Value.SkullCavesDifficulty : Game1.netWorldState.Value.MinesDifficulty;
     }
 
-    public bool isPlayingSongFromDifferentArea() => Game1.getMusicTrackName() != this.getMineSong() && Game1.getMusicTrackName().EndsWith("Mine");
+    public bool isPlayingSongFromDifferentArea() { return Game1.getMusicTrackName() != this.getMineSong() && Game1.getMusicTrackName().EndsWith("Mine"); }
 
     public void playMineSong()
     {
@@ -2578,7 +2578,7 @@ namespace StardewValley.Locations
       this.map.TileSheets[0].TileIndexProperties[183].Add("Diggable", new PropertyValue("true"));
     }
 
-    public void createLadderDown(int x, int y, bool forceShaft = false) => this.createLadderDownEvent[new Point(x, y)] = forceShaft || this.getMineArea() == 121 && !this.mustKillAllMonstersToAdvance() && this.mineRandom.NextDouble() < 0.2;
+    public void createLadderDown(int x, int y, bool forceShaft = false) { return this.createLadderDownEvent[new Point(x, y)] = forceShaft || this.getMineArea() == 121 && !this.mustKillAllMonstersToAdvance() && this.mineRandom.NextDouble() < 0.2; }
 
     private void doCreateLadderDown(Point point, bool shaft)
     {
@@ -2697,7 +2697,7 @@ namespace StardewValley.Locations
       return r.NextDouble() >= 0.75 ? 378 : 380;
     }
 
-    public bool shouldUseSnowTextureHoeDirt() => !this.isSlimeArea && (this.GetAdditionalDifficulty() > 0 && (this.mineLevel < 40 || this.mineLevel >= 70 && this.mineLevel < 80) || this.GetAdditionalDifficulty() <= 0 && this.getMineArea() == 40);
+    public bool shouldUseSnowTextureHoeDirt() { return !this.isSlimeArea && (this.GetAdditionalDifficulty() > 0 && (this.mineLevel < 40 || this.mineLevel >= 70 && this.mineLevel < 80) || this.GetAdditionalDifficulty() <= 0 && this.getMineArea() == 40); }
 
     public int getMineArea(int level = -1)
     {
@@ -2721,9 +2721,9 @@ namespace StardewValley.Locations
       return level == 77377;
     }
 
-    public byte getWallAt(int x, int y) => byte.MaxValue;
+    public byte getWallAt(int x, int y) { return byte.MaxValue; }
 
-    public Microsoft.Xna.Framework.Color getLightingColor(GameTime time) => this.lighting;
+    public Microsoft.Xna.Framework.Color getLightingColor(GameTime time) { return this.lighting; }
 
     public StardewValley.Object getRandomItemForThisLevel(int level)
     {
@@ -2820,7 +2820,7 @@ namespace StardewValley.Locations
       };
     }
 
-    public bool shouldShowDarkHoeDirt() => this.getMineArea() != 121 || this.isDinoArea;
+    public bool shouldShowDarkHoeDirt() { return this.getMineArea() != 121 || this.isDinoArea; }
 
     public int getRandomGemRichStoneForThisLevel(int level)
     {
@@ -3369,11 +3369,14 @@ namespace StardewValley.Locations
       MineShaft.clearInactiveMines(false);
     }
 
-    public static void clearActiveMines() => MineShaft.activeMines.RemoveAll((Predicate<MineShaft>) (mine =>
+    public static void clearActiveMines()
     {
-      mine.mapContent.Dispose();
-      return true;
-    }));
+      MineShaft.activeMines.RemoveAll((Predicate<MineShaft>) (delegate(mine)
+      {
+        mine.mapContent.Dispose();
+        return true;
+      }));
+    }
 
     private static void clearInactiveMines(bool keepUntickedLevels = true)
     {
@@ -3406,8 +3409,7 @@ namespace StardewValley.Locations
             maxMineLevel = Math.Max(maxMineLevel, activeMine.mineLevel);
         }
       }
-      MineShaft.activeMines.RemoveAll((Predicate<MineShaft>) (mine =>
-      {
+      MineShaft.activeMines.RemoveAll((Predicate<MineShaft>) (delegate(mine) { return {; }
         if (mine.mineLevel == 77377)
           return false;
         if (mine.mineLevel > 120)

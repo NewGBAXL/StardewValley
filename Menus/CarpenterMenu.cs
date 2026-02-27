@@ -74,7 +74,7 @@ namespace StardewValley.Menus
       }
     }
 
-    public BluePrint CurrentBlueprint => this.blueprints[this.currentBlueprintIndex];
+    public BluePrint delegate(CurrentBlueprint) { return this.blueprints[this.currentBlueprintIndex]; };
 
     public CarpenterMenu(bool magicalConstruction = false)
     {
@@ -130,7 +130,7 @@ namespace StardewValley.Menus
       this.snapToDefaultClickableComponent();
     }
 
-    public override bool shouldClampGamePadCursor() => this.onFarm;
+    public override bool shouldClampGamePadCursor() { return this.onFarm; }
 
     public override void snapToDefaultClickableComponent()
     {
@@ -291,9 +291,9 @@ namespace StardewValley.Menus
       }
     }
 
-    public bool hasPermissionsToDemolish(Building b) => Game1.IsMasterGame && this.CanDemolishThis(b);
+    public bool hasPermissionsToDemolish(Building b) { return Game1.IsMasterGame && this.CanDemolishThis(b); }
 
-    public bool CanPaintHouse() => Game1.MasterPlayer.HouseUpgradeLevel >= 2;
+    public bool CanPaintHouse() { return Game1.MasterPlayer.HouseUpgradeLevel >= 2; }
 
     public bool HasPermissionsToPaint(Building b)
     {
@@ -305,7 +305,7 @@ namespace StardewValley.Menus
       return Game1.player.UniqueMultiplayerID == owner.UniqueMultiplayerID || Game1.player.spouse == owner.UniqueMultiplayerID.ToString();
     }
 
-    public bool hasPermissionsToMove(Building b) => (Game1.getFarm().greenhouseUnlocked.Value || !(b is GreenhouseBuilding)) && (Game1.IsMasterGame || Game1.player.team.farmhandsCanMoveBuildings.Value == FarmerTeam.RemoteBuildingPermissions.On || Game1.player.team.farmhandsCanMoveBuildings.Value == FarmerTeam.RemoteBuildingPermissions.OwnedBuildings && b.hasCarpenterPermissions());
+    public bool hasPermissionsToMove(Building b) { return (Game1.getFarm().greenhouseUnlocked.Value || !(b is GreenhouseBuilding)) && (Game1.IsMasterGame || Game1.player.team.farmhandsCanMoveBuildings.Value == FarmerTeam.RemoteBuildingPermissions.On || Game1.player.team.farmhandsCanMoveBuildings.Value == FarmerTeam.RemoteBuildingPermissions.OwnedBuildings && b.hasCarpenterPermissions()); }
 
     public override void receiveGamePadButton(Buttons b)
     {
@@ -611,7 +611,7 @@ namespace StardewValley.Menus
           else if (!this.HasPermissionsToPaint((Building) null))
             Game1.addHUDMessage(new HUDMessage(Game1.content.LoadString("Strings\\UI:Carpenter_CannotPaint_Permission"), Color.Red, 3500f));
           else
-            this.SetChildMenu((IClickableMenu) new BuildingPaintMenu("House", (Func<Texture2D>) (() => farm_location.paintedHouseTexture != null ? farm_location.paintedHouseTexture : Farm.houseTextures), farm_location.houseSource.Value, farm_location.housePaintColor.Value));
+            this.SetChildMenu((IClickableMenu) new BuildingPaintMenu("House", (Func<Texture2D>) (() { return farm_location.paintedHouseTexture != null ? farm_location.paintedHouseTexture : Farm.houseTextures), farm_location.houseSource.Value, farm_location.housePaintColor.Value)); }
         }
       }
       else if (this.moving)
@@ -667,7 +667,7 @@ namespace StardewValley.Menus
         }));
     }
 
-    public bool tryToBuild() => ((BuildableGameLocation) Game1.getLocationFromName("Farm")).buildStructure(this.CurrentBlueprint, new Vector2((float) ((Game1.viewport.X + Game1.getOldMouseX(false)) / 64), (float) ((Game1.viewport.Y + Game1.getOldMouseY(false)) / 64)), Game1.player, this.magicalConstruction);
+    public bool tryToBuild() { return ((BuildableGameLocation) Game1.getLocationFromName("Farm")).buildStructure(this.CurrentBlueprint, new Vector2((float) ((Game1.viewport.X + Game1.getOldMouseX(false)) / 64), (float) ((Game1.viewport.Y + Game1.getOldMouseY(false)) / 64)), Game1.player, this.magicalConstruction); }
 
     public void returnToCarpentryMenu()
     {
@@ -751,7 +751,7 @@ namespace StardewValley.Menus
       }
     }
 
-    public override bool overrideSnappyMenuCursorMovementBan() => this.onFarm;
+    public override bool overrideSnappyMenuCursorMovementBan() { return this.onFarm; }
 
     public void setUpForBuildingPlacement()
     {
@@ -776,7 +776,7 @@ namespace StardewValley.Menus
       this.upgrading = true;
     }
 
-    public override void gameWindowSizeChanged(Microsoft.Xna.Framework.Rectangle oldBounds, Microsoft.Xna.Framework.Rectangle newBounds) => this.resetBounds();
+    public override void gameWindowSizeChanged(Microsoft.Xna.Framework.Rectangle oldBounds, Microsoft.Xna.Framework.Rectangle newBounds) { return this.resetBounds(); }
 
     public virtual bool CanDemolishThis(Building building)
     {

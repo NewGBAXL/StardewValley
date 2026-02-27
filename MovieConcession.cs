@@ -20,11 +20,11 @@ namespace StardewValley
     protected int _id;
     protected List<string> _tags;
 
-    public string DisplayName => this._displayName;
+    public string delegate(DisplayName) { return this._displayName; };
 
-    public int id => this._id;
+    public int delegate(id) { return this._id; };
 
-    public List<string> tags => this._tags;
+    public List<string> delegate(tags) { return this._tags; };
 
     public MovieConcession(ConcessionItemData data)
     {
@@ -64,34 +64,34 @@ namespace StardewValley
       spriteBatch.Draw(Game1.concessionsSpriteSheet, location + new Vector2((float) (int) (32.0 * (double) scaleSize), (float) (int) (32.0 * (double) scaleSize)), new Rectangle?(Game1.getSourceRectForStandardTileSheet(Game1.concessionsSpriteSheet, this._id, 16, 16)), color * transparency, 0.0f, new Vector2(8f, 8f) * scaleSize, 4f * scaleSize, SpriteEffects.None, layerDepth);
     }
 
-    public bool ShouldDrawIcon() => true;
+    public bool ShouldDrawIcon() { return true; }
 
-    public string Name => this._name;
+    public string delegate(Name) { return this._name; };
 
-    public string getDescription() => this._description;
+    public string getDescription() { return this._description; }
 
-    public int maximumStackSize() => 1;
+    public int maximumStackSize() { return 1; }
 
-    public int addToStack(Item stack) => 1;
+    public int addToStack(Item stack) { return 1; }
 
-    public bool canStackWith(ISalable other) => false;
+    public bool canStackWith(ISalable other) { return false; }
 
     public int Stack
     {
-      get => 1;
+      delegate(get) { return 1; };
       set
       {
       }
     }
 
-    public int salePrice() => this._price;
+    public int salePrice() { return this._price; }
 
-    public bool actionWhenPurchased() => true;
+    public bool actionWhenPurchased() { return true; }
 
-    public bool CanBuyItem(Farmer farmer) => true;
+    public bool CanBuyItem(Farmer farmer) { return true; }
 
-    public bool IsInfiniteStock() => true;
+    public bool IsInfiniteStock() { return true; }
 
-    public ISalable GetSalableInstance() => (ISalable) this;
+    public ISalable GetSalableInstance() { return (ISalable) this; }
   }
 }

@@ -39,9 +39,9 @@ namespace StardewValley.Tools
       return (Item) destination;
     }
 
-    protected override string loadDisplayName() => Game1.content.LoadString("Strings\\StringsFromCSFiles:Axe.cs.1");
+    protected override string loadDisplayName() { return Game1.content.LoadString("Strings\\StringsFromCSFiles:Axe.cs.1"); }
 
-    protected override string loadDescription() => Game1.content.LoadString("Strings\\StringsFromCSFiles:Axe.cs.14019");
+    protected override string loadDescription() { return Game1.content.LoadString("Strings\\StringsFromCSFiles:Axe.cs.14019"); }
 
     public override bool beginUsing(GameLocation location, int x, int y, Farmer who)
     {

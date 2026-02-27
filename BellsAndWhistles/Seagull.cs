@@ -30,7 +30,7 @@ namespace StardewValley.BellsAndWhistles
       this.state = startingState;
     }
 
-    public void hop(Farmer who) => this.gravityAffectedDY = -4f;
+    public void hop(Farmer who) { return this.gravityAffectedDY = -4f; }
 
     public override bool update(GameTime time, GameLocation environment)
     {

@@ -73,7 +73,7 @@ namespace StardewValley
       return xboxSourceRect;
     }
 
-    public static char getRandomSlotCharacter() => Utility.getRandomSlotCharacter('o');
+    public static char getRandomSlotCharacter() { return Utility.getRandomSlotCharacter('o'); }
 
     public static List<Vector2> removeDuplicates(List<Vector2> list)
     {
@@ -148,13 +148,13 @@ namespace StardewValley
       }
     }
 
-    public static Point Vector2ToPoint(Vector2 v) => new Point((int) v.X, (int) v.Y);
+    public static Point Vector2ToPoint(Vector2 v) { return new Point((int) v.X, (int) v.Y); }
 
-    public static Vector2 PointToVector2(Point p) => new Vector2((float) p.X, (float) p.Y);
+    public static Vector2 PointToVector2(Point p) { return new Vector2((float) p.X, (float) p.Y); }
 
-    public static int getStartTimeOfFestival() => Game1.weatherIcon == 1 ? Convert.ToInt32(Game1.temporaryContent.Load<Dictionary<string, string>>("Data\\Festivals\\" + Game1.currentSeason + Game1.dayOfMonth.ToString())["conditions"].Split('/')[1].Split(' ')[0]) : -1;
+    public static int getStartTimeOfFestival() { return Game1.weatherIcon == 1 ? Convert.ToInt32(Game1.temporaryContent.Load<Dictionary<string, string>>("Data\\Festivals\\" + Game1.currentSeason + Game1.dayOfMonth.ToString())["conditions"].Split('/')[1].Split(' ')[0]) : -1; }
 
-    public static bool doesMasterPlayerHaveMailReceivedButNotMailForTomorrow(string mailID) => (Game1.MasterPlayer.mailReceived.Contains(mailID) || Game1.MasterPlayer.mailReceived.Contains(mailID + "%&NL&%")) && !Game1.MasterPlayer.mailForTomorrow.Contains(mailID) && !Game1.MasterPlayer.mailForTomorrow.Contains(mailID + "%&NL&%");
+    public static bool doesMasterPlayerHaveMailReceivedButNotMailForTomorrow(string mailID) { return (Game1.MasterPlayer.mailReceived.Contains(mailID) || Game1.MasterPlayer.mailReceived.Contains(mailID + "%&NL&%")) && !Game1.MasterPlayer.mailForTomorrow.Contains(mailID) && !Game1.MasterPlayer.mailForTomorrow.Contains(mailID + "%&NL&%"); }
 
     public static bool isFestivalDay(int day, string season)
     {
@@ -887,7 +887,7 @@ label_186:
       return color3;
     }
 
-    public static bool IsNormalObjectAtParentSheetIndex(Item item, int index) => item != null && !(item.GetType() != typeof (Object)) && !(item as Object).bigCraftable.Value && item.ParentSheetIndex == index;
+    public static bool IsNormalObjectAtParentSheetIndex(Item item, int index) { return item != null && !(item.GetType() != typeof (Object)) && !(item as Object).bigCraftable.Value && item.ParentSheetIndex == index; }
 
     public static bool isObjectOffLimitsForSale(int index)
     {
@@ -991,7 +991,7 @@ label_186:
       position.Y = (float) y;
     }
 
-    public static void makeSafe(ref Microsoft.Xna.Framework.Rectangle bounds) => Utility.makeSafe(ref bounds.X, ref bounds.Y, bounds.Width, bounds.Height);
+    public static void makeSafe(ref Microsoft.Xna.Framework.Rectangle bounds) { return Utility.makeSafe(ref bounds.X, ref bounds.Y, bounds.Width, bounds.Height); }
 
     public static void makeSafe(ref int x, ref int y, int width, int height)
     {
@@ -1203,17 +1203,20 @@ label_186:
       return dwarfShopStock;
     }
 
-    public static Dictionary<ISalable, int[]> getHospitalStock() => new Dictionary<ISalable, int[]>()
+    public static Dictionary<ISalable, int[]> getHospitalStock()
     {
+      return new Dictionary<ISalable, int[]>()
       {
-        (ISalable) new Object(349, 1),
-        new int[2]{ 1000, int.MaxValue }
-      },
-      {
-        (ISalable) new Object(351, 1),
-        new int[2]{ 1000, int.MaxValue }
-      }
-    };
+        {
+          (ISalable) new Object(349, 1),
+          new int[2]{ 1000, int.MaxValue }
+        },
+        {
+          (ISalable) new Object(351, 1),
+          new int[2]{ 1000, int.MaxValue }
+        }
+      };
+    }
 
     public static int CompareGameVersions(
       string version,
@@ -1255,34 +1258,36 @@ label_186:
       return (float) num1 / (float) num2;
     }
 
-    public static bool hasFarmerShippedAllItems() => (double) Utility.getFarmerItemsShippedPercent() >= 1.0;
+    public static bool hasFarmerShippedAllItems() { return (double) Utility.getFarmerItemsShippedPercent() >= 1.0; }
 
-    public static Dictionary<ISalable, int[]> getQiShopStock() => new Dictionary<ISalable, int[]>()
+    public static Dictionary<ISalable, int[]> getQiShopStock()
     {
+      return new Dictionary<ISalable, int[]>()
       {
-        (ISalable) new Furniture(1552, Vector2.Zero),
-        new int[2]{ 5000, int.MaxValue }
-      },
-      {
-        (ISalable) new Furniture(1545, Vector2.Zero),
-        new int[2]{ 4000, int.MaxValue }
-      },
-      {
-        (ISalable) new Furniture(1563, Vector2.Zero),
-        new int[2]{ 4000, int.MaxValue }
-      },
-      {
-        (ISalable) new Furniture(1561, Vector2.Zero),
-        new int[2]{ 3000, int.MaxValue }
-      },
-      {
-        (ISalable) new StardewValley.Objects.Hat(2),
-        new int[2]{ 8000, int.MaxValue }
-      },
-      {
-        (ISalable) new Object(Vector2.Zero, 126),
-        new int[2]{ 10000, int.MaxValue }
-      },
+        {
+          (ISalable) new Furniture(1552, Vector2.Zero),
+          new int[2]{ 5000, int.MaxValue }
+        },
+        {
+          (ISalable) new Furniture(1545, Vector2.Zero),
+          new int[2]{ 4000, int.MaxValue }
+        },
+        {
+          (ISalable) new Furniture(1563, Vector2.Zero),
+          new int[2]{ 4000, int.MaxValue }
+        },
+        {
+          (ISalable) new Furniture(1561, Vector2.Zero),
+          new int[2]{ 3000, int.MaxValue }
+        },
+        {
+          (ISalable) new StardewValley.Objects.Hat(2),
+          new int[2]{ 8000, int.MaxValue }
+        },
+        {
+          (ISalable) new Object(Vector2.Zero, 126),
+          new int[2]{ 10000, int.MaxValue }
+        },
       {
         (ISalable) new Object(298, 1),
         new int[2]{ 100, int.MaxValue }
@@ -1560,7 +1565,7 @@ label_186:
       return (NPC) null;
     }
 
-    public static bool highlightEdibleItems(Item i) => i is Object && (int) (NetFieldBase<int, NetInt>) (i as Object).edibility != -300;
+    public static bool highlightEdibleItems(Item i) { return i is Object && (int) (NetFieldBase<int, NetInt>) (i as Object).edibility != -300; }
 
     public static T GetRandom<T>(List<T> list, Random random = null)
     {
@@ -1754,15 +1759,15 @@ label_186:
       return (int) (NetFieldBase<int, NetInt>) (i as Object).edibility != -300 && (i as Object).Category != -7 || Utility.IsNormalObjectAtParentSheetIndex(i, 789) || Utility.IsNormalObjectAtParentSheetIndex(i, 71);
     }
 
-    public static bool highlightEdibleNonCookingItems(Item i) => i is Object && (int) (NetFieldBase<int, NetInt>) (i as Object).edibility != -300 && (i as Object).Category != -7;
+    public static bool highlightEdibleNonCookingItems(Item i) { return i is Object && (int) (NetFieldBase<int, NetInt>) (i as Object).edibility != -300 && (i as Object).Category != -7; }
 
-    public static bool highlightSmallObjects(Item i) => i is Object && !(bool) (NetFieldBase<bool, NetBool>) (i as Object).bigCraftable;
+    public static bool highlightSmallObjects(Item i) { return i is Object && !(bool) (NetFieldBase<bool, NetBool>) (i as Object).bigCraftable; }
 
-    public static bool highlightSantaObjects(Item i) => i.canBeTrashed() && i.canBeGivenAsGift() && Utility.highlightSmallObjects(i);
+    public static bool highlightSantaObjects(Item i) { return i.canBeTrashed() && i.canBeGivenAsGift() && Utility.highlightSmallObjects(i); }
 
-    public static bool highlightShippableObjects(Item i) => i is Object && (i as Object).canBeShipped();
+    public static bool highlightShippableObjects(Item i) { return i is Object && (i as Object).canBeShipped(); }
 
-    public static Farmer getFarmerFromFarmerNumberString(string s, Farmer defaultFarmer) => s.Equals("farmer") || !s.StartsWith("farmer") ? defaultFarmer : Utility.getFarmerFromFarmerNumber(Convert.ToInt32(s[s.Length - 1].ToString() ?? ""));
+    public static Farmer getFarmerFromFarmerNumberString(string s, Farmer defaultFarmer) { return s.Equals("farmer") || !s.StartsWith("farmer") ? defaultFarmer : Utility.getFarmerFromFarmerNumber(Convert.ToInt32(s[s.Length - 1].ToString() ?? "")); }
 
     public static int getFarmerNumberFromFarmer(Farmer who)
     {
@@ -1780,7 +1785,7 @@ label_186:
         return number == 1 ? Game1.player : (Farmer) null;
       if (number <= 1 && (NetFieldBase<Farmer, NetRef<Farmer>>) Game1.serverHost != (NetRef<Farmer>) null)
         return (Farmer) (NetFieldBase<Farmer, NetRef<Farmer>>) Game1.serverHost;
-      return number <= Game1.numberOfPlayers() ? Game1.otherFarmers.Values.Where<Farmer>((Func<Farmer, bool>) (f => f != Game1.serverHost.Value)).OrderBy<Farmer, long>((Func<Farmer, long>) (f => f.UniqueMultiplayerID)).ElementAt<Farmer>(number - 2) : (Farmer) null;
+      return number <= Game1.numberOfPlayers() ? Game1.otherFarmers.Values.Where<Farmer>((Func<Farmer, bool>) (delegate(f) { return f != Game1.serverHost.Value)).OrderBy<Farmer; }, long>((Func<Farmer, long>) (delegate(f) { return f.UniqueMultiplayerID)).ElementAt<Farmer>(number - 2) : (Farmer) null; };
     }
 
     public static string getLoveInterest(string who)
@@ -2187,7 +2192,7 @@ label_186:
       l.temporarySprites.AddRange((IEnumerable<TemporaryAnimatedSprite>) Utility.getStarsAndSpirals(l, sourceXTile, sourceYTile, tilesWide, tilesHigh, totalSprinkleDuration, millisecondsBetweenSprinkles, sprinkleColor, sound, motionTowardCenter));
     }
 
-    public static Vector2 snapDrawPosition(Vector2 draw_position) => new Vector2((float) (int) draw_position.X, (float) (int) draw_position.Y);
+    public static Vector2 snapDrawPosition(Vector2 draw_position) { return new Vector2((float) (int) draw_position.X, (float) (int) draw_position.Y); }
 
     public static Vector2 clampToTile(Vector2 nonTileLocation)
     {
@@ -2196,7 +2201,7 @@ label_186:
       return nonTileLocation;
     }
 
-    public static float distance(float x1, float x2, float y1, float y2) => (float) Math.Sqrt(((double) x2 - (double) x1) * ((double) x2 - (double) x1) + ((double) y2 - (double) y1) * ((double) y2 - (double) y1));
+    public static float distance(float x1, float x2, float y1, float y2) { return (float) Math.Sqrt(((double) x2 - (double) x1) * ((double) x2 - (double) x1) + ((double) y2 - (double) y1) * ((double) y2 - (double) y1)); }
 
     public static void facePlayerEndBehavior(Character c, GameLocation location)
     {
@@ -2432,7 +2437,7 @@ label_186:
       return str + Game1.content.LoadString("Strings\\StringsFromCSFiles:Utility.cs.5241", (object) (uint) ((int) Game1.player.totalMoneyEarned - (int) (Game1.player.totalMoneyEarned % 1000U)));
     }
 
-    public static string getCreditsString() => Game1.content.LoadString("Strings\\StringsFromCSFiles:Utility.cs.5243") + Environment.NewLine + " " + Environment.NewLine + Environment.NewLine + Environment.NewLine + Game1.content.LoadString("Strings\\StringsFromCSFiles:Utility.cs.5244") + Environment.NewLine + Game1.content.LoadString("Strings\\StringsFromCSFiles:Utility.cs.5245") + Environment.NewLine + Game1.content.LoadString("Strings\\StringsFromCSFiles:Utility.cs.5246") + Environment.NewLine + Environment.NewLine + "-Eric Barone" + Environment.NewLine + " " + Environment.NewLine + Environment.NewLine + Environment.NewLine + Game1.content.LoadString("Strings\\StringsFromCSFiles:Utility.cs.5248") + Environment.NewLine + Environment.NewLine + "-Amber Hageman" + Environment.NewLine + "-Shane Waletzko" + Environment.NewLine + "-Fiddy, Nuns, Kappy &" + Environment.NewLine + Game1.content.LoadString("Strings\\StringsFromCSFiles:Utility.cs.5252") + Environment.NewLine + Game1.content.LoadString("Strings\\StringsFromCSFiles:Utility.cs.5253") + Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine + Game1.content.LoadString("Strings\\StringsFromCSFiles:Utility.cs.5254");
+    public static string getCreditsString() { return Game1.content.LoadString("Strings\\StringsFromCSFiles:Utility.cs.5243") + Environment.NewLine + " " + Environment.NewLine + Environment.NewLine + Environment.NewLine + Game1.content.LoadString("Strings\\StringsFromCSFiles:Utility.cs.5244") + Environment.NewLine + Game1.content.LoadString("Strings\\StringsFromCSFiles:Utility.cs.5245") + Environment.NewLine + Game1.content.LoadString("Strings\\StringsFromCSFiles:Utility.cs.5246") + Environment.NewLine + Environment.NewLine + "-Eric Barone" + Environment.NewLine + " " + Environment.NewLine + Environment.NewLine + Environment.NewLine + Game1.content.LoadString("Strings\\StringsFromCSFiles:Utility.cs.5248") + Environment.NewLine + Environment.NewLine + "-Amber Hageman" + Environment.NewLine + "-Shane Waletzko" + Environment.NewLine + "-Fiddy, Nuns, Kappy &" + Environment.NewLine + Game1.content.LoadString("Strings\\StringsFromCSFiles:Utility.cs.5252") + Environment.NewLine + Game1.content.LoadString("Strings\\StringsFromCSFiles:Utility.cs.5253") + Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine + Game1.content.LoadString("Strings\\StringsFromCSFiles:Utility.cs.5254"); }
 
     public static string getStardewHeroCelebrationEventString(int finalFarmerScore)
     {
@@ -2612,7 +2617,7 @@ label_186:
       return false;
     }
 
-    public static bool CollectOrDrop(Item item) => Utility.CollectOrDrop(item, -1);
+    public static bool CollectOrDrop(Item item) { return Utility.CollectOrDrop(item, -1); }
 
     public static void perpareDayForStardewCelebration(int finalFarmerScore)
     {
@@ -2921,8 +2926,7 @@ label_186:
     public static bool doesItemWithThisIndexExistAnywhere(int index, bool bigCraftable = false)
     {
       bool item_found = false;
-      Utility.iterateAllItems((Action<Item>) (item =>
-      {
+      Utility.iterateAllItems((Action<Item>) (delegate(item) { return {; }
         if (!(item is Object) || (bool) (NetFieldBase<bool, NetBool>) (item as Object).bigCraftable != bigCraftable || (int) (NetFieldBase<int, NetInt>) item.parentSheetIndex != index)
           return;
         item_found = true;
@@ -2962,7 +2966,7 @@ label_186:
       return false;
     }
 
-    internal static void CollectGarbage(string filePath = "", int lineNumber = 0) => GC.Collect(0, GCCollectionMode.Forced);
+    internal static void CollectGarbage(string filePath = "", int lineNumber = 0) { return GC.Collect(0, GCCollectionMode.Forced); }
 
     public static string InvokeSimpleReturnTypeMethod(
       object toBeCalled,
@@ -3090,13 +3094,13 @@ label_186:
       return value;
     }
 
-    public static float Lerp(float a, float b, float t) => a + t * (b - a);
+    public static float Lerp(float a, float b, float t) { return a + t * (b - a); }
 
-    public static float MoveTowards(float from, float to, float delta) => (double) Math.Abs(to - from) <= (double) delta ? to : from + (float) Math.Sign(to - from) * delta;
+    public static float MoveTowards(float from, float to, float delta) { return (double) Math.Abs(to - from) <= (double) delta ? to : from + (float) Math.Sign(to - from) * delta; }
 
-    public static Microsoft.Xna.Framework.Color MultiplyColor(Microsoft.Xna.Framework.Color a, Microsoft.Xna.Framework.Color b) => new Microsoft.Xna.Framework.Color((float) ((double) a.R / (double) byte.MaxValue * ((double) b.R / (double) byte.MaxValue)), (float) ((double) a.G / (double) byte.MaxValue * ((double) b.G / (double) byte.MaxValue)), (float) ((double) a.B / (double) byte.MaxValue * ((double) b.B / (double) byte.MaxValue)), (float) ((double) a.A / (double) byte.MaxValue * ((double) b.A / (double) byte.MaxValue)));
+    public static Microsoft.Xna.Framework.Color MultiplyColor(Microsoft.Xna.Framework.Color a, Microsoft.Xna.Framework.Color b) { return new Microsoft.Xna.Framework.Color((float) ((double) a.R / (double) byte.MaxValue * ((double) b.R / (double) byte.MaxValue)), (float) ((double) a.G / (double) byte.MaxValue * ((double) b.G / (double) byte.MaxValue)), (float) ((double) a.B / (double) byte.MaxValue * ((double) b.B / (double) byte.MaxValue)), (float) ((double) a.A / (double) byte.MaxValue * ((double) b.A / (double) byte.MaxValue))); }
 
-    public static int CalculateMinutesUntilMorning(int currentTime) => Utility.CalculateMinutesUntilMorning(currentTime, 1);
+    public static int CalculateMinutesUntilMorning(int currentTime) { return Utility.CalculateMinutesUntilMorning(currentTime, 1); }
 
     public static int CalculateMinutesUntilMorning(int currentTime, int daysElapsed)
     {
@@ -3106,7 +3110,7 @@ label_186:
       return Utility.ConvertTimeToMinutes(2600) - Utility.ConvertTimeToMinutes(currentTime) + 400 + daysElapsed * 1600;
     }
 
-    public static int CalculateMinutesBetweenTimes(int startTime, int endTime) => Utility.ConvertTimeToMinutes(endTime) - Utility.ConvertTimeToMinutes(startTime);
+    public static int CalculateMinutesBetweenTimes(int startTime, int endTime) { return Utility.ConvertTimeToMinutes(endTime) - Utility.ConvertTimeToMinutes(startTime); }
 
     public static int ModifyTime(int timestamp, int minutes_to_add)
     {
@@ -3115,11 +3119,11 @@ label_186:
       return Utility.ConvertMinutesToTime(timestamp);
     }
 
-    public static int ConvertMinutesToTime(int minutes) => minutes / 60 * 100 + minutes % 60;
+    public static int ConvertMinutesToTime(int minutes) { return minutes / 60 * 100 + minutes % 60; }
 
-    public static int ConvertTimeToMinutes(int time_stamp) => time_stamp / 100 * 60 + time_stamp % 100;
+    public static int ConvertTimeToMinutes(int time_stamp) { return time_stamp / 100 * 60 + time_stamp % 100; }
 
-    public static int getSellToStorePriceOfItem(Item i, bool countStack = true) => i != null ? (i is Object ? (i as Object).sellToStorePrice() : i.salePrice() / 2) * (countStack ? i.Stack : 1) : 0;
+    public static int getSellToStorePriceOfItem(Item i, bool countStack = true) { return i != null ? (i is Object ? (i as Object).sellToStorePrice() : i.salePrice() / 2) * (countStack ? i.Stack : 1) : 0; }
 
     public static bool HasAnyPlayerSeenSecretNote(int note_number)
     {
@@ -3511,7 +3515,7 @@ label_186:
       return source.ElementAt<int>(random.Next(source.Count));
     }
 
-    private static bool isCategoryIngredientAvailable(int category) => category < 0 && category != -5 && category != -6;
+    private static bool isCategoryIngredientAvailable(int category) { return category < 0 && category != -5 && category != -6; }
 
     public static int weatherDebrisOffsetForSeason(string season)
     {
@@ -3684,7 +3688,7 @@ label_186:
     public static float percentGameComplete()
     {
       float num1 = 0.0f;
-      KeyValuePair<Farmer, float> farmCompletion1 = Utility.GetFarmCompletion((Func<Farmer, float>) (farmer => Utility.getFarmerItemsShippedPercent(farmer)));
+      KeyValuePair<Farmer, float> farmCompletion1 = Utility.GetFarmCompletion((Func<Farmer, float>) (delegate(farmer) { return Utility.getFarmerItemsShippedPercent(farmer))); };
       double num2 = 0.0 + (double) farmCompletion1.Value * 15.0;
       float num3 = num1 + 15f;
       double num4 = (double) Math.Min((float) Utility.numObelisksOnFarm(), 4f);
@@ -3693,31 +3697,31 @@ label_186:
       double num7 = Game1.getFarm().isBuildingConstructed("Gold Clock") ? 10.0 : 0.0;
       double num8 = num5 + num7;
       float num9 = num6 + 10f;
-      KeyValuePair<Farmer, bool> farmCompletion2 = Utility.GetFarmCompletion((Func<Farmer, bool>) (farmer => farmer.hasCompletedAllMonsterSlayerQuests.Value));
+      KeyValuePair<Farmer, bool> farmCompletion2 = Utility.GetFarmCompletion((Func<Farmer, bool>) (delegate(farmer) { return farmer.hasCompletedAllMonsterSlayerQuests.Value)); };
       double num10 = farmCompletion2.Value ? 10.0 : 0.0;
       double num11 = num8 + num10;
       float num12 = num9 + 10f;
-      farmCompletion1 = Utility.GetFarmCompletion((Func<Farmer, float>) (farmer => Utility.getMaxedFriendshipPercent(farmer)));
+      farmCompletion1 = Utility.GetFarmCompletion((Func<Farmer, float>) (delegate(farmer) { return Utility.getMaxedFriendshipPercent(farmer))); };
       double num13 = (double) farmCompletion1.Value * 11.0;
       double num14 = num11 + num13;
       float num15 = num12 + 11f;
-      farmCompletion1 = Utility.GetFarmCompletion((Func<Farmer, float>) (farmer => Math.Min((float) farmer.Level, 25f) / 25f));
+      farmCompletion1 = Utility.GetFarmCompletion((Func<Farmer, float>) (delegate(farmer) { return Math.Min((float) farmer.Level; }, 25f) / 25f));
       double num16 = (double) farmCompletion1.Value * 5.0;
       double num17 = num14 + num16;
       float num18 = num15 + 5f;
-      farmCompletion2 = Utility.GetFarmCompletion((Func<Farmer, bool>) (farmer => Utility.foundAllStardrops(farmer)));
+      farmCompletion2 = Utility.GetFarmCompletion((Func<Farmer, bool>) (delegate(farmer) { return Utility.foundAllStardrops(farmer))); };
       double num19 = farmCompletion2.Value ? 10.0 : 0.0;
       double num20 = num17 + num19;
       float num21 = num18 + 10f;
-      farmCompletion1 = Utility.GetFarmCompletion((Func<Farmer, float>) (farmer => Utility.getCookedRecipesPercent(farmer)));
+      farmCompletion1 = Utility.GetFarmCompletion((Func<Farmer, float>) (delegate(farmer) { return Utility.getCookedRecipesPercent(farmer))); };
       double num22 = (double) farmCompletion1.Value * 10.0;
       double num23 = num20 + num22;
       float num24 = num21 + 10f;
-      farmCompletion1 = Utility.GetFarmCompletion((Func<Farmer, float>) (farmer => Utility.getCraftedRecipesPercent(farmer)));
+      farmCompletion1 = Utility.GetFarmCompletion((Func<Farmer, float>) (delegate(farmer) { return Utility.getCraftedRecipesPercent(farmer))); };
       double num25 = (double) farmCompletion1.Value * 10.0;
       double num26 = num23 + num25;
       float num27 = num24 + 10f;
-      farmCompletion1 = Utility.GetFarmCompletion((Func<Farmer, float>) (farmer => Utility.getFishCaughtPercent(farmer)));
+      farmCompletion1 = Utility.GetFarmCompletion((Func<Farmer, float>) (delegate(farmer) { return Utility.getFishCaughtPercent(farmer))); };
       double num28 = (double) farmCompletion1.Value * 10.0;
       double num29 = num26 + num28;
       float num30 = num27 + 10f;
@@ -3726,9 +3730,9 @@ label_186:
       return (float) (num29 + num31) / (num30 + 5f);
     }
 
-    public static int numObelisksOnFarm() => (Game1.getFarm().isBuildingConstructed("Water Obelisk") ? 1 : 0) + (Game1.getFarm().isBuildingConstructed("Earth Obelisk") ? 1 : 0) + (Game1.getFarm().isBuildingConstructed("Desert Obelisk") ? 1 : 0) + (Game1.getFarm().isBuildingConstructed("Island Obelisk") ? 1 : 0);
+    public static int numObelisksOnFarm() { return (Game1.getFarm().isBuildingConstructed("Water Obelisk") ? 1 : 0) + (Game1.getFarm().isBuildingConstructed("Earth Obelisk") ? 1 : 0) + (Game1.getFarm().isBuildingConstructed("Desert Obelisk") ? 1 : 0) + (Game1.getFarm().isBuildingConstructed("Island Obelisk") ? 1 : 0); }
 
-    public static bool IsDesertLocation(GameLocation location) => location.Name == "Desert" || location.Name == "SkullCave" || location.Name == "Club" || location.Name == "SandyHouse" || location.Name == "SandyShop";
+    public static bool IsDesertLocation(GameLocation location) { return location.Name == "Desert" || location.Name == "SkullCave" || location.Name == "Club" || location.Name == "SandyHouse" || location.Name == "SandyShop"; }
 
     public static List<string> getOtherFarmerNames()
     {
@@ -3989,7 +3993,7 @@ label_186:
       return heroStandingsString;
     }
 
-    private static int cosmicFruitPercent() => Math.Max(0, (Game1.player.MaxStamina - 120) / 20);
+    private static int cosmicFruitPercent() { return Math.Max(0, (Game1.player.MaxStamina - 120) / 20); }
 
     private static int minePercentage()
     {
@@ -4022,13 +4026,13 @@ label_186:
       return (int) ((double) (num / Game1.content.Load<Dictionary<string, string>>("Data\\CraftingRecipes").Count) * 3.0);
     }
 
-    private static int achievementsPercent() => (int) ((double) (Game1.player.achievements.Count / Game1.content.Load<Dictionary<int, string>>("Data\\achievements").Count) * 15.0);
+    private static int achievementsPercent() { return (int) ((double) (Game1.player.achievements.Count / Game1.content.Load<Dictionary<int, string>>("Data\\achievements").Count) * 15.0); }
 
-    private static int itemsShippedPercent() => (int) ((double) Game1.player.basicShipped.Count() / 92.0 * 5.0);
+    private static int itemsShippedPercent() { return (int) ((double) Game1.player.basicShipped.Count() / 92.0 * 5.0); }
 
-    private static int artifactsPercent() => (int) ((double) Game1.player.archaeologyFound.Count() / 32.0 * 3.0);
+    private static int artifactsPercent() { return (int) ((double) Game1.player.archaeologyFound.Count() / 32.0 * 3.0); }
 
-    private static int fishPercent() => (int) ((double) Game1.player.fishCaught.Count() / 42.0 * 3.0);
+    private static int fishPercent() { return (int) ((double) Game1.player.fishCaught.Count() / 42.0 * 3.0); }
 
     private static int upgradePercent()
     {
@@ -4088,7 +4092,7 @@ label_186:
       return num >= 0.08 ? (num >= 0.18 || MineShaft.lowestLevelReached <= 0 || Game1.stats.DaysPlayed <= 5U ? (num >= 0.53 ? (num >= 0.6 ? (Quest) new ItemDeliveryQuest() : (Quest) new FishingQuest()) : (Quest) null) : (Quest) new SlayMonsterQuest()) : (Quest) new ResourceCollectionQuest();
     }
 
-    public static Microsoft.Xna.Framework.Color getOppositeColor(Microsoft.Xna.Framework.Color color) => new Microsoft.Xna.Framework.Color((int) byte.MaxValue - (int) color.R, (int) byte.MaxValue - (int) color.G, (int) byte.MaxValue - (int) color.B);
+    public static Microsoft.Xna.Framework.Color getOppositeColor(Microsoft.Xna.Framework.Color color) { return new Microsoft.Xna.Framework.Color((int) byte.MaxValue - (int) color.R, (int) byte.MaxValue - (int) color.G, (int) byte.MaxValue - (int) color.B); }
 
     public static void drawLightningBolt(Vector2 strikePosition, GameLocation l)
     {
@@ -4137,7 +4141,7 @@ label_186:
       return Utility.getDateStringFor(dayOfMonth + num, seasonNumber, year);
     }
 
-    public static string getYesterdaysDate() => Utility.getDateString(-1);
+    public static string getYesterdaysDate() { return Utility.getDateString(-1); }
 
     public static string getSeasonNameFromNumber(int number)
     {
@@ -4321,13 +4325,16 @@ label_186:
         Utility.performLightningUpdate(Game1.timeOfDay + index * 100);
     }
 
-    public static List<Vector2> getAdjacentTileLocations(Vector2 tileLocation) => new List<Vector2>()
+    public static List<Vector2> getAdjacentTileLocations(Vector2 tileLocation)
     {
-      new Vector2(-1f, 0.0f) + tileLocation,
-      new Vector2(1f, 0.0f) + tileLocation,
-      new Vector2(0.0f, 1f) + tileLocation,
-      new Vector2(0.0f, -1f) + tileLocation
-    };
+      return new List<Vector2>()
+      {
+        new Vector2(-1f, 0.0f) + tileLocation,
+        new Vector2(1f, 0.0f) + tileLocation,
+        new Vector2(0.0f, 1f) + tileLocation,
+        new Vector2(0.0f, -1f) + tileLocation
+      };
+    }
 
     public static List<Point> getAdjacentTilePoints(float xTile, float yTile)
     {
@@ -4341,35 +4348,44 @@ label_186:
       return adjacentTilePoints;
     }
 
-    public static Vector2[] getAdjacentTileLocationsArray(Vector2 tileLocation) => new Vector2[4]
+    public static Vector2[] getAdjacentTileLocationsArray(Vector2 tileLocation)
     {
-      new Vector2(-1f, 0.0f) + tileLocation,
-      new Vector2(1f, 0.0f) + tileLocation,
-      new Vector2(0.0f, 1f) + tileLocation,
-      new Vector2(0.0f, -1f) + tileLocation
-    };
+      return new Vector2[4]
+      {
+        new Vector2(-1f, 0.0f) + tileLocation,
+        new Vector2(1f, 0.0f) + tileLocation,
+        new Vector2(0.0f, 1f) + tileLocation,
+        new Vector2(0.0f, -1f) + tileLocation
+      };
+    }
 
-    public static Vector2[] getDiagonalTileLocationsArray(Vector2 tileLocation) => new Vector2[4]
+    public static Vector2[] getDiagonalTileLocationsArray(Vector2 tileLocation)
     {
-      new Vector2(-1f, -1f) + tileLocation,
-      new Vector2(1f, 1f) + tileLocation,
-      new Vector2(-1f, 1f) + tileLocation,
-      new Vector2(1f, -1f) + tileLocation
-    };
+      return new Vector2[4]
+      {
+        new Vector2(-1f, -1f) + tileLocation,
+        new Vector2(1f, 1f) + tileLocation,
+        new Vector2(-1f, 1f) + tileLocation,
+        new Vector2(1f, -1f) + tileLocation
+      };
+    }
 
-    public static Vector2[] getSurroundingTileLocationsArray(Vector2 tileLocation) => new Vector2[8]
+    public static Vector2[] getSurroundingTileLocationsArray(Vector2 tileLocation)
     {
-      new Vector2(-1f, 0.0f) + tileLocation,
-      new Vector2(1f, 0.0f) + tileLocation,
-      new Vector2(0.0f, 1f) + tileLocation,
-      new Vector2(0.0f, -1f) + tileLocation,
-      new Vector2(-1f, -1f) + tileLocation,
-      new Vector2(1f, -1f) + tileLocation,
-      new Vector2(1f, 1f) + tileLocation,
-      new Vector2(-1f, 1f) + tileLocation
-    };
+      return new Vector2[8]
+      {
+        new Vector2(-1f, 0.0f) + tileLocation,
+        new Vector2(1f, 0.0f) + tileLocation,
+        new Vector2(0.0f, 1f) + tileLocation,
+        new Vector2(0.0f, -1f) + tileLocation,
+        new Vector2(-1f, -1f) + tileLocation,
+        new Vector2(1f, -1f) + tileLocation,
+        new Vector2(1f, 1f) + tileLocation,
+        new Vector2(-1f, 1f) + tileLocation
+      };
+    }
 
-    public static Crop findCloseFlower(GameLocation location, Vector2 startTileLocation) => Utility.findCloseFlower(location, startTileLocation, -1, (Func<Crop, bool>) null);
+    public static Crop findCloseFlower(GameLocation location, Vector2 startTileLocation) { return Utility.findCloseFlower(location, startTileLocation, -1, (Func<Crop, bool>) null); }
 
     public static Crop findCloseFlower(
       GameLocation location,
@@ -5413,7 +5429,7 @@ label_38:
       });
       if (!who.HasTownKey)
       {
-        PurchaseableKeyItem key8 = new PurchaseableKeyItem(Game1.content.LoadString("Strings\\StringsFromCSFiles:KeyToTheTown"), Game1.content.LoadString("Strings\\StringsFromCSFiles:Key To The Town_desc"), 912, (Action<Farmer>) (farmer => farmer.HasTownKey = true));
+        PurchaseableKeyItem key8 = new PurchaseableKeyItem(Game1.content.LoadString("Strings\\StringsFromCSFiles:KeyToTheTown"), Game1.content.LoadString("Strings\\StringsFromCSFiles:Key To The Town_desc"), 912, (Action<Farmer>) (delegate(farmer) { return farmer.HasTownKey = true)); };
         challengeRewardStock.Add((ISalable) key8, new int[4]
         {
           0,
@@ -5889,16 +5905,19 @@ label_38:
       return saloonStock;
     }
 
-    public static int[] getForbiddenDishesOfTheDay() => new int[7]
+    public static int[] getForbiddenDishesOfTheDay()
     {
-      346,
-      196,
-      216,
-      224,
-      206,
-      395,
-      217
-    };
+      return new int[7]
+      {
+        346,
+        196,
+        216,
+        224,
+        206,
+        395,
+        217
+      };
+    }
 
     public static bool removeLightSource(int identifier)
     {
@@ -6119,9 +6138,9 @@ label_38:
       return false;
     }
 
-    public static string loadStringShort(string fileWithinStringsFolder, string key) => Game1.content.LoadString("Strings\\" + fileWithinStringsFolder + ":" + key);
+    public static string loadStringShort(string fileWithinStringsFolder, string key) { return Game1.content.LoadString("Strings\\" + fileWithinStringsFolder + ":" + key); }
 
-    public static string loadStringDataShort(string fileWithinStringsFolder, string key) => Game1.content.LoadString("Data\\" + fileWithinStringsFolder + ":" + key);
+    public static string loadStringDataShort(string fileWithinStringsFolder, string key) { return Game1.content.LoadString("Data\\" + fileWithinStringsFolder + ":" + key); }
 
     public static bool doesAnyFarmerHaveMail(string id)
     {
@@ -6135,7 +6154,9 @@ label_38:
       return false;
     }
 
-    public static FarmEvent pickFarmEvent() => Game1.hooks.OnUtility_PickFarmEvent((Func<FarmEvent>) (() =>
+    public static FarmEvent pickFarmEvent()
+    {
+      return Game1.hooks.OnUtility_PickFarmEvent((Func<FarmEvent>) (() =>
     {
       Random random = new Random((int) Game1.stats.DaysPlayed + (int) Game1.uniqueIDForThisGame / 2);
       if (Game1.weddingToday)
@@ -6191,6 +6212,8 @@ label_38:
       Game1.MasterPlayer.mailReceived.Add("Got_Capsule");
       return (FarmEvent) new SoundInTheNightEvent(0);
     }));
+
+    }
 
     public static bool hasFinishedJojaRoute()
     {
@@ -6262,27 +6285,30 @@ label_38:
       return children.Count == 0 || children[0].Age > 2;
     }
 
-    public static string capitalizeFirstLetter(string s) => s == null || s.Length < 1 ? "" : s[0].ToString().ToUpper() + (s.Length > 1 ? s.Substring(1) : "");
+    public static string capitalizeFirstLetter(string s) { return s == null || s.Length < 1 ? "" : s[0].ToString().ToUpper() + (s.Length > 1 ? s.Substring(1) : ""); }
 
-    public static Dictionary<ISalable, int[]> getBlacksmithStock() => new Dictionary<ISalable, int[]>()
+    public static Dictionary<ISalable, int[]> getBlacksmithStock()
     {
+      return new Dictionary<ISalable, int[]>()
       {
-        (ISalable) new Object(Vector2.Zero, 378, int.MaxValue),
-        new int[2]{ Game1.year > 1 ? 150 : 75, int.MaxValue }
-      },
-      {
-        (ISalable) new Object(Vector2.Zero, 380, int.MaxValue),
-        new int[2]{ Game1.year > 1 ? 250 : 150, int.MaxValue }
-      },
-      {
-        (ISalable) new Object(Vector2.Zero, 382, int.MaxValue),
-        new int[2]{ Game1.year > 1 ? 250 : 150, int.MaxValue }
-      },
-      {
-        (ISalable) new Object(Vector2.Zero, 384, int.MaxValue),
-        new int[2]{ Game1.year > 1 ? 750 : 400, int.MaxValue }
-      }
-    };
+        {
+          (ISalable) new Object(Vector2.Zero, 378, int.MaxValue),
+          new int[2]{ Game1.year > 1 ? 150 : 75, int.MaxValue }
+        },
+        {
+          (ISalable) new Object(Vector2.Zero, 380, int.MaxValue),
+          new int[2]{ Game1.year > 1 ? 250 : 150, int.MaxValue }
+        },
+        {
+          (ISalable) new Object(Vector2.Zero, 382, int.MaxValue),
+          new int[2]{ Game1.year > 1 ? 250 : 150, int.MaxValue }
+        },
+        {
+          (ISalable) new Object(Vector2.Zero, 384, int.MaxValue),
+          new int[2]{ Game1.year > 1 ? 750 : 400, int.MaxValue }
+        }
+      };
+    }
 
     public static bool alreadyHasLightSourceWithThisID(int identifier)
     {
@@ -6720,7 +6746,7 @@ label_38:
       return new Vector2((float) (num5 * num9 + (double) num3 * (double) num8 + (double) num1 * (double) t) + p0.X, (float) ((double) num6 * (double) num7 + (double) num4 * (double) num8 + (double) num2 * (double) t) + p0.Y);
     }
 
-    public static GameLocation getGameLocationOfCharacter(NPC n) => n.currentLocation;
+    public static GameLocation getGameLocationOfCharacter(NPC n) { return n.currentLocation; }
 
     public static int[] parseStringToIntArray(string s, char delimiter = ' ')
     {
@@ -6798,11 +6824,11 @@ label_38:
       return (Character) Utility.isThereAFarmerWithinDistance(tileLocation, tilesAway, environment);
     }
 
-    public static Microsoft.Xna.Framework.Color getRedToGreenLerpColor(float power) => new Microsoft.Xna.Framework.Color((double) power <= 0.5 ? (int) byte.MaxValue : (int) ((1.0 - (double) power) * 2.0 * (double) byte.MaxValue), (int) Math.Min((float) byte.MaxValue, (float) ((double) power * 2.0 * (double) byte.MaxValue)), 0);
+    public static Microsoft.Xna.Framework.Color getRedToGreenLerpColor(float power) { return new Microsoft.Xna.Framework.Color((double) power <= 0.5 ? (int) byte.MaxValue : (int) ((1.0 - (double) power) * 2.0 * (double) byte.MaxValue), (int) Math.Min((float) byte.MaxValue, (float) ((double) power * 2.0 * (double) byte.MaxValue)), 0); }
 
-    public static FarmHouse getHomeOfFarmer(Farmer who) => Game1.getLocationFromName((string) (NetFieldBase<string, NetString>) who.homeLocation) as FarmHouse;
+    public static FarmHouse getHomeOfFarmer(Farmer who) { return Game1.getLocationFromName((string) (NetFieldBase<string, NetString>) who.homeLocation) as FarmHouse; }
 
-    public static Vector2 getRandomPositionOnScreen() => new Vector2((float) Game1.random.Next(Game1.viewport.Width), (float) Game1.random.Next(Game1.viewport.Height));
+    public static Vector2 getRandomPositionOnScreen() { return new Vector2((float) Game1.random.Next(Game1.viewport.Width), (float) Game1.random.Next(Game1.viewport.Height)); }
 
     public static Vector2 getRandomPositionOnScreenNotOnMap()
     {
@@ -7042,9 +7068,9 @@ label_38:
       return true;
     }
 
-    public static bool isPlacementForbiddenHere(GameLocation location) => location == null || Utility.isPlacementForbiddenHere((string) (NetFieldBase<string, NetString>) location.name);
+    public static bool isPlacementForbiddenHere(GameLocation location) { return location == null || Utility.isPlacementForbiddenHere((string) (NetFieldBase<string, NetString>) location.name); }
 
-    public static bool isPlacementForbiddenHere(string location_name) => location_name == "AbandonedJojaMart" || location_name == "BeachNightMarket";
+    public static bool isPlacementForbiddenHere(string location_name) { return location_name == "AbandonedJojaMart" || location_name == "BeachNightMarket"; }
 
     public static void transferPlacedObjectsFromOneLocationToAnother(
       GameLocation source,
@@ -7167,7 +7193,7 @@ label_38:
       location.objects.Add(vector2, o);
     }
 
-    public static bool isWithinTileWithLeeway(int x, int y, Item item, Farmer f) => Utility.withinRadiusOfPlayer(x, y, 1, f) || Utility._HasNonMousePlacementLeeway(x, y, item, f);
+    public static bool isWithinTileWithLeeway(int x, int y, Item item, Farmer f) { return Utility.withinRadiusOfPlayer(x, y, 1, f) || Utility._HasNonMousePlacementLeeway(x, y, item, f); }
 
     public static bool playerCanPlaceItemHere(
       GameLocation location,
@@ -7206,7 +7232,7 @@ label_38:
       return false;
     }
 
-    public static int GetDoubleWideVersionOfBed(int bed_index) => bed_index + 4;
+    public static int GetDoubleWideVersionOfBed(int bed_index) { return bed_index + 4; }
 
     private static bool itemCanBePlaced(GameLocation location, Vector2 tileLocation, Item item)
     {
@@ -7423,7 +7449,7 @@ label_38:
       return heldItem;
     }
 
-    public static void iterateAllItemsHere(GameLocation location, Action<Item> action) => Utility._recursiveIterateLocation(location, action);
+    public static void iterateAllItemsHere(GameLocation location, Action<Item> action) { return Utility._recursiveIterateLocation(location, action); }
 
     public static void iterateAllItems(Action<Item> action)
     {
@@ -7720,7 +7746,7 @@ label_38:
       }
     }
 
-    public static NPC getRandomTownNPC() => Utility.getRandomTownNPC(Game1.random);
+    public static NPC getRandomTownNPC() { return Utility.getRandomTownNPC(Game1.random); }
 
     public static NPC getRandomTownNPC(Random r)
     {
@@ -7974,7 +8000,7 @@ label_38:
         if (l.isTileOccupiedForPlacement(vector2_1) || l.isOpenWater((int) vector2_1.X, (int) vector2_1.Y))
         {
           vector2Set.Add(vector2_1);
-          foreach (Vector2 vector2_2 in Utility.getAdjacentTileLocations(vector2_1).OrderBy<Vector2, Guid>((Func<Vector2, Guid>) (a => Guid.NewGuid())).ToList<Vector2>())
+          foreach (Vector2 vector2_2 in Utility.getAdjacentTileLocations(vector2_1).OrderBy<Vector2, Guid>((Func<Vector2, Guid>) (delegate(a) { return Guid.NewGuid())).ToList<Vector2>()); }
           {
             if (!vector2Set.Contains(vector2_2))
               vector2Queue.Enqueue(vector2_2);
@@ -8442,7 +8468,7 @@ label_38:
       return false;
     }
 
-    public static ButtonCollection getHeldButtons(GamePadState padState) => new ButtonCollection(ref padState);
+    public static ButtonCollection getHeldButtons(GamePadState padState) { return new ButtonCollection(ref padState); }
 
     /// <summary>return true if music becomes muted</summary>
     /// <returns></returns>
@@ -8535,7 +8561,7 @@ label_38:
       return Utility.getVelocityTowardPoint(new Vector2((float) startingPoint.X, (float) startingPoint.Y), endingPoint, speed);
     }
 
-    public static Vector2 getRandomPositionInThisRectangle(Microsoft.Xna.Framework.Rectangle r, Random random) => new Vector2((float) random.Next(r.X, r.X + r.Width), (float) random.Next(r.Y, r.Y + r.Height));
+    public static Vector2 getRandomPositionInThisRectangle(Microsoft.Xna.Framework.Rectangle r, Random random) { return new Vector2((float) random.Next(r.X, r.X + r.Width), (float) random.Next(r.Y, r.Y + r.Height)); }
 
     public static Vector2 getTopLeftPositionForCenteringOnScreen(
       xTile.Dimensions.Rectangle viewport,
@@ -8737,7 +8763,7 @@ label_38:
       return flagArray;
     }
 
-    public static Microsoft.Xna.Framework.Color getBlendedColor(Microsoft.Xna.Framework.Color c1, Microsoft.Xna.Framework.Color c2) => new Microsoft.Xna.Framework.Color(Game1.random.NextDouble() < 0.5 ? (int) Math.Max(c1.R, c2.R) : ((int) c1.R + (int) c2.R) / 2, Game1.random.NextDouble() < 0.5 ? (int) Math.Max(c1.G, c2.G) : ((int) c1.G + (int) c2.G) / 2, Game1.random.NextDouble() < 0.5 ? (int) Math.Max(c1.B, c2.B) : ((int) c1.B + (int) c2.B) / 2);
+    public static Microsoft.Xna.Framework.Color getBlendedColor(Microsoft.Xna.Framework.Color c1, Microsoft.Xna.Framework.Color c2) { return new Microsoft.Xna.Framework.Color(Game1.random.NextDouble() < 0.5 ? (int) Math.Max(c1.R, c2.R) : ((int) c1.R + (int) c2.R) / 2, Game1.random.NextDouble() < 0.5 ? (int) Math.Max(c1.G, c2.G) : ((int) c1.G + (int) c2.G) / 2, Game1.random.NextDouble() < 0.5 ? (int) Math.Max(c1.B, c2.B) : ((int) c1.B + (int) c2.B) / 2); }
 
     public static Character checkForCharacterWithinArea(
       Type kindOfCharacter,
@@ -8932,7 +8958,7 @@ label_38:
       Utility.recursiveRemoveTerrainFeatures(tileX, tileY - 1, growthRate, decay, l);
     }
 
-    public static IEnumerator<int> generateNewFarm(bool skipFarmGeneration) => Utility.generateNewFarm(skipFarmGeneration, true);
+    public static IEnumerator<int> generateNewFarm(bool skipFarmGeneration) { return Utility.generateNewFarm(skipFarmGeneration, true); }
 
     public static IEnumerator<int> generateNewFarm(
       bool skipFarmGeneration,
@@ -9178,9 +9204,9 @@ label_38:
       return BitConverter.ToInt64(buffer, 0);
     }
 
-    public static ulong NewUniqueIdForThisGame() => (ulong) (long) (DateTime.UtcNow - new DateTime(2012, 6, 22)).TotalSeconds;
+    public static ulong NewUniqueIdForThisGame() { return (ulong) (long) (DateTime.UtcNow - new DateTime(2012, 6, 22)).TotalSeconds; }
 
-    public static string FilterDirtyWords(string words) => Program.sdk.FilterDirtyWords(words);
+    public static string FilterDirtyWords(string words) { return Program.sdk.FilterDirtyWords(words); }
 
     /// <summary>
     /// This is used to filter out special characters from user entered
@@ -9188,11 +9214,11 @@ label_38:
     /// 
     /// The characters are replaced with spaces.
     /// </summary>
-    public static string FilterUserName(string name) => name;
+    public static string FilterUserName(string name) { return name; }
 
-    public static bool IsHorizontalDirection(int direction) => direction == 3 || direction == 1;
+    public static bool IsHorizontalDirection(int direction) { return direction == 3 || direction == 1; }
 
-    public static bool IsVerticalDirection(int direction) => direction == 0 || direction == 2;
+    public static bool IsVerticalDirection(int direction) { return direction == 0 || direction == 2; }
 
     public static Microsoft.Xna.Framework.Rectangle ExpandRectangle(
       Microsoft.Xna.Framework.Rectangle rect,
@@ -9320,14 +9346,14 @@ label_38:
       return hue < 240.0 ? q1 + (q2 - q1) * (240.0 - hue) / 60.0 : q1;
     }
 
-    public static float ModifyCoordinateFromUIScale(float coordinate) => coordinate * Game1.options.uiScale / Game1.options.zoomLevel;
+    public static float ModifyCoordinateFromUIScale(float coordinate) { return coordinate * Game1.options.uiScale / Game1.options.zoomLevel; }
 
-    public static Vector2 ModifyCoordinatesFromUIScale(Vector2 coordinates) => coordinates * Game1.options.uiScale / Game1.options.zoomLevel;
+    public static Vector2 ModifyCoordinatesFromUIScale(Vector2 coordinates) { return coordinates * Game1.options.uiScale / Game1.options.zoomLevel; }
 
-    public static float ModifyCoordinateForUIScale(float coordinate) => coordinate / Game1.options.uiScale * Game1.options.zoomLevel;
+    public static float ModifyCoordinateForUIScale(float coordinate) { return coordinate / Game1.options.uiScale * Game1.options.zoomLevel; }
 
-    public static Vector2 ModifyCoordinatesForUIScale(Vector2 coordinates) => coordinates / Game1.options.uiScale * Game1.options.zoomLevel;
+    public static Vector2 ModifyCoordinatesForUIScale(Vector2 coordinates) { return coordinates / Game1.options.uiScale * Game1.options.zoomLevel; }
 
-    public static bool ShouldIgnoreValueChangeCallback() => Game1.gameMode != (byte) 3 || Game1.client != null && !Game1.client.readyToPlay || Game1.client != null && Game1.locationRequest != null;
+    public static bool ShouldIgnoreValueChangeCallback() { return Game1.gameMode != (byte) 3 || Game1.client != null && !Game1.client.readyToPlay || Game1.client != null && Game1.locationRequest != null; }
   }
 }

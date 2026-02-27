@@ -375,7 +375,7 @@ namespace StardewValley.Monsters
       Game1.createRadialDebris(currentLocation, textureName, sourcerectangle, 8, xPosition, y1, numberOfChunks, y2, color, (float) scale1);
     }
 
-    public override void collisionWithFarmerBehavior() => this.farmerPassesThrough = this.Player.isWearingRing(520);
+    public override void collisionWithFarmerBehavior() { return this.farmerPassesThrough = this.Player.isWearingRing(520); }
 
     public override void onDealContactDamage(Farmer who)
     {
@@ -503,7 +503,7 @@ namespace StardewValley.Monsters
       this.avoidingMate.Value = false;
     }
 
-    public override void noMovementProgressNearPlayerBehavior() => this.faceGeneralDirection(this.Player.getStandingPosition());
+    public override void noMovementProgressNearPlayerBehavior() { return this.faceGeneralDirection(this.Player.getStandingPosition()); }
 
     public void mateWith(GreenSlime mateToPursue, GameLocation location)
     {
@@ -645,7 +645,7 @@ namespace StardewValley.Monsters
         else if (Game1.random.NextDouble() < 0.006)
           extraDropItems.Add((Item) new StardewValley.Object(835, 1));
       }
-      if (!this.prismatic.Value || Game1.player.team.specialOrders.Where<SpecialOrder>((Func<SpecialOrder, bool>) (x => (string) (NetFieldBase<string, NetString>) x.questKey == "Wizard2")) == null)
+      if (!this.prismatic.Value || Game1.player.team.specialOrders.Where<SpecialOrder>((Func<SpecialOrder, bool>) (delegate(x) { return (string) (NetFieldBase<string; }, NetString>) x.questKey == "Wizard2")) == null)
         return extraDropItems;
       StardewValley.Object object1 = new StardewValley.Object(876, 1);
       object1.specialItem = true;

@@ -30,7 +30,7 @@ namespace StardewValley
     [XmlIgnore]
     public NetFields NetFields { get; } = new NetFields();
 
-    public OrderObjective() => this.InitializeNetFields();
+    public OrderObjective() { return this.InitializeNetFields(); }
 
     public virtual void OnFail()
     {
@@ -72,9 +72,9 @@ namespace StardewValley
     {
     }
 
-    public virtual bool ShouldShowProgress() => true;
+    public virtual bool ShouldShowProgress() { return true; }
 
-    public int GetCount() => (int) (NetFieldBase<int, NetIntDelta>) this.currentCount;
+    public int GetCount() { return (int) (NetFieldBase<int, NetIntDelta>) this.currentCount; }
 
     public virtual void IncrementCount(int amount)
     {
@@ -95,7 +95,7 @@ namespace StardewValley
       this.currentCount.Value = new_count;
     }
 
-    public int GetMaxCount() => (int) (NetFieldBase<int, NetInt>) this.maxCount;
+    public int GetMaxCount() { return (int) (NetFieldBase<int, NetInt>) this.maxCount; }
 
     public virtual void OnCompletion()
     {
@@ -125,11 +125,11 @@ namespace StardewValley
       Game1.playSound("jingle1");
     }
 
-    public virtual bool IsComplete() => this._complete;
+    public virtual bool IsComplete() { return this._complete; }
 
-    public virtual bool CanUncomplete() => false;
+    public virtual bool CanUncomplete() { return false; }
 
-    public virtual bool CanComplete() => true;
+    public virtual bool CanComplete() { return true; }
 
     public virtual string GetDescription()
     {

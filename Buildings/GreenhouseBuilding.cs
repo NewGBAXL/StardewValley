@@ -24,13 +24,13 @@ namespace StardewValley.Buildings
     {
     }
 
-    protected override GameLocation getIndoors(string nameOfIndoorsWithoutUnique) => (GameLocation) null;
+    protected override GameLocation getIndoors(string nameOfIndoorsWithoutUnique) { return (GameLocation) null; }
 
     public GreenhouseBuilding()
     {
     }
 
-    protected override void initNetFields() => base.initNetFields();
+    protected override void initNetFields() { return base.initNetFields(); }
 
     public override void drawInMenu(SpriteBatch b, int x, int y)
     {
@@ -42,9 +42,9 @@ namespace StardewValley.Buildings
       b.Draw(this.texture.Value, new Vector2((float) x, (float) y), new Microsoft.Xna.Framework.Rectangle?(sourceRect), (Color) (NetFieldBase<Color, NetColor>) this.color, 0.0f, new Vector2(0.0f, (float) (sourceRect.Height / 2)), 4f, SpriteEffects.None, 0.89f);
     }
 
-    public override Microsoft.Xna.Framework.Rectangle getSourceRect() => new Microsoft.Xna.Framework.Rectangle(0, 160, 112, 160);
+    public override Microsoft.Xna.Framework.Rectangle getSourceRect() { return new Microsoft.Xna.Framework.Rectangle(0, 160, 112, 160); }
 
-    public override void Update(GameTime time) => base.Update(time);
+    public override void Update(GameTime time) { return base.Update(time); }
 
     public override void drawInConstruction(SpriteBatch b)
     {
@@ -148,9 +148,9 @@ namespace StardewValley.Buildings
       return base.doesTileHaveProperty(tile_x, tile_y, property_name, layer_name, ref property_value);
     }
 
-    public override int GetAdditionalTilePropertyRadius() => 2;
+    public override int GetAdditionalTilePropertyRadius() { return 2; }
 
-    public virtual bool CanDrawEntranceTiles() => true;
+    public virtual bool CanDrawEntranceTiles() { return true; }
 
     public virtual void DrawEntranceTiles(SpriteBatch b)
     {

@@ -15,7 +15,7 @@ namespace StardewValley.Network
   {
     private GameLocation _locationFilter;
 
-    public FarmerCollection(GameLocation locationFilter = null) => this._locationFilter = locationFilter;
+    public FarmerCollection(GameLocation locationFilter = null) { return this._locationFilter = locationFilter; }
 
     public int Count
     {
@@ -51,12 +51,18 @@ namespace StardewValley.Network
       return false;
     }
 
-    public FarmerCollection.Enumerator GetEnumerator() => new FarmerCollection.Enumerator(this._locationFilter);
+    public FarmerCollection.Enumerator GetEnumerator() { return new FarmerCollection.Enumerator(this._locationFilter); }
 
-    IEnumerator<Farmer> IEnumerable<Farmer>.GetEnumerator() => (IEnumerator<Farmer>) new FarmerCollection.Enumerator(this._locationFilter);
+    IEnumerator<Farmer> IEnumerable<Farmer>.GetEnumerator()
+    {
+        return (IEnumerator<Farmer>)new FarmerCollection.Enumerator(this._locationFilter);
+    }
 
-    IEnumerator IEnumerable.GetEnumerator() => (IEnumerator) new FarmerCollection.Enumerator(this._locationFilter);
-
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return (IEnumerator)new FarmerCollection.Enumerator(this._locationFilter);
+    }
+    
     public struct Enumerator : IEnumerator<Farmer>, IEnumerator, IDisposable
     {
       private GameLocation _locationFilter;
@@ -99,7 +105,7 @@ namespace StardewValley.Network
         return false;
       }
 
-      public Farmer Current => this._current;
+      public Farmer delegate(Current) { return this._current; };
 
       public void Dispose()
       {

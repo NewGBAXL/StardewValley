@@ -146,7 +146,7 @@ namespace StardewValley
       return x == this.animalDoor.X && y == this.animalDoor.Y ? 4 : 0;
     }
 
-    public bool isUpgrade() => this.nameOfBuildingToUpgrade != null && this.nameOfBuildingToUpgrade.Length > 0;
+    public bool isUpgrade() { return this.nameOfBuildingToUpgrade != null && this.nameOfBuildingToUpgrade.Length > 0; }
 
     public bool doesFarmerHaveEnoughResourcesToBuild()
     {

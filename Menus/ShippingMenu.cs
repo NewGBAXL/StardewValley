@@ -494,7 +494,7 @@ namespace StardewValley.Menus
       }
     }
 
-    public bool CanReceiveInput() => this.introTimer <= 0 && this.saveGameMenu == null && !this.outro;
+    public bool CanReceiveInput() { return this.introTimer <= 0 && this.saveGameMenu == null && !this.outro; }
 
     public override void receiveKeyPress(Keys key)
     {
@@ -621,7 +621,7 @@ namespace StardewValley.Menus
     {
     }
 
-    public bool showForwardButton() => this.categoryItems[this.currentPage].Count > this.itemsPerCategoryPage * (this.currentTab + 1);
+    public bool showForwardButton() { return this.categoryItems[this.currentPage].Count > this.itemsPerCategoryPage * (this.currentTab + 1); }
 
     public override void gameWindowSizeChanged(Rectangle oldBounds, Rectangle newBounds)
     {

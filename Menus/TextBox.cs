@@ -25,9 +25,9 @@ namespace StardewValley.Menus
     private bool _showKeyboard;
     private bool _selected;
 
-    public SpriteFont Font => this._font;
+    public SpriteFont delegate(Font) { return this._font; };
 
-    public Color TextColor => this._textColor;
+    public Color delegate(TextColor) { return this._textColor; };
 
     public int X { get; set; }
 
@@ -41,7 +41,7 @@ namespace StardewValley.Menus
 
     public string Text
     {
-      get => this._text;
+      delegate(get) { return this._text; };
       set
       {
         this._text = value;
@@ -81,7 +81,7 @@ namespace StardewValley.Menus
       this._textColor = textColor;
     }
 
-    public void SelectMe() => this.Selected = true;
+    public void SelectMe() { return this.Selected = true; }
 
     public void Update()
     {
@@ -215,7 +215,7 @@ namespace StardewValley.Menus
 
     public bool Selected
     {
-      get => this._selected;
+      delegate(get) { return this._selected; };
       set
       {
         if (this._selected == value)

@@ -147,9 +147,9 @@ namespace StardewValley.Minigames
     protected bool _buttonState;
     public bool _wasJustChatting;
 
-    public double totalTime => this._totalTime;
+    public double delegate(totalTime) { return this._totalTime; };
 
-    public double totalTimeMS => this._totalTime * 1000.0;
+    public double delegate(totalTimeMS) { return this._totalTime * 1000.0; };
 
     public MineCart(int whichTheme, int mode)
     {
@@ -183,24 +183,27 @@ namespace StardewValley.Minigames
       this.ShowTitle();
     }
 
-    public void initLevelTransitions() => this.LEVEL_TRANSITIONS = new MineCart.LevelTransition[15]
+    public void initLevelTransitions()
     {
-      new MineCart.LevelTransition(-1, 0, 2, 5, "rrr"),
-      new MineCart.LevelTransition(0, 8, 5, 5, "rddrrd", (Func<bool>) (() => this.lastLevelWasPerfect)),
-      new MineCart.LevelTransition(0, 1, 5, 5, "rddlddrdd"),
-      new MineCart.LevelTransition(1, 3, 6, 11, "drdrrrrrrrrruuuuu", (Func<bool>) (() => (double) this.secondsOnThisLevel <= 60.0)),
-      new MineCart.LevelTransition(1, 5, 6, 11, "rrurruuu", (Func<bool>) (() => Game1.random.NextDouble() <= 0.5)),
-      new MineCart.LevelTransition(1, 2, 6, 11, "rrurrrrddr"),
-      new MineCart.LevelTransition(8, 5, 8, 8, "ddrruuu", (Func<bool>) (() => Game1.random.NextDouble() <= 0.5)),
-      new MineCart.LevelTransition(8, 2, 8, 8, "ddrrrrddr"),
-      new MineCart.LevelTransition(5, 3, 10, 7, "urruulluurrrrrddddddr"),
-      new MineCart.LevelTransition(2, 3, 13, 12, "rurruuu"),
-      new MineCart.LevelTransition(3, 9, 16, 8, "rruuluu", (Func<bool>) (() => Game1.random.NextDouble() <= 0.5)),
-      new MineCart.LevelTransition(3, 4, 16, 8, "rrddrddr"),
-      new MineCart.LevelTransition(4, 6, 20, 12, "ruuruuuuuu"),
-      new MineCart.LevelTransition(9, 6, 17, 4, "rrdrrru"),
-      new MineCart.LevelTransition(6, 7, 22, 4, "rr")
-    };
+      this.LEVEL_TRANSITIONS = new MineCart.LevelTransition[15]
+      {
+        new MineCart.LevelTransition(-1, 0, 2, 5, "rrr"),
+        new MineCart.LevelTransition(0, 8, 5, 5, "rddrrd", (Func<bool>) (() => this.lastLevelWasPerfect)),
+        new MineCart.LevelTransition(0, 1, 5, 5, "rddlddrdd"),
+        new MineCart.LevelTransition(1, 3, 6, 11, "drdrrrrrrrrruuuuu", (Func<bool>) (() => (double) this.secondsOnThisLevel <= 60.0)),
+        new MineCart.LevelTransition(1, 5, 6, 11, "rrurruuu", (Func<bool>) (() => Game1.random.NextDouble() <= 0.5)),
+        new MineCart.LevelTransition(1, 2, 6, 11, "rrurrrrddr"),
+        new MineCart.LevelTransition(8, 5, 8, 8, "ddrruuu", (Func<bool>) (() => Game1.random.NextDouble() <= 0.5)),
+        new MineCart.LevelTransition(8, 2, 8, 8, "ddrrrrddr"),
+        new MineCart.LevelTransition(5, 3, 10, 7, "urruulluurrrrrddddddr"),
+        new MineCart.LevelTransition(2, 3, 13, 12, "rurruuu"),
+        new MineCart.LevelTransition(3, 9, 16, 8, "rruuluu", (Func<bool>) (() => Game1.random.NextDouble() <= 0.5)),
+        new MineCart.LevelTransition(3, 4, 16, 8, "rrddrddr"),
+        new MineCart.LevelTransition(4, 6, 20, 12, "ruuruuuuuu"),
+        new MineCart.LevelTransition(9, 6, 17, 4, "rrdrrru"),
+        new MineCart.LevelTransition(6, 7, 22, 4, "rr")
+      };
+    }
 
     public void ShowTitle()
     {
@@ -287,9 +290,9 @@ namespace StardewValley.Minigames
       return !this._tracks.ContainsKey(key) ? (List<MineCart.Track>) null : this._tracks[key];
     }
 
-    protected bool _IsGeneratingOnUpperHalf() => this.generatorPosition.Y <= (this.topTile + this.bottomTile) / 2;
+    protected bool _IsGeneratingOnUpperHalf() { return this.generatorPosition.Y <= (this.topTile + this.bottomTile) / 2; }
 
-    protected bool _IsGeneratingOnLowerHalf() => this.generatorPosition.Y >= (this.topTile + this.bottomTile) / 2;
+    protected bool _IsGeneratingOnLowerHalf() { return this.generatorPosition.Y >= (this.topTile + this.bottomTile) / 2; }
 
     protected void _GenerateMoreTrack()
     {
@@ -382,11 +385,11 @@ namespace StardewValley.Minigames
       if (!this._tracks.ContainsKey(key))
         this._tracks[key] = new List<MineCart.Track>();
       this._tracks[key].Add(track_object);
-      this._tracks[key].OrderBy<MineCart.Track, float>((Func<MineCart.Track, float>) (o => o.position.Y));
+      this._tracks[key].OrderBy<MineCart.Track, float>((Func<MineCart.Track, float>) (delegate(o) { return o.position.Y)); };
       return track;
     }
 
-    public bool overrideFreeMouseMovement() => Game1.options.SnappyMenus;
+    public bool overrideFreeMouseMovement() { return Game1.options.SnappyMenus; }
 
     public void UpdateMapTick(float time)
     {
@@ -935,7 +938,7 @@ label_13:
       }
     }
 
-    public virtual bool CanPause() => this.gameState == MineCart.GameStates.Ingame || this.gameState == MineCart.GameStates.FruitsSummary || this.gameState == MineCart.GameStates.Cutscene || this.gameState == MineCart.GameStates.Map;
+    public virtual bool CanPause() { return this.gameState == MineCart.GameStates.Ingame || this.gameState == MineCart.GameStates.FruitsSummary || this.gameState == MineCart.GameStates.Cutscene || this.gameState == MineCart.GameStates.Map; }
 
     public bool tick(GameTime time)
     {
@@ -1973,7 +1976,7 @@ label_13:
       return y > this.bottomTile ? this.bottomTile : y;
     }
 
-    public bool IsTileInBounds(int y) => y >= this.topTile && y <= this.bottomTile;
+    public bool IsTileInBounds(int y) { return y >= this.topTile && y <= this.bottomTile; }
 
     public T GetOverlap<T>(MineCart.ICollideable source) where T : MineCart.Entity
     {
@@ -2303,7 +2306,7 @@ label_13:
       b.GraphicsDevice.ScissorRectangle = scissorRectangle;
     }
 
-    public float GetPixelScale() => this.pixelScale;
+    public float GetPixelScale() { return this.pixelScale; }
 
     public Rectangle TransformDraw(Rectangle dest)
     {
@@ -2314,7 +2317,7 @@ label_13:
       return dest;
     }
 
-    public static int Mod(int x, int m) => (x % m + m) % m;
+    public static int Mod(int x, int m) { return (x % m + m) % m; }
 
     public Vector2 TransformDraw(Vector2 dest)
     {
@@ -2358,11 +2361,11 @@ label_13:
     {
     }
 
-    public void receiveEventPoke(int data) => throw new NotImplementedException();
+    public void receiveEventPoke(int data) { return throw new NotImplementedException(); }
 
-    public string minigameId() => nameof (MineCart);
+    public string minigameId() { return nameof (MineCart); }
 
-    public bool doMainGameUpdates() => false;
+    public bool doMainGameUpdates() { return false; }
 
     [XmlType("MineCart.GameStates")]
     public enum GameStates
@@ -2444,7 +2447,7 @@ label_13:
       public float bumpHeight;
       private bool isOnWater;
 
-      public void StartMoving() => this.moveState = MineCart.MapJunimo.MoveState.Moving;
+      public void StartMoving() { return this.moveState = MineCart.MapJunimo.MoveState.Moving; }
 
       protected override void _Update(float time)
       {
@@ -2776,7 +2779,7 @@ label_13:
         if (this._generatedTracks == null || this._generatedTracks.Count <= 0 || !this.generateCheckpoint || this._generatedCheckpoint)
           return;
         this._generatedCheckpoint = true;
-        this._generatedTracks.OrderBy<MineCart.Track, float>((Func<MineCart.Track, float>) (o => o.position.X));
+        this._generatedTracks.OrderBy<MineCart.Track, float>((Func<MineCart.Track, float>) (delegate(o) { return o.position.X)); };
         this._game.AddCheckpoint((int) ((double) this._generatedTracks[0].position.X / (double) this._game.tileSize));
       }
     }
@@ -2807,7 +2810,7 @@ label_13:
       {
       }
 
-      public override void Initialize() => base.Initialize();
+      public override void Initialize() { return base.Initialize(); }
 
       protected override void _GenerateTrack()
       {
@@ -2868,7 +2871,7 @@ label_13:
       {
       }
 
-      public override void Initialize() => base.Initialize();
+      public override void Initialize() { return base.Initialize(); }
 
       protected override void _GenerateTrack()
       {
@@ -2924,7 +2927,7 @@ label_13:
       public float frameDuration = 0.05f;
       public float frameTimer;
 
-      public override Rectangle GetLocalBounds() => new Rectangle(-4, -12, 8, 12);
+      public override Rectangle GetLocalBounds() { return new Rectangle(-4, -12, 8, 12); }
 
       public override void InitializeObstacle(MineCart.Track track)
       {
@@ -2963,11 +2966,11 @@ label_13:
         this.frameTimer = 0.0f;
       }
 
-      public override void _Draw(SpriteBatch b) => b.Draw(this._game.texture, this._game.TransformDraw(this.drawnPosition), new Rectangle?(this.frames[this.currentFrame]), Color.White, 0.0f, new Vector2(8f, 16f), this._game.GetPixelScale(), SpriteEffects.None, 0.45f);
+      public override void _Draw(SpriteBatch b) { return b.Draw(this._game.texture, this._game.TransformDraw(this.drawnPosition), new Rectangle?(this.frames[this.currentFrame]), Color.White, 0.0f, new Vector2(8f, 16f), this._game.GetPixelScale(), SpriteEffects.None, 0.45f); }
 
-      public override bool CanSpawnHere(MineCart.Track track) => track != null && track.trackType == MineCart.Track.TrackType.Straight;
+      public override bool CanSpawnHere(MineCart.Track track) { return track != null && track.trackType == MineCart.Track.TrackType.Straight; }
 
-      public override void OnPlayerReset() => base.OnPlayerReset();
+      public override void OnPlayerReset() { return base.OnPlayerReset(); }
     }
 
     public class MushroomSpring : MineCart.Obstacle
@@ -2983,7 +2986,7 @@ label_13:
       public float frameDuration = 0.05f;
       public float frameTimer;
 
-      public override Rectangle GetLocalBounds() => new Rectangle(-4, -12, 8, 12);
+      public override Rectangle GetLocalBounds() { return new Rectangle(-4, -12, 8, 12); }
 
       public override void InitializeObstacle(MineCart.Track track)
       {
@@ -3006,9 +3009,9 @@ label_13:
         this.frameTimer = 0.0f;
       }
 
-      public override void _Draw(SpriteBatch b) => b.Draw(this._game.texture, this._game.TransformDraw(this.drawnPosition), new Rectangle?(this.frames[this.currentFrame]), Color.White, 0.0f, new Vector2(8f, 16f), this._game.GetPixelScale(), SpriteEffects.None, 0.45f);
+      public override void _Draw(SpriteBatch b) { return b.Draw(this._game.texture, this._game.TransformDraw(this.drawnPosition), new Rectangle?(this.frames[this.currentFrame]), Color.White, 0.0f, new Vector2(8f, 16f), this._game.GetPixelScale(), SpriteEffects.None, 0.45f); }
 
-      public override bool CanSpawnHere(MineCart.Track track) => track != null && track.trackType == MineCart.Track.TrackType.Straight;
+      public override bool CanSpawnHere(MineCart.Track track) { return track != null && track.trackType == MineCart.Track.TrackType.Straight; }
 
       public override bool OnBounce(MineCart.MineCartCharacter player)
       {
@@ -3040,7 +3043,7 @@ label_13:
         player.Bounce(0.15f);
       }
 
-      public void ShootDebris(int x, int y) => this._game.AddEntity<MineCart.MineDebris>(new MineCart.MineDebris(new Rectangle(368, 784, 16, 16), Utility.PointToVector2(this.GetBounds().Center), (float) x, (float) y, 0.25f, 0.0f, 0.9f, num_animation_frames: 3, animation_interval: 0.3f));
+      public void ShootDebris(int x, int y) { return this._game.AddEntity<MineCart.MineDebris>(new MineCart.MineDebris(new Rectangle(368, 784, 16, 16), Utility.PointToVector2(this.GetBounds().Center), (float) x, (float) y, 0.25f, 0.0f, 0.9f, num_animation_frames: 3, animation_interval: 0.3f)); }
 
       public override void OnPlayerReset()
       {
@@ -3106,7 +3109,7 @@ label_13:
         this.staggerPattern = new List<int>();
       }
 
-      public override void Initialize() => base.Initialize();
+      public override void Initialize() { return base.Initialize(); }
 
       protected override void _GenerateTrack()
       {
@@ -3526,11 +3529,11 @@ label_13:
       protected Dictionary<int, KeyValuePair<MineCart.ObstacleTypes, float>> _obstacleIndices = new Dictionary<int, KeyValuePair<MineCart.ObstacleTypes, float>>();
       protected Func<MineCart.Track, MineCart.BaseTrackGenerator, bool> _pickupFunction;
 
-      public static bool FlatsOnly(MineCart.Track track, MineCart.BaseTrackGenerator generator) => track.trackType == MineCart.Track.TrackType.None;
+      public static bool FlatsOnly(MineCart.Track track, MineCart.BaseTrackGenerator generator) { return track.trackType == MineCart.Track.TrackType.None; }
 
-      public static bool UpSlopesOnly(MineCart.Track track, MineCart.BaseTrackGenerator generator) => track.trackType == MineCart.Track.TrackType.UpSlope;
+      public static bool UpSlopesOnly(MineCart.Track track, MineCart.BaseTrackGenerator generator) { return track.trackType == MineCart.Track.TrackType.UpSlope; }
 
-      public static bool DownSlopesOnly(MineCart.Track track, MineCart.BaseTrackGenerator generator) => track.trackType == MineCart.Track.TrackType.DownSlope;
+      public static bool DownSlopesOnly(MineCart.Track track, MineCart.BaseTrackGenerator generator) { return track.trackType == MineCart.Track.TrackType.DownSlope; }
 
       public static bool IceDownSlopesOnly(
         MineCart.Track track,
@@ -3539,9 +3542,9 @@ label_13:
         return track.trackType == MineCart.Track.TrackType.IceDownSlope;
       }
 
-      public static bool Always(MineCart.Track track, MineCart.BaseTrackGenerator generator) => true;
+      public static bool Always(MineCart.Track track, MineCart.BaseTrackGenerator generator) { return true; }
 
-      public static bool EveryOtherTile(MineCart.Track track, MineCart.BaseTrackGenerator generator) => (int) ((double) track.position.X / 16.0) % 2 == 0;
+      public static bool EveryOtherTile(MineCart.Track track, MineCart.BaseTrackGenerator generator) { return (int) ((double) track.position.X / 16.0) % 2 == 0; }
 
       public T AddObstacle<T>(
         MineCart.ObstacleTypes obstacle_type,
@@ -3561,7 +3564,7 @@ label_13:
         return this as T;
       }
 
-      public BaseTrackGenerator(MineCart game) => this._game = game;
+      public BaseTrackGenerator(MineCart game) { return this._game = game; }
 
       public MineCart.Track AddTrack(int x, int y, MineCart.Track.TrackType track_type = MineCart.Track.TrackType.Straight)
       {
@@ -3599,7 +3602,7 @@ label_13:
         return track;
       }
 
-      public virtual void Initialize() => this._generatedTracks = new List<MineCart.Track>();
+      public virtual void Initialize() { return this._generatedTracks = new List<MineCart.Track>(); }
 
       public void GenerateTrack()
       {
@@ -3611,7 +3614,7 @@ label_13:
       {
         if (this._game.generatorPosition.X >= this._game.distanceToTravel || this._generatedTracks.Count == 0)
           return;
-        this._generatedTracks.OrderBy<MineCart.Track, float>((Func<MineCart.Track, float>) (o => o.position.X));
+        this._generatedTracks.OrderBy<MineCart.Track, float>((Func<MineCart.Track, float>) (delegate(o) { return o.position.X)); };
         if (this._obstacleIndices == null || this._obstacleIndices.Count == 0)
           return;
         foreach (int key1 in this._obstacleIndices.Keys)
@@ -3653,7 +3656,7 @@ label_13:
         }
       }
 
-      protected virtual void _GenerateTrack() => ++this._game.generatorPosition.X;
+      protected virtual void _GenerateTrack() { return ++this._game.generatorPosition.X; }
     }
 
     public class Spark
@@ -3682,15 +3685,15 @@ label_13:
       public bool enabled = true;
       protected bool _destroyed;
 
-      public Vector2 drawnPosition => this.position - new Vector2(this._game.screenLeftBound, 0.0f);
+      public Vector2 delegate(drawnPosition) { return this.position - new Vector2(this._game.screenLeftBound; }, 0.0f);
 
       public virtual void OnPlayerReset()
       {
       }
 
-      public bool IsOnScreen() => (double) this.position.X >= (double) this._game.screenLeftBound - (double) (this._game.tileSize * 4) && (double) this.position.X <= (double) this._game.screenLeftBound + (double) this._game.screenWidth + (double) (this._game.tileSize * 4);
+      public bool IsOnScreen() { return (double) this.position.X >= (double) this._game.screenLeftBound - (double) (this._game.tileSize * 4) && (double) this.position.X <= (double) this._game.screenLeftBound + (double) this._game.screenWidth + (double) (this._game.tileSize * 4); }
 
-      public bool IsActive() => !this._destroyed && this.enabled;
+      public bool IsActive() { return !this._destroyed && this.enabled; }
 
       public void Initialize(MineCart game)
       {
@@ -3698,13 +3701,13 @@ label_13:
         this._Initialize();
       }
 
-      public void Destroy() => this._destroyed = true;
+      public void Destroy() { return this._destroyed = true; }
 
       protected virtual void _Initialize()
       {
       }
 
-      public virtual bool ShouldReap() => this._destroyed;
+      public virtual bool ShouldReap() { return this._destroyed; }
 
       public void Draw(SpriteBatch b)
       {
@@ -3765,7 +3768,7 @@ label_13:
       protected float _lifeTime = 3f;
       public Vector2 bubbleOffset = Vector2.Zero;
 
-      public override void OnPlayerReset() => this.Destroy();
+      public override void OnPlayerReset() { return this.Destroy(); }
 
       public override Rectangle GetBounds()
       {
@@ -3832,7 +3835,7 @@ label_13:
         base._Update(time);
       }
 
-      public override void _Draw(SpriteBatch b) => b.Draw(this._game.texture, this._game.TransformDraw(this.drawnPosition + this.bubbleOffset), new Rectangle?(new Rectangle(this._frames[this._currentFrame] * 16, 256, 16, 16)), Color.White, 0.0f, new Vector2(8f, 16f), this._game.GetPixelScale(), SpriteEffects.None, 0.27f);
+      public override void _Draw(SpriteBatch b) { return b.Draw(this._game.texture, this._game.TransformDraw(this.drawnPosition + this.bubbleOffset), new Rectangle?(new Rectangle(this._frames[this._currentFrame] * 16, 256, 16, 16)), Color.White, 0.0f, new Vector2(8f, 16f), this._game.GetPixelScale(), SpriteEffects.None, 0.27f); }
     }
 
     public class PlayerBubbleSpawner : MineCart.Entity
@@ -3992,7 +3995,7 @@ label_13:
       protected Vector2 _velocity;
       private bool _special;
 
-      public EndingJunimo(bool special = false) => this._special = special;
+      public EndingJunimo(bool special = false) { return this._special = special; }
 
       protected override void _Initialize()
       {
@@ -4080,7 +4083,7 @@ label_13:
         this._velocity.X = Utility.RandomFloat(10f, 40f) * -1f;
       }
 
-      public override void _Draw(SpriteBatch b) => b.Draw(Game1.mouseCursors, this._game.TransformDraw(this.drawnPosition), new Rectangle?(new Rectangle(294 + (int) (this._game.totalTimeMS % 400.0) / 100 * 16, 1432, 16, 16)), this._color, 0.0f, new Vector2(8f, 16f), (float) ((double) this._game.GetPixelScale() * 2.0 / 3.0), SpriteEffects.None, 0.25f);
+      public override void _Draw(SpriteBatch b) { return b.Draw(Game1.mouseCursors, this._game.TransformDraw(this.drawnPosition), new Rectangle?(new Rectangle(294 + (int) (this._game.totalTimeMS % 400.0) / 100 * 16, 1432, 16, 16)), this._color, 0.0f, new Vector2(8f, 16f), (float) ((double) this._game.GetPixelScale() * 2.0 / 3.0), SpriteEffects.None, 0.25f); }
     }
 
     public class FallingBoulderSpawner : MineCart.Obstacle
@@ -4089,9 +4092,9 @@ label_13:
       public float currentTime;
       protected MineCart.Track _track;
 
-      public override Rectangle GetLocalBounds() => new Rectangle(0, 0, 0, 0);
+      public override Rectangle GetLocalBounds() { return new Rectangle(0, 0, 0, 0); }
 
-      public override Rectangle GetBounds() => new Rectangle(0, 0, 0, 0);
+      public override Rectangle GetBounds() { return new Rectangle(0, 0, 0, 0); }
 
       public override void InitializeObstacle(MineCart.Track track)
       {
@@ -4131,7 +4134,7 @@ label_13:
         return bounds;
       }
 
-      public override Rectangle GetLocalBounds() => new Rectangle(-5, -5, 10, 10);
+      public override Rectangle GetLocalBounds() { return new Rectangle(-5, -5, 10, 10); }
 
       protected override void _Update(float time)
       {
@@ -4183,7 +4186,7 @@ label_13:
         return base.OnBump(player);
       }
 
-      public override bool ShouldReap() => base.ShouldReap();
+      public override bool ShouldReap() { return base.ShouldReap(); }
 
       public override void _Draw(SpriteBatch b)
       {
@@ -4274,9 +4277,9 @@ label_13:
       protected float _currentRiseSpeed;
       protected float _riseSpeed = -90f;
 
-      public override void OnPlayerReset() => this.Destroy();
+      public override void OnPlayerReset() { return this.Destroy(); }
 
-      public override void InitializeObstacle(MineCart.Track track) => base.InitializeObstacle(track);
+      public override void InitializeObstacle(MineCart.Track track) { return base.InitializeObstacle(track); }
 
       public override void _Draw(SpriteBatch b)
       {
@@ -4298,11 +4301,11 @@ label_13:
         this.position.Y += time * this._currentRiseSpeed;
       }
 
-      public override bool OnBounce(MineCart.MineCartCharacter player) => false;
+      public override bool OnBounce(MineCart.MineCartCharacter player) { return false; }
 
-      public override bool OnBump(MineCart.PlayerMineCartCharacter player) => base.OnBump(player);
+      public override bool OnBump(MineCart.PlayerMineCartCharacter player) { return base.OnBump(player); }
 
-      public override bool ShouldReap() => (double) this.position.Y < -32.0 || base.ShouldReap();
+      public override bool ShouldReap() { return (double) this.position.Y < -32.0 || base.ShouldReap(); }
     }
 
     public class FallingBoulder : MineCart.Obstacle
@@ -4313,7 +4316,7 @@ label_13:
       protected float _fallSpeed = 96f;
       protected bool _wasBouncedOn;
 
-      public override void OnPlayerReset() => this.Destroy();
+      public override void OnPlayerReset() { return this.Destroy(); }
 
       public override void InitializeObstacle(MineCart.Track track)
       {
@@ -4382,20 +4385,20 @@ label_13:
         return true;
       }
 
-      public override bool OnBump(MineCart.PlayerMineCartCharacter player) => this._wasBouncedOn || base.OnBump(player);
+      public override bool OnBump(MineCart.PlayerMineCartCharacter player) { return this._wasBouncedOn || base.OnBump(player); }
 
-      public override bool ShouldReap() => (double) this.position.Y > (double) (this._game.screenHeight + 32) || base.ShouldReap();
+      public override bool ShouldReap() { return (double) this.position.Y > (double) (this._game.screenHeight + 32) || base.ShouldReap(); }
     }
 
     public class MineCartSlime : MineCart.Obstacle
     {
-      public override Rectangle GetLocalBounds() => base.GetLocalBounds();
+      public override Rectangle GetLocalBounds() { return base.GetLocalBounds(); }
 
       public override void OnPlayerReset()
       {
       }
 
-      public override void InitializeObstacle(MineCart.Track track) => base.InitializeObstacle(track);
+      public override void InitializeObstacle(MineCart.Track track) { return base.InitializeObstacle(track); }
 
       public override void _Draw(SpriteBatch b)
       {
@@ -4407,18 +4410,18 @@ label_13:
       {
       }
 
-      public override bool ShouldReap() => false;
+      public override bool ShouldReap() { return false; }
     }
 
     public class SlimeTrack : MineCart.Obstacle
     {
-      public override Rectangle GetLocalBounds() => base.GetLocalBounds();
+      public override Rectangle GetLocalBounds() { return base.GetLocalBounds(); }
 
       public override void OnPlayerReset()
       {
       }
 
-      public override void InitializeObstacle(MineCart.Track track) => base.InitializeObstacle(track);
+      public override void InitializeObstacle(MineCart.Track track) { return base.InitializeObstacle(track); }
 
       public override void _Draw(SpriteBatch b)
       {
@@ -4430,7 +4433,7 @@ label_13:
       {
       }
 
-      public override bool ShouldReap() => false;
+      public override bool ShouldReap() { return false; }
     }
 
     public class HugeSlime : MineCart.Obstacle
@@ -4447,11 +4450,11 @@ label_13:
       protected float _jumpStrength = -200f;
       private bool _hasPeparedToJump;
 
-      public override Rectangle GetLocalBounds() => new Rectangle(-40, -60, 80, 60);
+      public override Rectangle GetLocalBounds() { return new Rectangle(-40, -60, 80, 60); }
 
-      public override void OnPlayerReset() => this._game.slimeBossPosition = this._game.checkpointPosition + (float) this._game.slimeResetPosition;
+      public override void OnPlayerReset() { return this._game.slimeBossPosition = this._game.checkpointPosition + (float) this._game.slimeResetPosition; }
 
-      public override void InitializeObstacle(MineCart.Track track) => base.InitializeObstacle(track);
+      public override void InitializeObstacle(MineCart.Track track) { return base.InitializeObstacle(track); }
 
       protected override void _Initialize()
       {
@@ -4554,20 +4557,20 @@ label_13:
         this.spriteScale.Y = Utility.MoveTowards(this.spriteScale.Y, this._desiredScale.Y, this._scaleSpeed * time);
       }
 
-      public override bool ShouldReap() => false;
+      public override bool ShouldReap() { return false; }
     }
 
     public class Roadblock : MineCart.Obstacle
     {
-      public override Rectangle GetLocalBounds() => new Rectangle(-4, -12, 8, 12);
+      public override Rectangle GetLocalBounds() { return new Rectangle(-4, -12, 8, 12); }
 
       protected override void _Update(float time)
       {
       }
 
-      public override void _Draw(SpriteBatch b) => b.Draw(this._game.texture, this._game.TransformDraw(this.drawnPosition), new Rectangle?(new Rectangle(16, 0, 16, 16)), Color.White, 0.0f, new Vector2(8f, 16f), this._game.GetPixelScale(), SpriteEffects.None, 0.45f);
+      public override void _Draw(SpriteBatch b) { return b.Draw(this._game.texture, this._game.TransformDraw(this.drawnPosition), new Rectangle?(new Rectangle(16, 0, 16, 16)), Color.White, 0.0f, new Vector2(8f, 16f), this._game.GetPixelScale(), SpriteEffects.None, 0.45f); }
 
-      public override bool CanSpawnHere(MineCart.Track track) => track != null && track.trackType == MineCart.Track.TrackType.Straight;
+      public override bool CanSpawnHere(MineCart.Track track) { return track != null && track.trackType == MineCart.Track.TrackType.Straight; }
 
       public override bool OnBounce(MineCart.MineCartCharacter player)
       {
@@ -4595,7 +4598,7 @@ label_13:
         return false;
       }
 
-      public void ShootDebris(int x, int y) => this._game.AddEntity<MineCart.MineDebris>(new MineCart.MineDebris(new Rectangle(48, 48, 16, 16), Utility.PointToVector2(this.GetBounds().Center), (float) x, (float) y, 0.25f, life_time: 1f));
+      public void ShootDebris(int x, int y) { return this._game.AddEntity<MineCart.MineDebris>(new MineCart.MineDebris(new Rectangle(48, 48, 16, 16), Utility.PointToVector2(this.GetBounds().Center), (float) x, (float) y, 0.25f, life_time: 1f)); }
     }
 
     public class MineDebris : MineCart.Entity
@@ -4672,11 +4675,11 @@ label_13:
         this.visible = false;
       }
 
-      public void SetColor(Color color) => this._color = color;
+      public void SetColor(Color color) { return this._color = color; }
 
-      public void SetDestroySound(string sound) => this.destroySound = sound;
+      public void SetDestroySound(string sound) { return this.destroySound = sound; }
 
-      public void SetStartSound(string sound) => this.startSound = sound;
+      public void SetStartSound(string sound) { return this.startSound = sound; }
 
       protected override void _Update(float time)
       {
@@ -4715,7 +4718,7 @@ label_13:
         }
       }
 
-      private Rectangle _GetSourceRect() => new Rectangle(this._sourceRect.X + this._currentAnimationFrame * this._sourceRect.Width, this._sourceRect.Y, this._sourceRect.Width, this._sourceRect.Height);
+      private Rectangle _GetSourceRect() { return new Rectangle(this._sourceRect.X + this._currentAnimationFrame * this._sourceRect.Width, this._sourceRect.Y, this._sourceRect.Width, this._sourceRect.Height); }
 
       public override void _Draw(SpriteBatch b)
       {
@@ -4732,11 +4735,11 @@ label_13:
       {
       }
 
-      public virtual bool OnBounce(MineCart.MineCartCharacter player) => false;
+      public virtual bool OnBounce(MineCart.MineCartCharacter player) { return false; }
 
-      public virtual bool OnBump(MineCart.PlayerMineCartCharacter player) => false;
+      public virtual bool OnBump(MineCart.PlayerMineCartCharacter player) { return false; }
 
-      public virtual Rectangle GetLocalBounds() => new Rectangle(-4, -12, 8, 12);
+      public virtual Rectangle GetLocalBounds() { return new Rectangle(-4, -12, 8, 12); }
 
       public virtual Rectangle GetBounds()
       {
@@ -4746,18 +4749,18 @@ label_13:
         return localBounds;
       }
 
-      public override void _Draw(SpriteBatch b) => b.Draw(this._game.texture, this._game.TransformDraw(this.drawnPosition), new Rectangle?(new Rectangle(16, 0, 16, 16)), Color.White, 0.0f, new Vector2(8f, 16f), this._game.GetPixelScale(), SpriteEffects.None, 0.45f);
+      public override void _Draw(SpriteBatch b) { return b.Draw(this._game.texture, this._game.TransformDraw(this.drawnPosition), new Rectangle?(new Rectangle(16, 0, 16, 16)), Color.White, 0.0f, new Vector2(8f, 16f), this._game.GetPixelScale(), SpriteEffects.None, 0.45f); }
 
-      public virtual bool CanSpawnHere(MineCart.Track track) => true;
+      public virtual bool CanSpawnHere(MineCart.Track track) { return true; }
     }
 
     public class Fruit : MineCart.Pickup
     {
       protected MineCart.CollectableFruits _fruitType;
 
-      public override Rectangle GetLocalBounds() => new Rectangle(-6, -6, 12, 12);
+      public override Rectangle GetLocalBounds() { return new Rectangle(-6, -6, 12, 12); }
 
-      public Fruit(MineCart.CollectableFruits fruit_type) => this._fruitType = fruit_type;
+      public Fruit(MineCart.CollectableFruits fruit_type) { return this._fruitType = fruit_type; }
 
       public override void Collect(MineCart.PlayerMineCartCharacter player)
       {
@@ -4772,7 +4775,7 @@ label_13:
         this.Destroy();
       }
 
-      public override void _Draw(SpriteBatch b) => b.Draw(this._game.texture, this._game.TransformDraw(this.drawnPosition), new Rectangle?(new Rectangle(160 + 16 * (int) this._fruitType, 0, 16, 16)), Color.White, 0.0f, new Vector2(8f, 8f), this._game.GetPixelScale(), SpriteEffects.None, 0.43f);
+      public override void _Draw(SpriteBatch b) { return b.Draw(this._game.texture, this._game.TransformDraw(this.drawnPosition), new Rectangle?(new Rectangle(160 + 16 * (int) this._fruitType, 0, 16, 16)), Color.White, 0.0f, new Vector2(8f, 8f), this._game.GetPixelScale(), SpriteEffects.None, 0.43f); }
     }
 
     public class Coin : MineCart.Pickup
@@ -4825,7 +4828,7 @@ label_13:
 
     public class Pickup : MineCart.Entity, MineCart.ICollideable
     {
-      public virtual Rectangle GetLocalBounds() => new Rectangle(-4, -4, 8, 8);
+      public virtual Rectangle GetLocalBounds() { return new Rectangle(-4, -4, 8, 8); }
 
       public virtual Rectangle GetBounds()
       {
@@ -4835,7 +4838,7 @@ label_13:
         return localBounds;
       }
 
-      public override void _Draw(SpriteBatch b) => b.Draw(this._game.texture, this._game.TransformDraw(this.drawnPosition), new Rectangle?(new Rectangle(16, 16, 16, 16)), Color.White, 0.0f, new Vector2(8f, 8f), this._game.GetPixelScale(), SpriteEffects.None, 0.45f);
+      public override void _Draw(SpriteBatch b) { return b.Draw(this._game.texture, this._game.TransformDraw(this.drawnPosition), new Rectangle?(new Rectangle(16, 16, 16, 16)), Color.White, 0.0f, new Vector2(8f, 8f), this._game.GetPixelScale(), SpriteEffects.None, 0.45f); }
 
       public virtual void Collect(MineCart.PlayerMineCartCharacter player)
       {
@@ -4858,7 +4861,7 @@ label_13:
         this.counterBalancedTracks = new List<MineCart.BalanceTrack>();
       }
 
-      public override void OnPlayerReset() => this.position.Y = this.startY;
+      public override void OnPlayerReset() { return this.position.Y = this.startY; }
 
       public override void WhileCartGrounded(MineCart.MineCartCharacter character, float time)
       {
@@ -4962,7 +4965,7 @@ label_13:
 
     public class PlayerMineCartCharacter : MineCart.MineCartCharacter, MineCart.ICollideable
     {
-      public Rectangle GetLocalBounds() => new Rectangle(-4, -12, 8, 12);
+      public Rectangle GetLocalBounds() { return new Rectangle(-4, -12, 8, 12); }
 
       public virtual Rectangle GetBounds()
       {
@@ -5155,7 +5158,7 @@ label_13:
       protected bool _hasJustSnapped;
       public float forcedJumpTime;
 
-      public void QueueJump() => this._jumpBuffer = 0.25f;
+      public void QueueJump() { return this._jumpBuffer = 0.25f; }
 
       public virtual void OnDie()
       {
@@ -5355,7 +5358,7 @@ label_13:
         }
       }
 
-      public float GetMaxFallSpeed() => this._game.currentTheme == 2 ? 75f : this.maxFallSpeed;
+      public float GetMaxFallSpeed() { return this._game.currentTheme == 2 ? 75f : this.maxFallSpeed; }
 
       public virtual void OnLand()
       {
@@ -5384,9 +5387,9 @@ label_13:
         this.velocity.Y = this._jumpMomentumThreshhold;
       }
 
-      public bool IsJumping() => this._jumping;
+      public bool IsJumping() { return this._jumping; }
 
-      public bool IsGrounded() => this._grounded;
+      public bool IsGrounded() { return this._grounded; }
 
       public void Bounce(float forced_bounce_time = 0.0f)
       {

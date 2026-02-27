@@ -17,7 +17,7 @@ namespace StardewValley.Objects
   {
     public NetList<Ring, NetRef<Ring>> combinedRings = new NetList<Ring, NetRef<Ring>>();
 
-    public CombinedRing() => this.NetFields.AddField((INetSerializable) this.combinedRings);
+    public CombinedRing() { return this.NetFields.AddField((INetSerializable) this.combinedRings); }
 
     public CombinedRing(int parent_sheet_index)
       : base(880)
@@ -25,7 +25,7 @@ namespace StardewValley.Objects
       this.NetFields.AddField((INetSerializable) this.combinedRings);
     }
 
-    public virtual void UpdateDescription() => this.loadDisplayFields();
+    public virtual void UpdateDescription() { return this.loadDisplayFields(); }
 
     protected override bool loadDisplayFields()
     {

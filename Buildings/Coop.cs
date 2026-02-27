@@ -89,7 +89,7 @@ namespace StardewValley.Buildings
       }
     }
 
-    public override Rectangle getSourceRectForMenu() => new Rectangle(0, 0, this.texture.Value.Bounds.Width, this.texture.Value.Bounds.Height - 16);
+    public override Rectangle getSourceRectForMenu() { return new Rectangle(0, 0, this.texture.Value.Bounds.Width, this.texture.Value.Bounds.Height - 16); }
 
     public override bool doAction(Vector2 tileLocation, Farmer who)
     {
@@ -192,7 +192,7 @@ namespace StardewValley.Buildings
       b.Draw(this.texture.Value, new Vector2((float) x, (float) y), new Rectangle?(new Rectangle(0, 0, 96, 112)), (Color) (NetFieldBase<Color, NetColor>) this.color, 0.0f, new Vector2(0.0f, 0.0f), 4f, SpriteEffects.None, 0.89f);
     }
 
-    public override Vector2 getUpgradeSignLocation() => new Vector2((float) (int) (NetFieldBase<int, NetInt>) this.tileX, (float) ((int) (NetFieldBase<int, NetInt>) this.tileY + 1)) * 64f + new Vector2(128f, 4f);
+    public override Vector2 getUpgradeSignLocation() { return new Vector2((float) (int) (NetFieldBase<int, NetInt>) this.tileX, (float) ((int) (NetFieldBase<int, NetInt>) this.tileY + 1)) * 64f + new Vector2(128f, 4f); }
 
     public override void draw(SpriteBatch b)
     {

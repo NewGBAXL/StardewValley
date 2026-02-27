@@ -47,7 +47,7 @@ namespace StardewValley.Monsters
       this.hurtAnimationEvent.onEvent += (NetEvent0.Event) (() => this.Sprite.currentFrame = this.Sprite.currentFrame - this.Sprite.currentFrame % 4 + 3);
     }
 
-    public override void reloadSprite() => this.Sprite = new AnimatedSprite("Characters\\Monsters\\Squid Kid");
+    public override void reloadSprite() { return this.Sprite = new AnimatedSprite("Characters\\Monsters\\Squid Kid"); }
 
     public override int takeDamage(
       int damage,

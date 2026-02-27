@@ -36,8 +36,8 @@ namespace StardewValley.Characters
 
     private JunimoHut home
     {
-      get => Game1.getFarm().buildings[this.netHome.Value] as JunimoHut;
-      set => this.netHome.Value = Game1.getFarm().buildings.GuidOf((Building) value);
+      delegate(get) { return Game1.getFarm().buildings[this.netHome.Value] as JunimoHut; };
+      delegate(set) { return this.netHome.Value = Game1.getFarm().buildings.GuidOf((Building) value); };
     }
 
     public JunimoHarvester()
@@ -215,7 +215,7 @@ namespace StardewValley.Characters
       }
     }
 
-    public void reachFirstDestinationFromHut(Character c, GameLocation l) => this.tryToHarvestHere();
+    public void reachFirstDestinationFromHut(Character c, GameLocation l) { return this.tryToHarvestHere(); }
 
     public void tryToHarvestHere()
     {
@@ -241,7 +241,7 @@ namespace StardewValley.Characters
       }
     }
 
-    public override bool shouldCollideWithBuildingLayer(GameLocation location) => true;
+    public override bool shouldCollideWithBuildingLayer(GameLocation location) { return true; }
 
     public void setMoving(int xSpeed, int ySpeed)
     {
@@ -249,7 +249,7 @@ namespace StardewValley.Characters
       this.motion.Y = (float) ySpeed;
     }
 
-    public void setMoving(Vector2 motion) => this.motion = motion;
+    public void setMoving(Vector2 motion) { return this.motion = motion; }
 
     public override void Halt()
     {
@@ -257,7 +257,7 @@ namespace StardewValley.Characters
       this.motion = Vector2.Zero;
     }
 
-    public override bool canTalk() => false;
+    public override bool canTalk() { return false; }
 
     public void junimoReachedHut(Character c, GameLocation l)
     {
@@ -339,7 +339,7 @@ namespace StardewValley.Characters
     {
     }
 
-    private bool isHarvestable() => this.currentLocation.terrainFeatures.ContainsKey(this.getTileLocation()) && this.currentLocation.terrainFeatures[this.getTileLocation()] is HoeDirt && (this.currentLocation.terrainFeatures[this.getTileLocation()] as HoeDirt).readyForHarvest() || this.currentLocation.terrainFeatures.ContainsKey(this.getTileLocation()) && this.currentLocation.terrainFeatures[this.getTileLocation()] is Bush && (int) (NetFieldBase<int, NetInt>) (this.currentLocation.terrainFeatures[this.getTileLocation()] as Bush).tileSheetOffset == 1;
+    private bool isHarvestable() { return this.currentLocation.terrainFeatures.ContainsKey(this.getTileLocation()) && this.currentLocation.terrainFeatures[this.getTileLocation()] is HoeDirt && (this.currentLocation.terrainFeatures[this.getTileLocation()] as HoeDirt).readyForHarvest() || this.currentLocation.terrainFeatures.ContainsKey(this.getTileLocation()) && this.currentLocation.terrainFeatures[this.getTileLocation()] is Bush && (int) (NetFieldBase<int, NetInt>) (this.currentLocation.terrainFeatures[this.getTileLocation()] as Bush).tileSheetOffset == 1; }
 
     public override void update(GameTime time, GameLocation location)
     {
@@ -536,7 +536,7 @@ namespace StardewValley.Characters
       }
     }
 
-    public void pathfindToRandomSpotAroundHut() => this.controller = new PathFindController((Character) this, this.currentLocation, Utility.Vector2ToPoint(new Vector2((float) ((int) (NetFieldBase<int, NetInt>) this.home.tileX + 1 + Game1.random.Next(-8, 9)), (float) ((int) (NetFieldBase<int, NetInt>) this.home.tileY + 1 + Game1.random.Next(-8, 9)))), -1, new PathFindController.endBehavior(this.reachFirstDestinationFromHut), 100);
+    public void pathfindToRandomSpotAroundHut() { return this.controller = new PathFindController((Character) this, this.currentLocation, Utility.Vector2ToPoint(new Vector2((float) ((int) (NetFieldBase<int, NetInt>) this.home.tileX + 1 + Game1.random.Next(-8, 9)), (float) ((int) (NetFieldBase<int, NetInt>) this.home.tileY + 1 + Game1.random.Next(-8, 9)))), -1, new PathFindController.endBehavior(this.reachFirstDestinationFromHut), 100); }
 
     public void tryToAddItemToHut(Item i)
     {

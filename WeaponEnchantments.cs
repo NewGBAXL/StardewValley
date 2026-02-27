@@ -66,11 +66,11 @@ namespace StardewValley
     [XmlElement("level")]
     public int Level
     {
-      get => this.level.Value;
-      set => this.level.Value = value;
+      delegate(get) { return this.level.Value; };
+      delegate(set) { return this.level.Value = value; };
     }
 
-    public BaseEnchantment() => this.InitializeNetFields();
+    public BaseEnchantment() { return this.InitializeNetFields(); }
 
     public static BaseEnchantment GetEnchantmentFromItem(Item base_item, Item item)
     {
@@ -157,11 +157,11 @@ namespace StardewValley
       return BaseEnchantment._enchantments;
     }
 
-    public virtual bool IsForge() => false;
+    public virtual bool IsForge() { return false; }
 
-    public virtual bool IsSecondaryEnchantment() => false;
+    public virtual bool IsSecondaryEnchantment() { return false; }
 
-    public virtual void InitializeNetFields() => this.NetFields.AddFields((INetSerializable) this.level);
+    public virtual void InitializeNetFields() { return this.NetFields.AddFields((INetSerializable) this.level); }
 
     public void OnEquip(Farmer farmer)
     {
@@ -198,7 +198,7 @@ namespace StardewValley
       this._OnDealDamage(monster, location, who, ref amount);
     }
 
-    public void OnDealDamage(Monster monster, GameLocation location, Farmer who, ref int amount) => this._OnDealDamage(monster, location, who, ref amount);
+    public void OnDealDamage(Monster monster, GameLocation location, Farmer who, ref int amount) { return this._OnDealDamage(monster, location, who, ref amount); }
 
     protected virtual void _OnDealDamage(
       Monster monster,
@@ -208,13 +208,13 @@ namespace StardewValley
     {
     }
 
-    public void OnMonsterSlay(Monster m, GameLocation location, Farmer who) => this._OnMonsterSlay(m, location, who);
+    public void OnMonsterSlay(Monster m, GameLocation location, Farmer who) { return this._OnMonsterSlay(m, location, who); }
 
     protected virtual void _OnMonsterSlay(Monster m, GameLocation location, Farmer who)
     {
     }
 
-    public void OnCutWeed(Vector2 tile_location, GameLocation location, Farmer who) => this._OnCutWeed(tile_location, location, who);
+    public void OnCutWeed(Vector2 tile_location, GameLocation location, Farmer who) { return this._OnCutWeed(tile_location, location, who); }
 
     protected virtual void _OnCutWeed(Vector2 tile_location, GameLocation location, Farmer who)
     {
@@ -227,7 +227,7 @@ namespace StardewValley
       return instance;
     }
 
-    public int GetLevel() => this.level.Value;
+    public int GetLevel() { return this.level.Value; }
 
     public void SetLevel(Item item, int new_level)
     {
@@ -242,7 +242,7 @@ namespace StardewValley
       this.ApplyTo(item);
     }
 
-    public virtual int GetMaximumLevel() => -1;
+    public virtual int GetMaximumLevel() { return -1; }
 
     public void ApplyTo(Item item, Farmer farmer = null)
     {
@@ -256,9 +256,9 @@ namespace StardewValley
     {
     }
 
-    public bool IsItemCurrentlyEquipped(Item item, Farmer farmer) => farmer != null && this._IsCurrentlyEquipped(item, farmer);
+    public bool IsItemCurrentlyEquipped(Item item, Farmer farmer) { return farmer != null && this._IsCurrentlyEquipped(item, farmer); }
 
-    protected virtual bool _IsCurrentlyEquipped(Item item, Farmer farmer) => farmer.CurrentTool == item;
+    protected virtual bool _IsCurrentlyEquipped(Item item, Farmer farmer) { return farmer.CurrentTool == item; }
 
     public void UnapplyTo(Item item, Farmer farmer = null)
     {
@@ -272,7 +272,7 @@ namespace StardewValley
     {
     }
 
-    public virtual bool CanApplyTo(Item item) => true;
+    public virtual bool CanApplyTo(Item item) { return true; }
 
     public string GetDisplayName()
     {
@@ -285,8 +285,8 @@ namespace StardewValley
       return this._displayName;
     }
 
-    public virtual string GetName() => "Unknown Enchantment";
+    public virtual string GetName() { return "Unknown Enchantment"; }
 
-    public virtual bool ShouldBeDisplayed() => true;
+    public virtual bool ShouldBeDisplayed() { return true; }
   }
 }

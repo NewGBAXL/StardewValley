@@ -38,7 +38,7 @@ namespace StardewValley.Locations
       this.NetFields.AddField((INetSerializable) this.bundleMutex.NetFields);
     }
 
-    public void checkBundle() => this.bundleMutex.RequestLock((Action) (() => Game1.activeClickableMenu = (IClickableMenu) new JunimoNoteMenu(6, (Game1.getLocationFromName("CommunityCenter") as CommunityCenter).bundlesDict())));
+    public void checkBundle() { return this.bundleMutex.RequestLock((Action) (() => Game1.activeClickableMenu = (IClickableMenu) new JunimoNoteMenu(6, (Game1.getLocationFromName("CommunityCenter") as CommunityCenter).bundlesDict()))); }
 
     public override void updateEvenIfFarmerIsntHere(GameTime time, bool ignoreWasUpdatedFlush = false)
     {
@@ -49,7 +49,7 @@ namespace StardewValley.Locations
       this.restoreAreaCutsceneEvent.Poll();
     }
 
-    public void restoreAreaCutscene() => this.restoreAreaCutsceneEvent.Fire();
+    public void restoreAreaCutscene() { return this.restoreAreaCutsceneEvent.Fire(); }
 
     private void doRestoreAreaCutscene()
     {

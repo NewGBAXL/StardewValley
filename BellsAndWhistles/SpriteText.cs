@@ -329,7 +329,7 @@ namespace StardewValley.BellsAndWhistles
       return source;
     }
 
-    public static string getStringPreviousToThisHeightCutoff(string s, int width, int height) => s.Substring(0, SpriteText.getIndexOfSubstringBeyondHeight(s, width, height) + 1);
+    public static string getStringPreviousToThisHeightCutoff(string s, int width, int height) { return s.Substring(0, SpriteText.getIndexOfSubstringBeyondHeight(s, width, height) + 1); }
 
     private static int getLastSpace(string s, int startIndex)
     {
@@ -414,7 +414,7 @@ namespace StardewValley.BellsAndWhistles
       SpriteText.drawString(b, s, x, y, alpha: alpha, drawBGScroll: 0, placeHolderScrollWidthText: placeHolderWidthText, color: color, scroll_text_alignment: scroll_text_alignment);
     }
 
-    private static FontFile loadFont(string assetName) => FontLoader.Parse(Game1.content.Load<XmlSource>(assetName).Source);
+    private static FontFile loadFont(string assetName) { return FontLoader.Parse(Game1.content.Load<XmlSource>(assetName).Source); }
 
     private static void setUpCharacterMap()
     {
@@ -661,7 +661,7 @@ namespace StardewValley.BellsAndWhistles
       }
     }
 
-    private static bool IsSpecialCharacter(char c) => c.Equals('<') || c.Equals('=') || c.Equals('>') || c.Equals('@') || c.Equals('$') || c.Equals('`') || c.Equals('+');
+    private static bool IsSpecialCharacter(char c) { return c.Equals('<') || c.Equals('=') || c.Equals('>') || c.Equals('@') || c.Equals('$') || c.Equals('`') || c.Equals('+'); }
 
     private static void OnLanguageChange(LocalizedContentManager.LanguageCode code)
     {

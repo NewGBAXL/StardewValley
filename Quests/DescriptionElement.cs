@@ -27,7 +27,7 @@ namespace StardewValley.Quests
     [XmlIgnore]
     public NetFields NetFields { get; } = new NetFields();
 
-    public static implicit operator DescriptionElement(string key) => new DescriptionElement(key);
+    public static implicit operator DescriptionElement(string key) { return new DescriptionElement(key); }
 
     public DescriptionElement()
     {

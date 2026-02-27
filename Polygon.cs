@@ -17,8 +17,8 @@ namespace StardewValley
 
     public List<Polygon.Line> Lines
     {
-      get => this.lines;
-      set => this.lines = value;
+      delegate(get) { return this.lines; };
+      delegate(set) { return this.lines = value; };
     }
 
     public void addPoint(Vector2 point)
@@ -38,9 +38,9 @@ namespace StardewValley
       return false;
     }
 
-    public static Polygon getGentlerBorderForLakes(Rectangle room, Random mineRandom) => Polygon.getGentlerBorderForLakes(room, mineRandom, Rectangle.Empty);
+    public static Polygon getGentlerBorderForLakes(Rectangle room, Random mineRandom) { return Polygon.getGentlerBorderForLakes(room, mineRandom, Rectangle.Empty); }
 
-    public static Polygon getEdgeBorder(Rectangle room, Random mineRandom) => Polygon.getEdgeBorder(room, mineRandom, new List<Rectangle>(), (room.Width - 2) / 2, (room.Height - 2) / 2);
+    public static Polygon getEdgeBorder(Rectangle room, Random mineRandom) { return Polygon.getEdgeBorder(room, mineRandom, new List<Rectangle>(), (room.Width - 2) / 2, (room.Height - 2) / 2); }
 
     public static Polygon getEdgeBorder(
       Rectangle room,

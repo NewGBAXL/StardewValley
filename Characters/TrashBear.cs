@@ -172,7 +172,7 @@ namespace StardewValley.Characters
       this.doCutsceneEvent();
     }
 
-    private void doCutsceneEvent() => this.cutsceneEvent.Fire();
+    private void doCutsceneEvent() { return this.cutsceneEvent.Fire(); }
 
     private void doCutscene()
     {

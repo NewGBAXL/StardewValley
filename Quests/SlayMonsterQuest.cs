@@ -37,7 +37,7 @@ namespace StardewValley.Quests
     [XmlElement("objective")]
     public readonly NetDescriptionElementRef objective = new NetDescriptionElementRef();
 
-    public SlayMonsterQuest() => this.questType.Value = 4;
+    public SlayMonsterQuest() { return this.questType.Value = 4; }
 
     protected override void initNetFields()
     {

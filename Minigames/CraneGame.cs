@@ -91,11 +91,11 @@ namespace StardewValley.Minigames
       this._UpdateButtonState(CraneGame.GameButtons.Right, Game1.options.moveRightButton, emulated_keys);
     }
 
-    public bool IsButtonPressed(CraneGame.GameButtons button) => this._buttonStates[button] == 1;
+    public bool IsButtonPressed(CraneGame.GameButtons button) { return this._buttonStates[button] == 1; }
 
-    public bool IsButtonDown(CraneGame.GameButtons button) => this._buttonStates[button] > 0;
+    public bool IsButtonDown(CraneGame.GameButtons button) { return this._buttonStates[button] > 0; }
 
-    public bool IsButtonReleased(CraneGame.GameButtons button) => this._buttonStates[button] == -1;
+    public bool IsButtonReleased(CraneGame.GameButtons button) { return this._buttonStates[button] == -1; }
 
     public bool IsButtonDownRepeating(
       CraneGame.GameButtons button,
@@ -108,7 +108,7 @@ namespace StardewValley.Minigames
       return num >= repeat_delay && (num - repeat_delay) % repeat_rate == 0;
     }
 
-    public int GetButtonHoldTime(CraneGame.GameButtons button) => Math.Max(this._buttonStates[button], 0);
+    public int GetButtonHoldTime(CraneGame.GameButtons button) { return Math.Max(this._buttonStates[button], 0); }
 
     protected void _UpdateButtonState(
       CraneGame.GameButtons button,
@@ -264,9 +264,9 @@ namespace StardewValley.Minigames
       return true;
     }
 
-    public bool overrideFreeMouseMovement() => Game1.options.SnappyMenus;
+    public bool overrideFreeMouseMovement() { return Game1.options.SnappyMenus; }
 
-    public bool doMainGameUpdates() => false;
+    public bool doMainGameUpdates() { return false; }
 
     public void receiveLeftClick(int x, int y, bool playSound = true)
     {
@@ -367,7 +367,7 @@ namespace StardewValley.Minigames
     {
     }
 
-    public string minigameId() => nameof (CraneGame);
+    public string minigameId() { return nameof (CraneGame); }
 
     public enum GameButtons
     {
@@ -814,7 +814,7 @@ namespace StardewValley.Minigames
         }
       }
 
-      public CraneGame.GameLogic.GameStates GetCurrentState() => this._currentState;
+      public CraneGame.GameLogic.GameStates GetCurrentState() { return this._currentState; }
 
       public override void Update(GameTime time)
       {
@@ -1272,8 +1272,8 @@ namespace StardewValley.Minigames
 
       public float openAngle
       {
-        get => this._leftArm.rotation;
-        set => this._leftArm.rotation = value;
+        delegate(get) { return this._leftArm.rotation; };
+        delegate(set) { return this._leftArm.rotation = value; };
       }
 
       public Claw(CraneGame game)
@@ -1369,9 +1369,9 @@ namespace StardewValley.Minigames
         this._grabbedPrize.ApplyDrawEffect((CraneGame.DrawEffect) new CraneGame.ShakeEffect(1f, 1f, 20));
       }
 
-      public override void Move(float x, float y) => base.Move(x, y);
+      public override void Move(float x, float y) { return base.Move(x, y); }
 
-      public CraneGame.Prize GetGrabbedPrize() => this._grabbedPrize;
+      public CraneGame.Prize GetGrabbedPrize() { return this._grabbedPrize; }
 
       public override void Update(GameTime time)
       {
@@ -1402,7 +1402,7 @@ namespace StardewValley.Minigames
       protected Vector2 _spriteStartPosition;
       protected int _spriteOffset;
 
-      public int GetDirection() => this._direction;
+      public int GetDirection() { return this._direction; }
 
       public ConveyerBelt(CraneGame game, int x, int y, int direction)
         : base(game)
@@ -1460,7 +1460,7 @@ namespace StardewValley.Minigames
         this.position.Y = (float) y;
       }
 
-      public override void Update(GameTime time) => this.rotation = (float) Math.Sin(time.TotalGameTime.TotalMilliseconds * (1.0 / 400.0) + (double) this.position.Y + (double) this.position.X * 2.0) * 2f;
+      public override void Update(GameTime time) { return this.rotation = (float) Math.Sin(time.TotalGameTime.TotalMilliseconds * (1.0 / 400.0) + (double) this.position.Y + (double) this.position.X * 2.0) * 2f; }
     }
 
     public class Prize : CraneGame.CraneGameObject
@@ -1475,7 +1475,7 @@ namespace StardewValley.Minigames
       protected bool _isBeingCollected;
       public bool isLargeItem;
 
-      public float GetRestingZPosition() => this._restingZPosition;
+      public float GetRestingZPosition() { return this._restingZPosition; }
 
       public Prize(CraneGame game, Item item)
         : base(game)
@@ -1526,7 +1526,7 @@ namespace StardewValley.Minigames
         this._restingZPosition = 0.0f;
       }
 
-      public bool CanBeGrabbed() => !this.IsDestroyed() && !this._isBeingCollected && (double) this.zPosition == (double) this._restingZPosition;
+      public bool CanBeGrabbed() { return !this.IsDestroyed() && !this._isBeingCollected && (double) this.zPosition == (double) this._restingZPosition; }
 
       public override void Update(GameTime time)
       {
@@ -1718,7 +1718,7 @@ namespace StardewValley.Minigames
         this.spriteRect.Y = index / 5 * 16;
       }
 
-      public bool IsDestroyed() => this._destroyed;
+      public bool IsDestroyed() { return this._destroyed; }
 
       public virtual void Destroy()
       {
@@ -1732,7 +1732,7 @@ namespace StardewValley.Minigames
         this.position.Y += y;
       }
 
-      public Rectangle GetBounds() => new Rectangle((int) ((double) this.position.X - (double) this.spriteAnchor.X), (int) ((double) this.position.Y - (double) this.spriteAnchor.Y), this.width, this.height);
+      public Rectangle GetBounds() { return new Rectangle((int) ((double) this.position.X - (double) this.spriteAnchor.X), (int) ((double) this.position.Y - (double) this.spriteAnchor.Y), this.width, this.height); }
 
       public virtual void Update(GameTime time)
       {
@@ -1746,7 +1746,7 @@ namespace StardewValley.Minigames
         return rendererLayerDepth;
       }
 
-      public void ApplyDrawEffect(CraneGame.DrawEffect new_effect) => this.drawEffects.Add(new_effect);
+      public void ApplyDrawEffect(CraneGame.DrawEffect new_effect) { return this.drawEffects.Add(new_effect); }
 
       public virtual void Draw(SpriteBatch b, float layer_depth)
       {
@@ -1850,7 +1850,7 @@ namespace StardewValley.Minigames
 
     public class DrawEffect
     {
-      public virtual bool Apply(ref Vector2 position, ref float rotation, ref Vector2 scale) => true;
+      public virtual bool Apply(ref Vector2 position, ref float rotation, ref Vector2 scale) { return true; }
     }
   }
 }

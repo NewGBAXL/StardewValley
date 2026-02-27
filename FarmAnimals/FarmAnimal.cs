@@ -162,8 +162,8 @@ namespace StardewValley
     [XmlIgnore]
     public Building home
     {
-      get => this.netHome.Value;
-      set => this.netHome.Value = value;
+      delegate(get) { return this.netHome.Value; };
+      delegate(set) { return this.netHome.Value = value; };
     }
 
     [XmlIgnore]
@@ -181,7 +181,7 @@ namespace StardewValley
         }
         return this._displayHouse;
       }
-      set => this._displayHouse = value;
+      delegate(set) { return this._displayHouse = value; };
     }
 
     [XmlIgnore]
@@ -198,12 +198,12 @@ namespace StardewValley
         }
         return this._displayType;
       }
-      set => this._displayType = value;
+      delegate(set) { return this._displayType = value; };
     }
 
     public override string displayName
     {
-      get => this.Name;
+      delegate(get) { return this.Name; };
       set
       {
       }
@@ -323,7 +323,7 @@ namespace StardewValley
       }
     }
 
-    public bool isCoopDweller() => this.home != null && this.home is Coop;
+    public bool isCoopDweller() { return this.home != null && this.home is Coop; }
 
     public Microsoft.Xna.Framework.Rectangle GetHarvestBoundingBox()
     {
@@ -486,7 +486,7 @@ namespace StardewValley
       }
     }
 
-    public void Poke() => this.doBuildingPokeEvent.Fire();
+    public void Poke() { return this.doBuildingPokeEvent.Fire(); }
 
     private void doBuildingPoke()
     {
@@ -693,7 +693,7 @@ namespace StardewValley
       this.reload(this.home);
     }
 
-    public int getSellPrice() => (int) ((double) (int) (NetFieldBase<int, NetInt>) this.price * ((double) (int) (NetFieldBase<int, NetInt>) this.friendshipTowardFarmer / 1000.0 + 0.3));
+    public int getSellPrice() { return (int) ((double) (int) (NetFieldBase<int, NetInt>) this.price * ((double) (int) (NetFieldBase<int, NetInt>) this.friendshipTowardFarmer / 1000.0 + 0.3)); }
 
     public bool isMale()
     {
@@ -739,7 +739,7 @@ namespace StardewValley
       }
     }
 
-    public bool isBaby() => (int) (NetFieldBase<int, NetInt>) this.age < (int) (byte) (NetFieldBase<byte, NetByte>) this.ageWhenMature;
+    public bool isBaby() { return (int) (NetFieldBase<int, NetInt>) this.age < (int) (byte) (NetFieldBase<byte, NetByte>) this.ageWhenMature; }
 
     public void warpHome(Farm f, FarmAnimal a)
     {
@@ -1181,7 +1181,7 @@ namespace StardewValley
       cue.Play();
     }
 
-    public virtual bool CanHavePregnancy() => !this.isCoopDweller() && !(this.type.Value == "Ostrich");
+    public virtual bool CanHavePregnancy() { return !this.isCoopDweller() && !(this.type.Value == "Ostrich"); }
 
     public virtual bool SleepIfNecessary()
     {
@@ -1425,11 +1425,11 @@ namespace StardewValley
       this.Sprite.UpdateSourceRect();
     }
 
-    public virtual bool CanSwim() => this.type.Value == "Duck";
+    public virtual bool CanSwim() { return this.type.Value == "Duck"; }
 
-    public virtual bool CanFollowAdult() => this.isCoopDweller() && this.isBaby() && (this.type.Value == "Duck" || this.type.Contains("Chicken"));
+    public virtual bool CanFollowAdult() { return this.isCoopDweller() && this.isBaby() && (this.type.Value == "Duck" || this.type.Contains("Chicken")); }
 
-    public override bool shouldCollideWithBuildingLayer(GameLocation location) => true;
+    public override bool shouldCollideWithBuildingLayer(GameLocation location) { return true; }
 
     public virtual void HandleHop()
     {
@@ -1688,7 +1688,7 @@ namespace StardewValley
       return false;
     }
 
-    public virtual bool IsActuallySwimming() => this.isSwimming.Value && this.hopOffset == Vector2.Zero;
+    public virtual bool IsActuallySwimming() { return this.isSwimming.Value && this.hopOffset == Vector2.Zero; }
 
     public virtual void Splash()
     {

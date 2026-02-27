@@ -148,7 +148,7 @@ namespace StardewValley.Menus
       this.snapToDefaultClickableComponent();
     }
 
-    public void AddTabsToClickableComponents(IClickableMenu menu) => menu.allClickableComponents.AddRange((IEnumerable<ClickableComponent>) this.tabs);
+    public void AddTabsToClickableComponents(IClickableMenu menu) { return menu.allClickableComponents.AddRange((IEnumerable<ClickableComponent>) this.tabs); }
 
     public GameMenu(int startingTab, int extra = -1, bool playOpeningSound = true)
       : this(playOpeningSound)
@@ -220,9 +220,9 @@ namespace StardewValley.Menus
       this.pages[this.currentTab].setUpForGamePadMode();
     }
 
-    public override ClickableComponent getCurrentlySnappedComponent() => this.pages[this.currentTab].getCurrentlySnappedComponent();
+    public override ClickableComponent getCurrentlySnappedComponent() { return this.pages[this.currentTab].getCurrentlySnappedComponent(); }
 
-    public override void setCurrentlySnappedComponentTo(int id) => this.pages[this.currentTab].setCurrentlySnappedComponentTo(id);
+    public override void setCurrentlySnappedComponentTo(int id) { return this.pages[this.currentTab].setCurrentlySnappedComponentTo(id); }
 
     public override void receiveLeftClick(int x, int y, bool playSound = true)
     {
@@ -267,7 +267,7 @@ namespace StardewValley.Menus
       }
     }
 
-    public override void receiveRightClick(int x, int y, bool playSound = true) => this.pages[this.currentTab].receiveRightClick(x, y);
+    public override void receiveRightClick(int x, int y, bool playSound = true) { return this.pages[this.currentTab].receiveRightClick(x, y); }
 
     public override void receiveScrollWheelAction(int direction)
     {
@@ -341,7 +341,7 @@ namespace StardewValley.Menus
       this.pages[this.currentTab].leftClickHeld(x, y);
     }
 
-    public override bool readyToClose() => !GameMenu.forcePreventClose && this.pages[this.currentTab].readyToClose();
+    public override bool readyToClose() { return !GameMenu.forcePreventClose && this.pages[this.currentTab].readyToClose(); }
 
     public void changeTab(int whichTab, bool playSound = true)
     {
@@ -369,7 +369,7 @@ namespace StardewValley.Menus
       this.snapToDefaultClickableComponent();
     }
 
-    public IClickableMenu GetCurrentPage() => this.currentTab >= this.pages.Count || this.currentTab < 0 ? (IClickableMenu) null : this.pages[this.currentTab];
+    public IClickableMenu GetCurrentPage() { return this.currentTab >= this.pages.Count || this.currentTab < 0 ? (IClickableMenu) null : this.pages[this.currentTab]; }
 
     public void setTabNeighborsForCurrentPage()
     {
@@ -454,7 +454,7 @@ namespace StardewValley.Menus
       this.drawMouse(b, true);
     }
 
-    public override bool areGamePadControlsImplemented() => false;
+    public override bool areGamePadControlsImplemented() { return false; }
 
     public override void receiveKeyPress(Keys key)
     {

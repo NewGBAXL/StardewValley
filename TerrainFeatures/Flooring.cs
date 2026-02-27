@@ -111,7 +111,7 @@ namespace StardewValley.TerrainFeatures
       this.isPathway.Value = true;
     }
 
-    public override Rectangle getBoundingBox(Vector2 tileLocation) => new Rectangle((int) ((double) tileLocation.X * 64.0), (int) ((double) tileLocation.Y * 64.0), 64, 64);
+    public override Rectangle getBoundingBox(Vector2 tileLocation) { return new Rectangle((int) ((double) tileLocation.X * 64.0), (int) ((double) tileLocation.Y * 64.0), 64, 64); }
 
     public static void populateDrawGuide()
     {
@@ -179,7 +179,7 @@ namespace StardewValley.TerrainFeatures
       (who as Farmer).temporarySpeedBuff = 0.1f;
     }
 
-    public override bool isPassable(Character c = null) => true;
+    public override bool isPassable(Character c = null) { return true; }
 
     public string getFootstepSound()
     {
@@ -204,7 +204,7 @@ namespace StardewValley.TerrainFeatures
       }
     }
 
-    private Texture2D getTexture() => Game1.GetSeasonForLocation(this.currentLocation)[0] == 'w' && (this.currentLocation == null || !(bool) (NetFieldBase<bool, NetBool>) this.currentLocation.isGreenhouse) ? Flooring.floorsTextureWinter : Flooring.floorsTexture;
+    private Texture2D getTexture() { return Game1.GetSeasonForLocation(this.currentLocation)[0] == 'w' && (this.currentLocation == null || !(bool) (NetFieldBase<bool, NetBool>) this.currentLocation.isGreenhouse) ? Flooring.floorsTextureWinter : Flooring.floorsTexture; }
 
     public override bool performToolAction(
       Tool t,
@@ -369,7 +369,7 @@ label_20:
     {
     }
 
-    public override bool seasonUpdate(bool onLoad) => false;
+    public override bool seasonUpdate(bool onLoad) { return false; }
 
     private List<Flooring.Neighbor> gatherNeighbors(GameLocation loc, Vector2 tilePos)
     {
@@ -417,9 +417,9 @@ label_20:
       }
     }
 
-    public void OnNeighborAdded(byte direction) => this.neighborMask |= direction;
+    public void OnNeighborAdded(byte direction) { return this.neighborMask |= direction; }
 
-    public void OnNeighborRemoved(byte direction) => this.neighborMask &= ~direction;
+    public void OnNeighborRemoved(byte direction) { return this.neighborMask &= ~direction; }
 
     private struct NeighborLoc
     {

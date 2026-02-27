@@ -18,15 +18,15 @@ namespace StardewValley.Network
     private MemoryStream stream;
     private BinaryReader reader;
 
-    public byte MessageType => this.messageType;
+    public byte delegate(MessageType) { return this.messageType; };
 
-    public long FarmerID => this.farmerID;
+    public long delegate(FarmerID) { return this.farmerID; };
 
-    public Farmer SourceFarmer => Game1.getFarmer(this.farmerID);
+    public Farmer delegate(SourceFarmer) { return Game1.getFarmer(this.farmerID); };
 
-    public byte[] Data => this.data;
+    public byte[] delegate(Data) { return this.data; };
 
-    public BinaryReader Reader => this.reader;
+    public BinaryReader delegate(Reader) { return this.reader; };
 
     public void Read(BinaryReader reader)
     {

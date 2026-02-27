@@ -22,7 +22,7 @@ namespace StardewValley.Projectiles
     public NetInt debuff = new NetInt(-1);
     public NetString debuffSound = new NetString("debuffHit");
 
-    public BasicProjectile() => this.NetFields.AddFields((INetSerializable) this.damageToFarmer, (INetSerializable) this.collisionSound, (INetSerializable) this.explode, (INetSerializable) this.debuff, (INetSerializable) this.debuffSound);
+    public BasicProjectile() { return this.NetFields.AddFields((INetSerializable) this.damageToFarmer, (INetSerializable) this.collisionSound, (INetSerializable) this.explode, (INetSerializable) this.debuff, (INetSerializable) this.debuffSound); }
 
     /// <summary>non-spell projectile constructor</summary>
     public BasicProjectile(
@@ -119,9 +119,9 @@ namespace StardewValley.Projectiles
       this.explosionAnimation(location);
     }
 
-    public override void behaviorOnCollisionWithMineWall(int tileX, int tileY) => this.explosionAnimation((GameLocation) Game1.mine);
+    public override void behaviorOnCollisionWithMineWall(int tileX, int tileY) { return this.explosionAnimation((GameLocation) Game1.mine); }
 
-    public override void behaviorOnCollisionWithOther(GameLocation location) => this.explosionAnimation(location);
+    public override void behaviorOnCollisionWithOther(GameLocation location) { return this.explosionAnimation(location); }
 
     public override void behaviorOnCollisionWithMonster(NPC n, GameLocation location)
     {
@@ -197,7 +197,7 @@ namespace StardewValley.Projectiles
       this.destroyMe = true;
     }
 
-    public static void explodeOnImpact(GameLocation location, int x, int y, Character who) => location.explode(new Vector2((float) (x / 64), (float) (y / 64)), 2, who is Farmer ? (Farmer) who : (Farmer) null);
+    public static void explodeOnImpact(GameLocation location, int x, int y, Character who) { return location.explode(new Vector2((float) (x / 64), (float) (y / 64)), 2, who is Farmer ? (Farmer) who : (Farmer) null); }
 
     public delegate void onCollisionBehavior(
       GameLocation location,

@@ -25,7 +25,7 @@ namespace StardewValley
     public static LocalMultiplayer.StaticInstanceMethod StaticSave;
     public static LocalMultiplayer.StaticInstanceMethod StaticLoad;
 
-    public static bool IsLocalMultiplayer(bool is_local_only = false) => is_local_only ? Game1.hasLocalClientsOnly : GameRunner.instance.gameInstances.Count > 1;
+    public static bool IsLocalMultiplayer(bool is_local_only = false) { return is_local_only ? Game1.hasLocalClientsOnly : GameRunner.instance.gameInstances.Count > 1; }
 
     public static void Initialize()
     {

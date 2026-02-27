@@ -48,7 +48,7 @@ namespace StardewValley.Menus
       Game1.displayHUD = false;
     }
 
-    public override bool shouldClampGamePadCursor() => true;
+    public override bool shouldClampGamePadCursor() { return true; }
 
     public override void receiveKeyPress(Keys key)
     {
@@ -119,7 +119,7 @@ namespace StardewValley.Menus
       }
     }
 
-    public override bool overrideSnappyMenuCursorMovementBan() => false;
+    public override bool overrideSnappyMenuCursorMovementBan() { return false; }
 
     public override void receiveGamePadButton(Buttons b)
     {
@@ -241,7 +241,7 @@ namespace StardewValley.Menus
       this.snapCursorToCurrentSnappedComponent();
     }
 
-    public override bool readyToClose() => !this.holdingMuseumPiece && this.heldItem == null && !this.menuMovingDown;
+    public override bool readyToClose() { return !this.holdingMuseumPiece && this.heldItem == null && !this.menuMovingDown; }
 
     protected override void cleanupBeforeExit()
     {

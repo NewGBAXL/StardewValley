@@ -30,7 +30,7 @@ namespace StardewValley.Objects
     [XmlElement("glow")]
     private readonly NetFloat glow = new NetFloat(0.0f);
 
-    public SwitchFloor() => this.NetFields.AddFields((INetSerializable) this.onColor, (INetSerializable) this.offColor, (INetSerializable) this.readyToflip, (INetSerializable) this.finished, (INetSerializable) this.glow);
+    public SwitchFloor() { return this.NetFields.AddFields((INetSerializable) this.onColor, (INetSerializable) this.offColor, (INetSerializable) this.readyToflip, (INetSerializable) this.finished, (INetSerializable) this.glow); }
 
     public SwitchFloor(Vector2 tileLocation, Color onColor, Color offColor, bool on)
       : this()
@@ -43,7 +43,7 @@ namespace StardewValley.Objects
       this.name = "Switch Floor";
     }
 
-    protected override string loadDisplayName() => Game1.content.LoadString("Strings\\StringsFromCSFiles:SwitchFloor.cs.13097");
+    protected override string loadDisplayName() { return Game1.content.LoadString("Strings\\StringsFromCSFiles:SwitchFloor.cs.13097"); }
 
     public void flip(GameLocation environment)
     {
@@ -107,7 +107,7 @@ namespace StardewValley.Objects
       Game1.playSound("coin");
     }
 
-    public override bool isPassable() => true;
+    public override bool isPassable() { return true; }
 
     public override void draw(SpriteBatch spriteBatch, int x, int y, float alpha = 1f)
     {

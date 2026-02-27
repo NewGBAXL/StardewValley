@@ -79,11 +79,11 @@ namespace StardewValley
       return (long) this.latestID;
     }
 
-    public virtual int MaxPlayers => Game1.server == null ? 1 : this.playerLimit;
+    public virtual int delegate(MaxPlayers) { return Game1.server == null ? 1 : this.playerLimit; };
 
-    public virtual bool isDisconnecting(Farmer farmer) => this.isDisconnecting(farmer.UniqueMultiplayerID);
+    public virtual bool isDisconnecting(Farmer farmer) { return this.isDisconnecting(farmer.UniqueMultiplayerID); }
 
-    public virtual bool isDisconnecting(long uid) => this.disconnectingFarmers.Contains(uid);
+    public virtual bool isDisconnecting(long uid) { return this.disconnectingFarmers.Contains(uid); }
 
     public virtual bool isClientBroadcastType(byte messageType)
     {
@@ -110,7 +110,7 @@ namespace StardewValley
       }
     }
 
-    public virtual bool allowSyncDelay() => Game1.newDaySync == null;
+    public virtual bool allowSyncDelay() { return Game1.newDaySync == null; }
 
     public virtual int interpolationTicks()
     {
@@ -250,14 +250,12 @@ namespace StardewValley
           if ((NetFieldBase<GameLocation, NetRef<GameLocation>>) location.Root != (NetRef<GameLocation>) null && location.Root.Dirty)
             this.broadcastLocationDelta(location);
         }
-        MineShaft.ForEach((Action<MineShaft>) (mine =>
-        {
+        MineShaft.ForEach((Action<MineShaft>) (delegate(mine) { return {; }
           if (!((NetFieldBase<GameLocation, NetRef<GameLocation>>) mine.Root != (NetRef<GameLocation>) null) || !mine.Root.Dirty)
             return;
           this.broadcastLocationDelta((GameLocation) mine);
         }));
-        VolcanoDungeon.ForEach((Action<VolcanoDungeon>) (level =>
-        {
+        VolcanoDungeon.ForEach((Action<VolcanoDungeon>) (delegate(level) { return {; }
           if (!((NetFieldBase<GameLocation, NetRef<GameLocation>>) level.Root != (NetRef<GameLocation>) null) || !level.Root.Dirty)
             return;
           this.broadcastLocationDelta((GameLocation) level);
@@ -292,8 +290,7 @@ namespace StardewValley
       }
       else
       {
-        Action<Farmer> action = (Action<Farmer>) (f =>
-        {
+        Action<Farmer> action = (Action<Farmer>) (delegate(f) { return {; }
           if (f == Game1.player)
             return;
           Game1.server.sendMessage(f.UniqueMultiplayerID, message);
@@ -527,7 +524,7 @@ namespace StardewValley
       }
     }
 
-    protected virtual void receiveRequestGrandpaReevaluation(IncomingMessage msg) => Game1.getFarm()?.requestGrandpaReevaluation();
+    protected virtual void receiveRequestGrandpaReevaluation(IncomingMessage msg) { return Game1.getFarm()?.requestGrandpaReevaluation(); }
 
     protected virtual void receiveFarmerKilledMonster(IncomingMessage msg)
     {
@@ -686,7 +683,10 @@ namespace StardewValley
       return writer;
     }
 
-    public virtual void writeObjectFull<T>(BinaryWriter writer, NetRoot<T> root, long? peer) where T : class, INetObject<INetSerializable> => root.CreateConnectionPacket(writer, peer);
+    public virtual void writeObjectFull<T>(BinaryWriter writer, NetRoot<T> root, long? peer) where T : class, INetObject<INetSerializable>
+    {
+      root.CreateConnectionPacket(writer, peer);
+    }
 
     public virtual byte[] writeObjectFullBytes<T>(NetRoot<T> root, long? peer) where T : class, INetObject<INetSerializable>
     {
@@ -700,9 +700,15 @@ namespace StardewValley
       }
     }
 
-    public virtual void readObjectDelta<T>(BinaryReader reader, NetRoot<T> root) where T : class, INetObject<INetSerializable> => root.Read(reader);
+    public virtual void readObjectDelta<T>(BinaryReader reader, NetRoot<T> root) where T : class, INetObject<INetSerializable>
+    {
+      root.Read(reader);
+    }
 
-    public virtual void writeObjectDelta<T>(BinaryWriter writer, NetRoot<T> root) where T : class, INetObject<INetSerializable> => root.Write(writer);
+    public virtual void writeObjectDelta<T>(BinaryWriter writer, NetRoot<T> root) where T : class, INetObject<INetSerializable>
+    {
+      root.Write(writer);
+    }
 
     public virtual byte[] writeObjectDeltaBytes<T>(NetRoot<T> root) where T : class, INetObject<INetSerializable>
     {
@@ -736,7 +742,7 @@ namespace StardewValley
       Game1.chatBox.addInfoMessage(Game1.content.LoadString("Strings\\UI:Chat_PlayerJoined", (object) sub1));
     }
 
-    public virtual void receivePlayerIntroduction(BinaryReader reader) => this.addPlayer(this.readFarmer(reader));
+    public virtual void receivePlayerIntroduction(BinaryReader reader) { return this.addPlayer(this.readFarmer(reader)); }
 
     public virtual void broadcastPlayerIntroduction(NetFarmerRoot farmerRoot)
     {
@@ -796,7 +802,7 @@ namespace StardewValley
       this.disconnectingFarmers.Clear();
     }
 
-    public virtual void sendFarmhand() => (Game1.player.NetFields.Root as NetFarmerRoot).MarkReassigned();
+    public virtual void sendFarmhand() { return (Game1.player.NetFields.Root as NetFarmerRoot).MarkReassigned(); }
 
     protected virtual void saveFarmhand(NetFarmerRoot farmhand)
     {
@@ -977,8 +983,7 @@ namespace StardewValley
         return;
       try
       {
-        string[] array = ((IEnumerable<string>) args).Select<string, string>((Func<string, string>) (arg =>
-        {
+        string[] array = ((IEnumerable<string>) args).Select<string, string>((Func<string, string>) (delegate(arg) { return {; }
           if (arg.StartsWith("achievement:"))
           {
             int int32 = Convert.ToInt32(arg.Substring("achievement:".Length));
@@ -1111,7 +1116,7 @@ namespace StardewValley
       Game1.locationRequest = (LocationRequest) null;
     }
 
-    public virtual bool isActiveLocation(GameLocation location) => Game1.IsMasterGame || Game1.currentLocation != null && (NetFieldBase<GameLocation, NetRef<GameLocation>>) Game1.currentLocation.Root != (NetRef<GameLocation>) null && Game1.currentLocation.Root.Value == location.Root.Value || this.isAlwaysActiveLocation(location);
+    public virtual bool isActiveLocation(GameLocation location) { return Game1.IsMasterGame || Game1.currentLocation != null && (NetFieldBase<GameLocation, NetRef<GameLocation>>) Game1.currentLocation.Root != (NetRef<GameLocation>) null && Game1.currentLocation.Root.Value == location.Root.Value || this.isAlwaysActiveLocation(location); }
 
     protected virtual GameLocation readLocation(BinaryReader reader)
     {
@@ -1159,7 +1164,7 @@ namespace StardewValley
       return temporaryAnimatedSpriteArray;
     }
 
-    protected virtual void receiveTeamDelta(BinaryReader msg) => this.readObjectDelta<FarmerTeam>(msg, Game1.player.teamRoot);
+    protected virtual void receiveTeamDelta(BinaryReader msg) { return this.readObjectDelta<FarmerTeam>(msg, Game1.player.teamRoot); }
 
     protected virtual void receiveNewDaySync(IncomingMessage msg)
     {
@@ -1177,11 +1182,11 @@ namespace StardewValley
       Game1.player.gainExperience(msg.Reader.ReadInt32(), msg.Reader.ReadInt32());
     }
 
-    protected virtual void receiveSharedAchievement(IncomingMessage msg) => Game1.getAchievement(msg.Reader.ReadInt32(), false);
+    protected virtual void receiveSharedAchievement(IncomingMessage msg) { return Game1.getAchievement(msg.Reader.ReadInt32(), false); }
 
-    protected virtual void receiveRemoveLocationFromLookup(IncomingMessage msg) => Game1.removeLocationFromLocationLookup(msg.Reader.ReadString());
+    protected virtual void receiveRemoveLocationFromLookup(IncomingMessage msg) { return Game1.removeLocationFromLocationLookup(msg.Reader.ReadString()); }
 
-    protected virtual void receivePartyWideMail(IncomingMessage msg) => this._performPartyWideMail(msg.Reader.ReadString(), (Multiplayer.PartyWideMessageQueue) msg.Reader.ReadInt32(), msg.Reader.ReadBoolean());
+    protected virtual void receivePartyWideMail(IncomingMessage msg) { return this._performPartyWideMail(msg.Reader.ReadString(), (Multiplayer.PartyWideMessageQueue) msg.Reader.ReadInt32(), msg.Reader.ReadBoolean()); }
 
     protected void _performPartyWideMail(
       string mail_key,
@@ -1481,9 +1486,9 @@ namespace StardewValley
       }
     }
 
-    public virtual Client InitClient(Client client) => client;
+    public virtual Client InitClient(Client client) { return client; }
 
-    public virtual Server InitServer(Server server) => server;
+    public virtual Server InitServer(Server server) { return server; }
 
     public static string MessageTypeToString(byte type)
     {
@@ -1557,11 +1562,17 @@ namespace StardewValley
     [StructLayout(LayoutKind.Sequential, Size = 1)]
     private struct FarmerRoots : IEnumerable<NetFarmerRoot>, IEnumerable
     {
-      public Multiplayer.FarmerRoots.Enumerator GetEnumerator() => new Multiplayer.FarmerRoots.Enumerator(true);
+      public Multiplayer.FarmerRoots.Enumerator GetEnumerator() { return new Multiplayer.FarmerRoots.Enumerator(true); }
 
-      IEnumerator<NetFarmerRoot> IEnumerable<NetFarmerRoot>.GetEnumerator() => (IEnumerator<NetFarmerRoot>) new Multiplayer.FarmerRoots.Enumerator(true);
+      IEnumerator<NetFarmerRoot> IEnumerable<NetFarmerRoot>.GetEnumerator()
+      {
+        return (IEnumerator<NetFarmerRoot>) new Multiplayer.FarmerRoots.Enumerator(true);
+      }
 
-      IEnumerator IEnumerable.GetEnumerator() => (IEnumerator) new Multiplayer.FarmerRoots.Enumerator(true);
+      IEnumerator IEnumerable.GetEnumerator()
+      {
+        return (IEnumerator) new Multiplayer.FarmerRoots.Enumerator(true);
+      }
 
       public struct Enumerator : IEnumerator<NetFarmerRoot>, IEnumerator, IDisposable
       {
@@ -1603,7 +1614,10 @@ namespace StardewValley
           return false;
         }
 
-        public NetFarmerRoot Current => this._current;
+        public NetFarmerRoot Current
+        {
+          get { return this._current; }
+        }
 
         public void Dispose()
         {
@@ -1632,11 +1646,17 @@ namespace StardewValley
     [StructLayout(LayoutKind.Sequential, Size = 1)]
     public struct ActiveLocations : IEnumerable<GameLocation>, IEnumerable
     {
-      public Multiplayer.ActiveLocations.Enumerator GetEnumerator() => new Multiplayer.ActiveLocations.Enumerator();
+      public Multiplayer.ActiveLocations.Enumerator GetEnumerator() { return new Multiplayer.ActiveLocations.Enumerator(); }
 
-      IEnumerator<GameLocation> IEnumerable<GameLocation>.GetEnumerator() => (IEnumerator<GameLocation>) new Multiplayer.ActiveLocations.Enumerator();
+      IEnumerator<GameLocation> IEnumerable<GameLocation>.GetEnumerator()
+      {
+        return (IEnumerator<GameLocation>) new Multiplayer.ActiveLocations.Enumerator();
+      }
 
-      IEnumerator IEnumerable.GetEnumerator() => (IEnumerator) new Multiplayer.ActiveLocations.Enumerator();
+      IEnumerator IEnumerable.GetEnumerator()
+      {
+        return (IEnumerator) new Multiplayer.ActiveLocations.Enumerator();
+      }
 
       public struct Enumerator : IEnumerator<GameLocation>, IEnumerator, IDisposable
       {
@@ -1705,7 +1725,7 @@ namespace StardewValley
           return false;
         }
 
-        public GameLocation Current => this._current;
+        public GameLocation delegate(Current) { return this._current; };
 
         public void Dispose()
         {

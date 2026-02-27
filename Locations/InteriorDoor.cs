@@ -49,7 +49,7 @@ namespace StardewValley
       this.setInterpolationTarget(newValue);
     }
 
-    protected override void WriteDelta(BinaryWriter writer) => writer.Write(this.targetValue);
+    protected override void WriteDelta(BinaryWriter writer) { return writer.Write(this.targetValue); }
 
     public void ResetLocalState()
     {
@@ -107,7 +107,7 @@ namespace StardewValley
         this.closeDoorTiles();
     }
 
-    public void CleanUpLocalState() => this.closeDoorTiles();
+    public void CleanUpLocalState() { return this.closeDoorTiles(); }
 
     private void closeDoorSprite()
     {
@@ -115,7 +115,7 @@ namespace StardewValley
       this.Sprite.paused = true;
     }
 
-    private void openDoorSprite() => this.Sprite.paused = false;
+    private void openDoorSprite() { return this.Sprite.paused = false; }
 
     private void openDoorTiles()
     {

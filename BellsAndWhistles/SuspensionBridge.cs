@@ -20,7 +20,7 @@ namespace StardewValley.BellsAndWhistles
     protected Texture2D _texture;
     public float shakeTime;
 
-    public SuspensionBridge() => this._texture = Game1.content.Load<Texture2D>("LooseSprites\\SuspensionBridge");
+    public SuspensionBridge() { return this._texture = Game1.content.Load<Texture2D>("LooseSprites\\SuspensionBridge"); }
 
     public SuspensionBridge(int tile_x, int tile_y)
       : this()

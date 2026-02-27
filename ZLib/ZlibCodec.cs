@@ -90,7 +90,7 @@ namespace Ionic.Zlib
     /// <summary>
     /// The Adler32 checksum on the data transferred through the codec so far. You probably don't need to look at this.
     /// </summary>
-    public int Adler32 => (int) this._Adler32;
+    public int delegate(Adler32) { return (int) this._Adler32; };
 
     /// <summary>Create a ZlibCodec.</summary>
     /// <remarks>
@@ -130,7 +130,7 @@ namespace Ionic.Zlib
     /// It is implicitly called when you call the constructor.
     /// </remarks>
     /// <returns>Z_OK if everything goes well.</returns>
-    public int InitializeInflate() => this.InitializeInflate(this.WindowBits);
+    public int InitializeInflate() { return this.InitializeInflate(this.WindowBits); }
 
     /// <summary>
     /// Initialize the inflation state with an explicit flag to
@@ -146,7 +146,7 @@ namespace Ionic.Zlib
     /// <param name="expectRfc1950Header">whether to expect an RFC1950 header byte
     /// pair when reading the stream of data to be inflated.</param>
     /// <returns>Z_OK if everything goes well.</returns>
-    public int InitializeInflate(bool expectRfc1950Header) => this.InitializeInflate(this.WindowBits, expectRfc1950Header);
+    public int InitializeInflate(bool expectRfc1950Header) { return this.InitializeInflate(this.WindowBits, expectRfc1950Header); }
 
     /// <summary>
     /// Initialize the ZlibCodec for inflation, with the specified number of window bits.
@@ -249,7 +249,7 @@ namespace Ionic.Zlib
     /// </example>
     /// <param name="flush">The flush to use when inflating.</param>
     /// <returns>Z_OK if everything goes well.</returns>
-    public int Inflate(FlushType flush) => this.istate != null ? this.istate.Inflate(flush) : throw new ZlibException("No Inflate State!");
+    public int Inflate(FlushType flush) { return this.istate != null ? this.istate.Inflate(flush) : throw new ZlibException("No Inflate State!"); }
 
     /// <summary>Ends an inflation session.</summary>
     /// <remarks>
@@ -267,7 +267,7 @@ namespace Ionic.Zlib
 
     /// <summary>I don't know what this does!</summary>
     /// <returns>Z_OK if everything goes well.</returns>
-    public int SyncInflate() => this.istate != null ? this.istate.Sync() : throw new ZlibException("No Inflate State!");
+    public int SyncInflate() { return this.istate != null ? this.istate.Sync() : throw new ZlibException("No Inflate State!"); }
 
     /// <summary>Initialize the ZlibCodec for deflation operation.</summary>
     /// <remarks>
@@ -307,7 +307,7 @@ namespace Ionic.Zlib
     /// </code>
     /// </example>
     /// <returns>Z_OK if all goes well. You generally don't need to check the return code.</returns>
-    public int InitializeDeflate() => this._InternalInitializeDeflate(true);
+    public int InitializeDeflate() { return this._InternalInitializeDeflate(true); }
 
     /// <summary>
     /// Initialize the ZlibCodec for deflation operation, using the specified CompressionLevel.
@@ -452,7 +452,7 @@ namespace Ionic.Zlib
     /// flush everything.
     /// </param>
     /// <returns>Z_OK if all goes well.</returns>
-    public int Deflate(FlushType flush) => this.dstate != null ? this.dstate.Deflate(flush) : throw new ZlibException("No Deflate State!");
+    public int Deflate(FlushType flush) { return this.dstate != null ? this.dstate.Deflate(flush) : throw new ZlibException("No Deflate State!"); }
 
     /// <summary>End a deflation session.</summary>
     /// <remarks>

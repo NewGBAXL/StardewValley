@@ -43,13 +43,13 @@ namespace StardewValley.Monsters
       this.fireEvent.onEvent += new NetEvent0.Event(this.OnFire);
     }
 
-    public override int GetBaseDifficultyLevel() => 1;
+    public override int GetBaseDifficultyLevel() { return 1; }
 
-    public virtual void OnFire() => this.shakeTimer = 250;
+    public virtual void OnFire() { return this.shakeTimer = 250; }
 
-    public override bool ShouldActuallyMoveAwayFromPlayer() => this.Player != null && Math.Abs(this.Player.getTileX() - this.getTileX()) < this.desiredDistance && Math.Abs(this.Player.getTileY() - this.getTileY()) < this.desiredDistance || base.ShouldActuallyMoveAwayFromPlayer();
+    public override bool ShouldActuallyMoveAwayFromPlayer() { return this.Player != null && Math.Abs(this.Player.getTileX() - this.getTileX()) < this.desiredDistance && Math.Abs(this.Player.getTileY() - this.getTileY()) < this.desiredDistance || base.ShouldActuallyMoveAwayFromPlayer(); }
 
-    public override Rectangle GetBoundingBox() => base.GetBoundingBox();
+    public override Rectangle GetBoundingBox() { return base.GetBoundingBox(); }
 
     public Shooter(Vector2 position)
       : base("Shadow Sniper", position)

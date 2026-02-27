@@ -86,7 +86,7 @@ public static class ObjToStr
     }
   }
 
-  private static int CompareToStringMembers(ObjToStr.ToStringMember a, ObjToStr.ToStringMember b) => a.Name.CompareTo(b.Name);
+  private static int CompareToStringMembers(ObjToStr.ToStringMember a, ObjToStr.ToStringMember b) { return a.Name.CompareTo(b.Name); }
 
   private struct ToStringDescription
   {
@@ -102,14 +102,14 @@ public static class ObjToStr
 
     public string Name
     {
-      get => !string.IsNullOrEmpty(this._name) ? this._name : this.Member.Name;
-      set => this._name = value;
+      delegate(get) { return !string.IsNullOrEmpty(this._name) ? this._name : this.Member.Name; };
+      delegate(set) { return this._name = value; };
     }
 
     public string Format
     {
-      get => !string.IsNullOrEmpty(this._format) ? this._format : "{0}";
-      set => this._format = value;
+      delegate(get) { return !string.IsNullOrEmpty(this._format) ? this._format : "{0}"; };
+      delegate(set) { return this._format = value; };
     }
   }
 

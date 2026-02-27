@@ -598,11 +598,11 @@ namespace StardewValley
       }
     }
 
-    public virtual bool isPaddyCrop() => this.indexOfHarvest.Value == 271 || this.indexOfHarvest.Value == 830;
+    public virtual bool isPaddyCrop() { return this.indexOfHarvest.Value == 271 || this.indexOfHarvest.Value == 830; }
 
-    public virtual bool shouldDrawDarkWhenWatered() => !this.isPaddyCrop() && !this.raisedSeeds.Value;
+    public virtual bool shouldDrawDarkWhenWatered() { return !this.isPaddyCrop() && !this.raisedSeeds.Value; }
 
-    public virtual bool isWildSeedCrop() => (int) (NetFieldBase<int, NetInt>) this.rowInSpriteSheet == 23;
+    public virtual bool isWildSeedCrop() { return (int) (NetFieldBase<int, NetInt>) this.rowInSpriteSheet == 23; }
 
     public virtual void updateDrawMath(Vector2 tileLocation)
     {

@@ -70,9 +70,9 @@ namespace StardewValley.Objects
       this.loadDisplayFields();
     }
 
-    public virtual int getStatsIndex() => this.appliedBootSheetIndex.Value >= 0 ? this.appliedBootSheetIndex.Value : this.indexInTileSheet.Value;
+    public virtual int getStatsIndex() { return this.appliedBootSheetIndex.Value >= 0 ? this.appliedBootSheetIndex.Value : this.indexInTileSheet.Value; }
 
-    public override int salePrice() => (int) (NetFieldBase<int, NetInt>) this.defenseBonus * 100 + (int) (NetFieldBase<int, NetInt>) this.immunityBonus * 100;
+    public override int salePrice() { return (int) (NetFieldBase<int, NetInt>) this.defenseBonus * 100 + (int) (NetFieldBase<int, NetInt>) this.immunityBonus * 100; }
 
     public virtual void onEquip()
     {
@@ -88,7 +88,7 @@ namespace StardewValley.Objects
       Game1.player.changeShoeColor(12);
     }
 
-    public int getNumberOfDescriptionCategories() => (int) (NetFieldBase<int, NetInt>) this.immunityBonus > 0 && (int) (NetFieldBase<int, NetInt>) this.defenseBonus > 0 ? 2 : 1;
+    public int getNumberOfDescriptionCategories() { return (int) (NetFieldBase<int, NetInt>) this.immunityBonus > 0 && (int) (NetFieldBase<int, NetInt>) this.defenseBonus > 0 ? 2 : 1; }
 
     public override void drawTooltip(
       SpriteBatch spriteBatch,
@@ -143,11 +143,11 @@ namespace StardewValley.Objects
       spriteBatch.Draw(Game1.objectSpriteSheet, location + new Vector2(32f, 32f) * scaleSize, new Rectangle?(Game1.getSourceRectForStandardTileSheet(Game1.objectSpriteSheet, this.indexInTileSheet.Value, 16, 16)), color * transparency, 0.0f, new Vector2(8f, 8f) * scaleSize, scaleSize * 4f, SpriteEffects.None, layerDepth);
     }
 
-    public override int maximumStackSize() => 1;
+    public override int maximumStackSize() { return 1; }
 
-    public override int addToStack(Item stack) => 1;
+    public override int addToStack(Item stack) { return 1; }
 
-    public override string getCategoryName() => Game1.content.LoadString("Strings\\StringsFromCSFiles:Boots.cs.12501");
+    public override string getCategoryName() { return Game1.content.LoadString("Strings\\StringsFromCSFiles:Boots.cs.12501"); }
 
     public override string getDescription()
     {
@@ -156,7 +156,7 @@ namespace StardewValley.Objects
       return Game1.parseText(this.description + Environment.NewLine + Environment.NewLine + Game1.content.LoadString("Strings\\StringsFromCSFiles:Boots.cs.12500", (object) ((int) (NetFieldBase<int, NetInt>) this.immunityBonus + (int) (NetFieldBase<int, NetInt>) this.defenseBonus)), Game1.smallFont, this.getDescriptionWidth());
     }
 
-    public override bool isPlaceable() => false;
+    public override bool isPlaceable() { return false; }
 
     [XmlIgnore]
     public override string DisplayName
@@ -167,13 +167,13 @@ namespace StardewValley.Objects
           this.loadDisplayFields();
         return this.displayName;
       }
-      set => this.displayName = value;
+      delegate(set) { return this.displayName = value; };
     }
 
     [XmlIgnore]
     public override int Stack
     {
-      get => 1;
+      delegate(get) { return 1; };
       set
       {
       }

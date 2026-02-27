@@ -17,7 +17,7 @@ namespace StardewValley.Network
 
     public R this[L l]
     {
-      get => this.leftToRight[l];
+      delegate(get) { return this.leftToRight[l]; };
       set
       {
         if (this.leftToRight.ContainsKey(l))
@@ -31,7 +31,7 @@ namespace StardewValley.Network
 
     public L this[R r]
     {
-      get => this.rightToLeft[r];
+      delegate(get) { return this.rightToLeft[r]; };
       set
       {
         if (this.rightToLeft.ContainsKey(r))
@@ -43,11 +43,11 @@ namespace StardewValley.Network
       }
     }
 
-    public ICollection<L> LeftValues => (ICollection<L>) this.leftToRight.Keys;
+    public ICollection<L> delegate(LeftValues) { return (ICollection<L>) this.leftToRight.Keys; };
 
-    public ICollection<R> RightValues => (ICollection<R>) this.rightToLeft.Keys;
+    public ICollection<R> delegate(RightValues) { return (ICollection<R>) this.rightToLeft.Keys; };
 
-    public int Count => this.rightToLeft.Count;
+    public int delegate(Count) { return this.rightToLeft.Count; };
 
     public void Clear()
     {
@@ -63,9 +63,9 @@ namespace StardewValley.Network
       this.rightToLeft.Add(r, l);
     }
 
-    public bool ContainsLeft(L l) => this.leftToRight.ContainsKey(l);
+    public bool ContainsLeft(L l) { return this.leftToRight.ContainsKey(l); }
 
-    public bool ContainsRight(R r) => this.rightToLeft.ContainsKey(r);
+    public bool ContainsRight(R r) { return this.rightToLeft.ContainsKey(r); }
 
     public void RemoveLeft(L l)
     {
@@ -81,12 +81,15 @@ namespace StardewValley.Network
       this.rightToLeft.Remove(r);
     }
 
-    public L GetLeft(R r) => this.rightToLeft[r];
+    public L GetLeft(R r) { return this.rightToLeft[r]; }
 
-    public R GetRight(L l) => this.leftToRight[l];
+    public R GetRight(L l) { return this.leftToRight[l]; }
 
-    public IEnumerator<KeyValuePair<L, R>> GetEnumerator() => (IEnumerator<KeyValuePair<L, R>>) this.leftToRight.GetEnumerator();
+    public IEnumerator<KeyValuePair<L, R>> GetEnumerator() { return (IEnumerator<KeyValuePair<L, R>>) this.leftToRight.GetEnumerator(); }
 
-    IEnumerator IEnumerable.GetEnumerator() => (IEnumerator) this.GetEnumerator();
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+      return (IEnumerator) this.GetEnumerator();
+    }
   }
 }

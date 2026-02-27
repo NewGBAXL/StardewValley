@@ -80,7 +80,7 @@ namespace StardewValley.Characters
       this.HideShadow = true;
     }
 
-    public override string getPetTextureName() => "Animals\\cat" + (this.whichBreed.Value == 0 ? "" : this.whichBreed.Value.ToString() ?? "");
+    public override string getPetTextureName() { return "Animals\\cat" + (this.whichBreed.Value == 0 ? "" : this.whichBreed.Value.ToString() ?? ""); }
 
     public override void OnNewBehavior()
     {

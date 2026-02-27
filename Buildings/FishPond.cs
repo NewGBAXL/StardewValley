@@ -93,9 +93,9 @@ namespace StardewValley.Buildings
       this._fishObject = (StardewValley.Object) null;
     }
 
-    public virtual void Reseed() => this.seedOffset.Value = DateTime.UtcNow.Millisecond;
+    public virtual void Reseed() { return this.seedOffset.Value = DateTime.UtcNow.Millisecond; }
 
-    public List<PondFishSilhouette> GetFishSilhouettes() => this._fishSilhouettes;
+    public List<PondFishSilhouette> GetFishSilhouettes() { return this._fishSilhouettes; }
 
     public void UpdateMaximumOccupancy()
     {
@@ -180,11 +180,11 @@ namespace StardewValley.Buildings
       return (StardewValley.Object) null;
     }
 
-    public int FishCount => this.currentOccupants.Value;
+    public int delegate(FishCount) { return this.currentOccupants.Value; };
 
-    public Item ItemWanted => (Item) null;
+    public Item delegate(ItemWanted) { return (Item) null; };
 
-    private Item CreateFishInstance() => (Item) new StardewValley.Object((int) (NetFieldBase<int, NetInt>) this.fishType, 1);
+    private Item CreateFishInstance() { return (Item) new StardewValley.Object((int) (NetFieldBase<int, NetInt>) this.fishType, 1); }
 
     public override bool doAction(Vector2 tileLocation, Farmer who)
     {
@@ -301,11 +301,11 @@ namespace StardewValley.Buildings
       this._timeUntilFishHop = 1f;
     }
 
-    public Vector2 GetItemBucketTile() => new Vector2((float) ((int) (NetFieldBase<int, NetInt>) this.tileX + 4), (float) ((int) (NetFieldBase<int, NetInt>) this.tileY + 4));
+    public Vector2 GetItemBucketTile() { return new Vector2((float) ((int) (NetFieldBase<int, NetInt>) this.tileX + 4), (float) ((int) (NetFieldBase<int, NetInt>) this.tileY + 4)); }
 
-    public Vector2 GetRequestTile() => new Vector2((float) ((int) (NetFieldBase<int, NetInt>) this.tileX + 2), (float) ((int) (NetFieldBase<int, NetInt>) this.tileY + 2));
+    public Vector2 GetRequestTile() { return new Vector2((float) ((int) (NetFieldBase<int, NetInt>) this.tileX + 2), (float) ((int) (NetFieldBase<int, NetInt>) this.tileY + 2)); }
 
-    public Vector2 GetCenterTile() => new Vector2((float) ((int) (NetFieldBase<int, NetInt>) this.tileX + 2), (float) ((int) (NetFieldBase<int, NetInt>) this.tileY + 2));
+    public Vector2 GetCenterTile() { return new Vector2((float) ((int) (NetFieldBase<int, NetInt>) this.tileX + 2), (float) ((int) (NetFieldBase<int, NetInt>) this.tileY + 2)); }
 
     public void ResolveNeeds(Farmer who)
     {
@@ -622,7 +622,7 @@ namespace StardewValley.Buildings
       this.nettingStyle.Value = ((int) (NetFieldBase<int, NetInt>) this.tileX / 3 + (int) (NetFieldBase<int, NetInt>) this.tileY / 3) % 3;
     }
 
-    public bool HasUnresolvedNeeds() => this.neededItem.Value != null && this._GetNeededItemData().Key != -1 && !this.hasCompletedRequest.Value;
+    public bool HasUnresolvedNeeds() { return this.neededItem.Value != null && this._GetNeededItemData().Key != -1 && !this.hasCompletedRequest.Value; }
 
     private KeyValuePair<int, int> _GetNeededItemData()
     {
@@ -750,11 +750,11 @@ namespace StardewValley.Buildings
       base.Update(time);
     }
 
-    public override bool isTileFishable(Vector2 tile) => (int) (NetFieldBase<int, NetInt>) this.daysOfConstructionLeft <= 0 && (double) tile.X > (double) (int) (NetFieldBase<int, NetInt>) this.tileX && (double) tile.X < (double) ((int) (NetFieldBase<int, NetInt>) this.tileX + (int) (NetFieldBase<int, NetInt>) this.tilesWide - 1) && (double) tile.Y > (double) (int) (NetFieldBase<int, NetInt>) this.tileY && (double) tile.Y < (double) ((int) (NetFieldBase<int, NetInt>) this.tileY + (int) (NetFieldBase<int, NetInt>) this.tilesHigh - 1);
+    public override bool isTileFishable(Vector2 tile) { return (int) (NetFieldBase<int, NetInt>) this.daysOfConstructionLeft <= 0 && (double) tile.X > (double) (int) (NetFieldBase<int, NetInt>) this.tileX && (double) tile.X < (double) ((int) (NetFieldBase<int, NetInt>) this.tileX + (int) (NetFieldBase<int, NetInt>) this.tilesWide - 1) && (double) tile.Y > (double) (int) (NetFieldBase<int, NetInt>) this.tileY && (double) tile.Y < (double) ((int) (NetFieldBase<int, NetInt>) this.tileY + (int) (NetFieldBase<int, NetInt>) this.tilesHigh - 1); }
 
-    public override bool CanRefillWateringCan() => (int) (NetFieldBase<int, NetInt>) this.daysOfConstructionLeft <= 0;
+    public override bool CanRefillWateringCan() { return (int) (NetFieldBase<int, NetInt>) this.daysOfConstructionLeft <= 0; }
 
-    public override Microsoft.Xna.Framework.Rectangle getSourceRectForMenu() => new Microsoft.Xna.Framework.Rectangle(0, 0, 80, 80);
+    public override Microsoft.Xna.Framework.Rectangle getSourceRectForMenu() { return new Microsoft.Xna.Framework.Rectangle(0, 0, 80, 80); }
 
     public override void drawInMenu(SpriteBatch b, int x, int y)
     {

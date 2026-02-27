@@ -47,9 +47,9 @@ namespace StardewValley.Locations
       base.SetBuriedNutLocations();
     }
 
-    public override bool CanPlantSeedsHere(int crop_index, int tile_x, int tile_y) => this.getTileSheetIDAt(tile_x, tile_y, "Back") == "untitled tile sheet2" || base.CanPlantSeedsHere(crop_index, tile_x, tile_y);
+    public override bool CanPlantSeedsHere(int crop_index, int tile_x, int tile_y) { return this.getTileSheetIDAt(tile_x, tile_y, "Back") == "untitled tile sheet2" || base.CanPlantSeedsHere(crop_index, tile_x, tile_y); }
 
-    public override bool SeedsIgnoreSeasonsHere() => true;
+    public override bool SeedsIgnoreSeasonsHere() { return true; }
 
     public override bool CanPlantTreesHere(int sapling_index, int tile_x, int tile_y)
     {
@@ -66,9 +66,9 @@ namespace StardewValley.Locations
     {
     }
 
-    public override int getFishingLocation(Vector2 tile) => (double) tile.X > 35.0 && (double) tile.Y < 81.0 ? 2 : 1;
+    public override int getFishingLocation(Vector2 tile) { return (double) tile.X > 35.0 && (double) tile.Y < 81.0 ? 2 : 1; }
 
-    public override bool catchOceanCrabPotFishFromThisSpot(int x, int y) => !(x > 38 & y < 85);
+    public override bool catchOceanCrabPotFishFromThisSpot(int x, int y) { return !(x > 38 & y < 85); }
 
     public override void digUpArtifactSpot(int xLocation, int yLocation, Farmer who)
     {
@@ -720,6 +720,6 @@ namespace StardewValley.Locations
       this.shippingBinLid.update(time);
     }
 
-    private bool isShippingBinLidOpen(bool requiredToBeFullyOpen = false) => this.shippingBinLid != null && this.shippingBinLid.currentParentTileIndex >= (requiredToBeFullyOpen ? this.shippingBinLid.animationLength - 1 : 1);
+    private bool isShippingBinLidOpen(bool requiredToBeFullyOpen = false) { return this.shippingBinLid != null && this.shippingBinLid.currentParentTileIndex >= (requiredToBeFullyOpen ? this.shippingBinLid.animationLength - 1 : 1); }
   }
 }

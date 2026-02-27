@@ -165,9 +165,9 @@ namespace StardewValley.Menus
       this.snapCursorToCurrentSnappedComponent();
     }
 
-    public bool IsBusy() => this._timeUntilCraft > 0;
+    public bool IsBusy() { return this._timeUntilCraft > 0; }
 
-    public override bool readyToClose() => base.readyToClose() && this.heldItem == null && !this.IsBusy();
+    public override bool readyToClose() { return base.readyToClose() && this.heldItem == null && !this.IsBusy(); }
 
     public bool HighlightItems(Item i)
     {
@@ -212,7 +212,7 @@ namespace StardewValley.Menus
       this._ValidateCraft();
     }
 
-    public bool IsValidCraftIngredient(Item item) => item.HasContextTag("item_lucky_purple_shorts") || item.canBeTrashed();
+    public bool IsValidCraftIngredient(Item item) { return item.HasContextTag("item_lucky_purple_shorts") || item.canBeTrashed(); }
 
     private void _rightIngredientSpotClicked()
     {
@@ -433,7 +433,7 @@ namespace StardewValley.Menus
       this.heldItem = (Item) null;
     }
 
-    protected virtual bool CheckHeldItem(Func<Item, bool> f = null) => f == null ? this.heldItem != null : f(this.heldItem);
+    protected virtual bool CheckHeldItem(Func<Item, bool> f = null) { return f == null ? this.heldItem != null : f(this.heldItem); }
 
     protected void _ValidateCraft()
     {
@@ -603,7 +603,7 @@ namespace StardewValley.Menus
       return (TailorItemRecipe) null;
     }
 
-    public bool IsValidCraft(Item left_item, Item right_item) => left_item != null && right_item != null && (left_item is Boots && right_item is Boots || left_item is Clothing && (left_item as Clothing).dyeable.Value && (right_item.HasContextTag("color_prismatic") || TailoringMenu.GetDyeColor(right_item).HasValue) || this.GetRecipeForItems(left_item, right_item) != null);
+    public bool IsValidCraft(Item left_item, Item right_item) { return left_item != null && right_item != null && (left_item is Boots && right_item is Boots || left_item is Clothing && (left_item as Clothing).dyeable.Value && (right_item.HasContextTag("color_prismatic") || TailoringMenu.GetDyeColor(right_item).HasValue) || this.GetRecipeForItems(left_item, right_item) != null); }
 
     public bool IsMultipleResultCraft(Item left_item, Item right_item)
     {
@@ -720,7 +720,7 @@ namespace StardewValley.Menus
         this.startTailoringButton.tryHover(-999, -999);
     }
 
-    public bool CanFitCraftedItem() => this.craftResultDisplay.item == null || Utility.canItemBeAddedToThisInventoryList(this.craftResultDisplay.item, this.inventory.actualInventory);
+    public bool CanFitCraftedItem() { return this.craftResultDisplay.item == null || Utility.canItemBeAddedToThisInventoryList(this.craftResultDisplay.item, this.inventory.actualInventory); }
 
     public override void gameWindowSizeChanged(Rectangle oldBounds, Rectangle newBounds)
     {
@@ -947,7 +947,7 @@ namespace StardewValley.Menus
       this.drawMouse(b);
     }
 
-    protected override void cleanupBeforeExit() => this._OnCloseMenu();
+    protected override void cleanupBeforeExit() { return this._OnCloseMenu(); }
 
     protected void _OnCloseMenu()
     {

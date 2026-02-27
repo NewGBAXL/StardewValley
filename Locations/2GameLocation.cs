@@ -274,16 +274,16 @@ namespace StardewValley
     public NetFields NetFields { get; } = new NetFields();
 
     [XmlIgnore]
-    public NetRoot<GameLocation> Root => this.NetFields.Root as NetRoot<GameLocation>;
+    public NetRoot<GameLocation> delegate(Root) { return this.NetFields.Root as NetRoot<GameLocation>; };
 
     [XmlIgnore]
-    public string NameOrUniqueName => this.uniqueName.Value != null ? this.uniqueName.Value : this.name.Value;
+    public string delegate(NameOrUniqueName) { return this.uniqueName.Value != null ? this.uniqueName.Value : this.name.Value; };
 
     [XmlIgnore]
     public float LightLevel
     {
-      get => (float) (NetFieldBase<float, NetFloat>) this.lightLevel;
-      set => this.lightLevel.Value = value;
+      delegate(get) { return (float) (NetFieldBase<float; }, NetFloat>) this.lightLevel;
+      delegate(set) { return this.lightLevel.Value = value; };
     }
 
     [XmlIgnore]
@@ -294,40 +294,40 @@ namespace StardewValley
         this.updateMap();
         return this.map;
       }
-      set => this.map = value;
+      delegate(set) { return this.map = value; };
     }
 
     [XmlIgnore]
-    public OverlaidDictionary Objects => this.objects;
+    public OverlaidDictionary delegate(Objects) { return this.objects; };
 
     [XmlIgnore]
-    public List<TemporaryAnimatedSprite> TemporarySprites => this.temporarySprites;
+    public List<TemporaryAnimatedSprite> delegate(TemporarySprites) { return this.temporarySprites; };
 
-    public string Name => (string) (NetFieldBase<string, NetString>) this.name;
+    public string delegate(Name) { return (string) (NetFieldBase<string; }, NetString>) this.name;
 
     [XmlIgnore]
     public bool IsFarm
     {
-      get => (bool) (NetFieldBase<bool, NetBool>) this.isFarm;
-      set => this.isFarm.Value = value;
+      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.isFarm;
+      delegate(set) { return this.isFarm.Value = value; };
     }
 
     [XmlIgnore]
     public bool IsOutdoors
     {
-      get => (bool) (NetFieldBase<bool, NetBool>) this.isOutdoors;
-      set => this.isOutdoors.Value = value;
+      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.isOutdoors;
+      delegate(set) { return this.isOutdoors.Value = value; };
     }
 
     public bool IsGreenhouse
     {
-      get => (bool) (NetFieldBase<bool, NetBool>) this.isGreenhouse;
-      set => this.isGreenhouse.Value = value;
+      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.isGreenhouse;
+      delegate(set) { return this.isGreenhouse.Value = value; };
     }
 
-    public virtual bool SeedsIgnoreSeasonsHere() => this.IsGreenhouse;
+    public virtual bool SeedsIgnoreSeasonsHere() { return this.IsGreenhouse; }
 
-    public virtual bool CanPlantSeedsHere(int crop_index, int tile_x, int tile_y) => this.IsGreenhouse;
+    public virtual bool CanPlantSeedsHere(int crop_index, int tile_x, int tile_y) { return this.IsGreenhouse; }
 
     public virtual bool CanPlantTreesHere(int sapling_index, int tile_x, int tile_y)
     {
@@ -343,8 +343,8 @@ namespace StardewValley
     [XmlElement("modData")]
     public ModDataDictionary modDataForSerialization
     {
-      get => this.modData.GetForSerialization();
-      set => this.modData.SetFromSerialization(value);
+      delegate(get) { return this.modData.GetForSerialization(); };
+      delegate(set) { return this.modData.SetFromSerialization(value); };
     }
 
     protected virtual void initNetFields()
@@ -380,7 +380,7 @@ namespace StardewValley
       this.damagePlayersEvent.onEvent += new AbstractNetEvent1<GameLocation.DamagePlayersEventArg>.Event(this.performDamagePlayers);
       this.fishSplashPoint.fieldChangeVisibleEvent += (NetFieldBase<Point, NetPoint>.FieldChange) ((field, oldValue, newValue) => this.updateFishSplashAnimation());
       this.orePanPoint.fieldChangeVisibleEvent += (NetFieldBase<Point, NetPoint>.FieldChange) ((field, oldValue, newValue) => this.updateOrePanAnimation());
-      this.characters.OnValueRemoved += (NetCollection<NPC>.ContentsChangeEvent) (npc => npc.Removed());
+      this.characters.OnValueRemoved += (NetCollection<NPC>.ContentsChangeEvent) (delegate(npc) { return npc.Removed()); };
       this.terrainFeatures.OnValueAdded += (NetDictionary<Vector2, TerrainFeature, NetRef<TerrainFeature>, SerializableDictionary<Vector2, TerrainFeature>, NetVector2Dictionary<TerrainFeature, NetRef<TerrainFeature>>>.ContentsChangeEvent) ((pos, tf) =>
       {
         switch (tf)
@@ -407,10 +407,10 @@ namespace StardewValley
         }
         this.OnTerrainFeatureRemoved(tf);
       });
-      this.largeTerrainFeatures.OnValueAdded += (NetCollection<LargeTerrainFeature>.ContentsChangeEvent) (tf => this.OnTerrainFeatureAdded((TerrainFeature) tf, tf.currentTileLocation));
-      this.largeTerrainFeatures.OnValueRemoved += (NetCollection<LargeTerrainFeature>.ContentsChangeEvent) (tf => this.OnTerrainFeatureRemoved((TerrainFeature) tf));
+      this.largeTerrainFeatures.OnValueAdded += (NetCollection<LargeTerrainFeature>.ContentsChangeEvent) (delegate(tf) { return this.OnTerrainFeatureAdded((TerrainFeature) tf; }, tf.currentTileLocation));
+      this.largeTerrainFeatures.OnValueRemoved += (NetCollection<LargeTerrainFeature>.ContentsChangeEvent) (delegate(tf) { return this.OnTerrainFeatureRemoved((TerrainFeature) tf)); };
       this.furniture.InterpolationWait = false;
-      this.furniture.OnValueAdded += (NetCollection<Furniture>.ContentsChangeEvent) (f => f.OnAdded(this, f.TileLocation));
+      this.furniture.OnValueAdded += (NetCollection<Furniture>.ContentsChangeEvent) (delegate(f) { return f.OnAdded(this; }, f.TileLocation));
       this.furnitureToRemove.Processor = new Action<Guid>(this.removeQueuedFurniture);
     }
 
@@ -607,7 +607,7 @@ namespace StardewValley
       return this.seasonOverride != null && this.seasonOverride.Length == 0 ? Game1.currentSeason : this.seasonOverride;
     }
 
-    public bool isTemp() => this.Name.StartsWith("Temp") || this.Name.Equals("fishingGame") || this.Name.Equals("tent");
+    public bool isTemp() { return this.Name.StartsWith("Temp") || this.Name.Equals("fishingGame") || this.Name.Equals("tent"); }
 
     private void updateFishSplashAnimation()
     {
@@ -657,15 +657,15 @@ namespace StardewValley
       this.loadObjects();
     }
 
-    public void playSound(string audioName, NetAudio.SoundContext soundContext = NetAudio.SoundContext.Default) => this.netAudio.Play(audioName, soundContext);
+    public void playSound(string audioName, NetAudio.SoundContext soundContext = NetAudio.SoundContext.Default) { return this.netAudio.Play(audioName, soundContext); }
 
-    public void playSoundPitched(string audioName, int pitch, NetAudio.SoundContext soundContext = NetAudio.SoundContext.Default) => this.netAudio.PlayPitched(audioName, Vector2.Zero, pitch, soundContext);
+    public void playSoundPitched(string audioName, int pitch, NetAudio.SoundContext soundContext = NetAudio.SoundContext.Default) { return this.netAudio.PlayPitched(audioName, Vector2.Zero, pitch, soundContext); }
 
-    public void playSoundAt(string audioName, Vector2 position, NetAudio.SoundContext soundContext = NetAudio.SoundContext.Default) => this.netAudio.PlayAt(audioName, position, soundContext);
+    public void playSoundAt(string audioName, Vector2 position, NetAudio.SoundContext soundContext = NetAudio.SoundContext.Default) { return this.netAudio.PlayAt(audioName, position, soundContext); }
 
-    public void localSound(string audioName) => this.netAudio.PlayLocal(audioName);
+    public void localSound(string audioName) { return this.netAudio.PlayLocal(audioName); }
 
-    public void localSoundAt(string audioName, Vector2 position) => this.netAudio.PlayLocalAt(audioName, position);
+    public void localSoundAt(string audioName, Vector2 position) { return this.netAudio.PlayLocalAt(audioName, position); }
 
     private bool doorHasStateOpen(Point door)
     {
@@ -673,7 +673,7 @@ namespace StardewValley
       return this.interiorDoors.TryGetValue(door, out flag) & flag;
     }
 
-    protected virtual LocalizedContentManager getMapLoader() => Game1.game1.xTileContent;
+    protected virtual LocalizedContentManager getMapLoader() { return Game1.game1.xTileContent; }
 
     public void ApplyMapOverride(
       Map override_map,
@@ -1009,15 +1009,15 @@ namespace StardewValley
       this.loadedMapPath = (string) (NetFieldBase<string, NetString>) this.mapPath;
     }
 
-    public virtual bool canSlimeMateHere() => true;
+    public virtual bool canSlimeMateHere() { return true; }
 
-    public virtual bool canSlimeHatchHere() => true;
+    public virtual bool canSlimeHatchHere() { return true; }
 
-    public void addCharacter(NPC character) => this.characters.Add(character);
+    public void addCharacter(NPC character) { return this.characters.Add(character); }
 
-    public NetCollection<NPC> getCharacters() => this.characters;
+    public NetCollection<NPC> getCharacters() { return this.characters; }
 
-    public static Microsoft.Xna.Framework.Rectangle getSourceRectForObject(int tileIndex) => new Microsoft.Xna.Framework.Rectangle(tileIndex * 16 % Game1.objectSpriteSheet.Width, tileIndex * 16 / Game1.objectSpriteSheet.Width * 16, 16, 16);
+    public static Microsoft.Xna.Framework.Rectangle getSourceRectForObject(int tileIndex) { return new Microsoft.Xna.Framework.Rectangle(tileIndex * 16 % Game1.objectSpriteSheet.Width, tileIndex * 16 / Game1.objectSpriteSheet.Width * 16, 16, 16); }
 
     public Warp isCollidingWithWarp(Microsoft.Xna.Framework.Rectangle position, Character character)
     {
@@ -1035,7 +1035,7 @@ namespace StardewValley
       return (Warp) null;
     }
 
-    public Warp isCollidingWithWarpOrDoor(Microsoft.Xna.Framework.Rectangle position, Character character = null) => this.isCollidingWithWarp(position, character) ?? this.isCollidingWithDoors(position, character);
+    public Warp isCollidingWithWarpOrDoor(Microsoft.Xna.Framework.Rectangle position, Character character = null) { return this.isCollidingWithWarp(position, character) ?? this.isCollidingWithDoors(position, character); }
 
     public virtual Warp isCollidingWithDoors(Microsoft.Xna.Framework.Rectangle position, Character character = null)
     {
@@ -1077,7 +1077,7 @@ namespace StardewValley
       this.resourceClumps.Add(new ResourceClump(resourceClumpIndex, width, height, tile));
     }
 
-    public virtual bool canFishHere() => true;
+    public virtual bool canFishHere() { return true; }
 
     public virtual bool CanRefillWateringCanOnTile(int tileX, int tileY)
     {
@@ -1088,9 +1088,9 @@ namespace StardewValley
       return this.getTileIndexAt(tileX, tileY, "Buildings") == 172 || this.getTileIndexAt(tileX, tileY, "Buildings") == 257;
     }
 
-    public virtual bool isTileBuildingFishable(int tileX, int tileY) => false;
+    public virtual bool isTileBuildingFishable(int tileX, int tileY) { return false; }
 
-    public virtual bool isTileFishable(int tileX, int tileY) => this.isTileBuildingFishable(tileX, tileY) || this.doesTileHaveProperty(tileX, tileY, "Water", "Back") != null && this.doesTileHaveProperty(tileX, tileY, "NoFishing", "Back") == null && this.getTileIndexAt(tileX, tileY, "Buildings") == -1 || this.doesTileHaveProperty(tileX, tileY, "Water", "Buildings") != null;
+    public virtual bool isTileFishable(int tileX, int tileY) { return this.isTileBuildingFishable(tileX, tileY) || this.doesTileHaveProperty(tileX, tileY, "Water", "Back") != null && this.doesTileHaveProperty(tileX, tileY, "NoFishing", "Back") == null && this.getTileIndexAt(tileX, tileY, "Buildings") == -1 || this.doesTileHaveProperty(tileX, tileY, "Water", "Buildings") != null; }
 
     public bool isFarmerCollidingWithAnyCharacter()
     {
@@ -1102,9 +1102,9 @@ namespace StardewValley
       return false;
     }
 
-    public bool isCollidingPosition(Microsoft.Xna.Framework.Rectangle position, xTile.Dimensions.Rectangle viewport, bool isFarmer) => this.isCollidingPosition(position, viewport, isFarmer, 0, false, (Character) null, false);
+    public bool isCollidingPosition(Microsoft.Xna.Framework.Rectangle position, xTile.Dimensions.Rectangle viewport, bool isFarmer) { return this.isCollidingPosition(position, viewport, isFarmer, 0, false, (Character) null, false); }
 
-    public bool isCollidingPosition(Microsoft.Xna.Framework.Rectangle position, xTile.Dimensions.Rectangle viewport, Character character) => this.isCollidingPosition(position, viewport, false, 0, false, character, false);
+    public bool isCollidingPosition(Microsoft.Xna.Framework.Rectangle position, xTile.Dimensions.Rectangle viewport, Character character) { return this.isCollidingPosition(position, viewport, false, 0, false, character, false); }
 
     public bool isCollidingPosition(
       Microsoft.Xna.Framework.Rectangle position,
@@ -1447,11 +1447,11 @@ namespace StardewValley
       return tile == null || propertyValue2 != null;
     }
 
-    public bool isTilePassable(Microsoft.Xna.Framework.Rectangle nextPosition, xTile.Dimensions.Rectangle viewport) => this.isPointPassable(new Location(nextPosition.Left, nextPosition.Top), viewport) && this.isPointPassable(new Location(nextPosition.Left, nextPosition.Bottom), viewport) && this.isPointPassable(new Location(nextPosition.Right, nextPosition.Top), viewport) && this.isPointPassable(new Location(nextPosition.Right, nextPosition.Bottom), viewport);
+    public bool isTilePassable(Microsoft.Xna.Framework.Rectangle nextPosition, xTile.Dimensions.Rectangle viewport) { return this.isPointPassable(new Location(nextPosition.Left, nextPosition.Top), viewport) && this.isPointPassable(new Location(nextPosition.Left, nextPosition.Bottom), viewport) && this.isPointPassable(new Location(nextPosition.Right, nextPosition.Top), viewport) && this.isPointPassable(new Location(nextPosition.Right, nextPosition.Bottom), viewport); }
 
-    public bool isTileOnMap(Vector2 position) => (double) position.X >= 0.0 && (double) position.X < (double) this.map.Layers[0].LayerWidth && (double) position.Y >= 0.0 && (double) position.Y < (double) this.map.Layers[0].LayerHeight;
+    public bool isTileOnMap(Vector2 position) { return (double) position.X >= 0.0 && (double) position.X < (double) this.map.Layers[0].LayerWidth && (double) position.Y >= 0.0 && (double) position.Y < (double) this.map.Layers[0].LayerHeight; }
 
-    public bool isTileOnMap(int x, int y) => x >= 0 && x < this.map.Layers[0].LayerWidth && y >= 0 && y < this.map.Layers[0].LayerHeight;
+    public bool isTileOnMap(int x, int y) { return x >= 0 && x < this.map.Layers[0].LayerWidth && y >= 0 && y < this.map.Layers[0].LayerHeight; }
 
     public void busLeave()
     {
@@ -1562,9 +1562,9 @@ namespace StardewValley
       return Point.Zero;
     }
 
-    public virtual bool HasLocationOverrideDialogue(NPC character) => false;
+    public virtual bool HasLocationOverrideDialogue(NPC character) { return false; }
 
-    public virtual string GetLocationOverrideDialogue(NPC character) => !this.HasLocationOverrideDialogue(character) ? (string) null : "";
+    public virtual string GetLocationOverrideDialogue(NPC character) { return !this.HasLocationOverrideDialogue(character) ? (string) null : ""; }
 
     public void boardBus(Vector2 playerTileLocation)
     {
@@ -2394,7 +2394,7 @@ namespace StardewValley
       }
     }
 
-    public virtual bool HasUnlockedAreaSecretNotes(Farmer who) => this.GetLocationContext() == GameLocation.LocationContext.Island || who.hasMagnifyingGlass;
+    public virtual bool HasUnlockedAreaSecretNotes(Farmer who) { return this.GetLocationContext() == GameLocation.LocationContext.Island || who.hasMagnifyingGlass; }
 
     public bool damageMonster(
       Microsoft.Xna.Framework.Rectangle areaOfEffect,
@@ -2450,7 +2450,7 @@ namespace StardewValley
       return true;
     }
 
-    public virtual bool BlocksDamageLOS(int x, int y) => this.getTileIndexAt(x, y, "Buildings") != -1 && this.doesTileHaveProperty(x, y, "Passable", "Buildings") == null;
+    public virtual bool BlocksDamageLOS(int x, int y) { return this.getTileIndexAt(x, y, "Buildings") != -1 && this.doesTileHaveProperty(x, y, "Passable", "Buildings") == null; }
 
     public bool damageMonster(
       Microsoft.Xna.Framework.Rectangle areaOfEffect,
@@ -2665,7 +2665,7 @@ namespace StardewValley
       }
     }
 
-    public void removeDamageDebris(Monster monster) => this.debris.Filter((Func<Debris, bool>) (d => d.toHover == null || !d.toHover.Equals((object) monster) || d.nonSpriteChunkColor.Equals(Microsoft.Xna.Framework.Color.Yellow) || (double) d.timeSinceDoneBouncing <= 900.0));
+    public void removeDamageDebris(Monster monster) { return this.debris.Filter((Func<Debris, bool>) (delegate(d) { return d.toHover == null || !d.toHover.Equals((object) monster) || d.nonSpriteChunkColor.Equals(Microsoft.Xna.Framework.Color.Yellow) || (double) d.timeSinceDoneBouncing <= 900.0)); }; }
 
     public void spawnWeeds(bool weedsOnly)
     {
@@ -2840,7 +2840,7 @@ namespace StardewValley
         }
       }
       if (!(this is FarmHouse))
-        this.debris.Filter((Func<Debris, bool>) (d => d.item != null));
+        this.debris.Filter((Func<Debris, bool>) (delegate(d) { return d.item != null)); };
       if (((bool) (NetFieldBase<bool, NetBool>) this.isOutdoors || this.map.Properties.ContainsKey("ForceSpawnForageables")) && !this.map.Properties.ContainsKey("skipWeedGrowth"))
       {
         if (Game1.dayOfMonth % 7 == 0 && !(this is Farm))
@@ -3093,7 +3093,7 @@ namespace StardewValley
       }
     }
 
-    public void addOwl() => this.critters.Add((Critter) new Owl(new Vector2((float) Game1.random.Next(64, this.map.Layers[0].LayerWidth * 64 - 64), (float) sbyte.MinValue)));
+    public void addOwl() { return this.critters.Add((Critter) new Owl(new Vector2((float) Game1.random.Next(64, this.map.Layers[0].LayerWidth * 64 - 64), (float) sbyte.MinValue))); }
 
     public void setFireplace(bool on, int tileLocationX, int tileLocationY, bool playSound = true)
     {
@@ -3467,7 +3467,7 @@ label_16:
       }
     }
 
-    public Vector2 getRandomTile() => new Vector2((float) Game1.random.Next(this.Map.Layers[0].LayerWidth), (float) Game1.random.Next(this.Map.Layers[0].LayerHeight));
+    public Vector2 getRandomTile() { return new Vector2((float) Game1.random.Next(this.Map.Layers[0].LayerWidth), (float) Game1.random.Next(this.Map.Layers[0].LayerHeight)); }
 
     public void setUpLocationSpecificFlair()
     {
@@ -4456,9 +4456,9 @@ label_16:
       return lightSource;
     }
 
-    public bool hasLightSource(int identifier) => this.sharedLights.ContainsKey(identifier);
+    public bool hasLightSource(int identifier) { return this.sharedLights.ContainsKey(identifier); }
 
-    public void removeLightSource(int identifier) => this.sharedLights.Remove(identifier);
+    public void removeLightSource(int identifier) { return this.sharedLights.Remove(identifier); }
 
     public void repositionLightSource(int identifier, Vector2 position)
     {
@@ -4609,7 +4609,7 @@ label_16:
       return furnitureAt != null && !furnitureAt.isPassable() || @object != null;
     }
 
-    public bool isTileHoeDirt(Vector2 tileLocation) => this.terrainFeatures.ContainsKey(tileLocation) && this.terrainFeatures[tileLocation] is HoeDirt || this.objects.ContainsKey(tileLocation) && this.objects[tileLocation] is IndoorPot;
+    public bool isTileHoeDirt(Vector2 tileLocation) { return this.terrainFeatures.ContainsKey(tileLocation) && this.terrainFeatures[tileLocation] is HoeDirt || this.objects.ContainsKey(tileLocation) && this.objects[tileLocation] is IndoorPot; }
 
     public void playTerrainSound(
       Vector2 tileLocation,
@@ -4911,7 +4911,7 @@ label_16:
       return false;
     }
 
-    public virtual bool CanFreePlaceFurniture() => false;
+    public virtual bool CanFreePlaceFurniture() { return false; }
 
     public virtual bool LowPriorityLeftClick(int x, int y, Farmer who)
     {
@@ -4928,8 +4928,7 @@ label_16:
             rectangle = furniture.boundingBox.Value;
             if (rectangle.Contains(x, y) && furniture.canBeRemoved(who))
             {
-              furniture.AttemptRemoval((Action<Furniture>) (f =>
-              {
+              furniture.AttemptRemoval((Action<Furniture>) (delegate(f) { return {; }
                 Guid job = this.furniture.GuidOf(f);
                 if (this.furnitureToRemove.Contains(job))
                   return;
@@ -4956,8 +4955,7 @@ label_16:
             rectangle = furniture.boundingBox.Value;
             if (rectangle.Contains(x, y1))
             {
-              furniture.AttemptRemoval((Action<Furniture>) (f =>
-              {
+              furniture.AttemptRemoval((Action<Furniture>) (delegate(f) { return {; }
                 Guid job = this.furniture.GuidOf(f);
                 if (this.furnitureToRemove.Contains(job))
                   return;
@@ -4976,8 +4974,7 @@ label_16:
           rectangle = furniture.boundingBox.Value;
           if (rectangle.Contains(x, y) && furniture.canBeRemoved(who))
           {
-            furniture.AttemptRemoval((Action<Furniture>) (f =>
-            {
+            furniture.AttemptRemoval((Action<Furniture>) (delegate(f) { return {; }
               Guid job = this.furniture.GuidOf(f);
               if (this.furnitureToRemove.Contains(job))
                 return;
@@ -5010,7 +5007,7 @@ label_16:
     }
 
     [Obsolete("These values returned by this function are no longer used by the game (except for rare, backwards compatibility related cases.) Check DecoratableLocation's wallpaper/flooring related functionality instead.")]
-    public virtual List<Microsoft.Xna.Framework.Rectangle> getWalls() => new List<Microsoft.Xna.Framework.Rectangle>();
+    public virtual List<Microsoft.Xna.Framework.Rectangle> getWalls() { return new List<Microsoft.Xna.Framework.Rectangle>(); }
 
     protected virtual void removeQueuedFurniture(Guid guid)
     {
@@ -5051,11 +5048,11 @@ label_16:
       return true;
     }
 
-    public virtual int getExtraMillisecondsPerInGameMinuteForThisLocation() => 0;
+    public virtual int getExtraMillisecondsPerInGameMinuteForThisLocation() { return 0; }
 
-    public bool isTileLocationTotallyClearAndPlaceable(int x, int y) => this.isTileLocationTotallyClearAndPlaceable(new Vector2((float) x, (float) y));
+    public bool isTileLocationTotallyClearAndPlaceable(int x, int y) { return this.isTileLocationTotallyClearAndPlaceable(new Vector2((float) x, (float) y)); }
 
-    public virtual bool isTileLocationTotallyClearAndPlaceableIgnoreFloors(Vector2 v) => this.isTileOnMap(v) && !this.isTileOccupiedIgnoreFloors(v) && this.isTilePassable(new Location((int) v.X, (int) v.Y), Game1.viewport) && this.isTilePlaceable(v);
+    public virtual bool isTileLocationTotallyClearAndPlaceableIgnoreFloors(Vector2 v) { return this.isTileOnMap(v) && !this.isTileOccupiedIgnoreFloors(v) && this.isTilePassable(new Location((int) v.X, (int) v.Y), Game1.viewport) && this.isTilePlaceable(v); }
 
     public void ActivateKitchen(NetRef<Chest> fridge)
     {
@@ -5217,22 +5214,22 @@ label_16:
         string[] messages = new string[2];
         stringBuilder.AppendLine(Utility.loadStringShort("UI", "PT_Title") + "^");
         stringBuilder.AppendLine("----------------^");
-        stringBuilder.AppendLine(Utility.loadStringShort("UI", "PT_Shipped") + ": " + this.FormatCompletionLine((Func<Farmer, float>) (farmer => (float) Math.Floor((double) Utility.getFarmerItemsShippedPercent(farmer) * 100.0))) + "%^");
+        stringBuilder.AppendLine(Utility.loadStringShort("UI", "PT_Shipped") + ": " + this.FormatCompletionLine((Func<Farmer, float>) (delegate(farmer) { return (float) Math.Floor((double) Utility.getFarmerItemsShippedPercent(farmer) * 100.0))) + "%^"); };
         stringBuilder.AppendLine(Utility.loadStringShort("UI", "PT_Obelisks") + ": " + Math.Min(Utility.numObelisksOnFarm(), 4).ToString() + "/4^");
         stringBuilder.AppendLine(Utility.loadStringShort("UI", "PT_GoldClock") + ": " + (Game1.getFarm().isBuildingConstructed("Gold Clock") ? Game1.content.LoadString("Strings\\Lexicon:QuestionDialogue_Yes") : Game1.content.LoadString("Strings\\Lexicon:QuestionDialogue_No")) + "^");
-        stringBuilder.AppendLine(Utility.loadStringShort("UI", "PT_MonsterSlayer") + ": " + this.FormatCompletionLine((Func<Farmer, bool>) (farmer => farmer.hasCompletedAllMonsterSlayerQuests.Value), Game1.content.LoadString("Strings\\Lexicon:QuestionDialogue_Yes"), Game1.content.LoadString("Strings\\Lexicon:QuestionDialogue_No")) + "^");
-        stringBuilder.AppendLine(Utility.loadStringShort("UI", "PT_GreatFriends") + ": " + this.FormatCompletionLine((Func<Farmer, float>) (farmer => (float) Math.Floor((double) Utility.getMaxedFriendshipPercent(farmer) * 100.0))) + "%^");
-        stringBuilder.AppendLine(Utility.loadStringShort("UI", "PT_FarmerLevel") + ": " + this.FormatCompletionLine((Func<Farmer, float>) (farmer => (float) Math.Min(farmer.Level, 25))) + "/25^");
+        stringBuilder.AppendLine(Utility.loadStringShort("UI", "PT_MonsterSlayer") + ": " + this.FormatCompletionLine((Func<Farmer, bool>) (delegate(farmer) { return farmer.hasCompletedAllMonsterSlayerQuests.Value); }, Game1.content.LoadString("Strings\\Lexicon:QuestionDialogue_Yes"), Game1.content.LoadString("Strings\\Lexicon:QuestionDialogue_No")) + "^");
+        stringBuilder.AppendLine(Utility.loadStringShort("UI", "PT_GreatFriends") + ": " + this.FormatCompletionLine((Func<Farmer, float>) (delegate(farmer) { return (float) Math.Floor((double) Utility.getMaxedFriendshipPercent(farmer) * 100.0))) + "%^"); };
+        stringBuilder.AppendLine(Utility.loadStringShort("UI", "PT_FarmerLevel") + ": " + this.FormatCompletionLine((Func<Farmer, float>) (delegate(farmer) { return (float) Math.Min(farmer.Level; }, 25))) + "/25^");
         if (flag)
         {
           stringBuilder.AppendLine("...");
           messages[0] = stringBuilder.ToString();
           stringBuilder.Clear();
         }
-        stringBuilder.AppendLine(Utility.loadStringShort("UI", "PT_Stardrops") + ": " + this.FormatCompletionLine((Func<Farmer, bool>) (farmer => Utility.foundAllStardrops(farmer)), Game1.content.LoadString("Strings\\Lexicon:QuestionDialogue_Yes"), Game1.content.LoadString("Strings\\Lexicon:QuestionDialogue_No")) + "^");
-        stringBuilder.AppendLine(Utility.loadStringShort("UI", "PT_Cooking") + ": " + this.FormatCompletionLine((Func<Farmer, float>) (farmer => (float) Math.Floor((double) Utility.getCookedRecipesPercent(farmer) * 100.0))) + "%^");
-        stringBuilder.AppendLine(Utility.loadStringShort("UI", "PT_Crafting") + ": " + this.FormatCompletionLine((Func<Farmer, float>) (farmer => (float) Math.Floor((double) Utility.getCraftedRecipesPercent(farmer) * 100.0))) + "%^");
-        stringBuilder.AppendLine(Utility.loadStringShort("UI", "PT_Fish") + ": " + this.FormatCompletionLine((Func<Farmer, float>) (farmer => (float) Math.Floor((double) Utility.getFishCaughtPercent(farmer) * 100.0))) + "%^");
+        stringBuilder.AppendLine(Utility.loadStringShort("UI", "PT_Stardrops") + ": " + this.FormatCompletionLine((Func<Farmer, bool>) (delegate(farmer) { return Utility.foundAllStardrops(farmer)); }, Game1.content.LoadString("Strings\\Lexicon:QuestionDialogue_Yes"), Game1.content.LoadString("Strings\\Lexicon:QuestionDialogue_No")) + "^");
+        stringBuilder.AppendLine(Utility.loadStringShort("UI", "PT_Cooking") + ": " + this.FormatCompletionLine((Func<Farmer, float>) (delegate(farmer) { return (float) Math.Floor((double) Utility.getCookedRecipesPercent(farmer) * 100.0))) + "%^"); };
+        stringBuilder.AppendLine(Utility.loadStringShort("UI", "PT_Crafting") + ": " + this.FormatCompletionLine((Func<Farmer, float>) (delegate(farmer) { return (float) Math.Floor((double) Utility.getCraftedRecipesPercent(farmer) * 100.0))) + "%^"); };
+        stringBuilder.AppendLine(Utility.loadStringShort("UI", "PT_Fish") + ": " + this.FormatCompletionLine((Func<Farmer, float>) (delegate(farmer) { return (float) Math.Floor((double) Utility.getFishCaughtPercent(farmer) * 100.0))) + "%^"); };
         stringBuilder.AppendLine(Utility.loadStringShort("UI", "PT_GoldenWalnut") + ": " + Math.Min((int) (NetFieldBase<int, NetIntDelta>) Game1.netWorldState.Value.GoldenWalnutsFound, 130).ToString() + "/" + 130.ToString() + "^");
         stringBuilder.AppendLine("----------------^");
         stringBuilder.AppendLine(Utility.loadStringShort("UI", "PT_Total") + ": " + Math.Floor((double) Utility.percentGameComplete() * 100.0).ToString() + "%^");
@@ -5647,7 +5644,7 @@ label_16:
               {
                 Game1.activeClickableMenu = (IClickableMenu) new SpecialOrdersBoard()
                 {
-                  behaviorBeforeCleanup = (Action<IClickableMenu>) (menu => Game1.player.team.ordersBoardMutex.ReleaseLock())
+                  behaviorBeforeCleanup = (Action<IClickableMenu>) (delegate(menu) { return Game1.player.team.ordersBoardMutex.ReleaseLock()); }
                 };
               }));
               goto label_386;
@@ -6102,7 +6099,7 @@ label_16:
               {
                 Game1.activeClickableMenu = (IClickableMenu) new SpecialOrdersBoard("Qi")
                 {
-                  behaviorBeforeCleanup = (Action<IClickableMenu>) (menu => Game1.player.team.qiChallengeBoardMutex.ReleaseLock())
+                  behaviorBeforeCleanup = (Action<IClickableMenu>) (delegate(menu) { return Game1.player.team.qiChallengeBoardMutex.ReleaseLock()); }
                 };
               }));
               goto label_386;
@@ -7115,7 +7112,7 @@ label_386:
       return favoriteItemName;
     }
 
-    public static void openCraftingMenu(string nameOfCraftingDevice) => Game1.activeClickableMenu = (IClickableMenu) new GameMenu(4);
+    public static void openCraftingMenu(string nameOfCraftingDevice) { return Game1.activeClickableMenu = (IClickableMenu) new GameMenu(4); }
 
     private void openStorageBox(string which)
     {
@@ -7184,7 +7181,7 @@ label_386:
       return this.objects.ContainsKey(key) ? this.objects[key] : (Object) null;
     }
 
-    public Object getObjectAtTile(int x, int y) => this.getObjectAt(x * 64, y * 64);
+    public Object getObjectAtTile(int x, int y) { return this.getObjectAt(x * 64, y * 64); }
 
     private bool onSandyShopPurchase(ISalable item, Farmer who, int amount)
     {
@@ -7574,9 +7571,9 @@ label_386:
       }
     }
 
-    public void removeTile(Location tileLocation, string layer) => this.Map.GetLayer(layer).Tiles[tileLocation.X, tileLocation.Y] = (Tile) null;
+    public void removeTile(Location tileLocation, string layer) { return this.Map.GetLayer(layer).Tiles[tileLocation.X, tileLocation.Y] = (Tile) null; }
 
-    public void removeTile(int x, int y, string layer) => this.Map.GetLayer(layer).Tiles[x, y] = (Tile) null;
+    public void removeTile(int x, int y, string layer) { return this.Map.GetLayer(layer).Tiles[x, y] = (Tile) null; }
 
     public void characterTrampleTile(Vector2 tile)
     {
@@ -7920,8 +7917,7 @@ label_386:
       {
         Game1.player.team.SetLocalReady("sleep", true);
         Game1.dialogueUp = false;
-        Game1.activeClickableMenu = (IClickableMenu) new ReadyCheckDialog("sleep", true, (ConfirmationDialog.behavior) (who => this.doSleep()), (ConfirmationDialog.behavior) (who =>
-        {
+        Game1.activeClickableMenu = (IClickableMenu) new ReadyCheckDialog("sleep", true, (ConfirmationDialog.behavior) (delegate(who) { return this.doSleep()); }, (ConfirmationDialog.behavior) (delegate(who) { return {; }
           if (Game1.activeClickableMenu != null && Game1.activeClickableMenu is ReadyCheckDialog)
             (Game1.activeClickableMenu as ReadyCheckDialog).closeDialog(who);
           who.timeWentToBed.Value = 0;
@@ -8786,7 +8782,7 @@ label_386:
           {
             activeClickableMenu1.readOnly = true;
             PurchaseAnimalsMenu purchaseAnimalsMenu = activeClickableMenu1;
-            purchaseAnimalsMenu.behaviorBeforeCleanup = purchaseAnimalsMenu.behaviorBeforeCleanup + (Action<IClickableMenu>) (closed_menu => this.answerDialogueAction("HangUp", new string[0]));
+            purchaseAnimalsMenu.behaviorBeforeCleanup = purchaseAnimalsMenu.behaviorBeforeCleanup + (Action<IClickableMenu>) (delegate(closed_menu) { return this.answerDialogueAction("HangUp"; }, new string[0]));
             break;
           }
           break;
@@ -8835,7 +8831,7 @@ label_386:
           {
             activeClickableMenu2.readOnly = true;
             ShopMenu shopMenu = activeClickableMenu2;
-            shopMenu.behaviorBeforeCleanup = shopMenu.behaviorBeforeCleanup + (Action<IClickableMenu>) (closed_menu => this.answerDialogueAction("HangUp", new string[0]));
+            shopMenu.behaviorBeforeCleanup = shopMenu.behaviorBeforeCleanup + (Action<IClickableMenu>) (delegate(closed_menu) { return this.answerDialogueAction("HangUp"; }, new string[0]));
             break;
           }
           break;
@@ -8900,7 +8896,7 @@ label_386:
           {
             activeClickableMenu3.readOnly = true;
             CarpenterMenu carpenterMenu = activeClickableMenu3;
-            carpenterMenu.behaviorBeforeCleanup = carpenterMenu.behaviorBeforeCleanup + (Action<IClickableMenu>) (closed_menu => this.answerDialogueAction("HangUp", new string[0]));
+            carpenterMenu.behaviorBeforeCleanup = carpenterMenu.behaviorBeforeCleanup + (Action<IClickableMenu>) (delegate(closed_menu) { return this.answerDialogueAction("HangUp"; }, new string[0]));
             break;
           }
           break;
@@ -8922,7 +8918,7 @@ label_386:
           {
             ShopMenu activeClickableMenu4 = Game1.activeClickableMenu as ShopMenu;
             activeClickableMenu4.readOnly = true;
-            activeClickableMenu4.behaviorBeforeCleanup = activeClickableMenu4.behaviorBeforeCleanup + (Action<IClickableMenu>) (closed_menu => this.answerDialogueAction("HangUp", new string[0]));
+            activeClickableMenu4.behaviorBeforeCleanup = activeClickableMenu4.behaviorBeforeCleanup + (Action<IClickableMenu>) (delegate(closed_menu) { return this.answerDialogueAction("HangUp"; }, new string[0]));
             break;
           }
           break;
@@ -8981,7 +8977,7 @@ label_386:
             {
               activeClickableMenu5.readOnly = true;
               ShopMenu shopMenu = activeClickableMenu5;
-              shopMenu.behaviorBeforeCleanup = shopMenu.behaviorBeforeCleanup + (Action<IClickableMenu>) (closed_menu => this.answerDialogueAction("HangUp", new string[0]));
+              shopMenu.behaviorBeforeCleanup = shopMenu.behaviorBeforeCleanup + (Action<IClickableMenu>) (delegate(closed_menu) { return this.answerDialogueAction("HangUp"; }, new string[0]));
               break;
             }
             break;
@@ -9034,7 +9030,7 @@ label_386:
       return questionAndAnswer != null && this.answerDialogueAction(questionAndAnswer, questionParams);
     }
 
-    public static bool AreStoresClosedForFestival() => Utility.isFestivalDay(Game1.dayOfMonth, Game1.currentSeason) && Utility.getStartTimeOfFestival() < 1900;
+    public static bool AreStoresClosedForFestival() { return Utility.isFestivalDay(Game1.dayOfMonth, Game1.currentSeason) && Utility.getStartTimeOfFestival() < 1900; }
 
     public static void RemoveProfession(int profession)
     {
@@ -9044,7 +9040,7 @@ label_386:
       Game1.player.professions.Remove(profession);
     }
 
-    public static bool canRespec(int skill_index) => Game1.player.GetUnmodifiedSkillLevel(skill_index) >= 5 && !Game1.player.newLevels.Contains(new Point(skill_index, 5)) && !Game1.player.newLevels.Contains(new Point(skill_index, 10));
+    public static bool canRespec(int skill_index) { return Game1.player.GetUnmodifiedSkillLevel(skill_index) >= 5 && !Game1.player.newLevels.Contains(new Point(skill_index, 5)) && !Game1.player.newLevels.Contains(new Point(skill_index, 10)); }
 
     public void setObject(Vector2 v, Object o)
     {
@@ -9087,9 +9083,9 @@ label_386:
       }
     }
 
-    public virtual bool catchOceanCrabPotFishFromThisSpot(int x, int y) => false;
+    public virtual bool catchOceanCrabPotFishFromThisSpot(int x, int y) { return false; }
 
-    public virtual float getExtraTrashChanceForCrabPot(int x, int y) => 0.0f;
+    public virtual float getExtraTrashChanceForCrabPot(int x, int y) { return 0.0f; }
 
     private void communityUpgradeAccept()
     {
@@ -9274,7 +9270,7 @@ label_386:
       this.removeBatch(locations);
     }
 
-    public void destroyObject(Vector2 tileLocation, Farmer who) => this.destroyObject(tileLocation, false, who);
+    public void destroyObject(Vector2 tileLocation, Farmer who) { return this.destroyObject(tileLocation, false, who); }
 
     public void destroyObject(Vector2 tileLocation, bool hardDestroy, Farmer who)
     {
@@ -9340,7 +9336,7 @@ label_386:
       return true;
     }
 
-    public virtual bool doesTileSinkDebris(int xTile, int yTile, Debris.DebrisType type) => type == Debris.DebrisType.CHUNKS ? this.doesTileHaveProperty(xTile, yTile, "Water", "Back") != null && this.getTileIndexAt(xTile, yTile, "Buildings") == -1 : this.doesTileHaveProperty(xTile, yTile, "Water", "Back") != null && !this.isTileUpperWaterBorder(this.getTileIndexAt(xTile, yTile, "Buildings")) && this.doesTileHaveProperty(xTile, yTile, "Passable", "Buildings") == null;
+    public virtual bool doesTileSinkDebris(int xTile, int yTile, Debris.DebrisType type) { return type == Debris.DebrisType.CHUNKS ? this.doesTileHaveProperty(xTile, yTile, "Water", "Back") != null && this.getTileIndexAt(xTile, yTile, "Buildings") == -1 : this.doesTileHaveProperty(xTile, yTile, "Water", "Back") != null && !this.isTileUpperWaterBorder(this.getTileIndexAt(xTile, yTile, "Buildings")) && this.doesTileHaveProperty(xTile, yTile, "Passable", "Buildings") == null; }
 
     private bool isTileUpperWaterBorder(int index)
     {
@@ -9432,7 +9428,7 @@ label_386:
       return propertyValue1 != null ? propertyValue1.ToString() : "";
     }
 
-    public bool isWaterTile(int xTile, int yTile) => this.doesTileHaveProperty(xTile, yTile, "Water", "Back") != null;
+    public bool isWaterTile(int xTile, int yTile) { return this.doesTileHaveProperty(xTile, yTile, "Water", "Back") != null; }
 
     public bool isOpenWater(int xTile, int yTile)
     {
@@ -9503,7 +9499,7 @@ label_386:
       return true;
     }
 
-    private void rumbleAndFade(int milliseconds) => this.rumbleAndFadeEvent.Fire(milliseconds);
+    private void rumbleAndFade(int milliseconds) { return this.rumbleAndFadeEvent.Fire(milliseconds); }
 
     private void performRumbleAndFade(int milliseconds)
     {
@@ -9660,9 +9656,9 @@ label_386:
     {
     }
 
-    public void removeTemporarySpritesWithID(int id) => this.removeTemporarySpritesWithID((float) id);
+    public void removeTemporarySpritesWithID(int id) { return this.removeTemporarySpritesWithID((float) id); }
 
-    public void removeTemporarySpritesWithID(float id) => this.removeTemporarySpritesWithIDEvent.Fire(id);
+    public void removeTemporarySpritesWithID(float id) { return this.removeTemporarySpritesWithIDEvent.Fire(id); }
 
     public void removeTemporarySpritesWithIDLocal(float id)
     {
@@ -9818,11 +9814,11 @@ label_386:
       this.orePanPoint.Value = Point.Zero;
     }
 
-    public bool dropObject(Object obj) => this.dropObject(obj, obj.TileLocation, Game1.viewport, false);
+    public bool dropObject(Object obj) { return this.dropObject(obj, obj.TileLocation, Game1.viewport, false); }
 
-    public virtual int getFishingLocation(Vector2 tile) => -1;
+    public virtual int getFishingLocation(Vector2 tile) { return -1; }
 
-    public virtual bool IsUsingMagicBait(Farmer who) => who != null && who.CurrentTool != null && who.CurrentTool is FishingRod && (who.CurrentTool as FishingRod).getBaitAttachmentIndex() == 908;
+    public virtual bool IsUsingMagicBait(Farmer who) { return who != null && who.CurrentTool != null && who.CurrentTool is FishingRod && (who.CurrentTool as FishingRod).getBaitAttachmentIndex() == 908; }
 
     public virtual Object getFish(
       float millisecondsAfterNibble,
@@ -10051,7 +10047,7 @@ label_386:
                 return;
             }
           }
-          if (Game1.random.NextDouble() <= 0.2 && (Game1.MasterPlayer.mailReceived.Contains("guntherBones") || Game1.player.team.specialOrders.Where<SpecialOrder>((Func<SpecialOrder, bool>) (x => (string) (NetFieldBase<string, NetString>) x.questKey == "Gunther")) != null && Game1.player.team.specialOrders.Where<SpecialOrder>((Func<SpecialOrder, bool>) (x => (string) (NetFieldBase<string, NetString>) x.questKey == "Gunther")).Count<SpecialOrder>() > 0))
+          if (Game1.random.NextDouble() <= 0.2 && (Game1.MasterPlayer.mailReceived.Contains("guntherBones") || Game1.player.team.specialOrders.Where<SpecialOrder>((Func<SpecialOrder, bool>) (delegate(x) { return (string) (NetFieldBase<string; }, NetString>) x.questKey == "Gunther")) != null && Game1.player.team.specialOrders.Where<SpecialOrder>((Func<SpecialOrder, bool>) (delegate(x) { return (string) (NetFieldBase<string; }, NetString>) x.questKey == "Gunther")).Count<SpecialOrder>() > 0))
             Game1.createMultipleObjectDebris(881, xLocation, yLocation, random.Next(2, 6), who.UniqueMultiplayerID, this);
           Dictionary<string, string> dictionary = Game1.content.Load<Dictionary<string, string>>("Data\\Locations");
           if (!dictionary.ContainsKey((string) (NetFieldBase<string, NetString>) this.name))
@@ -10194,7 +10190,7 @@ label_386:
       }
     }
 
-    public virtual bool AllowMapModificationsInResetState() => false;
+    public virtual bool AllowMapModificationsInResetState() { return false; }
 
     public void setMapTile(
       int tileX,
@@ -10259,7 +10255,7 @@ label_386:
       }
     }
 
-    public int getTileIndexAt(Point p, string layer) => this.getTileIndexAt(p.X, p.Y, layer);
+    public int getTileIndexAt(Point p, string layer) { return this.getTileIndexAt(p.X, p.Y, layer); }
 
     public int getTileIndexAt(int x, int y, string layer)
     {
@@ -10677,7 +10673,7 @@ label_19:
       return this.map.GetLayer("AlwaysFront") == null || this.map.GetLayer("AlwaysFront").Tiles[location.X, location.Y] == null;
     }
 
-    public bool isTileLocationOpenIgnoreFrontLayers(Location location) => this.map.GetLayer("Buildings").Tiles[location.X, location.Y] == null && this.doesTileHaveProperty(location.X, location.Y, "Water", "Back") == null;
+    public bool isTileLocationOpenIgnoreFrontLayers(Location location) { return this.map.GetLayer("Buildings").Tiles[location.X, location.Y] == null && this.doesTileHaveProperty(location.X, location.Y, "Water", "Back") == null; }
 
     public void spawnWeedsAndStones(int numDebris = -1, bool weedsOnly = false, bool spawnFromOldWeeds = true)
     {
@@ -10829,7 +10825,7 @@ label_19:
       this.objects.Remove(key);
     }
 
-    public virtual string getFootstepSoundReplacement(string footstep) => footstep;
+    public virtual string getFootstepSoundReplacement(string footstep) { return footstep; }
 
     public virtual void removeEverythingFromThisTile(int x, int y)
     {
@@ -11100,7 +11096,7 @@ label_19:
       }
     }
 
-    public virtual void drawWaterTile(SpriteBatch b, int x, int y) => this.drawWaterTile(b, x, y, (Microsoft.Xna.Framework.Color) (NetFieldBase<Microsoft.Xna.Framework.Color, NetColor>) this.waterColor);
+    public virtual void drawWaterTile(SpriteBatch b, int x, int y) { return this.drawWaterTile(b, x, y, (Microsoft.Xna.Framework.Color) (NetFieldBase<Microsoft.Xna.Framework.Color, NetColor>) this.waterColor); }
 
     public void drawWaterTile(SpriteBatch b, int x, int y, Microsoft.Xna.Framework.Color color)
     {
@@ -11235,7 +11231,7 @@ label_19:
       }
     }
 
-    public virtual bool shouldHideCharacters() => false;
+    public virtual bool shouldHideCharacters() { return false; }
 
     protected virtual void drawCharacters(SpriteBatch b)
     {
@@ -11874,7 +11870,7 @@ label_19:
       return false;
     }
 
-    private bool checkJojaCompletePrerequisite() => Utility.hasFinishedJojaRoute();
+    private bool checkJojaCompletePrerequisite() { return Utility.hasFinishedJojaRoute(); }
 
     private bool checkEventsSeenPreconditions(string[] eventIDs)
     {
@@ -12352,9 +12348,9 @@ label_19:
       }
     }
 
-    public bool isFarmBuildingInterior() => this is AnimalHouse;
+    public bool isFarmBuildingInterior() { return this is AnimalHouse; }
 
-    public virtual bool CanBeRemotedlyViewed() => false;
+    public virtual bool CanBeRemotedlyViewed() { return false; }
 
     protected void adjustMapLightPropertiesForLamp(int tile, int x, int y, string layer)
     {
@@ -12569,9 +12565,9 @@ label_19:
       }
     }
 
-    public override bool Equals(object obj) => obj is GameLocation && this.Equals(obj as GameLocation);
+    public override bool Equals(object obj) { return obj is GameLocation && this.Equals(obj as GameLocation); }
 
-    public bool Equals(GameLocation other) => this.isStructure.Get() == other.isStructure.Get() && string.Equals(this.NameOrUniqueName, other.NameOrUniqueName, StringComparison.Ordinal);
+    public bool Equals(GameLocation other) { return this.isStructure.Get() == other.isStructure.Get() && string.Equals(this.NameOrUniqueName, other.NameOrUniqueName, StringComparison.Ordinal); }
 
     public enum LocationContext
     {

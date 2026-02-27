@@ -62,9 +62,9 @@ namespace StardewValley.Monsters
       this.variant.Value = Ghost.GhostVariant.Putrid;
     }
 
-    public override void reloadSprite() => this.Sprite = new AnimatedSprite("Characters\\Monsters\\" + (string) (NetFieldBase<string, NetString>) this.name);
+    public override void reloadSprite() { return this.Sprite = new AnimatedSprite("Characters\\Monsters\\" + (string) (NetFieldBase<string, NetString>) this.name); }
 
-    public override int GetBaseDifficultyLevel() => this.variant.Value == Ghost.GhostVariant.Putrid ? 1 : base.GetBaseDifficultyLevel();
+    public override int GetBaseDifficultyLevel() { return this.variant.Value == Ghost.GhostVariant.Putrid ? 1 : base.GetBaseDifficultyLevel(); }
 
     public override List<Item> getExtraDropItems()
     {

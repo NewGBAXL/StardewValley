@@ -364,7 +364,7 @@ namespace StardewValley.Locations
       this.gourmandMutex.Update(Game1.getOnlineFarmers());
     }
 
-    public override bool isTileOccupiedForPlacement(Vector2 tileLocation, StardewValley.Object toPlace = null) => base.isTileOccupiedForPlacement(tileLocation, toPlace);
+    public override bool isTileOccupiedForPlacement(Vector2 tileLocation, StardewValley.Object toPlace = null) { return base.isTileOccupiedForPlacement(tileLocation, toPlace); }
 
     public override void seasonUpdate(string season, bool onLoad = false)
     {

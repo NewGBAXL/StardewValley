@@ -39,11 +39,11 @@ namespace StardewValley.Characters
 
     public bool EventActor
     {
-      get => (bool) (NetFieldBase<bool, NetBool>) this.eventActor;
-      set => this.eventActor.Value = value;
+      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.eventActor;
+      delegate(set) { return this.eventActor.Value = value; };
     }
 
-    public Junimo() => this.forceUpdateTimer = 9999;
+    public Junimo() { return this.forceUpdateTimer = 9999; }
 
     public Junimo(Vector2 position, int whichArea, bool temporary = false)
       : base(new AnimatedSprite("Characters\\Junimo", 0, 16, 16), position, 2, nameof (Junimo))
@@ -176,11 +176,11 @@ namespace StardewValley.Characters
       this.position.Field.AxisAlignedMovement = false;
     }
 
-    public override bool canPassThroughActionTiles() => false;
+    public override bool canPassThroughActionTiles() { return false; }
 
-    public override bool shouldCollideWithBuildingLayer(GameLocation location) => true;
+    public override bool shouldCollideWithBuildingLayer(GameLocation location) { return true; }
 
-    public override bool canTalk() => false;
+    public override bool canTalk() { return false; }
 
     public void fadeAway()
     {
@@ -188,7 +188,7 @@ namespace StardewValley.Characters
       this.alphaChange.Value = (bool) (NetFieldBase<bool, NetBool>) this.stayPut ? -0.005f : -0.015f;
     }
 
-    public void setAlpha(float a) => this.alpha.Value = a;
+    public void setAlpha(float a) { return this.alpha.Value = a; }
 
     public void fadeBack()
     {
@@ -203,7 +203,7 @@ namespace StardewValley.Characters
       this.motion.Y = (float) ySpeed;
     }
 
-    public void setMoving(Vector2 motion) => this.motion.Value = motion;
+    public void setMoving(Vector2 motion) { return this.motion.Value = motion; }
 
     public override void Halt()
     {
@@ -226,7 +226,7 @@ namespace StardewValley.Characters
       this.motion.Value = Vector2.Zero;
     }
 
-    public void allowToMoveAgain() => this.stayPut.Value = false;
+    public void allowToMoveAgain() { return this.stayPut.Value = false; }
 
     private void returnToJunimoHutToFetchFinalStar()
     {

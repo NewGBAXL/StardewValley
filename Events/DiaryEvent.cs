@@ -52,13 +52,13 @@ namespace StardewValley.Events
       return true;
     }
 
-    public bool tickUpdate(GameTime time) => !Game1.dialogueUp;
+    public bool tickUpdate(GameTime time) { return !Game1.dialogueUp; }
 
     public void draw(SpriteBatch b)
     {
     }
 
-    public void makeChangesToLocation() => Game1.messagePause = false;
+    public void makeChangesToLocation() { return Game1.messagePause = false; }
 
     public void drawAboveEverything(SpriteBatch b)
     {

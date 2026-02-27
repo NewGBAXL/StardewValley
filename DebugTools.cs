@@ -39,7 +39,7 @@ namespace StardewValley
       Environment.Exit(666);
     }
 
-    public static bool IsMainThread() => Thread.CurrentThread.ManagedThreadId == DebugTools._mainThreadId;
+    public static bool IsMainThread() { return Thread.CurrentThread.ManagedThreadId == DebugTools._mainThreadId; }
 
     public static void Assert(bool expression, string failureMessage)
     {
@@ -48,13 +48,13 @@ namespace StardewValley
       Console.WriteLine(failureMessage);
     }
 
-    public static void GameConstructed(Game game) => DebugTools._mainThreadId = Thread.CurrentThread.ManagedThreadId;
+    public static void GameConstructed(Game game) { return DebugTools._mainThreadId = Thread.CurrentThread.ManagedThreadId; }
 
     public static void GameLoadContent(Game game)
     {
     }
 
-    public static void BeforeGameInitialize(Game game) => DebugTools.ApplyNoFpsCap(DebugTools._noFpsCap);
+    public static void BeforeGameInitialize(Game game) { return DebugTools.ApplyNoFpsCap(DebugTools._noFpsCap); }
 
     public static void BeforeGameUpdate(Game1 game, ref GameTime gameTime)
     {
@@ -88,6 +88,6 @@ namespace StardewValley
       DebugTools.ApplyNoFpsCap(DebugTools._noFpsCap);
     }
 
-    private static void ApplyNoFpsCap(bool nocap) => Console.WriteLine("NoFpsCap: This feature is not available");
+    private static void ApplyNoFpsCap(bool nocap) { return Console.WriteLine("NoFpsCap: This feature is not available"); }
   }
 }

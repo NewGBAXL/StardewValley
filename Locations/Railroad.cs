@@ -242,7 +242,7 @@ namespace StardewValley.Locations
       return Game1.random.NextDouble() < 0.08 ? (StardewValley.Object) new Furniture(2423, Vector2.Zero) : base.getFish(millisecondsAfterNibble, bait, waterDepth, who, baitPotency, bobberTile, locationName);
     }
 
-    public override bool isTileFishable(int tileX, int tileY) => !Game1.currentSeason.Equals("winter") && base.isTileFishable(tileX, tileY);
+    public override bool isTileFishable(int tileX, int tileY) { return !Game1.currentSeason.Equals("winter") && base.isTileFishable(tileX, tileY); }
 
     public override void updateEvenIfFarmerIsntHere(GameTime time, bool skipWasUpdatedFlush = false)
     {

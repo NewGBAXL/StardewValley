@@ -137,7 +137,7 @@ namespace StardewValley.Locations
       }
     }
 
-    protected override void resetLocalState() => base.resetLocalState();
+    protected override void resetLocalState() { return base.resetLocalState(); }
 
     public void CheckLostAndFound()
     {
@@ -256,7 +256,7 @@ namespace StardewValley.Locations
       }
     }
 
-    private void beginSendMoney(Farmer recipient) => Game1.activeClickableMenu = (IClickableMenu) new DigitEntryMenu(Game1.content.LoadString("Strings\\Locations:ManorHouse_LedgerBook_SeparateWallets_HowMuchQuestion"), (NumberSelectionMenu.behaviorOnNumberSelect) ((currentValue, price, who) => this.sendMoney(recipient, currentValue)), minValue: 1, maxValue: Game1.player.Money);
+    private void beginSendMoney(Farmer recipient) { return Game1.activeClickableMenu = (IClickableMenu) new DigitEntryMenu(Game1.content.LoadString("Strings\\Locations:ManorHouse_LedgerBook_SeparateWallets_HowMuchQuestion"), (NumberSelectionMenu.behaviorOnNumberSelect) ((currentValue, price, who) => this.sendMoney(recipient, currentValue)), minValue: 1, maxValue: Game1.player.Money); }
 
     public void sendMoney(Farmer recipient, int amount)
     {

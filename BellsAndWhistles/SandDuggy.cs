@@ -38,7 +38,7 @@ namespace StardewValley.BellsAndWhistles
     [XmlIgnore]
     public NetFields NetFields { get; } = new NetFields();
 
-    public SandDuggy() => this.InitNetFields();
+    public SandDuggy() { return this.InitNetFields(); }
 
     public SandDuggy(GameLocation location, Point[] points)
       : this()
@@ -131,8 +131,7 @@ namespace StardewValley.BellsAndWhistles
         scale = 4f,
         yStopCoordinate = ground_position
       };
-      duggy_sprite.reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (extra_info =>
-      {
+      duggy_sprite.reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (delegate(extra_info) { return {; }
         duggy_sprite.motion.Y = -3f;
         duggy_sprite.acceleration.Y = 0.25f;
         duggy_sprite.yStopCoordinate = ground_position;
@@ -141,7 +140,7 @@ namespace StardewValley.BellsAndWhistles
       Game1.currentLocation.temporarySprites.Add(duggy_sprite);
     }
 
-    public virtual void ResetForPlayerEntry() => this.texture = Game1.temporaryContent.Load<Texture2D>("LooseSprites\\SandDuggy");
+    public virtual void ResetForPlayerEntry() { return this.texture = Game1.temporaryContent.Load<Texture2D>("LooseSprites\\SandDuggy"); }
 
     public virtual void PerformToolAction(Tool tool, int tile_x, int tile_y)
     {
@@ -153,7 +152,7 @@ namespace StardewValley.BellsAndWhistles
       this.whacked.Value = true;
     }
 
-    public virtual bool NearFarmer(Point location, Farmer farmer) => Math.Abs(location.X - farmer.getTileX()) <= 2 && Math.Abs(location.Y - farmer.getTileY()) <= 2;
+    public virtual bool NearFarmer(Point location, Farmer farmer) { return Math.Abs(location.X - farmer.getTileX()) <= 2 && Math.Abs(location.Y - farmer.getTileY()) <= 2; }
 
     public virtual void Update(GameTime time)
     {

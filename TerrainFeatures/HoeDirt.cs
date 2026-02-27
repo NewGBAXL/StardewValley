@@ -83,8 +83,8 @@ namespace StardewValley.TerrainFeatures
 
     public Crop crop
     {
-      get => (Crop) (NetFieldBase<Crop, NetRef<Crop>>) this.netCrop;
-      set => this.netCrop.Value = value;
+      delegate(get) { return (Crop) (NetFieldBase<Crop; }, NetRef<Crop>>) this.netCrop;
+      delegate(set) { return this.netCrop.Value = value; };
     }
 
     public HoeDirt()
@@ -172,11 +172,11 @@ label_14:
       this.isGreenhouseDirt.Value = location.IsGreenhouse;
     }
 
-    public float getShakeRotation() => this.shakeRotation;
+    public float getShakeRotation() { return this.shakeRotation; }
 
-    public float getMaxShake() => this.maxShake;
+    public float getMaxShake() { return this.maxShake; }
 
-    public override Rectangle getBoundingBox(Vector2 tileLocation) => new Rectangle((int) ((double) tileLocation.X * 64.0), (int) ((double) tileLocation.Y * 64.0), 64, 64);
+    public override Rectangle getBoundingBox(Vector2 tileLocation) { return new Rectangle((int) ((double) tileLocation.X * 64.0), (int) ((double) tileLocation.Y * 64.0), 64, 64); }
 
     public override void doCollisionAction(
       Rectangle positionOfCollider,
@@ -277,7 +277,7 @@ label_14:
       this.crop.updateDrawMath(this.currentTileLocation);
     }
 
-    public override bool isPassable(Character c) => this.crop == null || !(bool) (NetFieldBase<bool, NetBool>) this.crop.raisedSeeds || c is JunimoHarvester;
+    public override bool isPassable(Character c) { return this.crop == null || !(bool) (NetFieldBase<bool, NetBool>) this.crop.raisedSeeds || c is JunimoHarvester; }
 
     public bool readyForHarvest()
     {
@@ -563,7 +563,7 @@ label_19:
       return (int) (NetFieldBase<int, NetInt>) this.state == 2 && this.crop == null;
     }
 
-    public bool hasPaddyCrop() => this.crop != null && this.crop.isPaddyCrop();
+    public bool hasPaddyCrop() { return this.crop != null && this.crop.isPaddyCrop(); }
 
     public bool paddyWaterCheck(GameLocation location, Vector2 tile_location)
     {
@@ -653,7 +653,7 @@ label_19:
       this.crop.drawInMenu(spriteBatch, positionOnScreen + new Vector2(64f * scale, 64f * scale), Color.White, 0.0f, scale, layerDepth + (float) (((double) positionOnScreen.Y + 64.0 * (double) scale) / 20000.0));
     }
 
-    public override void draw(SpriteBatch spriteBatch, Vector2 tileLocation) => this.DrawOptimized(spriteBatch, spriteBatch, spriteBatch, tileLocation);
+    public override void draw(SpriteBatch spriteBatch, Vector2 tileLocation) { return this.DrawOptimized(spriteBatch, spriteBatch, spriteBatch, tileLocation); }
 
     public void DrawOptimized(
       SpriteBatch dirt_batch,
@@ -770,7 +770,7 @@ label_19:
       this.UpdateDrawSums();
     }
 
-    public void OnAdded(GameLocation loc, Vector2 tilePos) => this.updateNeighbors(loc, tilePos);
+    public void OnAdded(GameLocation loc, Vector2 tilePos) { return this.updateNeighbors(loc, tilePos); }
 
     public void OnRemoved(GameLocation loc, Vector2 tilePos)
     {
@@ -796,9 +796,9 @@ label_19:
       this.wateredRectPosition = HoeDirt.drawGuide[this.wateredNeighborMask];
     }
 
-    public void OnNeighborAdded(byte direction) => this.neighborMask |= direction;
+    public void OnNeighborAdded(byte direction) { return this.neighborMask |= direction; }
 
-    public void OnNeighborRemoved(byte direction) => this.neighborMask &= ~direction;
+    public void OnNeighborRemoved(byte direction) { return this.neighborMask &= ~direction; }
 
     private struct NeighborLoc
     {

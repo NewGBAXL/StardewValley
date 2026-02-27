@@ -86,7 +86,7 @@ namespace StardewValley.Menus
       this.snapToDefaultClickableComponent();
     }
 
-    protected virtual Vector2 centerPosition => new Vector2((float) (Game1.uiViewport.Width / 2), (float) (Game1.uiViewport.Height / 2));
+    protected virtual Vector2 delegate(centerPosition) { return new Vector2((float) (Game1.uiViewport.Width / 2); }, (float) (Game1.uiViewport.Height / 2));
 
     public override void snapToDefaultClickableComponent()
     {

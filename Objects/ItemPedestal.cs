@@ -99,7 +99,7 @@ namespace StardewValley.Objects
       this.locked.Value = true;
     }
 
-    public override bool checkForAction(Farmer who, bool checking_for_activity = false) => !this.locked.Value && (checking_for_activity || this.DropObject(who));
+    public override bool checkForAction(Farmer who, bool checking_for_activity = false) { return !this.locked.Value && (checking_for_activity || this.DropObject(who)); }
 
     public bool DropObject(Farmer who)
     {
@@ -122,11 +122,11 @@ namespace StardewValley.Objects
       return true;
     }
 
-    public override bool performToolAction(Tool t, GameLocation location) => false;
+    public override bool performToolAction(Tool t, GameLocation location) { return false; }
 
-    public override void updateWhenCurrentLocation(GameTime time, GameLocation environment) => this.itemModifyMutex.Update(environment);
+    public override void updateWhenCurrentLocation(GameTime time, GameLocation environment) { return this.itemModifyMutex.Update(environment); }
 
-    public override bool onExplosion(Farmer who, GameLocation location) => false;
+    public override bool onExplosion(Farmer who, GameLocation location) { return false; }
 
     public override void DayUpdate(GameLocation location)
     {

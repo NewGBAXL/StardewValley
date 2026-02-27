@@ -10,6 +10,6 @@ namespace StardewValley
 {
   public class PanEnchantment : BaseEnchantment
   {
-    public override bool CanApplyTo(Item item) => item is Pan;
+    public override bool CanApplyTo(Item item) { return item is Pan; }
   }
 }

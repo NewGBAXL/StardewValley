@@ -48,17 +48,17 @@ namespace StardewValley
       this.SubscribeClientSizeChange();
       this.Exiting += (EventHandler<EventArgs>) ((sender, args) =>
       {
-        this.ExecuteForInstances((Action<Game1>) (instance => instance.exitEvent(sender, args)));
+        this.ExecuteForInstances((Action<Game1>) (delegate(instance) { return instance.exitEvent(sender; }, args)));
         Process.GetCurrentProcess().Kill();
       });
       Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
-      LocalizedContentManager.OnLanguageChange += (LocalizedContentManager.LanguageChangedHandler) (code => this.ExecuteForInstances((Action<Game1>) (instance => instance.TranslateFields())));
+      LocalizedContentManager.OnLanguageChange += (LocalizedContentManager.LanguageChangedHandler) (delegate(code) { return this.ExecuteForInstances((Action<Game1>) (instance => instance.TranslateFields()))); };
       DebugTools.GameConstructed((Game) this);
     }
 
-    protected override void OnActivated(object sender, EventArgs args) => this.ExecuteForInstances((Action<Game1>) (instance => instance.Instance_OnActivated(sender, args)));
+    protected override void OnActivated(object sender, EventArgs args) { return this.ExecuteForInstances((Action<Game1>) (delegate(instance) { return instance.Instance_OnActivated(sender; }, args))); }
 
-    public void SubscribeClientSizeChange() => this.Window.ClientSizeChanged += new EventHandler<EventArgs>(this.OnWindowSizeChange);
+    public void SubscribeClientSizeChange() { return this.Window.ClientSizeChanged += new EventHandler<EventArgs>(this.OnWindowSizeChange); }
 
     public void OnWindowSizeChange(object sender, EventArgs args)
     {
@@ -66,17 +66,17 @@ namespace StardewValley
       this._windowSizeChanged = true;
     }
 
-    protected override bool BeginDraw() => base.BeginDraw();
+    protected override bool BeginDraw() { return base.BeginDraw(); }
 
-    protected override void BeginRun() => base.BeginRun();
+    protected override void BeginRun() { return base.BeginRun(); }
 
-    protected override void Dispose(bool disposing) => base.Dispose(disposing);
+    protected override void Dispose(bool disposing) { return base.Dispose(disposing); }
 
     protected override void Draw(GameTime gameTime)
     {
       if (this._windowSizeChanged)
       {
-        this.ExecuteForInstances((Action<Game1>) (instance => instance.Window_ClientSizeChanged((object) null, (EventArgs) null)));
+        this.ExecuteForInstances((Action<Game1>) (delegate(instance) { return instance.Window_ClientSizeChanged((object) null; }, (EventArgs) null)));
         this._windowSizeChanged = false;
         this.SubscribeClientSizeChange();
       }
@@ -113,7 +113,7 @@ namespace StardewValley
       base.Draw(gameTime);
     }
 
-    public int GetNewInstanceID() => this.nextInstanceId++;
+    public int GetNewInstanceID() { return this.nextInstanceId++; }
 
     public virtual Game1 GetFirstInstanceAtThisLocation(
       GameLocation location,
@@ -150,9 +150,9 @@ namespace StardewValley
       return (Game1) null;
     }
 
-    protected override void EndDraw() => base.EndDraw();
+    protected override void EndDraw() { return base.EndDraw(); }
 
-    protected override void EndRun() => base.EndRun();
+    protected override void EndRun() { return base.EndRun(); }
 
     protected override void Initialize()
     {
@@ -164,9 +164,9 @@ namespace StardewValley
       Program.sdk.Initialize();
     }
 
-    public bool WasWindowSizeChanged() => this._windowSizeChanged;
+    public bool WasWindowSizeChanged() { return this._windowSizeChanged; }
 
-    public int GetMaxSimultaneousPlayers() => 4;
+    public int GetMaxSimultaneousPlayers() { return 4; }
 
     public void InitializeMainInstance()
     {
@@ -232,9 +232,9 @@ namespace StardewValley
       this._windowSizeChanged = true;
     }
 
-    public virtual Game1 CreateGameInstance(PlayerIndex player_index = PlayerIndex.One, int index = 0) => new Game1(player_index, index);
+    public virtual Game1 CreateGameInstance(PlayerIndex player_index = PlayerIndex.One, int index = 0) { return new Game1(player_index, index); }
 
-    public Game1 GetGamePtr() => this.gamePtr;
+    public Game1 GetGamePtr() { return this.gamePtr; }
 
     protected override void LoadContent()
     {
@@ -366,7 +366,7 @@ namespace StardewValley
       this.startButtonState[(int) index] = -1;
     }
 
-    public virtual bool IsStartDown(PlayerIndex index) => index >= PlayerIndex.One && index < (PlayerIndex) this.startButtonState.Count && this.startButtonState[(int) index] == 1;
+    public virtual bool IsStartDown(PlayerIndex index) { return index >= PlayerIndex.One && index < (PlayerIndex) this.startButtonState.Count && this.startButtonState[(int) index] == 1; }
 
     private static void SetInstanceDefaults(InstanceGame instance)
     {

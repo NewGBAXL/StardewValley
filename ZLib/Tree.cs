@@ -968,7 +968,7 @@ namespace Ionic.Zlib
     /// <remarks>
     /// No side effects. _dist_code[256] and _dist_code[257] are never used.
     /// </remarks>
-    internal static int DistanceCode(int dist) => dist >= 256 ? (int) Tree._dist_code[256 + SharedUtils.URShift(dist, 7)] : (int) Tree._dist_code[dist];
+    internal static int DistanceCode(int dist) { return dist >= 256 ? (int) Tree._dist_code[256 + SharedUtils.URShift(dist, 7)] : (int) Tree._dist_code[dist]; }
 
     internal void gen_bitlen(DeflateManager s)
     {

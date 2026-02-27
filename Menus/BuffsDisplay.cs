@@ -23,7 +23,7 @@ namespace StardewValley.Menus
     public int quenchedLeft;
     public string hoverText = "";
 
-    public BuffsDisplay() => this.updatePosition();
+    public BuffsDisplay() { return this.updatePosition(); }
 
     public override void receiveLeftClick(int x, int y, bool playSound = true)
     {
@@ -109,7 +109,7 @@ namespace StardewValley.Menus
       this.arrangeTheseComponentsInThisRectangle(this.xPositionOnScreen, this.yPositionOnScreen, this.width / 64, 64, 64, 8, true);
     }
 
-    public bool hasBuff(int which) => Game1.player.hasBuff(which);
+    public bool hasBuff(int which) { return Game1.player.hasBuff(which); }
 
     public bool tryToAddFoodBuff(Buff b, int duration)
     {

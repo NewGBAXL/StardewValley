@@ -57,7 +57,7 @@ namespace StardewValley.Minigames
       Game1.player.Halt();
     }
 
-    public bool overrideFreeMouseMovement() => Game1.options.SnappyMenus;
+    public bool overrideFreeMouseMovement() { return Game1.options.SnappyMenus; }
 
     public bool tick(GameTime time)
     {
@@ -175,7 +175,7 @@ namespace StardewValley.Minigames
     {
     }
 
-    public void releaseLeftClick(int x, int y) => this.handleCastInputReleased();
+    public void releaseLeftClick(int x, int y) { return this.handleCastInputReleased(); }
 
     public void releaseRightClick(int x, int y)
     {
@@ -354,7 +354,7 @@ namespace StardewValley.Minigames
       }
     }
 
-    public static void startMe() => Game1.currentMinigame = (IMinigame) new FishingGame();
+    public static void startMe() { return Game1.currentMinigame = (IMinigame) new FishingGame(); }
 
     public void changeScreenSize()
     {
@@ -380,10 +380,10 @@ namespace StardewValley.Minigames
     {
     }
 
-    public string minigameId() => nameof (FishingGame);
+    public string minigameId() { return nameof (FishingGame); }
 
-    public bool doMainGameUpdates() => true;
+    public bool doMainGameUpdates() { return true; }
 
-    public bool forceQuit() => false;
+    public bool forceQuit() { return false; }
   }
 }

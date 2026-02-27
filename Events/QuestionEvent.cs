@@ -24,7 +24,7 @@ namespace StardewValley.Events
 
     public NetFields NetFields { get; } = new NetFields();
 
-    public QuestionEvent(int whichQuestion) => this.whichQuestion = whichQuestion;
+    public QuestionEvent(int whichQuestion) { return this.whichQuestion = whichQuestion; }
 
     public bool setUp()
     {
@@ -116,6 +116,6 @@ namespace StardewValley.Events
     {
     }
 
-    public void makeChangesToLocation() => Game1.messagePause = false;
+    public void makeChangesToLocation() { return Game1.messagePause = false; }
   }
 }

@@ -910,7 +910,7 @@ namespace StardewValley.Menus
       this.exitThisMenu();
     }
 
-    public virtual bool CanBuyback() => true;
+    public virtual bool CanBuyback() { return true; }
 
     public virtual void BuyBuybackItem(ISalable bought_item, int price, int stack)
     {
@@ -1098,7 +1098,7 @@ namespace StardewValley.Menus
       this.updateSaleButtonNeighbors();
     }
 
-    public override bool readyToClose() => this.heldItem == null && this.animations.Count == 0;
+    public override bool readyToClose() { return this.heldItem == null && this.animations.Count == 0; }
 
     public override void emergencyShutDown()
     {
@@ -1491,9 +1491,9 @@ namespace StardewValley.Menus
       Game1.playSound("shiny4");
     }
 
-    private int getHoveredItemExtraItemIndex() => this.itemPriceAndStock != null && this.hoveredItem != null && this.itemPriceAndStock.ContainsKey(this.hoveredItem) && this.itemPriceAndStock[this.hoveredItem].Length > 2 ? this.itemPriceAndStock[this.hoveredItem][2] : -1;
+    private int getHoveredItemExtraItemIndex() { return this.itemPriceAndStock != null && this.hoveredItem != null && this.itemPriceAndStock.ContainsKey(this.hoveredItem) && this.itemPriceAndStock[this.hoveredItem].Length > 2 ? this.itemPriceAndStock[this.hoveredItem][2] : -1; }
 
-    private int getHoveredItemExtraItemAmount() => this.itemPriceAndStock != null && this.hoveredItem != null && this.itemPriceAndStock.ContainsKey(this.hoveredItem) && this.itemPriceAndStock[this.hoveredItem].Length > 3 ? this.itemPriceAndStock[this.hoveredItem][3] : 5;
+    private int getHoveredItemExtraItemAmount() { return this.itemPriceAndStock != null && this.hoveredItem != null && this.itemPriceAndStock.ContainsKey(this.hoveredItem) && this.itemPriceAndStock[this.hoveredItem].Length > 3 ? this.itemPriceAndStock[this.hoveredItem][3] : 5; }
 
     public void updatePosition()
     {

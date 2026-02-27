@@ -12,6 +12,6 @@ namespace StardewValley
   [XmlInclude(typeof (FishingRodEnchantment))]
   public class FishingRodEnchantment : BaseEnchantment
   {
-    public override bool CanApplyTo(Item item) => item is FishingRod;
+    public override bool CanApplyTo(Item item) { return item is FishingRod; }
   }
 }

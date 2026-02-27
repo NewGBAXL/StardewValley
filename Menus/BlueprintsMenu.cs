@@ -273,7 +273,7 @@ namespace StardewValley.Menus
         Game1.addHUDMessage(new HUDMessage(Game1.content.LoadString("Strings\\StringsFromCSFiles:BlueprintsMenu.cs.10016"), Color.Red, 3500f));
     }
 
-    public bool tryToBuild() => this.structureForPlacement.blueprintType.Equals("Animals") ? ((Farm) Game1.getLocationFromName("Farm")).placeAnimal(this.structureForPlacement, new Vector2((float) ((Game1.viewport.X + Game1.getOldMouseX()) / 64), (float) ((Game1.viewport.Y + Game1.getOldMouseY()) / 64)), false, Game1.player.UniqueMultiplayerID) : ((BuildableGameLocation) Game1.getLocationFromName("Farm")).buildStructure(this.structureForPlacement, new Vector2((float) ((Game1.viewport.X + Game1.getOldMouseX()) / 64), (float) ((Game1.viewport.Y + Game1.getOldMouseY()) / 64)), Game1.player);
+    public bool tryToBuild() { return this.structureForPlacement.blueprintType.Equals("Animals") ? ((Farm) Game1.getLocationFromName("Farm")).placeAnimal(this.structureForPlacement, new Vector2((float) ((Game1.viewport.X + Game1.getOldMouseX()) / 64), (float) ((Game1.viewport.Y + Game1.getOldMouseY()) / 64)), false, Game1.player.UniqueMultiplayerID) : ((BuildableGameLocation) Game1.getLocationFromName("Farm")).buildStructure(this.structureForPlacement, new Vector2((float) ((Game1.viewport.X + Game1.getOldMouseX()) / 64), (float) ((Game1.viewport.Y + Game1.getOldMouseY()) / 64)), Game1.player); }
 
     public override void receiveRightClick(int x, int y, bool playSound = true)
     {

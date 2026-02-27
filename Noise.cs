@@ -612,7 +612,7 @@ namespace StardewValley
       return (float) (40.0 * ((double) num11 + (double) num14 + (double) num17));
     }
 
-    private static int FastFloor(float x) => (double) x <= 0.0 ? (int) x - 1 : (int) x;
+    private static int FastFloor(float x) { return (double) x <= 0.0 ? (int) x - 1 : (int) x; }
 
     private static float grad(int hash, float x)
     {

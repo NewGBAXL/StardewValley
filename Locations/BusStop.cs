@@ -343,7 +343,7 @@ namespace StardewValley.Locations
       this.busDoor.update(time);
     }
 
-    public override bool shouldHideCharacters() => this.drivingOff || this.drivingBack;
+    public override bool shouldHideCharacters() { return this.drivingOff || this.drivingBack; }
 
     public override void draw(SpriteBatch spriteBatch)
     {

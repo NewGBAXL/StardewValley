@@ -64,9 +64,9 @@ namespace StardewValley.Menus
       this.snapCursorToCurrentSnappedComponent();
     }
 
-    public override bool readyToClose() => base.readyToClose() && this.geodeAnimationTimer <= 0 && this.heldItem == null && !this.waitingForServerResponse;
+    public override bool readyToClose() { return base.readyToClose() && this.geodeAnimationTimer <= 0 && this.heldItem == null && !this.waitingForServerResponse; }
 
-    public bool highlightGeodes(Item i) => this.heldItem != null || Utility.IsGeode(i);
+    public bool highlightGeodes(Item i) { return this.heldItem != null || Utility.IsGeode(i); }
 
     public virtual void startGeodeCrack()
     {
@@ -133,7 +133,7 @@ namespace StardewValley.Menus
       }
     }
 
-    public override void receiveRightClick(int x, int y, bool playSound = true) => base.receiveRightClick(x, y, true);
+    public override void receiveRightClick(int x, int y, bool playSound = true) { return base.receiveRightClick(x, y, true); }
 
     public override void performHoverAction(int x, int y)
     {

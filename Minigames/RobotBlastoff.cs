@@ -23,7 +23,7 @@ namespace StardewValley.Minigames
     public Vector2 robotPosition = new Vector2((float) (Game1.game1.localMultiplayerWindow.Width / 2) / Game1.options.zoomLevel, (float) Game1.game1.localMultiplayerWindow.Height / Game1.options.zoomLevel);
     public List<TemporaryAnimatedSprite> tempSprites = new List<TemporaryAnimatedSprite>();
 
-    public bool overrideFreeMouseMovement() => Game1.options.SnappyMenus;
+    public bool overrideFreeMouseMovement() { return Game1.options.SnappyMenus; }
 
     public bool tick(GameTime time)
     {
@@ -69,7 +69,7 @@ namespace StardewValley.Minigames
       Game1.currentLocation.temporarySprites.Clear();
     }
 
-    public bool forceQuit() => false;
+    public bool forceQuit() { return false; }
 
     public void receiveLeftClick(int x, int y, bool playSound = true)
     {
@@ -128,10 +128,10 @@ namespace StardewValley.Minigames
     {
     }
 
-    public void receiveEventPoke(int data) => throw new NotImplementedException();
+    public void receiveEventPoke(int data) { return throw new NotImplementedException(); }
 
-    public string minigameId() => (string) null;
+    public string minigameId() { return (string) null; }
 
-    public bool doMainGameUpdates() => false;
+    public bool doMainGameUpdates() { return false; }
   }
 }

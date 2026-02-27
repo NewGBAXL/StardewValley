@@ -16,7 +16,7 @@ public class LocationWeather : INetObject<NetFields>
 
   public NetFields NetFields { get; } = new NetFields();
 
-  public LocationWeather() => this.NetFields.AddFields((INetSerializable) this.isRaining, (INetSerializable) this.isSnowing, (INetSerializable) this.isLightning, (INetSerializable) this.isDebrisWeather, (INetSerializable) this.weatherForTomorrow);
+  public LocationWeather() { return this.NetFields.AddFields((INetSerializable) this.isRaining, (INetSerializable) this.isSnowing, (INetSerializable) this.isLightning, (INetSerializable) this.isDebrisWeather, (INetSerializable) this.weatherForTomorrow); }
 
   public void InitializeDayWeather()
   {

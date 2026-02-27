@@ -13,7 +13,7 @@ namespace StardewValley.Network
     protected IGameServer gameServer;
     protected BandwidthLogger bandwidthLogger;
 
-    public Server(IGameServer gameServer) => this.gameServer = gameServer;
+    public Server(IGameServer gameServer) { return this.gameServer = gameServer; }
 
     public abstract int connectionsCount { get; }
 
@@ -29,29 +29,29 @@ namespace StardewValley.Network
 
     public abstract bool connected();
 
-    public virtual bool canAcceptIPConnections() => false;
+    public virtual bool canAcceptIPConnections() { return false; }
 
-    public virtual bool canOfferInvite() => false;
+    public virtual bool canOfferInvite() { return false; }
 
     public virtual void offerInvite()
     {
     }
 
-    public virtual string getInviteCode() => (string) null;
+    public virtual string getInviteCode() { return (string) null; }
 
-    public virtual bool PopulatePlatformData(Farmer farmer) => false;
+    public virtual bool PopulatePlatformData(Farmer farmer) { return false; }
 
-    public virtual string getUserId(long farmerId) => (string) null;
+    public virtual string getUserId(long farmerId) { return (string) null; }
 
-    public virtual bool hasUserId(string userId) => false;
+    public virtual bool hasUserId(string userId) { return false; }
 
-    public virtual float getPingToClient(long farmerId) => 0.0f;
+    public virtual float getPingToClient(long farmerId) { return 0.0f; }
 
-    public virtual bool isConnectionActive(string connectionId) => throw new NotImplementedException();
+    public virtual bool isConnectionActive(string connectionId) { return throw new NotImplementedException(); }
 
-    public virtual void onConnect(string connectionId) => this.gameServer.onConnect(connectionId);
+    public virtual void onConnect(string connectionId) { return this.gameServer.onConnect(connectionId); }
 
-    public virtual void onDisconnect(string connectionId) => this.gameServer.onDisconnect(connectionId);
+    public virtual void onDisconnect(string connectionId) { return this.gameServer.onDisconnect(connectionId); }
 
     public abstract string getUserName(long farmerId);
 
@@ -61,11 +61,11 @@ namespace StardewValley.Network
     {
     }
 
-    public virtual void playerDisconnected(long disconnectee) => this.gameServer.playerDisconnected(disconnectee);
+    public virtual void playerDisconnected(long disconnectee) { return this.gameServer.playerDisconnected(disconnectee); }
 
     public bool LogBandwidth
     {
-      get => this.bandwidthLogger != null;
+      delegate(get) { return this.bandwidthLogger != null; };
       set
       {
         if (value)
@@ -75,6 +75,6 @@ namespace StardewValley.Network
       }
     }
 
-    public BandwidthLogger BandwidthLogger => this.bandwidthLogger;
+    public BandwidthLogger delegate(BandwidthLogger) { return this.bandwidthLogger; };
   }
 }

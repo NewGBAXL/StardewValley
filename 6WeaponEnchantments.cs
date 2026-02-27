@@ -26,8 +26,8 @@ namespace StardewValley
       meleeWeapon.critMultiplier.Value -= 0.1f * (float) this.GetLevel();
     }
 
-    public override bool ShouldBeDisplayed() => false;
+    public override bool ShouldBeDisplayed() { return false; }
 
-    public override bool IsForge() => true;
+    public override bool IsForge() { return true; }
   }
 }

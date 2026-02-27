@@ -55,7 +55,7 @@ namespace StardewValley.BellsAndWhistles
       this.startingPosition = position;
     }
 
-    public void startSplash(Farmer who) => this.splash = true;
+    public void startSplash(Farmer who) { return this.splash = true; }
 
     public override bool update(GameTime time, GameLocation environment)
     {

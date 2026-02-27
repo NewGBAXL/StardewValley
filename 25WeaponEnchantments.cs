@@ -10,9 +10,9 @@ namespace StardewValley
 {
   public class EfficientToolEnchantment : BaseEnchantment
   {
-    public override string GetName() => "Efficient";
+    public override string GetName() { return "Efficient"; }
 
-    public override bool CanApplyTo(Item item) => item is Tool && !(item is MilkPail) && !(item is MeleeWeapon) && !(item is Shears) && !(item is Pan) && !(item is Wand) && !(item is Slingshot);
+    public override bool CanApplyTo(Item item) { return item is Tool && !(item is MilkPail) && !(item is MeleeWeapon) && !(item is Shears) && !(item is Pan) && !(item is Wand) && !(item is Slingshot); }
 
     protected override void _ApplyTo(Item item)
     {

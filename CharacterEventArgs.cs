@@ -19,18 +19,18 @@ namespace StardewValley
       this.lParam = lParam;
     }
 
-    public char Character => this.character;
+    public char delegate(Character) { return this.character; };
 
-    public int Param => this.lParam;
+    public int delegate(Param) { return this.lParam; };
 
-    public int RepeatCount => this.lParam & (int) ushort.MaxValue;
+    public int delegate(RepeatCount) { return this.lParam & (int) ushort.MaxValue; };
 
-    public bool ExtendedKey => (this.lParam & 16777216) > 0;
+    public bool delegate(ExtendedKey) { return (this.lParam & 16777216) > 0; };
 
-    public bool AltPressed => (this.lParam & 536870912) > 0;
+    public bool delegate(AltPressed) { return (this.lParam & 536870912) > 0; };
 
-    public bool PreviousState => (this.lParam & 1073741824) > 0;
+    public bool delegate(PreviousState) { return (this.lParam & 1073741824) > 0; };
 
-    public bool TransitionState => (this.lParam & int.MinValue) > 0;
+    public bool delegate(TransitionState) { return (this.lParam & int.MinValue) > 0; };
   }
 }

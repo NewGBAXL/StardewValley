@@ -42,7 +42,7 @@ namespace StardewValley.Objects
       this.NetFields.AddFields((INetSerializable) this.heldItems, (INetSerializable) this.mutex.NetFields);
     }
 
-    public override bool canBeRemoved(Farmer who) => !this.mutex.IsLocked() && base.canBeRemoved(who);
+    public override bool canBeRemoved(Farmer who) { return !this.mutex.IsLocked() && base.canBeRemoved(who); }
 
     public override bool checkForAction(Farmer who, bool justCheckingForActivity = false)
     {
@@ -52,13 +52,12 @@ namespace StardewValley.Objects
       return true;
     }
 
-    public virtual void ShowMenu() => this.ShowShopMenu();
+    public virtual void ShowMenu() { return this.ShowShopMenu(); }
 
     public virtual void ShowChestMenu()
     {
       ItemGrabMenu itemGrabMenu = new ItemGrabMenu((IList<Item>) this.heldItems, false, true, new InventoryMenu.highlightThisItem(InventoryMenu.highlightAllItems), new ItemGrabMenu.behaviorOnItemSelect(this.GrabItemFromInventory), (string) null, new ItemGrabMenu.behaviorOnItemSelect(this.GrabItemFromChest), canBeExitedWithKey: true, showOrganizeButton: true, source: 1, sourceItem: ((Item) this), context: ((object) this));
-      itemGrabMenu.behaviorBeforeCleanup = (Action<IClickableMenu>) (menu =>
-      {
+      itemGrabMenu.behaviorBeforeCleanup = (Action<IClickableMenu>) (delegate(menu) { return {; }
         this.mutex.ReleaseLock();
         this.OnMenuClose();
       });
@@ -85,7 +84,7 @@ namespace StardewValley.Objects
       Game1.activeClickableMenu.snapCursorToCurrentSnappedComponent();
     }
 
-    public virtual bool HighlightItems(Item item) => InventoryMenu.highlightAllItems(item);
+    public virtual bool HighlightItems(Item item) { return InventoryMenu.highlightAllItems(item); }
 
     public virtual void GrabItemFromChest(Item item, Farmer who)
     {
@@ -137,8 +136,7 @@ namespace StardewValley.Objects
         };
       ShopMenu shopMenu = new ShopMenu(itemPriceAndStock, on_purchase: new Func<ISalable, Farmer, int, bool>(this.onDresserItemWithdrawn), on_sell: new Func<ISalable, bool>(this.onDresserItemDeposited), context: this.GetShopMenuContext());
       shopMenu.source = (object) this;
-      shopMenu.behaviorBeforeCleanup = (Action<IClickableMenu>) (menu =>
-      {
+      shopMenu.behaviorBeforeCleanup = (Action<IClickableMenu>) (delegate(menu) { return {; }
         this.mutex.ReleaseLock();
         this.OnMenuClose();
       });
@@ -149,9 +147,9 @@ namespace StardewValley.Objects
     {
     }
 
-    public virtual string GetShopMenuContext() => "Dresser";
+    public virtual string GetShopMenuContext() { return "Dresser"; }
 
-    public override bool canBeTrashed() => this.heldItems.Count <= 0 && base.canBeTrashed();
+    public override bool canBeTrashed() { return this.heldItems.Count <= 0 && base.canBeTrashed(); }
 
     public override void DayUpdate(GameLocation location)
     {

@@ -10,7 +10,7 @@ namespace StardewValley
 {
   public class PowerfulEnchantment : BaseEnchantment
   {
-    public override string GetName() => "Powerful";
+    public override string GetName() { return "Powerful"; }
 
     public override bool CanApplyTo(Item item)
     {

@@ -83,7 +83,7 @@ namespace StardewValley.Menus
           ++this.numFarmers;
         }
       }
-      foreach (KeyValuePair<string, string> keyValuePair in (IEnumerable<KeyValuePair<string, string>>) this.npcNames.OrderBy<KeyValuePair<string, string>, int>((Func<KeyValuePair<string, string>, int>) (p => -Game1.player.getFriendshipLevelForNPC(p.Key))))
+      foreach (KeyValuePair<string, string> keyValuePair in (IEnumerable<KeyValuePair<string, string>>) this.npcNames.OrderBy<KeyValuePair<string, string>, int>((Func<KeyValuePair<string, string>, int>) (delegate(p) { return -Game1.player.getFriendshipLevelForNPC(p.Key)))); }
       {
         NPC npc = (NPC) null;
         if (this.kidsNames.Contains(keyValuePair.Key))
@@ -141,7 +141,7 @@ namespace StardewValley.Menus
       return dictionary.ContainsKey(name) && dictionary[name].Split('/')[5] == "datable";
     }
 
-    public Friendship getFriendship(string name) => Game1.player.friendshipData.ContainsKey(name) ? Game1.player.friendshipData[name] : this.emptyFriendship;
+    public Friendship getFriendship(string name) { return Game1.player.friendshipData.ContainsKey(name) ? Game1.player.friendshipData[name] : this.emptyFriendship; }
 
     public override void snapToDefaultClickableComponent()
     {

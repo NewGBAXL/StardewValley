@@ -31,17 +31,17 @@ namespace StardewValley
     {
     }
 
-    public float GetVariable(string var) => 0.0f;
+    public float GetVariable(string var) { return 0.0f; }
 
-    public bool IsStopped => true;
+    public bool delegate(IsStopped) { return true; };
 
-    public bool IsStopping => false;
+    public bool delegate(IsStopping) { return false; };
 
-    public bool IsPlaying => false;
+    public bool delegate(IsPlaying) { return false; };
 
-    public bool IsPaused => false;
+    public bool delegate(IsPaused) { return false; };
 
-    public string Name => "";
+    public string delegate(Name) { return ""; };
 
     public void Stop(AudioStopOptions options)
     {
@@ -53,7 +53,7 @@ namespace StardewValley
 
     public float Volume
     {
-      get => 1f;
+      delegate(get) { return 1f; };
       set
       {
       }
@@ -61,12 +61,12 @@ namespace StardewValley
 
     public float Pitch
     {
-      get => 0.0f;
+      delegate(get) { return 0.0f; };
       set
       {
       }
     }
 
-    public bool IsPitchBeingControlledByRPC => true;
+    public bool delegate(IsPitchBeingControlledByRPC) { return true; };
   }
 }

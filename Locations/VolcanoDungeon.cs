@@ -87,7 +87,7 @@ namespace StardewValley.Locations
       this.name.Value = nameof (VolcanoDungeon) + level.ToString();
     }
 
-    public override bool BlocksDamageLOS(int x, int y) => !this.cooledLavaTiles.ContainsKey(new Vector2((float) x, (float) y)) && base.BlocksDamageLOS(x, y);
+    public override bool BlocksDamageLOS(int x, int y) { return !this.cooledLavaTiles.ContainsKey(new Vector2((float) x, (float) y)) && base.BlocksDamageLOS(x, y); }
 
     protected override void initNetFields()
     {
@@ -110,9 +110,9 @@ namespace StardewValley.Locations
       });
     }
 
-    protected override LocalizedContentManager getMapLoader() => this.mapContent;
+    protected override LocalizedContentManager getMapLoader() { return this.mapContent; }
 
-    public override bool CanPlaceThisFurnitureHere(Furniture furniture) => false;
+    public override bool CanPlaceThisFurnitureHere(Furniture furniture) { return false; }
 
     public virtual void OnCoolLavaEvent(Point point)
     {
@@ -171,7 +171,7 @@ namespace StardewValley.Locations
       this.localCooledLavaTiles[new Vector2((float) x, (float) y)] = this.GetBlobLookup()[key];
     }
 
-    public virtual bool IsCooledLava(int x, int y) => x >= 0 && x < this.mapWidth && y >= 0 && y < this.mapHeight && this.cooledLavaTiles.ContainsKey(new Vector2((float) x, (float) y));
+    public virtual bool IsCooledLava(int x, int y) { return x >= 0 && x < this.mapWidth && y >= 0 && y < this.mapHeight && this.cooledLavaTiles.ContainsKey(new Vector2((float) x, (float) y)); }
 
     public override bool answerDialogueAction(string questionAndAnswer, string[] questionParams)
     {
@@ -287,9 +287,9 @@ namespace StardewValley.Locations
       this.objects.Add(new Vector2(38f, 33f), (StardewValley.Object) new BreakableContainer(new Vector2(38f, 33f), true));
     }
 
-    public bool isMushroomLevel() => (int) (NetFieldBase<int, NetInt>) this.layoutIndex >= 32 && (int) (NetFieldBase<int, NetInt>) this.layoutIndex <= 34;
+    public bool isMushroomLevel() { return (int) (NetFieldBase<int, NetInt>) this.layoutIndex >= 32 && (int) (NetFieldBase<int, NetInt>) this.layoutIndex <= 34; }
 
-    public bool isMonsterLevel() => (int) (NetFieldBase<int, NetInt>) this.layoutIndex >= 35 && (int) (NetFieldBase<int, NetInt>) this.layoutIndex <= 37;
+    public bool isMonsterLevel() { return (int) (NetFieldBase<int, NetInt>) this.layoutIndex >= 35 && (int) (NetFieldBase<int, NetInt>) this.layoutIndex <= 37; }
 
     public override void checkForMusic(GameTime time)
     {
@@ -480,7 +480,7 @@ namespace StardewValley.Locations
       this.waterColor.Value = Microsoft.Xna.Framework.Color.White;
     }
 
-    public override bool CanRefillWateringCanOnTile(int tileX, int tileY) => (int) (NetFieldBase<int, NetInt>) this.level == 5 && new Microsoft.Xna.Framework.Rectangle(27, 29, 4, 4).Contains(tileX, tileY) || (int) (NetFieldBase<int, NetInt>) this.level == 0 && tileX > 23 && tileX < 28 && tileY > 42 && tileY < 47;
+    public override bool CanRefillWateringCanOnTile(int tileX, int tileY) { return (int) (NetFieldBase<int, NetInt>) this.level == 5 && new Microsoft.Xna.Framework.Rectangle(27, 29, 4, 4).Contains(tileX, tileY) || (int) (NetFieldBase<int, NetInt>) this.level == 0 && tileX > 23 && tileX < 28 && tileY > 42 && tileY < 47; }
 
     public virtual void GenerateLevel(bool use_level_level_as_layout = false)
     {
@@ -1037,7 +1037,7 @@ namespace StardewValley.Locations
       }
     }
 
-    public bool isTileOnClearAndSolidGround(Vector2 v) => this.map.GetLayer("Back").Tiles[(int) v.X, (int) v.Y] != null && this.map.GetLayer("Front").Tiles[(int) v.X, (int) v.Y] == null && this.map.GetLayer("Buildings").Tiles[(int) v.X, (int) v.Y] == null;
+    public bool isTileOnClearAndSolidGround(Vector2 v) { return this.map.GetLayer("Back").Tiles[(int) v.X, (int) v.Y] != null && this.map.GetLayer("Front").Tiles[(int) v.X, (int) v.Y] == null && this.map.GetLayer("Buildings").Tiles[(int) v.X, (int) v.Y] == null; }
 
     public virtual void GenerateEntities()
     {
@@ -1576,7 +1576,7 @@ namespace StardewValley.Locations
       }
     }
 
-    public override bool sinkDebris(Debris debris, Vector2 chunkTile, Vector2 chunkPosition) => !this.cooledLavaTiles.ContainsKey(chunkTile) && base.sinkDebris(debris, chunkTile, chunkPosition);
+    public override bool sinkDebris(Debris debris, Vector2 chunkTile, Vector2 chunkPosition) { return !this.cooledLavaTiles.ContainsKey(chunkTile) && base.sinkDebris(debris, chunkTile, chunkPosition); }
 
     public override bool performToolAction(Tool t, int tileX, int tileY)
     {
@@ -1921,8 +1921,7 @@ namespace StardewValley.Locations
             scale = 8f,
             id = 89898f,
             yStopCoordinate = 2208,
-            reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (x =>
-            {
+            reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (delegate(x) { return {; }
               this.removeTemporarySpritesWithID(89898);
               Game1.playSound("steam");
               for (int index = 0; index < 4; ++index)
@@ -2122,9 +2121,9 @@ namespace StardewValley.Locations
       }
     }
 
-    public int GetHeight(int x, int y, int max_height) => x < 0 || x >= this.mapWidth || y < 0 || y >= this.mapHeight ? max_height + 1 : this.heightMap[x + y * this.mapWidth];
+    public int GetHeight(int x, int y, int max_height) { return x < 0 || x >= this.mapWidth || y < 0 || y >= this.mapHeight ? max_height + 1 : this.heightMap[x + y * this.mapWidth]; }
 
-    public Microsoft.Xna.Framework.Color GetPixel(int x, int y, Microsoft.Xna.Framework.Color out_of_bounds_color) => x < 0 || x >= this.mapWidth || y < 0 || y >= this.mapHeight ? out_of_bounds_color : this.pixelMap[x + y * this.mapWidth];
+    public Microsoft.Xna.Framework.Color GetPixel(int x, int y, Microsoft.Xna.Framework.Color out_of_bounds_color) { return x < 0 || x >= this.mapWidth || y < 0 || y >= this.mapHeight ? out_of_bounds_color : this.pixelMap[x + y * this.mapWidth]; }
 
     public void SetPixelMap(int x, int y, Microsoft.Xna.Framework.Color color)
     {
@@ -2167,7 +2166,7 @@ namespace StardewValley.Locations
       return pixels[index];
     }
 
-    public static int GetTileIndex(int x, int y) => x + y * 16;
+    public static int GetTileIndex(int x, int y) { return x + y * 16; }
 
     public void SetTile(Layer layer, int x, int y, int index)
     {
@@ -2177,7 +2176,7 @@ namespace StardewValley.Locations
       layer.Tiles[location] = (Tile) new StaticTile(layer, this.map.TileSheets[0], BlendMode.Alpha, index);
     }
 
-    public int GetMaxRoomLayouts() => 30;
+    public int GetMaxRoomLayouts() { return 30; }
 
     public static VolcanoDungeon GetLevel(string name, bool use_level_level_as_layout = false)
     {
@@ -2229,12 +2228,15 @@ namespace StardewValley.Locations
       Game1.changeMusicTrack("none");
     }
 
-    public static void ClearAllLevels() => VolcanoDungeon.activeLevels.RemoveAll((Predicate<VolcanoDungeon>) (level =>
+    public static void ClearAllLevels()
     {
-      level.CleanUp();
-      level.mapContent.Dispose();
-      return true;
-    }));
+      VolcanoDungeon.activeLevels.RemoveAll((Predicate<VolcanoDungeon>) (delegate(level)
+      {
+        level.CleanUp();
+        level.mapContent.Dispose();
+        return true;
+      }));
+    }
 
     public virtual void CleanUp()
     {

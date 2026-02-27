@@ -11,10 +11,10 @@ namespace StardewValley.Characters
 {
   public class BotchedNetLong : BotchedNetField<long, NetLong>
   {
-    public BotchedNetLong() => this.netField = new NetLong();
+    public BotchedNetLong() { return this.netField = new NetLong(); }
 
-    public BotchedNetLong(long default_value) => this.netField = new NetLong(default_value);
+    public BotchedNetLong(long default_value) { return this.netField = new NetLong(default_value); }
 
-    protected override object _ParseValue(XmlReader reader) => (object) long.Parse(reader.Value);
+    protected override object _ParseValue(XmlReader reader) { return (object) long.Parse(reader.Value); }
   }
 }

@@ -267,7 +267,7 @@ namespace StardewValley.Locations
       }
     }
 
-    private bool isTileOpenForQuarryStone(int tileX, int tileY) => this.doesTileHaveProperty(tileX, tileY, "Diggable", "Back") != null && this.isTileLocationTotallyClearAndPlaceable(new Vector2((float) tileX, (float) tileY));
+    private bool isTileOpenForQuarryStone(int tileX, int tileY) { return this.doesTileHaveProperty(tileX, tileY, "Diggable", "Back") != null && this.isTileLocationTotallyClearAndPlaceable(new Vector2((float) tileX, (float) tileY)); }
 
     public override void cleanupBeforePlayerExit()
     {

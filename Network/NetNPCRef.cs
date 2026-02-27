@@ -15,7 +15,7 @@ namespace StardewValley.Network
 
     public NetFields NetFields { get; } = new NetFields();
 
-    public NetNPCRef() => this.NetFields.AddFields((INetSerializable) this.guid);
+    public NetNPCRef() { return this.NetFields.AddFields((INetSerializable) this.guid); }
 
     public NPC Get(GameLocation location)
     {
@@ -37,6 +37,6 @@ namespace StardewValley.Network
       }
     }
 
-    public void Clear() => this.guid.Value = Guid.Empty;
+    public void Clear() { return this.guid.Value = Guid.Empty; }
   }
 }

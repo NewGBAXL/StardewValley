@@ -20,7 +20,7 @@ namespace StardewValley.Network
     private HashSet<NetConnection> introductionsSent = new HashSet<NetConnection>();
     protected Bimap<long, NetConnection> peers = new Bimap<long, NetConnection>();
 
-    public override int connectionsCount => this.server == null ? 0 : this.server.ConnectionsCount;
+    public override int delegate(connectionsCount) { return this.server == null ? 0 : this.server.ConnectionsCount; };
 
     public LidgrenServer(IGameServer gameServer)
       : base(gameServer)
@@ -37,7 +37,7 @@ namespace StardewValley.Network
       return false;
     }
 
-    public override string getUserId(long farmerId) => !this.peers.ContainsLeft(farmerId) ? (string) null : this.peers[farmerId].RemoteEndPoint.Address.ToString();
+    public override string getUserId(long farmerId) { return !this.peers.ContainsLeft(farmerId) ? (string) null : this.peers[farmerId].RemoteEndPoint.Address.ToString(); }
 
     public override bool hasUserId(string userId)
     {
@@ -49,17 +49,17 @@ namespace StardewValley.Network
       return false;
     }
 
-    public override string getUserName(long farmerId) => !this.peers.ContainsLeft(farmerId) ? (string) null : this.peers[farmerId].RemoteEndPoint.Address.ToString();
+    public override string getUserName(long farmerId) { return !this.peers.ContainsLeft(farmerId) ? (string) null : this.peers[farmerId].RemoteEndPoint.Address.ToString(); }
 
-    public override float getPingToClient(long farmerId) => !this.peers.ContainsLeft(farmerId) ? -1f : (float) ((double) this.peers[farmerId].AverageRoundtripTime / 2.0 * 1000.0);
+    public override float getPingToClient(long farmerId) { return !this.peers.ContainsLeft(farmerId) ? -1f : (float) ((double) this.peers[farmerId].AverageRoundtripTime / 2.0 * 1000.0); }
 
     public override void setPrivacy(ServerPrivacy privacy)
     {
     }
 
-    public override bool canAcceptIPConnections() => true;
+    public override bool canAcceptIPConnections() { return true; }
 
-    public override bool connected() => this.server != null;
+    public override bool connected() { return this.server != null; }
 
     public override void initialize()
     {
@@ -93,7 +93,7 @@ namespace StardewValley.Network
       {
         IPAddress[] hostAddresses = Dns.GetHostAddresses(host_name_or_address);
         IPAddress[] local_ips = Dns.GetHostAddresses(Dns.GetHostName());
-        Func<IPAddress, bool> predicate = (Func<IPAddress, bool>) (host_ip => IPAddress.IsLoopback(host_ip) || ((IEnumerable<IPAddress>) local_ips).Contains<IPAddress>(host_ip));
+        Func<IPAddress, bool> predicate = (Func<IPAddress, bool>) (delegate(host_ip) { return IPAddress.IsLoopback(host_ip) || ((IEnumerable<IPAddress>) local_ips).Contains<IPAddress>(host_ip)); };
         return ((IEnumerable<IPAddress>) hostAddresses).Any<IPAddress>(predicate);
       }
       catch
@@ -150,7 +150,7 @@ namespace StardewValley.Network
         NetConnection conn = connection;
         if (conn.Status == NetConnectionStatus.Connected && !this.introductionsSent.Contains(conn))
         {
-          if (!this.gameServer.whenGameAvailable((Action) (() => this.gameServer.sendAvailableFarmhands("", (Action<OutgoingMessage>) (msg => this.sendMessage(conn, msg)))), (Func<bool>) (() => Game1.gameMode != (byte) 6)))
+          if (!this.gameServer.whenGameAvailable((Action) (() => this.gameServer.sendAvailableFarmhands("", (Action<OutgoingMessage>) (delegate(msg) { return this.sendMessage(conn; }, msg)))), (Func<bool>) (() => Game1.gameMode != (byte) 6)))
           {
             Console.WriteLine("Postponing introduction message");
             this.sendMessage(conn, new OutgoingMessage((byte) 11, Game1.player, new object[1]
@@ -228,7 +228,7 @@ namespace StardewValley.Network
               else if (message.MessageType == (byte) 2)
               {
                 NetFarmerRoot farmer = Game1.multiplayer.readFarmer(message.Reader);
-                this.gameServer.checkFarmhandRequest("", this.getConnectionId(dataMsg.SenderConnection), farmer, closure_0 ?? (closure_0 = (Action<OutgoingMessage>) (msg => this.sendMessage(peer, msg))), (Action) (() => this.peers[farmer.Value.UniqueMultiplayerID] = peer));
+                this.gameServer.checkFarmhandRequest("", this.getConnectionId(dataMsg.SenderConnection), farmer, closure_0 ?? (closure_0 = (Action<OutgoingMessage>) (delegate(msg) { return this.sendMessage(peer; }, msg))), (Action) (() => this.peers[farmer.Value.UniqueMultiplayerID] = peer));
               }
             }
           }
@@ -236,7 +236,7 @@ namespace StardewValley.Network
       }
     }
 
-    public string getConnectionId(NetConnection connection) => "L_" + connection.RemoteUniqueIdentifier.ToString();
+    public string getConnectionId(NetConnection connection) { return "L_" + connection.RemoteUniqueIdentifier.ToString(); }
 
     public override void sendMessage(long peerId, OutgoingMessage message)
     {

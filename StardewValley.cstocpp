@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cs-to-cpp-porter-workspace version="1.0">
+  <items>
+    <project>
+      <csproj path="C:\Users\newgb\Documents\GitHub\StardewValley\StardewValley.csproj" />
+      <config path="" />
+      <outdir path="C:\Users\newgb\Documents\GitHub\stardew-advance" />
+      <use_defualt_config>True</use_defualt_config>
+      <platform>MSVS2017x64</platform>
+      <configuration>Release</configuration>
+      <directory-cleanup enabled="True" />
+      <cmake-configure enabled="True" />
+      <cmake-build enabled="True" />
+    </project>
+  </items>
+</cs-to-cpp-porter-workspace>

@@ -16,9 +16,9 @@ namespace StardewValley.Network
 
     public NetFields NetFields { get; } = new NetFields();
 
-    public NetCharacterRef() => this.NetFields.AddFields((INetSerializable) this.npc.NetFields, (INetSerializable) this.farmer.NetFields);
+    public NetCharacterRef() { return this.NetFields.AddFields((INetSerializable) this.npc.NetFields, (INetSerializable) this.farmer.NetFields); }
 
-    public Character Get(GameLocation location) => (Character) this.npc.Get(location) ?? (Character) this.farmer.Value;
+    public Character Get(GameLocation location) { return (Character) this.npc.Get(location) ?? (Character) this.farmer.Value; }
 
     public void Set(GameLocation location, Character character)
     {

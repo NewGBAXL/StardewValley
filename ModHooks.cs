@@ -14,11 +14,11 @@ namespace StardewValley
 {
   public class ModHooks
   {
-    public virtual void OnGame1_PerformTenMinuteClockUpdate(Action action) => action();
+    public virtual void OnGame1_PerformTenMinuteClockUpdate(Action action) { return action(); }
 
-    public virtual void OnGame1_NewDayAfterFade(Action action) => action();
+    public virtual void OnGame1_NewDayAfterFade(Action action) { return action(); }
 
-    public virtual void OnGame1_ShowEndOfNightStuff(Action action) => action();
+    public virtual void OnGame1_ShowEndOfNightStuff(Action action) { return action(); }
 
     public virtual void OnGame1_UpdateControlInput(
       ref KeyboardState keyboardState,
@@ -29,7 +29,7 @@ namespace StardewValley
       action();
     }
 
-    public virtual void OnGameLocation_ResetForPlayerEntry(GameLocation location, Action action) => action();
+    public virtual void OnGameLocation_ResetForPlayerEntry(GameLocation location, Action action) { return action(); }
 
     public virtual bool OnGameLocation_CheckAction(
       GameLocation location,
@@ -41,7 +41,7 @@ namespace StardewValley
       return action();
     }
 
-    public virtual FarmEvent OnUtility_PickFarmEvent(Func<FarmEvent> action) => action();
+    public virtual FarmEvent OnUtility_PickFarmEvent(Func<FarmEvent> action) { return action(); }
 
     public virtual Task StartTask(Task task, string id)
     {

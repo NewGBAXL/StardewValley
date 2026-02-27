@@ -436,7 +436,7 @@ namespace StardewValley.Menus
       this.drawMouse(b);
     }
 
-    public override bool readyToClose() => true;
+    public override bool readyToClose() { return true; }
 
     public override void gameWindowSizeChanged(Rectangle oldBounds, Rectangle newBounds)
     {

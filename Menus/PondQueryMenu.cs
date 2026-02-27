@@ -182,7 +182,7 @@ namespace StardewValley.Menus
       }
     }
 
-    public override bool readyToClose() => base.readyToClose() && !Game1.globalFade;
+    public override bool readyToClose() { return base.readyToClose() && !Game1.globalFade; }
 
     public override void receiveRightClick(int x, int y, bool playSound = true)
     {
@@ -330,11 +330,11 @@ namespace StardewValley.Menus
       }
     }
 
-    private int measureTotalHeight() => 644 + this.measureExtraTextHeight(this.getDisplayedText());
+    private int measureTotalHeight() { return 644 + this.measureExtraTextHeight(this.getDisplayedText()); }
 
-    private int measureExtraTextHeight(string displayed_text) => Math.Max(0, (int) Game1.smallFont.MeasureString(displayed_text).Y - 90) + 4;
+    private int measureExtraTextHeight(string displayed_text) { return Math.Max(0, (int) Game1.smallFont.MeasureString(displayed_text).Y - 90) + 4; }
 
-    private string getDisplayedText() => Game1.parseText(this._statusText, Game1.smallFont, PondQueryMenu.width - IClickableMenu.spaceToClearSideBorder * 2 - 64);
+    private string getDisplayedText() { return Game1.parseText(this._statusText, Game1.smallFont, PondQueryMenu.width - IClickableMenu.spaceToClearSideBorder * 2 - 64); }
 
     public override void draw(SpriteBatch b)
     {

@@ -50,7 +50,7 @@ namespace StardewValley.Minigames
       this.cometColorOrigin = this.centerOfScreen + num * new Vector2((float) (-71 * this.zoom), (float) (71 * this.zoom));
     }
 
-    public bool doMainGameUpdates() => false;
+    public bool doMainGameUpdates() { return false; }
 
     public bool tick(GameTime time)
     {
@@ -256,9 +256,9 @@ namespace StardewValley.Minigames
     {
     }
 
-    public string minigameId() => (string) null;
+    public string minigameId() { return (string) null; }
 
-    public bool overrideFreeMouseMovement() => Game1.options.SnappyMenus;
+    public bool overrideFreeMouseMovement() { return Game1.options.SnappyMenus; }
 
     public void receiveEventPoke(int data)
     {
@@ -288,8 +288,8 @@ namespace StardewValley.Minigames
     {
     }
 
-    public void unload() => this.content.Unload();
+    public void unload() { return this.content.Unload(); }
 
-    public bool forceQuit() => false;
+    public bool forceQuit() { return false; }
   }
 }

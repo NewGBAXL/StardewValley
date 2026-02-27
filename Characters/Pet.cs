@@ -47,7 +47,7 @@ namespace StardewValley.Characters
 
     public int CurrentBehavior
     {
-      get => this.netCurrentBehavior.Value;
+      delegate(get) { return this.netCurrentBehavior.Value; };
       set
       {
         if (this.netCurrentBehavior.Value == value)
@@ -108,9 +108,9 @@ namespace StardewValley.Characters
       this.UpdateSleepingOnBed();
     }
 
-    public override bool canTalk() => false;
+    public override bool canTalk() { return false; }
 
-    public virtual string getPetTextureName() => "Animals\\dog" + (this.whichBreed.Value == 0 ? "" : this.whichBreed.Value.ToString() ?? "");
+    public virtual string getPetTextureName() { return "Animals\\dog" + (this.whichBreed.Value == 0 ? "" : this.whichBreed.Value.ToString() ?? ""); }
 
     public void reloadBreedSprite()
     {
@@ -252,9 +252,9 @@ namespace StardewValley.Characters
         this.warpToFarmHouse(Game1.MasterPlayer);
     }
 
-    public override bool shouldCollideWithBuildingLayer(GameLocation location) => true;
+    public override bool shouldCollideWithBuildingLayer(GameLocation location) { return true; }
 
-    public override bool canPassThroughActionTiles() => false;
+    public override bool canPassThroughActionTiles() { return false; }
 
     public override bool checkAction(Farmer who, GameLocation l)
     {

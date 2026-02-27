@@ -73,7 +73,7 @@ namespace StardewValley.Objects
       return (Item) one;
     }
 
-    public override void updateWhenCurrentLocation(GameTime time, GameLocation environment) => base.updateWhenCurrentLocation(time, environment);
+    public override void updateWhenCurrentLocation(GameTime time, GameLocation environment) { return base.updateWhenCurrentLocation(time, environment); }
 
     public virtual void selectChannel(Farmer who, string answer)
     {
@@ -156,9 +156,9 @@ namespace StardewValley.Objects
       }
     }
 
-    protected virtual string getWeatherChannelOpening() => Game1.content.LoadString("Strings\\StringsFromCSFiles:TV.cs.13136");
+    protected virtual string getWeatherChannelOpening() { return Game1.content.LoadString("Strings\\StringsFromCSFiles:TV.cs.13136"); }
 
-    public virtual float getScreenSizeModifier() => (int) (NetFieldBase<int, NetInt>) this.parentSheetIndex != 1468 && (int) (NetFieldBase<int, NetInt>) this.parentSheetIndex != 2326 ? 2f : 4f;
+    public virtual float getScreenSizeModifier() { return (int) (NetFieldBase<int, NetInt>) this.parentSheetIndex != 1468 && (int) (NetFieldBase<int, NetInt>) this.parentSheetIndex != 2326 ? 2f : 4f; }
 
     public virtual Vector2 getScreenPosition()
     {

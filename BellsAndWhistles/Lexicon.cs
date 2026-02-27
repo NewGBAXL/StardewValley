@@ -138,7 +138,7 @@ namespace StardewValley.BellsAndWhistles
       }
     }
 
-    public static string prependArticle(string word) => LocalizedContentManager.CurrentLanguageCode != LocalizedContentManager.LanguageCode.en ? word : Lexicon.getProperArticleForWord(word) + " " + word;
+    public static string prependArticle(string word) { return LocalizedContentManager.CurrentLanguageCode != LocalizedContentManager.LanguageCode.en ? word : Lexicon.getProperArticleForWord(word) + " " + word; }
 
     /// <summary>
     /// 
@@ -203,14 +203,14 @@ namespace StardewValley.BellsAndWhistles
     /// <summary>
     /// Returns a generic term for a child of a given gender, i.e. "boy" or "girl".
     /// </summary>
-    public static string getGenderedChildTerm(bool isMale) => isMale ? Game1.content.LoadString("Strings\\Lexicon:ChildTerm_Male") : Game1.content.LoadString("Strings\\Lexicon:ChildTerm_Female");
+    public static string getGenderedChildTerm(bool isMale) { return isMale ? Game1.content.LoadString("Strings\\Lexicon:ChildTerm_Male") : Game1.content.LoadString("Strings\\Lexicon:ChildTerm_Female"); }
 
     /// <summary>Returns a gendered pronoun (i.e. "him" or "her")</summary>
-    public static string getPronoun(bool isMale) => isMale ? Game1.content.LoadString("Strings\\Lexicon:Pronoun_Male") : Game1.content.LoadString("Strings\\Lexicon:Pronoun_Female");
+    public static string getPronoun(bool isMale) { return isMale ? Game1.content.LoadString("Strings\\Lexicon:Pronoun_Male") : Game1.content.LoadString("Strings\\Lexicon:Pronoun_Female"); }
 
     /// <summary>
     /// Returns a possessive gendered pronoun (i.e. "his" or "her")
     /// </summary>
-    public static string getPossessivePronoun(bool isMale) => isMale ? Game1.content.LoadString("Strings\\Lexicon:Possessive_Pronoun_Male") : Game1.content.LoadString("Strings\\Lexicon:Possessive_Pronoun_Female");
+    public static string getPossessivePronoun(bool isMale) { return isMale ? Game1.content.LoadString("Strings\\Lexicon:Possessive_Pronoun_Male") : Game1.content.LoadString("Strings\\Lexicon:Possessive_Pronoun_Female"); }
   }
 }

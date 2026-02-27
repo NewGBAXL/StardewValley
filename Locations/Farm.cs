@@ -95,7 +95,7 @@ namespace StardewValley
     public Point spousePatioSpot;
     public const int numCropsForCrow = 16;
 
-    public NetLongDictionary<FarmAnimal, NetRef<FarmAnimal>> Animals => this.animals;
+    public NetLongDictionary<FarmAnimal, NetRef<FarmAnimal>> delegate(Animals) { return this.animals; };
 
     public Farm()
     {
@@ -221,7 +221,7 @@ namespace StardewValley
       return nameof (Farm);
     }
 
-    public Point GetPetStartLocation() => new Point(this.petBowlPosition.X - 1, this.petBowlPosition.Y + 1);
+    public Point GetPetStartLocation() { return new Point(this.petBowlPosition.X - 1, this.petBowlPosition.Y + 1); }
 
     public override void DayUpdate(int dayOfMonth)
     {
@@ -1065,7 +1065,7 @@ namespace StardewValley
       Game1.addMail("hasSeenGrandpaNote", true);
     }
 
-    public NetCollection<Item> getShippingBin(Farmer who) => (bool) (NetFieldBase<bool, NetBool>) Game1.player.team.useSeparateWallets ? who.personalShippingBin : this.sharedShippingBin;
+    public NetCollection<Item> getShippingBin(Farmer who) { return (bool) (NetFieldBase<bool, NetBool>) Game1.player.team.useSeparateWallets ? who.personalShippingBin : this.sharedShippingBin; }
 
     public void shipItem(Item i, Farmer who)
     {
@@ -1082,7 +1082,7 @@ namespace StardewValley
       Game1.player.Halt();
     }
 
-    public override bool leftClick(int x, int y, Farmer who) => base.leftClick(x, y, who);
+    public override bool leftClick(int x, int y, Farmer who) { return base.leftClick(x, y, who); }
 
     public void showShipment(Object o, bool playThrowSound = true)
     {
@@ -1140,7 +1140,7 @@ namespace StardewValley
       }
     }
 
-    public override bool doesTileSinkDebris(int tileX, int tileY, Debris.DebrisType type) => this.isTileBuildingFishable(tileX, tileY) || base.doesTileSinkDebris(tileX, tileY, type);
+    public override bool doesTileSinkDebris(int tileX, int tileY, Debris.DebrisType type) { return this.isTileBuildingFishable(tileX, tileY) || base.doesTileSinkDebris(tileX, tileY, type); }
 
     public override bool CanRefillWateringCanOnTile(int tileX, int tileY)
     {
@@ -1415,7 +1415,7 @@ namespace StardewValley
       return this.mapSpouseAreaCorner.Value;
     }
 
-    public virtual int GetSpouseOutdoorAreaSpritesheetIndex() => 1;
+    public virtual int GetSpouseOutdoorAreaSpritesheetIndex() { return 1; }
 
     public virtual void CacheOffBasePatioArea()
     {
@@ -1619,7 +1619,7 @@ namespace StardewValley
       this.shippingBinLid.update(time);
     }
 
-    private bool isShippingBinLidOpen(bool requiredToBeFullyOpen = false) => this.shippingBinLid != null && this.shippingBinLid.currentParentTileIndex >= (requiredToBeFullyOpen ? this.shippingBinLid.animationLength - 1 : 1);
+    private bool isShippingBinLidOpen(bool requiredToBeFullyOpen = false) { return this.shippingBinLid != null && this.shippingBinLid.currentParentTileIndex >= (requiredToBeFullyOpen ? this.shippingBinLid.animationLength - 1 : 1); }
 
     public override void pokeTileForConstruction(Vector2 tile)
     {
@@ -1736,7 +1736,7 @@ namespace StardewValley
       base.startEvent(evt);
     }
 
-    public override void drawAboveAlwaysFrontLayer(SpriteBatch b) => base.drawAboveAlwaysFrontLayer(b);
+    public override void drawAboveAlwaysFrontLayer(SpriteBatch b) { return base.drawAboveAlwaysFrontLayer(b); }
 
     public virtual void ApplyHousePaint()
     {
@@ -1806,7 +1806,7 @@ namespace StardewValley
       Utility.drawLightningBolt(lightning.boltPosition, (GameLocation) this);
     }
 
-    public override bool CanBeRemotedlyViewed() => true;
+    public override bool CanBeRemotedlyViewed() { return true; }
 
     public override void UpdateWhenCurrentLocation(GameTime time)
     {
@@ -1992,7 +1992,7 @@ namespace StardewValley
       return Game1.whichFarm == 6;
     }
 
-    public bool SpawnsForage() => this.ShouldSpawnForestFarmForage() || this.ShouldSpawnBeachFarmForage();
+    public bool SpawnsForage() { return this.ShouldSpawnForestFarmForage() || this.ShouldSpawnBeachFarmForage(); }
 
     public int getTotalForageItems()
     {
@@ -2032,7 +2032,7 @@ namespace StardewValley
       return machinesReadyForHarvest;
     }
 
-    public bool doesFarmCaveNeedHarvesting() => this.farmCaveReady.Value;
+    public bool doesFarmCaveNeedHarvesting() { return this.farmCaveReady.Value; }
 
     public class LightningStrikeEvent : NetEventArg
     {

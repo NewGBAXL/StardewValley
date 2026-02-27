@@ -44,7 +44,7 @@ namespace StardewValley.Events
 
     public NetFields NetFields { get; } = new NetFields();
 
-    public WorldChangeEvent() => this.NetFields.AddField((INetSerializable) this.whichEvent);
+    public WorldChangeEvent() { return this.NetFields.AddField((INetSerializable) this.whichEvent); }
 
     public WorldChangeEvent(int which)
       : this()

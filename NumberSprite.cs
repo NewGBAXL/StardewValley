@@ -44,9 +44,9 @@ namespace StardewValley
       while (number > 0);
     }
 
-    public static int getHeight() => 8;
+    public static int getHeight() { return 8; }
 
-    public static int getWidth(string number) => NumberSprite.getWidth(Convert.ToInt32(number));
+    public static int getWidth(string number) { return NumberSprite.getWidth(Convert.ToInt32(number)); }
 
     public static int getWidth(int number)
     {

@@ -139,13 +139,13 @@ namespace StardewValley.BellsAndWhistles
       }
     }
 
-    private void initNetFields() => this.NetFields.AddFields((INetSerializable) this.cars, (INetSerializable) this.type, (INetSerializable) this.position.NetFields);
+    private void initNetFields() { return this.NetFields.AddFields((INetSerializable) this.cars, (INetSerializable) this.type, (INetSerializable) this.position.NetFields); }
 
-    private void Position_fieldChangeEvent(NetFloat field, float oldValue, float newValue) => Console.WriteLine("ChangeedD: " + newValue.ToString());
+    private void Position_fieldChangeEvent(NetFloat field, float oldValue, float newValue) { return Console.WriteLine("ChangeedD: " + newValue.ToString()); }
 
-    private void Position_fieldChangeVisibleEvent(NetFloat field, float oldValue, float newValue) => Console.WriteLine("newVal: " + newValue.ToString());
+    private void Position_fieldChangeVisibleEvent(NetFloat field, float oldValue, float newValue) { return Console.WriteLine("newVal: " + newValue.ToString()); }
 
-    public Rectangle getBoundingBox() => new Rectangle(-this.cars.Count * 128 * 4 + (int) this.position.X, 2720, this.cars.Count * 128 * 4, 128);
+    public Rectangle getBoundingBox() { return new Rectangle(-this.cars.Count * 128 * 4 + (int) this.position.X, 2720, this.cars.Count * 128 * 4, 128); }
 
     public bool Update(GameTime time, GameLocation location)
     {

@@ -43,6 +43,6 @@ namespace StardewValley
       farmer.currentLocation.projectiles.Add((Projectile) basicProjectile);
     }
 
-    public override string GetName() => "Starburst";
+    public override string GetName() { return "Starburst"; }
   }
 }

@@ -280,17 +280,17 @@ namespace StardewValley
 
     public bool hardwareCursor
     {
-      get => !LocalMultiplayer.IsLocalMultiplayer() && this._hardwareCursor;
-      set => this._hardwareCursor = value;
+      delegate(get) { return !LocalMultiplayer.IsLocalMultiplayer() && this._hardwareCursor; };
+      delegate(set) { return this._hardwareCursor = value; };
     }
 
     [XmlIgnore]
-    public float zoomLevel => Game1.game1.takingMapScreenshot ? this.baseZoomLevel : this.baseZoomLevel * Game1.game1.zoomModifier;
+    public float delegate(zoomLevel) { return Game1.game1.takingMapScreenshot ? this.baseZoomLevel : this.baseZoomLevel * Game1.game1.zoomModifier; };
 
     [XmlIgnore]
     public float desiredBaseZoomLevel
     {
-      get => LocalMultiplayer.IsLocalMultiplayer() || !Game1.game1.IsMainInstance ? this.localCoopBaseZoomLevel : this.singlePlayerBaseZoomLevel;
+      delegate(get) { return LocalMultiplayer.IsLocalMultiplayer() || !Game1.game1.IsMainInstance ? this.localCoopBaseZoomLevel : this.singlePlayerBaseZoomLevel; };
       set
       {
         if (LocalMultiplayer.IsLocalMultiplayer() || !Game1.game1.IsMainInstance)
@@ -321,11 +321,11 @@ namespace StardewValley
     }
 
     [XmlIgnore]
-    public float uiScale => this.baseUIScale * Game1.game1.zoomModifier;
+    public float delegate(uiScale) { return this.baseUIScale * Game1.game1.zoomModifier; };
 
-    public bool allowStowing => this.stowingMode != Options.ItemStowingModes.Off && (this.stowingMode != Options.ItemStowingModes.GamepadOnly || this.gamepadControls);
+    public bool delegate(allowStowing) { return this.stowingMode != Options.ItemStowingModes.Off && (this.stowingMode != Options.ItemStowingModes.GamepadOnly || this.gamepadControls); };
 
-    public Options() => this.setToDefaults();
+    public Options() { return this.setToDefaults(); }
 
     public virtual void LoadDefaultOptions()
     {
@@ -386,7 +386,7 @@ namespace StardewValley
     {
     }
 
-    public bool SnappyMenus => this.snappyMenus && this.gamepadControls && Game1.input.GetMouseState().LeftButton != ButtonState.Pressed && Game1.input.GetMouseState().RightButton != ButtonState.Pressed;
+    public bool delegate(SnappyMenus) { return this.snappyMenus && this.gamepadControls && Game1.input.GetMouseState().LeftButton != ButtonState.Pressed && Game1.input.GetMouseState().RightButton != ButtonState.Pressed; };
 
     public Keys getFirstKeyboardKeyFromInputButtonList(InputButton[] inputButton)
     {
@@ -1626,11 +1626,11 @@ namespace StardewValley
       }
     }
 
-    public bool isCurrentlyWindowedBorderless() => Game1.graphics.IsFullScreen && !Game1.graphics.HardwareModeSwitch;
+    public bool isCurrentlyWindowedBorderless() { return Game1.graphics.IsFullScreen && !Game1.graphics.HardwareModeSwitch; }
 
-    public bool isCurrentlyFullscreen() => Game1.graphics.IsFullScreen && Game1.graphics.HardwareModeSwitch;
+    public bool isCurrentlyFullscreen() { return Game1.graphics.IsFullScreen && Game1.graphics.HardwareModeSwitch; }
 
-    public bool isCurrentlyWindowed() => !this.isCurrentlyWindowedBorderless() && !this.isCurrentlyFullscreen();
+    public bool isCurrentlyWindowed() { return !this.isCurrentlyWindowedBorderless() && !this.isCurrentlyFullscreen(); }
 
     public enum ItemStowingModes
     {

@@ -36,15 +36,15 @@ namespace StardewValley.Locations
     [XmlIgnore]
     public bool travelingMerchantDay
     {
-      get => this.netTravelingMerchantDay.Value;
-      set => this.netTravelingMerchantDay.Value = value;
+      delegate(get) { return this.netTravelingMerchantDay.Value; };
+      delegate(set) { return this.netTravelingMerchantDay.Value = value; };
     }
 
     [XmlIgnore]
     public ResourceClump log
     {
-      get => this.netLog.Value;
-      set => this.netLog.Value = value;
+      delegate(get) { return this.netLog.Value; };
+      delegate(set) { return this.netLog.Value = value; };
     }
 
     public Forest()
@@ -362,7 +362,7 @@ namespace StardewValley.Locations
       });
     }
 
-    public override int getFishingLocation(Vector2 tile) => (double) tile.X < 53.0 && (double) tile.Y < 43.0 ? 1 : 0;
+    public override int getFishingLocation(Vector2 tile) { return (double) tile.X < 53.0 && (double) tile.Y < 43.0 ? 1 : 0; }
 
     public override StardewValley.Object getFish(
       float millisecondsAfterNibble,

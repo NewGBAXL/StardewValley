@@ -47,7 +47,7 @@ namespace StardewValley
     [XmlIgnore]
     public NetFields NetFields { get; } = new NetFields();
 
-    public MapSeat() => this.NetFields.AddFields((INetSerializable) this.sittingFarmers, (INetSerializable) this.tilePosition, (INetSerializable) this.size, (INetSerializable) this.direction, (INetSerializable) this.drawTilePosition, (INetSerializable) this.seasonal, (INetSerializable) this.seatType, (INetSerializable) this.textureFile);
+    public MapSeat() { return this.NetFields.AddFields((INetSerializable) this.sittingFarmers, (INetSerializable) this.tilePosition, (INetSerializable) this.size, (INetSerializable) this.direction, (INetSerializable) this.drawTilePosition, (INetSerializable) this.seasonal, (INetSerializable) this.seatType, (INetSerializable) this.textureFile); }
 
     public static MapSeat FromData(string data, int x, int y)
     {
@@ -112,9 +112,9 @@ namespace StardewValley
       return false;
     }
 
-    public bool IsSittingHere(Farmer who) => this.sittingFarmers.ContainsKey(who.UniqueMultiplayerID);
+    public bool IsSittingHere(Farmer who) { return this.sittingFarmers.ContainsKey(who.UniqueMultiplayerID); }
 
-    public bool HasSittingFarmers() => this.sittingFarmers.Count() > 0;
+    public bool HasSittingFarmers() { return this.sittingFarmers.Count() > 0; }
 
     public List<Vector2> GetSeatPositions(bool ignore_offsets = false)
     {
@@ -234,7 +234,7 @@ namespace StardewValley
       b.Draw(this.overlayTexture, local, new Rectangle?(rectangle), Color.White, 0.0f, Vector2.Zero, 4f, SpriteEffects.None, layerDepth);
     }
 
-    public bool OccupiesTile(int x, int y) => this.GetSeatBounds().Contains(x, y);
+    public bool OccupiesTile(int x, int y) { return this.GetSeatBounds().Contains(x, y); }
 
     public virtual Vector2? AddSittingFarmer(Farmer who)
     {
@@ -270,11 +270,14 @@ namespace StardewValley
       return nullable;
     }
 
-    public bool IsSeatHere(GameLocation location) => location.mapSeats.Contains(this);
+    public bool IsSeatHere(GameLocation location) { return location.mapSeats.Contains(this); }
 
-    public int GetSittingDirection() => this.localSittingDirection;
+    public int GetSittingDirection() { return this.localSittingDirection; }
 
-    public Vector2? GetSittingPosition(Farmer who, bool ignore_offsets = false) => this.sittingFarmers.ContainsKey(who.UniqueMultiplayerID) ? new Vector2?(this.GetSeatPositions(ignore_offsets)[this.sittingFarmers[who.UniqueMultiplayerID]]) : new Vector2?();
+    public Vector2? GetSittingPosition(Farmer who, bool ignore_offsets = false)
+    {
+      return this.sittingFarmers.ContainsKey(who.UniqueMultiplayerID) ? new Vector2?(this.GetSeatPositions(ignore_offsets)[this.sittingFarmers[who.UniqueMultiplayerID]]) : new Vector2?();
+    }
 
     public virtual Rectangle GetSeatBounds()
     {
@@ -285,8 +288,8 @@ namespace StardewValley
       return new Rectangle((int) this.tilePosition.X, (int) this.tilePosition.Y, (int) this.size.X, (int) this.size.Y);
     }
 
-    public virtual void RemoveSittingFarmer(Farmer farmer) => this.sittingFarmers.Remove(farmer.UniqueMultiplayerID);
+    public virtual void RemoveSittingFarmer(Farmer farmer) { return this.sittingFarmers.Remove(farmer.UniqueMultiplayerID); }
 
-    public virtual int GetSittingFarmerCount() => this.sittingFarmers.Count();
+    public virtual int GetSittingFarmerCount() { return this.sittingFarmers.Count(); }
   }
 }

@@ -47,7 +47,7 @@ namespace StardewValley.Monsters
     [XmlIgnore]
     public float fireTimer;
 
-    public LavaLurk() => this.Initialize();
+    public LavaLurk() { return this.Initialize(); }
 
     public LavaLurk(Vector2 position)
       : base("Lava Lurk", position)
@@ -113,9 +113,9 @@ namespace StardewValley.Monsters
       });
     }
 
-    public virtual void OnEmergeAnimationEnd(Farmer who) => this.PlayAnimation(this.idleAnimation, true);
+    public virtual void OnEmergeAnimationEnd(Farmer who) { return this.PlayAnimation(this.idleAnimation, true); }
 
-    public virtual void OnDiveAnimationEnd(Farmer who) => this.PlayAnimation(this.submergedAnimation, true);
+    public virtual void OnDiveAnimationEnd(Farmer who) { return this.PlayAnimation(this.submergedAnimation, true); }
 
     protected override void initNetFields()
     {
@@ -196,9 +196,9 @@ namespace StardewValley.Monsters
       return true;
     }
 
-    public virtual bool TargetInRange() => this.targettedFarmer != null && (double) Math.Abs(this.targettedFarmer.Position.X - this.Position.X) <= 640.0 && (double) Math.Abs(this.targettedFarmer.Position.Y - this.Position.Y) <= 640.0;
+    public virtual bool TargetInRange() { return this.targettedFarmer != null && (double) Math.Abs(this.targettedFarmer.Position.X - this.Position.X) <= 640.0 && (double) Math.Abs(this.targettedFarmer.Position.Y - this.Position.Y) <= 640.0; }
 
-    public virtual void SetRandomMovement() => this.velocity = new Vector2(Game1.random.Next(2) == 1 ? -1f : 1f, Game1.random.Next(2) == 1 ? -1f : 1f);
+    public virtual void SetRandomMovement() { return this.velocity = new Vector2(Game1.random.Next(2) == 1 ? -1f : 1f, Game1.random.Next(2) == 1 ? -1f : 1f); }
 
     protected override void updateMonsterSlaveAnimation(GameTime time)
     {
@@ -339,7 +339,7 @@ namespace StardewValley.Monsters
       this.Position = position;
     }
 
-    public static bool IsLavaTile(GameLocation location, int x, int y) => location.doesTileHaveProperty(x, y, "Water", "Back") != null;
+    public static bool IsLavaTile(GameLocation location, int x, int y) { return location.doesTileHaveProperty(x, y, "Water", "Back") != null; }
 
     public bool CheckInWater(Rectangle position)
     {

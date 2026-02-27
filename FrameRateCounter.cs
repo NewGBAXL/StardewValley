@@ -23,9 +23,9 @@ public class FrameRateCounter : DrawableGameComponent
     this.content = new LocalizedContentManager((IServiceProvider) game.Services, this.Game.Content.RootDirectory);
   }
 
-  protected override void LoadContent() => this.spriteBatch = new SpriteBatch(this.GraphicsDevice);
+  protected override void LoadContent() { return this.spriteBatch = new SpriteBatch(this.GraphicsDevice); }
 
-  protected override void UnloadContent() => this.content.Unload();
+  protected override void UnloadContent() { return this.content.Unload(); }
 
   public override void Update(GameTime gameTime)
   {

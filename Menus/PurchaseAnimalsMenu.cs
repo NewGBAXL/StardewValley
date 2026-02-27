@@ -98,7 +98,7 @@ namespace StardewValley.Menus
       this.snapToDefaultClickableComponent();
     }
 
-    public override bool shouldClampGamePadCursor() => this.onFarm;
+    public override bool shouldClampGamePadCursor() { return this.onFarm; }
 
     public override void snapToDefaultClickableComponent()
     {
@@ -320,7 +320,7 @@ namespace StardewValley.Menus
       }
     }
 
-    public override bool overrideSnappyMenuCursorMovementBan() => this.onFarm && !this.namingAnimal;
+    public override bool overrideSnappyMenuCursorMovementBan() { return this.onFarm && !this.namingAnimal; }
 
     public override void receiveGamePadButton(Buttons b)
     {

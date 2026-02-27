@@ -154,7 +154,7 @@ namespace StardewValley.Menus
       Game1.playSound("bigSelect");
     }
 
-    public override bool readyToClose() => false;
+    public override bool readyToClose() { return false; }
 
     public void ShowKeyboard(int index, bool play_sound = true)
     {
@@ -260,9 +260,9 @@ namespace StardewValley.Menus
       this.Close();
     }
 
-    public void OnSpaceBar() => this._target.RecieveTextInput(' ');
+    public void OnSpaceBar() { return this._target.RecieveTextInput(' '); }
 
-    public void OnBackSpace() => this._target.RecieveCommandInput('\b');
+    public void OnBackSpace() { return this._target.RecieveCommandInput('\b'); }
 
     public void OnLetter(string letter)
     {

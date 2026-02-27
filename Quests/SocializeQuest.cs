@@ -20,7 +20,7 @@ namespace StardewValley.Quests
     [XmlElement("objective")]
     public readonly NetDescriptionElementRef objective = new NetDescriptionElementRef();
 
-    public SocializeQuest() => this.questType.Value = 5;
+    public SocializeQuest() { return this.questType.Value = 5; }
 
     protected override void initNetFields()
     {

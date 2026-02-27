@@ -157,7 +157,7 @@ namespace StardewValley.Locations
       }
     }
 
-    public override void drawWater(SpriteBatch b) => base.drawWater(b);
+    public override void drawWater(SpriteBatch b) { return base.drawWater(b); }
 
     public override void drawAboveAlwaysFrontLayer(SpriteBatch b)
     {

@@ -41,7 +41,7 @@ namespace StardewValley.BellsAndWhistles
       this.startingPosition = position;
     }
 
-    public virtual Rectangle getBoundingBox(int xOffset, int yOffset) => new Rectangle((int) this.position.X - 32 + xOffset, (int) this.position.Y - 16 + yOffset, 64, 32);
+    public virtual Rectangle getBoundingBox(int xOffset, int yOffset) { return new Rectangle((int) this.position.X - 32 + xOffset, (int) this.position.Y - 16 + yOffset, 64, 32); }
 
     public virtual bool update(GameTime time, GameLocation environment)
     {

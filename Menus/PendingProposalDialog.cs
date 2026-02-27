@@ -38,9 +38,9 @@ namespace StardewValley.Menus
       this.snapToDefaultClickableComponent();
     }
 
-    public override bool readyToClose() => false;
+    public override bool readyToClose() { return false; }
 
-    private bool consumesItem(ProposalType pt) => pt == ProposalType.Gift || pt == ProposalType.Marriage;
+    private bool consumesItem(ProposalType pt) { return pt == ProposalType.Gift || pt == ProposalType.Marriage; }
 
     public override void update(GameTime time)
     {

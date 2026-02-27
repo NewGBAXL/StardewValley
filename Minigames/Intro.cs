@@ -107,7 +107,7 @@ namespace StardewValley.Minigames
       this.fadeAlpha = 1f;
     }
 
-    public bool overrideFreeMouseMovement() => Game1.options.SnappyMenus;
+    public bool overrideFreeMouseMovement() { return Game1.options.SnappyMenus; }
 
     public void createBeginningOfLevel()
     {
@@ -609,13 +609,13 @@ namespace StardewValley.Minigames
     {
     }
 
-    public void receiveEventPoke(int data) => throw new NotImplementedException();
+    public void receiveEventPoke(int data) { return throw new NotImplementedException(); }
 
-    public string minigameId() => (string) null;
+    public string minigameId() { return (string) null; }
 
-    public bool doMainGameUpdates() => false;
+    public bool doMainGameUpdates() { return false; }
 
-    public bool forceQuit() => false;
+    public bool forceQuit() { return false; }
 
     public class Balloon
     {

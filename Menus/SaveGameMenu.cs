@@ -49,7 +49,7 @@ namespace StardewValley.Menus
       Game1.newDaySync.flagSaved();
     }
 
-    public override bool readyToClose() => false;
+    public override bool readyToClose() { return false; }
 
     public override void update(GameTime time)
     {
@@ -211,6 +211,6 @@ namespace StardewValley.Menus
       this.hasDrawn = true;
     }
 
-    public void Dispose() => Game1.game1.IsSaving = false;
+    public void Dispose() { return Game1.game1.IsSaving = false; }
   }
 }

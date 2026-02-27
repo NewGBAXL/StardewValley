@@ -10,6 +10,6 @@ namespace StardewValley
 {
   public class HoeEnchantment : BaseEnchantment
   {
-    public override bool CanApplyTo(Item item) => item is Hoe;
+    public override bool CanApplyTo(Item item) { return item is Hoe; }
   }
 }

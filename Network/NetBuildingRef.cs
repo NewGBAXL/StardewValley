@@ -33,15 +33,18 @@ namespace StardewValley.Network
       }
     }
 
-    public NetBuildingRef() => this.NetFields.AddFields((INetSerializable) this.nameOfIndoors);
+    public NetBuildingRef() { return this.NetFields.AddFields((INetSerializable) this.nameOfIndoors); }
 
     public IEnumerator<Building> GetEnumerator()
     {
       yield return this.Value;
     }
 
-    IEnumerator IEnumerable.GetEnumerator() => (IEnumerator) this.GetEnumerator();
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+      return (IEnumerator) this.GetEnumerator();
+    }
 
-    public static implicit operator Building(NetBuildingRef buildingRef) => buildingRef.Value;
+    public static implicit operator Building(NetBuildingRef buildingRef) { return buildingRef.Value; }
   }
 }

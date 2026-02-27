@@ -35,15 +35,15 @@ namespace Ionic.Crc
     /// <summary>
     ///   Indicates the total number of bytes applied to the CRC.
     /// </summary>
-    public long TotalBytesRead => this._TotalBytesRead;
+    public long delegate(TotalBytesRead) { return this._TotalBytesRead; };
 
     /// <summary>Indicates the current CRC for all blocks slurped in.</summary>
-    public int Crc32Result => ~(int) this._register;
+    public int delegate(Crc32Result) { return ~(int) this._register; };
 
     /// <summary>Returns the CRC32 for the specified stream.</summary>
     /// <param name="input">The stream over which to calculate the CRC32</param>
     /// <returns>the CRC32 calculation</returns>
-    public int GetCrc32(Stream input) => this.GetCrc32AndCopy(input, (Stream) null);
+    public int GetCrc32(Stream input) { return this.GetCrc32AndCopy(input, (Stream) null); }
 
     /// <summary>
     /// Returns the CRC32 for the specified stream, and writes the input into the
@@ -79,9 +79,9 @@ namespace Ionic.Crc
     /// <param name="W">The word to start with.</param>
     /// <param name="B">The byte to combine it with.</param>
     /// <returns>The CRC-ized result.</returns>
-    public int ComputeCrc32(int W, byte B) => this._InternalComputeCrc32((uint) W, B);
+    public int ComputeCrc32(int W, byte B) { return this._InternalComputeCrc32((uint) W, B); }
 
-    internal int _InternalComputeCrc32(uint W, byte B) => (int) this.crc32Table[((int) W ^ (int) B) & (int) byte.MaxValue] ^ (int) (W >> 8);
+    internal int _InternalComputeCrc32(uint W, byte B) { return (int) this.crc32Table[((int) W ^ (int) B) & (int) byte.MaxValue] ^ (int) (W >> 8); }
 
     /// <summary>
     /// Update the value for the running CRC32 using the given block of bytes.
@@ -320,6 +320,6 @@ namespace Ionic.Crc
     ///     multiple, distinct CRCs on multiple, distinct data blocks.
     ///   </para>
     /// </remarks>
-    public void Reset() => this._register = uint.MaxValue;
+    public void Reset() { return this._register = uint.MaxValue; }
   }
 }

@@ -88,7 +88,7 @@ namespace StardewValley.Locations
         AmbientLocationSounds.removeSound(new Vector2(100f, 79f));
     }
 
-    public void checkedBoard() => this.playerCheckedBoard = true;
+    public void checkedBoard() { return this.playerCheckedBoard = true; }
 
     private void addClintMachineGraphics()
     {
@@ -147,7 +147,7 @@ namespace StardewValley.Locations
       return "";
     }
 
-    public override bool CanPlantTreesHere(int sapling_index, int tile_x, int tile_y) => StardewValley.Object.isWildTreeSeed(sapling_index) && this.doesTileHavePropertyNoNull(tile_x, tile_y, "Type", "Back") == "Dirt";
+    public override bool CanPlantTreesHere(int sapling_index, int tile_x, int tile_y) { return StardewValley.Object.isWildTreeSeed(sapling_index) && this.doesTileHavePropertyNoNull(tile_x, tile_y, "Type", "Back") == "Dirt"; }
 
     public override bool checkAction(Location tileLocation, xTile.Dimensions.Rectangle viewport, Farmer who)
     {
@@ -190,8 +190,7 @@ namespace StardewValley.Locations
                   scale = 4f,
                   Parent = (GameLocation) this,
                   shakeIntensity = flag2 ? 0.0f : 1f,
-                  reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (x =>
-                  {
+                  reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (delegate(x) { return {; }
                     this.removeTemporarySpritesWithID(97654);
                     this.playSound("thudStep");
                     for (int index4 = 0; index4 < 3; ++index4)
@@ -488,7 +487,7 @@ namespace StardewValley.Locations
       }
     }
 
-    public override bool isTileFishable(int tileX, int tileY) => this.GetSeasonForLocation() != "winter" && tileY == 26 && (tileX == 25 || tileX == 26 || tileX == 27) || tileX == 25 && tileY == 25 || tileX == 27 && tileY == 25 || base.isTileFishable(tileX, tileY);
+    public override bool isTileFishable(int tileX, int tileY) { return this.GetSeasonForLocation() != "winter" && tileY == 26 && (tileX == 25 || tileX == 26 || tileX == 27) || tileX == 25 && tileY == 25 || tileX == 27 && tileY == 25 || base.isTileFishable(tileX, tileY); }
 
     public void showImprovedPamHouse()
     {
@@ -532,7 +531,7 @@ namespace StardewValley.Locations
       this.removeTile(74, 71, "Buildings");
     }
 
-    public static Point GetTheaterTileOffset() => Utility.doesMasterPlayerHaveMailReceivedButNotMailForTomorrow("ccMovieTheaterJoja") ? new Point(-43, -31) : new Point(0, 0);
+    public static Point GetTheaterTileOffset() { return Utility.doesMasterPlayerHaveMailReceivedButNotMailForTomorrow("ccMovieTheaterJoja") ? new Point(-43, -31) : new Point(0, 0); }
 
     public override void MakeMapModifications(bool force = false)
     {
@@ -1035,6 +1034,6 @@ namespace StardewValley.Locations
       base.drawAboveAlwaysFrontLayer(b);
     }
 
-    public override bool performAction(string action, Farmer who, Location tileLocation) => base.performAction(action, who, tileLocation);
+    public override bool performAction(string action, Farmer who, Location tileLocation) { return base.performAction(action, who, tileLocation); }
   }
 }

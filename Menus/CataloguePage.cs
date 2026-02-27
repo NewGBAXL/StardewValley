@@ -196,7 +196,7 @@ namespace StardewValley.Menus
       return true;
     }
 
-    private bool tryToBuild() => this.structureForPlacement.blueprintType.Equals("Animals") ? ((Farm) Game1.getLocationFromName("Farm")).placeAnimal(this.structureForPlacement, new Vector2((float) ((Game1.viewport.X + Game1.getOldMouseX()) / 64), (float) ((Game1.viewport.Y + Game1.getOldMouseY()) / 64)), false, Game1.player.UniqueMultiplayerID) : (Game1.currentLocation as BuildableGameLocation).buildStructure(this.structureForPlacement, new Vector2((float) ((Game1.viewport.X + Game1.getOldMouseX()) / 64), (float) ((Game1.viewport.Y + Game1.getOldMouseY()) / 64)), Game1.player);
+    private bool tryToBuild() { return this.structureForPlacement.blueprintType.Equals("Animals") ? ((Farm) Game1.getLocationFromName("Farm")).placeAnimal(this.structureForPlacement, new Vector2((float) ((Game1.viewport.X + Game1.getOldMouseX()) / 64), (float) ((Game1.viewport.Y + Game1.getOldMouseY()) / 64)), false, Game1.player.UniqueMultiplayerID) : (Game1.currentLocation as BuildableGameLocation).buildStructure(this.structureForPlacement, new Vector2((float) ((Game1.viewport.X + Game1.getOldMouseX()) / 64), (float) ((Game1.viewport.Y + Game1.getOldMouseY()) / 64)), Game1.player); }
 
     public override void receiveRightClick(int x, int y, bool playSound = true)
     {
@@ -211,7 +211,7 @@ namespace StardewValley.Menus
         this.heldItem = this.inventory.rightClick(x, y, this.heldItem);
     }
 
-    public override bool readyToClose() => this.heldItem == null && !this.placingStructure;
+    public override bool readyToClose() { return this.heldItem == null && !this.placingStructure; }
 
     public override void performHoverAction(int x, int y)
     {

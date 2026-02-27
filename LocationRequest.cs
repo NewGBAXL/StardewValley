@@ -47,9 +47,9 @@ namespace StardewValley
       return location.uniqueName.Value == this.Name && (bool) (NetFieldBase<bool, NetBool>) location.isStructure;
     }
 
-    public bool IsRequestFor(string name, bool isStructure) => !this.IsStructure ? name == this.Name : name == this.Name & isStructure;
+    public bool IsRequestFor(string name, bool isStructure) { return !this.IsStructure ? name == this.Name : name == this.Name & isStructure; }
 
-    public override string ToString() => "LocationRequest(" + this.Name + ", " + this.IsStructure.ToString() + ")";
+    public override string ToString() { return "LocationRequest(" + this.Name + ", " + this.IsStructure.ToString() + ")"; }
 
     public delegate void Callback();
   }

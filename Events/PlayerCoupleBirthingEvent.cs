@@ -49,7 +49,7 @@ namespace StardewValley.Events
       Game1.getSteamAchievement("Achievement_FullHouse");
     }
 
-    private bool isSuitableHome(FarmHouse home) => home.getChildrenCount() < 2 && home.upgradeLevel >= 2;
+    private bool isSuitableHome(FarmHouse home) { return home.getChildrenCount() < 2 && home.upgradeLevel >= 2; }
 
     private FarmHouse chooseHome()
     {

@@ -49,7 +49,7 @@ namespace StardewValley.Events
       Game1.exitActiveMenu();
     }
 
-    public void afterMessage() => this.getBabyName = true;
+    public void afterMessage() { return this.getBabyName = true; }
 
     public bool tickUpdate(GameTime time)
     {

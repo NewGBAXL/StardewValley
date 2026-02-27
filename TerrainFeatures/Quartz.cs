@@ -76,7 +76,7 @@ namespace StardewValley.TerrainFeatures
       this.identifier = Game1.random.Next(-999999, 999999);
     }
 
-    public override Microsoft.Xna.Framework.Rectangle getBoundingBox(Vector2 tileLocation) => (int) (NetFieldBase<int, NetInt>) this.bigness == 3 ? new Microsoft.Xna.Framework.Rectangle((int) ((double) tileLocation.X * 64.0), (int) ((double) tileLocation.Y * 64.0), 128, 128) : new Microsoft.Xna.Framework.Rectangle((int) ((double) tileLocation.X * 64.0), (int) ((double) tileLocation.Y * 64.0), 64, 64);
+    public override Microsoft.Xna.Framework.Rectangle getBoundingBox(Vector2 tileLocation) { return (int) (NetFieldBase<int, NetInt>) this.bigness == 3 ? new Microsoft.Xna.Framework.Rectangle((int) ((double) tileLocation.X * 64.0), (int) ((double) tileLocation.Y * 64.0), 128, 128) : new Microsoft.Xna.Framework.Rectangle((int) ((double) tileLocation.X * 64.0), (int) ((double) tileLocation.Y * 64.0), 64, 64); }
 
     public override bool tickUpdate(GameTime time, Vector2 tileLocation, GameLocation location)
     {
@@ -142,13 +142,13 @@ namespace StardewValley.TerrainFeatures
       return false;
     }
 
-    public override bool isPassable(Character c = null) => (double) (float) (NetFieldBase<float, NetFloat>) this.health <= 0.0;
+    public override bool isPassable(Character c = null) { return (double) (float) (NetFieldBase<float, NetFloat>) this.health <= 0.0; }
 
     public override void dayUpdate(GameLocation environment, Vector2 tileLocation)
     {
     }
 
-    public override bool seasonUpdate(bool onLoad) => false;
+    public override bool seasonUpdate(bool onLoad) { return false; }
 
     private Microsoft.Xna.Framework.Rectangle getSourceRect(int size)
     {

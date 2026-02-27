@@ -133,7 +133,7 @@ namespace StardewValley.Menus
       this.snapToDefaultClickableComponent();
     }
 
-    protected override void cleanupBeforeExit() => base.cleanupBeforeExit();
+    protected override void cleanupBeforeExit() { return base.cleanupBeforeExit(); }
 
     protected virtual IList<Item> getContainerContents()
     {
@@ -145,9 +145,9 @@ namespace StardewValley.Menus
       return (IList<Item>) containerContents;
     }
 
-    private int craftingPageY() => this.yPositionOnScreen + IClickableMenu.spaceToClearTopBorder + IClickableMenu.borderWidth - 16;
+    private int craftingPageY() { return this.yPositionOnScreen + IClickableMenu.spaceToClearTopBorder + IClickableMenu.borderWidth - 16; }
 
-    private ClickableTextureComponent[,] createNewPageLayout() => new ClickableTextureComponent[10, 4];
+    private ClickableTextureComponent[,] createNewPageLayout() { return new ClickableTextureComponent[10, 4]; }
 
     private Dictionary<ClickableTextureComponent, CraftingRecipe> createNewPage()
     {
@@ -267,7 +267,7 @@ namespace StardewValley.Menus
       }
     }
 
-    protected virtual bool checkHeldItem(Func<Item, bool> f = null) => f == null ? Game1.player.CursorSlotItem != null : f(Game1.player.CursorSlotItem);
+    protected virtual bool checkHeldItem(Func<Item, bool> f = null) { return f == null ? Game1.player.CursorSlotItem != null : f(Game1.player.CursorSlotItem); }
 
     public override void receiveKeyPress(Keys key)
     {
@@ -489,7 +489,7 @@ namespace StardewValley.Menus
         this.trashCanLidRotation = Math.Max(this.trashCanLidRotation - (float) Math.PI / 48f, 0.0f);
     }
 
-    public override bool readyToClose() => this.heldItem == null;
+    public override bool readyToClose() { return this.heldItem == null; }
 
     public override void draw(SpriteBatch b)
     {
@@ -549,7 +549,7 @@ namespace StardewValley.Menus
       IClickableMenu.drawHoverText(b, " ", Game1.smallFont, this.heldItem != null ? 48 : 0, this.heldItem != null ? 48 : 0, boldTitleText: (this.hoverRecipe.DisplayName + (this.hoverRecipe.numberProducedPerCraft > 1 ? " x" + this.hoverRecipe.numberProducedPerCraft.ToString() : "")), buffIconsToDisplay: (!this.cooking || this.lastCookingHover == null || Game1.objectInformation[(int) (NetFieldBase<int, NetInt>) (this.lastCookingHover as StardewValley.Object).parentSheetIndex].Split('/').Length <= 7 ? (string[]) null : Game1.objectInformation[(int) (NetFieldBase<int, NetInt>) (this.lastCookingHover as StardewValley.Object).parentSheetIndex].Split('/')[7].Split(' ')), hoveredItem: this.lastCookingHover, craftingIngredients: this.hoverRecipe, additional_craft_materials: this.getContainerContents());
     }
 
-    protected override bool _ShouldAutoSnapPrioritizeAlignedElements() => false;
+    protected override bool _ShouldAutoSnapPrioritizeAlignedElements() { return false; }
 
     public override bool IsAutomaticSnapValid(
       int direction,

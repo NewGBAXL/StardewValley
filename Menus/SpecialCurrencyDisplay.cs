@@ -171,7 +171,7 @@ namespace StardewValley.Menus
       this.currentPosition = Utility.Clamp(this.currentPosition, 0.0f, 1f);
     }
 
-    public Vector2 GetUpperLeft() => new Vector2(16f, (float) ((int) Utility.Lerp(-26f, 0.0f, this.currentPosition) * 4));
+    public Vector2 GetUpperLeft() { return new Vector2(16f, (float) ((int) Utility.Lerp(-26f, 0.0f, this.currentPosition) * 4)); }
 
     public virtual void Draw(SpriteBatch b)
     {

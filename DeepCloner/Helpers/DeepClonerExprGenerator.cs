@@ -18,7 +18,7 @@ namespace Force.DeepCloner.Helpers
     private static readonly ConcurrentDictionary<FieldInfo, bool> _readonlyFields = new ConcurrentDictionary<FieldInfo, bool>();
     private static FieldInfo _attributesFieldInfo = typeof (FieldInfo).GetPrivateField("m_fieldAttributes");
 
-    internal static object GenerateClonerInternal(Type realType, bool asObject) => DeepClonerExprGenerator.GenerateProcessMethod(realType, asObject && realType.IsValueType());
+    internal static object GenerateClonerInternal(Type realType, bool asObject) { return DeepClonerExprGenerator.GenerateProcessMethod(realType, asObject && realType.IsValueType()); }
 
     internal static void ForceSetField(FieldInfo field, object obj, object value)
     {
@@ -88,7 +88,7 @@ namespace Force.DeepCloner.Helpers
           Expression expression = (Expression) Expression.Call(method, (Expression) memberExpression, (Expression) parameterExpression3);
           if (!fieldInfo.FieldType.IsValueType())
             expression = (Expression) Expression.Convert(expression, fieldInfo.FieldType);
-          if (DeepClonerExprGenerator._readonlyFields.GetOrAdd(fieldInfo, (Func<FieldInfo, bool>) (f => f.IsInitOnly)))
+          if (DeepClonerExprGenerator._readonlyFields.GetOrAdd(fieldInfo, (Func<FieldInfo, bool>) (delegate(f) { return f.IsInitOnly))); }
           {
             MethodInfo privateStaticMethod = typeof (DeepClonerExprGenerator).GetPrivateStaticMethod("ForceSetField");
             expressionList.Add((Expression) Expression.Call(privateStaticMethod, (Expression) Expression.Constant((object) fieldInfo), (Expression) Expression.Convert((Expression) parameterExpression2, typeof (object)), (Expression) Expression.Convert(expression, typeof (object))));
@@ -147,7 +147,7 @@ namespace Force.DeepCloner.Helpers
       BinaryExpression binaryExpression1 = Expression.Assign((Expression) local, (Expression) Expression.Convert((Expression) parameterExpression, type));
       Type delegateType = typeof (Func<object, DeepCloneState, object>);
       int tupleLength = type.GenericArguments().Length;
-      BinaryExpression binaryExpression2 = Expression.Assign((Expression) local, (Expression) Expression.New(((IEnumerable<ConstructorInfo>) type.GetPublicConstructors()).First<ConstructorInfo>((Func<ConstructorInfo, bool>) (x => x.GetParameters().Length == tupleLength)), (IEnumerable<Expression>) ((IEnumerable<PropertyInfo>) type.GetPublicProperties()).OrderBy<PropertyInfo, string>((Func<PropertyInfo, string>) (x => x.Name)).Where<PropertyInfo>((Func<PropertyInfo, bool>) (x => x.CanRead && x.Name.StartsWith("Item") && char.IsDigit(x.Name[4]))).Select<PropertyInfo, MemberExpression>((Func<PropertyInfo, MemberExpression>) (x => Expression.Property((Expression) local, x.Name)))));
+      BinaryExpression binaryExpression2 = Expression.Assign((Expression) local, (Expression) Expression.New(((IEnumerable<ConstructorInfo>) type.GetPublicConstructors()).First<ConstructorInfo>((Func<ConstructorInfo, bool>) (delegate(x) { return x.GetParameters().Length == tupleLength)); }, (IEnumerable<Expression>) ((IEnumerable<PropertyInfo>) type.GetPublicProperties()).OrderBy<PropertyInfo, string>((Func<PropertyInfo, string>) (delegate(x) { return x.Name)).Where<PropertyInfo>((Func<PropertyInfo; }, bool>) (delegate(x) { return x.CanRead && x.Name.StartsWith("Item") && char.IsDigit(x.Name[4]))).Select<PropertyInfo; }, MemberExpression>((Func<PropertyInfo, MemberExpression>) (delegate(x) { return Expression.Property((Expression) local; }, x.Name)))));
       BlockExpression body = Expression.Block((IEnumerable<ParameterExpression>) new ParameterExpression[1]
       {
         local

@@ -27,7 +27,7 @@ namespace StardewValley.Objects
     private static readonly Rectangle wallpaperContainerRect = new Rectangle(39, 31, 16, 16);
     private static readonly Rectangle floorContainerRect = new Rectangle(55, 31, 16, 16);
 
-    public Wallpaper() => this.NetFields.AddFields((INetSerializable) this.sourceRect, (INetSerializable) this.isFloor, (INetSerializable) this.modDataID);
+    public Wallpaper() { return this.NetFields.AddFields((INetSerializable) this.sourceRect, (INetSerializable) this.isFloor, (INetSerializable) this.modDataID); }
 
     public Wallpaper(int which, bool isFloor = false)
       : this()
@@ -72,13 +72,13 @@ namespace StardewValley.Objects
       return (ModWallpaperOrFlooring) null;
     }
 
-    protected override string loadDisplayName() => !(bool) (NetFieldBase<bool, NetBool>) this.isFloor ? Game1.content.LoadString("Strings\\StringsFromCSFiles:Wallpaper.cs.13204") : Game1.content.LoadString("Strings\\StringsFromCSFiles:Wallpaper.cs.13203");
+    protected override string loadDisplayName() { return !(bool) (NetFieldBase<bool, NetBool>) this.isFloor ? Game1.content.LoadString("Strings\\StringsFromCSFiles:Wallpaper.cs.13204") : Game1.content.LoadString("Strings\\StringsFromCSFiles:Wallpaper.cs.13203"); }
 
-    public override string getDescription() => !(bool) (NetFieldBase<bool, NetBool>) this.isFloor ? Game1.content.LoadString("Strings\\StringsFromCSFiles:Wallpaper.cs.13206") : Game1.content.LoadString("Strings\\StringsFromCSFiles:Wallpaper.cs.13205");
+    public override string getDescription() { return !(bool) (NetFieldBase<bool, NetBool>) this.isFloor ? Game1.content.LoadString("Strings\\StringsFromCSFiles:Wallpaper.cs.13206") : Game1.content.LoadString("Strings\\StringsFromCSFiles:Wallpaper.cs.13205"); }
 
-    public override bool performDropDownAction(Farmer who) => true;
+    public override bool performDropDownAction(Farmer who) { return true; }
 
-    public override bool performObjectDropInAction(Item dropIn, bool probe, Farmer who) => false;
+    public override bool performObjectDropInAction(Item dropIn, bool probe, Farmer who) { return false; }
 
     public override bool canBePlacedHere(GameLocation l, Vector2 tile)
     {
@@ -131,19 +131,19 @@ namespace StardewValley.Objects
       return false;
     }
 
-    public override bool isPlaceable() => true;
+    public override bool isPlaceable() { return true; }
 
-    public override Rectangle getBoundingBox(Vector2 tileLocation) => (Rectangle) (NetFieldBase<Rectangle, NetRectangle>) this.boundingBox;
+    public override Rectangle getBoundingBox(Vector2 tileLocation) { return (Rectangle) (NetFieldBase<Rectangle, NetRectangle>) this.boundingBox; }
 
-    public override int salePrice() => (int) (NetFieldBase<int, NetInt>) this.price;
+    public override int salePrice() { return (int) (NetFieldBase<int, NetInt>) this.price; }
 
-    public override int maximumStackSize() => 1;
+    public override int maximumStackSize() { return 1; }
 
-    public override int addToStack(Item stack) => 1;
+    public override int addToStack(Item stack) { return 1; }
 
-    public override string Name => this.name;
+    public override string delegate(Name) { return this.name; };
 
-    public override void drawWhenHeld(SpriteBatch spriteBatch, Vector2 objectPosition, Farmer f) => this.drawInMenu(spriteBatch, objectPosition, 1f);
+    public override void drawWhenHeld(SpriteBatch spriteBatch, Vector2 objectPosition, Farmer f) { return this.drawInMenu(spriteBatch, objectPosition, 1f); }
 
     public override void drawInMenu(
       SpriteBatch spriteBatch,

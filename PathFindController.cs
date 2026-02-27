@@ -174,7 +174,7 @@ namespace StardewValley
       }
     }
 
-    public bool isPlayerPresent() => this.location.farmers.Any();
+    public bool isPlayerPresent() { return this.location.farmers.Any(); }
 
     public bool update(GameTime time)
     {

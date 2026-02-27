@@ -18,14 +18,14 @@ namespace StardewValley.Network
 
     public float X
     {
-      get => this.Get().X;
-      set => this.Set(new Vector2(value, this.Y));
+      delegate(get) { return this.Get().X; };
+      delegate(set) { return this.Set(new Vector2(value; }, this.Y));
     }
 
     public float Y
     {
-      get => this.Get().Y;
-      set => this.Set(new Vector2(this.X, value));
+      delegate(get) { return this.Get().Y; };
+      delegate(set) { return this.Set(new Vector2(this.X; }, value));
     }
 
     public NetPosition()
@@ -57,7 +57,7 @@ namespace StardewValley.Network
       });
     }
 
-    protected bool IsMaster() => this.NetFields.Root != null && this.NetFields.Root.Clock.LocalId == 0;
+    protected bool IsMaster() { return this.NetFields.Root != null && this.NetFields.Root.Clock.LocalId == 0; }
 
     public override Vector2 Get()
     {
@@ -66,9 +66,9 @@ namespace StardewValley.Network
       return base.Get();
     }
 
-    public Vector2 CurrentInterpolationDirection() => this.Paused ? Vector2.Zero : this.Field.CurrentInterpolationDirection();
+    public Vector2 CurrentInterpolationDirection() { return this.Paused ? Vector2.Zero : this.Field.CurrentInterpolationDirection(); }
 
-    public float CurrentInterpolationSpeed() => this.Paused ? 0.0f : this.Field.CurrentInterpolationSpeed();
+    public float CurrentInterpolationSpeed() { return this.Paused ? 0.0f : this.Field.CurrentInterpolationSpeed(); }
 
     public void UpdateExtrapolation(float extrapolationSpeed)
     {

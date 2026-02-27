@@ -10,7 +10,7 @@ namespace StardewValley
 {
   public class BottomlessEnchantment : WateringCanEnchantment
   {
-    public override string GetName() => "Bottomless";
+    public override string GetName() { return "Bottomless"; }
 
     protected override void _ApplyTo(Item item)
     {

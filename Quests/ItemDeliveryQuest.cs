@@ -32,7 +32,7 @@ namespace StardewValley.Quests
     [Obsolete]
     public NPC actualTarget;
 
-    public ItemDeliveryQuest() => this.questType.Value = 3;
+    public ItemDeliveryQuest() { return this.questType.Value = 3; }
 
     protected override void initNetFields()
     {
@@ -55,7 +55,7 @@ namespace StardewValley.Quests
           }
         }
       }
-      source.OrderBy<NPC, string>((Func<NPC, string>) (n => n.Name));
+      source.OrderBy<NPC, string>((Func<NPC, string>) (delegate(n) { return n.Name)); };
       for (int index = 0; index < source.Count; ++index)
       {
         NPC npc = source[index];

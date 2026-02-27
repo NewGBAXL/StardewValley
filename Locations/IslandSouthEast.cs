@@ -164,7 +164,7 @@ namespace StardewValley.Locations
       base.cleanupBeforePlayerExit();
     }
 
-    public override void DayUpdate(int dayOfMonth) => base.DayUpdate(dayOfMonth);
+    public override void DayUpdate(int dayOfMonth) { return base.DayUpdate(dayOfMonth); }
 
     public override void SetBuriedNutLocations()
     {
@@ -247,7 +247,7 @@ namespace StardewValley.Locations
       }
     }
 
-    public bool MermaidIsHere() => Game1.IsRainingHere((GameLocation) this);
+    public bool MermaidIsHere() { return Game1.IsRainingHere((GameLocation) this); }
 
     public override void draw(SpriteBatch b)
     {
@@ -307,7 +307,7 @@ namespace StardewValley.Locations
       this.fishedWalnut.Value = true;
     }
 
-    public override bool isTileOccupiedForPlacement(Vector2 tileLocation, StardewValley.Object toPlace = null) => base.isTileOccupiedForPlacement(tileLocation, toPlace);
+    public override bool isTileOccupiedForPlacement(Vector2 tileLocation, StardewValley.Object toPlace = null) { return base.isTileOccupiedForPlacement(tileLocation, toPlace); }
 
     public override void seasonUpdate(string season, bool onLoad = false)
     {

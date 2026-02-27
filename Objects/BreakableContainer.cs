@@ -105,7 +105,7 @@ namespace StardewValley.Objects
       this.breakDebrisSource2.Value = new Rectangle(611, 1275, 10, 4);
     }
 
-    public static int typeToIndex(int type) => type == 118 || type == 120 ? type : 0;
+    public static int typeToIndex(int type) { return type == 118 || type == 120 ? type : 0; }
 
     public override bool performToolAction(Tool t, GameLocation location)
     {

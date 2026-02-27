@@ -252,29 +252,29 @@ namespace StardewValley
 
     public bool destroyOvernight
     {
-      get => this._destroyOvernight.Value;
-      set => this._destroyOvernight.Value = value;
+      delegate(get) { return this._destroyOvernight.Value; };
+      delegate(set) { return this._destroyOvernight.Value = value; };
     }
 
     [XmlIgnore]
     public LightSource lightSource
     {
-      get => (LightSource) (NetFieldBase<LightSource, NetRef<LightSource>>) this.netLightSource;
-      set => this.netLightSource.Value = value;
+      delegate(get) { return (LightSource) (NetFieldBase<LightSource; }, NetRef<LightSource>>) this.netLightSource;
+      delegate(set) { return this.netLightSource.Value = value; };
     }
 
     [XmlIgnore]
     public Vector2 TileLocation
     {
-      get => (Vector2) (NetFieldBase<Vector2, NetVector2>) this.tileLocation;
-      set => this.tileLocation.Value = value;
+      delegate(get) { return (Vector2) (NetFieldBase<Vector2; }, NetVector2>) this.tileLocation;
+      delegate(set) { return this.tileLocation.Value = value; };
     }
 
     [XmlIgnore]
     public string name
     {
-      get => this.netName.Value;
-      set => this.netName.Value = value;
+      delegate(get) { return this.netName.Value; };
+      delegate(set) { return this.netName.Value = value; };
     }
 
     [XmlIgnore]
@@ -290,127 +290,127 @@ namespace StardewValley
         }
         return this.displayName + ((bool) (NetFieldBase<bool, NetBool>) this.isRecipe ? (!CraftingRecipe.craftingRecipes.ContainsKey(this.displayName) || ((IEnumerable<string>) CraftingRecipe.craftingRecipes[this.displayName].Split('/')[2].Split(' ')).Count<string>() <= 1 ? "" : " x" + CraftingRecipe.craftingRecipes[this.displayName].Split('/')[2].Split(' ')[1]) + Game1.content.LoadString("Strings\\StringsFromCSFiles:Object.cs.12657") : "");
       }
-      set => this.displayName = value;
+      delegate(set) { return this.displayName = value; };
     }
 
     [XmlIgnore]
     public override string Name
     {
-      get => this.name + ((bool) (NetFieldBase<bool, NetBool>) this.isRecipe ? " Recipe" : "");
-      set => this.name = value;
+      delegate(get) { return this.name + ((bool) (NetFieldBase<bool; }, NetBool>) this.isRecipe ? " Recipe" : "");
+      delegate(set) { return this.name = value; };
     }
 
     [XmlIgnore]
     public string Type
     {
-      get => (string) (NetFieldBase<string, NetString>) this.type;
-      set => this.type.Value = value;
+      delegate(get) { return (string) (NetFieldBase<string; }, NetString>) this.type;
+      delegate(set) { return this.type.Value = value; };
     }
 
     [XmlIgnore]
     public override int Stack
     {
-      get => Math.Max(0, (int) (NetFieldBase<int, NetInt>) this.stack);
-      set => this.stack.Value = Math.Min(Math.Max(0, value), value == int.MaxValue ? value : this.maximumStackSize());
+      delegate(get) { return Math.Max(0; }, (int) (NetFieldBase<int, NetInt>) this.stack);
+      delegate(set) { return this.stack.Value = Math.Min(Math.Max(0; }, value), value == int.MaxValue ? value : this.maximumStackSize());
     }
 
     [XmlIgnore]
     public int Quality
     {
-      get => (int) (NetFieldBase<int, NetInt>) this.quality;
-      set => this.quality.Value = value;
+      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.quality;
+      delegate(set) { return this.quality.Value = value; };
     }
 
     [XmlIgnore]
     public bool CanBeSetDown
     {
-      get => (bool) (NetFieldBase<bool, NetBool>) this.canBeSetDown;
-      set => this.canBeSetDown.Value = value;
+      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.canBeSetDown;
+      delegate(set) { return this.canBeSetDown.Value = value; };
     }
 
     [XmlIgnore]
     public bool CanBeGrabbed
     {
-      get => (bool) (NetFieldBase<bool, NetBool>) this.canBeGrabbed;
-      set => this.canBeGrabbed.Value = value;
+      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.canBeGrabbed;
+      delegate(set) { return this.canBeGrabbed.Value = value; };
     }
 
     [XmlIgnore]
     public bool HasBeenPickedUpByFarmer
     {
-      get => (bool) (NetFieldBase<bool, NetBool>) this.hasBeenPickedUpByFarmer;
-      set => this.hasBeenPickedUpByFarmer.Value = value;
+      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.hasBeenPickedUpByFarmer;
+      delegate(set) { return this.hasBeenPickedUpByFarmer.Value = value; };
     }
 
     [XmlIgnore]
-    public bool IsHoeDirt => (bool) (NetFieldBase<bool, NetBool>) this.isHoedirt;
+    public bool delegate(IsHoeDirt) { return (bool) (NetFieldBase<bool; }, NetBool>) this.isHoedirt;
 
     [XmlIgnore]
     public bool IsOn
     {
-      get => (bool) (NetFieldBase<bool, NetBool>) this.isOn;
-      set => this.isOn.Value = value;
+      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.isOn;
+      delegate(set) { return this.isOn.Value = value; };
     }
 
     [XmlIgnore]
     public bool IsSpawnedObject
     {
-      get => (bool) (NetFieldBase<bool, NetBool>) this.isSpawnedObject;
-      set => this.isSpawnedObject.Value = value;
+      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.isSpawnedObject;
+      delegate(set) { return this.isSpawnedObject.Value = value; };
     }
 
     [XmlIgnore]
     public bool IsRecipe
     {
-      get => (bool) (NetFieldBase<bool, NetBool>) this.isRecipe;
-      set => this.isRecipe.Value = value;
+      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.isRecipe;
+      delegate(set) { return this.isRecipe.Value = value; };
     }
 
     [XmlIgnore]
     public bool Flipped
     {
-      get => (bool) (NetFieldBase<bool, NetBool>) this.flipped;
-      set => this.flipped.Value = value;
+      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.flipped;
+      delegate(set) { return this.flipped.Value = value; };
     }
 
     [XmlIgnore]
     public int Price
     {
-      get => (int) (NetFieldBase<int, NetInt>) this.price;
-      set => this.price.Value = value;
+      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.price;
+      delegate(set) { return this.price.Value = value; };
     }
 
     [XmlIgnore]
     public int Edibility
     {
-      get => (int) (NetFieldBase<int, NetInt>) this.edibility;
-      set => this.edibility.Value = value;
+      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.edibility;
+      delegate(set) { return this.edibility.Value = value; };
     }
 
     [XmlIgnore]
     public int Fragility
     {
-      get => (int) (NetFieldBase<int, NetInt>) this.fragility;
-      set => this.fragility.Value = value;
+      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.fragility;
+      delegate(set) { return this.fragility.Value = value; };
     }
 
     [XmlIgnore]
     public Vector2 Scale
     {
-      get => this.scale;
-      set => this.scale = value;
+      delegate(get) { return this.scale; };
+      delegate(set) { return this.scale = value; };
     }
 
     [XmlIgnore]
     public int MinutesUntilReady
     {
-      get => (int) (NetFieldBase<int, NetIntDelta>) this.minutesUntilReady;
-      set => this.minutesUntilReady.Value = value;
+      delegate(get) { return (int) (NetFieldBase<int; }, NetIntDelta>) this.minutesUntilReady;
+      delegate(set) { return this.minutesUntilReady.Value = value; };
     }
 
-    protected virtual void initNetFields() => this.NetFields.AddFields((INetSerializable) this.tileLocation, (INetSerializable) this.owner, (INetSerializable) this.type, (INetSerializable) this.canBeSetDown, (INetSerializable) this.canBeGrabbed, (INetSerializable) this.isHoedirt, (INetSerializable) this.isSpawnedObject, (INetSerializable) this.questItem, (INetSerializable) this.questId, (INetSerializable) this.isOn, (INetSerializable) this.fragility, (INetSerializable) this.price, (INetSerializable) this.edibility, (INetSerializable) this.stack, (INetSerializable) this.quality, (INetSerializable) this.uses, (INetSerializable) this.bigCraftable, (INetSerializable) this.setOutdoors, (INetSerializable) this.setIndoors, (INetSerializable) this.readyForHarvest, (INetSerializable) this.showNextIndex, (INetSerializable) this.flipped, (INetSerializable) this.hasBeenPickedUpByFarmer, (INetSerializable) this.isRecipe, (INetSerializable) this.isLamp, (INetSerializable) this.heldObject, (INetSerializable) this.minutesUntilReady, (INetSerializable) this.boundingBox, (INetSerializable) this.preserve, (INetSerializable) this.preservedParentSheetIndex, (INetSerializable) this.honeyType, (INetSerializable) this.netLightSource, (INetSerializable) this.orderData, (INetSerializable) this._destroyOvernight);
+    protected virtual void initNetFields() { return this.NetFields.AddFields((INetSerializable) this.tileLocation, (INetSerializable) this.owner, (INetSerializable) this.type, (INetSerializable) this.canBeSetDown, (INetSerializable) this.canBeGrabbed, (INetSerializable) this.isHoedirt, (INetSerializable) this.isSpawnedObject, (INetSerializable) this.questItem, (INetSerializable) this.questId, (INetSerializable) this.isOn, (INetSerializable) this.fragility, (INetSerializable) this.price, (INetSerializable) this.edibility, (INetSerializable) this.stack, (INetSerializable) this.quality, (INetSerializable) this.uses, (INetSerializable) this.bigCraftable, (INetSerializable) this.setOutdoors, (INetSerializable) this.setIndoors, (INetSerializable) this.readyForHarvest, (INetSerializable) this.showNextIndex, (INetSerializable) this.flipped, (INetSerializable) this.hasBeenPickedUpByFarmer, (INetSerializable) this.isRecipe, (INetSerializable) this.isLamp, (INetSerializable) this.heldObject, (INetSerializable) this.minutesUntilReady, (INetSerializable) this.boundingBox, (INetSerializable) this.preserve, (INetSerializable) this.preservedParentSheetIndex, (INetSerializable) this.honeyType, (INetSerializable) this.netLightSource, (INetSerializable) this.orderData, (INetSerializable) this._destroyOvernight); }
 
-    public Object() => this.initNetFields();
+    public Object() { return this.initNetFields(); }
 
     /// <summary>constructor for big craftables</summary>
     /// <param name="tileLocation"></param>
@@ -668,9 +668,9 @@ namespace StardewValley
       return this.name;
     }
 
-    public Vector2 getLocalPosition(xTile.Dimensions.Rectangle viewport) => new Vector2(this.tileLocation.X * 64f - (float) viewport.X, this.tileLocation.Y * 64f - (float) viewport.Y);
+    public Vector2 getLocalPosition(xTile.Dimensions.Rectangle viewport) { return new Vector2(this.tileLocation.X * 64f - (float) viewport.X, this.tileLocation.Y * 64f - (float) viewport.Y); }
 
-    public static Microsoft.Xna.Framework.Rectangle getSourceRectForBigCraftable(int index) => new Microsoft.Xna.Framework.Rectangle(index % (Game1.bigCraftableSpriteSheet.Width / 16) * 16, index * 16 / Game1.bigCraftableSpriteSheet.Width * 16 * 2, 16, 32);
+    public static Microsoft.Xna.Framework.Rectangle getSourceRectForBigCraftable(int index) { return new Microsoft.Xna.Framework.Rectangle(index % (Game1.bigCraftableSpriteSheet.Width / 16) * 16, index * 16 / Game1.bigCraftableSpriteSheet.Width * 16 * 2, 16, 32); }
 
     public virtual bool performToolAction(Tool t, GameLocation location)
     {
@@ -1065,7 +1065,7 @@ namespace StardewValley
       Game1.createItemDebris((Item) unseenSecretNote, new Vector2(this.tileLocation.X + 0.5f, this.tileLocation.Y + 0.75f) * 64f, (int) Game1.player.facingDirection, location);
     }
 
-    public virtual bool isAnimalProduct() => this.Category == -18 || this.Category == -5 || this.Category == -6 || (int) (NetFieldBase<int, NetInt>) this.parentSheetIndex == 430;
+    public virtual bool isAnimalProduct() { return this.Category == -18 || this.Category == -5 || this.Category == -6 || (int) (NetFieldBase<int, NetInt>) this.parentSheetIndex == 430; }
 
     public virtual bool onExplosion(Farmer who, GameLocation location)
     {
@@ -1089,7 +1089,7 @@ namespace StardewValley
       return true;
     }
 
-    public virtual bool canBeShipped() => !(bool) (NetFieldBase<bool, NetBool>) this.bigCraftable && (NetFieldBase<string, NetString>) this.type != (NetString) null && !this.type.Equals((object) "Quest") && this.canBeTrashed() && !(this is Furniture) && !(this is Wallpaper);
+    public virtual bool canBeShipped() { return !(bool) (NetFieldBase<bool, NetBool>) this.bigCraftable && (NetFieldBase<string, NetString>) this.type != (NetString) null && !this.type.Equals((object) "Quest") && this.canBeTrashed() && !(this is Furniture) && !(this is Wallpaper); }
 
     public virtual void ApplySprinkler(GameLocation location, Vector2 tile)
     {
@@ -2520,9 +2520,9 @@ namespace StardewValley
       this.showNextIndex.Value = (int) (NetFieldBase<int, NetInt>) (Game1.getLocationFromName("Farm") as Farm).piecesOfHay > 0;
     }
 
-    public override bool canBeTrashed() => !(bool) (NetFieldBase<bool, NetBool>) this.questItem && ((bool) (NetFieldBase<bool, NetBool>) this.bigCraftable || (int) (NetFieldBase<int, NetInt>) this.parentSheetIndex != 460) && !Utility.IsNormalObjectAtParentSheetIndex((Item) this, 911) && base.canBeTrashed();
+    public override bool canBeTrashed() { return !(bool) (NetFieldBase<bool, NetBool>) this.questItem && ((bool) (NetFieldBase<bool, NetBool>) this.bigCraftable || (int) (NetFieldBase<int, NetInt>) this.parentSheetIndex != 460) && !Utility.IsNormalObjectAtParentSheetIndex((Item) this, 911) && base.canBeTrashed(); }
 
-    public virtual bool isForage(GameLocation location) => this.Category == -79 || this.Category == -81 || this.Category == -80 || this.Category == -75 || location is Beach || (int) (NetFieldBase<int, NetInt>) this.parentSheetIndex == 430 || this.Category == -23;
+    public virtual bool isForage(GameLocation location) { return this.Category == -79 || this.Category == -81 || this.Category == -80 || this.Category == -75 || location is Beach || (int) (NetFieldBase<int, NetInt>) this.parentSheetIndex == 430 || this.Category == -23; }
 
     public virtual void initializeLightSource(Vector2 tileLocation, bool mineShaft = false)
     {
@@ -2659,7 +2659,7 @@ namespace StardewValley
       }
     }
 
-    public virtual void reloadSprite() => this.initializeLightSource((Vector2) (NetFieldBase<Vector2, NetVector2>) this.tileLocation);
+    public virtual void reloadSprite() { return this.initializeLightSource((Vector2) (NetFieldBase<Vector2, NetVector2>) this.tileLocation); }
 
     public virtual void consumeRecipe(Farmer who)
     {
@@ -2690,7 +2690,7 @@ namespace StardewValley
       return boundingBox;
     }
 
-    public override bool canBeGivenAsGift() => !Utility.IsNormalObjectAtParentSheetIndex((Item) this, 911) && !(bool) (NetFieldBase<bool, NetBool>) this.bigCraftable && !(this is Furniture) && !(this is Wallpaper);
+    public override bool canBeGivenAsGift() { return !Utility.IsNormalObjectAtParentSheetIndex((Item) this, 911) && !(bool) (NetFieldBase<bool, NetBool>) this.bigCraftable && !(this is Furniture) && !(this is Wallpaper); }
 
     public virtual bool performDropDownAction(Farmer who)
     {
@@ -3230,11 +3230,11 @@ namespace StardewValley
       }
     }
 
-    public virtual bool isActionable(Farmer who) => !this.isTemporarilyInvisible && this.checkForAction(who, true);
+    public virtual bool isActionable(Farmer who) { return !this.isTemporarilyInvisible && this.checkForAction(who, true); }
 
-    public int getHealth() => this.health;
+    public int getHealth() { return this.health; }
 
-    public void setHealth(int health) => this.health = health;
+    public void setHealth(int health) { return this.health = health; }
 
     protected virtual void grabItemFromAutoGrabber(Item item, Farmer who)
     {
@@ -3251,7 +3251,7 @@ namespace StardewValley
       this.showNextIndex.Value = false;
     }
 
-    public static bool HighlightFertilizers(Item i) => i is Object && (int) (NetFieldBase<int, NetInt>) (i as Object).category == -19;
+    public static bool HighlightFertilizers(Item i) { return i is Object && (int) (NetFieldBase<int, NetInt>) (i as Object).category == -19; }
 
     private void AttachToSprinklerAttachment(Item i, Farmer who)
     {
@@ -3272,7 +3272,7 @@ namespace StardewValley
       return this.ParentSheetIndex == 874 ? (int) ((double) this.staminaRecoveredOnConsumption() * 0.680000007152557) : (int) ((double) this.staminaRecoveredOnConsumption() * 0.449999988079071);
     }
 
-    public override int staminaRecoveredOnConsumption() => (int) Math.Ceiling((double) this.Edibility * 2.5) + this.Quality * this.Edibility;
+    public override int staminaRecoveredOnConsumption() { return (int) Math.Ceiling((double) this.Edibility * 2.5) + this.Quality * this.Edibility; }
 
     public virtual bool checkForAction(Farmer who, bool justCheckingForActivity = false)
     {
@@ -3733,7 +3733,7 @@ namespace StardewValley
         int num5 = -1;
         string str = "Wild";
         int num6 = 0;
-        Crop closeFlower = Utility.findCloseFlower(who.currentLocation, (Vector2) (NetFieldBase<Vector2, NetVector2>) this.tileLocation, 5, (Func<Crop, bool>) (crop => !crop.forageCrop.Value));
+        Crop closeFlower = Utility.findCloseFlower(who.currentLocation, (Vector2) (NetFieldBase<Vector2, NetVector2>) this.tileLocation, 5, (Func<Crop, bool>) (delegate(crop) { return !crop.forageCrop.Value)); };
         if (closeFlower != null)
         {
           str = Game1.objectInformation[(int) (NetFieldBase<int, NetInt>) closeFlower.indexOfHarvest].Split('/')[0];
@@ -3827,7 +3827,7 @@ namespace StardewValley
       return true;
     }
 
-    public virtual bool IsScarecrow() => this.HasContextTag("crow_scare") || this.Name.Contains("arecrow");
+    public virtual bool IsScarecrow() { return this.HasContextTag("crow_scare") || this.Name.Contains("arecrow"); }
 
     public virtual int GetRadiusForScarecrow()
     {
@@ -4143,7 +4143,7 @@ label_12:
       return Object.isIndexOkForBasicShippedCategory((int) (NetFieldBase<int, NetInt>) this.parentSheetIndex);
     }
 
-    public static bool isIndexOkForBasicShippedCategory(int index) => index != 434 && index != 889 && index != 928;
+    public static bool isIndexOkForBasicShippedCategory(int index) { return index != 434 && index != 889 && index != 928; }
 
     public static bool isPotentialBasicShippedCategory(int index, string category)
     {
@@ -4565,7 +4565,7 @@ label_12:
       }
     }
 
-    public override int maximumStackSize() => this.ParentSheetIndex == 911 || this.Category == -22 ? 1 : 999;
+    public override int maximumStackSize() { return this.ParentSheetIndex == 911 || this.Category == -22 ? 1 : 999; }
 
     public override int addToStack(Item otherStack)
     {
@@ -4590,7 +4590,7 @@ label_12:
     {
     }
 
-    public virtual bool clicked(Farmer who) => false;
+    public virtual bool clicked(Farmer who) { return false; }
 
     public override Item getOne()
     {
@@ -4714,9 +4714,9 @@ label_12:
       return false;
     }
 
-    public virtual bool isSapling() => !this.bigCraftable.Value && this.GetType() == typeof (Object) && this.name.Contains("Sapling");
+    public virtual bool isSapling() { return !this.bigCraftable.Value && this.GetType() == typeof (Object) && this.name.Contains("Sapling"); }
 
-    public static bool isWildTreeSeed(int index) => index == 309 || index == 310 || index == 311 || index == 292 || index == 891;
+    public static bool isWildTreeSeed(int index) { return index == 309 || index == 310 || index == 311 || index == 292 || index == 891; }
 
     private bool canPlaceWildTreeSeed(GameLocation location, Vector2 tile)
     {
@@ -4729,7 +4729,7 @@ label_12:
       return (num1 | num2) != 0 && !flag2 && !flag3;
     }
 
-    public virtual bool IsSprinkler() => this.GetBaseRadiusForSprinkler() >= 0;
+    public virtual bool IsSprinkler() { return this.GetBaseRadiusForSprinkler() >= 0; }
 
     public virtual int GetModifiedRadiusForSprinkler()
     {
@@ -5416,9 +5416,9 @@ label_12:
       return base.actionWhenPurchased() || (bool) (NetFieldBase<bool, NetBool>) this.isRecipe;
     }
 
-    public override bool canBePlacedInWater() => (int) (NetFieldBase<int, NetInt>) this.parentSheetIndex == 710;
+    public override bool canBePlacedInWater() { return (int) (NetFieldBase<int, NetInt>) this.parentSheetIndex == 710; }
 
-    public virtual bool needsToBeDonated() => !(bool) (NetFieldBase<bool, NetBool>) this.bigCraftable && (NetFieldBase<string, NetString>) this.type != (NetString) null && (this.type.Equals((object) "Minerals") || this.type.Equals((object) "Arch")) && !(Game1.getLocationFromName("ArchaeologyHouse") as LibraryMuseum).museumAlreadyHasArtifact((int) (NetFieldBase<int, NetInt>) this.parentSheetIndex);
+    public virtual bool needsToBeDonated() { return !(bool) (NetFieldBase<bool, NetBool>) this.bigCraftable && (NetFieldBase<string, NetString>) this.type != (NetString) null && (this.type.Equals((object) "Minerals") || this.type.Equals((object) "Arch")) && !(Game1.getLocationFromName("ArchaeologyHouse") as LibraryMuseum).museumAlreadyHasArtifact((int) (NetFieldBase<int, NetInt>) this.parentSheetIndex); }
 
     public override string getDescription()
     {

@@ -103,7 +103,7 @@ namespace StardewValley
         this.DisplayName = name;
     }
 
-    public int getIndexOfMenuView() => this.itemToProduce.Count <= 0 ? -1 : this.itemToProduce[0];
+    public int getIndexOfMenuView() { return this.itemToProduce.Count <= 0 ? -1 : this.itemToProduce[0]; }
 
     public virtual bool doesFarmerHaveIngredientsInInventory(IList<Item> extraToCheck = null)
     {
@@ -330,7 +330,7 @@ namespace StardewValley
       return (string) null;
     }
 
-    public int getDescriptionHeight(int width) => (int) ((double) Game1.smallFont.MeasureString(Game1.parseText(this.description, Game1.smallFont, width)).Y + (double) (this.getNumberOfIngredients() * 36) + (double) (int) Game1.smallFont.MeasureString(Game1.content.LoadString("Strings\\StringsFromCSFiles:CraftingRecipe.cs.567")).Y + 21.0);
+    public int getDescriptionHeight(int width) { return (int) ((double) Game1.smallFont.MeasureString(Game1.parseText(this.description, Game1.smallFont, width)).Y + (double) (this.getNumberOfIngredients() * 36) + (double) (int) Game1.smallFont.MeasureString(Game1.content.LoadString("Strings\\StringsFromCSFiles:CraftingRecipe.cs.567")).Y + 21.0); }
 
     public virtual void drawRecipeDescription(
       SpriteBatch b,
@@ -391,7 +391,7 @@ namespace StardewValley
       Utility.drawTextWithShadow(b, Game1.parseText(this.description, Game1.smallFont, width - 8), Game1.smallFont, position + new Vector2(0.0f, (float) (76 + this.recipeList.Count * 36 + num1)), Game1.textColor * 0.75f);
     }
 
-    public virtual int getNumberOfIngredients() => this.recipeList.Count;
+    public virtual int getNumberOfIngredients() { return this.recipeList.Count; }
 
     public int getSpriteIndexFromRawIndex(int index)
     {

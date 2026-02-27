@@ -22,9 +22,15 @@ namespace StardewValley.Network
 
     public NetFields NetFields { get; } = new NetFields();
 
-    public int Count => this.farmers.Count;
+    public int Count
+    {
+      get { return this.farmers.Count; }
+    }
 
-    public bool IsReadOnly => false;
+    public bool IsReadOnly
+    {
+      get { return false; }
+    }
 
     public event NetFarmerCollection.FarmerEvent FarmerAdded;
 
@@ -67,7 +73,7 @@ namespace StardewValley.Network
       int num = this.uids.Count();
       if (num == 0)
         return false;
-      this.uids.Filter((Func<KeyValuePair<long, bool>, bool>) (x => NetFarmerCollection.playerIsOnline(x.Key)));
+      this.uids.Filter((Func<KeyValuePair<long, bool>, bool>) (delegate(x) { return NetFarmerCollection.playerIsOnline(x.Key))); };
       this.farmers.Clear();
       foreach (long key in this.uids.Keys)
       {
@@ -102,7 +108,7 @@ namespace StardewValley.Network
       this.uids.Clear();
     }
 
-    public bool Contains(Farmer item) => this.farmers.Contains(item);
+    public bool Contains(Farmer item) { return this.farmers.Contains(item); }
 
     public void CopyTo(Farmer[] array, int arrayIndex)
     {
@@ -122,9 +128,15 @@ namespace StardewValley.Network
       return this.farmers.Remove(item);
     }
 
-    public IEnumerator<Farmer> GetEnumerator() => (IEnumerator<Farmer>) this.farmers.GetEnumerator();
+    public IEnumerator<Farmer> GetEnumerator()
+    {
+      return (IEnumerator<Farmer>) this.farmers.GetEnumerator();
+    }
 
-    IEnumerator IEnumerable.GetEnumerator() => (IEnumerator) this.GetEnumerator();
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+      return (IEnumerator) this.GetEnumerator();
+    }
 
     public delegate void FarmerEvent(Farmer f);
   }

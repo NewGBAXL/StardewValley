@@ -196,7 +196,7 @@ namespace StardewValley.BellsAndWhistles
       this.requiredMail.Value = required_mail;
     }
 
-    public bool IsAtTile(int x, int y) => this.tilePosition.X == x && this.tilePosition.Y == y && this.currentState.Value == ParrotUpgradePerch.UpgradeState.Idle;
+    public bool IsAtTile(int x, int y) { return this.tilePosition.X == x && this.tilePosition.Y == y && this.currentState.Value == ParrotUpgradePerch.UpgradeState.Idle; }
 
     public virtual void PerformAnimation()
     {
@@ -235,7 +235,7 @@ namespace StardewValley.BellsAndWhistles
       return true;
     }
 
-    public virtual void StartAnimation() => this.animationEvent.Fire();
+    public virtual void StartAnimation() { return this.animationEvent.Fire(); }
 
     public bool CheckAction(Location tile_location, Farmer farmer)
     {
@@ -697,11 +697,11 @@ namespace StardewValley.BellsAndWhistles
         return false;
       }
 
-      private float EaseInOutQuad(float t, float b, float c, float d) => (double) (t /= d / 2f) < 1.0 ? c / 2f * t * t + b : (float) (-(double) c / 2.0 * ((double) --t * ((double) t - 2.0) - 1.0)) + b;
+      private float EaseInOutQuad(float t, float b, float c, float d) { return (double) (t /= d / 2f) < 1.0 ? c / 2f * t * t + b : (float) (-(double) c / 2.0 * ((double) --t * ((double) t - 2.0) - 1.0)) + b; }
 
-      private float EaseInQuad(float t, float b, float c, float d) => c * (t /= d) * t + b;
+      private float EaseInQuad(float t, float b, float c, float d) { return c * (t /= d) * t + b; }
 
-      private float EaseOutQuad(float t, float b, float c, float d) => (float) (-(double) c * (double) (t /= d) * ((double) t - 2.0)) + b;
+      private float EaseOutQuad(float t, float b, float c, float d) { return (float) (-(double) c * (double) (t /= d) * ((double) t - 2.0)) + b; }
 
       public virtual void Draw(SpriteBatch b)
       {

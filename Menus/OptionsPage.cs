@@ -74,9 +74,9 @@ namespace StardewValley.Menus
         this.options.Add((OptionsElement) new OptionsDropDown(Game1.content.LoadString("Strings\\UI:GameMenu_MoveBuildingPermissions"), 40));
       if (Game1.multiplayerMode == (byte) 2 && Game1.server != null && !Game1.server.IsLocalMultiplayerInitiatedServer() && Program.sdk.Networking != null)
       {
-        this.options.Add((OptionsElement) new OptionsButton(Game1.content.LoadString("Strings\\UI:GameMenu_ServerInvite"), (Action) (() => this.offerInvite())));
+        this.options.Add((OptionsElement) new OptionsButton(Game1.content.LoadString("Strings\\UI:GameMenu_ServerInvite"), (Action) (() { return this.offerInvite()))); }
         if (Program.sdk.Networking.SupportsInviteCodes())
-          this.options.Add((OptionsElement) new OptionsButton(Game1.content.LoadString("Strings\\UI:OptionsPage_ShowInviteCode"), (Action) (() => this.showInviteCode())));
+          this.options.Add((OptionsElement) new OptionsButton(Game1.content.LoadString("Strings\\UI:OptionsPage_ShowInviteCode"), (Action) (() { return this.showInviteCode()))); }
       }
       if (flag)
         this.options.Add((OptionsElement) new OptionsButton(Game1.content.LoadString("Strings\\UI:StartLocalMulti"), (Action) (() =>
@@ -207,8 +207,7 @@ namespace StardewValley.Menus
         displayOptions.Add("100%");
         Texture2D mouseCursors2 = Game1.mouseCursors2;
         Rectangle buttonRect = new Rectangle(72, 31, 18, 16);
-        OptionsPlusMinusButton optionsPlusMinusButton = new OptionsPlusMinusButton(label, 36, options2, displayOptions, mouseCursors2, buttonRect, (Action<string>) (selection =>
-        {
+        OptionsPlusMinusButton optionsPlusMinusButton = new OptionsPlusMinusButton(label, 36, options2, displayOptions, mouseCursors2, buttonRect, (Action<string>) (delegate(selection) { return {; }
           Game1.flashAlpha = 1f;
           selection = selection.Substring(0, selection.Length - 1);
           int result = 25;
@@ -223,10 +222,10 @@ namespace StardewValley.Menus
       }
       if (!Game1.game1.CanBrowseScreenshots())
         return;
-      this.options.Add((OptionsElement) new OptionsButton(Game1.content.LoadString("Strings\\UI:OptionsPage_OpenFolder"), (Action) (() => Game1.game1.BrowseScreenshots())));
+      this.options.Add((OptionsElement) new OptionsButton(Game1.content.LoadString("Strings\\UI:OptionsPage_OpenFolder"), (Action) (() { return Game1.game1.BrowseScreenshots()))); }
     }
 
-    public override bool readyToClose() => this.lastRebindTick != Game1.ticks && base.readyToClose();
+    public override bool readyToClose() { return this.lastRebindTick != Game1.ticks && base.readyToClose(); }
 
     private void waitForServerConnection(Action onConnection)
     {
@@ -239,28 +238,29 @@ namespace StardewValley.Menus
       else
       {
         IClickableMenu thisMenu = Game1.activeClickableMenu;
-        ConfirmationDialog.behavior onClose = (ConfirmationDialog.behavior) (who =>
-        {
+        ConfirmationDialog.behavior onClose = (ConfirmationDialog.behavior) (delegate(who) { return {; }
           Game1.activeClickableMenu = thisMenu;
           thisMenu.snapCursorToCurrentSnappedComponent();
         });
-        Game1.activeClickableMenu = (IClickableMenu) new ServerConnectionDialog((ConfirmationDialog.behavior) (who =>
-        {
+        Game1.activeClickableMenu = (IClickableMenu) new ServerConnectionDialog((ConfirmationDialog.behavior) (delegate(who) { return {; }
           onClose(who);
           onConnection();
         }), onClose);
       }
     }
 
-    private void offerInvite() => this.waitForServerConnection((Action) (() => Game1.server.offerInvite()));
+    private void offerInvite()
+    {
+      this.waitForServerConnection((Action) (() => Game1.server.offerInvite()));
+      return;
+    }
 
     private void showInviteCode()
     {
       IClickableMenu thisMenu = Game1.activeClickableMenu;
       this.waitForServerConnection((Action) (() =>
       {
-        ConfirmationDialog.behavior onClose = (ConfirmationDialog.behavior) (who =>
-        {
+        ConfirmationDialog.behavior onClose = (ConfirmationDialog.behavior) (delegate(who) { return {; }
           Game1.activeClickableMenu = thisMenu;
           thisMenu.snapCursorToCurrentSnappedComponent();
         });
@@ -368,7 +368,7 @@ namespace StardewValley.Menus
       }
     }
 
-    public override ClickableComponent getCurrentlySnappedComponent() => this.currentlySnappedComponent;
+    public override ClickableComponent getCurrentlySnappedComponent() { return this.currentlySnappedComponent; }
 
     public override void setCurrentlySnappedComponentTo(int id)
     {
@@ -419,7 +419,7 @@ namespace StardewValley.Menus
       this.scrolling = false;
     }
 
-    public bool IsDropdownActive() => this.optionsSlotHeld != -1 && this.optionsSlotHeld + this.currentItemIndex < this.options.Count && this.options[this.currentItemIndex + this.optionsSlotHeld] is OptionsDropDown;
+    public bool IsDropdownActive() { return this.optionsSlotHeld != -1 && this.optionsSlotHeld + this.currentItemIndex < this.options.Count && this.options[this.currentItemIndex + this.optionsSlotHeld] is OptionsDropDown; }
 
     private void downArrowPressed()
     {

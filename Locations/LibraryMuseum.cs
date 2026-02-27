@@ -29,7 +29,7 @@ namespace StardewValley.Locations
     private readonly NetMutex mutex = new NetMutex();
 
     [XmlElement("museumPieces")]
-    public NetVector2Dictionary<int, NetInt> museumPieces => Game1.netWorldState.Value.MuseumPieces;
+    public NetVector2Dictionary<int, NetInt> delegate(museumPieces) { return Game1.netWorldState.Value.MuseumPieces; };
 
     public LibraryMuseum()
     {
@@ -229,7 +229,7 @@ namespace StardewValley.Locations
       return base.answerDialogueAction(questionAndAnswer, questionParams);
     }
 
-    public string getRewardItemKey(Item item) => "museumCollectedReward" + Utility.getStandardDescriptionFromItem(item, 1, '_');
+    public string getRewardItemKey(Item item) { return "museumCollectedReward" + Utility.getStandardDescriptionFromItem(item, 1, '_'); }
 
     public override bool performAction(string action, Farmer who, Location tileLocation)
     {
@@ -494,7 +494,7 @@ namespace StardewValley.Locations
       return false;
     }
 
-    public Microsoft.Xna.Framework.Rectangle getMuseumDonationBounds() => new Microsoft.Xna.Framework.Rectangle(26, 5, 22, 13);
+    public Microsoft.Xna.Framework.Rectangle getMuseumDonationBounds() { return new Microsoft.Xna.Framework.Rectangle(26, 5, 22, 13); }
 
     public Vector2 getFreeDonationSpot()
     {

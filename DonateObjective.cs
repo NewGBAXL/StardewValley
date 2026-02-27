@@ -27,7 +27,7 @@ namespace StardewValley
     [XmlElement("confirmed")]
     public NetBool confirmed = new NetBool(false);
 
-    public virtual string GetDropboxLocationName() => this.dropBoxGameLocation.Value == "Trailer" && Game1.MasterPlayer.hasOrWillReceiveMail("pamHouseUpgrade") ? "Trailer_Big" : this.dropBoxGameLocation.Value;
+    public virtual string GetDropboxLocationName() { return this.dropBoxGameLocation.Value == "Trailer" && Game1.MasterPlayer.hasOrWillReceiveMail("pamHouseUpgrade") ? "Trailer_Big" : this.dropBoxGameLocation.Value; }
 
     public override void Load(SpecialOrder order, Dictionary<string, string> data)
     {
@@ -47,9 +47,9 @@ namespace StardewValley
       this.minimumCapacity.Value = int.Parse(order.Parse(data["MinimumCapacity"]));
     }
 
-    public int GetAcceptCount(Item item, int stack_count) => this.IsValidItem(item) ? Math.Min(this.GetMaxCount() - this.GetCount(), stack_count) : 0;
+    public int GetAcceptCount(Item item, int stack_count) { return this.IsValidItem(item) ? Math.Min(this.GetMaxCount() - this.GetCount(), stack_count) : 0; }
 
-    public override bool IsComplete() => base.IsComplete();
+    public override bool IsComplete() { return base.IsComplete(); }
 
     public override void OnCompletion()
     {
@@ -62,7 +62,7 @@ namespace StardewValley
       locationFromName.showDropboxIndicator = false;
     }
 
-    public override bool CanComplete() => this.confirmed.Value;
+    public override bool CanComplete() { return this.confirmed.Value; }
 
     public virtual void Confirm()
     {
@@ -72,7 +72,7 @@ namespace StardewValley
         this.confirmed.Value = false;
     }
 
-    public override bool CanUncomplete() => true;
+    public override bool CanUncomplete() { return true; }
 
     public override void InitializeNetFields()
     {

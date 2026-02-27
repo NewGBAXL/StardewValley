@@ -30,9 +30,9 @@ namespace StardewValley.Tools
       return (Item) destination;
     }
 
-    protected override string loadDisplayName() => Game1.content.LoadString("Strings\\StringsFromCSFiles:Wand.cs.14318");
+    protected override string loadDisplayName() { return Game1.content.LoadString("Strings\\StringsFromCSFiles:Wand.cs.14318"); }
 
-    protected override string loadDescription() => Game1.content.LoadString("Strings\\StringsFromCSFiles:Wand.cs.14319");
+    protected override string loadDescription() { return Game1.content.LoadString("Strings\\StringsFromCSFiles:Wand.cs.14319"); }
 
     public override void DoFunction(GameLocation location, int x, int y, int power, Farmer who)
     {

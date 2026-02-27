@@ -110,7 +110,7 @@ namespace StardewValley.TerrainFeatures
       this.health.Value = 10f;
     }
 
-    protected void resetTexture() => this.texture = new Lazy<Texture2D>(new Func<Texture2D>(this.loadTexture));
+    protected void resetTexture() { return this.texture = new Lazy<Texture2D>(new Func<Texture2D>(this.loadTexture)); }
 
     protected Texture2D loadTexture()
     {
@@ -128,9 +128,9 @@ namespace StardewValley.TerrainFeatures
       return Game1.content.Load<Texture2D>("TerrainFeatures\\tree" + Math.Max(1, (int) (NetFieldBase<int, NetInt>) this.treeType).ToString() + "_" + str);
     }
 
-    public override Microsoft.Xna.Framework.Rectangle getBoundingBox(Vector2 tileLocation) => new Microsoft.Xna.Framework.Rectangle((int) tileLocation.X * 64, (int) tileLocation.Y * 64, 64, 64);
+    public override Microsoft.Xna.Framework.Rectangle getBoundingBox(Vector2 tileLocation) { return new Microsoft.Xna.Framework.Rectangle((int) tileLocation.X * 64, (int) tileLocation.Y * 64, 64, 64); }
 
-    public override Microsoft.Xna.Framework.Rectangle getRenderBounds(Vector2 tileLocation) => (bool) (NetFieldBase<bool, NetBool>) this.stump || (int) (NetFieldBase<int, NetInt>) this.growthStage < 5 ? new Microsoft.Xna.Framework.Rectangle((int) ((double) tileLocation.X - 0.0) * 64, (int) ((double) tileLocation.Y - 1.0) * 64, 64, 128) : new Microsoft.Xna.Framework.Rectangle((int) ((double) tileLocation.X - 1.0) * 64, (int) ((double) tileLocation.Y - 5.0) * 64, 192, 448);
+    public override Microsoft.Xna.Framework.Rectangle getRenderBounds(Vector2 tileLocation) { return (bool) (NetFieldBase<bool, NetBool>) this.stump || (int) (NetFieldBase<int, NetInt>) this.growthStage < 5 ? new Microsoft.Xna.Framework.Rectangle((int) ((double) tileLocation.X - 0.0) * 64, (int) ((double) tileLocation.Y - 1.0) * 64, 64, 128) : new Microsoft.Xna.Framework.Rectangle((int) ((double) tileLocation.X - 1.0) * 64, (int) ((double) tileLocation.Y - 5.0) * 64, 192, 448); }
 
     public override bool performUseAction(Vector2 tileLocation, GameLocation location)
     {
@@ -369,7 +369,7 @@ namespace StardewValley.TerrainFeatures
       }
     }
 
-    public override bool isPassable(Character c = null) => (double) (float) (NetFieldBase<float, NetFloat>) this.health <= -99.0 || (int) (NetFieldBase<int, NetInt>) this.growthStage == 0;
+    public override bool isPassable(Character c = null) { return (double) (float) (NetFieldBase<float, NetFloat>) this.health <= -99.0 || (int) (NetFieldBase<int, NetInt>) this.growthStage == 0; }
 
     public override void dayUpdate(GameLocation environment, Vector2 tileLocation)
     {
@@ -463,7 +463,7 @@ namespace StardewValley.TerrainFeatures
       return false;
     }
 
-    public override bool isActionable() => !(bool) (NetFieldBase<bool, NetBool>) this.tapped && (int) (NetFieldBase<int, NetInt>) this.growthStage >= 3;
+    public override bool isActionable() { return !(bool) (NetFieldBase<bool, NetBool>) this.tapped && (int) (NetFieldBase<int, NetInt>) this.growthStage >= 3; }
 
     public override bool performToolAction(
       Tool t,

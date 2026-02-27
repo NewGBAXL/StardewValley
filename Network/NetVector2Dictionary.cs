@@ -24,7 +24,7 @@ namespace StardewValley.Network
     {
     }
 
-    protected override Vector2 ReadKey(BinaryReader reader) => new Vector2(reader.ReadSingle(), reader.ReadSingle());
+    protected override Vector2 ReadKey(BinaryReader reader) { return new Vector2(reader.ReadSingle(), reader.ReadSingle()); }
 
     protected override void WriteKey(BinaryWriter writer, Vector2 key)
     {

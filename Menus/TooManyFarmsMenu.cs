@@ -21,9 +21,9 @@ namespace StardewValley.Menus
       this.initialize((int) centeringOnScreen.X, (int) centeringOnScreen.Y, 800, 180);
     }
 
-    public override bool readyToClose() => true;
+    public override bool readyToClose() { return true; }
 
-    public override void receiveLeftClick(int x, int y, bool playSound = true) => this.exitThisMenu();
+    public override void receiveLeftClick(int x, int y, bool playSound = true) { return this.exitThisMenu(); }
 
     public override void receiveRightClick(int x, int y, bool playSound = true)
     {
@@ -42,7 +42,7 @@ namespace StardewValley.Menus
       b.Draw(Game1.mouseCursors, new Vector2((float) (xPos - 44), (float) (yPos + boxHeight - 4)), new Rectangle?(new Rectangle(261, 327, 14, 11)), Color.White, 0.0f, Vector2.Zero, 4f, SpriteEffects.None, 0.87f);
     }
 
-    public override void update(GameTime time) => base.update(time);
+    public override void update(GameTime time) { return base.update(time); }
 
     public override void draw(SpriteBatch b)
     {

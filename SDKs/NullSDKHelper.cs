@@ -8,9 +8,9 @@ namespace StardewValley.SDKs
 {
   public class NullSDKHelper : SDKHelper
   {
-    public bool IsEnterButtonAssignmentFlipped => false;
+    public bool delegate(IsEnterButtonAssignmentFlipped) { return false; };
 
-    public bool IsJapaneseRegionRelease => false;
+    public bool delegate(IsJapaneseRegionRelease) { return false; };
 
     public void EarlyInitialize()
     {
@@ -40,7 +40,7 @@ namespace StardewValley.SDKs
     {
     }
 
-    public string FilterDirtyWords(string words) => words;
+    public string FilterDirtyWords(string words) { return words; }
 
     public virtual string Name { get; } = "?";
 
@@ -50,6 +50,6 @@ namespace StardewValley.SDKs
 
     public int ConnectionProgress { get; }
 
-    public bool HasOverlay => false;
+    public bool delegate(HasOverlay) { return false; };
   }
 }

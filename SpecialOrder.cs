@@ -118,7 +118,7 @@ namespace StardewValley
     [XmlIgnore]
     public NetFields NetFields { get; } = new NetFields();
 
-    public SpecialOrder() => this.InitializeNetFields();
+    public SpecialOrder() { return this.InitializeNetFields(); }
 
     public virtual void SetDuration(SpecialOrder.QuestDuration duration)
     {
@@ -339,7 +339,7 @@ namespace StardewValley
       return this._isIslandOrder == 1;
     }
 
-    public static bool IsSpecialOrdersBoardUnlocked() => Game1.stats.DaysPlayed >= 58U;
+    public static bool IsSpecialOrdersBoardUnlocked() { return Game1.stats.DaysPlayed >= 58U; }
 
     public static void UpdateAvailableSpecialOrders(bool force_refresh)
     {
@@ -824,8 +824,7 @@ namespace StardewValley
       {
         if (!(rule == "QI_COOKING"))
           return;
-        Utility.iterateAllItems((Action<Item>) (item =>
-        {
+        Utility.iterateAllItems((Action<Item>) (delegate(item) { return {; }
           if (!(item is Object) || !((item as Object).orderData.Value == "QI_COOKING"))
             return;
           (item as Object).orderData.Value = (string) null;
@@ -842,13 +841,13 @@ namespace StardewValley
       Game1.player.team.itemsToRemoveOvernight.Add(889);
     }
 
-    public virtual bool HasMoneyReward() => this.questState.Value == SpecialOrder.QuestState.Complete && this.GetMoneyReward() > 0 && this.participants.ContainsKey(Game1.player.UniqueMultiplayerID);
+    public virtual bool HasMoneyReward() { return this.questState.Value == SpecialOrder.QuestState.Complete && this.GetMoneyReward() > 0 && this.participants.ContainsKey(Game1.player.UniqueMultiplayerID); }
 
     public virtual void Fail()
     {
     }
 
-    public virtual void AddObjective(OrderObjective objective) => this.objectives.Add(objective);
+    public virtual void AddObjective(OrderObjective objective) { return this.objectives.Add(objective); }
 
     public void CheckCompletion()
     {
@@ -933,7 +932,7 @@ namespace StardewValley
       return objectiveDescriptions;
     }
 
-    public bool CanBeCancelled() => false;
+    public bool CanBeCancelled() { return false; }
 
     public void MarkAsViewed()
     {
@@ -942,11 +941,11 @@ namespace StardewValley
       this.seenParticipants[Game1.player.UniqueMultiplayerID] = true;
     }
 
-    public bool IsHidden() => !this.participants.ContainsKey(Game1.player.UniqueMultiplayerID);
+    public bool IsHidden() { return !this.participants.ContainsKey(Game1.player.UniqueMultiplayerID); }
 
-    public bool ShouldDisplayAsNew() => !this.seenParticipants.ContainsKey(Game1.player.UniqueMultiplayerID);
+    public bool ShouldDisplayAsNew() { return !this.seenParticipants.ContainsKey(Game1.player.UniqueMultiplayerID); }
 
-    public bool HasReward() => this.HasMoneyReward();
+    public bool HasReward() { return this.HasMoneyReward(); }
 
     public int GetMoneyReward()
     {
@@ -962,11 +961,11 @@ namespace StardewValley
       return this._moneyReward;
     }
 
-    public bool ShouldDisplayAsComplete() => (uint) this.questState.Value > 0U;
+    public bool ShouldDisplayAsComplete() { return (uint) this.questState.Value > 0U; }
 
-    public bool IsTimedQuest() => true;
+    public bool IsTimedQuest() { return true; }
 
-    public int GetDaysLeft() => this.questState.Value != SpecialOrder.QuestState.InProgress ? 0 : (int) (NetFieldBase<int, NetInt>) this.dueDate - Game1.Date.TotalDays;
+    public int GetDaysLeft() { return this.questState.Value != SpecialOrder.QuestState.InProgress ? 0 : (int) (NetFieldBase<int, NetInt>) this.dueDate - Game1.Date.TotalDays; }
 
     public void OnMoneyRewardClaimed()
     {

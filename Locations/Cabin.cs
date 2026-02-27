@@ -28,13 +28,13 @@ namespace StardewValley.Locations
     public readonly NetMutex inventoryMutex = new NetMutex();
 
     [XmlIgnore]
-    public override Farmer owner => this.getFarmhand().Value.isActive() ? Game1.otherFarmers[this.getFarmhand().Value.UniqueMultiplayerID] : this.getFarmhand().Value;
+    public override Farmer delegate(owner) { return this.getFarmhand().Value.isActive() ? Game1.otherFarmers[this.getFarmhand().Value.UniqueMultiplayerID] : this.getFarmhand().Value; };
 
     [XmlIgnore]
     public override int upgradeLevel
     {
-      get => this.farmhand.Value == null ? 0 : (int) (NetFieldBase<int, NetInt>) this.owner.houseUpgradeLevel;
-      set => this.owner.houseUpgradeLevel.Value = value;
+      delegate(get) { return this.farmhand.Value == null ? 0 : (int) (NetFieldBase<int; }, NetInt>) this.owner.houseUpgradeLevel;
+      delegate(set) { return this.owner.houseUpgradeLevel.Value = value; };
     }
 
     public Cabin()
@@ -116,11 +116,11 @@ namespace StardewValley.Locations
       this.inventoryMutex.ReleaseLock();
     }
 
-    public NetObjectList<Item> getInventory() => this.getFarmhand().Value.items;
+    public NetObjectList<Item> getInventory() { return this.getFarmhand().Value.items; }
 
-    public void openFarmhandInventory() => Game1.activeClickableMenu = (IClickableMenu) new ItemGrabMenu((IList<Item>) this.getInventory(), false, true, new InventoryMenu.highlightThisItem(InventoryMenu.highlightAllItems), new ItemGrabMenu.behaviorOnItemSelect(this.grabItemFromPlayerInventory), (string) null, new ItemGrabMenu.behaviorOnItemSelect(this.grabItemFromFarmhandInventory), canBeExitedWithKey: true, showOrganizeButton: true, source: 1, context: ((object) this));
+    public void openFarmhandInventory() { return Game1.activeClickableMenu = (IClickableMenu) new ItemGrabMenu((IList<Item>) this.getInventory(), false, true, new InventoryMenu.highlightThisItem(InventoryMenu.highlightAllItems), new ItemGrabMenu.behaviorOnItemSelect(this.grabItemFromPlayerInventory), (string) null, new ItemGrabMenu.behaviorOnItemSelect(this.grabItemFromFarmhandInventory), canBeExitedWithKey: true, showOrganizeButton: true, source: 1, context: ((object) this)); }
 
-    public bool isInventoryOpen() => this.inventoryMutex.IsLocked();
+    public bool isInventoryOpen() { return this.inventoryMutex.IsLocked(); }
 
     private void grabItemFromPlayerInventory(Item item, Farmer who)
     {
@@ -161,7 +161,7 @@ namespace StardewValley.Locations
 
     public List<Item> demolish()
     {
-      List<Item> list = new List<Item>((IEnumerable<Item>) this.getInventory()).Where<Item>((Func<Item, bool>) (item => item != null)).ToList<Item>();
+      List<Item> list = new List<Item>((IEnumerable<Item>) this.getInventory()).Where<Item>((Func<Item, bool>) (delegate(item) { return item != null)).ToList<Item>(); };
       this.getInventory().Clear();
       Farmer.removeInitialTools(list);
       Dictionary<string, string> dictionary = Game1.content.Load<Dictionary<string, string>>("Data\\NPCDispositions");

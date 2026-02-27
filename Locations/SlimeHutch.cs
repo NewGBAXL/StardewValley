@@ -39,7 +39,7 @@ namespace StardewValley
     {
     }
 
-    public bool isFull() => this.characters.Count >= 20;
+    public bool isFull() { return this.characters.Count >= 20; }
 
     public Building getBuilding()
     {
@@ -58,7 +58,7 @@ namespace StardewValley
       return !this.isFull() && slimeMatingsLeft > 0;
     }
 
-    public override bool canSlimeHatchHere() => !this.isFull();
+    public override bool canSlimeHatchHere() { return !this.isFull(); }
 
     public override void DayUpdate(int dayOfMonth)
     {

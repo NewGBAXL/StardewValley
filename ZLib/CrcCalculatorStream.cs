@@ -150,7 +150,10 @@ namespace Ionic.Crc
     ///   This is either the total number of bytes read, or the total number of
     ///   bytes written, depending on the direction of this stream.
     /// </remarks>
-    public long TotalBytesSlurped => this._Crc32.TotalBytesRead;
+    public long TotalBytesSlurped
+    {
+      get { return this._Crc32.TotalBytesRead; }
+    }
 
     /// <summary>Provides the current CRC for all blocks slurped in.</summary>
     /// <remarks>
@@ -160,7 +163,10 @@ namespace Ionic.Crc
     ///     get an accurate CRC for the entire stream.
     ///   </para>
     /// </remarks>
-    public int Crc => this._Crc32.Crc32Result;
+    public int Crc
+    {
+      get { return this._Crc32.Crc32Result; }
+    }
 
     /// <summary>
     ///   Indicates whether the underlying stream will be left open when the
@@ -173,8 +179,8 @@ namespace Ionic.Crc
     /// </remarks>
     public bool LeaveOpen
     {
-      get => this._leaveOpen;
-      set => this._leaveOpen = value;
+      get { return this._leaveOpen; }
+      set { this._leaveOpen = value; }
     }
 
     /// <summary>Read from the stream</summary>
@@ -211,7 +217,10 @@ namespace Ionic.Crc
     }
 
     /// <summary>Indicates whether the stream supports reading.</summary>
-    public override bool CanRead => this._innerStream.CanRead;
+    public override bool CanRead
+    {
+      get { return this._innerStream.CanRead; }
+    }
 
     /// <summary>Indicates whether the stream supports seeking.</summary>
     /// <remarks>
@@ -219,16 +228,25 @@ namespace Ionic.Crc
     ///     Always returns false.
     ///   </para>
     /// </remarks>
-    public override bool CanSeek => false;
+    public override bool CanSeek
+    {
+      get { return false; }
+    }
 
     /// <summary>Indicates whether the stream supports writing.</summary>
-    public override bool CanWrite => this._innerStream.CanWrite;
+    public override bool CanWrite
+    {
+      get { return this._innerStream.CanWrite; }
+    }
 
     /// <summary>Flush the stream.</summary>
-    public override void Flush() => this._innerStream.Flush();
+    public override void Flush() { return this._innerStream.Flush(); }
 
     /// <summary>Returns the length of the underlying stream.</summary>
-    public override long Length => this._lengthLimit == CrcCalculatorStream.UnsetLengthLimit ? this._innerStream.Length : this._lengthLimit;
+    public override long Length
+    {
+      get { return this._lengthLimit == CrcCalculatorStream.UnsetLengthLimit ? this._innerStream.Length : this._lengthLimit; }
+    }
 
     /// <summary>
     ///   The getter for this property returns the total bytes read.
@@ -237,8 +255,8 @@ namespace Ionic.Crc
     /// </summary>
     public override long Position
     {
-      get => this._Crc32.TotalBytesRead;
-      set => throw new NotSupportedException();
+      get { return this._Crc32.TotalBytesRead; }
+      set { throw new NotSupportedException(); }
     }
 
     /// <summary>
@@ -248,16 +266,19 @@ namespace Ionic.Crc
     /// <param name="offset">N/A</param>
     /// <param name="origin">N/A</param>
     /// <returns>N/A</returns>
-    public override long Seek(long offset, SeekOrigin origin) => throw new NotSupportedException();
+    public override long Seek(long offset, SeekOrigin origin) { return throw new NotSupportedException(); }
 
     /// <summary>
     /// This method always throws
     /// <see cref="T:System.NotSupportedException" />
     /// </summary>
     /// <param name="value">N/A</param>
-    public override void SetLength(long value) => throw new NotSupportedException();
+    public override void SetLength(long value) { return throw new NotSupportedException(); }
 
-    void IDisposable.Dispose() => this.Close();
+    void IDisposable.Dispose()
+    {
+      this.Close();
+    }
 
     /// <summary>Closes the stream.</summary>
     public override void Close()

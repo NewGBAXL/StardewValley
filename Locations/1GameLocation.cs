@@ -22,8 +22,8 @@ public class WaterTiles
 
   public bool this[int x, int y]
   {
-    get => this.waterTiles[x, y].isWater;
-    set => this.waterTiles[x, y] = new WaterTiles.WaterTileData(value, true);
+    delegate(get) { return this.waterTiles[x; }, y].isWater;
+    delegate(set) { return this.waterTiles[x; }, y] = new WaterTiles.WaterTileData(value, true);
   }
 
   public struct WaterTileData

@@ -38,11 +38,11 @@ namespace StardewValley.Menus
     public static string lastEnteredInviteCode;
     private StringBuilder _stringBuilder = new StringBuilder();
 
-    public CoopMenu(bool tooManyFarms) => this._tooManyFarms = tooManyFarms;
+    public CoopMenu(bool tooManyFarms) { return this._tooManyFarms = tooManyFarms; }
 
-    public override bool readyToClose() => !this.isSetUp || base.readyToClose();
+    public override bool readyToClose() { return !this.isSetUp || base.readyToClose(); }
 
-    protected override bool hasDeleteButtons() => false;
+    protected override bool hasDeleteButtons() { return false; }
 
     protected override List<LoadGameMenu.MenuSlot> MenuSlots
     {
@@ -237,7 +237,7 @@ namespace StardewValley.Menus
       return friendFarmData;
     }
 
-    protected virtual bool checkFriendFarmCompatibility(CoopMenu.FriendFarmData farm) => farm.FarmType >= 0 && farm.FarmType <= 7 && !(farm.ProtocolVersion != "1.5.5");
+    protected virtual bool checkFriendFarmCompatibility(CoopMenu.FriendFarmData farm) { return farm.FarmType >= 0 && farm.FarmType <= 7 && !(farm.ProtocolVersion != "1.5.5"); }
 
     protected virtual void onLobbyUpdate(object lobby)
     {
@@ -298,7 +298,7 @@ namespace StardewValley.Menus
 
     protected override void addSaveFiles(List<Farmer> files)
     {
-      this.hostSlots.AddRange(files.Where<Farmer>((Func<Farmer, bool>) (file => file.slotCanHost)).Select<Farmer, LoadGameMenu.MenuSlot>((Func<Farmer, LoadGameMenu.MenuSlot>) (file => (LoadGameMenu.MenuSlot) new CoopMenu.HostFileSlot(this, file))));
+      this.hostSlots.AddRange(files.Where<Farmer>((Func<Farmer, bool>) (delegate(file) { return file.slotCanHost)).Select<Farmer; }, LoadGameMenu.MenuSlot>((Func<Farmer, LoadGameMenu.MenuSlot>) (delegate(file) { return (LoadGameMenu.MenuSlot) new CoopMenu.HostFileSlot(this; }, file))));
       this.UpdateButtons();
     }
 
@@ -322,8 +322,7 @@ namespace StardewValley.Menus
       catch (Exception ex)
       {
       }
-      this.setMenu((IClickableMenu) new TitleTextInputMenu(Game1.content.LoadString("Strings\\UI:CoopMenu_EnterIP"), (NamingMenu.doneNamingBehavior) (address =>
-      {
+      this.setMenu((IClickableMenu) new TitleTextInputMenu(Game1.content.LoadString("Strings\\UI:CoopMenu_EnterIP"), (NamingMenu.doneNamingBehavior) (delegate(address) { return {; }
         try
         {
           StartupPreferences startupPreferences = new StartupPreferences();
@@ -344,8 +343,7 @@ namespace StardewValley.Menus
     {
       if (Program.sdk.Networking == null || !Program.sdk.Networking.SupportsInviteCodes())
         return;
-      this.setMenu((IClickableMenu) new TitleTextInputMenu(Game1.content.LoadString("Strings\\UI:CoopMenu_EnterInviteCode"), (NamingMenu.doneNamingBehavior) (code =>
-      {
+      this.setMenu((IClickableMenu) new TitleTextInputMenu(Game1.content.LoadString("Strings\\UI:CoopMenu_EnterInviteCode"), (NamingMenu.doneNamingBehavior) (delegate(code) { return {; }
         CoopMenu.lastEnteredInviteCode = code;
         object lobbyFromInviteCode = Program.sdk.Networking.GetLobbyFromInviteCode(code);
         if (lobbyFromInviteCode == null)
@@ -425,7 +423,7 @@ namespace StardewValley.Menus
         base.performHoverAction(x, y);
     }
 
-    protected override string getStatusText() => (string) null;
+    protected override string getStatusText() { return (string) null; }
 
     private void drawTabs(SpriteBatch b)
     {
@@ -565,7 +563,7 @@ namespace StardewValley.Menus
       {
       }
 
-      public override void Activate() => this.menu.enterIPPressed();
+      public override void Activate() { return this.menu.enterIPPressed(); }
     }
 
     protected class InviteCodeSlot : CoopMenu.LabeledSlot
@@ -575,7 +573,7 @@ namespace StardewValley.Menus
       {
       }
 
-      public override void Activate() => this.menu.enterInviteCodePressed();
+      public override void Activate() { return this.menu.enterInviteCodePressed(); }
     }
 
     protected class HostNewFarmSlot : CoopMenu.LabeledSlot
@@ -626,11 +624,11 @@ namespace StardewValley.Menus
       {
       }
 
-      protected override string slotName() => Game1.content.LoadString("Strings\\UI:CoopMenu_HostFile", (object) this.Farmer.Name, (object) this.Farmer.farmName.Value);
+      protected override string slotName() { return Game1.content.LoadString("Strings\\UI:CoopMenu_HostFile", (object) this.Farmer.Name, (object) this.Farmer.farmName.Value); }
 
-      protected override string slotSubName() => this.Farmer.Name;
+      protected override string slotSubName() { return this.Farmer.Name; }
 
-      protected override Vector2 portraitOffset() => base.portraitOffset() - new Vector2(32f, 0.0f);
+      protected override Vector2 portraitOffset() { return base.portraitOffset() - new Vector2(32f, 0.0f); }
     }
 
     protected class FriendFarmData
@@ -655,11 +653,11 @@ namespace StardewValley.Menus
         this.Farm = farm;
       }
 
-      public bool MatchAddress(object Lobby) => object.Equals(this.Farm.Lobby, Lobby);
+      public bool MatchAddress(object Lobby) { return object.Equals(this.Farm.Lobby, Lobby); }
 
-      public void Update(CoopMenu.FriendFarmData newData) => this.Farm = newData;
+      public void Update(CoopMenu.FriendFarmData newData) { return this.Farm = newData; }
 
-      public override void Activate() => this.menu.setMenu((IClickableMenu) new FarmhandMenu(Program.sdk.Networking.CreateClient(this.Farm.Lobby)));
+      public override void Activate() { return this.menu.setMenu((IClickableMenu) new FarmhandMenu(Program.sdk.Networking.CreateClient(this.Farm.Lobby))); }
 
       protected virtual string slotName()
       {
@@ -667,9 +665,9 @@ namespace StardewValley.Menus
         return Game1.content.LoadString(path, (object) this.Farm.FarmName);
       }
 
-      protected virtual void drawSlotName(SpriteBatch b, int i) => SpriteText.drawString(b, this.slotName(), this.menu.slotButtons[i].bounds.X + 128 + 36, this.menu.slotButtons[i].bounds.Y + 36);
+      protected virtual void drawSlotName(SpriteBatch b, int i) { return SpriteText.drawString(b, this.slotName(), this.menu.slotButtons[i].bounds.X + 128 + 36, this.menu.slotButtons[i].bounds.Y + 36); }
 
-      protected virtual void drawSlotDate(SpriteBatch b, int i) => Utility.drawTextWithShadow(b, this.Farm.Date.Localize(), Game1.dialogueFont, new Vector2((float) (this.menu.slotButtons[i].bounds.X + 128 + 32), (float) (this.menu.slotButtons[i].bounds.Y + 64 + 40)), Game1.textColor);
+      protected virtual void drawSlotDate(SpriteBatch b, int i) { return Utility.drawTextWithShadow(b, this.Farm.Date.Localize(), Game1.dialogueFont, new Vector2((float) (this.menu.slotButtons[i].bounds.X + 128 + 32), (float) (this.menu.slotButtons[i].bounds.Y + 64 + 40)), Game1.textColor); }
 
       protected virtual void drawSlotFarm(SpriteBatch b, int i)
       {
@@ -710,7 +708,7 @@ namespace StardewValley.Menus
     {
       private Action<object> callback;
 
-      public LobbyUpdateCallback(Action<object> callback) => this.callback = callback;
+      public LobbyUpdateCallback(Action<object> callback) { return this.callback = callback; }
 
       public void OnLobbyUpdate(object lobby)
       {

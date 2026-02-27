@@ -116,7 +116,7 @@ namespace StardewValley
       if (Event._commandLookup != null)
         return;
       Event._commandLookup = new Dictionary<string, MethodInfo>((IEqualityComparer<string>) StringComparer.InvariantCultureIgnoreCase);
-      MethodInfo[] array = ((IEnumerable<MethodInfo>) typeof (Event).GetMethods()).Where<MethodInfo>((Func<MethodInfo, bool>) (method_info => method_info.Name.StartsWith("command_"))).ToArray<MethodInfo>();
+      MethodInfo[] array = ((IEnumerable<MethodInfo>) typeof (Event).GetMethods()).Where<MethodInfo>((Func<MethodInfo, bool>) (delegate(method_info) { return method_info.Name.StartsWith("command_"))).ToArray<MethodInfo>(); };
       foreach (MethodInfo methodInfo in array)
         Event._commandLookup.Add(methodInfo.Name.Substring("command_".Length), methodInfo);
       Console.WriteLine("setupEventCommands() registered '{0}' methods", (object) array.Length);
@@ -313,7 +313,7 @@ namespace StardewValley
       Game1.activeClickableMenu = (IClickableMenu) new ItemListMenu(Game1.content.LoadString("Strings\\UI:ItemList_ItemsLost"), Game1.player.itemsLostLastDeath.ToList<Item>());
     }
 
-    public virtual void command_end(GameLocation location, GameTime time, string[] split) => this.endBehaviors(split, location);
+    public virtual void command_end(GameLocation location, GameTime time, string[] split) { return this.endBehaviors(split, location); }
 
     public virtual void command_locationSpecificCommand(
       GameLocation location,
@@ -912,7 +912,7 @@ namespace StardewValley
       this.checkForNextCommand(location, time);
     }
 
-    public virtual void command_addFloorProp(GameLocation location, GameTime time, string[] split) => this.command_addProp(location, time, split);
+    public virtual void command_addFloorProp(GameLocation location, GameTime time, string[] split) { return this.command_addProp(location, time, split); }
 
     public virtual void command_addProp(GameLocation location, GameTime time, string[] split)
     {
@@ -1562,8 +1562,7 @@ label_9:
     {
       if (Game1.activeClickableMenu != null)
         return;
-      Game1.activeClickableMenu = (IClickableMenu) new NamingMenu((NamingMenu.doneNamingBehavior) (animal_name =>
-      {
+      Game1.activeClickableMenu = (IClickableMenu) new NamingMenu((NamingMenu.doneNamingBehavior) (delegate(animal_name) { return {; }
         (Game1.currentLocation as AnimalHouse).addNewHatchedAnimal(animal_name);
         ++this.CurrentCommand;
       }), Game1.content.LoadString("Strings\\StringsFromCSFiles:Event.cs.1236"));
@@ -2410,9 +2409,8 @@ label_9:
                   List<Point> pointList2 = new List<Point>();
                   foreach (Point point3 in pointArray)
                     pointList1.Add(new Point(point2.X + point3.X, point2.Y + point3.Y));
-                  Func<Point, bool> func1 = (Func<Point, bool>) (point => this.temporaryLocation.isTilePassable(new Location(point.X, point.Y), Game1.viewport));
-                  Func<Point, bool> func2 = (Func<Point, bool>) (point =>
-                  {
+                  Func<Point, bool> func1 = (Func<Point, bool>) (delegate(point) { return this.temporaryLocation.isTilePassable(new Location(point.X; }, point.Y), Game1.viewport));
+                  Func<Point, bool> func2 = (Func<Point, bool>) (delegate(point) { return {; }
                     int num = 1;
                     for (int x = point.X - num; x <= point.X + num; ++x)
                     {
@@ -2610,7 +2608,7 @@ label_9:
 
     public bool playerControlSequence
     {
-      get => this._playerControlSequence;
+      delegate(get) { return this._playerControlSequence; };
       set
       {
         if (this._playerControlSequence == value)
@@ -2622,7 +2620,7 @@ label_9:
       }
     }
 
-    public Farmer farmer => this.farmerActors.Count <= 0 ? Game1.player : this.farmerActors[0];
+    public Farmer delegate(farmer) { return this.farmerActors.Count <= 0 ? Game1.player : this.farmerActors[0]; };
 
     public Texture2D festivalTexture
     {
@@ -2636,8 +2634,8 @@ label_9:
 
     public int CurrentCommand
     {
-      get => this.currentCommand;
-      set => this.currentCommand = value;
+      delegate(get) { return this.currentCommand; };
+      delegate(set) { return this.currentCommand = value; };
     }
 
     public Event(string eventString, int eventID = -1, Farmer farmerActor = null)
@@ -2657,7 +2655,7 @@ label_9:
       this.isWedding = true;
     }
 
-    public Event() => this.setupEventCommands();
+    public Event() { return this.setupEventCommands(); }
 
     /// <summary>
     /// returns false if it's not the right place/time for a festival, or not all players are present
@@ -3314,7 +3312,7 @@ label_9:
       }
     }
 
-    public bool isTileWalkedOn(int x, int y) => this.characterWalkLocations.Contains(new Vector2((float) x, (float) y));
+    public bool isTileWalkedOn(int x, int y) { return this.characterWalkLocations.Contains(new Vector2((float) x, (float) y)); }
 
     private void populateWalkLocationsList()
     {
@@ -3918,17 +3916,17 @@ label_9:
       ++this.CurrentCommand;
     }
 
-    public virtual Vector2 OffsetPosition(Vector2 original) => new Vector2(this.OffsetPositionX(original.X), this.OffsetPositionY(original.Y));
+    public virtual Vector2 OffsetPosition(Vector2 original) { return new Vector2(this.OffsetPositionX(original.X), this.OffsetPositionY(original.Y)); }
 
-    public virtual Vector2 OffsetTile(Vector2 original) => new Vector2((float) this.OffsetTileX((int) original.X), (float) this.OffsetTileY((int) original.Y));
+    public virtual Vector2 OffsetTile(Vector2 original) { return new Vector2((float) this.OffsetTileX((int) original.X), (float) this.OffsetTileY((int) original.Y)); }
 
-    public virtual float OffsetPositionX(float original) => (double) original < 0.0 || this.ignoreTileOffsets ? original : original + this.eventPositionTileOffset.X * 64f;
+    public virtual float OffsetPositionX(float original) { return (double) original < 0.0 || this.ignoreTileOffsets ? original : original + this.eventPositionTileOffset.X * 64f; }
 
-    public virtual float OffsetPositionY(float original) => (double) original < 0.0 || this.ignoreTileOffsets ? original : original + this.eventPositionTileOffset.Y * 64f;
+    public virtual float OffsetPositionY(float original) { return (double) original < 0.0 || this.ignoreTileOffsets ? original : original + this.eventPositionTileOffset.Y * 64f; }
 
-    public virtual int OffsetTileX(int original) => original < 0 || this.ignoreTileOffsets ? original : (int) ((double) original + (double) this.eventPositionTileOffset.X);
+    public virtual int OffsetTileX(int original) { return original < 0 || this.ignoreTileOffsets ? original : (int) ((double) original + (double) this.eventPositionTileOffset.X); }
 
-    public virtual int OffsetTileY(int original) => original < 0 || this.ignoreTileOffsets ? original : (int) ((double) original + (double) this.eventPositionTileOffset.Y);
+    public virtual int OffsetTileY(int original) { return original < 0 || this.ignoreTileOffsets ? original : (int) ((double) original + (double) this.eventPositionTileOffset.Y); }
 
     private void addSpecificTemporarySprite(string key, GameLocation location, string[] split)
     {
@@ -4425,15 +4423,13 @@ label_9:
             delayBeforeAnimationStart = 0,
             pingPong = true,
             xStopCoordinate = 1040,
-            reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (param2 =>
-            {
+            reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (delegate(param2) { return {; }
               TemporaryAnimatedSprite temporaryAnimatedSprite3 = this.aboveMapSprites.First<TemporaryAnimatedSprite>();
               if (temporaryAnimatedSprite3 == null)
                 return;
               temporaryAnimatedSprite3.motion = new Vector2(0.0f, 2f);
               temporaryAnimatedSprite3.yStopCoordinate = 2336;
-              temporaryAnimatedSprite3.reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (param3 =>
-              {
+              temporaryAnimatedSprite3.reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (delegate(param3) { return {; }
                 TemporaryAnimatedSprite temporaryAnimatedSprite4 = this.aboveMapSprites.First<TemporaryAnimatedSprite>();
                 temporaryAnimatedSprite4.animationLength = 1;
                 temporaryAnimatedSprite4.pingPong = false;
@@ -5108,8 +5104,7 @@ label_9:
             yPeriodicRange = 32f,
             id = 777f,
             xStopCoordinate = 3392,
-            reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (param =>
-            {
+            reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (delegate(param) { return {; }
               this.aboveMapSprites.First<TemporaryAnimatedSprite>().xStopCoordinate = -1;
               this.aboveMapSprites.First<TemporaryAnimatedSprite>().motion = new Vector2(4f, 0.0f);
               location.ApplyMapOverride("Town-TrashGone", destination_rect: new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(57, 68, 17, 5)));
@@ -5815,8 +5810,7 @@ label_9:
             layerDepth = 1f,
             id = 777f,
             yStopCoordinate = 6144,
-            reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (param =>
-            {
+            reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (delegate(param) { return {; }
               location.getTemporarySpriteByID(777).yStopCoordinate = -1;
               location.getTemporarySpriteByID(777).motion = new Vector2(0.0f, (float) param * 0.75f);
               location.getTemporarySpriteByID(777).acceleration = new Vector2(0.04f, -0.19f);
@@ -7072,8 +7066,7 @@ label_9:
             motion = new Vector2(2f, 0.0f),
             xStopCoordinate = 3136,
             id = 777f,
-            reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (param1 =>
-            {
+            reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (delegate(param1) { return {; }
               ++this.CurrentCommand;
               location.removeTemporarySpritesWithID(777);
             })
@@ -7412,8 +7405,7 @@ label_9:
             rotationChange = -0.02f,
             yStopCoordinate = 5952,
             layerDepth = 0.99f,
-            reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (param1 =>
-            {
+            reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (delegate(param1) { return {; }
               location.TemporarySprites.Add(new TemporaryAnimatedSprite("Maps\\springobjects", new Microsoft.Xna.Framework.Rectangle(48, 16, 16, 16), 100f, 5, 1, location.getTemporarySpriteByID(9999).position, false, false, 0.01f, 0.0f, Microsoft.Xna.Framework.Color.White, 4f, 0.0f, 0.0f, 0.0f)
               {
                 layerDepth = 1f
@@ -8046,7 +8038,7 @@ label_9:
         farmerActor.draw(b);
     }
 
-    public virtual bool ShouldHideCharacter(NPC n) => n is Child && this.doingSecretSanta;
+    public virtual bool ShouldHideCharacter(NPC n) { return n is Child && this.doingSecretSanta; }
 
     public void draw(SpriteBatch b)
     {
@@ -8355,7 +8347,7 @@ label_9:
       }
     }
 
-    public bool isSpecificFestival(string festivalID) => this.isFestival && this.festivalData["file"].Equals(festivalID);
+    public bool isSpecificFestival(string festivalID) { return this.isFestival && this.festivalData["file"].Equals(festivalID); }
 
     public void setUpFestivalMainEvent()
     {
@@ -8381,7 +8373,7 @@ label_9:
         "Alex",
         "Shane"
       };
-      List<Farmer> list = Game1.getOnlineFarmers().OrderBy<Farmer, long>((Func<Farmer, long>) (f => f.UniqueMultiplayerID)).ToList<Farmer>();
+      List<Farmer> list = Game1.getOnlineFarmers().OrderBy<Farmer, long>((Func<Farmer, long>) (delegate(f) { return f.UniqueMultiplayerID)).ToList<Farmer>(); };
       while (list.Count > 0)
       {
         Farmer farmer = list[0];
@@ -8438,7 +8430,7 @@ label_9:
       this.eventCommands = regex6.Replace(input6, "animate $1 false true 600 0 3").Split('/');
     }
 
-    public string FestivalName => this.festivalData == null ? "" : this.festivalData["name"];
+    public string delegate(FestivalName) { return this.festivalData == null ? "" : this.festivalData["name"]; };
 
     private void judgeGrange()
     {
@@ -9662,7 +9654,7 @@ label_9:
       Game1.exitActiveMenu();
     }
 
-    public void clickToAddItemToLuauSoup(Item i, Farmer who) => this.addItemToLuauSoup(i, who);
+    public void clickToAddItemToLuauSoup(Item i, Farmer who) { return this.addItemToLuauSoup(i, who); }
 
     public void setUpAdvancedMove(string[] split, NPCController.endBehavior endBehavior = null)
     {
@@ -9684,7 +9676,7 @@ label_9:
       }
     }
 
-    public static bool IsItemMayorShorts(Item i) => Utility.IsNormalObjectAtParentSheetIndex(i, 789) || Utility.IsNormalObjectAtParentSheetIndex(i, 71);
+    public static bool IsItemMayorShorts(Item i) { return Utility.IsNormalObjectAtParentSheetIndex(i, 789) || Utility.IsNormalObjectAtParentSheetIndex(i, 71); }
 
     public void addItemToLuauSoup(Item i, Farmer who)
     {
@@ -9865,6 +9857,6 @@ label_9:
       Game1.drawDialogue(this.getActorByName("Lewis"));
     }
 
-    private void iceFishingWinnerMP() => this.specialEventVariable1 = !this.winners.Contains(Game1.player);
+    private void iceFishingWinnerMP() { return this.specialEventVariable1 = !this.winners.Contains(Game1.player); }
   }
 }

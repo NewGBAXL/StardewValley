@@ -33,9 +33,9 @@ namespace StardewValley.Quests
     [XmlElement("objective")]
     public readonly NetDescriptionElementRef objective = new NetDescriptionElementRef();
 
-    public FishingQuest() => this.questType.Value = 7;
+    public FishingQuest() { return this.questType.Value = 7; }
 
-    protected override void initNetFields() => this.NetFields.AddFields((INetSerializable) this.parts, (INetSerializable) this.dialogueparts, (INetSerializable) this.objective, (INetSerializable) this.target, (INetSerializable) this.numberToFish, (INetSerializable) this.reward, (INetSerializable) this.numberFished, (INetSerializable) this.whichFish, (INetSerializable) this.fish);
+    protected override void initNetFields() { return this.NetFields.AddFields((INetSerializable) this.parts, (INetSerializable) this.dialogueparts, (INetSerializable) this.objective, (INetSerializable) this.target, (INetSerializable) this.numberToFish, (INetSerializable) this.reward, (INetSerializable) this.numberFished, (INetSerializable) this.whichFish, (INetSerializable) this.fish); }
 
     public void loadQuestInfo()
     {

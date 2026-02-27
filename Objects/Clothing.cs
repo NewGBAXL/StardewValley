@@ -44,8 +44,8 @@ namespace StardewValley.Objects
 
     public int Price
     {
-      set => this.price.Value = value;
-      get => this.price.Value;
+      delegate(set) { return this.price.Value = value; };
+      delegate(get) { return this.price.Value; };
     }
 
     public Clothing()
@@ -198,9 +198,9 @@ namespace StardewValley.Objects
       this._loadedData = true;
     }
 
-    public override string getCategoryName() => Game1.content.LoadString("Strings\\StringsFromCSFiles:category_clothes");
+    public override string getCategoryName() { return Game1.content.LoadString("Strings\\StringsFromCSFiles:category_clothes"); }
 
-    public override int salePrice() => (int) (NetFieldBase<int, NetInt>) this.price;
+    public override int salePrice() { return (int) (NetFieldBase<int, NetInt>) this.price; }
 
     public virtual void Dye(Color color, float strength = 0.5f)
     {
@@ -239,9 +239,9 @@ namespace StardewValley.Objects
       }
     }
 
-    public override int maximumStackSize() => 1;
+    public override int maximumStackSize() { return 1; }
 
-    public override int addToStack(Item stack) => 1;
+    public override int addToStack(Item stack) { return 1; }
 
     public override string getDescription()
     {
@@ -250,7 +250,7 @@ namespace StardewValley.Objects
       return Game1.parseText(this.description, Game1.smallFont, this.getDescriptionWidth());
     }
 
-    public override bool isPlaceable() => false;
+    public override bool isPlaceable() { return false; }
 
     [XmlIgnore]
     public override string DisplayName
@@ -261,13 +261,13 @@ namespace StardewValley.Objects
           this.LoadData();
         return this.displayName;
       }
-      set => this.displayName = value;
+      delegate(set) { return this.displayName = value; };
     }
 
     [XmlIgnore]
     public override int Stack
     {
-      get => 1;
+      delegate(get) { return 1; };
       set
       {
       }

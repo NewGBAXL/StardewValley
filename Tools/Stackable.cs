@@ -12,8 +12,8 @@ namespace StardewValley.Tools
 
     public int NumberInStack
     {
-      get => this.numberInStack;
-      set => this.numberInStack = value;
+      delegate(get) { return this.numberInStack; };
+      delegate(set) { return this.numberInStack = value; };
     }
 
     public Stackable()

@@ -30,7 +30,7 @@ namespace StardewValley.Locations
 
     public NetFields NetFields { get; } = new NetFields();
 
-    public DwarfGate() => this.InitNetFields();
+    public DwarfGate() { return this.InitNetFields(); }
 
     public DwarfGate(VolcanoDungeon location, int gate_index, int x, int y, int seed)
       : this()

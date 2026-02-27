@@ -21,15 +21,24 @@ namespace StardewValley.Network
 
     public StardewValley.Object this[Vector2 key]
     {
-      get => this.overlayDict.ContainsKey(key) ? this.overlayDict[key] : this.baseDict[key];
-      set => this.baseDict[key] = value;
+      get { return this.overlayDict.ContainsKey(key) ? this.overlayDict[key] : this.baseDict[key]; }
+      set { this.baseDict[key] = value; }
     }
 
-    public OverlaidDictionary.KeysCollection Keys => new OverlaidDictionary.KeysCollection(this);
+    public OverlaidDictionary.KeysCollection Keys
+    {
+      get { return new OverlaidDictionary.KeysCollection(this); }
+    }
 
-    public OverlaidDictionary.ValuesCollection Values => new OverlaidDictionary.ValuesCollection(this);
+    public OverlaidDictionary.ValuesCollection Values
+    {
+      get { return new OverlaidDictionary.ValuesCollection(this); }
+    }
 
-    public OverlaidDictionary.PairsCollection Pairs => new OverlaidDictionary.PairsCollection(this);
+    public OverlaidDictionary.PairsCollection Pairs
+    {
+      get { return new OverlaidDictionary.PairsCollection(this); }
+    }
 
     public void SetEqualityComparer(
       IEqualityComparer<Vector2> comparer,
@@ -50,9 +59,9 @@ namespace StardewValley.Network
       this.overlayDict = overlayDict;
     }
 
-    public int Count() => this.Keys.Count();
+    public int Count() { return this.Keys.Count(); }
 
-    public void Add(Vector2 key, StardewValley.Object value) => this.baseDict.Add(key, value);
+    public void Add(Vector2 key, StardewValley.Object value) { return this.baseDict.Add(key, value); }
 
     public void Clear()
     {
@@ -60,15 +69,21 @@ namespace StardewValley.Network
       this.overlayDict.Clear();
     }
 
-    public bool ContainsKey(Vector2 key) => this.overlayDict.ContainsKey(key) || this.baseDict.ContainsKey(key);
+    public bool ContainsKey(Vector2 key) { return this.overlayDict.ContainsKey(key) || this.baseDict.ContainsKey(key); }
 
-    public bool Remove(Vector2 key) => this.overlayDict.ContainsKey(key) ? this.overlayDict.Remove(key) : this.baseDict.Remove(key);
+    public bool Remove(Vector2 key) { return this.overlayDict.ContainsKey(key) ? this.overlayDict.Remove(key) : this.baseDict.Remove(key); }
 
-    public bool TryGetValue(Vector2 key, out StardewValley.Object value) => this.overlayDict.TryGetValue(key, out value) || this.baseDict.TryGetValue(key, out value);
+    public bool TryGetValue(Vector2 key, out StardewValley.Object value) { return this.overlayDict.TryGetValue(key, out value) || this.baseDict.TryGetValue(key, out value); }
 
-    public IEnumerator<SerializableDictionary<Vector2, StardewValley.Object>> GetEnumerator() => this.baseDict.GetEnumerator();
+    public IEnumerator<SerializableDictionary<Vector2, StardewValley.Object>> GetEnumerator()
+    {
+      return this.baseDict.GetEnumerator();
+    }
 
-    IEnumerator IEnumerable.GetEnumerator() => (IEnumerator) this.baseDict.GetEnumerator();
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+      return (IEnumerator) this.baseDict.GetEnumerator();
+    }
 
     public void Add(SerializableDictionary<Vector2, StardewValley.Object> dict)
     {
@@ -80,13 +95,19 @@ namespace StardewValley.Network
     {
       private OverlaidDictionary _dict;
 
-      public ValuesCollection(OverlaidDictionary dict) => this._dict = dict;
+      public ValuesCollection(OverlaidDictionary dict) { this._dict = dict; }
 
-      public OverlaidDictionary.ValuesCollection.Enumerator GetEnumerator() => new OverlaidDictionary.ValuesCollection.Enumerator(this._dict);
+      public OverlaidDictionary.ValuesCollection.Enumerator GetEnumerator() { return new OverlaidDictionary.ValuesCollection.Enumerator(this._dict); }
 
-      IEnumerator<StardewValley.Object> IEnumerable<StardewValley.Object>.GetEnumerator() => (IEnumerator<StardewValley.Object>) new OverlaidDictionary.ValuesCollection.Enumerator(this._dict);
+      IEnumerator<StardewValley.Object> IEnumerable<StardewValley.Object>.GetEnumerator()
+      {
+        return (IEnumerator<StardewValley.Object>) new OverlaidDictionary.ValuesCollection.Enumerator(this._dict);
+      }
 
-      IEnumerator IEnumerable.GetEnumerator() => (IEnumerator) new OverlaidDictionary.ValuesCollection.Enumerator(this._dict);
+      IEnumerator IEnumerable.GetEnumerator()
+      {
+        return (IEnumerator) new OverlaidDictionary.ValuesCollection.Enumerator(this._dict);
+      }
 
       public struct Enumerator : IEnumerator<StardewValley.Object>, IEnumerator, IDisposable
       {
@@ -122,7 +143,10 @@ namespace StardewValley.Network
           return false;
         }
 
-        public StardewValley.Object Current => this._current;
+        public StardewValley.Object Current
+        {
+          get { return this._current; }
+        }
 
         public void Dispose()
         {
@@ -152,7 +176,7 @@ namespace StardewValley.Network
     {
       private OverlaidDictionary _dict;
 
-      public KeysCollection(OverlaidDictionary dict) => this._dict = dict;
+      public KeysCollection(OverlaidDictionary dict) { this._dict = dict; }
 
       public int Count()
       {
@@ -162,11 +186,17 @@ namespace StardewValley.Network
         return num;
       }
 
-      public OverlaidDictionary.KeysCollection.Enumerator GetEnumerator() => new OverlaidDictionary.KeysCollection.Enumerator(this._dict);
+      public OverlaidDictionary.KeysCollection.Enumerator GetEnumerator() { return new OverlaidDictionary.KeysCollection.Enumerator(this._dict); }
 
-      IEnumerator<Vector2> IEnumerable<Vector2>.GetEnumerator() => (IEnumerator<Vector2>) new OverlaidDictionary.KeysCollection.Enumerator(this._dict);
+      IEnumerator<Vector2> IEnumerable<Vector2>.GetEnumerator()
+      {
+        return (IEnumerator<Vector2>) new OverlaidDictionary.KeysCollection.Enumerator(this._dict);
+      }
 
-      IEnumerator IEnumerable.GetEnumerator() => (IEnumerator) new OverlaidDictionary.KeysCollection.Enumerator(this._dict);
+      IEnumerator IEnumerable.GetEnumerator()
+      {
+        return (IEnumerator) new OverlaidDictionary.KeysCollection.Enumerator(this._dict);
+      }
 
       public struct Enumerator : IEnumerator<Vector2>, IEnumerator, IDisposable
       {
@@ -205,7 +235,10 @@ namespace StardewValley.Network
           return false;
         }
 
-        public Vector2 Current => this._current;
+        public Vector2 Current
+        {
+          get { return this._current; }
+        }
 
         public void Dispose()
         {
@@ -235,7 +268,7 @@ namespace StardewValley.Network
     {
       private OverlaidDictionary _dict;
 
-      public PairsCollection(OverlaidDictionary dict) => this._dict = dict;
+      public PairsCollection(OverlaidDictionary dict) { this._dict = dict; }
 
       public KeyValuePair<Vector2, StardewValley.Object> ElementAt(
         int index)
@@ -250,11 +283,17 @@ namespace StardewValley.Network
         throw new ArgumentOutOfRangeException();
       }
 
-      public OverlaidDictionary.PairsCollection.Enumerator GetEnumerator() => new OverlaidDictionary.PairsCollection.Enumerator(this._dict);
+      public OverlaidDictionary.PairsCollection.Enumerator GetEnumerator() { return new OverlaidDictionary.PairsCollection.Enumerator(this._dict); }
 
-      IEnumerator<KeyValuePair<Vector2, StardewValley.Object>> IEnumerable<KeyValuePair<Vector2, StardewValley.Object>>.GetEnumerator() => (IEnumerator<KeyValuePair<Vector2, StardewValley.Object>>) new OverlaidDictionary.PairsCollection.Enumerator(this._dict);
+      IEnumerator<KeyValuePair<Vector2, StardewValley.Object>> IEnumerable<KeyValuePair<Vector2, StardewValley.Object>>.GetEnumerator()
+      {
+        return (IEnumerator<KeyValuePair<Vector2, StardewValley.Object>>) new OverlaidDictionary.PairsCollection.Enumerator(this._dict);
+      }
 
-      IEnumerator IEnumerable.GetEnumerator() => (IEnumerator) new OverlaidDictionary.PairsCollection.Enumerator(this._dict);
+      IEnumerator IEnumerable.GetEnumerator()
+      {
+        return (IEnumerator) new OverlaidDictionary.PairsCollection.Enumerator(this._dict);
+      }
 
       public struct Enumerator : IEnumerator<KeyValuePair<Vector2, StardewValley.Object>>, IEnumerator, IDisposable
       {
@@ -295,7 +334,7 @@ namespace StardewValley.Network
           return false;
         }
 
-        public KeyValuePair<Vector2, StardewValley.Object> Current => this._current;
+        public KeyValuePair<Vector2, StardewValley.Object> delegate(Current) { return this._current; };
 
         public void Dispose()
         {

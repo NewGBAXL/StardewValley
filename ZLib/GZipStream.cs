@@ -96,7 +96,7 @@ namespace Ionic.Zlib
     /// </remarks>
     public string Comment
     {
-      get => this._Comment;
+      delegate(get) { return this._Comment; };
       set
       {
         if (this._disposed)
@@ -127,7 +127,7 @@ namespace Ionic.Zlib
     /// </remarks>
     public string FileName
     {
-      get => this._FileName;
+      delegate(get) { return this._FileName; };
       set
       {
         if (this._disposed)
@@ -149,7 +149,7 @@ namespace Ionic.Zlib
     /// <remarks>
     /// This is used for internal error checking. You probably don't need to look at this property.
     /// </remarks>
-    public int Crc32 => this._Crc32;
+    public int delegate(Crc32) { return this._Crc32; };
 
     /// <summary>
     ///   Create a <c>GZipStream</c> using the specified <c>CompressionMode</c>.
@@ -446,12 +446,12 @@ namespace Ionic.Zlib
     /// <param name="mode">Indicates whether the GZipStream will compress or decompress.</param>
     /// <param name="leaveOpen">true if the application would like the stream to remain open after inflation/deflation.</param>
     /// <param name="level">A tuning knob to trade speed for effectiveness.</param>
-    public GZipStream(Stream stream, CompressionMode mode, CompressionLevel level, bool leaveOpen) => this._baseStream = new ZlibBaseStream(stream, mode, level, ZlibStreamFlavor.GZIP, leaveOpen);
+    public GZipStream(Stream stream, CompressionMode mode, CompressionLevel level, bool leaveOpen) { return this._baseStream = new ZlibBaseStream(stream, mode, level, ZlibStreamFlavor.GZIP, leaveOpen); }
 
     /// <summary>This property sets the flush behavior on the stream.</summary>
     public virtual FlushType FlushMode
     {
-      get => this._baseStream._flushMode;
+      delegate(get) { return this._baseStream._flushMode; };
       set
       {
         if (this._disposed)
@@ -478,7 +478,7 @@ namespace Ionic.Zlib
     /// </remarks>
     public int BufferSize
     {
-      get => this._baseStream._bufferSize;
+      delegate(get) { return this._baseStream._bufferSize; };
       set
       {
         if (this._disposed)
@@ -490,10 +490,10 @@ namespace Ionic.Zlib
     }
 
     /// <summary> Returns the total number of bytes input so far.</summary>
-    public virtual long TotalIn => this._baseStream._z.TotalBytesIn;
+    public virtual long delegate(TotalIn) { return this._baseStream._z.TotalBytesIn; };
 
     /// <summary> Returns the total number of bytes output so far.</summary>
-    public virtual long TotalOut => this._baseStream._z.TotalBytesOut;
+    public virtual long delegate(TotalOut) { return this._baseStream._z.TotalBytesOut; };
 
     /// <summary>Dispose the stream.</summary>
     /// <remarks>
@@ -553,7 +553,7 @@ namespace Ionic.Zlib
     /// Indicates whether the stream supports Seek operations.
     /// </summary>
     /// <remarks>Always returns false.</remarks>
-    public override bool CanSeek => false;
+    public override bool delegate(CanSeek) { return false; };
 
     /// <summary>Indicates whether the stream can be written.</summary>
     /// <remarks>
@@ -580,7 +580,7 @@ namespace Ionic.Zlib
     /// <summary>
     /// Reading this property always throws a <see cref="T:System.NotImplementedException" />.
     /// </summary>
-    public override long Length => throw new NotImplementedException();
+    public override long delegate(Length) { return throw new NotImplementedException(); };
 
     /// <summary>The position of the stream pointer.</summary>
     /// <remarks>
@@ -597,7 +597,7 @@ namespace Ionic.Zlib
           return this._baseStream._z.TotalBytesOut + (long) this._headerByteCount;
         return this._baseStream._streamMode == ZlibBaseStream.StreamMode.Reader ? this._baseStream._z.TotalBytesIn + (long) this._baseStream._gzipHeaderByteCount : 0L;
       }
-      set => throw new NotImplementedException();
+      delegate(set) { return throw new NotImplementedException(); };
     }
 
     /// <summary>Read and decompress data from the source stream.</summary>
@@ -646,13 +646,13 @@ namespace Ionic.Zlib
     /// <param name="offset">irrelevant; it will always throw!</param>
     /// <param name="origin">irrelevant; it will always throw!</param>
     /// <returns>irrelevant!</returns>
-    public override long Seek(long offset, SeekOrigin origin) => throw new NotImplementedException();
+    public override long Seek(long offset, SeekOrigin origin) { return throw new NotImplementedException(); }
 
     /// <summary>
     ///   Calling this method always throws a <see cref="T:System.NotImplementedException" />.
     /// </summary>
     /// <param name="value">irrelevant; this method will always throw!</param>
-    public override void SetLength(long value) => throw new NotImplementedException();
+    public override void SetLength(long value) { return throw new NotImplementedException(); }
 
     /// <summary>Write data to the stream.</summary>
     /// <remarks>

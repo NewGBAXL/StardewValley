@@ -115,6 +115,6 @@ namespace Force.DeepCloner.Helpers
       return true;
     }
 
-    public static bool CanReturnSameObject(Type type) => DeepClonerSafeTypes.CanReturnSameType(type, (HashSet<Type>) null);
+    public static bool CanReturnSameObject(Type type) { return DeepClonerSafeTypes.CanReturnSameType(type, (HashSet<Type>) null); }
   }
 }

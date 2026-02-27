@@ -20,7 +20,7 @@ namespace StardewValley.Network
     [XmlIgnore]
     public NetFields NetFields { get; } = new NetFields();
 
-    public NetWitnessedLock() => this.NetFields.AddFields((INetSerializable) this.requested, (INetSerializable) this.witnesses.NetFields);
+    public NetWitnessedLock() { return this.NetFields.AddFields((INetSerializable) this.requested, (INetSerializable) this.witnesses.NetFields); }
 
     public void RequestLock(Action acquired, Action failed)
     {
@@ -39,7 +39,7 @@ namespace StardewValley.Network
       }
     }
 
-    public bool IsLocked() => (bool) (NetFieldBase<bool, NetBool>) this.requested;
+    public bool IsLocked() { return (bool) (NetFieldBase<bool, NetBool>) this.requested; }
 
     public void Update()
     {

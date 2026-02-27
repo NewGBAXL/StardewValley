@@ -10,6 +10,6 @@ namespace StardewValley
 {
   public class ShearsEnchantment : BaseEnchantment
   {
-    public override bool CanApplyTo(Item item) => item is Shears;
+    public override bool CanApplyTo(Item item) { return item is Shears; }
   }
 }

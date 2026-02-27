@@ -48,38 +48,38 @@ namespace StardewValley
     [XmlElement("modData")]
     public ModDataDictionary modDataForSerialization
     {
-      get => this.modData.GetForSerialization();
-      set => this.modData.SetFromSerialization(value);
+      delegate(get) { return this.modData.GetForSerialization(); };
+      delegate(set) { return this.modData.SetFromSerialization(value); };
     }
 
     public int SpecialVariable
     {
-      get => (int) (NetFieldBase<int, NetInt>) this.specialVariable;
-      set => this.specialVariable.Set(value);
+      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.specialVariable;
+      delegate(set) { return this.specialVariable.Set(value); };
     }
 
     [XmlIgnore]
     public int Category
     {
-      get => (int) (NetFieldBase<int, NetInt>) this.category;
-      set => this.category.Set(value);
+      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.category;
+      delegate(set) { return this.category.Set(value); };
     }
 
     [XmlIgnore]
     public bool HasBeenInInventory
     {
-      get => (bool) (NetFieldBase<bool, NetBool>) this.hasbeenInInventory;
-      set => this.hasbeenInInventory.Set(value);
+      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.hasbeenInInventory;
+      delegate(set) { return this.hasbeenInInventory.Set(value); };
     }
 
     [XmlIgnore]
     public NetFields NetFields { get; } = new NetFields();
 
-    public bool IsInfiniteStock() => this.isLostItem;
+    public bool IsInfiniteStock() { return this.isLostItem; }
 
-    public void MarkContextTagsDirty() => this._contextTagsDirty = true;
+    public void MarkContextTagsDirty() { return this._contextTagsDirty = true; }
 
-    public List<string> GetContextTagList() => this.GetContextTags().ToList<string>();
+    public List<string> GetContextTagList() { return this.GetContextTags().ToList<string>(); }
 
     public HashSet<string> GetContextTags()
     {
@@ -268,7 +268,7 @@ namespace StardewValley
       }
     }
 
-    public string SanitizeContextTag(string tag) => tag.Trim().ToLower().Replace(' ', '_').Replace("'", "");
+    public string SanitizeContextTag(string tag) { return tag.Trim().ToLower().Replace(' ', '_').Replace("'", ""); }
 
     protected Item()
     {
@@ -277,13 +277,13 @@ namespace StardewValley
       this.parentSheetIndex.Value = -1;
     }
 
-    public virtual bool ShouldSerializeparentSheetIndex() => this.parentSheetIndex.Value != -1;
+    public virtual bool ShouldSerializeparentSheetIndex() { return this.parentSheetIndex.Value != -1; }
 
     [XmlIgnore]
     public int ParentSheetIndex
     {
-      get => (int) (NetFieldBase<int, NetInt>) this.parentSheetIndex;
-      set => this.parentSheetIndex.Value = value;
+      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.parentSheetIndex;
+      delegate(set) { return this.parentSheetIndex.Value = value; };
     }
 
     public virtual void drawTooltip(
@@ -303,7 +303,7 @@ namespace StardewValley
       y += (int) font.MeasureString(overrideText).Y + 4;
     }
 
-    public virtual string[] ModifyItemBuffs(string[] buffs) => buffs;
+    public virtual string[] ModifyItemBuffs(string[] buffs) { return buffs; }
 
     public virtual Point getExtraSpaceNeededForTooltipSpecialIcons(
       SpriteFont font,
@@ -317,7 +317,7 @@ namespace StardewValley
       return Point.Zero;
     }
 
-    public bool ShouldDrawIcon() => true;
+    public bool ShouldDrawIcon() { return true; }
 
     public abstract void drawInMenu(
       SpriteBatch spriteBatch,
@@ -350,7 +350,7 @@ namespace StardewValley
       this.drawInMenu(spriteBatch, location, scaleSize, transparency, layerDepth, StackDrawType.Draw, Color.White, true);
     }
 
-    public void drawInMenu(SpriteBatch spriteBatch, Vector2 location, float scaleSize) => this.drawInMenu(spriteBatch, location, scaleSize, 1f, 0.9f, StackDrawType.Draw, Color.White, true);
+    public void drawInMenu(SpriteBatch spriteBatch, Vector2 location, float scaleSize) { return this.drawInMenu(spriteBatch, location, scaleSize, 1f, 0.9f, StackDrawType.Draw, Color.White, true); }
 
     public abstract int maximumStackSize();
 
@@ -360,7 +360,7 @@ namespace StardewValley
 
     public abstract bool isPlaceable();
 
-    public virtual int salePrice() => -1;
+    public virtual int salePrice() { return -1; }
 
     public virtual bool canBeTrashed()
     {
@@ -369,7 +369,7 @@ namespace StardewValley
       return !(this is Tool) || this is MeleeWeapon && !(this as MeleeWeapon).isScythe() || this is FishingRod || this is Pan || this is Slingshot;
     }
 
-    public virtual bool canBePlacedInWater() => false;
+    public virtual bool canBePlacedInWater() { return false; }
 
     public virtual bool actionWhenPurchased()
     {
@@ -387,9 +387,9 @@ namespace StardewValley
       return true;
     }
 
-    public virtual bool CanBuyItem(Farmer who) => Game1.player.couldInventoryAcceptThisItem(this);
+    public virtual bool CanBuyItem(Farmer who) { return Game1.player.couldInventoryAcceptThisItem(this); }
 
-    public virtual bool canBeDropped() => true;
+    public virtual bool canBeDropped() { return true; }
 
     public virtual void actionWhenBeingHeld(Farmer who)
     {
@@ -399,38 +399,38 @@ namespace StardewValley
     {
     }
 
-    public int getRemainingStackSpace() => this.maximumStackSize() - this.Stack;
+    public int getRemainingStackSpace() { return this.maximumStackSize() - this.Stack; }
 
-    public virtual int healthRecoveredOnConsumption() => 0;
+    public virtual int healthRecoveredOnConsumption() { return 0; }
 
-    public virtual int staminaRecoveredOnConsumption() => 0;
+    public virtual int staminaRecoveredOnConsumption() { return 0; }
 
-    public virtual string getHoverBoxText(Item hoveredItem) => (string) null;
+    public virtual string getHoverBoxText(Item hoveredItem) { return (string) null; }
 
-    public virtual bool canBeGivenAsGift() => false;
+    public virtual bool canBeGivenAsGift() { return false; }
 
     public virtual void drawAttachments(SpriteBatch b, int x, int y)
     {
     }
 
-    public virtual bool canBePlacedHere(GameLocation l, Vector2 tile) => false;
+    public virtual bool canBePlacedHere(GameLocation l, Vector2 tile) { return false; }
 
-    public virtual int attachmentSlots() => 0;
+    public virtual int attachmentSlots() { return 0; }
 
-    public virtual string getCategoryName() => this is Boots ? Game1.content.LoadString("Strings\\StringsFromCSFiles:Item.cs.3829") : "";
+    public virtual string getCategoryName() { return this is Boots ? Game1.content.LoadString("Strings\\StringsFromCSFiles:Item.cs.3829") : ""; }
 
-    public virtual Color getCategoryColor() => Color.Black;
+    public virtual Color getCategoryColor() { return Color.Black; }
 
-    public virtual bool canStackWith(ISalable other) => other != null && (other is Object && this is Object || other is ColoredObject && this is ColoredObject) && !((other as Object).orderData.Value != (this as Object).orderData.Value) && (!(this is ColoredObject) || !(other is ColoredObject) || (this as ColoredObject).color.Value.Equals((other as ColoredObject).color.Value)) && this.maximumStackSize() > 1 && other.maximumStackSize() > 1 && (this as Object).ParentSheetIndex == (other as Object).ParentSheetIndex && (this as Object).bigCraftable.Value == (other as Object).bigCraftable.Value && (this as Object).quality.Value == (other as Object).quality.Value && this.Name.Equals(other.Name);
+    public virtual bool canStackWith(ISalable other) { return other != null && (other is Object && this is Object || other is ColoredObject && this is ColoredObject) && !((other as Object).orderData.Value != (this as Object).orderData.Value) && (!(this is ColoredObject) || !(other is ColoredObject) || (this as ColoredObject).color.Value.Equals((other as ColoredObject).color.Value)) && this.maximumStackSize() > 1 && other.maximumStackSize() > 1 && (this as Object).ParentSheetIndex == (other as Object).ParentSheetIndex && (this as Object).bigCraftable.Value == (other as Object).bigCraftable.Value && (this as Object).quality.Value == (other as Object).quality.Value && this.Name.Equals(other.Name); }
 
-    public virtual string checkForSpecialItemHoldUpMeessage() => (string) null;
+    public virtual string checkForSpecialItemHoldUpMeessage() { return (string) null; }
 
     public abstract string DisplayName { get; set; }
 
     public virtual string Name
     {
-      get => this.netName.Value;
-      set => this.netName.Value = value;
+      delegate(get) { return this.netName.Value; };
+      delegate(set) { return this.netName.Value = value; };
     }
 
     public abstract int Stack { get; set; }
@@ -444,7 +444,7 @@ namespace StardewValley
         this.modData[key] = source.modData[key];
     }
 
-    public ISalable GetSalableInstance() => (ISalable) this.getOne();
+    public ISalable GetSalableInstance() { return (ISalable) this.getOne(); }
 
     public virtual int CompareTo(object obj)
     {
@@ -465,7 +465,7 @@ namespace StardewValley
       return this is Object && obj is Object ? string.Compare((string) (NetFieldBase<string, NetString>) (this as Object).type + this.Name, (string) (NetFieldBase<string, NetString>) (obj as Object).type + (obj as Item).Name) : string.Compare(this.Name, (obj as Item).Name);
     }
 
-    public int getCategorySortValue() => this.Category == -100 ? -94 : this.Category;
+    public int getCategorySortValue() { return this.Category == -100 ? -94 : this.Category; }
 
     protected virtual int getDescriptionWidth()
     {

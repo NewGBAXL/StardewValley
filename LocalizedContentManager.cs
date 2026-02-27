@@ -25,11 +25,11 @@ namespace StardewValley
 
     public static event LocalizedContentManager.LanguageChangedHandler OnLanguageChange;
 
-    public static LocalizedContentManager.LanguageCode GetDefaultLanguageCode() => LocalizedContentManager.LanguageCode.en;
+    public static LocalizedContentManager.LanguageCode GetDefaultLanguageCode() { return LocalizedContentManager.LanguageCode.en; }
 
     public static LocalizedContentManager.LanguageCode CurrentLanguageCode
     {
-      get => LocalizedContentManager._currentLangCode;
+      delegate(get) { return LocalizedContentManager._currentLangCode; };
       set
       {
         if (LocalizedContentManager._currentLangCode == value)
@@ -83,7 +83,10 @@ namespace StardewValley
     {
     }
 
-    public static ModLanguage CurrentModLanguage => LocalizedContentManager._currentModLanguage;
+    public static ModLanguage CurrentModLanguage
+    {
+      get { return LocalizedContentManager._currentModLanguage; }
+    }
 
     protected static bool _IsStringAt(string source, string string_to_find, int index)
     {
@@ -197,9 +200,15 @@ namespace StardewValley
       LocalizedContentManager.CurrentLanguageCode = LocalizedContentManager.LanguageCode.mod;
     }
 
-    public virtual T LoadBase<T>(string assetName) => base.Load<T>(assetName);
+    public virtual T LoadBase<T>(string assetName)
+    {
+      return base.Load<T>(assetName);
+    }
 
-    public override T Load<T>(string assetName) => this.Load<T>(assetName, LocalizedContentManager.CurrentLanguageCode);
+    public override T Load<T>(string assetName)
+    {
+      return this.Load<T>(assetName, LocalizedContentManager.CurrentLanguageCode);
+    }
 
     public virtual T Load<T>(string assetName, LocalizedContentManager.LanguageCode language)
     {
@@ -278,7 +287,7 @@ namespace StardewValley
       return str;
     }
 
-    public LocalizedContentManager.LanguageCode GetCurrentLanguage() => LocalizedContentManager.CurrentLanguageCode;
+    public LocalizedContentManager.LanguageCode GetCurrentLanguage() { return LocalizedContentManager.CurrentLanguageCode; }
 
     private string GetString(Dictionary<string, string> strings, string key)
     {
@@ -391,7 +400,7 @@ namespace StardewValley
       key = path.Substring(length + 1, path.Length - length - 1);
     }
 
-    public virtual LocalizedContentManager CreateTemporary() => new LocalizedContentManager(this.ServiceProvider, this.RootDirectory, this.CurrentCulture);
+    public virtual LocalizedContentManager CreateTemporary() { return new LocalizedContentManager(this.ServiceProvider, this.RootDirectory, this.CurrentCulture); }
 
     public delegate void LanguageChangedHandler(LocalizedContentManager.LanguageCode code);
 

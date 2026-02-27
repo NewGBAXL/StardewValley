@@ -76,7 +76,7 @@ namespace StardewValley
       return stringBuilder;
     }
 
-    static StringBuilderFormatEx() => StringBuilderFormatEx.Init();
+    static StringBuilderFormatEx() { return StringBuilderFormatEx.Init(); }
 
     public static void Init()
     {

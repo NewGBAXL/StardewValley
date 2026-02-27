@@ -829,13 +829,13 @@ label_26:
 
     internal bool WantRfc1950HeaderBytes
     {
-      get => this._WantRfc1950HeaderBytes;
-      set => this._WantRfc1950HeaderBytes = value;
+      delegate(get) { return this._WantRfc1950HeaderBytes; };
+      delegate(set) { return this._WantRfc1950HeaderBytes = value; };
     }
 
-    internal int Initialize(ZlibCodec codec, CompressionLevel level) => this.Initialize(codec, level, 15);
+    internal int Initialize(ZlibCodec codec, CompressionLevel level) { return this.Initialize(codec, level, 15); }
 
-    internal int Initialize(ZlibCodec codec, CompressionLevel level, int bits) => this.Initialize(codec, level, bits, DeflateManager.MEM_LEVEL_DEFAULT, CompressionStrategy.Default);
+    internal int Initialize(ZlibCodec codec, CompressionLevel level, int bits) { return this.Initialize(codec, level, bits, DeflateManager.MEM_LEVEL_DEFAULT, CompressionStrategy.Default); }
 
     internal int Initialize(
       ZlibCodec codec,
@@ -1101,7 +1101,7 @@ label_26:
         this.Flavor = flavor;
       }
 
-      public static DeflateManager.Config Lookup(CompressionLevel level) => DeflateManager.Config.Table[(int) level];
+      public static DeflateManager.Config Lookup(CompressionLevel level) { return DeflateManager.Config.Table[(int) level]; }
     }
   }
 }

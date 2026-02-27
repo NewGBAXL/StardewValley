@@ -29,15 +29,15 @@ namespace Ionic.Zlib
 
     internal bool HandleRfc1950HeaderBytes
     {
-      get => this._handleRfc1950HeaderBytes;
-      set => this._handleRfc1950HeaderBytes = value;
+      delegate(get) { return this._handleRfc1950HeaderBytes; };
+      delegate(set) { return this._handleRfc1950HeaderBytes = value; };
     }
 
     public InflateManager()
     {
     }
 
-    public InflateManager(bool expectRfc1950HeaderBytes) => this._handleRfc1950HeaderBytes = expectRfc1950HeaderBytes;
+    public InflateManager(bool expectRfc1950HeaderBytes) { return this._handleRfc1950HeaderBytes = expectRfc1950HeaderBytes; }
 
     internal int Reset()
     {
@@ -345,7 +345,7 @@ label_54:
       return 0;
     }
 
-    internal int SyncPoint(ZlibCodec z) => this.blocks.SyncPoint();
+    internal int SyncPoint(ZlibCodec z) { return this.blocks.SyncPoint(); }
 
     private enum InflateManagerMode
     {

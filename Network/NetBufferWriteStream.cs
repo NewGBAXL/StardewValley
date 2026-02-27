@@ -21,25 +21,25 @@ namespace StardewValley.Network
       this.offset = buffer.LengthBits;
     }
 
-    public override bool CanRead => false;
+    public override bool delegate(CanRead) { return false; };
 
-    public override bool CanSeek => true;
+    public override bool delegate(CanSeek) { return true; };
 
-    public override bool CanWrite => true;
+    public override bool delegate(CanWrite) { return true; };
 
-    public override long Length => throw new NotSupportedException();
+    public override long delegate(Length) { return throw new NotSupportedException(); };
 
     public override long Position
     {
-      get => (long) ((this.Buffer.LengthBits - this.offset) / 8);
-      set => this.Buffer.LengthBits = (int) ((long) this.offset + value * 8L);
+      delegate(get) { return (long) ((this.Buffer.LengthBits - this.offset) / 8); };
+      delegate(set) { return this.Buffer.LengthBits = (int) ((long) this.offset + value * 8L); };
     }
 
     public override void Flush()
     {
     }
 
-    public override int Read(byte[] buffer, int offset, int count) => throw new NotSupportedException();
+    public override int Read(byte[] buffer, int offset, int count) { return throw new NotSupportedException(); }
 
     public override long Seek(long offset, SeekOrigin origin)
     {
@@ -57,8 +57,8 @@ namespace StardewValley.Network
       return this.Position;
     }
 
-    public override void SetLength(long value) => throw new NotSupportedException();
+    public override void SetLength(long value) { return throw new NotSupportedException(); }
 
-    public override void Write(byte[] buffer, int offset, int count) => this.Buffer.Write(buffer, offset, count);
+    public override void Write(byte[] buffer, int offset, int count) { return this.Buffer.Write(buffer, offset, count); }
   }
 }

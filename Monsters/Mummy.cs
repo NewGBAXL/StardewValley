@@ -142,7 +142,7 @@ namespace StardewValley.Monsters
       base.update(time, location);
     }
 
-    private void crumble(bool reverse = false) => this.crumbleEvent.Fire(reverse);
+    private void crumble(bool reverse = false) { return this.crumbleEvent.Fire(reverse); }
 
     private void performCrumble(bool reverse)
     {

@@ -52,7 +52,7 @@ namespace StardewValley.Minigames
       this.addTargets();
     }
 
-    public bool overrideFreeMouseMovement() => false;
+    public bool overrideFreeMouseMovement() { return false; }
 
     public bool tick(GameTime time)
     {
@@ -433,11 +433,11 @@ namespace StardewValley.Minigames
     {
     }
 
-    public string minigameId() => nameof (TargetGame);
+    public string minigameId() { return nameof (TargetGame); }
 
-    public bool doMainGameUpdates() => false;
+    public bool doMainGameUpdates() { return false; }
 
-    public bool forceQuit() => false;
+    public bool forceQuit() { return false; }
 
     public class Target
     {
@@ -518,8 +518,7 @@ namespace StardewValley.Minigames
         if (this.Position.X < 0 || this.Position.Right > TargetGame.Target.spawnRightPosition + 64)
           return true;
         bool projectileHit = false;
-        location.projectiles.Filter((Func<Projectile, bool>) (projectile =>
-        {
+        location.projectiles.Filter((Func<Projectile, bool>) (delegate(projectile) { return {; }
           if (projectile.getBoundingBox().Intersects(this.Position))
           {
             this.shatter(location, projectile);

@@ -38,9 +38,9 @@ namespace StardewValley.Menus
       this.gettingFarmhands = true;
     }
 
-    public override bool readyToClose() => !this.loading;
+    public override bool readyToClose() { return !this.loading; }
 
-    protected override bool hasDeleteButtons() => false;
+    protected override bool hasDeleteButtons() { return false; }
 
     protected override void startListPopulation()
     {
@@ -73,7 +73,7 @@ namespace StardewValley.Menus
         else
         {
           this.approvingFarmhand = false;
-          this.menuSlots.AddRange((IEnumerable<LoadGameMenu.MenuSlot>) this.client.availableFarmhands.Select<Farmer, FarmhandMenu.FarmhandSlot>((Func<Farmer, FarmhandMenu.FarmhandSlot>) (farmer => new FarmhandMenu.FarmhandSlot(this, farmer))));
+          this.menuSlots.AddRange((IEnumerable<LoadGameMenu.MenuSlot>) this.client.availableFarmhands.Select<Farmer, FarmhandMenu.FarmhandSlot>((Func<Farmer, FarmhandMenu.FarmhandSlot>) (delegate(farmer) { return new FarmhandMenu.FarmhandSlot(this; }, farmer))));
         }
         if (Game1.activeClickableMenu is TitleMenu)
           Game1.gameMode = (byte) 0;
@@ -162,7 +162,7 @@ label_8:
           if (this.approvingFarmhand)
             Game1.multiplayer.clientRemotelyDisconnected(Multiplayer.IsTimeout(this.client.pendingDisconnect) ? Multiplayer.DisconnectType.Timeout_FarmhandSelection : this.client.pendingDisconnect);
           else
-            this.menuSlots.RemoveAll((Predicate<LoadGameMenu.MenuSlot>) (slot => slot is FarmhandMenu.FarmhandSlot));
+            this.menuSlots.RemoveAll((Predicate<LoadGameMenu.MenuSlot>) (delegate(slot) { return slot is FarmhandMenu.FarmhandSlot)); };
         }
       }
       base.update(time);
@@ -219,7 +219,7 @@ label_8:
       protected FarmhandMenu menu;
       protected bool _belongsToAnotherPlayer;
 
-      public bool BelongsToAnotherPlayer() => (Game1.game1 == null || Game1.game1.IsMainInstance) && this._belongsToAnotherPlayer;
+      public bool BelongsToAnotherPlayer() { return (Game1.game1 == null || Game1.game1.IsMainInstance) && this._belongsToAnotherPlayer; }
 
       public FarmhandSlot(FarmhandMenu menu, Farmer farmer)
         : base((LoadGameMenu) menu, farmer)
@@ -246,7 +246,7 @@ label_8:
         Game1.gameMode = (byte) 6;
       }
 
-      public override float getSlotAlpha() => this.BelongsToAnotherPlayer() ? 0.5f : base.getSlotAlpha();
+      public override float getSlotAlpha() { return this.BelongsToAnotherPlayer() ? 0.5f : base.getSlotAlpha(); }
 
       protected override void drawSlotName(SpriteBatch b, int i)
       {

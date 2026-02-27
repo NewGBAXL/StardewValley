@@ -48,7 +48,7 @@ namespace StardewValley.Minigames
     public string gameOverString = "";
     public bool lastHitWasDouble;
 
-    public bool overrideFreeMouseMovement() => false;
+    public bool overrideFreeMouseMovement() { return false; }
 
     public Darts(int dart_count = 20)
     {
@@ -119,9 +119,9 @@ namespace StardewValley.Minigames
       }
     }
 
-    public bool WasButtonHeld() => Game1.input.GetMouseState().LeftButton == ButtonState.Pressed || Game1.input.GetGamePadState().IsButtonDown(Buttons.A) || Game1.input.GetGamePadState().IsButtonDown(Buttons.X) || Game1.isOneOfTheseKeysDown(Game1.input.GetKeyboardState(), Game1.options.actionButton) || Game1.isOneOfTheseKeysDown(Game1.input.GetKeyboardState(), Game1.options.actionButton);
+    public bool WasButtonHeld() { return Game1.input.GetMouseState().LeftButton == ButtonState.Pressed || Game1.input.GetGamePadState().IsButtonDown(Buttons.A) || Game1.input.GetGamePadState().IsButtonDown(Buttons.X) || Game1.isOneOfTheseKeysDown(Game1.input.GetKeyboardState(), Game1.options.actionButton) || Game1.isOneOfTheseKeysDown(Game1.input.GetKeyboardState(), Game1.options.actionButton); }
 
-    public bool WasButtonPressed() => Game1.input.GetMouseState().LeftButton == ButtonState.Pressed && Game1.oldMouseState.LeftButton == ButtonState.Released || Game1.input.GetGamePadState().IsButtonDown(Buttons.A) && Game1.oldPadState.IsButtonUp(Buttons.A) || Game1.input.GetGamePadState().IsButtonDown(Buttons.X) && Game1.oldPadState.IsButtonUp(Buttons.X) || Game1.isOneOfTheseKeysDown(Game1.input.GetKeyboardState(), Game1.options.actionButton) && !Game1.isOneOfTheseKeysDown(Game1.oldKBState, Game1.options.actionButton) || Game1.isOneOfTheseKeysDown(Game1.input.GetKeyboardState(), Game1.options.actionButton) && !Game1.isOneOfTheseKeysDown(Game1.oldKBState, Game1.options.actionButton);
+    public bool WasButtonPressed() { return Game1.input.GetMouseState().LeftButton == ButtonState.Pressed && Game1.oldMouseState.LeftButton == ButtonState.Released || Game1.input.GetGamePadState().IsButtonDown(Buttons.A) && Game1.oldPadState.IsButtonUp(Buttons.A) || Game1.input.GetGamePadState().IsButtonDown(Buttons.X) && Game1.oldPadState.IsButtonUp(Buttons.X) || Game1.isOneOfTheseKeysDown(Game1.input.GetKeyboardState(), Game1.options.actionButton) && !Game1.isOneOfTheseKeysDown(Game1.oldKBState, Game1.options.actionButton) || Game1.isOneOfTheseKeysDown(Game1.input.GetKeyboardState(), Game1.options.actionButton) && !Game1.isOneOfTheseKeysDown(Game1.oldKBState, Game1.options.actionButton); }
 
     public bool tick(GameTime time)
     {
@@ -281,9 +281,9 @@ namespace StardewValley.Minigames
       return false;
     }
 
-    public virtual bool IsAiming() => this.currentGameState == Darts.GameState.Aiming && (double) this.cursorPosition.X > 0.0 && (double) this.cursorPosition.X < 320.0 && (double) this.cursorPosition.Y > 0.0 && (double) this.cursorPosition.Y < 320.0;
+    public virtual bool IsAiming() { return this.currentGameState == Darts.GameState.Aiming && (double) this.cursorPosition.X > 0.0 && (double) this.cursorPosition.X < 320.0 && (double) this.cursorPosition.Y > 0.0 && (double) this.cursorPosition.Y < 320.0; }
 
-    public float GetRadiusFromCharge() => (float) Math.Pow((double) this.chargeTime, 0.5);
+    public float GetRadiusFromCharge() { return (float) Math.Pow((double) this.chargeTime, 0.5); }
 
     public void receiveLeftClick(int x, int y, bool playSound = true)
     {
@@ -363,7 +363,7 @@ namespace StardewValley.Minigames
       return pointsForAim;
     }
 
-    public virtual void FireDart(float radius) => this.SetGameState(Darts.GameState.Firing);
+    public virtual void FireDart(float radius) { return this.SetGameState(Darts.GameState.Firing); }
 
     public void releaseRightClick(int x, int y)
     {
@@ -515,7 +515,7 @@ namespace StardewValley.Minigames
       }
     }
 
-    public float GetPixelScale() => this.pixelScale;
+    public float GetPixelScale() { return this.pixelScale; }
 
     public Rectangle TransformDraw(Rectangle dest)
     {
@@ -533,7 +533,7 @@ namespace StardewValley.Minigames
       return dest;
     }
 
-    public bool IsPerfectVictory() => this.points == 0 && this.throwsCount <= 6;
+    public bool IsPerfectVictory() { return this.points == 0 && this.throwsCount <= 6; }
 
     public void changeScreenSize()
     {
@@ -572,11 +572,11 @@ namespace StardewValley.Minigames
     {
     }
 
-    public void receiveEventPoke(int data) => throw new NotImplementedException();
+    public void receiveEventPoke(int data) { return throw new NotImplementedException(); }
 
-    public string minigameId() => nameof (Darts);
+    public string minigameId() { return nameof (Darts); }
 
-    public bool doMainGameUpdates() => false;
+    public bool doMainGameUpdates() { return false; }
 
     public enum GameState
     {

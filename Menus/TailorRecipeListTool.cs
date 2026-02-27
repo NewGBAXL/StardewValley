@@ -130,9 +130,9 @@ namespace StardewValley.Menus
       }
     }
 
-    public override void snapToDefaultClickableComponent() => this.snapCursorToCurrentSnappedComponent();
+    public override void snapToDefaultClickableComponent() { return this.snapCursorToCurrentSnappedComponent(); }
 
-    public override void gamePadButtonHeld(Buttons b) => base.gamePadButtonHeld(b);
+    public override void gamePadButtonHeld(Buttons b) { return base.gamePadButtonHeld(b); }
 
     public override void receiveGamePadButton(Buttons b)
     {
@@ -211,7 +211,7 @@ namespace StardewValley.Menus
       }
     }
 
-    public bool canLeaveMenu() => true;
+    public bool canLeaveMenu() { return true; }
 
     public override void draw(SpriteBatch b)
     {

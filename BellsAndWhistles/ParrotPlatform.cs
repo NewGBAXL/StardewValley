@@ -65,7 +65,7 @@ namespace StardewValley.BellsAndWhistles
       return platformsForArea;
     }
 
-    public ParrotPlatform() => this.texture = Game1.content.Load<Texture2D>("LooseSprites\\ParrotPlatform");
+    public ParrotPlatform() { return this.texture = Game1.content.Load<Texture2D>("LooseSprites\\ParrotPlatform"); }
 
     public ParrotPlatform(int tile_x, int tile_y, string key)
       : this()
@@ -203,7 +203,7 @@ namespace StardewValley.BellsAndWhistles
       return false;
     }
 
-    public virtual void Cleanup() => ParrotPlatform.activePlatform = (ParrotPlatform) null;
+    public virtual void Cleanup() { return ParrotPlatform.activePlatform = (ParrotPlatform) null; }
 
     public virtual bool CheckCollisions(Microsoft.Xna.Framework.Rectangle rectangle)
     {
@@ -211,9 +211,9 @@ namespace StardewValley.BellsAndWhistles
       return rectangle.Intersects(new Microsoft.Xna.Framework.Rectangle((int) this.position.X, (int) this.position.Y, 192, num)) || rectangle.Intersects(new Microsoft.Xna.Framework.Rectangle((int) this.position.X, (int) this.position.Y + 128 - num, 64, num)) || rectangle.Intersects(new Microsoft.Xna.Framework.Rectangle((int) this.position.X + 128, (int) this.position.Y + 128 - num, 64, num)) || this.takeoffState > ParrotPlatform.TakeoffState.Idle && rectangle.Intersects(new Microsoft.Xna.Framework.Rectangle((int) this.position.X + 64, (int) this.position.Y + 128 - num, 64, num)) || rectangle.Intersects(new Microsoft.Xna.Framework.Rectangle((int) this.position.X, (int) this.position.Y, num, 128)) || rectangle.Intersects(new Microsoft.Xna.Framework.Rectangle((int) this.position.X + 192 - num, (int) this.position.Y, num, 128));
     }
 
-    public virtual bool OccupiesTile(Vector2 tile_pos) => (double) tile_pos.X >= (double) this.position.X / 64.0 && (double) tile_pos.X < (double) this.position.X / 64.0 + 3.0 && (double) tile_pos.Y >= (double) this.position.Y / 64.0 && (double) tile_pos.Y < (double) this.position.Y / 64.0 + 2.0;
+    public virtual bool OccupiesTile(Vector2 tile_pos) { return (double) tile_pos.X >= (double) this.position.X / 64.0 && (double) tile_pos.X < (double) this.position.X / 64.0 + 3.0 && (double) tile_pos.Y >= (double) this.position.Y / 64.0 && (double) tile_pos.Y < (double) this.position.Y / 64.0 + 2.0; }
 
-    public virtual Vector2 GetDrawPosition() => this.position - new Vector2(0.0f, (float) (128.0 + (double) this.height * 4.0)) + this.shake;
+    public virtual Vector2 GetDrawPosition() { return this.position - new Vector2(0.0f, (float) (128.0 + (double) this.height * 4.0)) + this.shake; }
 
     public virtual void Draw(SpriteBatch b)
     {

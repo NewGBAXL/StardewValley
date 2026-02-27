@@ -145,7 +145,7 @@ namespace StardewValley.Menus
       this._SetCharacter(character);
     }
 
-    public Character GetCharacter() => this._target;
+    public Character GetCharacter() { return this._target; }
 
     public NPC GetTemporaryCharacter(Character character)
     {
@@ -904,7 +904,7 @@ namespace StardewValley.Menus
       Game1.playSound("shiny4");
     }
 
-    public bool NeedsScrollBar() => this.scrollSize > 0;
+    public bool NeedsScrollBar() { return this.scrollSize > 0; }
 
     public void Scroll(int offset)
     {
@@ -1039,13 +1039,13 @@ namespace StardewValley.Menus
       IClickableMenu.drawToolTip(b, this.hoveredItem.getDescription(), this.hoveredItem.DisplayName, this.hoveredItem);
     }
 
-    public void unload() => this._socialPage = (SocialPage) null;
+    public void unload() { return this._socialPage = (SocialPage) null; }
 
-    public override void receiveRightClick(int x, int y, bool playSound = true) => this.receiveLeftClick(x, y, playSound);
+    public override void receiveRightClick(int x, int y, bool playSound = true) { return this.receiveLeftClick(x, y, playSound); }
 
-    public void RegisterClickable(ClickableComponent clickable) => this.clickableProfileItems.Add(clickable);
+    public void RegisterClickable(ClickableComponent clickable) { return this.clickableProfileItems.Add(clickable); }
 
-    public void UnregisterClickable(ClickableComponent clickable) => this.clickableProfileItems.Remove(clickable);
+    public void UnregisterClickable(ClickableComponent clickable) { return this.clickableProfileItems.Remove(clickable); }
 
     public class ProfileItemCategory
     {

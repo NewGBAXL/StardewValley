@@ -23,8 +23,8 @@ namespace StardewValley.Network
     {
     }
 
-    protected override int ReadKey(BinaryReader reader) => reader.ReadInt32();
+    protected override int ReadKey(BinaryReader reader) { return reader.ReadInt32(); }
 
-    protected override void WriteKey(BinaryWriter writer, int key) => writer.Write(key);
+    protected override void WriteKey(BinaryWriter writer, int key) { return writer.Write(key); }
   }
 }

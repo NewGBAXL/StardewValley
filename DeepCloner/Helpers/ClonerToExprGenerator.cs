@@ -14,7 +14,7 @@ namespace Force.DeepCloner.Helpers
 {
   internal static class ClonerToExprGenerator
   {
-    internal static object GenerateClonerInternal(Type realType, bool isDeepClone) => !realType.IsValueType() ? ClonerToExprGenerator.GenerateProcessMethod(realType, isDeepClone) : throw new InvalidOperationException("Operation is valid only for reference types");
+    internal static object GenerateClonerInternal(Type realType, bool isDeepClone) { return !realType.IsValueType() ? ClonerToExprGenerator.GenerateProcessMethod(realType, isDeepClone) : throw new InvalidOperationException("Operation is valid only for reference types"); }
 
     private static object GenerateProcessMethod(Type type, bool isDeepClone)
     {
@@ -211,7 +211,7 @@ namespace Force.DeepCloner.Helpers
         throw new InvalidOperationException("Invalid rank of target array");
       int[] array1 = Enumerable.Range(0, rank).Select<int, int>(new Func<int, int>(objFrom.GetLowerBound)).ToArray<int>();
       int[] array2 = Enumerable.Range(0, rank).Select<int, int>(new Func<int, int>(objTo.GetLowerBound)).ToArray<int>();
-      int[] array3 = Enumerable.Range(0, rank).Select<int, int>((Func<int, int>) (x => Math.Min(objFrom.GetLength(x), objTo.GetLength(x)))).ToArray<int>();
+      int[] array3 = Enumerable.Range(0, rank).Select<int, int>((Func<int, int>) (delegate(x) { return Math.Min(objFrom.GetLength(x); }, objTo.GetLength(x)))).ToArray<int>();
       int[] array4 = Enumerable.Range(0, rank).Select<int, int>(new Func<int, int>(objFrom.GetLowerBound)).ToArray<int>();
       int[] array5 = Enumerable.Range(0, rank).Select<int, int>(new Func<int, int>(objTo.GetLowerBound)).ToArray<int>();
       state.AddKnownRef((object) objFrom, (object) objTo);

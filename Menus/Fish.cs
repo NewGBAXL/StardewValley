@@ -160,6 +160,6 @@ namespace StardewValley.Menus
       }
     }
 
-    public void draw(SpriteBatch b, Vector2 positionOfFishingField) => b.Draw(Game1.mouseCursors, this.position + positionOfFishingField, new Rectangle?(new Rectangle(561, 1846 + this.indexOfAnimation * 16, 16, 16)), Color.White, this.rotation + 1.570796f, new Vector2(8f, 8f), 4f, SpriteEffects.None, 0.5f);
+    public void draw(SpriteBatch b, Vector2 positionOfFishingField) { return b.Draw(Game1.mouseCursors, this.position + positionOfFishingField, new Rectangle?(new Rectangle(561, 1846 + this.indexOfAnimation * 16, 16, 16)), Color.White, this.rotation + 1.570796f, new Vector2(8f, 8f), 4f, SpriteEffects.None, 0.5f); }
   }
 }

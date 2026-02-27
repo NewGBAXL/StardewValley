@@ -35,7 +35,7 @@ namespace StardewValley.Monsters
       this.reloadSprite();
     }
 
-    public override int GetBaseDifficultyLevel() => 1;
+    public override int GetBaseDifficultyLevel() { return 1; }
 
     public override void reloadSprite()
     {
@@ -58,7 +58,7 @@ namespace StardewValley.Monsters
     {
     }
 
-    public override bool isInvincible() => this.leaping.Value || base.isInvincible();
+    public override bool isInvincible() { return this.leaping.Value || base.isInvincible(); }
 
     public override void updateMovement(GameLocation location, GameTime time)
     {

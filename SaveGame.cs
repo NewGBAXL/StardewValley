@@ -185,7 +185,7 @@ namespace StardewValley
     public string gameVersion = Game1.version;
     public string gameVersionLabel;
 
-    public static XmlSerializer GetSerializer(Type type) => new XmlSerializer(type);
+    public static XmlSerializer GetSerializer(Type type) { return new XmlSerializer(type); }
 
     public static IEnumerator<int> Save()
     {
@@ -1142,7 +1142,7 @@ namespace StardewValley
           }
         }
       }
-      target.questLog.Filter((Func<Quest, bool>) (x => x != null));
+      target.questLog.Filter((Func<Quest, bool>) (delegate(x) { return x != null)); };
       target.songsHeard = target.songsHeard.Distinct<string>().ToList<string>();
       target.ConvertClothingOverrideToClothesItems();
       target.UpdateClothing();

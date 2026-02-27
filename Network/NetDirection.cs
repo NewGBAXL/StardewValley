@@ -28,7 +28,7 @@ namespace StardewValley.Network
       this.InterpolationWait = true;
     }
 
-    public static implicit operator int(NetDirection netField) => (NetFieldBase<int, NetInt>) netField == (NetInt) null ? 0 : netField.Get();
+    public static implicit operator int(NetDirection netField) { return (NetFieldBase<int, NetInt>) netField == (NetInt) null ? 0 : netField.Get(); }
 
     public override void Set(int newValue)
     {
@@ -45,7 +45,7 @@ namespace StardewValley.Network
       }
     }
 
-    protected override bool setUpInterpolation(int oldValue, int newValue) => true;
+    protected override bool setUpInterpolation(int oldValue, int newValue) { return true; }
 
     public int getInterpolatedDirection()
     {
@@ -81,6 +81,6 @@ namespace StardewValley.Network
       this.setInterpolationTarget(newValue);
     }
 
-    protected override void WriteDelta(BinaryWriter writer) => writer.Write(this.value);
+    protected override void WriteDelta(BinaryWriter writer) { return writer.Write(this.value); }
   }
 }

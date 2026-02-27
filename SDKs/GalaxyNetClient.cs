@@ -19,13 +19,13 @@ namespace StardewValley.SDKs
     private GalaxyID serverId;
     private float lastPingMs;
 
-    public GalaxyNetClient(GalaxyID lobbyId) => this.lobbyId = lobbyId;
+    public GalaxyNetClient(GalaxyID lobbyId) { return this.lobbyId = lobbyId; }
 
-    public override string getUserID() => Convert.ToString(GalaxyInstance.User().GetGalaxyID().ToUint64());
+    public override string getUserID() { return Convert.ToString(GalaxyInstance.User().GetGalaxyID().ToUint64()); }
 
-    protected override string getHostUserName() => GalaxyInstance.Friends().GetFriendPersonaName(this.serverId);
+    protected override string getHostUserName() { return GalaxyInstance.Friends().GetFriendPersonaName(this.serverId); }
 
-    public override float GetPingToHost() => this.lastPingMs;
+    public override float GetPingToHost() { return this.lastPingMs; }
 
     protected override void connectImpl()
     {
@@ -95,7 +95,7 @@ namespace StardewValley.SDKs
       }
     }
 
-    protected virtual void onReceiveError(string message) => this.connectionMessage = message;
+    protected virtual void onReceiveError(string message) { return this.connectionMessage = message; }
 
     public override void sendMessage(OutgoingMessage message)
     {

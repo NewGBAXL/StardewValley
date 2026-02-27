@@ -103,7 +103,7 @@ namespace StardewValley.Monsters
     {
     }
 
-    public virtual bool CaughtInWeb() => this.currentLocation != null && this.currentLocation.terrainFeatures.ContainsKey(this.getTileLocation()) && this.currentLocation.terrainFeatures[this.getTileLocation()] is Grass && (byte) (NetFieldBase<byte, NetByte>) (this.currentLocation.terrainFeatures[this.getTileLocation()] as Grass).grassType == (byte) 6;
+    public virtual bool CaughtInWeb() { return this.currentLocation != null && this.currentLocation.terrainFeatures.ContainsKey(this.getTileLocation()) && this.currentLocation.terrainFeatures[this.getTileLocation()] is Grass && (byte) (NetFieldBase<byte, NetByte>) (this.currentLocation.terrainFeatures[this.getTileLocation()] as Grass).grassType == (byte) 6; }
 
     protected override void updateAnimation(GameTime time)
     {

@@ -30,7 +30,7 @@ namespace StardewValley
     [XmlIgnore]
     public bool hasShownIncubatorBuildingFullMessage;
 
-    public NetLongDictionary<FarmAnimal, NetRef<FarmAnimal>> Animals => this.animals;
+    public NetLongDictionary<FarmAnimal, NetRef<FarmAnimal>> delegate(Animals) { return this.animals; };
 
     public AnimalHouse()
     {
@@ -73,7 +73,7 @@ namespace StardewValley
       }
     }
 
-    public bool isFull() => this.animalsThatLiveHere.Count >= (int) (NetFieldBase<int, NetInt>) this.animalLimit;
+    public bool isFull() { return this.animalsThatLiveHere.Count >= (int) (NetFieldBase<int, NetInt>) this.animalLimit; }
 
     public bool CheckPetAnimal(Vector2 position, Farmer who)
     {

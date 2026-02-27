@@ -19,7 +19,7 @@ namespace StardewValley
       this.total_size = 0;
     }
 
-    public bool IsEmpty() => this.total_size == 0;
+    public bool IsEmpty() { return this.total_size == 0; }
 
     public void Clear()
     {

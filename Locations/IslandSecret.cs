@@ -276,7 +276,7 @@ namespace StardewValley.Locations
       temporarySpriteById.motion = new Vector2(0.0f, -3f);
       temporarySpriteById.animationLength = 2;
       temporarySpriteById.yStopCoordinate = 1280;
-      temporarySpriteById.reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (x => this.removeTemporarySpritesWithID(777));
+      temporarySpriteById.reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (delegate(x) { return this.removeTemporarySpritesWithID(777)); };
       this.temporarySprites.Add(temporarySpriteById);
       DelayedAction.functionAfterDelay((DelayedAction.delayedBehavior) (() => Game1.playMorningSong()), 3000);
     }

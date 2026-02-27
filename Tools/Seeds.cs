@@ -13,14 +13,14 @@ namespace StardewValley.Tools
 
     public new int NumberInStack
     {
-      get => this.numberInStack;
-      set => this.numberInStack = value;
+      delegate(get) { return this.numberInStack; };
+      delegate(set) { return this.numberInStack = value; };
     }
 
     public string SeedType
     {
-      get => this.seedType;
-      set => this.seedType = value;
+      delegate(get) { return this.seedType; };
+      delegate(set) { return this.seedType = value; };
     }
 
     public Seeds()
@@ -43,9 +43,9 @@ namespace StardewValley.Tools
       return (Item) one;
     }
 
-    protected override string loadDisplayName() => Game1.content.LoadString("Strings\\StringsFromCSFiles:Seeds.cs.14209");
+    protected override string loadDisplayName() { return Game1.content.LoadString("Strings\\StringsFromCSFiles:Seeds.cs.14209"); }
 
-    protected override string loadDescription() => Game1.content.LoadString("Strings\\StringsFromCSFiles:Seeds.cs.14210");
+    protected override string loadDescription() { return Game1.content.LoadString("Strings\\StringsFromCSFiles:Seeds.cs.14210"); }
 
     public override void DoFunction(GameLocation location, int x, int y, int power, Farmer who)
     {

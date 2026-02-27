@@ -25,7 +25,7 @@ namespace StardewValley.Locations
     public float lifeTime = 1f;
     public Color baseColor;
 
-    public Wisp(int index) => this.Reinitialize();
+    public Wisp(int index) { return this.Reinitialize(); }
 
     public virtual void Reinitialize()
     {

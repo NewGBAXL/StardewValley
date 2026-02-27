@@ -33,12 +33,12 @@ namespace StardewValley
       this.id = PathNode.ComputeHash(x, y);
     }
 
-    public bool Equals(PathNode obj) => obj != null && this.x == obj.x && this.y == obj.y;
+    public bool Equals(PathNode obj) { return obj != null && this.x == obj.x && this.y == obj.y; }
 
-    public override bool Equals(object obj) => obj is PathNode pathNode && this.x == pathNode.x && this.y == pathNode.y;
+    public override bool Equals(object obj) { return obj is PathNode pathNode && this.x == pathNode.x && this.y == pathNode.y; }
 
-    public override int GetHashCode() => this.id;
+    public override int GetHashCode() { return this.id; }
 
-    public static int ComputeHash(int x, int y) => 100000 * x + y;
+    public static int ComputeHash(int x, int y) { return 100000 * x + y; }
   }
 }

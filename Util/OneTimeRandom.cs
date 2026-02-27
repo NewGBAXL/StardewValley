@@ -22,6 +22,6 @@ namespace StardewValley
       return (ulong) (((long) num1 ^ (long) num2 ^ ((long) (num3 >> 21) | (long) num3 << 43) ^ ((long) (num4 >> 44) | (long) num4 << 20)) * 2550117894111961111L + (((long) (num1 >> 20) | (long) num1 << 44) ^ ((long) (num2 >> 41) | (long) num2 << 23) ^ ((long) (num3 >> 42) | (long) num3 << 22) ^ (long) num4) * 8786584852613159497L + (((long) (num1 >> 43) | (long) num1 << 21) ^ ((long) (num2 >> 22) | (long) num2 << 42) ^ (long) num3 ^ ((long) (num4 >> 23) | (long) num4 << 41)) * 3971056679291618767L);
     }
 
-    public static double GetDouble(ulong a, ulong b, ulong c, ulong d) => (double) (OneTimeRandom.GetLong(a, b, c, d) >> 11) * 1.11022302462516E-16;
+    public static double GetDouble(ulong a, ulong b, ulong c, ulong d) { return (double) (OneTimeRandom.GetLong(a, b, c, d) >> 11) * 1.11022302462516E-16; }
   }
 }

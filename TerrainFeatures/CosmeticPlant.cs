@@ -24,7 +24,7 @@ namespace StardewValley.TerrainFeatures
     [XmlElement("yOffset")]
     private readonly NetInt yOffset = new NetInt();
 
-    public CosmeticPlant() => this.initFields();
+    public CosmeticPlant() { return this.initFields(); }
 
     public CosmeticPlant(int which)
       : base(which, 1)
@@ -33,13 +33,13 @@ namespace StardewValley.TerrainFeatures
       this.flipped.Value = Game1.random.NextDouble() < 0.5;
     }
 
-    private void initFields() => this.NetFields.AddFields((INetSerializable) this.flipped, (INetSerializable) this.scale, (INetSerializable) this.xOffset, (INetSerializable) this.yOffset);
+    private void initFields() { return this.NetFields.AddFields((INetSerializable) this.flipped, (INetSerializable) this.scale, (INetSerializable) this.xOffset, (INetSerializable) this.yOffset); }
 
-    public override Rectangle getBoundingBox(Vector2 tileLocation) => new Rectangle((int) ((double) tileLocation.X * 64.0 + 16.0), (int) (((double) tileLocation.Y + 1.0) * 64.0 - 8.0 - 4.0), 8, 8);
+    public override Rectangle getBoundingBox(Vector2 tileLocation) { return new Rectangle((int) ((double) tileLocation.X * 64.0 + 16.0), (int) (((double) tileLocation.Y + 1.0) * 64.0 - 8.0 - 4.0), 8, 8); }
 
-    public override bool seasonUpdate(bool onLoad) => false;
+    public override bool seasonUpdate(bool onLoad) { return false; }
 
-    public override string textureName() => "TerrainFeatures\\upperCavePlants";
+    public override string textureName() { return "TerrainFeatures\\upperCavePlants"; }
 
     public override void loadSprite()
     {
@@ -74,6 +74,6 @@ namespace StardewValley.TerrainFeatures
       return false;
     }
 
-    public override void draw(SpriteBatch spriteBatch, Vector2 tileLocation) => spriteBatch.Draw(this.texture.Value, Game1.GlobalToLocal(Game1.viewport, new Vector2(tileLocation.X * 64f, tileLocation.Y * 64f) + new Vector2((float) (32 + (int) (NetFieldBase<int, NetInt>) this.xOffset), (float) (60 + (int) (NetFieldBase<int, NetInt>) this.yOffset))), new Rectangle?(new Rectangle((int) (byte) (NetFieldBase<byte, NetByte>) this.grassType * 16, 0, 16, 24)), Color.White, this.shakeRotation, new Vector2(8f, 23f), 4f * (float) (NetFieldBase<float, NetFloat>) this.scale, (bool) (NetFieldBase<bool, NetBool>) this.flipped ? SpriteEffects.FlipHorizontally : SpriteEffects.None, (float) (((double) (this.getBoundingBox(tileLocation).Y - 4) + (double) tileLocation.X / 900.0 + (double) (float) (NetFieldBase<float, NetFloat>) this.scale / 100.0) / 10000.0));
+    public override void draw(SpriteBatch spriteBatch, Vector2 tileLocation) { return spriteBatch.Draw(this.texture.Value, Game1.GlobalToLocal(Game1.viewport, new Vector2(tileLocation.X * 64f, tileLocation.Y * 64f) + new Vector2((float) (32 + (int) (NetFieldBase<int, NetInt>) this.xOffset), (float) (60 + (int) (NetFieldBase<int, NetInt>) this.yOffset))), new Rectangle?(new Rectangle((int) (byte) (NetFieldBase<byte, NetByte>) this.grassType * 16, 0, 16, 24)), Color.White, this.shakeRotation, new Vector2(8f, 23f), 4f * (float) (NetFieldBase<float, NetFloat>) this.scale, (bool) (NetFieldBase<bool, NetBool>) this.flipped ? SpriteEffects.FlipHorizontally : SpriteEffects.None, (float) (((double) (this.getBoundingBox(tileLocation).Y - 4) + (double) tileLocation.X / 900.0 + (double) (float) (NetFieldBase<float, NetFloat>) this.scale / 100.0) / 10000.0)); }
   }
 }

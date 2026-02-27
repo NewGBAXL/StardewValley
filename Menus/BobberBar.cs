@@ -451,7 +451,7 @@ namespace StardewValley.Menus
       this.bobberPosition = 548f;
     }
 
-    public override bool readyToClose() => false;
+    public override bool readyToClose() { return false; }
 
     public override void emergencyShutDown()
     {

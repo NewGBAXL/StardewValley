@@ -22,6 +22,6 @@ namespace StardewValley
       this._order.onJKScoreAchieved -= new Action<Farmer, int>(this.OnNewValue);
     }
 
-    public virtual void OnNewValue(Farmer who, int new_value) => this.SetCount(Math.Min(Math.Max(new_value, this.currentCount.Value), this.GetMaxCount()));
+    public virtual void OnNewValue(Farmer who, int new_value) { return this.SetCount(Math.Min(Math.Max(new_value, this.currentCount.Value), this.GetMaxCount())); }
   }
 }

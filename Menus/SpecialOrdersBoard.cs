@@ -162,7 +162,7 @@ namespace StardewValley.Menus
       }
     }
 
-    public string GetOrderType() => this.boardType;
+    public string GetOrderType() { return this.boardType; }
 
     public override void performHoverAction(int x, int y)
     {

@@ -217,7 +217,7 @@ namespace StardewValley
       this.totalMillisecondsDuration = this.millisecondsDuration;
     }
 
-    public string getTimeLeft() => Game1.content.LoadString("Strings\\StringsFromCSFiles:Buff.cs.476") + (this.millisecondsDuration / 60000).ToString() + ":" + (this.millisecondsDuration % 60000 / 10000).ToString() + (this.millisecondsDuration % 60000 % 10000 / 1000).ToString();
+    public string getTimeLeft() { return Game1.content.LoadString("Strings\\StringsFromCSFiles:Buff.cs.476") + (this.millisecondsDuration / 60000).ToString() + ":" + (this.millisecondsDuration % 60000 / 10000).ToString() + (this.millisecondsDuration % 60000 % 10000 / 1000).ToString(); }
 
     public bool update(GameTime time)
     {
@@ -338,7 +338,7 @@ namespace StardewValley
       return stringBuilder.ToString();
     }
 
-    public bool betterThan(Buff other) => this.total > 0 && (other == null || this.total > other.total);
+    public bool betterThan(Buff other) { return this.total > 0 && (other == null || this.total > other.total); }
 
     public void removeBuff()
     {
@@ -406,7 +406,7 @@ namespace StardewValley
       return clickableComponents;
     }
 
-    public static int getAttributeIndexFromSourceRectIndex(int index) => index == 16 ? 7 : index;
+    public static int getAttributeIndexFromSourceRectIndex(int index) { return index == 16 ? 7 : index; }
 
     public static string getBuffTypeFromBuffDescriptionIndex(int index)
     {

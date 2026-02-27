@@ -29,6 +29,6 @@ namespace StardewValley
       }
     }
 
-    public override string GetName() => "Bug Killer";
+    public override string GetName() { return "Bug Killer"; }
   }
 }

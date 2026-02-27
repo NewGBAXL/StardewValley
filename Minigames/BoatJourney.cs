@@ -320,7 +320,7 @@ namespace StardewValley.Minigames
       Game1.currentLocation.temporarySprites.Clear();
     }
 
-    public bool forceQuit() => false;
+    public bool forceQuit() { return false; }
 
     public void receiveLeftClick(int x, int y, bool playSound = true)
     {
@@ -381,15 +381,15 @@ namespace StardewValley.Minigames
       this._zoomLevel = (float) Game1.viewport.Height / (float) this.mapSourceRectangle.Height;
     }
 
-    public void unload() => Game1.stopMusicTrack(Game1.MusicContext.MiniGame);
+    public void unload() { return Game1.stopMusicTrack(Game1.MusicContext.MiniGame); }
 
-    public void receiveEventPoke(int data) => throw new NotImplementedException();
+    public void receiveEventPoke(int data) { return throw new NotImplementedException(); }
 
-    public string minigameId() => (string) null;
+    public string minigameId() { return (string) null; }
 
-    public bool doMainGameUpdates() => false;
+    public bool doMainGameUpdates() { return false; }
 
-    public bool overrideFreeMouseMovement() => Game1.options.SnappyMenus;
+    public bool overrideFreeMouseMovement() { return Game1.options.SnappyMenus; }
 
     public class WaterSparkle : BoatJourney.Entity
     {
@@ -405,7 +405,7 @@ namespace StardewValley.Minigames
         this.RandomizePosition();
       }
 
-      public override bool Update(GameTime time) => base.Update(time);
+      public override bool Update(GameTime time) { return base.Update(time); }
 
       public void RandomizePosition()
       {
@@ -424,7 +424,7 @@ namespace StardewValley.Minigames
         base.OnAnimationFinished();
       }
 
-      public override float GetLayerDepth() => (double) this.layerDepth >= 0.0 ? this.layerDepth : 0.0001f;
+      public override float GetLayerDepth() { return (double) this.layerDepth >= 0.0 ? this.layerDepth : 0.0001f; }
     }
 
     public class Wave : BoatJourney.Entity
@@ -445,7 +445,7 @@ namespace StardewValley.Minigames
         return base.Update(time);
       }
 
-      public override float GetLayerDepth() => (double) this.layerDepth >= 0.0 ? this.layerDepth : 0.0003f;
+      public override float GetLayerDepth() { return (double) this.layerDepth >= 0.0 ? this.layerDepth : 0.0003f; }
     }
 
     public class Boat : BoatJourney.Entity
@@ -574,7 +574,7 @@ namespace StardewValley.Minigames
       {
       }
 
-      public virtual void SetSourceRect(Rectangle rectangle) => this._sourceRect = rectangle;
+      public virtual void SetSourceRect(Rectangle rectangle) { return this._sourceRect = rectangle; }
 
       public virtual Rectangle GetSourceRect()
       {
@@ -588,9 +588,9 @@ namespace StardewValley.Minigames
         return new Rectangle(this._sourceRect.X + currentFrame * this._sourceRect.Width, this._sourceRect.Y + num * this._sourceRect.Width, this._sourceRect.Width, this._sourceRect.Height);
       }
 
-      public virtual float GetLayerDepth() => (double) this.layerDepth >= 0.0 ? this.layerDepth : this.position.Y / 100000f;
+      public virtual float GetLayerDepth() { return (double) this.layerDepth >= 0.0 ? this.layerDepth : this.position.Y / 100000f; }
 
-      public virtual void Draw(SpriteBatch b) => b.Draw(this._texture, this._context.TransformDraw(this.position), new Rectangle?(this.GetSourceRect()), Color.White, 0.0f, this.origin, this._context._zoomLevel, this.flipX ? SpriteEffects.FlipHorizontally : SpriteEffects.None, this.GetLayerDepth());
+      public virtual void Draw(SpriteBatch b) { return b.Draw(this._texture, this._context.TransformDraw(this.position), new Rectangle?(this.GetSourceRect()), Color.White, 0.0f, this.origin, this._context._zoomLevel, this.flipX ? SpriteEffects.FlipHorizontally : SpriteEffects.None, this.GetLayerDepth()); }
     }
   }
 }

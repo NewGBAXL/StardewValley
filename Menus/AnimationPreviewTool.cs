@@ -32,7 +32,7 @@ namespace StardewValley.Menus
       Game1.player.FarmerSprite.StopAnimation();
       FieldInfo[] fields = typeof (FarmerSprite).GetFields(BindingFlags.Static | BindingFlags.Public | BindingFlags.FlattenHierarchy);
       this.animationButtons = new List<ClickableTextureComponent>();
-      foreach (FieldInfo fieldInfo in ((IEnumerable<FieldInfo>) fields).Where<FieldInfo>((Func<FieldInfo, bool>) (fi => fi.IsLiteral && !fi.IsInitOnly)))
+      foreach (FieldInfo fieldInfo in ((IEnumerable<FieldInfo>) fields).Where<FieldInfo>((Func<FieldInfo, bool>) (delegate(fi) { return fi.IsLiteral && !fi.IsInitOnly))); }
       {
         ClickableTextureComponent textureComponent = new ClickableTextureComponent(new Rectangle(0, 0, 200, 48), (Texture2D) null, new Rectangle(), 1f);
         textureComponent.myID = (int) fieldInfo.GetValue((object) null);
@@ -206,9 +206,9 @@ namespace StardewValley.Menus
       }
     }
 
-    public override void snapToDefaultClickableComponent() => this.snapCursorToCurrentSnappedComponent();
+    public override void snapToDefaultClickableComponent() { return this.snapCursorToCurrentSnappedComponent(); }
 
-    public override void gamePadButtonHeld(Buttons b) => base.gamePadButtonHeld(b);
+    public override void gamePadButtonHeld(Buttons b) { return base.gamePadButtonHeld(b); }
 
     public override void receiveGamePadButton(Buttons b)
     {
@@ -283,7 +283,7 @@ namespace StardewValley.Menus
     {
     }
 
-    public bool canLeaveMenu() => true;
+    public bool canLeaveMenu() { return true; }
 
     public override void draw(SpriteBatch b)
     {

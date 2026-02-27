@@ -21,7 +21,7 @@ namespace StardewValley
     public bool waitUntilMenusGone;
     public TemporaryAnimatedSprite temporarySpriteData;
 
-    public DelayedAction(int timeUntilAction) => this.timeUntilAction = timeUntilAction;
+    public DelayedAction(int timeUntilAction) { return this.timeUntilAction = timeUntilAction; }
 
     public DelayedAction(int timeUntilAction, DelayedAction.delayedBehavior behavior)
     {
@@ -163,7 +163,7 @@ namespace StardewValley
       behavior = func
     });
 
-    public void doGlobalFade() => Game1.globalFadeToBlack(this.afterFadeBehavior);
+    public void doGlobalFade() { return Game1.globalFadeToBlack(this.afterFadeBehavior); }
 
     public void showTextAboveHead()
     {
@@ -189,7 +189,7 @@ namespace StardewValley
       Game1.changeMusicTrack("fallFest");
     }
 
-    public void showDialogue() => Game1.drawObjectDialogue(this.stringData);
+    public void showDialogue() { return Game1.drawObjectDialogue(this.stringData); }
 
     public void warp()
     {

@@ -164,7 +164,7 @@ namespace StardewValley
       Game1.playSound("smallSelect");
     }
 
-    public static bool isOnDone() => NameSelect.selection == -1;
+    public static bool isOnDone() { return NameSelect.selection == -1; }
 
     public static void backspace()
     {

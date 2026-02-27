@@ -41,7 +41,7 @@ namespace StardewValley.Objects
     protected int _currentDecorationIndex;
     protected Dictionary<Item, TankFish> _fishLookup = new Dictionary<Item, TankFish>();
 
-    public FishTankFurniture() => this.generationSeed.Value = Game1.random.Next();
+    public FishTankFurniture() { return this.generationSeed.Value = Game1.random.Next(); }
 
     public FishTankFurniture(int which, Vector2 tile, int initialRotations)
       : base(which, tile, initialRotations)
@@ -156,9 +156,9 @@ namespace StardewValley.Objects
       return true;
     }
 
-    public override string GetShopMenuContext() => "FishTank";
+    public override string GetShopMenuContext() { return "FishTank"; }
 
-    public override void ShowMenu() => this.ShowShopMenu();
+    public override void ShowMenu() { return this.ShowShopMenu(); }
 
     public override bool checkForAction(Farmer who, bool justCheckingForActivity = false)
     {
@@ -264,7 +264,7 @@ namespace StardewValley.Objects
       return base.placementAction(location, x, y, who);
     }
 
-    public Dictionary<int, string> GetAquariumData() => Game1.content.Load<Dictionary<int, string>>("Data\\AquariumFish");
+    public Dictionary<int, string> GetAquariumData() { return Game1.content.Load<Dictionary<int, string>>("Data\\AquariumFish"); }
 
     public override bool onDresserItemWithdrawn(ISalable salable, Farmer who, int amount)
     {
@@ -415,11 +415,11 @@ namespace StardewValley.Objects
       base.drawInMenu(spriteBatch, location, scaleSize, transparency, layerDepth, drawStackNumber, color, drawShadow);
     }
 
-    public Vector2 GetFishSortRegion() => new Vector2(this.GetBaseDrawLayer() + 1E-06f, this.GetGlassDrawLayer() - 1E-06f);
+    public Vector2 GetFishSortRegion() { return new Vector2(this.GetBaseDrawLayer() + 1E-06f, this.GetGlassDrawLayer() - 1E-06f); }
 
-    public float GetGlassDrawLayer() => this.GetBaseDrawLayer() + 0.0001f;
+    public float GetGlassDrawLayer() { return this.GetBaseDrawLayer() + 0.0001f; }
 
-    public float GetBaseDrawLayer() => (int) (NetFieldBase<int, NetInt>) this.furniture_type != 12 ? (float) (this.boundingBox.Value.Bottom - ((int) (NetFieldBase<int, NetInt>) this.furniture_type == 6 || (int) (NetFieldBase<int, NetInt>) this.furniture_type == 13 ? 48 : 8)) / 10000f : 2E-09f;
+    public float GetBaseDrawLayer() { return (int) (NetFieldBase<int, NetInt>) this.furniture_type != 12 ? (float) (this.boundingBox.Value.Bottom - ((int) (NetFieldBase<int, NetInt>) this.furniture_type == 6 || (int) (NetFieldBase<int, NetInt>) this.furniture_type == 13 ? 48 : 8)) / 10000f : 2E-09f; }
 
     public override void draw(SpriteBatch spriteBatch, int x, int y, float alpha = 1f)
     {

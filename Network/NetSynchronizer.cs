@@ -38,7 +38,7 @@ namespace StardewValley
       return true;
     }
 
-    private bool shouldAbort() => Game1.client != null && Game1.client.timedOut;
+    private bool shouldAbort() { return Game1.client != null && Game1.client.timedOut; }
 
     public void barrier(string name)
     {
@@ -102,7 +102,7 @@ namespace StardewValley
       }
     }
 
-    public bool hasVar(string varName) => this.variables.ContainsKey(varName);
+    public bool hasVar(string varName) { return this.variables.ContainsKey(varName); }
 
     public abstract void processMessages();
 

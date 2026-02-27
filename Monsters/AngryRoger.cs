@@ -46,7 +46,7 @@ namespace StardewValley.Monsters
       this.HideShadow = true;
     }
 
-    public override void reloadSprite() => this.Sprite = new AnimatedSprite("Characters\\Monsters\\" + (string) (NetFieldBase<string, NetString>) this.name);
+    public override void reloadSprite() { return this.Sprite = new AnimatedSprite("Characters\\Monsters\\" + (string) (NetFieldBase<string, NetString>) this.name); }
 
     public override void drawAboveAllLayers(SpriteBatch b)
     {

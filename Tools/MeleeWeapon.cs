@@ -119,7 +119,7 @@ namespace StardewValley.Tools
       this.Category = -99;
     }
 
-    public override int GetMaxForges() => 3;
+    public override int GetMaxForges() { return 3; }
 
     public override Item getOne()
     {
@@ -139,7 +139,7 @@ namespace StardewValley.Tools
       return strArray[strArray.Length - 1];
     }
 
-    protected override string loadDescription() => Game1.content.Load<Dictionary<int, string>>("Data\\weapons")[(int) (NetFieldBase<int, NetInt>) this.initialParentTileIndex].Split('/')[1];
+    protected override string loadDescription() { return Game1.content.Load<Dictionary<int, string>>("Data\\weapons")[(int) (NetFieldBase<int, NetInt>) this.initialParentTileIndex].Split('/')[1]; }
 
     private void OnLanguageChange(LocalizedContentManager.LanguageCode code)
     {
@@ -167,7 +167,7 @@ namespace StardewValley.Tools
       this.daggerEvent.onEvent += new AbstractNetEvent1<int>.Event(this.doDaggerFunction);
     }
 
-    public override string checkForSpecialItemHoldUpMeessage() => this.InitialParentTileIndex == 4 ? Game1.content.LoadString("Strings\\StringsFromCSFiles:MeleeWeapon.cs.14122") : (string) null;
+    public override string checkForSpecialItemHoldUpMeessage() { return this.InitialParentTileIndex == 4 ? Game1.content.LoadString("Strings\\StringsFromCSFiles:MeleeWeapon.cs.14122") : (string) null; }
 
     public override void drawInMenu(
       SpriteBatch spriteBatch,
@@ -212,9 +212,9 @@ namespace StardewValley.Tools
       spriteBatch.Draw(Game1.staminaRect, new Rectangle((int) location.X, (int) location.Y + (64 - (int) ((double) num1 * 64.0)), 64, (int) ((double) num1 * 64.0)), Color.Red * 0.66f);
     }
 
-    public override int maximumStackSize() => 1;
+    public override int maximumStackSize() { return 1; }
 
-    public override int salePrice() => this.getItemLevel() * 100;
+    public override int salePrice() { return this.getItemLevel() * 100; }
 
     public static void weaponsTypeUpdate(GameTime time)
     {
@@ -279,7 +279,7 @@ namespace StardewValley.Tools
       this.leftClick(who);
     }
 
-    public override bool doesShowTileLocationMarker() => false;
+    public override bool doesShowTileLocationMarker() { return false; }
 
     public int getNumberOfDescriptionCategories()
     {
@@ -560,7 +560,7 @@ namespace StardewValley.Tools
       return areaOfEffect;
     }
 
-    public void triggerDefenseSwordFunction(Farmer who) => this.defenseSwordEvent.Fire();
+    public void triggerDefenseSwordFunction(Farmer who) { return this.defenseSwordEvent.Fire(); }
 
     private void doDefenseSwordFunction()
     {
@@ -578,7 +578,7 @@ namespace StardewValley.Tools
       who.yVelocity = 0.0f;
     }
 
-    public void triggerDaggerFunction(Farmer who, int dagger_hits_left) => this.daggerEvent.Fire(dagger_hits_left);
+    public void triggerDaggerFunction(Farmer who, int dagger_hits_left) { return this.daggerEvent.Fire(dagger_hits_left); }
 
     private void doDaggerFunction(int dagger_hits)
     {
@@ -635,7 +635,7 @@ namespace StardewValley.Tools
 
     private void quickStab(Farmer who)
     {
-      AnimatedSprite.endOfAnimationBehavior endOfBehaviorFunction = (AnimatedSprite.endOfAnimationBehavior) (f => this.triggerDaggerFunction(f, MeleeWeapon.daggerHitsLeft));
+      AnimatedSprite.endOfAnimationBehavior endOfBehaviorFunction = (AnimatedSprite.endOfAnimationBehavior) (delegate(f) { return this.triggerDaggerFunction(f; }, MeleeWeapon.daggerHitsLeft));
       if (!this.lastUser.IsLocalPlayer)
         endOfBehaviorFunction = (AnimatedSprite.endOfAnimationBehavior) null;
       switch (who.FacingDirection)
@@ -902,7 +902,7 @@ namespace StardewValley.Tools
       who.forceCanMove();
     }
 
-    public override void actionWhenBeingHeld(Farmer who) => base.actionWhenBeingHeld(who);
+    public override void actionWhenBeingHeld(Farmer who) { return base.actionWhenBeingHeld(who); }
 
     public override void actionWhenStopBeingHeld(Farmer who)
     {
@@ -911,7 +911,7 @@ namespace StardewValley.Tools
       base.actionWhenStopBeingHeld(who);
     }
 
-    public override void endUsing(GameLocation location, Farmer who) => base.endUsing(location, who);
+    public override void endUsing(GameLocation location, Farmer who) { return base.endUsing(location, who); }
 
     public virtual void RecalculateAppliedForges(bool force = false)
     {
@@ -972,8 +972,7 @@ namespace StardewValley.Tools
       if (location.damageMonster(areaOfEffect, (int) ((double) (int) (NetFieldBase<int, NetInt>) this.minDamage * (1.0 + (double) who.attackIncreaseModifier)), (int) ((double) (int) (NetFieldBase<int, NetInt>) this.maxDamage * (1.0 + (double) who.attackIncreaseModifier)), false, (float) (NetFieldBase<float, NetFloat>) this.knockback * (1f + who.knockbackModifier), (int) ((double) (int) (NetFieldBase<int, NetInt>) this.addedPrecision * (1.0 + (double) who.weaponPrecisionModifier)), num * (1f + who.critChanceModifier), (float) (NetFieldBase<float, NetFloat>) this.critMultiplier * (1f + who.critPowerModifier), (int) (NetFieldBase<int, NetInt>) this.type != 1 || !this.isOnSpecial, this.lastUser) && (int) (NetFieldBase<int, NetInt>) this.type == 2)
         location.playSound("clubhit");
       string cueName = "";
-      location.projectiles.Filter((Func<Projectile, bool>) (projectile =>
-      {
+      location.projectiles.Filter((Func<Projectile, bool>) (delegate(projectile) { return {; }
         if (areaOfEffect.Intersects(projectile.getBoundingBox()) && !projectile.ignoreMeleeAttacks.Value)
           projectile.behaviorOnCollisionWithOther(location);
         return !projectile.destroyMe;
@@ -995,9 +994,9 @@ namespace StardewValley.Tools
       who.completelyStopAnimatingOrDoingAction();
     }
 
-    public int getDrawnItemIndex() => this.appearance.Value < 0 ? this.InitialParentTileIndex : this.appearance.Value;
+    public int getDrawnItemIndex() { return this.appearance.Value < 0 ? this.InitialParentTileIndex : this.appearance.Value; }
 
-    public static Rectangle getSourceRect(int index) => Game1.getSourceRectForStandardTileSheet(Tool.weaponsTexture, index, 16, 16);
+    public static Rectangle getSourceRect(int index) { return Game1.getSourceRectForStandardTileSheet(Tool.weaponsTexture, index, 16, 16); }
 
     public override void drawTooltip(
       SpriteBatch spriteBatch,
@@ -1120,11 +1119,11 @@ namespace StardewValley.Tools
       MeleeWeapon.drawDuringUse(frameOfFarmerAnimation, facingDirection, spriteBatch, playerPosition, f, MeleeWeapon.getSourceRect(this.getDrawnItemIndex()), (int) (NetFieldBase<int, NetInt>) this.type, this.isOnSpecial);
     }
 
-    public override bool CanForge(Item item) => item is MeleeWeapon meleeWeapon && (NetFieldBase<int, NetInt>) meleeWeapon.type == this.type || base.CanForge(item);
+    public override bool CanForge(Item item) { return item is MeleeWeapon meleeWeapon && (NetFieldBase<int, NetInt>) meleeWeapon.type == this.type || base.CanForge(item); }
 
-    public override bool CanAddEnchantment(BaseEnchantment enchantment) => (!(enchantment is GalaxySoulEnchantment) || this.isGalaxyWeapon()) && base.CanAddEnchantment(enchantment);
+    public override bool CanAddEnchantment(BaseEnchantment enchantment) { return (!(enchantment is GalaxySoulEnchantment) || this.isGalaxyWeapon()) && base.CanAddEnchantment(enchantment); }
 
-    public bool isGalaxyWeapon() => this.InitialParentTileIndex == 4 || this.InitialParentTileIndex == 23 || this.InitialParentTileIndex == 29;
+    public bool isGalaxyWeapon() { return this.InitialParentTileIndex == 4 || this.InitialParentTileIndex == 23 || this.InitialParentTileIndex == 29; }
 
     public void transform(int newIndex)
     {

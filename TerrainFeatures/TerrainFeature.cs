@@ -43,8 +43,8 @@ namespace StardewValley.TerrainFeatures
     [XmlElement("modData")]
     public ModDataDictionary modDataForSerialization
     {
-      get => this.modData.GetForSerialization();
-      set => this.modData.SetFromSerialization(value);
+      delegate(get) { return this.modData.GetForSerialization(); };
+      delegate(set) { return this.modData.SetFromSerialization(value); };
     }
 
     [XmlIgnore]
@@ -59,7 +59,7 @@ namespace StardewValley.TerrainFeatures
           return;
         this.currentLocation.UpdateTerrainFeatureUpdateSubscription(this);
       }
-      get => this._needsUpdate;
+      delegate(get) { return this._needsUpdate; };
     }
 
     public NetFields NetFields { get; } = new NetFields();
@@ -70,15 +70,15 @@ namespace StardewValley.TerrainFeatures
       this.NetFields.AddField((INetSerializable) this.modData);
     }
 
-    public virtual Rectangle getBoundingBox(Vector2 tileLocation) => new Rectangle((int) tileLocation.X * 64, (int) tileLocation.Y * 64, 64, 64);
+    public virtual Rectangle getBoundingBox(Vector2 tileLocation) { return new Rectangle((int) tileLocation.X * 64, (int) tileLocation.Y * 64, 64, 64); }
 
-    public virtual Rectangle getRenderBounds(Vector2 tileLocation) => this.getBoundingBox(tileLocation);
+    public virtual Rectangle getRenderBounds(Vector2 tileLocation) { return this.getBoundingBox(tileLocation); }
 
     public virtual void loadSprite()
     {
     }
 
-    public virtual bool isPassable(Character c = null) => this.isTemporarilyInvisible;
+    public virtual bool isPassable(Character c = null) { return this.isTemporarilyInvisible; }
 
     public virtual void OnAddedToLocation(GameLocation location, Vector2 tile)
     {
@@ -93,7 +93,7 @@ namespace StardewValley.TerrainFeatures
     {
     }
 
-    public virtual bool performUseAction(Vector2 tileLocation, GameLocation location) => false;
+    public virtual bool performUseAction(Vector2 tileLocation, GameLocation location) { return false; }
 
     public virtual bool performToolAction(
       Tool t,
@@ -104,23 +104,23 @@ namespace StardewValley.TerrainFeatures
       return false;
     }
 
-    public virtual bool tickUpdate(GameTime time, Vector2 tileLocation, GameLocation location) => false;
+    public virtual bool tickUpdate(GameTime time, Vector2 tileLocation, GameLocation location) { return false; }
 
     public virtual void dayUpdate(GameLocation environment, Vector2 tileLocation)
     {
     }
 
-    public virtual bool seasonUpdate(bool onLoad) => false;
+    public virtual bool seasonUpdate(bool onLoad) { return false; }
 
-    public virtual bool isActionable() => false;
+    public virtual bool isActionable() { return false; }
 
-    public virtual void performPlayerEntryAction(Vector2 tileLocation) => this.isTemporarilyInvisible = false;
+    public virtual void performPlayerEntryAction(Vector2 tileLocation) { return this.isTemporarilyInvisible = false; }
 
     public virtual void draw(SpriteBatch spriteBatch, Vector2 tileLocation)
     {
     }
 
-    public virtual bool forceDraw() => false;
+    public virtual bool forceDraw() { return false; }
 
     public virtual void drawInMenu(
       SpriteBatch spriteBatch,

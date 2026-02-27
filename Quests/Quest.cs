@@ -71,9 +71,9 @@ namespace StardewValley.Quests
 
     public NetFields NetFields { get; } = new NetFields();
 
-    public Quest() => this.initNetFields();
+    public Quest() { return this.initNetFields(); }
 
-    protected virtual void initNetFields() => this.NetFields.AddFields((INetSerializable) this.rewardDescription, (INetSerializable) this.completionString, (INetSerializable) this.accepted, (INetSerializable) this.completed, (INetSerializable) this.dailyQuest, (INetSerializable) this.showNew, (INetSerializable) this.canBeCancelled, (INetSerializable) this.destroy, (INetSerializable) this.id, (INetSerializable) this.moneyReward, (INetSerializable) this.questType, (INetSerializable) this.daysLeft, (INetSerializable) this.nextQuests, (INetSerializable) this.dayQuestAccepted);
+    protected virtual void initNetFields() { return this.NetFields.AddFields((INetSerializable) this.rewardDescription, (INetSerializable) this.completionString, (INetSerializable) this.accepted, (INetSerializable) this.completed, (INetSerializable) this.dailyQuest, (INetSerializable) this.showNew, (INetSerializable) this.canBeCancelled, (INetSerializable) this.destroy, (INetSerializable) this.id, (INetSerializable) this.moneyReward, (INetSerializable) this.questType, (INetSerializable) this.daysLeft, (INetSerializable) this.nextQuests, (INetSerializable) this.dayQuestAccepted); }
 
     public string questTitle
     {
@@ -108,7 +108,7 @@ namespace StardewValley.Quests
           this._questTitle = "";
         return this._questTitle;
       }
-      set => this._questTitle = value;
+      delegate(set) { return this._questTitle = value; };
     }
 
     [XmlIgnore]
@@ -128,7 +128,7 @@ namespace StardewValley.Quests
           this._questDescription = "";
         return this._questDescription;
       }
-      set => this._questDescription = value;
+      delegate(set) { return this._questDescription = value; };
     }
 
     [XmlIgnore]
@@ -148,7 +148,7 @@ namespace StardewValley.Quests
           this._currentObjective = "";
         return this._currentObjective;
       }
-      set => this._currentObjective = value;
+      delegate(set) { return this._currentObjective = value; };
     }
 
     public static Quest getQuestFromId(int id)
@@ -250,7 +250,7 @@ namespace StardewValley.Quests
     {
     }
 
-    public virtual void accept() => this.accepted.Value = true;
+    public virtual void accept() { return this.accepted.Value = true; }
 
     public virtual bool checkIfComplete(NPC n = null, int number1 = -1, int number2 = -2, Item item = null, string str = null)
     {
@@ -267,7 +267,7 @@ namespace StardewValley.Quests
       return this.rewardDescription.Value != null && this.rewardDescription.Value.Length > 2;
     }
 
-    public virtual bool isSecretQuest() => false;
+    public virtual bool isSecretQuest() { return false; }
 
     public virtual void questComplete()
     {
@@ -298,18 +298,21 @@ namespace StardewValley.Quests
       Game1.dayTimeMoneyBox.questsDirty = true;
     }
 
-    public string GetName() => this.questTitle;
+    public string GetName() { return this.questTitle; }
 
-    public string GetDescription() => this.questDescription;
+    public string GetDescription() { return this.questDescription; }
 
-    public bool IsHidden() => this.isSecretQuest();
+    public bool IsHidden() { return this.isSecretQuest(); }
 
-    public List<string> GetObjectiveDescriptions() => new List<string>()
+    public List<string> GetObjectiveDescriptions()
     {
-      this.currentObjective
-    };
+      return new List<string>()
+      {
+        this.currentObjective
+      };
+    }
 
-    public bool CanBeCancelled() => this.canBeCancelled.Value;
+    public bool CanBeCancelled() { return this.canBeCancelled.Value; }
 
     public bool HasReward()
     {
@@ -318,19 +321,19 @@ namespace StardewValley.Quests
       return this.rewardDescription.Value != null && this.rewardDescription.Value.Length > 2;
     }
 
-    public bool HasMoneyReward() => this.completed.Value && this.moneyReward.Value > 0;
+    public bool HasMoneyReward() { return this.completed.Value && this.moneyReward.Value > 0; }
 
-    public void MarkAsViewed() => this.showNew.Value = false;
+    public void MarkAsViewed() { return this.showNew.Value = false; }
 
-    public bool ShouldDisplayAsNew() => this.showNew.Value;
+    public bool ShouldDisplayAsNew() { return this.showNew.Value; }
 
-    public bool ShouldDisplayAsComplete() => this.completed.Value && !this.IsHidden();
+    public bool ShouldDisplayAsComplete() { return this.completed.Value && !this.IsHidden(); }
 
-    public bool IsTimedQuest() => this.dailyQuest.Value;
+    public bool IsTimedQuest() { return this.dailyQuest.Value; }
 
-    public int GetDaysLeft() => (int) (NetFieldBase<int, NetInt>) this.daysLeft;
+    public int GetDaysLeft() { return (int) (NetFieldBase<int, NetInt>) this.daysLeft; }
 
-    public int GetMoneyReward() => this.moneyReward.Value;
+    public int GetMoneyReward() { return this.moneyReward.Value; }
 
     public void OnMoneyRewardClaimed()
     {

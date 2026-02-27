@@ -21,13 +21,13 @@ namespace StardewValley.Network
     private int retryAttempts;
     private float lastLatencyMs;
 
-    public LidgrenClient(string address) => this.address = address;
+    public LidgrenClient(string address) { return this.address = address; }
 
-    public override string getUserID() => "";
+    public override string getUserID() { return ""; }
 
-    public override float GetPingToHost() => this.lastLatencyMs / 2f;
+    public override float GetPingToHost() { return this.lastLatencyMs / 2f; }
 
-    protected override string getHostUserName() => this.client.ServerConnection.RemoteEndPoint.Address.ToString();
+    protected override string getHostUserName() { return this.client.ServerConnection.RemoteEndPoint.Address.ToString(); }
 
     protected override void connectImpl()
     {
@@ -70,7 +70,7 @@ namespace StardewValley.Network
       this.connectionMessage = (string) null;
     }
 
-    protected virtual bool validateProtocol(string version) => version == "1.5.5";
+    protected virtual bool validateProtocol(string version) { return version == "1.5.5"; }
 
     protected override void receiveMessagesImpl()
     {
@@ -133,9 +133,9 @@ namespace StardewValley.Network
       Game1.debugOutput = "Ping: " + (this.client.ServerConnection.AverageRoundtripTime * 1000f).ToString() + "ms";
     }
 
-    private void readLatency(NetIncomingMessage msg) => this.lastLatencyMs = msg.ReadFloat() * 1000f;
+    private void readLatency(NetIncomingMessage msg) { return this.lastLatencyMs = msg.ReadFloat() * 1000f; }
 
-    private void receiveHandshake(NetIncomingMessage msg) => this.client.Connect(msg.SenderEndPoint.Address.ToString(), msg.SenderEndPoint.Port);
+    private void receiveHandshake(NetIncomingMessage msg) { return this.client.Connect(msg.SenderEndPoint.Address.ToString(), msg.SenderEndPoint.Port); }
 
     private void statusChanged(NetIncomingMessage message)
     {

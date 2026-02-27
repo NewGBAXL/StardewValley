@@ -449,8 +449,7 @@ namespace StardewValley.Locations
       }
       if (!this.buildings.Contains(b))
         this.buildings.Add(b);
-      Action<Vector2> action = (Action<Vector2>) (tile_location =>
-      {
+      Action<Vector2> action = (Action<Vector2>) (delegate(tile_location) { return {; }
         if (!Utility.IsNormalObjectAtParentSheetIndex((Item) this.getObjectAtTile((int) tile_location.X, (int) tile_location.Y), 590))
           return;
         this.removeObject(tile_location, false);
@@ -511,7 +510,7 @@ namespace StardewValley.Locations
     {
     }
 
-    public bool isBuildable(Vector2 tileLocation) => (!Game1.player.getTileLocation().Equals(tileLocation) || !Game1.player.currentLocation.Equals((GameLocation) this)) && (!this.isTileOccupiedForPlacement(tileLocation, (StardewValley.Object) null) || Utility.IsNormalObjectAtParentSheetIndex((Item) this.getObjectAtTile((int) tileLocation.X, (int) tileLocation.Y), 590)) && this.GetFurnitureAt(tileLocation) == null && this.isTilePassable(new Location((int) tileLocation.X, (int) tileLocation.Y), Game1.viewport) && this.doesTileHaveProperty((int) tileLocation.X, (int) tileLocation.Y, "NoFurniture", "Back") == null && (Game1.currentLocation.doesTileHavePropertyNoNull((int) tileLocation.X, (int) tileLocation.Y, "Buildable", "Back").ToLower().Equals("t") || Game1.currentLocation.doesTileHavePropertyNoNull((int) tileLocation.X, (int) tileLocation.Y, "Buildable", "Back").ToLower().Equals("true") || Game1.currentLocation.doesTileHaveProperty((int) tileLocation.X, (int) tileLocation.Y, "Diggable", "Back") != null && !Game1.currentLocation.doesTileHavePropertyNoNull((int) tileLocation.X, (int) tileLocation.Y, "Buildable", "Back").ToLower().Equals("f"));
+    public bool isBuildable(Vector2 tileLocation) { return (!Game1.player.getTileLocation().Equals(tileLocation) || !Game1.player.currentLocation.Equals((GameLocation) this)) && (!this.isTileOccupiedForPlacement(tileLocation, (StardewValley.Object) null) || Utility.IsNormalObjectAtParentSheetIndex((Item) this.getObjectAtTile((int) tileLocation.X, (int) tileLocation.Y), 590)) && this.GetFurnitureAt(tileLocation) == null && this.isTilePassable(new Location((int) tileLocation.X, (int) tileLocation.Y), Game1.viewport) && this.doesTileHaveProperty((int) tileLocation.X, (int) tileLocation.Y, "NoFurniture", "Back") == null && (Game1.currentLocation.doesTileHavePropertyNoNull((int) tileLocation.X, (int) tileLocation.Y, "Buildable", "Back").ToLower().Equals("t") || Game1.currentLocation.doesTileHavePropertyNoNull((int) tileLocation.X, (int) tileLocation.Y, "Buildable", "Back").ToLower().Equals("true") || Game1.currentLocation.doesTileHaveProperty((int) tileLocation.X, (int) tileLocation.Y, "Diggable", "Back") != null && !Game1.currentLocation.doesTileHavePropertyNoNull((int) tileLocation.X, (int) tileLocation.Y, "Buildable", "Back").ToLower().Equals("f")); }
 
     public bool isPath(Vector2 tileLocation)
     {

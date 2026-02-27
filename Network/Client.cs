@@ -41,7 +41,7 @@ namespace StardewValley.Network
 
     protected abstract string getHostUserName();
 
-    public virtual float GetPingToHost() => 0.0f;
+    public virtual float GetPingToHost() { return 0.0f; }
 
     public virtual string getUserName(long farmerId)
     {
@@ -122,7 +122,7 @@ namespace StardewValley.Network
       Game1.multiplayer.processIncomingMessage(message);
     }
 
-    protected virtual void receiveUserNameUpdate(BinaryReader msg) => this.userNames[msg.ReadInt64()] = msg.ReadString();
+    protected virtual void receiveUserNameUpdate(BinaryReader msg) { return this.userNames[msg.ReadInt64()] = msg.ReadString(); }
 
     protected virtual void receiveAvailableFarmhands(BinaryReader msg)
     {
@@ -166,7 +166,7 @@ namespace StardewValley.Network
       }
     }
 
-    public virtual bool PopulatePlatformData(Farmer farmer) => false;
+    public virtual bool PopulatePlatformData(Farmer farmer) { return false; }
 
     public virtual void sendPlayerIntroduction()
     {
@@ -252,14 +252,14 @@ namespace StardewValley.Network
         otherFarmer.Value.messageQueue.Clear();
     }
 
-    public virtual void sendMessage(byte which, params object[] data) => this.sendMessage(new OutgoingMessage(which, Game1.player, data));
+    public virtual void sendMessage(byte which, params object[] data) { return this.sendMessage(new OutgoingMessage(which, Game1.player, data)); }
 
-    public BandwidthLogger BandwidthLogger => this.bandwidthLogger;
+    public BandwidthLogger delegate(BandwidthLogger) { return this.bandwidthLogger; };
 
     public bool LogBandwidth
     {
-      get => this.bandwidthLogger != null;
-      set => this.bandwidthLogger = value ? new BandwidthLogger() : (BandwidthLogger) null;
+      delegate(get) { return this.bandwidthLogger != null; };
+      delegate(set) { return this.bandwidthLogger = value ? new BandwidthLogger() : (BandwidthLogger) null; };
     }
   }
 }

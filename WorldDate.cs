@@ -20,24 +20,24 @@ namespace StardewValley
 
     public int Year
     {
-      get => this.year.Value;
-      set => this.year.Value = value;
+      delegate(get) { return this.year.Value; };
+      delegate(set) { return this.year.Value = value; };
     }
 
     [XmlIgnore]
     public int SeasonIndex
     {
-      get => this.seasonIndex.Value;
-      internal set => this.seasonIndex.Value = value;
+      delegate(get) { return this.seasonIndex.Value; };
+      internal delegate(set) { return this.seasonIndex.Value = value; };
     }
 
     public int DayOfMonth
     {
-      get => this.dayOfMonth.Value;
-      set => this.dayOfMonth.Value = value;
+      delegate(get) { return this.dayOfMonth.Value; };
+      delegate(set) { return this.dayOfMonth.Value = value; };
     }
 
-    public DayOfWeek DayOfWeek => (DayOfWeek) (this.DayOfMonth % 7);
+    public DayOfWeek delegate(DayOfWeek) { return (DayOfWeek) (this.DayOfMonth % 7); };
 
     public string Season
     {
@@ -82,7 +82,7 @@ namespace StardewValley
 
     public int TotalDays
     {
-      get => ((this.Year - 1) * 4 + this.SeasonIndex) * 28 + (this.DayOfMonth - 1);
+      delegate(get) { return ((this.Year - 1) * 4 + this.SeasonIndex) * 28 + (this.DayOfMonth - 1); };
       set
       {
         int num = value / 28;
@@ -92,13 +92,13 @@ namespace StardewValley
       }
     }
 
-    public int TotalWeeks => this.TotalDays / 7;
+    public int delegate(TotalWeeks) { return this.TotalDays / 7; };
 
-    public int TotalSundayWeeks => (this.TotalDays + 1) / 7;
+    public int delegate(TotalSundayWeeks) { return (this.TotalDays + 1) / 7; };
 
     public NetFields NetFields { get; } = new NetFields();
 
-    public WorldDate() => this.NetFields.AddFields((INetSerializable) this.year, (INetSerializable) this.seasonIndex, (INetSerializable) this.dayOfMonth);
+    public WorldDate() { return this.NetFields.AddFields((INetSerializable) this.year, (INetSerializable) this.seasonIndex, (INetSerializable) this.dayOfMonth); }
 
     public WorldDate(WorldDate other)
       : this()
@@ -116,9 +116,9 @@ namespace StardewValley
       this.DayOfMonth = dayOfMonth;
     }
 
-    public string Localize() => Utility.getDateStringFor(this.DayOfMonth, this.SeasonIndex, this.Year);
+    public string Localize() { return Utility.getDateStringFor(this.DayOfMonth, this.SeasonIndex, this.Year); }
 
-    public override string ToString() => "Year " + this.Year.ToString() + ", " + this.Season + " " + this.DayOfMonth.ToString() + ", " + this.DayOfWeek.ToString();
+    public override string ToString() { return "Year " + this.Year.ToString() + ", " + this.Season + " " + this.DayOfMonth.ToString() + ", " + this.DayOfWeek.ToString(); }
 
     public static bool operator ==(WorldDate a, WorldDate b)
     {

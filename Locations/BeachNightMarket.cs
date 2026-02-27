@@ -26,7 +26,7 @@ namespace StardewValley.Locations
     private bool hasReceivedFreeGift;
     private bool hasShownCCUpgrade;
 
-    public BeachNightMarket() => this.forceLoadPathLayerLights = true;
+    public BeachNightMarket() { return this.forceLoadPathLayerLights = true; }
 
     public BeachNightMarket(string mapPath, string name)
       : base(mapPath, name)
@@ -143,7 +143,7 @@ namespace StardewValley.Locations
       }
     }
 
-    public override bool catchOceanCrabPotFishFromThisSpot(int x, int y) => true;
+    public override bool catchOceanCrabPotFishFromThisSpot(int x, int y) { return true; }
 
     public override StardewValley.Object getFish(
       float millisecondsAfterNibble,

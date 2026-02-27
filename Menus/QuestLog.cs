@@ -185,7 +185,7 @@ namespace StardewValley.Menus
       this.questPage = -1;
     }
 
-    public bool NeedsScroll() => (this._shownQuest == null || !this._shownQuest.ShouldDisplayAsComplete()) && this.questPage != -1 && (double) this._contentHeight > (double) this._scissorRectHeight;
+    public bool NeedsScroll() { return (this._shownQuest == null || !this._shownQuest.ShouldDisplayAsComplete()) && this.questPage != -1 && (double) this._contentHeight > (double) this._scissorRectHeight; }
 
     public override void receiveScrollWheelAction(int direction)
     {
@@ -441,9 +441,9 @@ namespace StardewValley.Menus
       }
     }
 
-    public bool HasReward() => this._shownQuest.HasReward();
+    public bool HasReward() { return this._shownQuest.HasReward(); }
 
-    public bool HasMoneyReward() => this._shownQuest.HasMoneyReward();
+    public bool HasMoneyReward() { return this._shownQuest.HasMoneyReward(); }
 
     public void exitQuestPage()
     {

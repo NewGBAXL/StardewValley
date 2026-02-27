@@ -382,7 +382,7 @@ namespace StardewValley.Menus
       return true;
     }
 
-    public override bool readyToClose() => this.letterviewerSubMenu == null && base.readyToClose();
+    public override bool readyToClose() { return this.letterviewerSubMenu == null && base.readyToClose(); }
 
     public override void update(GameTime time)
     {
@@ -478,7 +478,7 @@ namespace StardewValley.Menus
       }
     }
 
-    public override bool shouldDrawCloseButton() => this.letterviewerSubMenu == null;
+    public override bool shouldDrawCloseButton() { return this.letterviewerSubMenu == null; }
 
     public override void receiveRightClick(int x, int y, bool playSound = true)
     {

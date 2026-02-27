@@ -206,7 +206,7 @@ namespace StardewValley.Objects
       Game1.playSound("fireball");
     }
 
-    public override string getDescription() => Game1.parseText(this.description, Game1.smallFont, this.getDescriptionWidth());
+    public override string getDescription() { return Game1.parseText(this.description, Game1.smallFont, this.getDescriptionWidth()); }
 
     public override bool performDropDownAction(Farmer who)
     {
@@ -290,7 +290,7 @@ namespace StardewValley.Objects
       removal_action(this);
     }
 
-    public virtual bool canBeRemoved(Farmer who) => !this.HasSittingFarmers() && this.heldObject.Value == null;
+    public virtual bool canBeRemoved(Farmer who) { return !this.HasSittingFarmers() && this.heldObject.Value == null; }
 
     public override bool clicked(Farmer who)
     {
@@ -320,17 +320,25 @@ namespace StardewValley.Objects
       return (int) (NetFieldBase<int, NetInt>) this.furniture_type == 3 ? 1 : 0;
     }
 
-    public virtual bool IsSeatHere(GameLocation location) => location.furniture.Contains(this);
+    public virtual bool IsSeatHere(GameLocation location) { return location.furniture.Contains(this); }
 
-    public virtual bool IsSittingHere(Farmer who) => this.sittingFarmers.ContainsKey(who.UniqueMultiplayerID);
+    public virtual bool IsSittingHere(Farmer who) { return this.sittingFarmers.ContainsKey(who.UniqueMultiplayerID); }
 
-    public virtual Vector2? GetSittingPosition(Farmer who, bool ignore_offsets = false) => this.sittingFarmers.ContainsKey(who.UniqueMultiplayerID) ? new Vector2?(this.GetSeatPositions(ignore_offsets)[this.sittingFarmers[who.UniqueMultiplayerID]]) : new Vector2?();
+    public virtual Vector2? GetSittingPosition(Farmer who, bool ignore_offsets = false)
+    {
+        if (this.sittingFarmers.ContainsKey(who.UniqueMultiplayerID))
+        {
+            return new Vector2?(this.GetSeatPositions(ignore_offsets)[this.sittingFarmers[who.UniqueMultiplayerID]]);
+        }
 
-    public virtual bool HasSittingFarmers() => this.sittingFarmers.Count() > 0;
+        return new Vector2?();
+    }
 
-    public virtual void RemoveSittingFarmer(Farmer farmer) => this.sittingFarmers.Remove(farmer.UniqueMultiplayerID);
+    public virtual bool HasSittingFarmers() { return this.sittingFarmers.Count() > 0; }
 
-    public virtual int GetSittingFarmerCount() => this.sittingFarmers.Count();
+    public virtual void RemoveSittingFarmer(Farmer farmer) { return this.sittingFarmers.Remove(farmer.UniqueMultiplayerID); }
+
+    public virtual int GetSittingFarmerCount() { return this.sittingFarmers.Count(); }
 
     public virtual Rectangle GetSeatBounds()
     {
@@ -503,7 +511,7 @@ label_8:
       return true;
     }
 
-    protected virtual int lightSourceIdentifier() => (int) ((double) this.tileLocation.X * 2000.0 + (double) this.tileLocation.Y);
+    protected virtual int lightSourceIdentifier() { return (int) ((double) this.tileLocation.X * 2000.0 + (double) this.tileLocation.Y); }
 
     public virtual void addLights(GameLocation environment)
     {
@@ -703,9 +711,9 @@ label_8:
       this.updateDrawPosition();
     }
 
-    public virtual bool isGroundFurniture() => (int) (NetFieldBase<int, NetInt>) this.furniture_type != 13 && (int) (NetFieldBase<int, NetInt>) this.furniture_type != 6 && (int) (NetFieldBase<int, NetInt>) this.furniture_type != 17 && (int) (NetFieldBase<int, NetInt>) this.furniture_type != 13;
+    public virtual bool isGroundFurniture() { return (int) (NetFieldBase<int, NetInt>) this.furniture_type != 13 && (int) (NetFieldBase<int, NetInt>) this.furniture_type != 6 && (int) (NetFieldBase<int, NetInt>) this.furniture_type != 17 && (int) (NetFieldBase<int, NetInt>) this.furniture_type != 13; }
 
-    public override bool canBeGivenAsGift() => false;
+    public override bool canBeGivenAsGift() { return false; }
 
     public static Furniture GetFurnitureInstance(int index, Vector2? position = null)
     {
@@ -790,11 +798,11 @@ label_8:
       return this.GetAdditionalFurniturePlacementStatus(l, (int) tile.X * 64, (int) tile.Y * 64) == 0 && base.canBePlacedHere(l, tile);
     }
 
-    public virtual void updateDrawPosition() => this.drawPosition.Value = new Vector2((float) this.boundingBox.X, (float) (this.boundingBox.Y - (this.sourceRect.Height * 4 - this.boundingBox.Height)));
+    public virtual void updateDrawPosition() { return this.drawPosition.Value = new Vector2((float) this.boundingBox.X, (float) (this.boundingBox.Y - (this.sourceRect.Height * 4 - this.boundingBox.Height))); }
 
-    public virtual int getTilesWide() => this.boundingBox.Width / 64;
+    public virtual int getTilesWide() { return this.boundingBox.Width / 64; }
 
-    public virtual int getTilesHigh() => this.boundingBox.Height / 64;
+    public virtual int getTilesHigh() { return this.boundingBox.Height / 64; }
 
     public override bool placementAction(GameLocation location, int x, int y, Farmer who = null)
     {
@@ -867,13 +875,13 @@ label_8:
       return 0;
     }
 
-    public override bool isPassable() => this.furniture_type.Value == 12 || base.isPassable();
+    public override bool isPassable() { return this.furniture_type.Value == 12 || base.isPassable(); }
 
-    public override bool isPlaceable() => true;
+    public override bool isPlaceable() { return true; }
 
-    public virtual bool AllowPlacementOnThisTile(int tile_x, int tile_y) => false;
+    public virtual bool AllowPlacementOnThisTile(int tile_x, int tile_y) { return false; }
 
-    public override Rectangle getBoundingBox(Vector2 tileLocation) => this.isTemporarilyInvisible ? Rectangle.Empty : (Rectangle) (NetFieldBase<Rectangle, NetRectangle>) this.boundingBox;
+    public override Rectangle getBoundingBox(Vector2 tileLocation) { return this.isTemporarilyInvisible ? Rectangle.Empty : (Rectangle) (NetFieldBase<Rectangle, NetRectangle>) this.boundingBox; }
 
     protected virtual Rectangle getDefaultSourceRectForType(int tileIndex, int type)
     {
@@ -1074,13 +1082,13 @@ label_8:
       }
     }
 
-    public override int salePrice() => (int) (NetFieldBase<int, NetInt>) this.price;
+    public override int salePrice() { return (int) (NetFieldBase<int, NetInt>) this.price; }
 
-    public override int maximumStackSize() => 1;
+    public override int maximumStackSize() { return 1; }
 
-    public override int addToStack(Item stack) => 1;
+    public override int addToStack(Item stack) { return 1; }
 
-    public override string Name => this.name;
+    public override string delegate(Name) { return this.name; };
 
     protected virtual float getScaleSize()
     {
@@ -1192,7 +1200,7 @@ label_8:
       spriteBatch.Draw(Furniture.furnitureTexture, location, new Rectangle?(rectangle), Color.White * alpha, 0.0f, Vector2.Zero, 4f, (bool) (NetFieldBase<bool, NetBool>) this.flipped ? SpriteEffects.FlipHorizontally : SpriteEffects.None, layerDepth);
     }
 
-    public virtual int GetAdditionalTilePropertyRadius() => 0;
+    public virtual int GetAdditionalTilePropertyRadius() { return 0; }
 
     public virtual bool DoesTileHaveProperty(
       int tile_x,
@@ -1204,7 +1212,7 @@ label_8:
       return false;
     }
 
-    public virtual bool IntersectsForCollision(Rectangle rect) => this.getBoundingBox((Vector2) (NetFieldBase<Vector2, NetVector2>) this.tileLocation).Intersects(rect);
+    public virtual bool IntersectsForCollision(Rectangle rect) { return this.getBoundingBox((Vector2) (NetFieldBase<Vector2, NetVector2>) this.tileLocation).Intersects(rect); }
 
     public override Item getOne()
     {

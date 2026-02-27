@@ -87,7 +87,7 @@ namespace StardewValley.Locations
       this.addCritter((Critter) new CalderaMonkey(new Vector2(18f, 17.3f) * 64f));
     }
 
-    public override bool CanRefillWateringCanOnTile(int tileX, int tileY) => false;
+    public override bool CanRefillWateringCanOnTile(int tileX, int tileY) { return false; }
 
     public override void DayUpdate(int dayOfMonth)
     {
@@ -97,7 +97,7 @@ namespace StardewValley.Locations
       Game1.addMailForTomorrow("volcanoShortcutUnlocked", true);
     }
 
-    public override void performTenMinuteUpdate(int timeOfDay) => base.performTenMinuteUpdate(timeOfDay);
+    public override void performTenMinuteUpdate(int timeOfDay) { return base.performTenMinuteUpdate(timeOfDay); }
 
     public override void cleanupBeforePlayerExit()
     {
@@ -159,7 +159,7 @@ namespace StardewValley.Locations
       return base.checkAction(tileLocation, viewport, who);
     }
 
-    public override bool isActionableTile(int xTile, int yTile, Farmer who) => yTile == 21 && (xTile == 22 || xTile == 23) || Game1.MasterPlayer.mailReceived.Contains("Farm_Eternal") && !Game1.player.mailReceived.Contains("gotCAMask") && xTile == 14 && yTile == 28 || base.isActionableTile(xTile, yTile, who);
+    public override bool isActionableTile(int xTile, int yTile, Farmer who) { return yTile == 21 && (xTile == 22 || xTile == 23) || Game1.MasterPlayer.mailReceived.Contains("Farm_Eternal") && !Game1.player.mailReceived.Contains("gotCAMask") && xTile == 14 && yTile == 28 || base.isActionableTile(xTile, yTile, who); }
 
     public override void drawBackground(SpriteBatch b)
     {

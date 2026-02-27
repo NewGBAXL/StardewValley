@@ -46,7 +46,7 @@ namespace StardewValley.Quests
       this.NetFields.AddFields((INetSerializable) this.npcName, (INetSerializable) this.friendshipReward, (INetSerializable) this.exclusiveQuestId, (INetSerializable) this.itemFound);
     }
 
-    public override bool isSecretQuest() => true;
+    public override bool isSecretQuest() { return true; }
 
     public override bool checkIfComplete(NPC n = null, int number1 = -1, int number2 = -2, Item item = null, string str = null)
     {

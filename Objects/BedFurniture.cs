@@ -54,7 +54,7 @@ namespace StardewValley.Objects
         }
         return this._bedType.Value;
       }
-      set => this._bedType.Value = value;
+      delegate(set) { return this._bedType.Value = value; };
     }
 
     public BedFurniture()
@@ -95,7 +95,7 @@ namespace StardewValley.Objects
       this.mutex.ReleaseLock();
     }
 
-    public virtual void ReserveForNPC() => this.mutex.RequestLock();
+    public virtual void ReserveForNPC() { return this.mutex.RequestLock(); }
 
     public override void AttemptRemoval(Action<Furniture> removal_action)
     {
@@ -293,9 +293,9 @@ namespace StardewValley.Objects
       return (Item) one;
     }
 
-    public virtual Point GetBedSpot() => new Point((int) this.tileLocation.X + 1, (int) this.tileLocation.Y + 1);
+    public virtual Point GetBedSpot() { return new Point((int) this.tileLocation.X + 1, (int) this.tileLocation.Y + 1); }
 
-    public override void resetOnPlayerEntry(GameLocation environment, bool dropDown = false) => this.UpdateBedTile(false);
+    public override void resetOnPlayerEntry(GameLocation environment, bool dropDown = false) { return this.UpdateBedTile(false); }
 
     public virtual void UpdateBedTile(bool check_bounds)
     {
@@ -337,7 +337,7 @@ namespace StardewValley.Objects
         base.draw(spriteBatch, x, y, alpha);
     }
 
-    public override bool AllowPlacementOnThisTile(int x, int y) => this.bedType == BedFurniture.BedType.Child && (double) y == (double) this.TileLocation.Y + 1.0 || base.AllowPlacementOnThisTile(x, y);
+    public override bool AllowPlacementOnThisTile(int x, int y) { return this.bedType == BedFurniture.BedType.Child && (double) y == (double) this.TileLocation.Y + 1.0 || base.AllowPlacementOnThisTile(x, y); }
 
     public override bool IntersectsForCollision(Rectangle rect)
     {
@@ -350,7 +350,7 @@ namespace StardewValley.Objects
       return rectangle.Intersects(rect);
     }
 
-    public override int GetAdditionalTilePropertyRadius() => 1;
+    public override int GetAdditionalTilePropertyRadius() { return 1; }
 
     public static bool IsBedHere(GameLocation location, int x, int y)
     {

@@ -129,7 +129,7 @@ namespace StardewValley.Menus
       }
     }
 
-    public override bool readyToClose() => true;
+    public override bool readyToClose() { return true; }
 
     public override void update(GameTime time)
     {
@@ -162,7 +162,7 @@ namespace StardewValley.Menus
       }
     }
 
-    public string getDescriptionFromButtonNumber(int buttonNumber) => Game1.content.LoadString("Strings\\UI:JojaCDMenu_Hover" + buttonNumber.ToString());
+    public string getDescriptionFromButtonNumber(int buttonNumber) { return Game1.content.LoadString("Strings\\UI:JojaCDMenu_Hover" + buttonNumber.ToString()); }
 
     public override void performHoverAction(int x, int y)
     {
@@ -195,7 +195,7 @@ namespace StardewValley.Menus
       }
     }
 
-    public override void receiveKeyPress(Keys key) => base.receiveKeyPress(key);
+    public override void receiveKeyPress(Keys key) { return base.receiveKeyPress(key); }
 
     public override void draw(SpriteBatch b)
     {

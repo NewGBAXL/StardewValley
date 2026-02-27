@@ -84,9 +84,9 @@ namespace StardewValley
       return this._keyState.Value;
     }
 
-    public virtual GamePadState GetGamePadState() => Game1.options.gamepadMode == Options.GamepadModes.ForceOff || Game1.playerOneIndex == ~PlayerIndex.One ? new GamePadState() : this._currentGamepadState;
+    public virtual GamePadState GetGamePadState() { return Game1.options.gamepadMode == Options.GamepadModes.ForceOff || Game1.playerOneIndex == ~PlayerIndex.One ? new GamePadState() : this._currentGamepadState; }
 
-    public virtual MouseState GetMouseState() => !Game1.game1.IsMainInstance ? new MouseState(this._simulatedMousePosition.X, this._simulatedMousePosition.Y, 0, ButtonState.Released, ButtonState.Released, ButtonState.Released, ButtonState.Released, ButtonState.Released) : this._currentMouseState;
+    public virtual MouseState GetMouseState() { return !Game1.game1.IsMainInstance ? new MouseState(this._simulatedMousePosition.X, this._simulatedMousePosition.Y, 0, ButtonState.Released, ButtonState.Released, ButtonState.Released, ButtonState.Released, ButtonState.Released) : this._currentMouseState; }
 
     public virtual void SetMousePosition(int x, int y)
     {

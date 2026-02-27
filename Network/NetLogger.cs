@@ -19,7 +19,7 @@ namespace StardewValley
 
     public bool IsLogging
     {
-      get => this.isLogging;
+      delegate(get) { return this.isLogging; };
       set
       {
         if (value == this.isLogging)
@@ -32,7 +32,7 @@ namespace StardewValley
       }
     }
 
-    public double LogDuration => this.isLogging ? this.priorMillis + (DateTime.Now - this.timeLastStarted).TotalMilliseconds : this.priorMillis;
+    public double delegate(LogDuration) { return this.isLogging ? this.priorMillis + (DateTime.Now - this.timeLastStarted).TotalMilliseconds : this.priorMillis; };
 
     public void LogWrite(string path, long length)
     {

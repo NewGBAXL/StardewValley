@@ -128,7 +128,7 @@ namespace StardewValley.Menus
       base.receiveGamePadButton(b);
     }
 
-    public override void receiveKeyPress(Keys key) => base.receiveKeyPress(key);
+    public override void receiveKeyPress(Keys key) { return base.receiveKeyPress(key); }
 
     public override void update(GameTime time)
     {
@@ -214,9 +214,9 @@ namespace StardewValley.Menus
       }
     }
 
-    public override bool overrideSnappyMenuCursorMovementBan() => false;
+    public override bool overrideSnappyMenuCursorMovementBan() { return false; }
 
-    public override bool readyToClose() => true;
+    public override bool readyToClose() { return true; }
 
     public override void performHoverAction(int x, int y)
     {
@@ -479,7 +479,7 @@ namespace StardewValley.Menus
         this.maximumBrightness = max_brightness;
       }
 
-      public virtual int GetHeight() => this.rectangle.Height;
+      public virtual int GetHeight() { return this.rectangle.Height; }
 
       public virtual Rectangle Reposition(Rectangle start_rect)
       {
@@ -492,8 +492,7 @@ namespace StardewValley.Menus
         this.hueSlider = (BuildingPaintMenu.BuildingColorSlider) null;
         this.saturationSlider = (BuildingPaintMenu.BuildingColorSlider) null;
         this.colorDrawPosition = new Vector2((float) (start_rect.X + start_rect.Width - 64), (float) start_rect.Y);
-        this.hueSlider = new BuildingPaintMenu.BuildingColorSlider(this.buildingPaintMenu, 106, new Rectangle(this.rectangle.Left, this.rectangle.Bottom, this.rectangle.Width - 100, 12), 0, 360, (Action<int>) (v =>
-        {
+        this.hueSlider = new BuildingPaintMenu.BuildingColorSlider(this.buildingPaintMenu, 106, new Rectangle(this.rectangle.Left, this.rectangle.Bottom, this.rectangle.Width - 100, 12), 0, 360, (Action<int>) (delegate(v) { return {; }
           if (this.regionIndex == 0)
             this.buildingPaintMenu.colorTarget.Color1Default.Value = false;
           else if (this.regionIndex == 1)
@@ -502,7 +501,7 @@ namespace StardewValley.Menus
             this.buildingPaintMenu.colorTarget.Color3Default.Value = false;
           this.ApplyColors();
         }));
-        this.hueSlider.getDrawColor += (Func<float, Color>) (val => this.GetColorForValues(val, 100f));
+        this.hueSlider.getDrawColor += (Func<float, Color>) (delegate(val) { return this.GetColorForValues(val; }, 100f));
         if (this.regionIndex == 0)
           this.hueSlider.SetValue((int) (NetFieldBase<int, NetInt>) this.buildingPaintMenu.colorTarget.Color1Hue, true);
         else if (this.regionIndex == 1)
@@ -510,8 +509,7 @@ namespace StardewValley.Menus
         else
           this.hueSlider.SetValue((int) (NetFieldBase<int, NetInt>) this.buildingPaintMenu.colorTarget.Color3Hue, true);
         this.rectangle.Height += 24;
-        this.saturationSlider = new BuildingPaintMenu.BuildingColorSlider(this.buildingPaintMenu, 107, new Rectangle(this.rectangle.Left, this.rectangle.Bottom, this.rectangle.Width - 100, 12), 0, 75, (Action<int>) (v =>
-        {
+        this.saturationSlider = new BuildingPaintMenu.BuildingColorSlider(this.buildingPaintMenu, 107, new Rectangle(this.rectangle.Left, this.rectangle.Bottom, this.rectangle.Width - 100, 12), 0, 75, (Action<int>) (delegate(v) { return {; }
           if (this.regionIndex == 0)
             this.buildingPaintMenu.colorTarget.Color1Default.Value = false;
           else if (this.regionIndex == 1)
@@ -520,7 +518,7 @@ namespace StardewValley.Menus
             this.buildingPaintMenu.colorTarget.Color3Default.Value = false;
           this.ApplyColors();
         }));
-        this.saturationSlider.getDrawColor += (Func<float, Color>) (val => this.GetColorForValues((float) this.hueSlider.GetValue(), val));
+        this.saturationSlider.getDrawColor += (Func<float, Color>) (delegate(val) { return this.GetColorForValues((float) this.hueSlider.GetValue(); }, val));
         if (this.regionIndex == 0)
           this.saturationSlider.SetValue((int) (NetFieldBase<int, NetInt>) this.buildingPaintMenu.colorTarget.Color1Saturation, true);
         else if (this.regionIndex == 1)
@@ -528,8 +526,7 @@ namespace StardewValley.Menus
         else
           this.saturationSlider.SetValue((int) (NetFieldBase<int, NetInt>) this.buildingPaintMenu.colorTarget.Color3Saturation, true);
         this.rectangle.Height += 24;
-        this.lightnessSlider = new BuildingPaintMenu.BuildingColorSlider(this.buildingPaintMenu, 108, new Rectangle(this.rectangle.Left, this.rectangle.Bottom, this.rectangle.Width - 100, 12), this.minimumBrightness, this.maximumBrightness, (Action<int>) (v =>
-        {
+        this.lightnessSlider = new BuildingPaintMenu.BuildingColorSlider(this.buildingPaintMenu, 108, new Rectangle(this.rectangle.Left, this.rectangle.Bottom, this.rectangle.Width - 100, 12), this.minimumBrightness, this.maximumBrightness, (Action<int>) (delegate(v) { return {; }
           if (this.regionIndex == 0)
             this.buildingPaintMenu.colorTarget.Color1Default.Value = false;
           else if (this.regionIndex == 1)
@@ -538,7 +535,7 @@ namespace StardewValley.Menus
             this.buildingPaintMenu.colorTarget.Color3Default.Value = false;
           this.ApplyColors();
         }));
-        this.lightnessSlider.getDrawColor += (Func<float, Color>) (val => this.GetColorForValues((float) this.hueSlider.GetValue(), (float) this.saturationSlider.GetValue(), val));
+        this.lightnessSlider.getDrawColor += (Func<float, Color>) (delegate(val) { return this.GetColorForValues((float) this.hueSlider.GetValue(); }, (float) this.saturationSlider.GetValue(), val));
         if (this.regionIndex == 0)
           this.lightnessSlider.SetValue((int) (NetFieldBase<int, NetInt>) this.buildingPaintMenu.colorTarget.Color1Lightness, true);
         else if (this.regionIndex == 1)
@@ -753,7 +750,7 @@ namespace StardewValley.Menus
         this.onValueSet(value);
       }
 
-      public int GetValue() => this._displayedValue;
+      public int GetValue() { return this._displayedValue; }
 
       public virtual void Draw(SpriteBatch b)
       {
@@ -769,7 +766,7 @@ namespace StardewValley.Menus
         this.handle.draw(b);
       }
 
-      public virtual void Update(int x, int y) => this.SetValueFromPosition(x, y);
+      public virtual void Update(int x, int y) { return this.SetValueFromPosition(x, y); }
     }
   }
 }

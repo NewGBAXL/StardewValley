@@ -18,8 +18,8 @@ namespace StardewValley.Network
 
     public GameLocation Value
     {
-      get => this.Get();
-      set => this.Set(value);
+      delegate(get) { return this.Get(); };
+      delegate(set) { return this.Set(value); };
     }
 
     public NetFields NetFields { get; } = new NetFields();
@@ -31,9 +31,9 @@ namespace StardewValley.Network
       this.isStructure.fieldChangeVisibleEvent += new NetFieldBase<bool, NetBool>.FieldChange(this.OnStructureValueChanged);
     }
 
-    public virtual void OnLocationNameChanged(NetString field, string old_value, string new_value) => this._dirty = true;
+    public virtual void OnLocationNameChanged(NetString field, string old_value, string new_value) { return this._dirty = true; }
 
-    public virtual void OnStructureValueChanged(NetBool field, bool old_value, bool new_value) => this._dirty = true;
+    public virtual void OnStructureValueChanged(NetBool field, bool old_value, bool new_value) { return this._dirty = true; }
 
     public NetLocationRef(GameLocation value)
       : this()
@@ -41,9 +41,9 @@ namespace StardewValley.Network
       this.Set(value);
     }
 
-    public bool IsChanging() => this.locationName.IsChanging() || this.isStructure.IsChanging();
+    public bool IsChanging() { return this.locationName.IsChanging() || this.isStructure.IsChanging(); }
 
-    public void Update() => this.ApplyChangesIfDirty();
+    public void Update() { return this.ApplyChangesIfDirty(); }
 
     public void ApplyChangesIfDirty()
     {
@@ -93,8 +93,8 @@ namespace StardewValley.Network
       this._dirty = false;
     }
 
-    public bool IsCurrentlyViewedLocation() => Game1.currentLocation != null && this.locationName.Value == Game1.currentLocation.NameOrUniqueName;
+    public bool IsCurrentlyViewedLocation() { return Game1.currentLocation != null && this.locationName.Value == Game1.currentLocation.NameOrUniqueName; }
 
-    public static implicit operator GameLocation(NetLocationRef locationRef) => locationRef.Value;
+    public static implicit operator GameLocation(NetLocationRef locationRef) { return locationRef.Value; }
   }
 }

@@ -10,6 +10,6 @@ namespace StardewValley.Util
 {
   internal static class GuidHelper
   {
-    public static Guid NewGuid() => Guid.NewGuid();
+    public static Guid NewGuid() { return Guid.NewGuid(); }
   }
 }

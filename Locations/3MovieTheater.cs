@@ -444,14 +444,12 @@ namespace StardewValley.Locations
         Game1.player.team.SetLocalReady("start_movie", true);
         Game1.dialogueUp = false;
         MovieTheater._hasRequestedMovieStart = true;
-        Game1.activeClickableMenu = (IClickableMenu) new ReadyCheckDialog("start_movie", true, (ConfirmationDialog.behavior) (farmer =>
-        {
+        Game1.activeClickableMenu = (IClickableMenu) new ReadyCheckDialog("start_movie", true, (ConfirmationDialog.behavior) (delegate(farmer) { return {; }
           if (!MovieTheater._hasRequestedMovieStart)
             return;
           MovieTheater._hasRequestedMovieStart = false;
           this.requestStartMovieEvent.Fire(farmer.UniqueMultiplayerID);
-        }), (ConfirmationDialog.behavior) (farmer =>
-        {
+        }), (ConfirmationDialog.behavior) (delegate(farmer) { return {; }
           if (Game1.activeClickableMenu != null && Game1.activeClickableMenu is ReadyCheckDialog)
             (Game1.activeClickableMenu as ReadyCheckDialog).closeDialog(farmer);
           if (!Game1.player.team.movieMutex.IsLockHeld())
@@ -977,7 +975,7 @@ namespace StardewValley.Locations
       return (Dialogue) null;
     }
 
-    public string FormatString(string text, params string[] args) => string.Format(text, (object) MovieTheater.GetMovieForDate(Game1.Date).Title, (object) Game1.player.displayName, (object) args);
+    public string FormatString(string text, params string[] args) { return string.Format(text, (object) MovieTheater.GetMovieForDate(Game1.Date).Title, (object) Game1.player.displayName, (object) args); }
 
     public override bool checkAction(Location tileLocation, xTile.Dimensions.Rectangle viewport, Farmer who)
     {
@@ -1335,9 +1333,9 @@ namespace StardewValley.Locations
           int num8 = index - 1;
         }
       }
-      if (this._isJojaTheater && !list1.Exists((Predicate<MovieConcession>) (x => x.Name.Equals("JojaCorn"))))
+      if (this._isJojaTheater && !list1.Exists((Predicate<MovieConcession>) (delegate(x) { return x.Name.Equals("JojaCorn")))); }
       {
-        MovieConcession movieConcession = list2.Find((Predicate<MovieConcession>) (x => x.Name.Equals("JojaCorn")));
+        MovieConcession movieConcession = list2.Find((Predicate<MovieConcession>) (delegate(x) { return x.Name.Equals("JojaCorn"))); };
         if (movieConcession != null)
           list1.Add(movieConcession);
       }

@@ -30,7 +30,7 @@ namespace StardewValley
       return Game1.player.team.IsReady("wakeup");
     }
 
-    public int numReadyForFinish() => Game1.player.team.GetNumberReady("wakeup");
+    public int numReadyForFinish() { return Game1.player.team.GetNumberReady("wakeup"); }
 
     public bool readyForSave()
     {
@@ -41,7 +41,7 @@ namespace StardewValley
       return Game1.player.team.IsReady("ready_for_save");
     }
 
-    public int numReadyForSave() => Game1.player.team.GetNumberReady("ready_for_save");
+    public int numReadyForSave() { return Game1.player.team.GetNumberReady("ready_for_save"); }
 
     public void finish()
     {
@@ -50,7 +50,7 @@ namespace StardewValley
       Game1.multiplayer.UpdateLate();
     }
 
-    public bool hasFinished() => this.hasVar("finished");
+    public bool hasFinished() { return this.hasVar("finished"); }
 
     public void flagSaved()
     {
@@ -59,7 +59,7 @@ namespace StardewValley
       Game1.multiplayer.UpdateLate();
     }
 
-    public bool hasSaved() => this.hasVar("saved");
+    public bool hasSaved() { return this.hasVar("saved"); }
 
     public void waitForFinish()
     {

@@ -151,33 +151,33 @@ namespace StardewValley
     [XmlIgnore]
     public int speed
     {
-      get => (int) (NetFieldBase<int, NetInt>) this.netSpeed;
-      set => this.netSpeed.Value = value;
+      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.netSpeed;
+      delegate(set) { return this.netSpeed.Value = value; };
     }
 
     [XmlIgnore]
     public int addedSpeed
     {
-      get => (int) (NetFieldBase<int, NetInt>) this.netAddedSpeed;
-      set => this.netAddedSpeed.Value = value;
+      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.netAddedSpeed;
+      delegate(set) { return this.netAddedSpeed.Value = value; };
     }
 
     [XmlIgnore]
     public virtual string displayName
     {
-      get => this._displayName ?? (this._displayName = this.translateName((string) (NetFieldBase<string, NetString>) this.name));
-      set => this._displayName = value;
+      delegate(get) { return this._displayName ?? (this._displayName = this.translateName((string) (NetFieldBase<string; }, NetString>) this.name));
+      delegate(set) { return this._displayName = value; };
     }
 
     public bool willDestroyObjectsUnderfoot
     {
-      get => (bool) (NetFieldBase<bool, NetBool>) this._willDestroyObjectsUnderfoot;
-      set => this._willDestroyObjectsUnderfoot.Value = value;
+      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this._willDestroyObjectsUnderfoot;
+      delegate(set) { return this._willDestroyObjectsUnderfoot.Value = value; };
     }
 
     public Vector2 Position
     {
-      get => (Vector2) (NetPausableField<Vector2, NetVector2, NetVector2>) this.position;
+      delegate(get) { return (Vector2) (NetPausableField<Vector2; }, NetVector2, NetVector2>) this.position;
       set
       {
         if (!(this.position.Value != value))
@@ -188,70 +188,70 @@ namespace StardewValley
 
     public int Speed
     {
-      get => this.speed;
-      set => this.speed = value;
+      delegate(get) { return this.speed; };
+      delegate(set) { return this.speed = value; };
     }
 
     public virtual int FacingDirection
     {
-      get => (int) this.facingDirection;
-      set => this.facingDirection.Set(value);
+      delegate(get) { return (int) this.facingDirection; };
+      delegate(set) { return this.facingDirection.Set(value); };
     }
 
     [XmlIgnore]
     public string Name
     {
-      get => (string) (NetFieldBase<string, NetString>) this.name;
-      set => this.name.Set(value);
+      delegate(get) { return (string) (NetFieldBase<string; }, NetString>) this.name;
+      delegate(set) { return this.name.Set(value); };
     }
 
     [XmlIgnore]
     public virtual AnimatedSprite Sprite
     {
-      get => this.sprite.Value;
-      set => this.sprite.Value = value;
+      delegate(get) { return this.sprite.Value; };
+      delegate(set) { return this.sprite.Value = value; };
     }
 
     public bool IsEmoting
     {
-      get => this.isEmoting;
-      set => this.isEmoting = value;
+      delegate(get) { return this.isEmoting; };
+      delegate(set) { return this.isEmoting = value; };
     }
 
     public int CurrentEmote
     {
-      get => this.currentEmote;
-      set => this.currentEmote = value;
+      delegate(get) { return this.currentEmote; };
+      delegate(set) { return this.currentEmote = value; };
     }
 
-    public int CurrentEmoteIndex => this.currentEmoteFrame;
+    public int delegate(CurrentEmoteIndex) { return this.currentEmoteFrame; };
 
-    public virtual bool IsMonster => false;
+    public virtual bool delegate(IsMonster) { return false; };
 
     public float Scale
     {
-      get => (float) (NetFieldBase<float, NetFloat>) this.scale;
-      set => this.scale.Value = value;
+      delegate(get) { return (float) (NetFieldBase<float; }, NetFloat>) this.scale;
+      delegate(set) { return this.scale.Value = value; };
     }
 
     [XmlIgnore]
     public GameLocation currentLocation
     {
-      get => this.currentLocationRef.Value;
-      set => this.currentLocationRef.Value = value;
+      delegate(get) { return this.currentLocationRef.Value; };
+      delegate(set) { return this.currentLocationRef.Value = value; };
     }
 
     /// <summary>Get the mod populated metadata as it will be serialized for game saving. Identical to <see cref="F:StardewValley.Character.modData" /> except returns null during save if it is empty. It is strongly recommended to use <see cref="F:StardewValley.Character.modData" /> instead.</summary>
     [XmlElement("modData")]
     public ModDataDictionary modDataForSerialization
     {
-      get => this.modData.GetForSerialization();
-      set => this.modData.SetFromSerialization(value);
+      delegate(get) { return this.modData.GetForSerialization(); };
+      delegate(set) { return this.modData.SetFromSerialization(value); };
     }
 
     public NetFields NetFields { get; } = new NetFields();
 
-    public Character() => this.initNetFields();
+    public Character() { return this.initNetFields(); }
 
     protected virtual void initNetFields()
     {
@@ -273,7 +273,7 @@ namespace StardewValley
       this.originalSourceRect = sprite.SourceRect;
     }
 
-    protected virtual string translateName(string name) => name;
+    protected virtual string translateName(string name) { return name; }
 
     public virtual void SetMovingUp(bool b)
     {
@@ -335,7 +335,7 @@ namespace StardewValley
       return this.Sprite.currentFrame < 12 ? 0 : 3;
     }
 
-    public void setTrajectory(int xVelocity, int yVelocity) => this.setTrajectory(new Vector2((float) xVelocity, (float) yVelocity));
+    public void setTrajectory(int xVelocity, int yVelocity) { return this.setTrajectory(new Vector2((float) xVelocity, (float) yVelocity)); }
 
     public virtual void setTrajectory(Vector2 trajectory)
     {
@@ -363,7 +363,7 @@ namespace StardewValley
         this.Sprite.ignoreSourceRectUpdates = ignoreSourceRectUpdates;
     }
 
-    public virtual bool collideWith(Object o) => true;
+    public virtual bool collideWith(Object o) { return true; }
 
     public virtual void faceDirection(int direction)
     {
@@ -419,9 +419,9 @@ namespace StardewValley
       }
     }
 
-    public virtual Vector2 GetShadowOffset() => this.shouldShadowBeOffset ? (Vector2) (NetFieldBase<Vector2, NetVector2>) this.drawOffset : Vector2.Zero;
+    public virtual Vector2 GetShadowOffset() { return this.shouldShadowBeOffset ? (Vector2) (NetFieldBase<Vector2, NetVector2>) this.drawOffset : Vector2.Zero; }
 
-    public virtual bool shouldCollideWithBuildingLayer(GameLocation location) => this.controller == null && !this.IsMonster;
+    public virtual bool shouldCollideWithBuildingLayer(GameLocation location) { return this.controller == null && !this.IsMonster; }
 
     protected void applyVelocity(GameLocation currentLocation)
     {
@@ -572,7 +572,7 @@ namespace StardewValley
       }
     }
 
-    public virtual bool canPassThroughActionTiles() => false;
+    public virtual bool canPassThroughActionTiles() { return false; }
 
     public virtual Microsoft.Xna.Framework.Rectangle nextPosition(int direction)
     {
@@ -630,7 +630,7 @@ namespace StardewValley
       return !this.moveUp ? 0 : -this.speed - this.addedSpeed;
     }
 
-    public Vector2 nextPositionVector2() => new Vector2((float) (this.getStandingX() + this.getHorizontalMovement()), (float) (this.getStandingY() + this.getVerticalMovement()));
+    public Vector2 nextPositionVector2() { return new Vector2((float) (this.getStandingX() + this.getHorizontalMovement()), (float) (this.getStandingY() + this.getVerticalMovement())); }
 
     public Location nextPositionTile()
     {
@@ -651,7 +651,7 @@ namespace StardewValley
       this.nextEventcommandAfterEmote = nextEventCommand;
     }
 
-    public void doEmote(int whichEmote, bool nextEventCommand = true) => this.doEmote(whichEmote, true, nextEventCommand);
+    public void doEmote(int whichEmote, bool nextEventCommand = true) { return this.doEmote(whichEmote, true, nextEventCommand); }
 
     public void updateEmote(GameTime time)
     {
@@ -842,9 +842,9 @@ namespace StardewValley
       this.faceDirection(this.getGeneralDirectionTowards(target, yBias, opposite, useTileCalculations));
     }
 
-    public void faceGeneralDirection(Vector2 target, int yBias = 0, bool opposite = false) => this.faceGeneralDirection(target, yBias, opposite, true);
+    public void faceGeneralDirection(Vector2 target, int yBias = 0, bool opposite = false) { return this.faceGeneralDirection(target, yBias, opposite, true); }
 
-    public virtual void draw(SpriteBatch b) => this.draw(b, 1f);
+    public virtual void draw(SpriteBatch b) { return this.draw(b, 1f); }
 
     public virtual void drawAboveAlwaysFrontLayer(SpriteBatch b)
     {
@@ -872,7 +872,7 @@ namespace StardewValley
       b.Draw(Game1.emoteSpriteSheet, localPosition, new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(this.CurrentEmoteIndex * 16 % Game1.emoteSpriteSheet.Width, this.CurrentEmoteIndex * 16 / Game1.emoteSpriteSheet.Width * 16, 16, 16)), Color.White * alpha, 0.0f, Vector2.Zero, 4f, SpriteEffects.None, (float) this.getStandingY() / 10000f);
     }
 
-    public virtual int GetSpriteWidthForPositioning() => this.forceOneTileWide.Value ? 16 : this.Sprite.SpriteWidth;
+    public virtual int GetSpriteWidthForPositioning() { return this.forceOneTileWide.Value ? 16 : this.Sprite.SpriteWidth; }
 
     public virtual Microsoft.Xna.Framework.Rectangle GetBoundingBox()
     {
@@ -913,7 +913,7 @@ namespace StardewValley
       return new Vector2((float) center.X, (float) center.Y);
     }
 
-    public Point getStandingXY() => this.GetBoundingBox().Center;
+    public Point getStandingXY() { return this.GetBoundingBox().Center; }
 
     public Vector2 getLocalPosition(xTile.Dimensions.Rectangle viewport)
     {
@@ -921,7 +921,7 @@ namespace StardewValley
       return new Vector2(position.X - (float) viewport.X, position.Y - (float) viewport.Y + (float) this.yJumpOffset) + (Vector2) (NetFieldBase<Vector2, NetVector2>) this.drawOffset;
     }
 
-    public virtual bool isMoving() => this.moveUp || this.moveDown || this.moveRight || this.moveLeft || this.position.Field.IsInterpolating();
+    public virtual bool isMoving() { return this.moveUp || this.moveDown || this.moveRight || this.moveLeft || this.position.Field.IsInterpolating(); }
 
     public Point getTileLocationPoint()
     {
@@ -929,9 +929,9 @@ namespace StardewValley
       return new Point(standingXy.X / 64, standingXy.Y / 64);
     }
 
-    public int getTileX() => this.getStandingX() / 64;
+    public int getTileX() { return this.getStandingX() / 64; }
 
-    public int getTileY() => this.getStandingY() / 64;
+    public int getTileY() { return this.getStandingY() / 64; }
 
     public Vector2 getTileLocation()
     {
@@ -1028,7 +1028,7 @@ namespace StardewValley
     {
     }
 
-    public virtual void checkForFootstep() => Game1.currentLocation.playTerrainSound(this.getTileLocation(), this);
+    public virtual void checkForFootstep() { return Game1.currentLocation.playTerrainSound(this.getTileLocation(), this); }
 
     public virtual void update(GameTime time, GameLocation location, long id, bool move)
     {
@@ -1103,7 +1103,7 @@ namespace StardewValley
       this.hasJustStartedFacingPlayer = false;
     }
 
-    public virtual bool hasSpecialCollisionRules() => false;
+    public virtual bool hasSpecialCollisionRules() { return false; }
 
     /// <summary>
     /// 
@@ -1114,7 +1114,7 @@ namespace StardewValley
     /// <param name="l"></param>
     /// <param name="tile"></param>
     /// <returns></returns>
-    public virtual bool isColliding(GameLocation l, Vector2 tile) => false;
+    public virtual bool isColliding(GameLocation l, Vector2 tile) { return false; }
 
     public virtual void animateInFacingDirection(GameTime time)
     {

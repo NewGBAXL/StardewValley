@@ -231,19 +231,19 @@ namespace StardewValley.Objects
     {
     }
 
-    public override int maximumStackSize() => 1;
+    public override int maximumStackSize() { return 1; }
 
-    public override int addToStack(Item stack) => -1;
+    public override int addToStack(Item stack) { return -1; }
 
-    public override string getDescription() => (string) null;
+    public override string getDescription() { return (string) null; }
 
-    public override bool isPlaceable() => false;
+    public override bool isPlaceable() { return false; }
 
     [XmlIgnore]
     public override string DisplayName
     {
-      get => this.displayName;
-      set => this.displayName = value;
+      delegate(get) { return this.displayName; };
+      delegate(set) { return this.displayName = value; };
     }
 
     public override string Name
@@ -270,17 +270,17 @@ namespace StardewValley.Objects
         }
         return (string) (NetFieldBase<string, NetString>) this.netName;
       }
-      set => this.netName.Value = value;
+      delegate(set) { return this.netName.Value = value; };
     }
 
     public override int Stack
     {
-      get => 1;
+      delegate(get) { return 1; };
       set
       {
       }
     }
 
-    public override Item getOne() => throw new NotImplementedException();
+    public override Item getOne() { return throw new NotImplementedException(); }
   }
 }

@@ -32,7 +32,7 @@ namespace StardewValley.Events
 
     public NetFields NetFields { get; } = new NetFields();
 
-    public SoundInTheNightEvent() => this.NetFields.AddField((INetSerializable) this.behavior);
+    public SoundInTheNightEvent() { return this.NetFields.AddField((INetSerializable) this.behavior); }
 
     public SoundInTheNightEvent(int which)
       : this()

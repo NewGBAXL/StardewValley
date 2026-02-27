@@ -14,8 +14,7 @@ namespace StardewValley
   {
     protected override bool _AttemptActivity(Farm farm)
     {
-      TerrainFeature randomTerrainFeature = this.GetRandomTerrainFeature(farm, (Func<TerrainFeature, bool>) (feature =>
-      {
+      TerrainFeature randomTerrainFeature = this.GetRandomTerrainFeature(farm, (Func<TerrainFeature, bool>) (delegate(feature) { return {; }
         switch (feature)
         {
           case Tree _ when (feature as Tree).growthStage.Value >= 5:
@@ -77,6 +76,6 @@ namespace StardewValley
       }
     }
 
-    protected override void _EndActivity() => this._character.EndActivityRouteEndBehavior();
+    protected override void _EndActivity() { return this._character.EndActivityRouteEndBehavior(); }
   }
 }

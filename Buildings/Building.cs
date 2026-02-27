@@ -91,8 +91,8 @@ namespace StardewValley.Buildings
     [XmlElement("modData")]
     public ModDataDictionary modDataForSerialization
     {
-      get => this.modData.GetForSerialization();
-      set => this.modData.SetFromSerialization(value);
+      delegate(get) { return this.modData.GetForSerialization(); };
+      delegate(set) { return this.modData.SetFromSerialization(value); };
     }
 
     public bool isCabin
@@ -114,11 +114,11 @@ namespace StardewValley.Buildings
       }
     }
 
-    public string nameOfIndoorsWithoutUnique => this.indoors.Value == null ? "null" : this.getBuildingMapFileName(this.indoors.Value.Name);
+    public string delegate(nameOfIndoorsWithoutUnique) { return this.indoors.Value == null ? "null" : this.getBuildingMapFileName(this.indoors.Value.Name); };
 
     public bool isMoving
     {
-      get => this._isMoving;
+      delegate(get) { return this._isMoving; };
       set
       {
         if (this._isMoving == value)
@@ -171,7 +171,7 @@ namespace StardewValley.Buildings
       return true;
     }
 
-    public virtual bool hasCarpenterPermissions() => Game1.IsMasterGame || this.owner.Value == Game1.player.UniqueMultiplayerID || this.isCabin && this.indoors.Value is Cabin && (this.indoors.Value as Cabin).owner == Game1.player;
+    public virtual bool hasCarpenterPermissions() { return Game1.IsMasterGame || this.owner.Value == Game1.player.UniqueMultiplayerID || this.isCabin && this.indoors.Value is Cabin && (this.indoors.Value as Cabin).owner == Game1.player; }
 
     protected virtual string getBuildingMapFileName(string name)
     {
@@ -197,7 +197,7 @@ namespace StardewValley.Buildings
       this.NetFields.AddField((INetSerializable) this.modData);
     }
 
-    public virtual string textureName() => "Buildings\\" + (string) (NetFieldBase<string, NetString>) this.buildingType;
+    public virtual string textureName() { return "Buildings\\" + (string) (NetFieldBase<string, NetString>) this.buildingType; }
 
     public virtual void resetTexture() => this.texture = new Lazy<Texture2D>((Func<Texture2D>) (() =>
     {
@@ -231,9 +231,9 @@ namespace StardewValley.Buildings
       this.isMoving = false;
     }
 
-    public virtual bool CanLeftClick(int x, int y) => this.intersects(new Rectangle(x, y, 1, 1));
+    public virtual bool CanLeftClick(int x, int y) { return this.intersects(new Rectangle(x, y, 1, 1)); }
 
-    public virtual bool leftClicked() => false;
+    public virtual bool leftClicked() { return false; }
 
     public virtual bool doAction(Vector2 tileLocation, Farmer who)
     {
@@ -351,7 +351,7 @@ namespace StardewValley.Buildings
       Game1.displayFarmer = true;
     }
 
-    public virtual bool isActionableTile(int xTile, int yTile, Farmer who) => this.humanDoor.X >= 0 && xTile == (int) (NetFieldBase<int, NetInt>) this.tileX + this.humanDoor.X && yTile == (int) (NetFieldBase<int, NetInt>) this.tileY + this.humanDoor.Y || this.animalDoor.X >= 0 && xTile == (int) (NetFieldBase<int, NetInt>) this.tileX + this.animalDoor.X && yTile == (int) (NetFieldBase<int, NetInt>) this.tileY + this.animalDoor.Y;
+    public virtual bool isActionableTile(int xTile, int yTile, Farmer who) { return this.humanDoor.X >= 0 && xTile == (int) (NetFieldBase<int, NetInt>) this.tileX + this.humanDoor.X && yTile == (int) (NetFieldBase<int, NetInt>) this.tileY + this.humanDoor.Y || this.animalDoor.X >= 0 && xTile == (int) (NetFieldBase<int, NetInt>) this.tileX + this.animalDoor.X && yTile == (int) (NetFieldBase<int, NetInt>) this.tileY + this.animalDoor.Y; }
 
     public virtual void performActionOnBuildingPlacement()
     {
@@ -440,13 +440,12 @@ namespace StardewValley.Buildings
       this.indoors.Value = (GameLocation) null;
     }
 
-    public virtual List<Item> GetAdditionalItemsToCheckBeforeDemolish() => (List<Item>) null;
+    public virtual List<Item> GetAdditionalItemsToCheckBeforeDemolish() { return (List<Item>) null; }
 
     public virtual void BeforeDemolish()
     {
       List<Item> quest_items = new List<Item>();
-      Action<Item> action = (Action<Item>) (item =>
-      {
+      Action<Item> action = (Action<Item>) (delegate(item) { return {; }
         if (item == null || !(item is StardewValley.Object) || !(item as StardewValley.Object).questItem.Value)
           return;
         Item one = item.getOne();
@@ -493,7 +492,7 @@ namespace StardewValley.Buildings
       return (string) null;
     }
 
-    public virtual bool performActiveObjectDropInAction(Farmer who, bool probe) => false;
+    public virtual bool performActiveObjectDropInAction(Farmer who, bool probe) { return false; }
 
     public virtual void performToolAction(Tool t, int tileX, int tileY)
     {
@@ -539,7 +538,7 @@ namespace StardewValley.Buildings
       });
     }
 
-    public virtual Vector2 getUpgradeSignLocation() => this.indoors.Value != null && this.indoors.Value is Shed ? new Vector2((float) ((int) (NetFieldBase<int, NetInt>) this.tileX + 5), (float) ((int) (NetFieldBase<int, NetInt>) this.tileY + 1)) * 64f + new Vector2(-12f, -16f) : new Vector2((float) ((int) (NetFieldBase<int, NetInt>) this.tileX * 64 + 32), (float) ((int) (NetFieldBase<int, NetInt>) this.tileY * 64 - 32));
+    public virtual Vector2 getUpgradeSignLocation() { return this.indoors.Value != null && this.indoors.Value is Shed ? new Vector2((float) ((int) (NetFieldBase<int, NetInt>) this.tileX + 5), (float) ((int) (NetFieldBase<int, NetInt>) this.tileY + 1)) * 64f + new Vector2(-12f, -16f) : new Vector2((float) ((int) (NetFieldBase<int, NetInt>) this.tileX * 64 + 32), (float) ((int) (NetFieldBase<int, NetInt>) this.tileY * 64 - 32)); }
 
     public virtual string getNameOfNextUpgrade()
     {
@@ -647,7 +646,7 @@ namespace StardewValley.Buildings
       return new Rectangle(num * 80, 0, 80, 112);
     }
 
-    public virtual Rectangle getSourceRectForMenu() => this.getSourceRect();
+    public virtual Rectangle getSourceRectForMenu() { return this.getSourceRect(); }
 
     public virtual void updateInteriorWarps(GameLocation interior = null)
     {
@@ -685,11 +684,11 @@ namespace StardewValley.Buildings
       return interior;
     }
 
-    public virtual Point getPointForHumanDoor() => new Point((int) (NetFieldBase<int, NetInt>) this.tileX + this.humanDoor.Value.X, (int) (NetFieldBase<int, NetInt>) this.tileY + this.humanDoor.Value.Y);
+    public virtual Point getPointForHumanDoor() { return new Point((int) (NetFieldBase<int, NetInt>) this.tileX + this.humanDoor.Value.X, (int) (NetFieldBase<int, NetInt>) this.tileY + this.humanDoor.Value.Y); }
 
-    public virtual Rectangle getRectForHumanDoor() => new Rectangle(this.getPointForHumanDoor().X * 64, this.getPointForHumanDoor().Y * 64, 64, 64);
+    public virtual Rectangle getRectForHumanDoor() { return new Rectangle(this.getPointForHumanDoor().X * 64, this.getPointForHumanDoor().Y * 64, 64, 64); }
 
-    public virtual Rectangle getRectForAnimalDoor() => new Rectangle((this.animalDoor.X + (int) (NetFieldBase<int, NetInt>) this.tileX) * 64, ((int) (NetFieldBase<int, NetInt>) this.tileY + this.animalDoor.Y) * 64, 64, 64);
+    public virtual Rectangle getRectForAnimalDoor() { return new Rectangle((this.animalDoor.X + (int) (NetFieldBase<int, NetInt>) this.tileX) * 64, ((int) (NetFieldBase<int, NetInt>) this.tileY + this.animalDoor.Y) * 64, 64, 64); }
 
     public virtual void load()
     {
@@ -773,9 +772,9 @@ namespace StardewValley.Buildings
       this.additionalPlacementTiles.AddRange((IEnumerable<Point>) bluePrint.additionalPlacementTiles);
     }
 
-    public bool isUnderConstruction() => (int) (NetFieldBase<int, NetInt>) this.daysOfConstructionLeft > 0;
+    public bool isUnderConstruction() { return (int) (NetFieldBase<int, NetInt>) this.daysOfConstructionLeft > 0; }
 
-    public bool occupiesTile(Vector2 tile) => (double) tile.X >= (double) (int) (NetFieldBase<int, NetInt>) this.tileX && (double) tile.X < (double) ((int) (NetFieldBase<int, NetInt>) this.tileX + (int) (NetFieldBase<int, NetInt>) this.tilesWide) && (double) tile.Y >= (double) (int) (NetFieldBase<int, NetInt>) this.tileY && (double) tile.Y < (double) ((int) (NetFieldBase<int, NetInt>) this.tileY + (int) (NetFieldBase<int, NetInt>) this.tilesHigh);
+    public bool occupiesTile(Vector2 tile) { return (double) tile.X >= (double) (int) (NetFieldBase<int, NetInt>) this.tileX && (double) tile.X < (double) ((int) (NetFieldBase<int, NetInt>) this.tileX + (int) (NetFieldBase<int, NetInt>) this.tilesWide) && (double) tile.Y >= (double) (int) (NetFieldBase<int, NetInt>) this.tileY && (double) tile.Y < (double) ((int) (NetFieldBase<int, NetInt>) this.tileY + (int) (NetFieldBase<int, NetInt>) this.tilesHigh); }
 
     public virtual bool isTilePassable(Vector2 tile)
     {
@@ -783,11 +782,11 @@ namespace StardewValley.Buildings
       return this.isCabin && flag && (int) tile.Y == (int) (NetFieldBase<int, NetInt>) this.tileY + (int) (NetFieldBase<int, NetInt>) this.tilesHigh - 1 || !flag;
     }
 
-    public virtual bool isTileOccupiedForPlacement(Vector2 tile, StardewValley.Object to_place) => !this.isTilePassable(tile) && (!this.isCabin || to_place == null || (int) tile.Y != (int) (NetFieldBase<int, NetInt>) this.tileY + (int) (NetFieldBase<int, NetInt>) this.tilesHigh - 1);
+    public virtual bool isTileOccupiedForPlacement(Vector2 tile, StardewValley.Object to_place) { return !this.isTilePassable(tile) && (!this.isCabin || to_place == null || (int) tile.Y != (int) (NetFieldBase<int, NetInt>) this.tileY + (int) (NetFieldBase<int, NetInt>) this.tilesHigh - 1); }
 
-    public virtual bool isTileFishable(Vector2 tile) => false;
+    public virtual bool isTileFishable(Vector2 tile) { return false; }
 
-    public virtual bool CanRefillWateringCan() => (int) (NetFieldBase<int, NetInt>) this.daysOfConstructionLeft <= 0 && this.buildingType.Equals((object) "Well");
+    public virtual bool CanRefillWateringCan() { return (int) (NetFieldBase<int, NetInt>) this.daysOfConstructionLeft <= 0 && this.buildingType.Equals((object) "Well"); }
 
     public virtual bool intersects(Rectangle boundingBox)
     {
@@ -859,7 +858,7 @@ namespace StardewValley.Buildings
     {
     }
 
-    public Point getPorchStandingSpot() => this.isCabin ? new Point((int) (NetFieldBase<int, NetInt>) this.tileX + 1, (int) (NetFieldBase<int, NetInt>) this.tileY + (int) (NetFieldBase<int, NetInt>) this.tilesHigh - 1) : new Point(0, 0);
+    public Point getPorchStandingSpot() { return this.isCabin ? new Point((int) (NetFieldBase<int, NetInt>) this.tileX + 1, (int) (NetFieldBase<int, NetInt>) this.tileY + (int) (NetFieldBase<int, NetInt>) this.tilesHigh - 1) : new Point(0, 0); }
 
     public virtual bool doesTileHaveProperty(
       int tile_x,
@@ -925,9 +924,9 @@ namespace StardewValley.Buildings
       return false;
     }
 
-    public Point getMailboxPosition() => this.isCabin ? new Point((int) (NetFieldBase<int, NetInt>) this.tileX + (int) (NetFieldBase<int, NetInt>) this.tilesWide - 1, (int) (NetFieldBase<int, NetInt>) this.tileY + (int) (NetFieldBase<int, NetInt>) this.tilesHigh - 1) : new Point(68, 16);
+    public Point getMailboxPosition() { return this.isCabin ? new Point((int) (NetFieldBase<int, NetInt>) this.tileX + (int) (NetFieldBase<int, NetInt>) this.tilesWide - 1, (int) (NetFieldBase<int, NetInt>) this.tileY + (int) (NetFieldBase<int, NetInt>) this.tilesHigh - 1) : new Point(68, 16); }
 
-    public virtual int GetAdditionalTilePropertyRadius() => 0;
+    public virtual int GetAdditionalTilePropertyRadius() { return 0; }
 
     public void removeOverlappingBushes(GameLocation location)
     {

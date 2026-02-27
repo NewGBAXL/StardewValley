@@ -10,6 +10,6 @@ namespace StardewValley
 {
   public class PickaxeEnchantment : BaseEnchantment
   {
-    public override bool CanApplyTo(Item item) => item is Pickaxe;
+    public override bool CanApplyTo(Item item) { return item is Pickaxe; }
   }
 }

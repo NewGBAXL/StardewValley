@@ -17,7 +17,7 @@ namespace Ionic.Zlib
     /// <param name="number">Number to operate on</param>
     /// <param name="bits">Ammount of bits to shift</param>
     /// <returns>The resulting number from the shift operation</returns>
-    public static int URShift(int number, int bits) => (int) ((uint) number >> bits);
+    public static int URShift(int number, int bits) { return (int) ((uint) number >> bits); }
 
     /// <summary>
     ///   Reads a number of characters from the current source TextReader and writes
@@ -45,8 +45,8 @@ namespace Ionic.Zlib
       return num;
     }
 
-    internal static byte[] ToByteArray(string sourceString) => Encoding.UTF8.GetBytes(sourceString);
+    internal static byte[] ToByteArray(string sourceString) { return Encoding.UTF8.GetBytes(sourceString); }
 
-    internal static char[] ToCharArray(byte[] byteArray) => Encoding.UTF8.GetChars(byteArray);
+    internal static char[] ToCharArray(byte[] byteArray) { return Encoding.UTF8.GetChars(byteArray); }
   }
 }

@@ -71,7 +71,7 @@ namespace StardewValley.Locations
     {
     }
 
-    public virtual List<Vector2> GetAdditionalWalnutBushes() => (List<Vector2>) null;
+    public virtual List<Vector2> GetAdditionalWalnutBushes() { return (List<Vector2>) null; }
 
     public IslandLocation(string map, string name)
       : base(map, name)
@@ -87,7 +87,7 @@ namespace StardewValley.Locations
       }
     }
 
-    public override bool catchOceanCrabPotFishFromThisSpot(int x, int y) => true;
+    public override bool catchOceanCrabPotFishFromThisSpot(int x, int y) { return true; }
 
     public override bool answerDialogue(Response answer)
     {
@@ -208,7 +208,7 @@ namespace StardewValley.Locations
       this.addButterflies(Math.Max(0.1, Math.Min(0.25, (double) (this.map.Layers[0].LayerWidth * this.map.Layers[0].LayerHeight) / 15000.0)), onlyIfOnScreen);
     }
 
-    public override void performTenMinuteUpdate(int timeOfDay) => base.performTenMinuteUpdate(timeOfDay);
+    public override void performTenMinuteUpdate(int timeOfDay) { return base.performTenMinuteUpdate(timeOfDay); }
 
     public override void DayUpdate(int dayOfMonth)
     {

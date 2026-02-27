@@ -111,7 +111,7 @@ namespace StardewValley.Menus
       this.completionAnimation(menu, false);
     }
 
-    public Item getReward() => Utility.getItemFromStandardTextDescription(this.rewardDescription, Game1.player);
+    public Item getReward() { return Utility.getItemFromStandardTextDescription(this.rewardDescription, Game1.player); }
 
     public void shake(float force = 0.07363108f)
     {
@@ -200,7 +200,7 @@ namespace StardewValley.Menus
       return -1;
     }
 
-    public bool canAcceptThisItem(Item item, ClickableTextureComponent slot) => this.canAcceptThisItem(item, slot, false);
+    public bool canAcceptThisItem(Item item, ClickableTextureComponent slot) { return this.canAcceptThisItem(item, slot, false); }
 
     public bool canAcceptThisItem(
       Item item,
@@ -286,7 +286,7 @@ namespace StardewValley.Menus
       JunimoNoteMenu.tempSprites.Add(temporaryAnimatedSprite);
     }
 
-    public bool canBeClicked() => !this.complete;
+    public bool canBeClicked() { return !this.complete; }
 
     public void completionAnimation(JunimoNoteMenu menu, bool playSound = true, int delay = 0)
     {
@@ -361,7 +361,7 @@ namespace StardewValley.Menus
       this.maxShake = Math.Max(0.0f, this.maxShake - 0.0007669904f);
     }
 
-    public void draw(SpriteBatch b) => this.sprite.draw(b, true);
+    public void draw(SpriteBatch b) { return this.sprite.draw(b, true); }
 
     public static Color getColorFromColorIndex(int color)
     {

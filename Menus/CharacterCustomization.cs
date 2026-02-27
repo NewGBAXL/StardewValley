@@ -309,7 +309,7 @@ namespace StardewValley.Menus
       this.setUpPositions();
     }
 
-    public void showAdvancedCharacterCreationHighlight() => this.advancedCCHighlightTimer = 4000f;
+    public void showAdvancedCharacterCreationHighlight() { return this.advancedCCHighlightTimer = 4000f; }
 
     private void setUpPositions()
     {
@@ -1561,7 +1561,7 @@ namespace StardewValley.Menus
       Game1.playSound("coin");
     }
 
-    public bool petHasChanges(Pet pet) => Game1.player.catPerson && pet == null || Game1.player.whichPetBreed != pet.whichBreed.Value;
+    public bool petHasChanges(Pet pet) { return Game1.player.catPerson && pet == null || Game1.player.whichPetBreed != pet.whichBreed.Value; }
 
     private void selectionClick(string name, int change)
     {
@@ -2558,7 +2558,7 @@ namespace StardewValley.Menus
       this.advancedCCHighlightTimer -= (float) time.ElapsedGameTime.TotalMilliseconds;
     }
 
-    protected override bool _ShouldAutoSnapPrioritizeAlignedElements() => true;
+    protected override bool _ShouldAutoSnapPrioritizeAlignedElements() { return true; }
 
     public enum Source
     {

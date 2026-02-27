@@ -158,7 +158,7 @@ namespace StardewValley.Menus
       this.populateClickableComponentList();
     }
 
-    public bool CanReceiveInput() => this.informationUp && this.timerBeforeStart <= 0;
+    public bool CanReceiveInput() { return this.informationUp && this.timerBeforeStart <= 0; }
 
     public override void snapToDefaultClickableComponent()
     {
@@ -319,7 +319,7 @@ namespace StardewValley.Menus
       return descriptions;
     }
 
-    public static string getProfessionTitleFromNumber(int whichProfession) => Game1.content.LoadString("Strings\\UI:LevelUp_ProfessionName_" + LevelUpMenu.getProfessionName(whichProfession));
+    public static string getProfessionTitleFromNumber(int whichProfession) { return Game1.content.LoadString("Strings\\UI:LevelUp_ProfessionName_" + LevelUpMenu.getProfessionName(whichProfession)); }
 
     public override void receiveRightClick(int x, int y, bool playSound = true)
     {

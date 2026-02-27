@@ -47,9 +47,9 @@ namespace StardewValley.Buildings
       this._lidGenerationPosition = new Vector2((float) (int) (NetFieldBase<int, NetInt>) this.tileX, (float) (int) (NetFieldBase<int, NetInt>) this.tileY);
     }
 
-    public override Rectangle getSourceRectForMenu() => new Rectangle(0, 0, this.texture.Value.Bounds.Width, this.texture.Value.Bounds.Height);
+    public override Rectangle getSourceRectForMenu() { return new Rectangle(0, 0, this.texture.Value.Bounds.Width, this.texture.Value.Bounds.Height); }
 
-    public override void load() => base.load();
+    public override void load() { return base.load(); }
 
     public override void resetLocalState()
     {
@@ -123,7 +123,7 @@ namespace StardewValley.Buildings
       this.shippingBinLid.update(time);
     }
 
-    private bool isShippingBinLidOpen(bool requiredToBeFullyOpen = false) => this.shippingBinLid != null && this.shippingBinLid.currentParentTileIndex >= (requiredToBeFullyOpen ? this.shippingBinLid.animationLength - 1 : 1);
+    private bool isShippingBinLidOpen(bool requiredToBeFullyOpen = false) { return this.shippingBinLid != null && this.shippingBinLid.currentParentTileIndex >= (requiredToBeFullyOpen ? this.shippingBinLid.animationLength - 1 : 1); }
 
     private void shipItem(Item i, Farmer who)
     {

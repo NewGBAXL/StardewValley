@@ -112,7 +112,7 @@ namespace StardewValley.Menus
 
     public static IClickableMenu subMenu
     {
-      get => TitleMenu._subMenu;
+      delegate(get) { return TitleMenu._subMenu; };
       set
       {
         if (TitleMenu._subMenu != null)
@@ -146,7 +146,7 @@ namespace StardewValley.Menus
       this.titleInPosition = true;
     }
 
-    public bool HasActiveUser => true;
+    public bool delegate(HasActiveUser) { return true; };
 
     public TitleMenu()
       : base(0, 0, Game1.uiViewport.Width, Game1.uiViewport.Height)
@@ -281,7 +281,7 @@ namespace StardewValley.Menus
       this.snapToDefaultClickableComponent();
     }
 
-    private bool alternativeTitleGraphic() => LocalizedContentManager.CurrentLanguageCode == LocalizedContentManager.LanguageCode.zh;
+    private bool alternativeTitleGraphic() { return LocalizedContentManager.CurrentLanguageCode == LocalizedContentManager.LanguageCode.zh; }
 
     public void applyPreferences()
     {
@@ -465,9 +465,9 @@ namespace StardewValley.Menus
       TitleMenu.subMenu.receiveRightClick(x, y);
     }
 
-    public override bool readyToClose() => false;
+    public override bool readyToClose() { return false; }
 
-    public override bool overrideSnappyMenuCursorMovementBan() => !this.titleInPosition;
+    public override bool overrideSnappyMenuCursorMovementBan() { return !this.titleInPosition; }
 
     public override void leftClickHeld(int x, int y)
     {
@@ -490,7 +490,7 @@ namespace StardewValley.Menus
     }
 
     [STAThread]
-    private void GetSaveFileInClipboard() => this.debugSaveFileToTry = (string) null;
+    private void GetSaveFileInClipboard() { return this.debugSaveFileToTry = (string) null; }
 
     public override void receiveKeyPress(Keys key)
     {
@@ -661,8 +661,7 @@ namespace StardewValley.Menus
     {
       lock (this)
         this.hasRoomAnotherFarm = new bool?();
-      Game1.GetHasRoomAnotherFarmAsync((ReportHasRoomAnotherFarm) (yes =>
-      {
+      Game1.GetHasRoomAnotherFarmAsync((ReportHasRoomAnotherFarm) (delegate(yes) { return {; }
         lock (this)
           this.hasRoomAnotherFarm = new bool?(yes);
       }));
@@ -1031,7 +1030,7 @@ namespace StardewValley.Menus
       });
     }
 
-    public bool ShouldShrinkLogo() => this.height <= 800;
+    public bool ShouldShrinkLogo() { return this.height <= 800; }
 
     private void addLeftLeafGust()
     {
@@ -1911,7 +1910,10 @@ namespace StardewValley.Menus
       this.disposedValue = true;
     }
 
-    ~TitleMenu() => this.Dispose(false);
+    ~TitleMenu()
+    {
+      this.Dispose(false);
+    }
 
     public void Dispose()
     {

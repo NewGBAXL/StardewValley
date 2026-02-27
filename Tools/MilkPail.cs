@@ -31,9 +31,9 @@ namespace StardewValley.Tools
       return (Item) destination;
     }
 
-    protected override string loadDisplayName() => Game1.content.LoadString("Strings\\StringsFromCSFiles:MilkPail.cs.14167");
+    protected override string loadDisplayName() { return Game1.content.LoadString("Strings\\StringsFromCSFiles:MilkPail.cs.14167"); }
 
-    protected override string loadDescription() => Game1.content.LoadString("Strings\\StringsFromCSFiles:MilkPail.cs.14168");
+    protected override string loadDescription() { return Game1.content.LoadString("Strings\\StringsFromCSFiles:MilkPail.cs.14168"); }
 
     protected override void initNetFields()
     {
@@ -125,7 +125,7 @@ namespace StardewValley.Tools
       this.finish();
     }
 
-    private void finish() => this.finishEvent.Fire();
+    private void finish() { return this.finishEvent.Fire(); }
 
     private void doFinish()
     {

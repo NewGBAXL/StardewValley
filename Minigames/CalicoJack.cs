@@ -116,9 +116,9 @@ namespace StardewValley.Minigames
       this.quit.bounds = new Rectangle((int) ((double) (Game1.game1.localMultiplayerWindow.Width / 2) / (double) Game1.options.zoomLevel) - (SpriteText.getWidthOfString(Game1.content.LoadString("Strings\\StringsFromCSFiles:CalicoJack.cs.11936")) + 64) / 2, (int) ((double) (Game1.game1.localMultiplayerWindow.Height / 2) / (double) Game1.options.zoomLevel) + 64 + 96, SpriteText.getWidthOfString(Game1.content.LoadString("Strings\\StringsFromCSFiles:CalicoJack.cs.11936")) + 64, 64);
     }
 
-    public bool overrideFreeMouseMovement() => Game1.options.SnappyMenus;
+    public bool overrideFreeMouseMovement() { return Game1.options.SnappyMenus; }
 
-    public bool playButtonsActive() => this.startTimer <= 0 && this.dealerTurnTimer < 0 && !this.showingResultsScreen;
+    public bool playButtonsActive() { return this.startTimer <= 0 && this.dealerTurnTimer < 0 && !this.showingResultsScreen; }
 
     public bool tick(GameTime time)
     {
@@ -511,7 +511,7 @@ namespace StardewValley.Minigames
       b.End();
     }
 
-    public void changeScreenSize() => this.RepositionButtons();
+    public void changeScreenSize() { return this.RepositionButtons(); }
 
     public void unload()
     {
@@ -521,10 +521,10 @@ namespace StardewValley.Minigames
     {
     }
 
-    public string minigameId() => nameof (CalicoJack);
+    public string minigameId() { return nameof (CalicoJack); }
 
-    public bool doMainGameUpdates() => false;
+    public bool doMainGameUpdates() { return false; }
 
-    public bool forceQuit() => true;
+    public bool forceQuit() { return true; }
   }
 }

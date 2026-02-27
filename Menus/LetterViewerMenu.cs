@@ -560,7 +560,7 @@ namespace StardewValley.Menus
       }
     }
 
-    public virtual bool ShouldPlayExitSound() => this.questID == -1 && !this.isFromCollection;
+    public virtual bool ShouldPlayExitSound() { return this.questID == -1 && !this.isFromCollection; }
 
     public bool itemsLeftToGrab()
     {
@@ -687,9 +687,9 @@ namespace StardewValley.Menus
       this.drawMouse(b);
     }
 
-    public virtual bool ShouldShowInteractable() => this.HasInteractable() && this.page == this.mailMessage.Count - 1;
+    public virtual bool ShouldShowInteractable() { return this.HasInteractable() && this.page == this.mailMessage.Count - 1; }
 
-    public virtual bool HasInteractable() => !this.isFromCollection && (this.questID != -1 || this.moneyIncluded > 0 || this.itemsToGrab.Count > 0 || this.learnedRecipe != null && this.learnedRecipe.Length > 0);
+    public virtual bool HasInteractable() { return !this.isFromCollection && (this.questID != -1 || this.moneyIncluded > 0 || this.itemsToGrab.Count > 0 || this.learnedRecipe != null && this.learnedRecipe.Length > 0); }
 
     public void unload()
     {

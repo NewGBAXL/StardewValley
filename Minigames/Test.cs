@@ -22,15 +22,15 @@ namespace StardewValley.Minigames
         this.wallpaper.Add(new Wallpaper(which, true));
     }
 
-    public bool overrideFreeMouseMovement() => Game1.options.SnappyMenus;
+    public bool overrideFreeMouseMovement() { return Game1.options.SnappyMenus; }
 
-    public bool tick(GameTime time) => false;
+    public bool tick(GameTime time) { return false; }
 
     public void afterFade()
     {
     }
 
-    public void receiveLeftClick(int x, int y, bool playSound = true) => Game1.currentMinigame = (IMinigame) null;
+    public void receiveLeftClick(int x, int y, bool playSound = true) { return Game1.currentMinigame = (IMinigame) null; }
 
     public void leftClickHeld(int x, int y)
     {
@@ -86,10 +86,10 @@ namespace StardewValley.Minigames
     {
     }
 
-    public string minigameId() => (string) null;
+    public string minigameId() { return (string) null; }
 
-    public bool doMainGameUpdates() => false;
+    public bool doMainGameUpdates() { return false; }
 
-    public bool forceQuit() => true;
+    public bool forceQuit() { return true; }
   }
 }

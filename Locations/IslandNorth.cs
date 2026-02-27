@@ -206,8 +206,7 @@ namespace StardewValley.Locations
           t.motion = new Vector2(-3f, -10f);
           t.acceleration = new Vector2(0.0f, 0.3f);
           t.yStopCoordinate = (int) t.position.Y + 1;
-          t.reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (x =>
-          {
+          t.reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (delegate(x) { return {; }
             this.temporarySprites.Add(new TemporaryAnimatedSprite(50, t.position, Color.Green)
             {
               drawAboveAlwaysFront = true
@@ -267,7 +266,7 @@ namespace StardewValley.Locations
       this.largeTerrainFeatures.Add((LargeTerrainFeature) new Bush(new Vector2(5f, 30f), 4, (GameLocation) this));
     }
 
-    protected override void resetSharedState() => base.resetSharedState();
+    protected override void resetSharedState() { return base.resetSharedState(); }
 
     public override void TransferDataFromSavedLocation(GameLocation l)
     {
@@ -547,7 +546,7 @@ namespace StardewValley.Locations
       base.digUpArtifactSpot(xLocation, yLocation, who);
     }
 
-    public override bool catchOceanCrabPotFishFromThisSpot(int x, int y) => false;
+    public override bool catchOceanCrabPotFishFromThisSpot(int x, int y) { return false; }
 
     public override StardewValley.Object getFish(
       float millisecondsAfterNibble,
@@ -667,7 +666,7 @@ namespace StardewValley.Locations
           temporarySpriteById3.motion = new Vector2(0.0f, -4f);
           temporarySpriteById3.acceleration = new Vector2(0.0f, -0.04f);
           temporarySpriteById3.yStopCoordinate = 1216;
-          temporarySpriteById3.reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (x => this.removeTemporarySpritesWithID(9999));
+          temporarySpriteById3.reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (delegate(x) { return this.removeTemporarySpritesWithID(9999)); };
         }
         this.localSound("magma_sprite_spot");
         TemporaryAnimatedSprite temporarySpriteById4 = this.getTemporarySpriteByID(9998);
@@ -678,7 +677,7 @@ namespace StardewValley.Locations
           temporarySpriteById4.motion = new Vector2(0.0f, -4f);
           temporarySpriteById4.acceleration = new Vector2(0.0f, -0.04f);
           temporarySpriteById4.yStopCoordinate = 1280;
-          temporarySpriteById4.reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (x => this.removeTemporarySpritesWithID(9998));
+          temporarySpriteById4.reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (delegate(x) { return this.removeTemporarySpritesWithID(9998)); };
         }
         this._sawFlameSpriteNorth = true;
       }
@@ -744,7 +743,7 @@ namespace StardewValley.Locations
       }
     }
 
-    private bool isTileOpenForDigSiteStone(int tileX, int tileY) => this.doesTileHaveProperty(tileX, tileY, "Diggable", "Back") != null && this.doesTileHaveProperty(tileX, tileY, "Diggable", "Back") == "T" && this.isTileLocationTotallyClearAndPlaceable(new Vector2((float) tileX, (float) tileY));
+    private bool isTileOpenForDigSiteStone(int tileX, int tileY) { return this.doesTileHaveProperty(tileX, tileY, "Diggable", "Back") != null && this.doesTileHaveProperty(tileX, tileY, "Diggable", "Back") == "T" && this.isTileLocationTotallyClearAndPlaceable(new Vector2((float) tileX, (float) tileY)); }
 
     public void digSiteUpdate()
     {
@@ -808,8 +807,7 @@ namespace StardewValley.Locations
                   Utility.spawnObjectAround(tileLocation, new StardewValley.Object(tileLocation, 818, 1)
                   {
                     MinutesUntilReady = 4
-                  }, (GameLocation) this, false, (Action<StardewValley.Object>) (o =>
-                  {
+                  }, (GameLocation) this, false, (Action<StardewValley.Object>) (delegate(o) { return {; }
                     o.CanBeGrabbed = false;
                     o.IsSpawnedObject = false;
                   }));

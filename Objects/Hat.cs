@@ -140,11 +140,11 @@ namespace StardewValley.Objects
       return Game1.parseText(this.description, Game1.smallFont, this.getDescriptionWidth());
     }
 
-    public override int maximumStackSize() => 1;
+    public override int maximumStackSize() { return 1; }
 
-    public override int addToStack(Item stack) => 1;
+    public override int addToStack(Item stack) { return 1; }
 
-    public override bool isPlaceable() => false;
+    public override bool isPlaceable() { return false; }
 
     [XmlIgnore]
     public override string DisplayName
@@ -155,13 +155,13 @@ namespace StardewValley.Objects
           this.loadDisplayFields();
         return this.displayName;
       }
-      set => this.displayName = value;
+      delegate(set) { return this.displayName = value; };
     }
 
     [XmlIgnore]
     public override int Stack
     {
-      get => 1;
+      delegate(get) { return 1; };
       set
       {
       }

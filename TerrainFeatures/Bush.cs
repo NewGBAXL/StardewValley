@@ -94,7 +94,7 @@ namespace StardewValley.TerrainFeatures
       this.flipped.Value = Game1.random.NextDouble() < 0.5;
     }
 
-    public int getAge() => (int) Game1.stats.DaysPlayed - this.datePlanted.Value;
+    public int getAge() { return (int) Game1.stats.DaysPlayed - this.datePlanted.Value; }
 
     public void setUpSourceRect()
     {
@@ -178,7 +178,7 @@ namespace StardewValley.TerrainFeatures
       return false;
     }
 
-    public override bool isActionable() => true;
+    public override bool isActionable() { return true; }
 
     public override void loadSprite()
     {
@@ -356,7 +356,7 @@ namespace StardewValley.TerrainFeatures
       who.mailReceived.Add("junimoPlush");
     }
 
-    public override bool isPassable(Character c = null) => c is JunimoHarvester;
+    public override bool isPassable(Character c = null) { return c is JunimoHarvester; }
 
     public override void dayUpdate(GameLocation environment, Vector2 tileLocation)
     {

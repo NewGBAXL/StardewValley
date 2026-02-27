@@ -118,7 +118,7 @@ namespace StardewValley.Characters
       this.HideShadow = true;
     }
 
-    public override string getPetTextureName() => "Animals\\dog" + (this.whichBreed.Value == 0 ? "" : this.whichBreed.Value.ToString() ?? "");
+    public override string getPetTextureName() { return "Animals\\dog" + (this.whichBreed.Value == 0 ? "" : this.whichBreed.Value.ToString() ?? ""); }
 
     public override void dayUpdate(int dayOfMonth)
     {
@@ -337,7 +337,7 @@ namespace StardewValley.Characters
       this.Sprite.setCurrentAnimation(animation);
     }
 
-    public void doneWagging(Farmer who) => this.wagging = false;
+    public void doneWagging(Farmer who) { return this.wagging = false; }
 
     public void hitGround(Farmer who)
     {

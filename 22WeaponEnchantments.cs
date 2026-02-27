@@ -10,6 +10,6 @@ namespace StardewValley
 {
   public class MilkPailEnchantment : BaseEnchantment
   {
-    public override bool CanApplyTo(Item item) => item is MilkPail;
+    public override bool CanApplyTo(Item item) { return item is MilkPail; }
   }
 }

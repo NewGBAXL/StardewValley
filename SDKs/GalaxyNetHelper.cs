@@ -34,13 +34,13 @@ namespace StardewValley.SDKs
       Game1.multiplayer.inviteAccepted();
     }
 
-    public virtual string GetUserID() => Convert.ToString(GalaxyInstance.User().GetGalaxyID().ToUint64());
+    public virtual string GetUserID() { return Convert.ToString(GalaxyInstance.User().GetGalaxyID().ToUint64()); }
 
-    protected virtual Client createClient(GalaxyID lobby) => Game1.multiplayer.InitClient((Client) new GalaxyNetClient(lobby));
+    protected virtual Client createClient(GalaxyID lobby) { return Game1.multiplayer.InitClient((Client) new GalaxyNetClient(lobby)); }
 
-    public Client CreateClient(object lobby) => this.createClient(new GalaxyID((ulong) lobby));
+    public Client CreateClient(object lobby) { return this.createClient(new GalaxyID((ulong) lobby)); }
 
-    public virtual Server CreateServer(IGameServer gameServer) => Game1.multiplayer.InitServer((Server) new GalaxyNetServer(gameServer));
+    public virtual Server CreateServer(IGameServer gameServer) { return Game1.multiplayer.InitServer((Server) new GalaxyNetServer(gameServer)); }
 
     protected GalaxyID parseConnectionString(string connectionString)
     {
@@ -62,11 +62,11 @@ namespace StardewValley.SDKs
       return (GalaxyID) null;
     }
 
-    public Client GetRequestedClient() => this.lobbyRequested != (GalaxyID) null ? this.createClient(this.lobbyRequested) : (Client) null;
+    public Client GetRequestedClient() { return this.lobbyRequested != (GalaxyID) null ? this.createClient(this.lobbyRequested) : (Client) null; }
 
-    public void AddLobbyUpdateListener(LobbyUpdateListener listener) => this.lobbyUpdateListeners.Add(listener);
+    public void AddLobbyUpdateListener(LobbyUpdateListener listener) { return this.lobbyUpdateListeners.Add(listener); }
 
-    public void RemoveLobbyUpdateListener(LobbyUpdateListener listener) => this.lobbyUpdateListeners.Remove(listener);
+    public void RemoveLobbyUpdateListener(LobbyUpdateListener listener) { return this.lobbyUpdateListeners.Remove(listener); }
 
     public virtual void RequestFriendLobbyData()
     {
@@ -92,7 +92,7 @@ namespace StardewValley.SDKs
         lobbyUpdateListener.OnLobbyUpdate((object) lobbyID.ToUint64());
     }
 
-    public virtual string GetLobbyData(object lobby, string key) => GalaxyInstance.Matchmaking().GetLobbyData(new GalaxyID((ulong) lobby), key);
+    public virtual string GetLobbyData(object lobby, string key) { return GalaxyInstance.Matchmaking().GetLobbyData(new GalaxyID((ulong) lobby), key); }
 
     public virtual string GetLobbyOwnerName(object lobbyId)
     {
@@ -113,7 +113,7 @@ namespace StardewValley.SDKs
       Game1.multiplayer.inviteAccepted();
     }
 
-    public bool SupportsInviteCodes() => true;
+    public bool SupportsInviteCodes() { return true; }
 
     public object GetLobbyFromInviteCode(string inviteCode)
     {
@@ -128,13 +128,13 @@ namespace StardewValley.SDKs
       return num != 0UL && num >> 56 == 0UL ? (object) GalaxyID.FromRealID(GalaxyID.IDType.ID_TYPE_LOBBY, num).ToUint64() : (object) null;
     }
 
-    public virtual void ShowInviteDialog(object lobby) => GalaxyInstance.Friends().ShowOverlayInviteDialog("-connect-lobby-" + Convert.ToString((ulong) lobby));
+    public virtual void ShowInviteDialog(object lobby) { return GalaxyInstance.Friends().ShowOverlayInviteDialog("-connect-lobby-" + Convert.ToString((ulong) lobby)); }
 
     public void MutePlayer(string userId, bool mute)
     {
     }
 
-    public bool IsPlayerMuted(string userId) => false;
+    public bool IsPlayerMuted(string userId) { return false; }
 
     public void ShowProfile(string userId)
     {

@@ -101,15 +101,15 @@ namespace StardewValley
     public bool animatingBackwards;
     public const int cheer = 97;
 
-    public FarmerSprite.AnimationFrame CurrentAnimationFrame => this.CurrentAnimation == null ? new FarmerSprite.AnimationFrame(0, 100, 0, false, false) : this.CurrentAnimation[this.currentAnimationIndex % this.CurrentAnimation.Count];
+    public FarmerSprite.AnimationFrame delegate(CurrentAnimationFrame) { return this.CurrentAnimation == null ? new FarmerSprite.AnimationFrame(0; }, 100, 0, false, false) : this.CurrentAnimation[this.currentAnimationIndex % this.CurrentAnimation.Count];
 
-    public int CurrentSingleAnimation => this.CurrentAnimation != null ? this.CurrentAnimation[0].frame : -1;
+    public int delegate(CurrentSingleAnimation) { return this.CurrentAnimation != null ? this.CurrentAnimation[0].frame : -1; };
 
-    public void setOwner(Farmer owner) => this.owner = owner;
+    public void setOwner(Farmer owner) { return this.owner = owner; }
 
     public override int CurrentFrame
     {
-      get => this.currentFrame;
+      delegate(get) { return this.currentFrame; };
       set
       {
         if (this.currentFrame != value && !this.freezeUntilDialogueIsOver)
@@ -237,9 +237,9 @@ namespace StardewValley
       this.CurrentFrame = this.CurrentAnimation[0].frame;
     }
 
-    public void setCurrentFrame(int which) => this.setCurrentFrame(which, 0);
+    public void setCurrentFrame(int which) { return this.setCurrentFrame(which, 0); }
 
-    public void setCurrentFrame(int which, int offset) => this.setCurrentFrame(which, offset, 100, 1, false, false);
+    public void setCurrentFrame(int which, int offset) { return this.setCurrentFrame(which, offset, 100, 1, false, false); }
 
     public void setCurrentFrameBackwards(
       int which,
@@ -271,14 +271,14 @@ namespace StardewValley
 
     public bool PauseForSingleAnimation
     {
-      get => this.pauseForSingleAnimation;
-      set => this.pauseForSingleAnimation = value;
+      delegate(get) { return this.pauseForSingleAnimation; };
+      delegate(set) { return this.pauseForSingleAnimation = value; };
     }
 
     public int CurrentToolIndex
     {
-      get => this.currentToolIndex;
-      set => this.currentToolIndex = value;
+      delegate(get) { return this.currentToolIndex; };
+      delegate(set) { return this.currentToolIndex = value; };
     }
 
     public FarmerSprite()
@@ -298,7 +298,7 @@ namespace StardewValley
       this.UpdateSourceRect();
     }
 
-    public void animate(int whichAnimation, GameTime time) => this.animate(whichAnimation, time.ElapsedGameTime.Milliseconds);
+    public void animate(int whichAnimation, GameTime time) { return this.animate(whichAnimation, time.ElapsedGameTime.Milliseconds); }
 
     public void animate(int whichAnimation, int milliseconds)
     {
@@ -328,7 +328,7 @@ namespace StardewValley
         this.animateBackwardsOnce(time);
     }
 
-    public void animateOnce(int whichAnimation, float animationInterval, int numberOfFrames) => this.animateOnce(whichAnimation, animationInterval, numberOfFrames, (AnimatedSprite.endOfAnimationBehavior) null);
+    public void animateOnce(int whichAnimation, float animationInterval, int numberOfFrames) { return this.animateOnce(whichAnimation, animationInterval, numberOfFrames, (AnimatedSprite.endOfAnimationBehavior) null); }
 
     public void animateOnce(
       int whichAnimation,
@@ -431,7 +431,7 @@ namespace StardewValley
         this.CurrentToolIndex = 48;
     }
 
-    public void animateBackwardsOnce(int whichAnimation, float animationInterval) => this.animateOnce(whichAnimation, animationInterval, 6, (AnimatedSprite.endOfAnimationBehavior) null, false, false, true);
+    public void animateBackwardsOnce(int whichAnimation, float animationInterval) { return this.animateOnce(whichAnimation, animationInterval, 6, (AnimatedSprite.endOfAnimationBehavior) null, false, false, true); }
 
     public bool isUsingWeapon()
     {
@@ -507,7 +507,7 @@ namespace StardewValley
       }
     }
 
-    public override void UpdateSourceRect() => this.SourceRect = new Rectangle(this.CurrentFrame * this.SpriteWidth % 96, this.CurrentFrame * this.SpriteWidth / 96 * this.SpriteHeight, this.SpriteWidth, this.SpriteHeight);
+    public override void UpdateSourceRect() { return this.SourceRect = new Rectangle(this.CurrentFrame * this.SpriteWidth % 96, this.CurrentFrame * this.SpriteWidth / 96 * this.SpriteHeight, this.SpriteWidth, this.SpriteHeight); }
 
     private void animateOnce(GameTime time)
     {

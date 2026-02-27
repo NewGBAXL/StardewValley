@@ -253,9 +253,9 @@ namespace StardewValley.Locations
       this.smokeTimer = 1000f;
     }
 
-    public static bool isPirateNight() => !Game1.IsRainingHere() && Game1.timeOfDay >= 2000 && Game1.dayOfMonth % 2 == 0;
+    public static bool isPirateNight() { return !Game1.IsRainingHere() && Game1.timeOfDay >= 2000 && Game1.dayOfMonth % 2 == 0; }
 
-    public override bool isTileOccupiedForPlacement(Vector2 tileLocation, StardewValley.Object toPlace = null) => base.isTileOccupiedForPlacement(tileLocation, toPlace);
+    public override bool isTileOccupiedForPlacement(Vector2 tileLocation, StardewValley.Object toPlace = null) { return base.isTileOccupiedForPlacement(tileLocation, toPlace); }
 
     public override void seasonUpdate(string season, bool onLoad = false)
     {

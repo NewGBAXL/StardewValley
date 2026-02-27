@@ -70,26 +70,26 @@ namespace StardewValley
 
     public int itemQuality
     {
-      get => (int) (NetFieldBase<int, NetInt>) this.netItemQuality;
-      set => this.netItemQuality.Value = value;
+      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.netItemQuality;
+      delegate(set) { return this.netItemQuality.Value = value; };
     }
 
     public int chunkFinalYLevel
     {
-      get => (int) (NetFieldBase<int, NetInt>) this.netChunkFinalYLevel;
-      set => this.netChunkFinalYLevel.Value = value;
+      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.netChunkFinalYLevel;
+      delegate(set) { return this.netChunkFinalYLevel.Value = value; };
     }
 
     public int chunkFinalYTarget
     {
-      get => (int) (NetFieldBase<int, NetInt>) this.netChunkFinalYTarget;
-      set => this.netChunkFinalYTarget.Value = value;
+      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.netChunkFinalYTarget;
+      delegate(set) { return this.netChunkFinalYTarget.Value = value; };
     }
 
     public bool chunksMoveTowardPlayer
     {
-      get => this._chunksMoveTowardsPlayer.Value;
-      set => this._chunksMoveTowardsPlayer.Value = value;
+      delegate(get) { return this._chunksMoveTowardsPlayer.Value; };
+      delegate(set) { return this._chunksMoveTowardsPlayer.Value = value; };
     }
 
     public Texture2D spriteChunkSheet
@@ -104,8 +104,8 @@ namespace StardewValley
 
     public Item item
     {
-      get => (Item) (NetFieldBase<Item, NetRef<Item>>) this.netItem;
-      set => this.netItem.Value = value;
+      delegate(get) { return (Item) (NetFieldBase<Item; }, NetRef<Item>>) this.netItem;
+      delegate(set) { return this.netItem.Value = value; };
     }
 
     public NetFields NetFields { get; } = new NetFields();
@@ -116,7 +116,7 @@ namespace StardewValley
       this.player.Delayed(false);
     }
 
-    public NetObjectShrinkList<Chunk> Chunks => this.chunks;
+    public NetObjectShrinkList<Chunk> delegate(Chunks) { return this.chunks; };
 
     public Debris(int objectIndex, Vector2 debrisOrigin, Vector2 playerPosition)
       : this(objectIndex, 1, debrisOrigin, playerPosition)
@@ -282,7 +282,7 @@ namespace StardewValley
       this.chunksColor.Value = this.getColorForDebris(color == -1 ? type : color);
     }
 
-    public virtual bool isEssentialItem() => this.item != null && Utility.IsNormalObjectAtParentSheetIndex(this.item, 73) || this.item != null && !this.item.canBeTrashed();
+    public virtual bool isEssentialItem() { return this.item != null && Utility.IsNormalObjectAtParentSheetIndex(this.item, 73) || this.item != null && !this.item.canBeTrashed(); }
 
     public virtual bool collect(Farmer farmer, Chunk chunk = null)
     {

@@ -35,8 +35,8 @@ namespace StardewValley.Tools
       return (Item) one;
     }
 
-    protected override string loadDescription() => this.description;
+    protected override string loadDescription() { return this.description; }
 
-    protected override string loadDisplayName() => this.BaseName;
+    protected override string loadDisplayName() { return this.BaseName; }
   }
 }

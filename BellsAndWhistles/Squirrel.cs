@@ -31,7 +31,7 @@ namespace StardewValley.BellsAndWhistles
       this.startingPosition = position;
     }
 
-    private void doneNibbling(Farmer who) => this.nextNibbleTimer = Game1.random.Next(2000);
+    private void doneNibbling(Farmer who) { return this.nextNibbleTimer = Game1.random.Next(2000); }
 
     public override void draw(SpriteBatch b)
     {

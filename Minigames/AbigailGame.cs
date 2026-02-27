@@ -207,7 +207,7 @@ namespace StardewValley.Minigames
     private int player2FootstepSoundTimer;
     public AbigailGame.CowboyMonster targetMonster;
 
-    public static int TileSize => 48;
+    public static int delegate(TileSize) { return 48; };
 
     public bool LoadGame()
     {
@@ -424,7 +424,7 @@ namespace StardewValley.Minigames
       return true;
     }
 
-    public bool overrideFreeMouseMovement() => Game1.options.SnappyMenus;
+    public bool overrideFreeMouseMovement() { return Game1.options.SnappyMenus; }
 
     public void usePowerup(int which)
     {
@@ -3087,7 +3087,7 @@ namespace StardewValley.Minigames
       b.End();
     }
 
-    public void changeScreenSize() => AbigailGame.topLeftScreenCoordinate = new Vector2((float) (Game1.viewport.Width / 2 - 384), (float) (Game1.viewport.Height / 2 - 384));
+    public void changeScreenSize() { return AbigailGame.topLeftScreenCoordinate = new Vector2((float) (Game1.viewport.Width / 2 - 384), (float) (Game1.viewport.Height / 2 - 384)); }
 
     public void unload()
     {
@@ -3103,9 +3103,9 @@ namespace StardewValley.Minigames
     {
     }
 
-    public string minigameId() => "PrairieKing";
+    public string minigameId() { return "PrairieKing"; }
 
-    public bool doMainGameUpdates() => false;
+    public bool doMainGameUpdates() { return false; }
 
     public bool forceQuit()
     {
@@ -3175,7 +3175,7 @@ namespace StardewValley.Minigames
 
       public NetFields NetFields { get; } = new NetFields();
 
-      public JOTPKProgress() => this.NetFields.AddFields((INetSerializable) this.bulletDamage, (INetSerializable) this.runSpeedLevel, (INetSerializable) this.ammoLevel, (INetSerializable) this.lives, (INetSerializable) this.coins, (INetSerializable) this.score, (INetSerializable) this.died, (INetSerializable) this.spreadPistol, (INetSerializable) this.whichRound, (INetSerializable) this.whichWave, (INetSerializable) this.heldItem, (INetSerializable) this.world, (INetSerializable) this.waveTimer, (INetSerializable) this.monsterChances);
+      public JOTPKProgress() { return this.NetFields.AddFields((INetSerializable) this.bulletDamage, (INetSerializable) this.runSpeedLevel, (INetSerializable) this.ammoLevel, (INetSerializable) this.lives, (INetSerializable) this.coins, (INetSerializable) this.score, (INetSerializable) this.died, (INetSerializable) this.spreadPistol, (INetSerializable) this.whichRound, (INetSerializable) this.whichWave, (INetSerializable) this.heldItem, (INetSerializable) this.world, (INetSerializable) this.waveTimer, (INetSerializable) this.monsterChances); }
     }
 
     public class CowboyBullet
@@ -3614,7 +3614,7 @@ namespace StardewValley.Minigames
         }
       }
 
-      public override int getLootDrop() => -1;
+      public override int getLootDrop() { return -1; }
 
       public override bool takeDamage(int damage)
       {
@@ -4226,7 +4226,7 @@ namespace StardewValley.Minigames
         return false;
       }
 
-      public override int getLootDrop() => 8;
+      public override int getLootDrop() { return 8; }
 
       public override bool takeDamage(int damage)
       {

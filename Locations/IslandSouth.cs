@@ -525,15 +525,18 @@ namespace StardewValley.Locations
         base.performTouchAction(fullActionString, playerStandingPosition);
     }
 
-    public void Depart() => Game1.globalFadeToBlack((Game1.afterFadeFunction) (() =>
+    public void Depart()
     {
-      this.currentEvent = new StardewValley.Event(Game1.content.LoadString("Data\\Events\\IslandSouth:IslandDepart"), -157039427, Game1.player);
-      Game1.eventUp = true;
-    }));
+      Game1.globalFadeToBlack((Game1.afterFadeFunction) (() =>
+      {
+        this.currentEvent = new StardewValley.Event(Game1.content.LoadString("Data\\Events\\IslandSouth:IslandDepart"), -157039427, Game1.player);
+        Game1.eventUp = true;
+      }));
+    }
 
-    public static Point GetDressingRoomPoint(NPC character) => (int) (NetFieldBase<int, NetInt>) character.gender == 1 ? new Point(22, 19) : new Point(24, 19);
+    public static Point GetDressingRoomPoint(NPC character) { return (int) (NetFieldBase<int, NetInt>) character.gender == 1 ? new Point(22, 19) : new Point(24, 19); }
 
-    public override bool HasLocationOverrideDialogue(NPC character) => (!Game1.player.friendshipData.ContainsKey(character.Name) || !Game1.player.friendshipData[character.Name].IsDivorced()) && character.islandScheduleName.Value != null;
+    public override bool HasLocationOverrideDialogue(NPC character) { return (!Game1.player.friendshipData.ContainsKey(character.Name) || !Game1.player.friendshipData[character.Name].IsDivorced()) && character.islandScheduleName.Value != null; }
 
     public override string GetLocationOverrideDialogue(NPC character)
     {
@@ -768,7 +771,7 @@ namespace StardewValley.Locations
       this._nextSlosh = 0.0f;
     }
 
-    public Vector2 GetBoatPosition() => this.boatPosition + new Vector2(0.0f, (float) this._boatOffset);
+    public Vector2 GetBoatPosition() { return this.boatPosition + new Vector2(0.0f, (float) this._boatOffset); }
 
     public override void draw(SpriteBatch b)
     {
@@ -966,7 +969,7 @@ namespace StardewValley.Locations
         return num == 1 ? dialogue_key : dialogue_key + "_" + num.ToString();
       }
 
-      public string GetScheduleStringForCharacter(NPC character) => this.currentAssignments.ContainsKey((Character) character) ? "/" + this.activityTime.ToString() + " IslandSouth " + this.currentAssignments[(Character) character] : "";
+      public string GetScheduleStringForCharacter(NPC character) { return this.currentAssignments.ContainsKey((Character) character) ? "/" + this.activityTime.ToString() + " IslandSouth " + this.currentAssignments[(Character) character] : ""; }
     }
   }
 }

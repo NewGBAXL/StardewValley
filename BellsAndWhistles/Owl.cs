@@ -44,6 +44,6 @@ namespace StardewValley.BellsAndWhistles
     {
     }
 
-    public override void drawAboveFrontLayer(SpriteBatch b) => this.sprite.draw(b, Game1.GlobalToLocal(Game1.viewport, this.position + new Vector2(-64f, this.yJumpOffset - 128f + this.yOffset)), (float) ((double) this.position.Y / 10000.0 + (double) this.position.X / 100000.0), 0, 0, Color.MediumBlue, this.flip, 4f);
+    public override void drawAboveFrontLayer(SpriteBatch b) { return this.sprite.draw(b, Game1.GlobalToLocal(Game1.viewport, this.position + new Vector2(-64f, this.yJumpOffset - 128f + this.yOffset)), (float) ((double) this.position.Y / 10000.0 + (double) this.position.X / 100000.0), 0, 0, Color.MediumBlue, this.flip, 4f); }
   }
 }

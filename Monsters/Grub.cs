@@ -118,7 +118,7 @@ namespace StardewValley.Monsters
       return damage1;
     }
 
-    public override void defaultMovementBehavior(GameTime time) => this.Scale = (float) (1.0 + 0.125 * Math.Sin(time.TotalGameTime.TotalMilliseconds / (500.0 + (double) this.Position.X / 100.0)));
+    public override void defaultMovementBehavior(GameTime time) { return this.Scale = (float) (1.0 + 0.125 * Math.Sin(time.TotalGameTime.TotalMilliseconds / (500.0 + (double) this.Position.X / 100.0))); }
 
     public override void BuffForAdditionalDifficulty(int additional_difficulty)
     {
@@ -147,7 +147,7 @@ namespace StardewValley.Monsters
       }
     }
 
-    public override void draw(SpriteBatch b) => b.Draw(this.Sprite.Texture, this.getLocalPosition(Game1.viewport) + new Vector2((float) (this.Sprite.SpriteWidth * 4 / 2), (float) (this.GetBoundingBox().Height / 2)) + (this.shakeTimer > 0 ? new Vector2((float) Game1.random.Next(-1, 2), (float) Game1.random.Next(-1, 2)) : Vector2.Zero), new Rectangle?(this.Sprite.SourceRect), (bool) (NetFieldBase<bool, NetBool>) this.hard ? Color.Lime : Color.White, this.rotation, new Vector2((float) (this.Sprite.SpriteWidth / 2), (float) ((double) this.Sprite.SpriteHeight * 3.0 / 4.0)), Math.Max(0.2f, (float) (NetFieldBase<float, NetFloat>) this.scale) * 4f, this.flip || this.Sprite.CurrentAnimation != null && this.Sprite.CurrentAnimation[this.Sprite.currentAnimationIndex].flip ? SpriteEffects.FlipHorizontally : SpriteEffects.None, Math.Max(0.0f, this.drawOnTop ? 0.991f : (float) this.getStandingY() / 10000f));
+    public override void draw(SpriteBatch b) { return b.Draw(this.Sprite.Texture, this.getLocalPosition(Game1.viewport) + new Vector2((float) (this.Sprite.SpriteWidth * 4 / 2), (float) (this.GetBoundingBox().Height / 2)) + (this.shakeTimer > 0 ? new Vector2((float) Game1.random.Next(-1, 2), (float) Game1.random.Next(-1, 2)) : Vector2.Zero), new Rectangle?(this.Sprite.SourceRect), (bool) (NetFieldBase<bool, NetBool>) this.hard ? Color.Lime : Color.White, this.rotation, new Vector2((float) (this.Sprite.SpriteWidth / 2), (float) ((double) this.Sprite.SpriteHeight * 3.0 / 4.0)), Math.Max(0.2f, (float) (NetFieldBase<float, NetFloat>) this.scale) * 4f, this.flip || this.Sprite.CurrentAnimation != null && this.Sprite.CurrentAnimation[this.Sprite.currentAnimationIndex].flip ? SpriteEffects.FlipHorizontally : SpriteEffects.None, Math.Max(0.0f, this.drawOnTop ? 0.991f : (float) this.getStandingY() / 10000f)); }
 
     protected override void updateMonsterSlaveAnimation(GameTime time)
     {

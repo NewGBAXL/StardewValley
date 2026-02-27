@@ -85,7 +85,7 @@ namespace StardewValley.Buildings
       ((AnimalHouse) (GameLocation) (NetFieldBase<GameLocation, NetRef<GameLocation>>) this.indoors).updateWhenNotCurrentLocation((Building) this, time);
     }
 
-    public override Rectangle getSourceRectForMenu() => new Rectangle(0, 0, this.texture.Value.Bounds.Width, this.texture.Value.Bounds.Height - 16);
+    public override Rectangle getSourceRectForMenu() { return new Rectangle(0, 0, this.texture.Value.Bounds.Width, this.texture.Value.Bounds.Height - 16); }
 
     public override void performActionOnUpgrade(GameLocation location)
     {
@@ -165,7 +165,7 @@ namespace StardewValley.Buildings
       }
     }
 
-    public override Vector2 getUpgradeSignLocation() => new Vector2((float) (int) (NetFieldBase<int, NetInt>) this.tileX, (float) ((int) (NetFieldBase<int, NetInt>) this.tileY + 1)) * 64f + new Vector2(192f, 4f);
+    public override Vector2 getUpgradeSignLocation() { return new Vector2((float) (int) (NetFieldBase<int, NetInt>) this.tileX, (float) ((int) (NetFieldBase<int, NetInt>) this.tileY + 1)) * 64f + new Vector2(192f, 4f); }
 
     public override void drawInMenu(SpriteBatch b, int x, int y)
     {

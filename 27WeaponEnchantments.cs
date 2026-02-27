@@ -10,8 +10,8 @@ namespace StardewValley
 {
   public class ReachingToolEnchantment : BaseEnchantment
   {
-    public override string GetName() => "Expansive";
+    public override string GetName() { return "Expansive"; }
 
-    public override bool CanApplyTo(Item item) => item is Tool && (item is WateringCan || item is Hoe) && (item as Tool).UpgradeLevel == 4;
+    public override bool CanApplyTo(Item item) { return item is Tool && (item is WateringCan || item is Hoe) && (item as Tool).UpgradeLevel == 4; }
   }
 }

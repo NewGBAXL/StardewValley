@@ -40,7 +40,7 @@ namespace StardewValley
       this.NetFields.AddFields((INetSerializable) this.acceptableContextTagSets, (INetSerializable) this.targetName, (INetSerializable) this.message);
     }
 
-    public override bool ShouldShowProgress() => false;
+    public override bool ShouldShowProgress() { return false; }
 
     protected override void _Register()
     {

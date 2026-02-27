@@ -128,7 +128,7 @@ namespace StardewValley.Menus
       return Game1.player.hasOrWillReceiveMail("hasSeenAbandonedJunimoNote") && !Game1.MasterPlayer.hasOrWillReceiveMail("ccMovieTheater");
     }
 
-    protected virtual bool checkHeldItem(Func<Item, bool> f = null) => f == null ? Game1.player.CursorSlotItem != null : f(Game1.player.CursorSlotItem);
+    protected virtual bool checkHeldItem(Func<Item, bool> f = null) { return f == null ? Game1.player.CursorSlotItem != null : f(Game1.player.CursorSlotItem); }
 
     protected virtual Item takeHeldItem()
     {
@@ -149,7 +149,7 @@ namespace StardewValley.Menus
       base.receiveKeyPress(key);
       if (Game1.isAnyGamePadButtonBeingPressed() && Game1.options.doesInputListContain(Game1.options.menuButton, key) && this.checkHeldItem())
         Game1.setMousePosition(this.trashCan.bounds.Center);
-      if (key.Equals((object) Keys.Delete) && this.checkHeldItem((Func<Item, bool>) (i => i != null && i.canBeTrashed())))
+      if (key.Equals((object) Keys.Delete) && this.checkHeldItem((Func<Item, bool>) (delegate(i) { return i != null && i.canBeTrashed()))); }
         Utility.trashItem(this.takeHeldItem());
       if (Game1.options.doesInputListContain(Game1.options.inventorySlot1, key))
       {
@@ -241,8 +241,7 @@ namespace StardewValley.Menus
                 {
                   if (!(name == "Shirt"))
                   {
-                    if (name == "Pants" && this.checkHeldItem((Func<Item, bool>) (i =>
-                    {
+                    if (name == "Pants" && this.checkHeldItem((Func<Item, bool>) (delegate(i) { return {; }
                       if (i == null || i is Clothing && (i as Clothing).clothesType.Value == 1)
                         return true;
                       return i is StardewValley.Object && (int) (NetFieldBase<int, NetInt>) i.parentSheetIndex == 71;
@@ -257,8 +256,7 @@ namespace StardewValley.Menus
                         Game1.playSound("dwop");
                     }
                   }
-                  else if (this.checkHeldItem((Func<Item, bool>) (i =>
-                  {
+                  else if (this.checkHeldItem((Func<Item, bool>) (delegate(i) { return {; }
                     if (i == null)
                       return true;
                     return i is Clothing && (i as Clothing).clothesType.Value == 0;
@@ -273,7 +271,7 @@ namespace StardewValley.Menus
                       Game1.playSound("dwop");
                   }
                 }
-                else if (this.checkHeldItem((Func<Item, bool>) (i => i == null || i is Boots)))
+                else if (this.checkHeldItem((Func<Item, bool>) (delegate(i) { return i == null || i is Boots))); }
                 {
                   Boots heldItem = (Boots) this.takeHeldItem();
                   if (Game1.player.boots.Value != null)
@@ -290,7 +288,7 @@ namespace StardewValley.Menus
                     Game1.playSound("dwop");
                 }
               }
-              else if (this.checkHeldItem((Func<Item, bool>) (i => i == null || i is Ring)))
+              else if (this.checkHeldItem((Func<Item, bool>) (delegate(i) { return i == null || i is Ring))); }
               {
                 Ring heldItem = (Ring) this.takeHeldItem();
                 if (Game1.player.rightRing.Value != null)
@@ -306,7 +304,7 @@ namespace StardewValley.Menus
                   Game1.playSound("dwop");
               }
             }
-            else if (this.checkHeldItem((Func<Item, bool>) (i => i == null || i is Ring)))
+            else if (this.checkHeldItem((Func<Item, bool>) (delegate(i) { return i == null || i is Ring))); }
             {
               Ring heldItem = (Ring) this.takeHeldItem();
               if (Game1.player.leftRing.Value != null)
@@ -322,8 +320,7 @@ namespace StardewValley.Menus
                 Game1.playSound("dwop");
             }
           }
-          else if (this.checkHeldItem((Func<Item, bool>) (i =>
-          {
+          else if (this.checkHeldItem((Func<Item, bool>) (delegate(i) { return {; }
             switch (i)
             {
               case null:
@@ -346,7 +343,7 @@ namespace StardewValley.Menus
           {
             for (int i = 0; i < Game1.player.items.Count; i++)
             {
-              if (Game1.player.items[i] == null || this.checkHeldItem((Func<Item, bool>) (item => Game1.player.items[i].canStackWith((ISalable) item))))
+              if (Game1.player.items[i] == null || this.checkHeldItem((Func<Item, bool>) (delegate(item) { return Game1.player.items[i].canStackWith((ISalable) item)))); }
               {
                 if (Game1.player.CurrentToolIndex == i && this.checkHeldItem())
                   Game1.player.CursorSlotItem.actionWhenBeingHeld(Game1.player);
@@ -361,7 +358,7 @@ namespace StardewValley.Menus
         }
       }
       this.setHeldItem(this.inventory.leftClick(x, y, this.takeHeldItem(), !Game1.oldKBState.IsKeyDown(Keys.LeftShift)));
-      if (this.checkHeldItem((Func<Item, bool>) (i => i != null && Utility.IsNormalObjectAtParentSheetIndex(i, 434))))
+      if (this.checkHeldItem((Func<Item, bool>) (delegate(i) { return i != null && Utility.IsNormalObjectAtParentSheetIndex(i; }, 434))))
       {
         Game1.playSound("smallSelect");
         Game1.player.eatObject(this.takeHeldItem() as StardewValley.Object, true);
@@ -369,7 +366,7 @@ namespace StardewValley.Menus
       }
       else if (this.checkHeldItem() && Game1.oldKBState.IsKeyDown(Keys.LeftShift))
       {
-        if (this.checkHeldItem((Func<Item, bool>) (i => i is Ring)))
+        if (this.checkHeldItem((Func<Item, bool>) (delegate(i) { return i is Ring))); }
         {
           if (Game1.player.leftRing.Value == null)
           {
@@ -386,7 +383,7 @@ namespace StardewValley.Menus
             return;
           }
         }
-        else if (this.checkHeldItem((Func<Item, bool>) (i => i is Hat)))
+        else if (this.checkHeldItem((Func<Item, bool>) (delegate(i) { return i is Hat))); }
         {
           if (Game1.player.hat.Value == null)
           {
@@ -395,7 +392,7 @@ namespace StardewValley.Menus
             return;
           }
         }
-        else if (this.checkHeldItem((Func<Item, bool>) (i => i is Boots)))
+        else if (this.checkHeldItem((Func<Item, bool>) (delegate(i) { return i is Boots))); }
         {
           if (Game1.player.boots.Value == null)
           {
@@ -406,7 +403,7 @@ namespace StardewValley.Menus
             return;
           }
         }
-        else if (this.checkHeldItem((Func<Item, bool>) (i => i is Clothing && (i as Clothing).clothesType.Value == 0)))
+        else if (this.checkHeldItem((Func<Item, bool>) (delegate(i) { return i is Clothing && (i as Clothing).clothesType.Value == 0))); }
         {
           if (Game1.player.shirtItem.Value == null)
           {
@@ -416,7 +413,7 @@ namespace StardewValley.Menus
             return;
           }
         }
-        else if (this.checkHeldItem((Func<Item, bool>) (i => i is Clothing && (i as Clothing).clothesType.Value == 1)) && Game1.player.pantsItem.Value == null)
+        else if (this.checkHeldItem((Func<Item, bool>) (delegate(i) { return i is Clothing && (i as Clothing).clothesType.Value == 1)) && Game1.player.pantsItem.Value == null); }
         {
           Game1.player.pantsItem.Value = this.takeHeldItem() as Clothing;
           Game1.playSound("sandyStep");
@@ -427,7 +424,7 @@ namespace StardewValley.Menus
         {
           for (int i = 0; i < 12; i++)
           {
-            if (Game1.player.items[i] == null || this.checkHeldItem((Func<Item, bool>) (item => Game1.player.items[i].canStackWith((ISalable) item))))
+            if (Game1.player.items[i] == null || this.checkHeldItem((Func<Item, bool>) (delegate(item) { return Game1.player.items[i].canStackWith((ISalable) item)))); }
             {
               if (Game1.player.CurrentToolIndex == i && this.checkHeldItem())
                 Game1.player.CursorSlotItem.actionWhenBeingHeld(Game1.player);
@@ -443,7 +440,7 @@ namespace StardewValley.Menus
         {
           for (int i = 12; i < Game1.player.items.Count; i++)
           {
-            if (Game1.player.items[i] == null || this.checkHeldItem((Func<Item, bool>) (item => Game1.player.items[i].canStackWith((ISalable) item))))
+            if (Game1.player.items[i] == null || this.checkHeldItem((Func<Item, bool>) (delegate(item) { return Game1.player.items[i].canStackWith((ISalable) item)))); }
             {
               if (Game1.player.CurrentToolIndex == i && this.checkHeldItem())
                 Game1.player.CursorSlotItem.actionWhenBeingHeld(Game1.player);
@@ -458,13 +455,13 @@ namespace StardewValley.Menus
       }
       if (this.portrait.containsPoint(x, y))
         this.portrait.name = this.portrait.name.Equals("32") ? "8" : "32";
-      if (this.trashCan.containsPoint(x, y) && this.checkHeldItem((Func<Item, bool>) (i => i != null && i.canBeTrashed())))
+      if (this.trashCan.containsPoint(x, y) && this.checkHeldItem((Func<Item, bool>) (delegate(i) { return i != null && i.canBeTrashed()))); }
       {
         Utility.trashItem(this.takeHeldItem());
         if (Game1.options.SnappyMenus)
           this.snapCursorToCurrentSnappedComponent();
       }
-      else if (!this.isWithinBounds(x, y) && this.checkHeldItem((Func<Item, bool>) (i => i != null && i.canBeTrashed())))
+      else if (!this.isWithinBounds(x, y) && this.checkHeldItem((Func<Item, bool>) (delegate(i) { return i != null && i.canBeTrashed()))); }
       {
         Game1.playSound("throwDownITem");
         Game1.createItemDebris(this.takeHeldItem(), Game1.player.getStandingPosition(), Game1.player.FacingDirection).DroppedByPlayerID.Value = Game1.player.UniqueMultiplayerID;
@@ -487,7 +484,7 @@ namespace StardewValley.Menus
       Game1.playSound("Ship");
     }
 
-    public override void receiveRightClick(int x, int y, bool playSound = true) => this.setHeldItem(this.inventory.rightClick(x, y, this.takeHeldItem()));
+    public override void receiveRightClick(int x, int y, bool playSound = true) { return this.setHeldItem(this.inventory.rightClick(x, y, this.takeHeldItem())); }
 
     public override void performHoverAction(int x, int y)
     {
@@ -610,7 +607,7 @@ namespace StardewValley.Menus
       this.snapCursorToCurrentSnappedComponent();
     }
 
-    public override bool readyToClose() => !this.checkHeldItem();
+    public override bool readyToClose() { return !this.checkHeldItem(); }
 
     public override void draw(SpriteBatch b)
     {

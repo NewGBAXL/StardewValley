@@ -71,7 +71,7 @@ namespace StardewValley.TerrainFeatures
       }
     }
 
-    public override bool isPassable(Character c = null) => false;
+    public override bool isPassable(Character c = null) { return false; }
 
     public override bool performToolAction(
       Tool t,
@@ -300,9 +300,9 @@ namespace StardewValley.TerrainFeatures
       return false;
     }
 
-    public override Rectangle getBoundingBox(Vector2 tileLocation) => new Rectangle((int) tileLocation.X * 64, (int) tileLocation.Y * 64, (int) (NetFieldBase<int, NetInt>) this.width * 64, (int) (NetFieldBase<int, NetInt>) this.height * 64);
+    public override Rectangle getBoundingBox(Vector2 tileLocation) { return new Rectangle((int) tileLocation.X * 64, (int) tileLocation.Y * 64, (int) (NetFieldBase<int, NetInt>) this.width * 64, (int) (NetFieldBase<int, NetInt>) this.height * 64); }
 
-    public bool occupiesTile(int x, int y) => (double) x >= (double) this.tile.X && (double) x - (double) this.tile.X < (double) (int) (NetFieldBase<int, NetInt>) this.width && (double) y >= (double) this.tile.Y && (double) y - (double) this.tile.Y < (double) (int) (NetFieldBase<int, NetInt>) this.height;
+    public bool occupiesTile(int x, int y) { return (double) x >= (double) this.tile.X && (double) x - (double) this.tile.X < (double) (int) (NetFieldBase<int, NetInt>) this.width && (double) y >= (double) this.tile.Y && (double) y - (double) this.tile.Y < (double) (int) (NetFieldBase<int, NetInt>) this.height; }
 
     public override void draw(SpriteBatch spriteBatch, Vector2 tileLocation)
     {
@@ -357,6 +357,6 @@ namespace StardewValley.TerrainFeatures
     {
     }
 
-    public override bool seasonUpdate(bool onLoad) => false;
+    public override bool seasonUpdate(bool onLoad) { return false; }
   }
 }

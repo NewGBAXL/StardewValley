@@ -19,9 +19,9 @@ namespace StardewValley
   {
     private GameLocation location;
 
-    public InteriorDoorDictionary.DoorCollection Doors => new InteriorDoorDictionary.DoorCollection(this);
+    public InteriorDoorDictionary.DoorCollection delegate(Doors) { return new InteriorDoorDictionary.DoorCollection(this); };
 
-    public InteriorDoorDictionary(GameLocation location) => this.location = location;
+    public InteriorDoorDictionary(GameLocation location) { return this.location = location; }
 
     protected override void setFieldValue(InteriorDoor door, Point position, bool open)
     {
@@ -87,13 +87,22 @@ namespace StardewValley
     {
       private InteriorDoorDictionary _dict;
 
-      public DoorCollection(InteriorDoorDictionary dict) => this._dict = dict;
+      public DoorCollection(InteriorDoorDictionary dict) { return this._dict = dict; }
 
-      public InteriorDoorDictionary.DoorCollection.Enumerator GetEnumerator() => new InteriorDoorDictionary.DoorCollection.Enumerator(this._dict);
+      public InteriorDoorDictionary.DoorCollection.Enumerator GetEnumerator()
+      {
+        return new InteriorDoorDictionary.DoorCollection.Enumerator(this._dict);
+      }
 
-      IEnumerator<InteriorDoor> IEnumerable<InteriorDoor>.GetEnumerator() => (IEnumerator<InteriorDoor>) new InteriorDoorDictionary.DoorCollection.Enumerator(this._dict);
+      IEnumerator<InteriorDoor> IEnumerable<InteriorDoor>.GetEnumerator()
+      {
+        return (IEnumerator<InteriorDoor>) new InteriorDoorDictionary.DoorCollection.Enumerator(this._dict);
+      }
 
-      IEnumerator IEnumerable.GetEnumerator() => (IEnumerator) new InteriorDoorDictionary.DoorCollection.Enumerator(this._dict);
+      IEnumerator IEnumerable.GetEnumerator()
+      {
+        return (IEnumerator) new InteriorDoorDictionary.DoorCollection.Enumerator(this._dict);
+      }
 
       public struct Enumerator : IEnumerator<InteriorDoor>, IEnumerator, IDisposable
       {
@@ -125,7 +134,7 @@ namespace StardewValley
           return false;
         }
 
-        public InteriorDoor Current => this._current;
+        public InteriorDoor delegate(Current) { return this._current; };
 
         public void Dispose()
         {

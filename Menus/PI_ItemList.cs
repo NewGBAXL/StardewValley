@@ -115,6 +115,6 @@ namespace StardewValley.Menus
       }
     }
 
-    public override bool ShouldDraw() => this._items.Count > 0;
+    public override bool ShouldDraw() { return this._items.Count > 0; }
   }
 }

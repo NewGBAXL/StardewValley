@@ -26,9 +26,9 @@ namespace StardewValley.Tools
       return (Item) one;
     }
 
-    protected override string loadDisplayName() => Game1.content.LoadString("Strings\\StringsFromCSFiles:Blueprints.cs.14039");
+    protected override string loadDisplayName() { return Game1.content.LoadString("Strings\\StringsFromCSFiles:Blueprints.cs.14039"); }
 
-    protected override string loadDescription() => Game1.content.LoadString("Strings\\StringsFromCSFiles:Blueprints.cs.14040");
+    protected override string loadDescription() { return Game1.content.LoadString("Strings\\StringsFromCSFiles:Blueprints.cs.14040"); }
 
     public override void DoFunction(GameLocation location, int x, int y, int power, Farmer who)
     {

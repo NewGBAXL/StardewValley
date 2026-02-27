@@ -71,9 +71,9 @@ namespace StardewValley.Menus
       this._RepositionButtons();
     }
 
-    public static Rectangle GetEmoteSpriteRect(int emote_index) => emote_index <= 0 ? new Rectangle(48, 0, 16, 16) : new Rectangle(emote_index % 4 * 16 + 48, emote_index / 4 * 16, 16, 16);
+    public static Rectangle GetEmoteSpriteRect(int emote_index) { return emote_index <= 0 ? new Rectangle(48, 0, 16, 16) : new Rectangle(emote_index % 4 * 16 + 48, emote_index / 4 * 16, 16, 16); }
 
-    public static Rectangle GetEmoteNonBubbleSpriteRect(int emote_index) => new Rectangle(emote_index % 4 * 16, emote_index / 4 * 16, 16, 16);
+    public static Rectangle GetEmoteNonBubbleSpriteRect(int emote_index) { return new Rectangle(emote_index % 4 * 16, emote_index / 4 * 16, 16, 16); }
 
     public override void applyMovementKey(int direction)
     {

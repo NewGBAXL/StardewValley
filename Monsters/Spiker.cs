@@ -107,9 +107,9 @@ namespace StardewValley.Monsters
       }
     }
 
-    public override bool passThroughCharacters() => true;
+    public override bool passThroughCharacters() { return true; }
 
-    public override void draw(SpriteBatch b) => this.Sprite.draw(b, Game1.GlobalToLocal(Game1.viewport, this.Position), (float) this.GetBoundingBox().Center.Y / 10000f);
+    public override void draw(SpriteBatch b) { return this.Sprite.draw(b, Game1.GlobalToLocal(Game1.viewport, this.Position), (float) this.GetBoundingBox().Center.Y / 10000f); }
 
     private void collide(GameLocation location)
     {

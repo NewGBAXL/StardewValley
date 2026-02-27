@@ -32,7 +32,7 @@ namespace StardewValley.Minigames
       this.centerOfScreen = new Vector2((float) (Game1.game1.localMultiplayerWindow.Width / 2), (float) (Game1.game1.localMultiplayerWindow.Height / 2)) * num;
     }
 
-    public bool overrideFreeMouseMovement() => Game1.options.SnappyMenus;
+    public bool overrideFreeMouseMovement() { return Game1.options.SnappyMenus; }
 
     public bool tick(GameTime time)
     {
@@ -168,14 +168,14 @@ namespace StardewValley.Minigames
       this.centerOfScreen = new Vector2((float) (Game1.game1.localMultiplayerWindow.Width / 2), (float) (Game1.game1.localMultiplayerWindow.Height / 2)) * num;
     }
 
-    public void unload() => this.content.Unload();
+    public void unload() { return this.content.Unload(); }
 
-    public void receiveEventPoke(int data) => throw new NotImplementedException();
+    public void receiveEventPoke(int data) { return throw new NotImplementedException(); }
 
-    public string minigameId() => (string) null;
+    public string minigameId() { return (string) null; }
 
-    public bool doMainGameUpdates() => false;
+    public bool doMainGameUpdates() { return false; }
 
-    public bool forceQuit() => false;
+    public bool forceQuit() { return false; }
   }
 }

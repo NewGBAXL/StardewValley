@@ -112,12 +112,15 @@ namespace StardewValley.Monsters
       }
     }
 
-    protected override void localDeathAnimation() => Utility.makeTemporarySpriteJuicier(new TemporaryAnimatedSprite(44, this.Position, Color.HotPink, 10)
+    protected override void localDeathAnimation()
     {
-      holdLastFrame = true,
-      alphaFade = 0.01f,
-      interval = 70f
-    }, this.currentLocation, 8, 96);
+      Utility.makeTemporarySpriteJuicier(new TemporaryAnimatedSprite(44, this.Position, Color.HotPink, 10)
+      {
+        holdLastFrame = true,
+        alphaFade = 0.01f,
+        interval = 70f
+      }, this.currentLocation, 8, 96);
+    }
 
     public override void behaviorAtGameTick(GameTime time)
     {

@@ -32,7 +32,7 @@ namespace StardewValley.Menus
       this.bounds = new Rectangle(x, y, SliderBar.defaultWidth, 60);
     }
 
-    public Color getSelectedColor() => this.HsvToRgb((double) this.hueBar.value / 100.0 * 360.0, (double) this.saturationBar.value / 100.0, (double) this.valueBar.value / 100.0);
+    public Color getSelectedColor() { return this.HsvToRgb((double) this.hueBar.value / 100.0 * 360.0, (double) this.saturationBar.value / 100.0, (double) this.valueBar.value / 100.0); }
 
     public Color click(int x, int y)
     {
@@ -128,7 +128,7 @@ namespace StardewValley.Menus
       Utility.drawTextWithShadow(b, this.valueBar.value.ToString() ?? "", Game1.smallFont, new Vector2((float) (this.bounds.X + this.bounds.Width + 8), (float) (this.bounds.Y + this.valueBar.bounds.Y)), Game1.textColor);
     }
 
-    public bool containsPoint(int x, int y) => this.bounds.Contains(x, y);
+    public bool containsPoint(int x, int y) { return this.bounds.Contains(x, y); }
 
     public void setColor(Color color)
     {

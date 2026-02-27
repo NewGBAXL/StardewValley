@@ -12,8 +12,8 @@ namespace StardewValley
   {
     private AudioCategory audioCategory;
 
-    public AudioCategoryWrapper(AudioCategory category) => this.audioCategory = category;
+    public AudioCategoryWrapper(AudioCategory category) { return this.audioCategory = category; }
 
-    public void SetVolume(float volume) => this.audioCategory.SetVolume(volume);
+    public void SetVolume(float volume) { return this.audioCategory.SetVolume(volume); }
   }
 }

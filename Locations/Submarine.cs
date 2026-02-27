@@ -161,7 +161,7 @@ namespace StardewValley.Locations
       this.localAscending = false;
     }
 
-    public override bool canFishHere() => (double) this.curtainOpenPercent >= 1.0;
+    public override bool canFishHere() { return (double) this.curtainOpenPercent >= 1.0; }
 
     public override void performTenMinuteUpdate(int timeOfDay)
     {

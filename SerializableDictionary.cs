@@ -51,7 +51,7 @@ namespace StardewValley
       collectionChanged(sender ?? (object) this, args);
     }
 
-    public XmlSchema GetSchema() => (XmlSchema) null;
+    public XmlSchema GetSchema() { return (XmlSchema) null; }
 
     public void ReadXml(XmlReader reader)
     {

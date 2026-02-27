@@ -108,7 +108,7 @@ namespace StardewValley.Menus
       this.onCancel(Game1.player);
     }
 
-    public override void update(GameTime time) => base.update(time);
+    public override void update(GameTime time) { return base.update(time); }
 
     public override void performHoverAction(int x, int y)
     {

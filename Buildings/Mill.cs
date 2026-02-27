@@ -40,9 +40,9 @@ namespace StardewValley.Buildings
       this.NetFields.AddFields((INetSerializable) this.input, (INetSerializable) this.output);
     }
 
-    public override Rectangle getSourceRectForMenu() => new Rectangle(0, 0, 64, this.texture.Value.Bounds.Height);
+    public override Rectangle getSourceRectForMenu() { return new Rectangle(0, 0, 64, this.texture.Value.Bounds.Height); }
 
-    public override void load() => base.load();
+    public override void load() { return base.load(); }
 
     public override bool doAction(Vector2 tileLocation, Farmer who)
     {
@@ -118,7 +118,7 @@ namespace StardewValley.Buildings
       base.dayUpdate(dayOfMonth);
     }
 
-    public override List<Item> GetAdditionalItemsToCheckBeforeDemolish() => new List<Item>((IEnumerable<Item>) this.output.Value.items);
+    public override List<Item> GetAdditionalItemsToCheckBeforeDemolish() { return new List<Item>((IEnumerable<Item>) this.output.Value.items); }
 
     public override void drawInMenu(SpriteBatch b, int x, int y)
     {

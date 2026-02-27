@@ -71,15 +71,15 @@ namespace StardewValley.TerrainFeatures
     [XmlIgnore]
     public bool GreenHouseTree
     {
-      get => (bool) (NetFieldBase<bool, NetBool>) this.greenHouseTree;
-      set => this.greenHouseTree.Value = value;
+      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.greenHouseTree;
+      delegate(set) { return this.greenHouseTree.Value = value; };
     }
 
     [XmlIgnore]
     public bool GreenHouseTileTree
     {
-      get => (bool) (NetFieldBase<bool, NetBool>) this.greenHouseTileTree;
-      set => this.greenHouseTileTree.Value = value;
+      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.greenHouseTileTree;
+      delegate(set) { return this.greenHouseTileTree.Value = value; };
     }
 
     public FruitTree()
@@ -132,11 +132,11 @@ namespace StardewValley.TerrainFeatures
       }
     }
 
-    public override bool isActionable() => true;
+    public override bool isActionable() { return true; }
 
-    public override Rectangle getBoundingBox(Vector2 tileLocation) => new Rectangle((int) tileLocation.X * 64, (int) tileLocation.Y * 64, 64, 64);
+    public override Rectangle getBoundingBox(Vector2 tileLocation) { return new Rectangle((int) tileLocation.X * 64, (int) tileLocation.Y * 64, 64, 64); }
 
-    public override Rectangle getRenderBounds(Vector2 tileLocation) => (bool) (NetFieldBase<bool, NetBool>) this.stump || (int) (NetFieldBase<int, NetInt>) this.growthStage < 4 ? new Rectangle((int) ((double) tileLocation.X - 0.0) * 64, (int) ((double) tileLocation.Y - 1.0) * 64, 64, 128) : new Rectangle((int) ((double) tileLocation.X - 1.0) * 64, (int) ((double) tileLocation.Y - 5.0) * 64, 192, 448);
+    public override Rectangle getRenderBounds(Vector2 tileLocation) { return (bool) (NetFieldBase<bool, NetBool>) this.stump || (int) (NetFieldBase<int, NetInt>) this.growthStage < 4 ? new Rectangle((int) ((double) tileLocation.X - 0.0) * 64, (int) ((double) tileLocation.Y - 1.0) * 64, 64, 128) : new Rectangle((int) ((double) tileLocation.X - 1.0) * 64, (int) ((double) tileLocation.Y - 5.0) * 64, 192, 448); }
 
     public override bool performUseAction(Vector2 tileLocation, GameLocation location)
     {
@@ -302,7 +302,7 @@ namespace StardewValley.TerrainFeatures
       }
     }
 
-    public override bool isPassable(Character c = null) => (double) (float) (NetFieldBase<float, NetFloat>) this.health <= -99.0;
+    public override bool isPassable(Character c = null) { return (double) (float) (NetFieldBase<float, NetFloat>) this.health <= -99.0; }
 
     public static bool IsGrowthBlocked(Vector2 tileLocation, GameLocation environment)
     {

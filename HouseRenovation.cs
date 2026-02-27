@@ -29,9 +29,9 @@ namespace StardewValley
     public Action<HouseRenovation, int> onRenovation;
     public Func<HouseRenovation, int, bool> validate;
 
-    public bool ShouldDrawIcon() => false;
+    public bool ShouldDrawIcon() { return false; }
 
-    public string DisplayName => this._displayName;
+    public string delegate(DisplayName) { return this._displayName; };
 
     public void drawInMenu(
       SpriteBatch spriteBatch,
@@ -45,35 +45,35 @@ namespace StardewValley
     {
     }
 
-    public string Name => this._name;
+    public string delegate(Name) { return this._name; };
 
-    public string getDescription() => this._description;
+    public string getDescription() { return this._description; }
 
-    public int maximumStackSize() => 1;
+    public int maximumStackSize() { return 1; }
 
-    public int addToStack(Item stack) => 0;
+    public int addToStack(Item stack) { return 0; }
 
     public int Stack
     {
-      get => 1;
+      delegate(get) { return 1; };
       set
       {
       }
     }
 
-    public int salePrice() => 0;
+    public int salePrice() { return 0; }
 
-    public bool actionWhenPurchased() => false;
+    public bool actionWhenPurchased() { return false; }
 
-    public bool canStackWith(ISalable other) => false;
+    public bool canStackWith(ISalable other) { return false; }
 
-    public bool CanBuyItem(Farmer farmer) => true;
+    public bool CanBuyItem(Farmer farmer) { return true; }
 
-    public bool IsInfiniteStock() => true;
+    public bool IsInfiniteStock() { return true; }
 
-    public ISalable GetSalableInstance() => (ISalable) this;
+    public ISalable GetSalableInstance() { return (ISalable) this; }
 
-    public static void ShowRenovationMenu() => Game1.activeClickableMenu = (IClickableMenu) new ShopMenu(HouseRenovation.GetAvailableRenovations(), on_purchase: new Func<ISalable, Farmer, int, bool>(HouseRenovation.OnPurchaseRenovation));
+    public static void ShowRenovationMenu() { return Game1.activeClickableMenu = (IClickableMenu) new ShopMenu(HouseRenovation.GetAvailableRenovations(), on_purchase: new Func<ISalable, Farmer, int, bool>(HouseRenovation.OnPurchaseRenovation)); }
 
     public static List<ISalable> GetAvailableRenovations()
     {
@@ -337,7 +337,7 @@ namespace StardewValley
       bound
     });
 
-    public virtual void AddRenovationBound(List<Rectangle> bounds) => this.renovationBounds.Add(bounds);
+    public virtual void AddRenovationBound(List<Rectangle> bounds) { return this.renovationBounds.Add(bounds); }
 
     public enum AnimationType
     {

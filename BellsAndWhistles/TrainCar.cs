@@ -40,7 +40,7 @@ namespace StardewValley.BellsAndWhistles
 
     public NetFields NetFields { get; } = new NetFields();
 
-    public TrainCar() => this.initNetFields();
+    public TrainCar() { return this.initNetFields(); }
 
     public TrainCar(
       Random random,
@@ -68,7 +68,7 @@ namespace StardewValley.BellsAndWhistles
       this.alternateCar.Value = true;
     }
 
-    private void initNetFields() => this.NetFields.AddFields((INetSerializable) this.frontDecal, (INetSerializable) this.carType, (INetSerializable) this.resourceType, (INetSerializable) this.loaded, (INetSerializable) this.topFeatures, (INetSerializable) this.alternateCar, (INetSerializable) this.color);
+    private void initNetFields() { return this.NetFields.AddFields((INetSerializable) this.frontDecal, (INetSerializable) this.carType, (INetSerializable) this.resourceType, (INetSerializable) this.loaded, (INetSerializable) this.topFeatures, (INetSerializable) this.alternateCar, (INetSerializable) this.color); }
 
     public void draw(SpriteBatch b, Vector2 globalPosition, float wheelRotation)
     {

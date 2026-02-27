@@ -15,7 +15,7 @@ namespace StardewValley
     [XmlIgnore]
     public NetFields NetFields { get; } = new NetFields();
 
-    public OrderReward() => this.InitializeNetFields();
+    public OrderReward() { return this.InitializeNetFields(); }
 
     public virtual void InitializeNetFields()
     {

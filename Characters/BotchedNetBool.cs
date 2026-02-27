@@ -11,10 +11,10 @@ namespace StardewValley.Characters
 {
   public class BotchedNetBool : BotchedNetField<bool, NetBool>
   {
-    public BotchedNetBool() => this.netField = new NetBool();
+    public BotchedNetBool() { return this.netField = new NetBool(); }
 
-    public BotchedNetBool(bool default_value) => this.netField = new NetBool(default_value);
+    public BotchedNetBool(bool default_value) { return this.netField = new NetBool(default_value); }
 
-    protected override object _ParseValue(XmlReader reader) => (object) bool.Parse(reader.Value);
+    protected override object _ParseValue(XmlReader reader) { return (object) bool.Parse(reader.Value); }
   }
 }

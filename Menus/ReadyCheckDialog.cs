@@ -32,9 +32,9 @@ namespace StardewValley.Menus
       this.snapToDefaultClickableComponent();
     }
 
-    public bool isCancelable() => this.allowCancel && Game1.player.team.IsReadyCheckCancelable(this.checkName);
+    public bool isCancelable() { return this.allowCancel && Game1.player.team.IsReadyCheckCancelable(this.checkName); }
 
-    public override bool readyToClose() => this.isCancelable();
+    public override bool readyToClose() { return this.isCancelable(); }
 
     public override void closeDialog(Farmer who)
     {

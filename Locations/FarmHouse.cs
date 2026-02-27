@@ -48,12 +48,12 @@ namespace StardewValley.Locations
     private bool displayingSpouseRoom;
 
     [XmlIgnore]
-    public virtual Farmer owner => Game1.MasterPlayer;
+    public virtual Farmer delegate(owner) { return Game1.MasterPlayer; };
 
     [XmlIgnore]
     public virtual int upgradeLevel
     {
-      get => this.owner == null ? 0 : (int) (NetFieldBase<int, NetInt>) this.owner.houseUpgradeLevel;
+      delegate(get) { return this.owner == null ? 0 : (int) (NetFieldBase<int; }, NetInt>) this.owner.houseUpgradeLevel;
       set
       {
         if (this.owner == null)
@@ -66,7 +66,7 @@ namespace StardewValley.Locations
     {
     }
 
-    public FarmHouse(int ownerNumber = 1) => this.farmerNumberOfOwner = ownerNumber;
+    public FarmHouse(int ownerNumber = 1) { return this.farmerNumberOfOwner = ownerNumber; }
 
     protected override void initNetFields()
     {
@@ -91,7 +91,7 @@ namespace StardewValley.Locations
       });
     }
 
-    public List<Child> getChildren() => this.characters.Where<NPC>((Func<NPC, bool>) (n => n is Child)).Select<NPC, Child>((Func<NPC, Child>) (n => n as Child)).ToList<Child>();
+    public List<Child> getChildren() { return this.characters.Where<NPC>((Func<NPC, bool>) (delegate(n) { return n is Child)).Select<NPC; }, Child>((Func<NPC, Child>) (delegate(n) { return n as Child)).ToList<Child>(); }; }
 
     public int getChildrenCount()
     {
@@ -129,7 +129,7 @@ namespace StardewValley.Locations
       return base.isCollidingPosition(position, viewport, isFarmer, damagesFarmer, glider, character);
     }
 
-    public override bool isTileLocationTotallyClearAndPlaceable(Vector2 v) => base.isTileLocationTotallyClearAndPlaceable(v);
+    public override bool isTileLocationTotallyClearAndPlaceable(Vector2 v) { return base.isTileLocationTotallyClearAndPlaceable(v); }
 
     public override void performTenMinuteUpdate(int timeOfDay)
     {
@@ -245,7 +245,7 @@ namespace StardewValley.Locations
       return bedSpot;
     }
 
-    public Point GetSpouseRoomSpot() => this.upgradeLevel == 0 ? new Point(-1000, -1000) : this.spouseRoomSpot;
+    public Point GetSpouseRoomSpot() { return this.upgradeLevel == 0 ? new Point(-1000, -1000) : this.spouseRoomSpot; }
 
     public BedFurniture GetBed(BedFurniture.BedType bed_type = BedFurniture.BedType.Any, int index = 0)
     {
@@ -271,7 +271,7 @@ namespace StardewValley.Locations
       return playerBed != null ? playerBed.GetBedSpot() : this.getEntryLocation();
     }
 
-    public BedFurniture GetPlayerBed() => this.upgradeLevel == 0 ? this.GetBed(BedFurniture.BedType.Single) : this.GetBed(BedFurniture.BedType.Double);
+    public BedFurniture GetPlayerBed() { return this.upgradeLevel == 0 ? this.GetBed(BedFurniture.BedType.Single) : this.GetBed(BedFurniture.BedType.Double); }
 
     public Point getBedSpot(BedFurniture.BedType bed_type = BedFurniture.BedType.Any)
     {
@@ -295,7 +295,7 @@ namespace StardewValley.Locations
       }
     }
 
-    public BedFurniture GetChildBed(int index) => this.GetBed(BedFurniture.BedType.Child, index);
+    public BedFurniture GetChildBed(int index) { return this.GetBed(BedFurniture.BedType.Child, index); }
 
     public Point GetChildBedSpot(int index)
     {
@@ -303,7 +303,7 @@ namespace StardewValley.Locations
       return childBed != null ? childBed.GetBedSpot() : Point.Zero;
     }
 
-    public override bool isTilePlaceable(Vector2 v, Item item = null) => (!this.isTileOnMap(v) || this.getTileIndexAt((int) v.X, (int) v.Y, "Back") != 0 || !(this.getTileSheetIDAt((int) v.X, (int) v.Y, "Back") == "indoor")) && base.isTilePlaceable(v, item);
+    public override bool isTilePlaceable(Vector2 v, Item item = null) { return (!this.isTileOnMap(v) || this.getTileIndexAt((int) v.X, (int) v.Y, "Back") != 0 || !(this.getTileSheetIDAt((int) v.X, (int) v.Y, "Back") == "indoor")) && base.isTilePlaceable(v, item); }
 
     public Point getRandomOpenPointInHouse(Random r, int buffer = 0, int tries = 30)
     {
@@ -693,7 +693,7 @@ namespace StardewValley.Locations
       }
     }
 
-    public bool shouldShowSpouseRoom() => this.owner.isMarried();
+    public bool shouldShowSpouseRoom() { return this.owner.isMarried(); }
 
     public virtual void showSpouseRoom()
     {
@@ -1587,7 +1587,7 @@ namespace StardewValley.Locations
       }
     }
 
-    public void createCellarWarps() => this.updateCellarWarps();
+    public void createCellarWarps() { return this.updateCellarWarps(); }
 
     public void updateCellarWarps()
     {
@@ -1618,11 +1618,11 @@ namespace StardewValley.Locations
       }
     }
 
-    public virtual int GetSpouseRoomWidth() => 6;
+    public virtual int GetSpouseRoomWidth() { return 6; }
 
-    public virtual int GetSpouseRoomHeight() => 9;
+    public virtual int GetSpouseRoomHeight() { return 9; }
 
-    public virtual Point GetSpouseRoomCorner() => this.upgradeLevel == 1 ? new Point(29, 1) : new Point(35, 10);
+    public virtual Point GetSpouseRoomCorner() { return this.upgradeLevel == 1 ? new Point(29, 1) : new Point(35, 10); }
 
     public virtual void loadSpouseRoom()
     {
@@ -1748,7 +1748,10 @@ namespace StardewValley.Locations
         layer.Tiles[keyValuePair.Key.X, keyValuePair.Key.Y] = keyValuePair.Value;
     }
 
-    public virtual Microsoft.Xna.Framework.Rectangle? GetCribBounds() => this.upgradeLevel < 2 ? new Microsoft.Xna.Framework.Rectangle?() : new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(15, 2, 3, 4));
+    public virtual Microsoft.Xna.Framework.Rectangle? GetCribBounds()
+    {
+      return this.upgradeLevel < 2 ? new Microsoft.Xna.Framework.Rectangle?() : new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(15, 2, 3, 4));
+    }
 
     public virtual Microsoft.Xna.Framework.Rectangle? GetBedBounds(int child_index = 0)
     {
@@ -1778,7 +1781,7 @@ namespace StardewValley.Locations
       this.ApplyMapOverride("FarmHouse_Crib_" + this.cribStyle.Value.ToString(), "crib", destination_rect: cribBounds);
     }
 
-    public void playerDivorced() => this.displayingSpouseRoom = false;
+    public void playerDivorced() { return this.displayingSpouseRoom = false; }
 
     public virtual List<Microsoft.Xna.Framework.Rectangle> getForbiddenPetWarpTiles()
     {

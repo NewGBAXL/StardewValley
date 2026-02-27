@@ -24,7 +24,7 @@ namespace StardewValley
 
     public NetFields NetFields { get; } = new NetFields();
 
-    public MarriageDialogueReference() => this.NetFields.AddFields((INetSerializable) this._dialogueFile, (INetSerializable) this._dialogueKey, (INetSerializable) this._isGendered, (INetSerializable) this._substitutions);
+    public MarriageDialogueReference() { return this.NetFields.AddFields((INetSerializable) this._dialogueFile, (INetSerializable) this._dialogueKey, (INetSerializable) this._isGendered, (INetSerializable) this._substitutions); }
 
     public MarriageDialogueReference(
       string dialogue_file,
@@ -40,9 +40,9 @@ namespace StardewValley
       this.NetFields.AddFields((INetSerializable) this._dialogueFile, (INetSerializable) this._dialogueKey, (INetSerializable) this._isGendered, (INetSerializable) this._substitutions);
     }
 
-    public string GetText() => "";
+    public string GetText() { return ""; }
 
-    public bool IsItemGrabDialogue(NPC n) => this.GetDialogue(n).isItemGrabDialogue();
+    public bool IsItemGrabDialogue(NPC n) { return this.GetDialogue(n).isItemGrabDialogue(); }
 
     protected string _ReplaceTokens(string text, NPC n)
     {
@@ -69,17 +69,17 @@ namespace StardewValley
       };
     }
 
-    public string DialogueFile => this._dialogueFile.Value;
+    public string delegate(DialogueFile) { return this._dialogueFile.Value; };
 
-    public string DialogueKey => this._dialogueKey.Value;
+    public string delegate(DialogueKey) { return this._dialogueKey.Value; };
 
-    public bool IsGendered => this._isGendered.Value;
+    public bool delegate(IsGendered) { return this._isGendered.Value; };
 
-    public string[] Substitutions => this._substitutions.ToArray<string>();
+    public string[] delegate(Substitutions) { return this._substitutions.ToArray<string>(); };
 
-    public bool Equals(MarriageDialogueReference other) => object.Equals((object) this._dialogueFile.Value, (object) other._dialogueFile.Value) && object.Equals((object) this._dialogueKey.Value, (object) other._dialogueKey.Value) && object.Equals((object) this._isGendered.Value, (object) other._isGendered.Value) && this._substitutions.SequenceEqual<string>((IEnumerable<string>) other._substitutions);
+    public bool Equals(MarriageDialogueReference other) { return object.Equals((object) this._dialogueFile.Value, (object) other._dialogueFile.Value) && object.Equals((object) this._dialogueKey.Value, (object) other._dialogueKey.Value) && object.Equals((object) this._isGendered.Value, (object) other._isGendered.Value) && this._substitutions.SequenceEqual<string>((IEnumerable<string>) other._substitutions); }
 
-    public override bool Equals(object obj) => obj is MarriageDialogueReference && this.Equals(obj as MarriageDialogueReference);
+    public override bool Equals(object obj) { return obj is MarriageDialogueReference && this.Equals(obj as MarriageDialogueReference); }
 
     public override int GetHashCode()
     {

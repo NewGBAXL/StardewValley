@@ -24,7 +24,7 @@ namespace StardewValley.Network
     {
     }
 
-    protected override Point ReadKey(BinaryReader reader) => new Point(reader.ReadInt32(), reader.ReadInt32());
+    protected override Point ReadKey(BinaryReader reader) { return new Point(reader.ReadInt32(), reader.ReadInt32()); }
 
     protected override void WriteKey(BinaryWriter writer, Point key)
     {

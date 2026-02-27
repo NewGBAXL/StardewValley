@@ -51,13 +51,13 @@ namespace StardewValley.Menus
       return -1;
     }
 
-    public Color getCurrentColor() => this.getColorFromSelection(this.colorSelection);
+    public Color getCurrentColor() { return this.getColorFromSelection(this.colorSelection); }
 
     public override void performHoverAction(int x, int y)
     {
     }
 
-    public override void update(GameTime time) => base.update(time);
+    public override void update(GameTime time) { return base.update(time); }
 
     public override void receiveLeftClick(int x, int y, bool playSound = true)
     {

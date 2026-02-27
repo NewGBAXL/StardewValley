@@ -36,8 +36,8 @@ namespace StardewValley
       meleeWeapon.maxDamage.Value -= Math.Max(1, (int) ((double) int32_2 * 0.100000001490116)) * this.GetLevel();
     }
 
-    public override bool ShouldBeDisplayed() => false;
+    public override bool ShouldBeDisplayed() { return false; }
 
-    public override bool IsForge() => true;
+    public override bool IsForge() { return true; }
   }
 }

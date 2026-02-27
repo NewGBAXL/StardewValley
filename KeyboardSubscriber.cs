@@ -90,7 +90,7 @@ namespace StardewValley
       }
     }
 
-    private void EventInput_KeyDown(object sender, KeyEventArgs e) => this._keysDown.Add(e.KeyCode);
+    private void EventInput_KeyDown(object sender, KeyEventArgs e) { return this._keysDown.Add(e.KeyCode); }
 
     private void EventInput_CharEntered(object sender, CharacterEventArgs e)
     {
@@ -113,7 +113,7 @@ namespace StardewValley
         this._charsEntered.Add(e.Character);
     }
 
-    public bool ShouldSuppress() => false;
+    public bool ShouldSuppress() { return false; }
 
     public void Discard()
     {
@@ -183,7 +183,7 @@ namespace StardewValley
 
     public IKeyboardSubscriber Subscriber
     {
-      get => this._subscriber;
+      delegate(get) { return this._subscriber; };
       set
       {
         if (this._subscriber == value)
@@ -198,6 +198,6 @@ namespace StardewValley
     }
 
     [STAThread]
-    private void PasteThread() => this._pasteResult = "";
+    private void PasteThread() { return this._pasteResult = ""; }
   }
 }

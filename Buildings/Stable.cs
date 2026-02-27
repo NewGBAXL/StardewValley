@@ -18,8 +18,8 @@ namespace StardewValley.Buildings
 
     public Guid HorseId
     {
-      get => this.horseId.Value;
-      set => this.horseId.Value = value;
+      delegate(get) { return this.horseId.Value; };
+      delegate(set) { return this.horseId.Value = value; };
     }
 
     public Stable()
@@ -38,9 +38,9 @@ namespace StardewValley.Buildings
       this.NetFields.AddField((INetSerializable) this.horseId);
     }
 
-    public override Rectangle getSourceRectForMenu() => new Rectangle(0, 0, this.texture.Value.Bounds.Width, this.texture.Value.Bounds.Height);
+    public override Rectangle getSourceRectForMenu() { return new Rectangle(0, 0, this.texture.Value.Bounds.Width, this.texture.Value.Bounds.Height); }
 
-    public Horse getStableHorse() => Utility.findHorse(this.HorseId);
+    public Horse getStableHorse() { return Utility.findHorse(this.HorseId); }
 
     public virtual void grabHorse()
     {
@@ -103,7 +103,7 @@ namespace StardewValley.Buildings
       base.performActionOnDemolition(location);
     }
 
-    public override void Update(GameTime time) => base.Update(time);
+    public override void Update(GameTime time) { return base.Update(time); }
 
     public override void draw(SpriteBatch b)
     {

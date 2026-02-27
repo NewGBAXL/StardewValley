@@ -577,7 +577,7 @@ label_89:
       this.readAt = this.writeAt = n;
     }
 
-    internal int SyncPoint() => this.mode != InflateBlocks.InflateBlockMode.LENS ? 0 : 1;
+    internal int SyncPoint() { return this.mode != InflateBlocks.InflateBlockMode.LENS ? 0 : 1; }
 
     internal int Flush(int r)
     {

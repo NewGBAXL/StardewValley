@@ -46,7 +46,7 @@ namespace StardewValley
       this.solid = solid;
     }
 
-    public bool isColliding(Rectangle r) => this.solid && r.Intersects(this.boundingRect);
+    public bool isColliding(Rectangle r) { return this.solid && r.Intersects(this.boundingRect); }
 
     public void draw(SpriteBatch b)
     {

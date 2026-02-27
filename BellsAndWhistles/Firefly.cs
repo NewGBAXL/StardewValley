@@ -51,6 +51,6 @@ namespace StardewValley.BellsAndWhistles
       return (double) this.position.X < (double) sbyte.MinValue || (double) this.position.Y < (double) sbyte.MinValue || (double) this.position.X > (double) environment.map.DisplayWidth || (double) this.position.Y > (double) environment.map.DisplayHeight;
     }
 
-    public override void drawAboveFrontLayer(SpriteBatch b) => b.Draw(Game1.staminaRect, Game1.GlobalToLocal(this.position), new Rectangle?(Game1.staminaRect.Bounds), this.glowing ? Color.White : Color.Brown, 0.0f, Vector2.Zero, 4f, SpriteEffects.None, 1f);
+    public override void drawAboveFrontLayer(SpriteBatch b) { return b.Draw(Game1.staminaRect, Game1.GlobalToLocal(this.position), new Rectangle?(Game1.staminaRect.Bounds), this.glowing ? Color.White : Color.Brown, 0.0f, Vector2.Zero, 4f, SpriteEffects.None, 1f); }
   }
 }

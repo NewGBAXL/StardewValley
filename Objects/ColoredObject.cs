@@ -21,8 +21,8 @@ namespace StardewValley.Objects
 
     public bool ColorSameIndexAsParentSheetIndex
     {
-      get => this.colorSameIndexAsParentSheetIndex.Value;
-      set => this.colorSameIndexAsParentSheetIndex.Value = value;
+      delegate(get) { return this.colorSameIndexAsParentSheetIndex.Value; };
+      delegate(set) { return this.colorSameIndexAsParentSheetIndex.Value = value; };
     }
 
     protected override void initNetFields()

@@ -30,6 +30,6 @@ namespace StardewValley
       Game1.playSound("healSound");
     }
 
-    public override string GetName() => "Vampiric";
+    public override string GetName() { return "Vampiric"; }
   }
 }

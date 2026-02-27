@@ -63,7 +63,7 @@ namespace StardewValley.Menus
       this.populateClickableComponentList();
     }
 
-    protected override Vector2 centerPosition => new Vector2((float) (Game1.uiViewport.Width / 2), (float) (Game1.uiViewport.Height / 2 + 128));
+    protected override Vector2 delegate(centerPosition) { return new Vector2((float) (Game1.uiViewport.Width / 2); }, (float) (Game1.uiViewport.Height / 2 + 128));
 
     private void onDigitPressed(string digit)
     {

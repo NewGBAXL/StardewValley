@@ -65,7 +65,7 @@ namespace StardewValley.Locations
         this.piecesDonated.Add(false);
     }
 
-    public NPC getSafariGuy() => this.safariGuy;
+    public NPC getSafariGuy() { return this.safariGuy; }
 
     protected override void initNetFields()
     {
@@ -378,7 +378,7 @@ namespace StardewValley.Locations
       return true;
     }
 
-    public void triggerFinaleCutscene() => this._shouldTriggerFinalCutscene = true;
+    public void triggerFinaleCutscene() { return this._shouldTriggerFinalCutscene = true; }
 
     private void _triggerFinaleCutsceneActual()
     {

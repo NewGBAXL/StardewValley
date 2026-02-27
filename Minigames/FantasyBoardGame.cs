@@ -33,7 +33,7 @@ namespace StardewValley.Minigames
       Game1.globalFadeToClear();
     }
 
-    public bool overrideFreeMouseMovement() => Game1.options.SnappyMenus;
+    public bool overrideFreeMouseMovement() { return Game1.options.SnappyMenus; }
 
     public bool tick(GameTime time)
     {
@@ -170,7 +170,7 @@ namespace StardewValley.Minigames
     {
     }
 
-    public void unload() => this.content.Unload();
+    public void unload() { return this.content.Unload(); }
 
     public void afterFade()
     {
@@ -211,10 +211,10 @@ namespace StardewValley.Minigames
         this.whichSlide = data;
     }
 
-    public string minigameId() => nameof (FantasyBoardGame);
+    public string minigameId() { return nameof (FantasyBoardGame); }
 
-    public bool doMainGameUpdates() => false;
+    public bool doMainGameUpdates() { return false; }
 
-    public bool forceQuit() => false;
+    public bool forceQuit() { return false; }
   }
 }

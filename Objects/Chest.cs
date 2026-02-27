@@ -74,15 +74,15 @@ namespace StardewValley.Objects
     [XmlIgnore]
     public Chest.SpecialChestTypes SpecialChestType
     {
-      get => this.specialChestType.Value;
-      set => this.specialChestType.Value = value;
+      delegate(get) { return this.specialChestType.Value; };
+      delegate(set) { return this.specialChestType.Value = value; };
     }
 
     [XmlIgnore]
     public Color Tint
     {
-      get => (Color) (NetFieldBase<Color, NetColor>) this.tint;
-      set => this.tint.Value = value;
+      delegate(get) { return (Color) (NetFieldBase<Color; }, NetColor>) this.tint;
+      delegate(set) { return this.tint.Value = value; };
     }
 
     protected override void initNetFields()
@@ -218,7 +218,7 @@ namespace StardewValley.Objects
       this.boundingBox.Value = new Microsoft.Xna.Framework.Rectangle((int) this.tileLocation.X * 64, (int) this.tileLocation.Y * 64, 64, 64);
     }
 
-    public void resetLidFrame() => this.currentLidFrame = (int) (NetFieldBase<int, NetInt>) this.startingLidFrame;
+    public void resetLidFrame() { return this.currentLidFrame = (int) (NetFieldBase<int, NetInt>) this.startingLidFrame; }
 
     public void fixLidFrame()
     {
@@ -247,9 +247,9 @@ namespace StardewValley.Objects
       }
     }
 
-    public int getLastLidFrame() => this.startingLidFrame.Value + this.lidFrameCount.Value - 1;
+    public int getLastLidFrame() { return this.startingLidFrame.Value + this.lidFrameCount.Value - 1; }
 
-    public override bool performObjectDropInAction(Item dropIn, bool probe, Farmer who) => false;
+    public override bool performObjectDropInAction(Item dropIn, bool probe, Farmer who) { return false; }
 
     public override bool performToolAction(Tool t, GameLocation location)
     {
@@ -475,7 +475,7 @@ namespace StardewValley.Objects
           if (grab_menu != null)
           {
             ItemGrabMenu itemGrabMenu = grab_menu;
-            itemGrabMenu.behaviorBeforeCleanup = itemGrabMenu.behaviorBeforeCleanup + (Action<IClickableMenu>) (menu => grab_menu.DropRemainingItems());
+            itemGrabMenu.behaviorBeforeCleanup = itemGrabMenu.behaviorBeforeCleanup + (Action<IClickableMenu>) (delegate(menu) { return grab_menu.DropRemainingItems()); };
           }
         }
         if (Game1.mine != null)
@@ -511,7 +511,7 @@ namespace StardewValley.Objects
         location.temporarySprites.Add(temporaryAnimatedSprite);
     }
 
-    public NetMutex GetMutex() => this.specialChestType.Value == Chest.SpecialChestTypes.JunimoChest ? Game1.player.team.junimoChestMutex : this.mutex;
+    public NetMutex GetMutex() { return this.specialChestType.Value == Chest.SpecialChestTypes.JunimoChest ? Game1.player.team.junimoChestMutex : this.mutex; }
 
     public override bool checkForAction(Farmer who, bool justCheckingForActivity = false)
     {
@@ -565,7 +565,7 @@ namespace StardewValley.Objects
           if (grab_menu != null)
           {
             ItemGrabMenu itemGrabMenu = grab_menu;
-            itemGrabMenu.behaviorBeforeCleanup = itemGrabMenu.behaviorBeforeCleanup + (Action<IClickableMenu>) (menu => grab_menu.DropRemainingItems());
+            itemGrabMenu.behaviorBeforeCleanup = itemGrabMenu.behaviorBeforeCleanup + (Action<IClickableMenu>) (delegate(menu) { return grab_menu.DropRemainingItems()); };
           }
         }
       }
@@ -583,7 +583,7 @@ namespace StardewValley.Objects
       this.ShowMenu();
     }
 
-    public virtual void performOpenChest() => this.frameCounter.Value = 5;
+    public virtual void performOpenChest() { return this.frameCounter.Value = 5; }
 
     public virtual void grabItemFromChest(Item item, Farmer who)
     {

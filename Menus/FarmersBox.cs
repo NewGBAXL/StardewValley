@@ -40,7 +40,7 @@ namespace StardewValley.Menus
     {
     }
 
-    public override void update(GameTime time) => this._updateTimer -= (float) time.ElapsedGameTime.TotalSeconds;
+    public override void update(GameTime time) { return this._updateTimer -= (float) time.ElapsedGameTime.TotalSeconds; }
 
     public void draw(
       SpriteBatch b,

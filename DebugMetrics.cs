@@ -35,8 +35,8 @@ namespace StardewValley
 
     public SpriteFont Font
     {
-      get => this._font;
-      set => this._font = value;
+      delegate(get) { return this._font; };
+      delegate(set) { return this._font = value; };
     }
 
     public DebugMetricsComponent(Game game)

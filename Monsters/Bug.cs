@@ -65,7 +65,7 @@ namespace StardewValley.Monsters
       this.Sprite.animateOnce(time);
     }
 
-    public override bool passThroughCharacters() => true;
+    public override bool passThroughCharacters() { return true; }
 
     public override void reloadSprite()
     {

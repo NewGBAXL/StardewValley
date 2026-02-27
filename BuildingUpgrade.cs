@@ -35,9 +35,9 @@ namespace StardewValley
       this.workerTexture = Game1.content.Load<Texture2D>("LooseSprites\\robinAtWork");
     }
 
-    public BuildingUpgrade() => this.workerTexture = Game1.content.Load<Texture2D>("LooseSprites\\robinAtWork");
+    public BuildingUpgrade() { return this.workerTexture = Game1.content.Load<Texture2D>("LooseSprites\\robinAtWork"); }
 
-    public Rectangle getSourceRectangle() => new Rectangle(this.currentFrame * 64, 0, 64, 96);
+    public Rectangle getSourceRectangle() { return new Rectangle(this.currentFrame * 64, 0, 64, 96); }
 
     public void update(float milliseconds)
     {

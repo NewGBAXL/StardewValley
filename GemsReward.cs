@@ -19,8 +19,8 @@ namespace StardewValley
       this.NetFields.AddFields((INetSerializable) this.amount);
     }
 
-    public override void Load(SpecialOrder order, Dictionary<string, string> data) => this.amount.Value = int.Parse(order.Parse(data["Amount"]));
+    public override void Load(SpecialOrder order, Dictionary<string, string> data) { return this.amount.Value = int.Parse(order.Parse(data["Amount"])); }
 
-    public override void Grant() => Game1.player.QiGems += this.amount.Value;
+    public override void Grant() { return Game1.player.QiGems += this.amount.Value; }
   }
 }

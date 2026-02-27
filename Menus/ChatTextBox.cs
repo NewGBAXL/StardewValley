@@ -51,7 +51,7 @@ namespace StardewValley.Menus
       this.updateWidth();
     }
 
-    public override void RecieveTextInput(char inputChar) => this.RecieveTextInput(inputChar.ToString() ?? "");
+    public override void RecieveTextInput(char inputChar) { return this.RecieveTextInput(inputChar.ToString() ?? ""); }
 
     public override void RecieveCommandInput(char command)
     {

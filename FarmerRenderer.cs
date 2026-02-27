@@ -495,7 +495,7 @@ namespace StardewValley
       this.baseTexture.SetData<Color>(data);
     }
 
-    public void recolorEyes(Color lightestColor) => this.eyes.Set(lightestColor);
+    public void recolorEyes(Color lightestColor) { return this.eyes.Set(lightestColor); }
 
     private void ApplyEyeColor(string texture_name, Color[] pixels)
     {
@@ -514,7 +514,7 @@ namespace StardewValley
         pixels[intList[index]] = color;
     }
 
-    public void recolorShoes(int which) => this.shoes.Set(which);
+    public void recolorShoes(int which) { return this.shoes.Set(which); }
 
     private void ApplyShoeColor(string texture_name, Color[] pixels)
     {
@@ -558,9 +558,9 @@ namespace StardewValley
       this._SwapColor(texture_name, pixels, 262, color3);
     }
 
-    public void changeShirt(int whichShirt) => this.shirt.Set(whichShirt);
+    public void changeShirt(int whichShirt) { return this.shirt.Set(whichShirt); }
 
-    public void changePants(int whichPants) => this.pants.Set(whichPants);
+    public void changePants(int whichPants) { return this.pants.Set(whichPants); }
 
     public void MarkSpriteDirty()
     {
@@ -668,9 +668,9 @@ namespace StardewValley
       this.draw(b, farmerSprite.CurrentAnimationFrame, farmerSprite.CurrentFrame, sourceRect, position, origin, layerDepth, overrideColor, rotation, 1f, who);
     }
 
-    public int ClampShirt(int shirt_value) => shirt_value > Clothing.GetMaxShirtValue() || shirt_value < 0 ? 0 : shirt_value;
+    public int ClampShirt(int shirt_value) { return shirt_value > Clothing.GetMaxShirtValue() || shirt_value < 0 ? 0 : shirt_value; }
 
-    public int ClampPants(int pants_value) => pants_value > Clothing.GetMaxPantsValue() || pants_value < 0 ? 0 : pants_value;
+    public int ClampPants(int pants_value) { return pants_value > Clothing.GetMaxPantsValue() || pants_value < 0 ? 0 : pants_value; }
 
     public void drawMiniPortrat(
       SpriteBatch b,

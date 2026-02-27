@@ -46,7 +46,7 @@ namespace StardewValley.Buildings
       this.output.Value = new Chest(true);
     }
 
-    public JunimoHut() => this.sourceRect = this.getSourceRectForMenu();
+    public JunimoHut() { return this.sourceRect = this.getSourceRectForMenu(); }
 
     protected override void initNetFields()
     {
@@ -55,9 +55,9 @@ namespace StardewValley.Buildings
       this.wasLit.fieldChangeVisibleEvent += (NetFieldBase<bool, NetBool>.FieldChange) ((field, old_value, new_value) => this.updateLightState());
     }
 
-    public override Rectangle getRectForAnimalDoor() => new Rectangle((1 + (int) (NetFieldBase<int, NetInt>) this.tileX) * 64, ((int) (NetFieldBase<int, NetInt>) this.tileY + 1) * 64, 64, 64);
+    public override Rectangle getRectForAnimalDoor() { return new Rectangle((1 + (int) (NetFieldBase<int, NetInt>) this.tileX) * 64, ((int) (NetFieldBase<int, NetInt>) this.tileY + 1) * 64, 64, 64); }
 
-    public override Rectangle getSourceRectForMenu() => new Rectangle(Utility.getSeasonNumber(Game1.currentSeason) * 48, 0, 48, 64);
+    public override Rectangle getSourceRectForMenu() { return new Rectangle(Utility.getSeasonNumber(Game1.currentSeason) * 48, 0, 48, 64); }
 
     public override void load()
     {
@@ -80,7 +80,7 @@ namespace StardewValley.Buildings
       }
     }
 
-    public void sendOutJunimos() => this.junimoSendOutTimer = 1000;
+    public void sendOutJunimos() { return this.junimoSendOutTimer = 1000; }
 
     public override void performActionOnConstruction(GameLocation location)
     {
@@ -244,7 +244,7 @@ namespace StardewValley.Buildings
       return true;
     }
 
-    public override List<Item> GetAdditionalItemsToCheckBeforeDemolish() => new List<Item>((IEnumerable<Item>) this.output.Value.items);
+    public override List<Item> GetAdditionalItemsToCheckBeforeDemolish() { return new List<Item>((IEnumerable<Item>) this.output.Value.items); }
 
     public override void drawInMenu(SpriteBatch b, int x, int y)
     {

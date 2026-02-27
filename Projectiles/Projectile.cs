@@ -80,18 +80,18 @@ namespace StardewValley.Projectiles
           this._rotation = new float?(this.startingRotation.Value);
         return this._rotation.Value;
       }
-      set => this._rotation = new float?(value);
+      delegate(set) { return this._rotation = new float?(value); };
     }
 
     public bool IgnoreLocationCollision
     {
-      get => (bool) (NetFieldBase<bool, NetBool>) this.ignoreLocationCollision;
-      set => this.ignoreLocationCollision.Value = value;
+      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.ignoreLocationCollision;
+      delegate(set) { return this.ignoreLocationCollision.Value = value; };
     }
 
     public NetFields NetFields { get; } = new NetFields();
 
-    public Projectile() => this.NetFields.AddFields((INetSerializable) this.currentTileSheetIndex, (INetSerializable) this.position.NetFields, (INetSerializable) this.tailLength, (INetSerializable) this.bouncesLeft, (INetSerializable) this.rotationVelocity, (INetSerializable) this.startingRotation, (INetSerializable) this.xVelocity, (INetSerializable) this.yVelocity, (INetSerializable) this.damagesMonsters, (INetSerializable) this.spriteFromObjectSheet, (INetSerializable) this.theOneWhoFiredMe.NetFields, (INetSerializable) this.ignoreLocationCollision, (INetSerializable) this.maxTravelDistance, (INetSerializable) this.ignoreTravelGracePeriod, (INetSerializable) this.ignoreMeleeAttacks, (INetSerializable) this.height, (INetSerializable) this.startingScale, (INetSerializable) this.scaleGrow, (INetSerializable) this.color, (INetSerializable) this.light);
+    public Projectile() { return this.NetFields.AddFields((INetSerializable) this.currentTileSheetIndex, (INetSerializable) this.position.NetFields, (INetSerializable) this.tailLength, (INetSerializable) this.bouncesLeft, (INetSerializable) this.rotationVelocity, (INetSerializable) this.startingRotation, (INetSerializable) this.xVelocity, (INetSerializable) this.yVelocity, (INetSerializable) this.damagesMonsters, (INetSerializable) this.spriteFromObjectSheet, (INetSerializable) this.theOneWhoFiredMe.NetFields, (INetSerializable) this.ignoreLocationCollision, (INetSerializable) this.maxTravelDistance, (INetSerializable) this.ignoreTravelGracePeriod, (INetSerializable) this.ignoreMeleeAttacks, (INetSerializable) this.height, (INetSerializable) this.startingScale, (INetSerializable) this.scaleGrow, (INetSerializable) this.color, (INetSerializable) this.light); }
 
     private bool behaviorOnCollision(GameLocation location)
     {
@@ -148,7 +148,7 @@ namespace StardewValley.Projectiles
           this._localScale = new float?(this.startingScale.Value);
         return this._localScale.Value;
       }
-      set => this._localScale = new float?(value);
+      delegate(set) { return this._localScale = new float?(value); };
     }
 
     public virtual bool update(GameTime time, GameLocation location)

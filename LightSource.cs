@@ -33,14 +33,14 @@ namespace StardewValley
 
     public int Identifier
     {
-      get => this.identifier.Value;
-      set => this.identifier.Value = value;
+      delegate(get) { return this.identifier.Value; };
+      delegate(set) { return this.identifier.Value = value; };
     }
 
     public long PlayerID
     {
-      get => this.playerID.Value;
-      set => this.playerID.Value = value;
+      delegate(get) { return this.playerID.Value; };
+      delegate(set) { return this.playerID.Value = value; };
     }
 
     public NetFields NetFields { get; } = new NetFields();
@@ -131,7 +131,7 @@ namespace StardewValley
       }
     }
 
-    public LightSource Clone() => new LightSource((int) (NetFieldBase<int, NetInt>) this.textureIndex, (Vector2) (NetFieldBase<Vector2, NetVector2>) this.position, (float) (NetFieldBase<float, NetFloat>) this.radius, (Color) (NetFieldBase<Color, NetColor>) this.color, (int) (NetFieldBase<int, NetInt>) this.identifier, this.lightContext.Value, this.playerID.Value);
+    public LightSource Clone() { return new LightSource((int) (NetFieldBase<int, NetInt>) this.textureIndex, (Vector2) (NetFieldBase<Vector2, NetVector2>) this.position, (float) (NetFieldBase<float, NetFloat>) this.radius, (Color) (NetFieldBase<Color, NetColor>) this.color, (int) (NetFieldBase<int, NetInt>) this.identifier, this.lightContext.Value, this.playerID.Value); }
 
     public enum LightContext
     {

@@ -16,17 +16,17 @@ namespace StardewValley.Network
 
     public Character Value
     {
-      get => this.GetCharacter();
-      set => this.SetCharacter(value);
+      delegate(get) { return this.GetCharacter(); };
+      delegate(set) { return this.SetCharacter(value); };
     }
 
     public NetFields NetFields { get; } = new NetFields();
 
-    public NetDancePartner() => this.NetFields.AddFields((INetSerializable) this.farmer.NetFields, (INetSerializable) this.villager);
+    public NetDancePartner() { return this.NetFields.AddFields((INetSerializable) this.farmer.NetFields, (INetSerializable) this.villager); }
 
-    public NetDancePartner(Farmer farmer) => this.farmer.Value = farmer;
+    public NetDancePartner(Farmer farmer) { return this.farmer.Value = farmer; }
 
-    public NetDancePartner(string villagerName) => this.villager.Value = villagerName;
+    public NetDancePartner(string villagerName) { return this.villager.Value = villagerName; }
 
     public Character GetCharacter()
     {
@@ -66,12 +66,12 @@ namespace StardewValley.Network
       return Game1.CurrentEvent != null && this.villager.Value != null ? Game1.CurrentEvent.getActorByName(this.villager.Value) : (NPC) null;
     }
 
-    public Farmer TryGetFarmer() => this.farmer.Value;
+    public Farmer TryGetFarmer() { return this.farmer.Value; }
 
-    public bool IsFarmer() => this.TryGetFarmer() != null;
+    public bool IsFarmer() { return this.TryGetFarmer() != null; }
 
-    public bool IsVillager() => this.TryGetVillager() != null;
+    public bool IsVillager() { return this.TryGetVillager() != null; }
 
-    public int GetGender() => this.IsFarmer() ? (!this.TryGetFarmer().IsMale ? 1 : 0) : (this.IsVillager() ? this.TryGetVillager().Gender : 2);
+    public int GetGender() { return this.IsFarmer() ? (!this.TryGetFarmer().IsMale ? 1 : 0) : (this.IsVillager() ? this.TryGetVillager().Gender : 2); }
   }
 }

@@ -81,9 +81,9 @@ namespace StardewValley.BellsAndWhistles
       return (double) this.position.X < -64.0 - (double) this.swayAmount.X * 4.0 || (double) this.position.Y > (double) (environment.map.Layers[0].DisplayHeight + 64) + ((double) this.height + (double) this.swayAmount.Y) * 4.0;
     }
 
-    public Vector2 GetDrawPosition() => this.position + new Vector2(this.drawOffset.X, -this.height + this.drawOffset.Y) * 4f;
+    public Vector2 GetDrawPosition() { return this.position + new Vector2(this.drawOffset.X, -this.height + this.drawOffset.Y) * 4f; }
 
-    public Vector2 GetShadowPosition() => this.position + new Vector2(this.drawOffset.X * 4f, -4f);
+    public Vector2 GetShadowPosition() { return this.position + new Vector2(this.drawOffset.X * 4f, -4f); }
 
     public override void draw(SpriteBatch b)
     {
@@ -92,6 +92,6 @@ namespace StardewValley.BellsAndWhistles
       b.Draw(Game1.shadowTexture, Game1.GlobalToLocal(Game1.viewport, this.GetShadowPosition()), new Rectangle?(Game1.shadowTexture.Bounds), Color.White, 0.0f, new Vector2((float) Game1.shadowTexture.Bounds.Center.X, (float) Game1.shadowTexture.Bounds.Center.Y), 3f, SpriteEffects.None, (float) (((double) this.position.Y - 1.0) / 10000.0));
     }
 
-    public override void drawAboveFrontLayer(SpriteBatch b) => b.Draw(this._texture, Game1.GlobalToLocal(Game1.viewport, this.GetDrawPosition()), new Rectangle?(this.sourceRect), Color.White, 0.0f, new Vector2(12f, 20f), 4f, SpriteEffects.None, this.position.Y / 10000f);
+    public override void drawAboveFrontLayer(SpriteBatch b) { return b.Draw(this._texture, Game1.GlobalToLocal(Game1.viewport, this.GetDrawPosition()), new Rectangle?(this.sourceRect), Color.White, 0.0f, new Vector2(12f, 20f), 4f, SpriteEffects.None, this.position.Y / 10000f); }
   }
 }

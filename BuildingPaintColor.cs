@@ -47,9 +47,9 @@ namespace StardewValley
       this.Color3Lightness.fieldChangeVisibleEvent += new NetFieldBase<int, NetInt>.FieldChange(this.OnColorChanged);
     }
 
-    public virtual void OnDefaultFlagChanged(NetBool field, bool old_value, bool new_value) => this._dirty = true;
+    public virtual void OnDefaultFlagChanged(NetBool field, bool old_value, bool new_value) { return this._dirty = true; }
 
-    public virtual void OnColorChanged(NetInt field, int old_value, int new_value) => this._dirty = true;
+    public virtual void OnColorChanged(NetInt field, int old_value, int new_value) { return this._dirty = true; }
 
     public virtual void Poll(Action apply)
     {
@@ -60,8 +60,8 @@ namespace StardewValley
       this._dirty = false;
     }
 
-    public bool IsDirty() => this._dirty;
+    public bool IsDirty() { return this._dirty; }
 
-    public bool RequiresRecolor() => !this.Color1Default.Value || !this.Color2Default.Value || !this.Color3Default.Value;
+    public bool RequiresRecolor() { return !this.Color1Default.Value || !this.Color2Default.Value || !this.Color3Default.Value; }
   }
 }

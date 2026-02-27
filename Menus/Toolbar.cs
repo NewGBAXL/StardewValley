@@ -113,7 +113,7 @@ namespace StardewValley.Menus
         this.buttons[index].bounds = new Rectangle(Game1.uiViewport.Width / 2 - 384 + index * 64, this.yPositionOnScreen - 96 + 8, 64, 64);
     }
 
-    public override bool isWithinBounds(int x, int y) => new Rectangle(this.buttons.First<ClickableComponent>().bounds.X, this.buttons.First<ClickableComponent>().bounds.Y, this.buttons.Last<ClickableComponent>().bounds.X - this.buttons.First<ClickableComponent>().bounds.X + 64, 64).Contains(x, y);
+    public override bool isWithinBounds(int x, int y) { return new Rectangle(this.buttons.First<ClickableComponent>().bounds.X, this.buttons.First<ClickableComponent>().bounds.Y, this.buttons.Last<ClickableComponent>().bounds.X - this.buttons.First<ClickableComponent>().bounds.X + 64, 64).Contains(x, y); }
 
     public override void draw(SpriteBatch b)
     {

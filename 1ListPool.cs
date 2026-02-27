@@ -20,7 +20,7 @@ namespace StardewValley
       this._pool = pool;
     }
 
-    public DisposableList<T>.Enumerator GetEnumerator() => new DisposableList<T>.Enumerator(this);
+    public DisposableList<T>.Enumerator GetEnumerator() { return new DisposableList<T>.Enumerator(this); }
 
     public struct Enumerator : IDisposable
     {
@@ -49,7 +49,7 @@ namespace StardewValley
         return this._parent._list != null && this._parent._list.Count >= this._index;
       }
 
-      public void Reset() => this._index = 0;
+      public void Reset() { return this._index = 0; }
 
       public void Dispose()
       {

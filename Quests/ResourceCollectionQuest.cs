@@ -34,7 +34,7 @@ namespace StardewValley.Quests
     [XmlElement("objective")]
     public readonly NetDescriptionElementRef objective = new NetDescriptionElementRef();
 
-    public ResourceCollectionQuest() => this.questType.Value = 10;
+    public ResourceCollectionQuest() { return this.questType.Value = 10; }
 
     protected override void initNetFields()
     {

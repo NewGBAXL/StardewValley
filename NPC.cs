@@ -257,21 +257,21 @@ namespace StardewValley
     [XmlIgnore]
     public SchedulePathDescription DirectionsToNewLocation
     {
-      get => this.directionsToNewLocation;
-      set => this.directionsToNewLocation = value;
+      delegate(get) { return this.directionsToNewLocation; };
+      delegate(set) { return this.directionsToNewLocation = value; };
     }
 
     [XmlIgnore]
     public int DirectionIndex
     {
-      get => this.directionIndex;
-      set => this.directionIndex = value;
+      delegate(get) { return this.directionIndex; };
+      delegate(set) { return this.directionIndex = value; };
     }
 
     public int DefaultFacingDirection
     {
-      get => this.defaultFacingDirection;
-      set => this.defaultFacingDirection = value;
+      delegate(get) { return this.defaultFacingDirection; };
+      delegate(set) { return this.defaultFacingDirection = value; };
     }
 
     [XmlIgnore]
@@ -297,15 +297,14 @@ namespace StardewValley
                 this.dialogue = new Dictionary<string, string>();
               try
               {
-                this.dialogue = Game1.content.Load<Dictionary<string, string>>(assetName).Select<KeyValuePair<string, string>, KeyValuePair<string, string>>((Func<KeyValuePair<string, string>, KeyValuePair<string, string>>) (pair =>
-                {
+                this.dialogue = Game1.content.Load<Dictionary<string, string>>(assetName).Select<KeyValuePair<string, string>, KeyValuePair<string, string>>((Func<KeyValuePair<string, string>, KeyValuePair<string, string>>) (delegate(pair) { return {; }
                   string key = pair.Key;
                   string str1 = pair.Value;
                   if (str1.Contains("¦"))
                     str1 = !Game1.player.IsMale ? str1.Substring(str1.IndexOf("¦") + 1) : str1.Substring(0, str1.IndexOf("¦"));
                   string str2 = str1;
                   return new KeyValuePair<string, string>(key, str2);
-                })).ToDictionary<KeyValuePair<string, string>, string, string>((Func<KeyValuePair<string, string>, string>) (p => p.Key), (Func<KeyValuePair<string, string>, string>) (p => p.Value));
+                })).ToDictionary<KeyValuePair<string, string>, string, string>((Func<KeyValuePair<string, string>, string>) (delegate(p) { return p.Key); }, (Func<KeyValuePair<string, string>, string>) (delegate(p) { return p.Value)); };
               }
               catch (ContentLoadException ex)
               {
@@ -320,14 +319,14 @@ namespace StardewValley
 
     public string DefaultMap
     {
-      get => this.defaultMap.Value;
-      set => this.defaultMap.Value = value;
+      delegate(get) { return this.defaultMap.Value; };
+      delegate(set) { return this.defaultMap.Value = value; };
     }
 
     public Vector2 DefaultPosition
     {
-      get => this.defaultPosition.Value;
-      set => this.defaultPosition.Value = value;
+      delegate(get) { return this.defaultPosition.Value; };
+      delegate(set) { return this.defaultPosition.Value = value; };
     }
 
     [XmlIgnore]
@@ -361,26 +360,26 @@ namespace StardewValley
         }
         return this.portrait;
       }
-      set => this.portrait = value;
+      delegate(set) { return this.portrait = value; };
     }
 
     [XmlIgnore]
     public Dictionary<int, SchedulePathDescription> Schedule
     {
-      get => this.schedule;
-      set => this.schedule = value;
+      delegate(get) { return this.schedule; };
+      delegate(set) { return this.schedule = value; };
     }
 
     public bool IsWalkingInSquare
     {
-      get => this.isWalkingInSquare;
-      set => this.isWalkingInSquare = value;
+      delegate(get) { return this.isWalkingInSquare; };
+      delegate(set) { return this.isWalkingInSquare = value; };
     }
 
     public bool IsWalkingTowardPlayer
     {
-      get => (bool) (NetFieldBase<bool, NetBool>) this.isWalkingTowardPlayer;
-      set => this.isWalkingTowardPlayer.Value = value;
+      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.isWalkingTowardPlayer;
+      delegate(set) { return this.isWalkingTowardPlayer.Value = value; };
     }
 
     [XmlIgnore]
@@ -407,64 +406,64 @@ namespace StardewValley
     [XmlIgnore]
     public string Birthday_Season
     {
-      get => (string) (NetFieldBase<string, NetString>) this.birthday_Season;
-      set => this.birthday_Season.Value = value;
+      delegate(get) { return (string) (NetFieldBase<string; }, NetString>) this.birthday_Season;
+      delegate(set) { return this.birthday_Season.Value = value; };
     }
 
     [XmlIgnore]
     public int Birthday_Day
     {
-      get => (int) (NetFieldBase<int, NetInt>) this.birthday_Day;
-      set => this.birthday_Day.Value = value;
+      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.birthday_Day;
+      delegate(set) { return this.birthday_Day.Value = value; };
     }
 
     [XmlIgnore]
     public int Age
     {
-      get => (int) (NetFieldBase<int, NetInt>) this.age;
-      set => this.age.Value = value;
+      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.age;
+      delegate(set) { return this.age.Value = value; };
     }
 
     [XmlIgnore]
     public int Manners
     {
-      get => (int) (NetFieldBase<int, NetInt>) this.manners;
-      set => this.manners.Value = value;
+      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.manners;
+      delegate(set) { return this.manners.Value = value; };
     }
 
     [XmlIgnore]
     public int SocialAnxiety
     {
-      get => (int) (NetFieldBase<int, NetInt>) this.socialAnxiety;
-      set => this.socialAnxiety.Value = value;
+      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.socialAnxiety;
+      delegate(set) { return this.socialAnxiety.Value = value; };
     }
 
     [XmlIgnore]
     public int Optimism
     {
-      get => (int) (NetFieldBase<int, NetInt>) this.optimism;
-      set => this.optimism.Value = value;
+      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.optimism;
+      delegate(set) { return this.optimism.Value = value; };
     }
 
     [XmlIgnore]
     public int Gender
     {
-      get => (int) (NetFieldBase<int, NetInt>) this.gender;
-      set => this.gender.Value = value;
+      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.gender;
+      delegate(set) { return this.gender.Value = value; };
     }
 
     [XmlIgnore]
     public bool Breather
     {
-      get => (bool) (NetFieldBase<bool, NetBool>) this.breather;
-      set => this.breather.Value = value;
+      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.breather;
+      delegate(set) { return this.breather.Value = value; };
     }
 
     [XmlIgnore]
     public bool HideShadow
     {
-      get => (bool) (NetFieldBase<bool, NetBool>) this.hideShadow;
-      set => this.hideShadow.Value = value;
+      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.hideShadow;
+      delegate(set) { return this.hideShadow.Value = value; };
     }
 
     [XmlIgnore]
@@ -484,8 +483,8 @@ namespace StardewValley
     [XmlIgnore]
     public bool IsInvisible
     {
-      get => (bool) (NetFieldBase<bool, NetBool>) this.isInvisible;
-      set => this.isInvisible.Value = value;
+      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.isInvisible;
+      delegate(set) { return this.isInvisible.Value = value; };
     }
 
     public virtual bool CanSocialize
@@ -691,7 +690,7 @@ namespace StardewValley
       }
     }
 
-    public virtual bool canTalk() => true;
+    public virtual bool canTalk() { return true; }
 
     protected override void initNetFields()
     {
@@ -742,9 +741,9 @@ namespace StardewValley
       }
     }
 
-    public string getName() => this.displayName != null && this.displayName.Length > 0 ? this.displayName : this.Name;
+    public string getName() { return this.displayName != null && this.displayName.Length > 0 ? this.displayName : this.Name; }
 
-    public string getTextureName() => NPC.getTextureNameForCharacter(this.Name);
+    public string getTextureName() { return NPC.getTextureNameForCharacter(this.Name); }
 
     public static string getTextureNameForCharacter(string character_name)
     {
@@ -769,11 +768,11 @@ namespace StardewValley
       return true;
     }
 
-    public virtual void OnFinishPathForActivity(Character c, GameLocation location) => this._currentFarmActivity.BeginActivity();
+    public virtual void OnFinishPathForActivity(Character c, GameLocation location) { return this._currentFarmActivity.BeginActivity(); }
 
-    public void resetPortrait() => this.portrait = (Texture2D) null;
+    public void resetPortrait() { return this.portrait = (Texture2D) null; }
 
-    public void resetSeasonalDialogue() => this.dialogue = (Dictionary<string, string>) null;
+    public void resetSeasonalDialogue() { return this.dialogue = (Dictionary<string, string>) null; }
 
     public virtual void reloadSprite()
     {
@@ -904,7 +903,7 @@ namespace StardewValley
       this.Position = new Vector2((float) (xTile * 64), (float) (yTile * 64 - 96));
     }
 
-    public virtual bool hitWithTool(Tool t) => false;
+    public virtual bool hitWithTool(Tool t) { return false; }
 
     public bool canReceiveThisItemAsGift(Item i)
     {
@@ -1589,7 +1588,7 @@ namespace StardewValley
       return Game1.content.LoadString(path, substitutions);
     }
 
-    public void haltMe(Farmer who) => this.Halt();
+    public void haltMe(Farmer who) { return this.Halt(); }
 
     public virtual bool checkAction(Farmer who, GameLocation l)
     {
@@ -1932,7 +1931,7 @@ namespace StardewValley
           this.jump();
           this.Sprite.setCurrentAnimation(new List<FarmerSprite.AnimationFrame>()
           {
-            new FarmerSprite.AnimationFrame(26, 1000, false, false, (AnimatedSprite.endOfAnimationBehavior) (x => this.doEmote(12)), true)
+            new FarmerSprite.AnimationFrame(26, 1000, false, false, (AnimatedSprite.endOfAnimationBehavior) (delegate(x) { return this.doEmote(12)); }, true)
           });
           this.Sprite.loop = false;
           this.shakeTimer = 1000;
@@ -1943,13 +1942,13 @@ namespace StardewValley
           this.faceTowardFarmerForPeriod(1000, 3, false, who);
           this.Sprite.setCurrentAnimation(new List<FarmerSprite.AnimationFrame>()
           {
-            new FarmerSprite.AnimationFrame(33, 150, false, false, (AnimatedSprite.endOfAnimationBehavior) (x => l.playSound("dustMeep"))),
+            new FarmerSprite.AnimationFrame(33, 150, false, false, (AnimatedSprite.endOfAnimationBehavior) (delegate(x) { return l.playSound("dustMeep"))); },
             new FarmerSprite.AnimationFrame(34, 180),
-            new FarmerSprite.AnimationFrame(33, 180, false, false, (AnimatedSprite.endOfAnimationBehavior) (x => l.playSound("dustMeep"))),
+            new FarmerSprite.AnimationFrame(33, 180, false, false, (AnimatedSprite.endOfAnimationBehavior) (delegate(x) { return l.playSound("dustMeep"))); },
             new FarmerSprite.AnimationFrame(34, 180),
-            new FarmerSprite.AnimationFrame(33, 180, false, false, (AnimatedSprite.endOfAnimationBehavior) (x => l.playSound("dustMeep"))),
+            new FarmerSprite.AnimationFrame(33, 180, false, false, (AnimatedSprite.endOfAnimationBehavior) (delegate(x) { return l.playSound("dustMeep"))); },
             new FarmerSprite.AnimationFrame(34, 180),
-            new FarmerSprite.AnimationFrame(33, 180, false, false, (AnimatedSprite.endOfAnimationBehavior) (x => l.playSound("dustMeep"))),
+            new FarmerSprite.AnimationFrame(33, 180, false, false, (AnimatedSprite.endOfAnimationBehavior) (delegate(x) { return l.playSound("dustMeep"))); },
             new FarmerSprite.AnimationFrame(34, 180)
           });
           this.Sprite.loop = false;
@@ -2077,7 +2076,7 @@ namespace StardewValley
         Game1.game1.wasAskedLeoMemory = true;
     }
 
-    public bool isDivorcedFrom(Farmer who) => who != null && who.friendshipData.ContainsKey(this.Name) && who.friendshipData[this.Name].IsDivorced();
+    public bool isDivorcedFrom(Farmer who) { return who != null && who.friendshipData.ContainsKey(this.Name) && who.friendshipData[this.Name].IsDivorced(); }
 
     public override void MovePosition(
       GameTime time,
@@ -2090,9 +2089,9 @@ namespace StardewValley
       base.MovePosition(time, viewport, currentLocation);
     }
 
-    public GameLocation getHome() => this.isMarried() && this.getSpouse() != null ? (GameLocation) Utility.getHomeOfFarmer(this.getSpouse()) : Game1.getLocationFromName((string) (NetFieldBase<string, NetString>) this.defaultMap);
+    public GameLocation getHome() { return this.isMarried() && this.getSpouse() != null ? (GameLocation) Utility.getHomeOfFarmer(this.getSpouse()) : Game1.getLocationFromName((string) (NetFieldBase<string, NetString>) this.defaultMap); }
 
-    public override bool canPassThroughActionTiles() => true;
+    public override bool canPassThroughActionTiles() { return true; }
 
     public virtual void behaviorOnFarmerPushing()
     {
@@ -3121,7 +3120,7 @@ namespace StardewValley
       return new StardewValley.Dialogue(this.Dialogue[preface + str + "_" + num.ToString() + appendToEnd], this);
     }
 
-    public void clearSchedule() => this.schedule = (Dictionary<int, SchedulePathDescription>) null;
+    public void clearSchedule() { return this.schedule = (Dictionary<int, SchedulePathDescription>) null; }
 
     public void checkSchedule(int timeOfDay)
     {
@@ -3291,9 +3290,9 @@ namespace StardewValley
       this._finishingEndOfRouteBehavior = (string) null;
     }
 
-    public bool isOnSilentTemporaryMessage() => ((bool) (NetFieldBase<bool, NetBool>) this.doingEndOfRouteAnimation || !(bool) (NetFieldBase<bool, NetBool>) this.goingToDoEndOfRouteAnimation) && this.endOfRouteMessage.Value != null && this.endOfRouteMessage.Value.ToLower().Equals("silent");
+    public bool isOnSilentTemporaryMessage() { return ((bool) (NetFieldBase<bool, NetBool>) this.doingEndOfRouteAnimation || !(bool) (NetFieldBase<bool, NetBool>) this.goingToDoEndOfRouteAnimation) && this.endOfRouteMessage.Value != null && this.endOfRouteMessage.Value.ToLower().Equals("silent"); }
 
-    public bool hasTemporaryMessageAvailable() => !this.isDivorcedFrom(Game1.player) && (this.currentLocation != null && this.currentLocation.HasLocationOverrideDialogue(this) || this.endOfRouteMessage.Value != null && ((bool) (NetFieldBase<bool, NetBool>) this.doingEndOfRouteAnimation || !(bool) (NetFieldBase<bool, NetBool>) this.goingToDoEndOfRouteAnimation));
+    public bool hasTemporaryMessageAvailable() { return !this.isDivorcedFrom(Game1.player) && (this.currentLocation != null && this.currentLocation.HasLocationOverrideDialogue(this) || this.endOfRouteMessage.Value != null && ((bool) (NetFieldBase<bool, NetBool>) this.doingEndOfRouteAnimation || !(bool) (NetFieldBase<bool, NetBool>) this.goingToDoEndOfRouteAnimation)); }
 
     public bool setTemporaryMessages(Farmer who)
     {
@@ -3332,7 +3331,7 @@ namespace StardewValley
       });
     }
 
-    private void walkInSquareAtEndOfRoute(Character c, GameLocation l) => this.startRouteBehavior((string) (NetFieldBase<string, NetString>) this.endOfRouteBehaviorName);
+    private void walkInSquareAtEndOfRoute(Character c, GameLocation l) { return this.startRouteBehavior((string) (NetFieldBase<string, NetString>) this.endOfRouteBehaviorName); }
 
     private void doAnimationAtEndOfScheduleRoute(Character c, GameLocation l)
     {
@@ -3521,7 +3520,7 @@ namespace StardewValley
       this.HideShadow = false;
     }
 
-    public bool IsReturningToEndPoint() => this.returningToEndPoint;
+    public bool IsReturningToEndPoint() { return this.returningToEndPoint; }
 
     public void StartActivityWalkInSquare(int square_width, int square_height, int pause_offset)
     {
@@ -3529,7 +3528,7 @@ namespace StardewValley
       this.walkInSquare(square_height, square_height, pause_offset);
     }
 
-    public void EndActivityRouteEndBehavior() => this.finishEndOfRouteAnimation();
+    public void EndActivityRouteEndBehavior() { return this.finishEndOfRouteAnimation(); }
 
     public void StartActivityRouteEndBehavior(string behavior_name, string end_message)
     {
@@ -3593,7 +3592,7 @@ namespace StardewValley
     {
     }
 
-    public void shake(int duration) => this.shakeTimer = duration;
+    public void shake(int duration) { return this.shakeTimer = duration; }
 
     public void setNewDialogue(string s, bool add = false, bool clearOnMovement = false)
     {
@@ -3635,7 +3634,7 @@ namespace StardewValley
       }
     }
 
-    public string GetDialogueSheetName() => this.Name == "Leo" && this.DefaultMap != "IslandHut" ? this.Name + "Mainland" : this.Name;
+    public string GetDialogueSheetName() { return this.Name == "Leo" && this.DefaultMap != "IslandHut" ? this.Name + "Mainland" : this.Name; }
 
     public void setSpouseRoomMarriageDialogue()
     {
@@ -3691,7 +3690,7 @@ namespace StardewValley
       }
     }
 
-    public bool isBirthday(string season, int day) => this.Birthday_Season != null && this.Birthday_Season.Equals(season) && this.Birthday_Day == day;
+    public bool isBirthday(string season, int day) { return this.Birthday_Season != null && this.Birthday_Season.Equals(season) && this.Birthday_Day == day; }
 
     public Object getFavoriteItem()
     {
@@ -3907,7 +3906,7 @@ namespace StardewValley
       SpriteText.drawStringWithScrollCenteredAt(b, this.textAboveHead, (int) local.X, (int) local.Y, alpha: this.textAboveHeadAlpha, color: this.textAboveHeadColor, scrollType: 1, layerDepth: ((float) ((double) (this.getTileY() * 64) / 10000.0 + 1.0 / 1000.0 + (double) this.getTileX() / 10000.0)));
     }
 
-    public bool NeedsBirdieEmoteHack() => Game1.eventUp && this.Sprite.SpriteWidth == 32 && this.Name == "Birdie";
+    public bool NeedsBirdieEmoteHack() { return Game1.eventUp && this.Sprite.SpriteWidth == 32 && this.Name == "Birdie"; }
 
     public void warpToPathControllerDestination()
     {
@@ -3922,7 +3921,7 @@ namespace StardewValley
       }
     }
 
-    public virtual Microsoft.Xna.Framework.Rectangle getMugShotSourceRect() => new Microsoft.Xna.Framework.Rectangle(0, this.Age == 2 ? 4 : 0, 16, 24);
+    public virtual Microsoft.Xna.Framework.Rectangle getMugShotSourceRect() { return new Microsoft.Xna.Framework.Rectangle(0, this.Age == 2 ? 4 : 0, 16, 24); }
 
     public void getHitByPlayer(Farmer who, GameLocation location)
     {
@@ -3963,9 +3962,9 @@ namespace StardewValley
       this.moveTowardPlayerThreshold.Value = threshold;
     }
 
-    protected virtual Farmer findPlayer() => Game1.MasterPlayer;
+    protected virtual Farmer findPlayer() { return Game1.MasterPlayer; }
 
-    public virtual bool withinPlayerThreshold() => this.withinPlayerThreshold((int) (NetFieldBase<int, NetInt>) this.moveTowardPlayerThreshold);
+    public virtual bool withinPlayerThreshold() { return this.withinPlayerThreshold((int) (NetFieldBase<int, NetInt>) this.moveTowardPlayerThreshold); }
 
     public virtual bool withinPlayerThreshold(int threshold)
     {
@@ -4419,7 +4418,7 @@ label_51:
     {
     }
 
-    public virtual void InvalidateMasterSchedule() => this._hasLoadedMasterScheduleData = false;
+    public virtual void InvalidateMasterSchedule() { return this._hasLoadedMasterScheduleData = false; }
 
     public Dictionary<string, string> getMasterScheduleRawData()
     {
@@ -4447,7 +4446,7 @@ label_51:
       return masterScheduleEntry;
     }
 
-    public bool hasMasterScheduleEntry(string key) => this.getMasterScheduleRawData() != null && this.getMasterScheduleRawData().ContainsKey(key);
+    public bool hasMasterScheduleEntry(string key) { return this.getMasterScheduleRawData() != null && this.getMasterScheduleRawData().ContainsKey(key); }
 
     public virtual bool isRoommate()
     {
@@ -4622,7 +4621,7 @@ label_51:
       }
     }
 
-    public virtual Vector2 GetSpousePatioPosition() => Utility.PointToVector2(Game1.getFarm().spousePatioSpot);
+    public virtual Vector2 GetSpousePatioPosition() { return Utility.PointToVector2(Game1.getFarm().spousePatioSpot); }
 
     public void setUpForOutdoorPatioActivity()
     {
@@ -5596,7 +5595,7 @@ label_51:
       return false;
     }
 
-    public override bool shouldCollideWithBuildingLayer(GameLocation location) => this.isMarried() && (this.Schedule == null || location is FarmHouse) || base.shouldCollideWithBuildingLayer(location);
+    public override bool shouldCollideWithBuildingLayer(GameLocation location) { return this.isMarried() && (this.Schedule == null || location is FarmHouse) || base.shouldCollideWithBuildingLayer(location); }
 
     public void arriveAtFarmHouse(FarmHouse farmHouse)
     {
@@ -5740,11 +5739,11 @@ label_51:
       return true;
     }
 
-    public void setTilePosition(Point p) => this.setTilePosition(p.X, p.Y);
+    public void setTilePosition(Point p) { return this.setTilePosition(p.X, p.Y); }
 
-    public void setTilePosition(int x, int y) => this.Position = new Vector2((float) (x * 64), (float) (y * 64));
+    public void setTilePosition(int x, int y) { return this.Position = new Vector2((float) (x * 64), (float) (y * 64)); }
 
-    private void clintHammerSound(Farmer who) => this.currentLocation.playSoundAt("hammer", this.getTileLocation());
+    private void clintHammerSound(Farmer who) { return this.currentLocation.playSoundAt("hammer", this.getTileLocation()); }
 
     private void robinHammerSound(Farmer who)
     {
@@ -5945,7 +5944,7 @@ label_51:
       return false;
     }
 
-    public int CompareTo(object obj) => obj is NPC ? (obj as NPC).id - this.id : 0;
+    public int CompareTo(object obj) { return obj is NPC ? (obj as NPC).id - this.id : 0; }
 
     public virtual void Removed()
     {

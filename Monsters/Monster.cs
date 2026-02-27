@@ -71,55 +71,55 @@ namespace StardewValley.Monsters
     private int slideAnimationTimer;
 
     [XmlIgnore]
-    public Farmer Player => this.findPlayer();
+    public Farmer delegate(Player) { return this.findPlayer(); };
 
     [XmlIgnore]
     public int DamageToFarmer
     {
-      get => (int) (NetFieldBase<int, NetInt>) this.damageToFarmer;
-      set => this.damageToFarmer.Value = value;
+      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.damageToFarmer;
+      delegate(set) { return this.damageToFarmer.Value = value; };
     }
 
     [XmlIgnore]
     public int Health
     {
-      get => (int) (NetFieldBase<int, NetInt>) this.health;
-      set => this.health.Value = value;
+      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.health;
+      delegate(set) { return this.health.Value = value; };
     }
 
     [XmlIgnore]
     public int MaxHealth
     {
-      get => (int) (NetFieldBase<int, NetInt>) this.maxHealth;
-      set => this.maxHealth.Value = value;
+      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.maxHealth;
+      delegate(set) { return this.maxHealth.Value = value; };
     }
 
     [XmlIgnore]
     public int ExperienceGained
     {
-      get => (int) (NetFieldBase<int, NetInt>) this.experienceGained;
-      set => this.experienceGained.Value = value;
+      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.experienceGained;
+      delegate(set) { return this.experienceGained.Value = value; };
     }
 
     [XmlIgnore]
     public int Slipperiness
     {
-      get => (int) (NetFieldBase<int, NetInt>) this.slipperiness;
-      set => this.slipperiness.Value = value;
+      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.slipperiness;
+      delegate(set) { return this.slipperiness.Value = value; };
     }
 
     [XmlIgnore]
     public bool focusedOnFarmers
     {
-      get => (bool) (NetFieldBase<bool, NetBool>) this.netFocusedOnFarmers;
-      set => this.netFocusedOnFarmers.Value = value;
+      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.netFocusedOnFarmers;
+      delegate(set) { return this.netFocusedOnFarmers.Value = value; };
     }
 
     [XmlIgnore]
     public bool wildernessFarmMonster
     {
-      get => (bool) (NetFieldBase<bool, NetBool>) this.netWildernessFarmMonster;
-      set => this.netWildernessFarmMonster.Value = value;
+      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.netWildernessFarmMonster;
+      delegate(set) { return this.netWildernessFarmMonster.Value = value; };
     }
 
     public Monster()
@@ -165,17 +165,17 @@ namespace StardewValley.Monsters
       return player;
     }
 
-    protected virtual double findPlayerPriority(Farmer f) => (double) (f.Position - this.Position).LengthSquared();
+    protected virtual double findPlayerPriority(Farmer f) { return (double) (f.Position - this.Position).LengthSquared(); }
 
     public virtual void onDealContactDamage(Farmer who)
     {
     }
 
-    public virtual List<Item> getExtraDropItems() => new List<Item>();
+    public virtual List<Item> getExtraDropItems() { return new List<Item>(); }
 
-    public override bool withinPlayerThreshold() => this.focusedOnFarmers || this.withinPlayerThreshold((int) (NetFieldBase<int, NetInt>) this.moveTowardPlayerThreshold);
+    public override bool withinPlayerThreshold() { return this.focusedOnFarmers || this.withinPlayerThreshold((int) (NetFieldBase<int, NetInt>) this.moveTowardPlayerThreshold); }
 
-    public override bool IsMonster => true;
+    public override bool delegate(IsMonster) { return true; };
 
     public Monster(string name, Vector2 position, int facingDir)
       : base(new AnimatedSprite("Characters\\Monsters\\" + name), position, facingDir, name)
@@ -195,7 +195,7 @@ namespace StardewValley.Monsters
       base.draw(b);
     }
 
-    public virtual bool isInvincible() => this.invincibleCountdown > 0;
+    public virtual bool isInvincible() { return this.invincibleCountdown > 0; }
 
     public void setInvincibleCountdown(int time)
     {
@@ -212,9 +212,9 @@ namespace StardewValley.Monsters
       return val1;
     }
 
-    public virtual Debris ModifyMonsterLoot(Debris debris) => debris;
+    public virtual Debris ModifyMonsterLoot(Debris debris) { return debris; }
 
-    public virtual int GetBaseDifficultyLevel() => 0;
+    public virtual int GetBaseDifficultyLevel() { return 0; }
 
     public virtual void BuffForAdditionalDifficulty(int additional_difficulty)
     {
@@ -295,9 +295,9 @@ namespace StardewValley.Monsters
       this.initializedForLocation = true;
     }
 
-    public override void reloadSprite() => this.Sprite = new AnimatedSprite("Characters\\Monsters\\" + this.Name, 0, 16, 16);
+    public override void reloadSprite() { return this.Sprite = new AnimatedSprite("Characters\\Monsters\\" + this.Name, 0, 16, 16); }
 
-    public virtual void shedChunks(int number) => this.shedChunks(number, 0.75f);
+    public virtual void shedChunks(int number) { return this.shedChunks(number, 0.75f); }
 
     public virtual void shedChunks(int number, float scale)
     {
@@ -323,13 +323,13 @@ namespace StardewValley.Monsters
       this.deathAnimEvent.Fire();
     }
 
-    protected virtual void sharedDeathAnimation() => this.shedChunks(Game1.random.Next(4, 9), 0.75f);
+    protected virtual void sharedDeathAnimation() { return this.shedChunks(Game1.random.Next(4, 9), 0.75f); }
 
     protected virtual void localDeathAnimation()
     {
     }
 
-    public void parried(int damage, Farmer who) => this.parryEvent.Fire(new ParryEventArgs(damage, who));
+    public void parried(int damage, Farmer who) { return this.parryEvent.Fire(new ParryEventArgs(damage, who)); }
 
     private void handleParried(ParryEventArgs args)
     {
@@ -385,7 +385,7 @@ namespace StardewValley.Monsters
       return damage1;
     }
 
-    public override void setTrajectory(Vector2 trajectory) => this.trajectoryEvent.Fire(trajectory);
+    public override void setTrajectory(Vector2 trajectory) { return this.trajectoryEvent.Fire(trajectory); }
 
     private void doSetTrajectory(Vector2 trajectory)
     {
@@ -433,9 +433,9 @@ namespace StardewValley.Monsters
       this.MovePosition(time, Game1.viewport, this.currentLocation);
     }
 
-    public virtual bool passThroughCharacters() => false;
+    public virtual bool passThroughCharacters() { return false; }
 
-    public override bool shouldCollideWithBuildingLayer(GameLocation location) => true;
+    public override bool shouldCollideWithBuildingLayer(GameLocation location) { return true; }
 
     public override void update(GameTime time, GameLocation location)
     {
@@ -515,7 +515,7 @@ namespace StardewValley.Monsters
     {
     }
 
-    protected virtual void updateMonsterSlaveAnimation(GameTime time) => this.Sprite.animateOnce(time);
+    protected virtual void updateMonsterSlaveAnimation(GameTime time) { return this.Sprite.animateOnce(time); }
 
     private bool doHorizontalMovement(GameLocation location)
     {
@@ -571,7 +571,7 @@ namespace StardewValley.Monsters
       return flag;
     }
 
-    public virtual bool ShouldActuallyMoveAwayFromPlayer() => false;
+    public virtual bool ShouldActuallyMoveAwayFromPlayer() { return false; }
 
     private void checkHorizontalMovement(
       ref bool success,
@@ -765,9 +765,9 @@ namespace StardewValley.Monsters
       }
     }
 
-    public virtual bool TakesDamageFromHitbox(Microsoft.Xna.Framework.Rectangle area_of_effect) => this.GetBoundingBox().Intersects(area_of_effect);
+    public virtual bool TakesDamageFromHitbox(Microsoft.Xna.Framework.Rectangle area_of_effect) { return this.GetBoundingBox().Intersects(area_of_effect); }
 
-    public virtual bool OverlapsFarmerForDamage(Farmer who) => this.GetBoundingBox().Intersects(who.GetBoundingBox());
+    public virtual bool OverlapsFarmerForDamage(Farmer who) { return this.GetBoundingBox().Intersects(who.GetBoundingBox()); }
 
     public override void Halt()
     {

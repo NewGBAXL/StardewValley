@@ -52,7 +52,7 @@ namespace StardewValley.Objects
       return false;
     }
 
-    public virtual bool IsValidCaskLocation(GameLocation location) => location is Cellar || location.getMapProperty("CanCaskHere") != "";
+    public virtual bool IsValidCaskLocation(GameLocation location) { return location is Cellar || location.getMapProperty("CanCaskHere") != ""; }
 
     public override bool performObjectDropInAction(Item dropIn, bool probe, Farmer who)
     {
@@ -124,7 +124,7 @@ namespace StardewValley.Objects
       }
     }
 
-    public override bool checkForAction(Farmer who, bool justCheckingForActivity = false) => base.checkForAction(who, justCheckingForActivity);
+    public override bool checkForAction(Farmer who, bool justCheckingForActivity = false) { return base.checkForAction(who, justCheckingForActivity); }
 
     public override void DayUpdate(GameLocation location)
     {

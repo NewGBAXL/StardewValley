@@ -50,7 +50,7 @@ namespace StardewValley.Monsters
       this.projectileOutroTimer.Interpolated(false, false);
     }
 
-    public override void reloadSprite() => this.Sprite = new AnimatedSprite("Characters\\Monsters\\Blue Squid", 0, 24, 24);
+    public override void reloadSprite() { return this.Sprite = new AnimatedSprite("Characters\\Monsters\\Blue Squid", 0, 24, 24); }
 
     public override int takeDamage(
       int damage,
@@ -184,7 +184,7 @@ namespace StardewValley.Monsters
       this.Sprite.UpdateSourceRect();
     }
 
-    public override void update(GameTime time, GameLocation location) => base.update(time, location);
+    public override void update(GameTime time, GameLocation location) { return base.update(time, location); }
 
     public override void noMovementProgressNearPlayerBehavior()
     {

@@ -14,7 +14,7 @@ namespace StardewValley.Menus
     {
     }
 
-    public virtual int getHeight(int maxWidth) => 0;
+    public virtual int getHeight(int maxWidth) { return 0; }
 
     public virtual void hovered()
     {

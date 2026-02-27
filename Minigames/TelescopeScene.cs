@@ -33,9 +33,9 @@ namespace StardewValley.Minigames
       Game1.currentLocation = this.walkSpace;
     }
 
-    public bool overrideFreeMouseMovement() => Game1.options.SnappyMenus;
+    public bool overrideFreeMouseMovement() { return Game1.options.SnappyMenus; }
 
-    public bool tick(GameTime time) => false;
+    public bool tick(GameTime time) { return false; }
 
     public void receiveLeftClick(int x, int y, bool playSound = true)
     {
@@ -101,14 +101,14 @@ namespace StardewValley.Minigames
     {
     }
 
-    public void unload() => this.temporaryContent.Unload();
+    public void unload() { return this.temporaryContent.Unload(); }
 
-    public void receiveEventPoke(int data) => throw new NotImplementedException();
+    public void receiveEventPoke(int data) { return throw new NotImplementedException(); }
 
-    public string minigameId() => (string) null;
+    public string minigameId() { return (string) null; }
 
-    public bool doMainGameUpdates() => false;
+    public bool doMainGameUpdates() { return false; }
 
-    public bool forceQuit() => false;
+    public bool forceQuit() { return false; }
   }
 }

@@ -311,11 +311,11 @@ namespace StardewValley
 
     public string CurrentEmotion
     {
-      get => this.currentEmotion;
-      set => this.currentEmotion = value;
+      delegate(get) { return this.currentEmotion; };
+      delegate(set) { return this.currentEmotion = value; };
     }
 
-    public Farmer farmer => Game1.CurrentEvent != null ? Game1.CurrentEvent.farmer : Game1.player;
+    public Farmer delegate(farmer) { return Game1.CurrentEvent != null ? Game1.CurrentEvent.farmer : Game1.player; };
 
     public Dialogue(string masterDialogue, NPC speaker)
     {
@@ -624,11 +624,11 @@ namespace StardewValley
       return this.dialogues.Count <= 0 ? Game1.content.LoadString("Strings\\StringsFromCSFiles:Dialogue.cs.792") : this.dialogues[this.currentDialogueIndex].Replace("%time", Game1.getTimeOfDayString(Game1.timeOfDay));
     }
 
-    public bool isItemGrabDialogue() => this.dialogues.Count > 0 && this.dialogues[this.currentDialogueIndex].Contains('[');
+    public bool isItemGrabDialogue() { return this.dialogues.Count > 0 && this.dialogues[this.currentDialogueIndex].Contains('['); }
 
-    public bool isOnFinalDialogue() => this.currentDialogueIndex == this.dialogues.Count - 1;
+    public bool isOnFinalDialogue() { return this.currentDialogueIndex == this.dialogues.Count - 1; }
 
-    public bool isDialogueFinished() => this.finishedLastDialogue;
+    public bool isDialogueFinished() { return this.finishedLastDialogue; }
 
     public string checkForSpecialCharacters(string str)
     {
@@ -1333,11 +1333,11 @@ namespace StardewValley
         this.currentEmotion = "$neutral";
     }
 
-    public List<NPCDialogueResponse> getNPCResponseOptions() => this.playerResponses;
+    public List<NPCDialogueResponse> getNPCResponseOptions() { return this.playerResponses; }
 
-    public List<Response> getResponseOptions() => new List<Response>(this.playerResponses.Select<NPCDialogueResponse, Response>((Func<NPCDialogueResponse, Response>) (x => (Response) x)));
+    public List<Response> getResponseOptions() { return new List<Response>(this.playerResponses.Select<NPCDialogueResponse, Response>((Func<NPCDialogueResponse, Response>) (delegate(x) { return (Response) x))); }; }
 
-    public bool isCurrentDialogueAQuestion() => this.isLastDialogueInteractive && this.currentDialogueIndex == this.dialogues.Count - 1;
+    public bool isCurrentDialogueAQuestion() { return this.isLastDialogueInteractive && this.currentDialogueIndex == this.dialogues.Count - 1; }
 
     public bool chooseResponse(Response response)
     {

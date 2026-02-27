@@ -10,7 +10,7 @@ namespace StardewValley.Network
 {
   public class NetFarmerRoot : NetRoot<Farmer>
   {
-    public NetFarmerRoot() => this.Serializer = SaveGame.farmerSerializer;
+    public NetFarmerRoot() { return this.Serializer = SaveGame.farmerSerializer; }
 
     public NetFarmerRoot(Farmer value)
       : base(value)

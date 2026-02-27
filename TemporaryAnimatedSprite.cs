@@ -101,16 +101,16 @@ namespace StardewValley
 
     public Vector2 Position
     {
-      get => this.position;
-      set => this.position = value;
+      delegate(get) { return this.position; };
+      delegate(set) { return this.position = value; };
     }
 
-    public Texture2D Texture => this.texture;
+    public Texture2D delegate(Texture) { return this.texture; };
 
     public GameLocation Parent
     {
-      get => this.parent;
-      set => this.parent = value;
+      delegate(get) { return this.parent; };
+      delegate(set) { return this.parent = value; };
     }
 
     public TemporaryAnimatedSprite getClone()
@@ -682,7 +682,10 @@ namespace StardewValley
       }
     }
 
-    private void checkDirty<T>(BitArray dirtyBits, ref int i, T value, T defaultValue = null) => dirtyBits[i++] = !object.Equals((object) value, (object) defaultValue);
+    private void checkDirty<T>(BitArray dirtyBits, ref int i, T value, T defaultValue = null)
+    {
+      dirtyBits[i++] = !object.Equals((object) value, (object) defaultValue);
+    }
 
     public void Write(BinaryWriter writer, GameLocation location)
     {
@@ -1612,7 +1615,7 @@ namespace StardewValley
       return false;
     }
 
-    public bool clearOnAreaEntry() => !this.dontClearOnAreaEntry && this.bombRadius <= 0;
+    public bool clearOnAreaEntry() { return !this.dontClearOnAreaEntry && this.bombRadius <= 0; }
 
     private void setSourceRectToCurrentTileIndex()
     {

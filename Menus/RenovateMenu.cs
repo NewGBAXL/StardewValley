@@ -52,7 +52,7 @@ namespace StardewValley.Menus
       this.SetupForRenovationPlacement();
     }
 
-    public override bool shouldClampGamePadCursor() => true;
+    public override bool shouldClampGamePadCursor() { return true; }
 
     public override void snapToDefaultClickableComponent()
     {
@@ -218,7 +218,7 @@ namespace StardewValley.Menus
       this.AnimateRenovation();
     }
 
-    public override bool overrideSnappyMenuCursorMovementBan() => true;
+    public override bool overrideSnappyMenuCursorMovementBan() { return true; }
 
     public override void receiveGamePadButton(Buttons b)
     {
@@ -229,7 +229,7 @@ namespace StardewValley.Menus
       Game1.playSound("smallSelect");
     }
 
-    public override bool readyToClose() => !this.freeze && base.readyToClose();
+    public override bool readyToClose() { return !this.freeze && base.readyToClose(); }
 
     public override void receiveKeyPress(Keys key)
     {

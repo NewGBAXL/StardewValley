@@ -23,7 +23,7 @@ namespace StardewValley
     {
     }
 
-    protected override FarmerPair ReadKey(BinaryReader reader) => FarmerPair.MakePair(reader.ReadInt64(), reader.ReadInt64());
+    protected override FarmerPair ReadKey(BinaryReader reader) { return FarmerPair.MakePair(reader.ReadInt64(), reader.ReadInt64()); }
 
     protected override void WriteKey(BinaryWriter writer, FarmerPair key)
     {

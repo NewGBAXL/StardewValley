@@ -53,7 +53,7 @@ namespace StardewValley.Menus
       this.zoomInButton = new ClickableTextureComponent(new Rectangle(this.xPositionOnScreen + 124, this.yPositionOnScreen + 244, 28, 32), Game1.mouseCursors, new Rectangle(184, 345, 7, 8), 4f);
     }
 
-    public override bool isWithinBounds(int x, int y) => Game1.options.zoomButtons && (this.zoomInButton.containsPoint(x, y) || this.zoomOutButton.containsPoint(x, y)) || Game1.player.visibleQuestCount > 0 && this.questButton.containsPoint(x, y);
+    public override bool isWithinBounds(int x, int y) { return Game1.options.zoomButtons && (this.zoomInButton.containsPoint(x, y) || this.zoomOutButton.containsPoint(x, y)) || Game1.player.visibleQuestCount > 0 && this.questButton.containsPoint(x, y); }
 
     public override void receiveLeftClick(int x, int y, bool playSound = true)
     {
@@ -80,9 +80,9 @@ namespace StardewValley.Menus
       }
     }
 
-    public override void receiveRightClick(int x, int y, bool playSound = true) => this.updatePosition();
+    public override void receiveRightClick(int x, int y, bool playSound = true) { return this.updatePosition(); }
 
-    public void questIconPulse() => this.questPulseTimer = 2000;
+    public void questIconPulse() { return this.questPulseTimer = 2000; }
 
     public override void performHoverAction(int x, int y)
     {
@@ -141,9 +141,9 @@ namespace StardewValley.Menus
       this.questsDirty = false;
     }
 
-    public virtual void PingQuestLog() => this.questPingTimer = 6000;
+    public virtual void PingQuestLog() { return this.questPingTimer = 6000; }
 
-    public virtual void DismissQuestPing() => this.questPingTimer = 0;
+    public virtual void DismissQuestPing() { return this.questPingTimer = 0; }
 
     public override void draw(SpriteBatch b)
     {

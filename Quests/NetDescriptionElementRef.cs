@@ -11,7 +11,7 @@ namespace StardewValley.Quests
   public class NetDescriptionElementRef : 
     NetExtendableRef<DescriptionElement, NetDescriptionElementRef>
   {
-    public NetDescriptionElementRef() => this.Serializer = DescriptionElement.serializer;
+    public NetDescriptionElementRef() { return this.Serializer = DescriptionElement.serializer; }
 
     public NetDescriptionElementRef(DescriptionElement value)
       : base(value)
