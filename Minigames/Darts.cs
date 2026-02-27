@@ -409,7 +409,10 @@ namespace StardewValley.Minigames
         if (this.startingDartCount == 20 && droppedLimitedNutCount == 0 || this.startingDartCount == 15 && droppedLimitedNutCount == 1 || this.startingDartCount == 10 && droppedLimitedNutCount == 2)
         {
           dialogue = str2 + Game1.content.LoadString("Strings\\StringsFromMaps:Pirates7_WinPrize");
-          Game1.afterDialogues += (Game1.afterFadeFunction) (() => Game1.player.team.RequestLimitedNutDrops(nameof (Darts), Game1.currentLocation, 1984, 512, 3));
+          Game1.afterDialogues += (Game1.afterFadeFunction) (() =>
+          {
+            Game1.player.team.RequestLimitedNutDrops(nameof (Darts), Game1.currentLocation, 1984, 512, 3);
+          });
         }
         else
           dialogue = str2 + Game1.content.LoadString("Strings\\StringsFromMaps:Pirates7_WinNoPrize");

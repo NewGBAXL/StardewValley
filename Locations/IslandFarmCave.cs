@@ -231,11 +231,17 @@ namespace StardewValley.Locations
           evt.onEventFinished += (Action) (() =>
           {
             if (Game1.locationRequest != null)
-              Game1.locationRequest.OnWarp += (LocationRequest.Callback) (() => this.CompleteGourmandRequest());
+              Game1.locationRequest.OnWarp += (LocationRequest.Callback) (() =>
+              {
+                this.CompleteGourmandRequest();
+              });
             else
               this.CompleteGourmandRequest();
           });
-        Game1.globalFadeToBlack((Game1.afterFadeFunction) (() => Game1.currentLocation.startEvent(evt)));
+        Game1.globalFadeToBlack((Game1.afterFadeFunction) (() =>
+        {
+          Game1.currentLocation.startEvent(evt);
+        }));
         Game1.player.freezePause = 0;
       }
       this.triggeredGourmand = false;

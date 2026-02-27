@@ -90,8 +90,7 @@ namespace StardewValley.Objects
       base.initNetFields();
       this.NetFields.AddFields((INetSerializable) this.startingLidFrame, (INetSerializable) this.frameCounter, (INetSerializable) this.coins, (INetSerializable) this.items, (INetSerializable) this.chestType, (INetSerializable) this.tint, (INetSerializable) this.playerChoiceColor, (INetSerializable) this.playerChest, (INetSerializable) this.fridge, (INetSerializable) this.giftbox, (INetSerializable) this.giftboxIndex, (INetSerializable) this.mutex.NetFields, (INetSerializable) this.lidFrameCount, (INetSerializable) this.bigCraftableSpriteIndex, (INetSerializable) this.dropContents, this.openChestEvent.NetFields, (INetSerializable) this.synchronized, (INetSerializable) this.specialChestType, (INetSerializable) this.kickStartTile, (INetSerializable) this.separateWalletItems);
       this.openChestEvent.onEvent += new NetEvent0.Event(this.performOpenChest);
-      this.kickStartTile.fieldChangeVisibleEvent += (NetFieldBase<Vector2, NetVector2>.FieldChange) ((field, old_value, new_value) =>
-      {
+      this.kickStartTile.fieldChangeVisibleEvent += (NetFieldBase<Vector2, NetVector2>.FieldChange) (delegate(field, old_value, new_value) {
         if (Game1.gameMode == (byte) 6 || (double) new_value.X == -1000.0 || (double) new_value.Y == -1000.0)
           return;
         this.localKickStartTile = new Vector2?((Vector2) (NetFieldBase<Vector2, NetVector2>) this.kickStartTile);
@@ -475,7 +474,10 @@ namespace StardewValley.Objects
           if (grab_menu != null)
           {
             ItemGrabMenu itemGrabMenu = grab_menu;
-            itemGrabMenu.behaviorBeforeCleanup = itemGrabMenu.behaviorBeforeCleanup + (Action<IClickableMenu>) (delegate(menu) { return grab_menu.DropRemainingItems()); };
+            itemGrabMenu.behaviorBeforeCleanup = itemGrabMenu.behaviorBeforeCleanup + (Action<IClickableMenu>) ((menu) =>
+            {
+              grab_menu.DropRemainingItems();
+            });
           }
         }
         if (Game1.mine != null)
@@ -549,7 +551,10 @@ namespace StardewValley.Objects
         {
           who.currentLocation.playSound("openChest");
           if (this.synchronized.Value)
-            this.GetMutex().RequestLock((Action) (() => this.openChestEvent.Fire()));
+            this.GetMutex().RequestLock((Action) (() =>
+            {
+              this.openChestEvent.Fire();
+            }));
           else
             this.performOpenChest();
         }
@@ -565,7 +570,10 @@ namespace StardewValley.Objects
           if (grab_menu != null)
           {
             ItemGrabMenu itemGrabMenu = grab_menu;
-            itemGrabMenu.behaviorBeforeCleanup = itemGrabMenu.behaviorBeforeCleanup + (Action<IClickableMenu>) (delegate(menu) { return grab_menu.DropRemainingItems()); };
+            itemGrabMenu.behaviorBeforeCleanup = itemGrabMenu.behaviorBeforeCleanup + (Action<IClickableMenu>) ((menu) =>
+            {
+              grab_menu.DropRemainingItems();
+            });
           }
         }
       }
@@ -642,7 +650,10 @@ namespace StardewValley.Objects
       else if (this.SpecialChestType == Chest.SpecialChestTypes.AutoLoader)
       {
         ItemGrabMenu itemGrabMenu = new ItemGrabMenu((IList<Item>) this.GetItemsForPlayer(Game1.player.UniqueMultiplayerID), false, true, new InventoryMenu.highlightThisItem(InventoryMenu.highlightAllItems), new ItemGrabMenu.behaviorOnItemSelect(this.grabItemFromInventory), (string) null, new ItemGrabMenu.behaviorOnItemSelect(this.grabItemFromChest), canBeExitedWithKey: true, showOrganizeButton: true, source: 1, sourceItem: ((bool) (NetFieldBase<bool, NetBool>) this.fridge ? (Item) null : (Item) this), context: ((object) this));
-        itemGrabMenu.exitFunction = itemGrabMenu.exitFunction + (IClickableMenu.onExit) (() => this.CheckAutoLoad(Game1.player));
+        itemGrabMenu.exitFunction = itemGrabMenu.exitFunction + (IClickableMenu.onExit) (() =>
+        {
+          this.CheckAutoLoad(Game1.player);
+        });
         Game1.activeClickableMenu = (IClickableMenu) itemGrabMenu;
       }
       else if (this.SpecialChestType == Chest.SpecialChestTypes.Enricher)

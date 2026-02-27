@@ -406,8 +406,11 @@ namespace StardewValley.Locations
         {
           Farmer farmerMaybeOffline = Game1.getFarmerMaybeOffline(id);
           Cabin home = Utility.getHomeOfFarmer(farmerMaybeOffline) as Cabin;
-          if (farmerMaybeOffline != null && home != null && !farmerMaybeOffline.isActive())
-            home.inventoryMutex.RequestLock((Action) (() => home.openFarmhandInventory()));
+            if (farmerMaybeOffline != null && home != null && !farmerMaybeOffline.isActive())
+            home.inventoryMutex.RequestLock((Action) (() =>
+            {
+              home.openFarmhandInventory();
+            }));
         }
         return true;
       }

@@ -102,7 +102,10 @@ namespace StardewValley.Util
           {
             LocationRequest locationRequest = Game1.getLocationRequest(locationName);
             int i = this.currentEventIndex;
-            locationRequest.OnLoad += (LocationRequest.Callback) (() => Game1.currentLocation.currentEvent = new StardewValley.Event(Game1.content.Load<Dictionary<string, string>>("Data\\Events\\" + locationName).ElementAt<KeyValuePair<string, string>>(i).Value));
+            locationRequest.OnLoad += (LocationRequest.Callback) (() =>
+            {
+              Game1.currentLocation.currentEvent = new StardewValley.Event(Game1.content.Load<Dictionary<string, string>>("Data\\Events\\" + locationName).ElementAt<KeyValuePair<string, string>>(i).Value);
+            });
             Game1.warpFarmer(locationRequest, 8, 8, Game1.player.FacingDirection);
           }
         }

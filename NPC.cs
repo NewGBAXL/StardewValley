@@ -1206,7 +1206,10 @@ namespace StardewValley
             Game1.player.team.itemsToRemoveOvernight.Add(897);
             this.setNewDialogue(Game1.content.LoadString("Strings\\Characters:PierreStockListDialogue"), true);
             Game1.drawDialogue(this);
-            Game1.afterDialogues += (Game1.afterFadeFunction) (() => Game1.multiplayer.globalChatInfoMessage("StockList"));
+            Game1.afterDialogues += (Game1.afterFadeFunction) (() =>
+            {
+              Game1.multiplayer.globalChatInfoMessage("StockList");
+              });
           }
           else
             Game1.drawObjectDialogue(Game1.parseText(Game1.content.LoadString("Strings\\Characters:MovieInvite_NoTheater", (object) this.displayName)));

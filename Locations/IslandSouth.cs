@@ -74,13 +74,19 @@ namespace StardewValley.Locations
       {
         Game1.addMailForTomorrow("Island_Resort", true, true);
         this.resortRestored.Value = true;
-      }), (Func<bool>) (() => this.resortRestored.Value), "Resort", "Island_UpgradeHouse"));
+      }), (Func<bool>) (() =>
+      {
+        return this.resortRestored.Value;
+      }), "Resort", "Island_UpgradeHouse"));
       this.parrotUpgradePerches.Add(new ParrotUpgradePerch((GameLocation) this, new Point(5, 9), new Microsoft.Xna.Framework.Rectangle(1, 10, 3, 4), 10, (Action) (() =>
       {
         Game1.addMailForTomorrow("Island_Turtle", true, true);
         this.westernTurtleMoved.Value = true;
         this.moveTurtleEvent.Fire();
-      }), (Func<bool>) (() => this.westernTurtleMoved.Value), "Turtle", "Island_FirstParrot"));
+      }), (Func<bool>) (() =>
+      {
+        return this.westernTurtleMoved.Value;
+      }), "Turtle", "Island_FirstParrot"));
     }
 
     protected override void initNetFields()

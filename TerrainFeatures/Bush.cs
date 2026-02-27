@@ -56,7 +56,11 @@ namespace StardewValley.TerrainFeatures
     private readonly NetRectangle sourceRect = new NetRectangle();
     [XmlIgnore]
     public NetMutex uniqueSpawnMutex = new NetMutex();
-    public static Lazy<Texture2D> texture = new Lazy<Texture2D>((Func<Texture2D>) (() => Game1.content.Load<Texture2D>("TileSheets\\bushes")));
+    public static Lazy<Texture2D> texture = new Lazy<Texture2D>((Func<Texture2D>) (() =>
+    {
+      Texture2D __tmp = Game1.content.Load<Texture2D>("TileSheets\\bushes");
+      return __tmp;
+    }));
     public static Rectangle treeTopSourceRect = new Rectangle(0, 0, 48, 96);
     public static Rectangle stumpSourceRect = new Rectangle(32, 96, 16, 32);
     public static Rectangle shadowSourceRect = new Rectangle(663, 1011, 41, 30);

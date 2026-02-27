@@ -153,7 +153,8 @@ namespace StardewValley.Menus
         this._initTask = new Task<List<Farmer>>((Func<List<Farmer>>) (() =>
         {
           Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
-          return LoadGameMenu.FindSaveGames();
+          List<Farmer> __tmp = LoadGameMenu.FindSaveGames();
+          return __tmp;
         }));
         Game1.hooks.StartTask<List<Farmer>>(this._initTask, "Find Save Games");
       }

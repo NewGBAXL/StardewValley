@@ -82,7 +82,10 @@ namespace StardewValley.TerrainFeatures
     {
       this.resetTexture();
       this.NetFields.AddFields((INetSerializable) this.growthStage, (INetSerializable) this.treeType, (INetSerializable) this.health, (INetSerializable) this.flipped, (INetSerializable) this.stump, (INetSerializable) this.tapped, (INetSerializable) this.hasSeed, (INetSerializable) this.fertilized, (INetSerializable) this.shakeLeft, (INetSerializable) this.falling, (INetSerializable) this.destroy, (INetSerializable) this.lastPlayerToHit);
-      this.treeType.fieldChangeVisibleEvent += (NetFieldBase<int, NetInt>.FieldChange) ((a, b, c) => this.resetTexture());
+      this.treeType.fieldChangeVisibleEvent += (NetFieldBase<int, NetInt>.FieldChange) ((a, b, c) =>
+      {
+        this.resetTexture();
+      });
     }
 
     public Tree(int which, int growthStage)
@@ -110,7 +113,10 @@ namespace StardewValley.TerrainFeatures
       this.health.Value = 10f;
     }
 
-    protected void resetTexture() { return this.texture = new Lazy<Texture2D>(new Func<Texture2D>(this.loadTexture)); }
+    protected void resetTexture()
+    {
+      this.texture = new Lazy<Texture2D>(new Func<Texture2D>(this.loadTexture));
+    }
 
     protected Texture2D loadTexture()
     {

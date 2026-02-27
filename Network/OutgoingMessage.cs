@@ -51,8 +51,7 @@ namespace StardewValley.Network
       writer.Write(this.messageType);
       writer.Write(this.farmerID);
       object[] data = this.data;
-      writer.WriteSkippable((Action) (() =>
-      {
+      writer.WriteSkippable((Action) (delegate() {
         foreach (object obj in data)
         {
           switch (obj)

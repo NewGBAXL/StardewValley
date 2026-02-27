@@ -150,7 +150,13 @@ namespace StardewValley.Network
         NetConnection conn = connection;
         if (conn.Status == NetConnectionStatus.Connected && !this.introductionsSent.Contains(conn))
         {
-          if (!this.gameServer.whenGameAvailable((Action) (() => this.gameServer.sendAvailableFarmhands("", (Action<OutgoingMessage>) (delegate(msg) { return this.sendMessage(conn; }, msg)))), (Func<bool>) (() => Game1.gameMode != (byte) 6)))
+          if (!this.gameServer.whenGameAvailable((Action) (delegate() {
+            this.gameServer.sendAvailableFarmhands("", (Action<OutgoingMessage>) (delegate(msg) {
+              this.sendMessage(conn, msg);
+            }));
+          }), (Func<bool>) (delegate() {
+            return Game1.gameMode != (byte) 6;
+          })))
           {
             Console.WriteLine("Postponing introduction message");
             this.sendMessage(conn, new OutgoingMessage((byte) 11, Game1.player, new object[1]

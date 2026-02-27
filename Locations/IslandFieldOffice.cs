@@ -506,11 +506,17 @@ namespace StardewValley.Locations
           break;
         case "Safari_Collect":
           Game1.activeClickableMenu = (IClickableMenu) new ItemGrabMenu((IList<Item>) new List<Item>((IEnumerable<Item>) this.uncollectedRewards), false, true, (InventoryMenu.highlightThisItem) null, (ItemGrabMenu.behaviorOnItemSelect) null, "Rewards", new ItemGrabMenu.behaviorOnItemSelect(this.OnCollectReward), canBeExitedWithKey: true, playRightClickSound: false, allowRightClick: false, context: ((object) this));
-          Game1.activeClickableMenu.exitFunction += (IClickableMenu.onExit) (() => this.safariGuyMutex.ReleaseLock());
+          Game1.activeClickableMenu.exitFunction += (IClickableMenu.onExit) (() =>
+          {
+            this.safariGuyMutex.ReleaseLock();
+          });
           break;
         case "Safari_Donate":
           Game1.activeClickableMenu = (IClickableMenu) new FieldOfficeMenu(this);
-          Game1.activeClickableMenu.exitFunction += (IClickableMenu.onExit) (() => this.safariGuyMutex.ReleaseLock());
+          Game1.activeClickableMenu.exitFunction += (IClickableMenu.onExit) (() =>
+          {
+            this.safariGuyMutex.ReleaseLock();
+          });
           break;
         case "Safari_Hint":
           int num = this.getRandomUnfoundBoneIndex();

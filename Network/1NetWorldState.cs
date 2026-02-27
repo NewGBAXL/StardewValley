@@ -74,9 +74,18 @@ namespace StardewValley.Network
       this.NetFields.AddFields((INetSerializable) this.year, (INetSerializable) this.currentSeason, (INetSerializable) this.dayOfMonth, (INetSerializable) this.timeOfDay, (INetSerializable) this.whichFarm, (INetSerializable) this.daysPlayed, (INetSerializable) this.weatherForTomorrow, (INetSerializable) this.isRaining, (INetSerializable) this.isSnowing, (INetSerializable) this.isLightning, (INetSerializable) this.isDebrisWeather, (INetSerializable) this.isPaused, (INetSerializable) this.goblinRemoved, (INetSerializable) this.submarineLocked, (INetSerializable) this.lowestMineLevel, (INetSerializable) this.bundles, (INetSerializable) this.bundleRewards, (INetSerializable) this.museumPieces, (INetSerializable) this.worldStateIDs, (INetSerializable) this.uniqueIDForThisGame, (INetSerializable) this.currentSongIndex, (INetSerializable) this.lostBooksFound, (INetSerializable) this.highestPlayerLimit, (INetSerializable) this.currentPlayerLimit, (INetSerializable) this.goldenWalnuts, (INetSerializable) this.goldenCoconutCracked, (INetSerializable) this.locationWeather, (INetSerializable) this.parrotPlatformsUnlocked, (INetSerializable) this.netBundleData, (INetSerializable) this.visitsUntilY1Guarantee, (INetSerializable) this.isTimePaused, (INetSerializable) this.dishOfTheDay, (INetSerializable) this.shuffleMineChests, (INetSerializable) this.miniShippingBinsObtained, (INetSerializable) this.foundBuriedNuts, (INetSerializable) this.goldenWalnutsFound, (INetSerializable) this.minesDifficulty, (INetSerializable) this.skullCavesDifficulty, (INetSerializable) this.lowestMineLevelForOrder, (INetSerializable) this.islandVisitors, (INetSerializable) this.whichModFarm, (INetSerializable) this.serverPrivacy);
       this.SetBundleData(Game1.content.LoadBase<Dictionary<string, string>>("Data\\Bundles"));
       this.isTimePaused.InterpolationWait = false;
-      this.netBundleData.OnConflictResolve += (NetDictionary<string, string, NetString, SerializableDictionary<string, string>, NetStringDictionary<string, NetString>>.ConflictResolveEvent) ((key, rejected, accepted) => this._bundleDataDirty = true);
-      this.netBundleData.OnValueAdded += (NetDictionary<string, string, NetString, SerializableDictionary<string, string>, NetStringDictionary<string, NetString>>.ContentsChangeEvent) ((key, value) => this._bundleDataDirty = true);
-      this.netBundleData.OnValueRemoved += (NetDictionary<string, string, NetString, SerializableDictionary<string, string>, NetStringDictionary<string, NetString>>.ContentsChangeEvent) ((key, value) => this._bundleDataDirty = true);
+      this.netBundleData.OnConflictResolve += (NetDictionary<string, string, NetString, SerializableDictionary<string, string>, NetStringDictionary<string, NetString>>.ConflictResolveEvent) ((key, rejected, accepted) =>
+      {
+        this._bundleDataDirty = true;
+      });
+      this.netBundleData.OnValueAdded += (NetDictionary<string, string, NetString, SerializableDictionary<string, string>, NetStringDictionary<string, NetString>>.ContentsChangeEvent) ((key, value) =>
+      {
+        this._bundleDataDirty = true;
+      });
+      this.netBundleData.OnValueRemoved += (NetDictionary<string, string, NetString, SerializableDictionary<string, string>, NetStringDictionary<string, NetString>>.ContentsChangeEvent) ((key, value) =>
+      {
+        this._bundleDataDirty = true;
+      });
       this.serverPrivacy.fieldChangeVisibleEvent += (NetFieldBase<ServerPrivacy, NetEnum<ServerPrivacy>>.FieldChange) ((field, old_value, new_value) => { });
     }
 

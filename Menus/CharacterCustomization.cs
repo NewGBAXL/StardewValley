@@ -171,7 +171,9 @@ namespace StardewValley.Menus
       this.setUpPositions();
       if (this.source == CharacterCustomization.Source.NewGame || this.source == CharacterCustomization.Source.HostNewFarm)
         Game1.spawnMonstersAtNight = false;
-      this._recolorPantsAction = (Action) (() => this.DyeItem(this.pantsColorPicker.getSelectedColor()));
+      this._recolorPantsAction = (Action) (delegate() {
+        this.DyeItem(this.pantsColorPicker.getSelectedColor());
+      });
       if (this._itemToDye.clothesType.Value == 0)
         this._displayFarmer.shirtItem.Set(this._itemToDye);
       else if (this._itemToDye.clothesType.Value == 1)
@@ -244,9 +246,18 @@ namespace StardewValley.Menus
       };
       this.source = source;
       this.setUpPositions();
-      this._recolorEyesAction = (Action) (() => Game1.player.changeEyeColor(this.eyeColorPicker.getSelectedColor()));
-      this._recolorPantsAction = (Action) (() => Game1.player.changePants(this.pantsColorPicker.getSelectedColor()));
-      this._recolorHairAction = (Action) (() => Game1.player.changeHairColor(this.hairColorPicker.getSelectedColor()));
+      this._recolorEyesAction = (Action) (() =>
+      {
+        Game1.player.changeEyeColor(this.eyeColorPicker.getSelectedColor());
+      });
+      this._recolorPantsAction = (Action) (() =>
+      {
+        Game1.player.changePants(this.pantsColorPicker.getSelectedColor());
+      });
+      this._recolorHairAction = (Action) (() =>
+      {
+        Game1.player.changeHairColor(this.hairColorPicker.getSelectedColor());
+      });
       if (source == CharacterCustomization.Source.DyePots)
       {
         this._recolorHairAction = (Action) (() =>

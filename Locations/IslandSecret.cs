@@ -115,7 +115,10 @@ namespace StardewValley.Locations
       {
         if (!who.mailReceived.Contains("birdieQuestBegun"))
         {
-          Game1.globalFadeToBlack((Game1.afterFadeFunction) (() => this.startEvent(new StardewValley.Event(Game1.content.LoadString("Strings\\Locations:IslandSecret_Event_BirdieIntro")))));
+          Game1.globalFadeToBlack((Game1.afterFadeFunction) (() =>
+          {
+            this.startEvent(new StardewValley.Event(Game1.content.LoadString("Strings\\Locations:IslandSecret_Event_BirdieIntro")));
+          }));
           who.mailReceived.Add("birdieQuestBegun");
         }
         else if (!who.mailReceived.Contains("birdieQuestFinished") && who.ActiveObject != null && (int) (NetFieldBase<int, NetInt>) who.ActiveObject.parentSheetIndex == 870)

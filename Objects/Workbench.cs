@@ -79,16 +79,20 @@ namespace StardewValley.Objects
       if (!this.mutex.IsLocked())
       {
         MultipleMutexRequest multipleMutexRequest = (MultipleMutexRequest) null;
-        multipleMutexRequest = new MultipleMutexRequest(mutexes, (Action) (() => this.mutex.RequestLock((Action) (() =>
-        {
-          Vector2 centeringOnScreen = Utility.getTopLeftPositionForCenteringOnScreen(800 + IClickableMenu.borderWidth * 2, 600 + IClickableMenu.borderWidth * 2);
-          Game1.activeClickableMenu = (IClickableMenu) new CraftingPage((int) centeringOnScreen.X, (int) centeringOnScreen.Y, 800 + IClickableMenu.borderWidth * 2, 600 + IClickableMenu.borderWidth * 2, standalone_menu: true, material_containers: nearby_chests);
-          Game1.activeClickableMenu.exitFunction = (IClickableMenu.onExit) (() =>
-          {
-            this.mutex.ReleaseLock();
-            multipleMutexRequest.ReleaseLocks();
-          });
-        }), (Action) (() => multipleMutexRequest.ReleaseLocks()))), (Action) (() => Game1.showRedMessage(Game1.content.LoadString("Strings\\UI:Workbench_Chest_Warning"))));
+        multipleMutexRequest = new MultipleMutexRequest(mutexes, (Action) (delegate() {
+          this.mutex.RequestLock((Action) (delegate() {
+            Vector2 centeringOnScreen = Utility.getTopLeftPositionForCenteringOnScreen(800 + IClickableMenu.borderWidth * 2, 600 + IClickableMenu.borderWidth * 2);
+            Game1.activeClickableMenu = (IClickableMenu) new CraftingPage((int) centeringOnScreen.X, (int) centeringOnScreen.Y, 800 + IClickableMenu.borderWidth * 2, 600 + IClickableMenu.borderWidth * 2, standalone_menu: true, material_containers: nearby_chests);
+            Game1.activeClickableMenu.exitFunction = (IClickableMenu.onExit) (delegate() {
+              this.mutex.ReleaseLock();
+              multipleMutexRequest.ReleaseLocks();
+            });
+          }));
+        }, (Action) (delegate() {
+          multipleMutexRequest.ReleaseLocks();
+        }), (Action) (delegate() {
+          Game1.showRedMessage(Game1.content.LoadString("Strings\\UI:Workbench_Chest_Warning"));
+        }));
       }
       return true;
     }

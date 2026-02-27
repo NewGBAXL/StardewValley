@@ -25,7 +25,10 @@ namespace StardewValley.Menus
       this.okButton.visible = false;
       this.cancelButton.visible = this.isCancelable();
       this.updateMessage();
-      this.exitFunction = (IClickableMenu.onExit) (() => this.closeDialog(Game1.player));
+      this.exitFunction = (IClickableMenu.onExit) (() =>
+      {
+        this.closeDialog(Game1.player);
+      });
       if (!Game1.options.SnappyMenus)
         return;
       this.populateClickableComponentList();

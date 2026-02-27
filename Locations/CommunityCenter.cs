@@ -343,7 +343,13 @@ namespace StardewValley.Locations
       return base.checkAction(tileLocation, viewport, who);
     }
 
-    public void checkBundle(int area) { return this.bundleMutexes[area].RequestLock((Action) (() => Game1.activeClickableMenu = (IClickableMenu) new JunimoNoteMenu(area, this.bundlesDict()))); }
+    public void checkBundle(int area)
+    {
+      this.bundleMutexes[area].RequestLock((Action) (() =>
+      {
+        Game1.activeClickableMenu = (IClickableMenu) new JunimoNoteMenu(area, this.bundlesDict());
+      }));
+    }
 
     public void addJunimoNoteViewportTarget(int area)
     {

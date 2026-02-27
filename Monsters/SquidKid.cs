@@ -44,7 +44,10 @@ namespace StardewValley.Monsters
           return;
         this.fireballFired();
       });
-      this.hurtAnimationEvent.onEvent += (NetEvent0.Event) (() => this.Sprite.currentFrame = this.Sprite.currentFrame - this.Sprite.currentFrame % 4 + 3);
+      this.hurtAnimationEvent.onEvent += (NetEvent0.Event) (() =>
+      {
+        this.Sprite.currentFrame = this.Sprite.currentFrame - this.Sprite.currentFrame % 4 + 3;
+      });
     }
 
     public override void reloadSprite() { return this.Sprite = new AnimatedSprite("Characters\\Monsters\\Squid Kid"); }

@@ -333,7 +333,10 @@ namespace StardewValley.Locations
         if (!who.mailReceived.Contains("birdieQuestBegun"))
         {
           who.Halt();
-          Game1.globalFadeToBlack((Game1.afterFadeFunction) (() => this.startEvent(new StardewValley.Event(Game1.content.LoadString("Strings\\Locations:IslandSecret_Event_BirdieIntro"), -888999))));
+          Game1.globalFadeToBlack((Game1.afterFadeFunction) (() =>
+          {
+            this.startEvent(new StardewValley.Event(Game1.content.LoadString("Strings\\Locations:IslandSecret_Event_BirdieIntro"), -888999));
+          }));
           who.mailReceived.Add("birdieQuestBegun");
           return true;
         }

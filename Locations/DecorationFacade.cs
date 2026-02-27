@@ -43,7 +43,10 @@ namespace StardewValley.Locations
       this.Field.OnValueAdded += (NetDictionary<int, int, NetInt, SerializableDictionary<int, int>, NetIntDictionary<int, NetInt>>.ContentsChangeEvent) ((whichRoom, which) =>
       {
         this.Field.InterpolationWait = false;
-        this.Field.FieldDict[whichRoom].fieldChangeEvent += (NetFieldBase<int, NetInt>.FieldChange) ((field, oldValue, newValue) => this.changed(whichRoom, newValue));
+        this.Field.FieldDict[whichRoom].fieldChangeEvent += (NetFieldBase<int, NetInt>.FieldChange) ((field, oldValue, newValue) =>
+        {
+          this.changed(whichRoom, newValue);
+        });
         this.changed(whichRoom, which);
       });
     }

@@ -48,7 +48,11 @@ namespace StardewValley.TerrainFeatures
     public Grass()
       : base(true)
     {
-      this.texture = new Lazy<Texture2D>((Func<Texture2D>) (() => Game1.content.Load<Texture2D>(this.textureName())));
+      this.texture = new Lazy<Texture2D>((Func<Texture2D>) (() =>
+      {
+        Texture2D __tmp = Game1.content.Load<Texture2D>(this.textureName());
+        return __tmp;
+      }));
       this.NetFields.AddFields((INetSerializable) this.grassType, (INetSerializable) this.numberOfWeeds, (INetSerializable) this.grassSourceOffset);
     }
 

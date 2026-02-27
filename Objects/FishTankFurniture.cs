@@ -179,15 +179,13 @@ namespace StardewValley.Objects
           who.removeItemFromInventory(who.CurrentItem);
           who.showNotCarrying();
         }
-        this.mutex.RequestLock((Action) (() =>
-        {
+        this.mutex.RequestLock((Action) (delegate() {
           location.playSound("dropItemInWater");
           this.heldItems.Add(this.localDepositedItem);
           this.localDepositedItem = (Item) null;
           this.refreshFishEvent.Fire();
           this.mutex.ReleaseLock();
-        }), (Action) (() =>
-        {
+        }), (Action) (delegate() {
           this.localDepositedItem = who.addItemToInventory(this.localDepositedItem);
           if (this.localDepositedItem != null)
             Game1.createItemDebris(this.localDepositedItem, new Vector2((float) ((double) this.TileLocation.X + (double) this.getTilesWide() / 2.0 + 0.5), this.TileLocation.Y + 0.5f) * 64f, -1, location);
@@ -195,7 +193,9 @@ namespace StardewValley.Objects
         }));
         return true;
       }
-      this.mutex.RequestLock((Action) (() => this.ShowMenu()));
+      this.mutex.RequestLock((Action) (delegate() {
+        this.ShowMenu();
+      }));
       return true;
     }
 

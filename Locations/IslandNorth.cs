@@ -173,7 +173,13 @@ namespace StardewValley.Locations
         });
       Game1.playSound("boulderBreak");
       Game1.player.freezePause = 3000;
-      DelayedAction.functionAfterDelay((DelayedAction.delayedBehavior) (() => Game1.globalFadeToBlack((Game1.afterFadeFunction) (() => this.startEvent(new StardewValley.Event(Game1.content.LoadString("Strings\\Locations:IslandNorth_Event_SafariManAppear")))))), 1000);
+      DelayedAction.functionAfterDelay((DelayedAction.delayedBehavior) (() =>
+      {
+        Game1.globalFadeToBlack((Game1.afterFadeFunction) (() =>
+        {
+          this.startEvent(new StardewValley.Event(Game1.content.LoadString("Strings\\Locations:IslandNorth_Event_SafariManAppear")));
+        }));
+      }), 1000);
     }
 
     public override string checkForBuriedItem(

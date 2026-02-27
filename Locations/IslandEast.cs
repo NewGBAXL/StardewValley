@@ -324,7 +324,10 @@ namespace StardewValley.Locations
     private void gorillaGrabBanana(int extra)
     {
       TemporaryAnimatedSprite temporarySpriteById = this.getTemporarySpriteByID(777);
-      DelayedAction.functionAfterDelay((DelayedAction.delayedBehavior) (() => this.removeTemporarySpritesWithID(88976)), 50);
+      DelayedAction.functionAfterDelay((DelayedAction.delayedBehavior) (() =>
+      {
+        this.removeTemporarySpritesWithID(88976);
+      }), 50);
       if (Game1.currentLocation == this)
         Game1.playSound("slimeHit");
       temporarySpriteById.sourceRect = new Microsoft.Xna.Framework.Rectangle(96, 352, 32, 32);
@@ -414,7 +417,10 @@ namespace StardewValley.Locations
       this.temporarySprites.Add(temporarySpriteById);
       if (Game1.currentLocation != this)
         return;
-      DelayedAction.functionAfterDelay((DelayedAction.delayedBehavior) (() => Game1.playMorningSong()), 3000);
+      DelayedAction.functionAfterDelay((DelayedAction.delayedBehavior) (() =>
+      {
+        Game1.playMorningSong();
+      }), 3000);
     }
   }
 }

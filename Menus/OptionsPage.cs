@@ -74,13 +74,16 @@ namespace StardewValley.Menus
         this.options.Add((OptionsElement) new OptionsDropDown(Game1.content.LoadString("Strings\\UI:GameMenu_MoveBuildingPermissions"), 40));
       if (Game1.multiplayerMode == (byte) 2 && Game1.server != null && !Game1.server.IsLocalMultiplayerInitiatedServer() && Program.sdk.Networking != null)
       {
-        this.options.Add((OptionsElement) new OptionsButton(Game1.content.LoadString("Strings\\UI:GameMenu_ServerInvite"), (Action) (() { return this.offerInvite()))); }
+        this.options.Add((OptionsElement) new OptionsButton(Game1.content.LoadString("Strings\\UI:GameMenu_ServerInvite"), (Action) (delegate() {
+          this.offerInvite();
+        }));
         if (Program.sdk.Networking.SupportsInviteCodes())
-          this.options.Add((OptionsElement) new OptionsButton(Game1.content.LoadString("Strings\\UI:OptionsPage_ShowInviteCode"), (Action) (() { return this.showInviteCode()))); }
+          this.options.Add((OptionsElement) new OptionsButton(Game1.content.LoadString("Strings\\UI:OptionsPage_ShowInviteCode"), (Action) (delegate() {
+            this.showInviteCode();
+          }));
       }
       if (flag)
-        this.options.Add((OptionsElement) new OptionsButton(Game1.content.LoadString("Strings\\UI:StartLocalMulti"), (Action) (() =>
-        {
+        this.options.Add((OptionsElement) new OptionsButton(Game1.content.LoadString("Strings\\UI:StartLocalMulti"), (Action) (delegate() {
           this.exitThisMenu(false);
           Game1.game1.ShowLocalCoopJoinMenu();
         })));
@@ -222,7 +225,9 @@ namespace StardewValley.Menus
       }
       if (!Game1.game1.CanBrowseScreenshots())
         return;
-      this.options.Add((OptionsElement) new OptionsButton(Game1.content.LoadString("Strings\\UI:OptionsPage_OpenFolder"), (Action) (() { return Game1.game1.BrowseScreenshots()))); }
+        this.options.Add((OptionsElement) new OptionsButton(Game1.content.LoadString("Strings\\UI:OptionsPage_OpenFolder"), (Action) (delegate() {
+        Game1.game1.BrowseScreenshots();
+      }))); }
     }
 
     public override bool readyToClose() { return this.lastRebindTick != Game1.ticks && base.readyToClose(); }
@@ -251,7 +256,10 @@ namespace StardewValley.Menus
 
     private void offerInvite()
     {
-      this.waitForServerConnection((Action) (() => Game1.server.offerInvite()));
+      this.waitForServerConnection((Action) (() =>
+      {
+        Game1.server.offerInvite();
+      }));
       return;
     }
 

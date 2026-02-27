@@ -48,7 +48,10 @@ namespace StardewValley.Objects
     {
       if (justCheckingForActivity)
         return true;
-      this.mutex.RequestLock((Action) (() => this.ShowMenu()));
+      this.mutex.RequestLock((Action) (() =>
+      {
+        this.ShowMenu();
+      }));
       return true;
     }
 

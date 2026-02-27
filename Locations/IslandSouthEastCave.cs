@@ -150,7 +150,13 @@ namespace StardewValley.Locations
           else
           {
             Game1.drawObjectDialogue(Game1.content.LoadString("Strings\\StringsFromMaps:PirateBartender_PirateClothes"));
-            Game1.afterDialogues = (Game1.afterFadeFunction) (() => who.addItemByMenuIfNecessary((Item) new StardewValley.Object(459, 1), (ItemGrabMenu.behaviorOnItemSelect) ((x, y) => this.drinksClaimed.Add(Game1.player.UniqueMultiplayerID))));
+            Game1.afterDialogues = (Game1.afterFadeFunction) (() =>
+            {
+              who.addItemByMenuIfNecessary((Item) new StardewValley.Object(459, 1), (ItemGrabMenu.behaviorOnItemSelect) ((x, y) =>
+              {
+                this.drinksClaimed.Add(Game1.player.UniqueMultiplayerID);
+              }));
+            });
           }
         }
         else

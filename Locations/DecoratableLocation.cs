@@ -47,16 +47,28 @@ namespace StardewValley.Locations
       this.appliedWallpaper.InterpolationWait = false;
       this.appliedFloor.InterpolationWait = false;
       this.NetFields.AddFields((INetSerializable) this.appliedWallpaper, (INetSerializable) this.appliedFloor, (INetSerializable) this.floorIDs, (INetSerializable) this.wallpaperIDs);
-      this.appliedWallpaper.OnValueAdded += (NetDictionary<string, string, NetString, SerializableDictionary<string, string>, NetStringDictionary<string, NetString>>.ContentsChangeEvent) ((key, value) => this.UpdateWallpaper(key));
-      this.appliedWallpaper.OnConflictResolve += (NetDictionary<string, string, NetString, SerializableDictionary<string, string>, NetStringDictionary<string, NetString>>.ConflictResolveEvent) ((key, rejected, accepted) => this.UpdateWallpaper(key));
+      this.appliedWallpaper.OnValueAdded += (NetDictionary<string, string, NetString, SerializableDictionary<string, string>, NetStringDictionary<string, NetString>>.ContentsChangeEvent) ((key, value) =>
+      {
+        this.UpdateWallpaper(key);
+      });
+      this.appliedWallpaper.OnConflictResolve += (NetDictionary<string, string, NetString, SerializableDictionary<string, string>, NetStringDictionary<string, NetString>>.ConflictResolveEvent) ((key, rejected, accepted) =>
+      {
+        this.UpdateWallpaper(key);
+      });
       this.appliedWallpaper.OnValueTargetUpdated += (NetDictionary<string, string, NetString, SerializableDictionary<string, string>, NetStringDictionary<string, NetString>>.ContentsUpdateEvent) ((key, old_value, new_value) =>
       {
         if (this.appliedWallpaper.FieldDict.ContainsKey(key))
           this.appliedWallpaper.FieldDict[key].CancelInterpolation();
         this.UpdateWallpaper(key);
       });
-      this.appliedFloor.OnValueAdded += (NetDictionary<string, string, NetString, SerializableDictionary<string, string>, NetStringDictionary<string, NetString>>.ContentsChangeEvent) ((key, value) => this.UpdateFloor(key));
-      this.appliedFloor.OnConflictResolve += (NetDictionary<string, string, NetString, SerializableDictionary<string, string>, NetStringDictionary<string, NetString>>.ConflictResolveEvent) ((key, rejected, accepted) => this.UpdateFloor(key));
+      this.appliedFloor.OnValueAdded += (NetDictionary<string, string, NetString, SerializableDictionary<string, string>, NetStringDictionary<string, NetString>>.ContentsChangeEvent) ((key, value) =>
+      {
+        this.UpdateFloor(key);
+      });
+      this.appliedFloor.OnConflictResolve += (NetDictionary<string, string, NetString, SerializableDictionary<string, string>, NetStringDictionary<string, NetString>>.ConflictResolveEvent) ((key, rejected, accepted) =>
+      {
+        this.UpdateFloor(key);
+      });
       this.appliedFloor.OnValueTargetUpdated += (NetDictionary<string, string, NetString, SerializableDictionary<string, string>, NetStringDictionary<string, NetString>>.ContentsUpdateEvent) ((key, old_value, new_value) =>
       {
         if (this.appliedFloor.FieldDict.ContainsKey(key))

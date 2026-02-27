@@ -269,7 +269,10 @@ namespace StardewValley.Minigames
         {
           this._interpolatedPoints.Clear();
           this._cumulativeDistances.Clear();
-          Game1.globalFadeToBlack((Game1.afterFadeFunction) (() => this._fadeComplete = true));
+          Game1.globalFadeToBlack((Game1.afterFadeFunction) (() =>
+          {
+            this._fadeComplete = true;
+          }));
         }
         else
         {

@@ -71,7 +71,11 @@ namespace StardewValley
         for (int index = 0; index < this._mutexList.Count; ++index)
         {
           NetMutex mutex = this._mutexList[index];
-          mutex.RequestLock((Action) (() => this._OnLockAcquired(mutex)), (Action) (() => this._OnLockFailed(mutex)));
+          mutex.RequestLock((Action) (delegate() {
+            this._OnLockAcquired(mutex);
+          }), (Action) (delegate() {
+            this._OnLockFailed(mutex);
+          }));
         }
       }
     }

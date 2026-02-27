@@ -378,8 +378,14 @@ namespace StardewValley
       this.removeTemporarySpritesWithIDEvent.onEvent += new AbstractNetEvent1<float>.Event(this.removeTemporarySpritesWithIDLocal);
       this.rumbleAndFadeEvent.onEvent += new AbstractNetEvent1<int>.Event(this.performRumbleAndFade);
       this.damagePlayersEvent.onEvent += new AbstractNetEvent1<GameLocation.DamagePlayersEventArg>.Event(this.performDamagePlayers);
-      this.fishSplashPoint.fieldChangeVisibleEvent += (NetFieldBase<Point, NetPoint>.FieldChange) ((field, oldValue, newValue) => this.updateFishSplashAnimation());
-      this.orePanPoint.fieldChangeVisibleEvent += (NetFieldBase<Point, NetPoint>.FieldChange) ((field, oldValue, newValue) => this.updateOrePanAnimation());
+      this.fishSplashPoint.fieldChangeVisibleEvent += (NetFieldBase<Point, NetPoint>.FieldChange) ((field, oldValue, newValue) =>
+      {
+        this.updateFishSplashAnimation();
+      });
+      this.orePanPoint.fieldChangeVisibleEvent += (NetFieldBase<Point, NetPoint>.FieldChange) ((field, oldValue, newValue) =>
+      {
+        this.updateOrePanAnimation();
+      });
       this.characters.OnValueRemoved += (NetCollection<NPC>.ContentsChangeEvent) (delegate(npc) { return npc.Removed()); };
       this.terrainFeatures.OnValueAdded += (NetDictionary<Vector2, TerrainFeature, NetRef<TerrainFeature>, SerializableDictionary<Vector2, TerrainFeature>, NetVector2Dictionary<TerrainFeature, NetRef<TerrainFeature>>>.ContentsChangeEvent) ((pos, tf) =>
       {
@@ -1811,7 +1817,10 @@ namespace StardewValley
               Game1.screenGlowOnce(new Microsoft.Xna.Framework.Color(30, 0, 150), true, 0.01f, 0.999f);
               DelayedAction.playSoundAfterDelay("stardrop", 1500);
               Game1.screenOverlayTempSprites.AddRange((IEnumerable<TemporaryAnimatedSprite>) Utility.sparkleWithinArea(new Microsoft.Xna.Framework.Rectangle(0, 0, Game1.viewport.Width, Game1.viewport.Height), 500, Microsoft.Xna.Framework.Color.White, 10, 2000));
-              Game1.afterDialogues += (Game1.afterFadeFunction) (() => Game1.stopMusicTrack(Game1.MusicContext.Event));
+              Game1.afterDialogues += (Game1.afterFadeFunction) (() =>
+              {
+                Game1.stopMusicTrack(Game1.MusicContext.Event);
+              });
               break;
             }
             if (Game1.player.mailReceived.Contains("galaxySword"))
@@ -7140,7 +7149,10 @@ label_386:
         else if (this.getCharacterFromName("Pierre") == null && Game1.IsVisitingIslandToday("Pierre"))
         {
           Game1.drawObjectDialogue(Game1.content.LoadString("Strings\\Locations:SeedShop_MoneyBox"));
-          Game1.afterDialogues = (Game1.afterFadeFunction) (() => Game1.activeClickableMenu = (IClickableMenu) new ShopMenu((this as SeedShop).shopStock()));
+          Game1.afterDialogues = (Game1.afterFadeFunction) (() =>
+          {
+            Game1.activeClickableMenu = (IClickableMenu) new ShopMenu((this as SeedShop).shopStock());
+          });
         }
         else
           Game1.drawObjectDialogue(Game1.content.LoadString("Strings\\StringsFromCSFiles:GameLocation.cs.8525"));

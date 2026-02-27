@@ -287,7 +287,10 @@ namespace StardewValley.BellsAndWhistles
         }
         else
           this.ShowInsufficientNuts();
-      }), (Action) (() => Game1.player.canMove = true));
+      }), (Action) (() =>
+      {
+        Game1.player.canMove = true;
+      }));
     }
 
     public virtual void ShowInsufficientNuts()

@@ -240,7 +240,10 @@ namespace StardewValley.Buildings
     {
       if ((double) tileLocation.X < (double) (int) (NetFieldBase<int, NetInt>) this.tileX || (double) tileLocation.X >= (double) ((int) (NetFieldBase<int, NetInt>) this.tileX + (int) (NetFieldBase<int, NetInt>) this.tilesWide) || (double) tileLocation.Y < (double) (int) (NetFieldBase<int, NetInt>) this.tileY || (double) tileLocation.Y >= (double) ((int) (NetFieldBase<int, NetInt>) this.tileY + (int) (NetFieldBase<int, NetInt>) this.tilesHigh))
         return base.doAction(tileLocation, who);
-      this.output.Value.mutex.RequestLock((Action) (() => Game1.activeClickableMenu = (IClickableMenu) new ItemGrabMenu((IList<Item>) this.output.Value.items, false, true, new InventoryMenu.highlightThisItem(InventoryMenu.highlightAllItems), new ItemGrabMenu.behaviorOnItemSelect(this.output.Value.grabItemFromInventory), (string) null, new ItemGrabMenu.behaviorOnItemSelect(this.output.Value.grabItemFromChest), canBeExitedWithKey: true, showOrganizeButton: true, source: 1, whichSpecialButton: 1, context: ((object) this))));
+      this.output.Value.mutex.RequestLock((Action) (() =>
+      {
+        Game1.activeClickableMenu = (IClickableMenu) new ItemGrabMenu((IList<Item>) this.output.Value.items, false, true, new InventoryMenu.highlightThisItem(InventoryMenu.highlightAllItems), new ItemGrabMenu.behaviorOnItemSelect(this.output.Value.grabItemFromInventory), (string) null, new ItemGrabMenu.behaviorOnItemSelect(this.output.Value.grabItemFromChest), canBeExitedWithKey: true, showOrganizeButton: true, source: 1, whichSpecialButton: 1, context: ((object) this));
+      }));
       return true;
     }
 

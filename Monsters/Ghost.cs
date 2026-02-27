@@ -45,7 +45,10 @@ namespace StardewValley.Monsters
     {
       base.initNetFields();
       this.NetFields.AddFields((INetSerializable) this.variant, (INetSerializable) this.currentState);
-      this.currentState.fieldChangeVisibleEvent += (NetFieldBase<int, NetInt>.FieldChange) ((field, old_value, new_value) => this.stateTimer = -1f);
+      this.currentState.fieldChangeVisibleEvent += (NetFieldBase<int, NetInt>.FieldChange) ((field, old_value, new_value) =>
+      {
+        this.stateTimer = -1f;
+      });
     }
 
     /// <summary>constructor for non-default ghosts</summary>

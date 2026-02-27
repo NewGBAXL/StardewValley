@@ -91,7 +91,10 @@ namespace StardewValley.TerrainFeatures
       : base(true)
     {
       this.NetFields.AddFields((INetSerializable) this.netCrop, (INetSerializable) this.state, (INetSerializable) this.fertilizer, (INetSerializable) this.c, (INetSerializable) this.isGreenhouseDirt, (INetSerializable) this.nearWaterForPaddy);
-      this.state.fieldChangeVisibleEvent += (NetFieldBase<int, NetInt>.FieldChange) ((x, y, z) => this.OnAdded(this.currentLocation, this.currentTileLocation));
+      this.state.fieldChangeVisibleEvent += (NetFieldBase<int, NetInt>.FieldChange) ((x, y, z) =>
+      {
+        this.OnAdded(this.currentLocation, this.currentTileLocation);
+      });
       this.netCrop.fieldChangeVisibleEvent += (NetFieldBase<Crop, NetRef<Crop>>.FieldChange) ((x, y, z) =>
       {
         this.nearWaterForPaddy.Value = -1;

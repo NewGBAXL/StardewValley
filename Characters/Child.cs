@@ -318,7 +318,10 @@ namespace StardewValley.Characters
       if (Game1.timeOfDay >= 1800 || this.Sprite.SpriteHeight <= 16)
         return;
       if (who == Game1.player)
-        this.mutex.RequestLock((Action) (() => this.performToss(who)));
+        this.mutex.RequestLock((Action) (() =>
+        {
+          this.performToss(who);
+        }));
       else
         this.performToss(who);
     }

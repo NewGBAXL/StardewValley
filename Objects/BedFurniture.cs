@@ -113,7 +113,10 @@ namespace StardewValley.Objects
             return;
           removal_action((Furniture) this);
           this.mutex.ReleaseLock();
-        }), (Action) (() => this._alreadyAttempingRemoval = false));
+        }), (Action) (() =>
+        {
+          this._alreadyAttempingRemoval = false;
+        }));
       }
     }
 

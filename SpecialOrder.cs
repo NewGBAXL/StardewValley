@@ -645,8 +645,14 @@ namespace StardewValley
     public virtual void InitializeNetFields()
     {
       this.NetFields.AddFields((INetSerializable) this.questName, (INetSerializable) this.questDescription, (INetSerializable) this.dueDate, (INetSerializable) this.objectives, (INetSerializable) this.rewards, (INetSerializable) this.questState, (INetSerializable) this.donatedItems, (INetSerializable) this.questKey, (INetSerializable) this.requester, (INetSerializable) this.generationSeed, (INetSerializable) this.selectedRandomElements, (INetSerializable) this.preSelectedItems, (INetSerializable) this.orderType, (INetSerializable) this.specialRule, (INetSerializable) this.participants, (INetSerializable) this.seenParticipants, (INetSerializable) this.unclaimedRewards, (INetSerializable) this.donateMutex.NetFields, (INetSerializable) this.itemToRemoveOnEnd, (INetSerializable) this.mailToRemoveOnEnd, (INetSerializable) this.questDuration, (INetSerializable) this.readyForRemoval);
-      this.objectives.OnArrayReplaced += (NetList<OrderObjective, NetRef<OrderObjective>>.ArrayReplacedEvent) ((a, b, c) => this._objectiveRegistrationDirty = true);
-      this.objectives.OnElementChanged += (NetList<OrderObjective, NetRef<OrderObjective>>.ElementChangedEvent) ((a, int_index, old_value, new_value) => this._objectiveRegistrationDirty = true);
+      this.objectives.OnArrayReplaced += (NetList<OrderObjective, NetRef<OrderObjective>>.ArrayReplacedEvent) ((a, b, c) =>
+      {
+        this._objectiveRegistrationDirty = true;
+      });
+      this.objectives.OnElementChanged += (NetList<OrderObjective, NetRef<OrderObjective>>.ElementChangedEvent) ((a, int_index, old_value, new_value) =>
+      {
+        this._objectiveRegistrationDirty = true;
+      });
     }
 
     protected virtual void _UpdateObjectiveRegistration()

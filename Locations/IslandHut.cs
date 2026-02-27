@@ -331,7 +331,10 @@ namespace StardewValley.Locations
       if (Game1.player.currentLocation.Equals((GameLocation) this) && !Game1.IsFading())
       {
         Game1.addMailForTomorrow("sawParrotBoyIntro", true);
-        Game1.globalFadeToBlack((Game1.afterFadeFunction) (() => this.startEvent(new StardewValley.Event(Game1.content.LoadString("Strings\\Locations:IslandHut_Event_ParrotBoyIntro")))));
+        Game1.globalFadeToBlack((Game1.afterFadeFunction) (() =>
+        {
+          this.startEvent(new StardewValley.Event(Game1.content.LoadString("Strings\\Locations:IslandHut_Event_ParrotBoyIntro")));
+        }));
       }
       else
       {

@@ -1648,7 +1648,10 @@ label_13:
         Game1.addMailForTomorrow("JunimoKart");
       Game1.multiplayer.globalChatInfoMessage("JunimoKart", Game1.player.Name);
       this.unload();
-      Game1.globalFadeToClear((Game1.afterFadeFunction) (() => Game1.drawObjectDialogue(Game1.content.LoadString("Strings\\StringsFromCSFiles:MineCart.cs.12106"))), 0.015f);
+      Game1.globalFadeToClear((Game1.afterFadeFunction) (() =>
+      {
+        Game1.drawObjectDialogue(Game1.content.LoadString("Strings\\StringsFromCSFiles:MineCart.cs.12106"));
+      }), 0.015f);
       Game1.currentMinigame = (IMinigame) null;
       DelayedAction.playSoundAfterDelay("discoverMineral", 1000);
     }

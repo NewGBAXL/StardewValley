@@ -1538,7 +1538,10 @@ namespace StardewValley
         source2.Add(new Object(Convert.ToInt32(source1[index]), Convert.ToInt32(source1[index + 1])));
       if (source2.Count == 0)
         return (Object) null;
-      source2.Sort((Comparison<Object>) ((a, b) => a.sellToStorePrice() * a.Stack - b.sellToStorePrice() * b.Stack));
+      source2.Sort((Comparison<Object>) ((a, b) =>
+      {
+        return a.sellToStorePrice() * a.Stack - b.sellToStorePrice() * b.Stack;
+      }));
       return source2.Last<Object>();
     }
 
@@ -1581,7 +1584,10 @@ namespace StardewValley
           Game1.playSound("yoba");
           this.MinutesUntilReady = 10;
           who.reduceActiveItemByOne();
-          DelayedAction.functionAfterDelay((DelayedAction.delayedBehavior) (() => this.minutesElapsed(10, who.currentLocation)), 50);
+          DelayedAction.functionAfterDelay((DelayedAction.delayedBehavior) (() =>
+          {
+            this.minutesElapsed(10, who.currentLocation);
+          }), 50);
         }
       }
       if (this.heldObject.Value != null && !this.name.Equals("Recycling Machine") && !this.name.Equals("Crystalarium") || object1 != null && (bool) (NetFieldBase<bool, NetBool>) object1.bigCraftable && !this.name.Equals("Deconstructor"))
@@ -3633,7 +3639,10 @@ namespace StardewValley
               if (this.heldObject.Value.heldObject.Value is Chest)
               {
                 Chest chest = this.heldObject.Value.heldObject.Value as Chest;
-                chest.GetMutex().RequestLock((Action) (() => chest.ShowMenu()));
+                chest.GetMutex().RequestLock((Action) (() =>
+                {
+                  chest.ShowMenu();
+                }));
               }
             }
           }

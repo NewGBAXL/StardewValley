@@ -71,14 +71,12 @@ namespace StardewValley.Objects
       if (probe)
         return true;
       StardewValley.Object placed_object = drop_in_item.getOne() as StardewValley.Object;
-      this.itemModifyMutex.RequestLock((Action) (() =>
-      {
+      this.itemModifyMutex.RequestLock((Action) (delegate() {
         who.currentLocation.playSound("woodyStep");
         this.heldObject.Value = placed_object;
         this.UpdateItemMatch();
         this.itemModifyMutex.ReleaseLock();
-      }), (Action) (() =>
-      {
+      }), (Action) (delegate() {
         if (placed_object == this.heldObject.Value)
           return;
         Game1.createItemDebris((Item) placed_object, (this.TileLocation + new Vector2(0.5f, 0.5f)) * 64f, -1, who.currentLocation);
@@ -105,8 +103,7 @@ namespace StardewValley.Objects
     {
       if (this.heldObject.Value == null)
         return false;
-      this.itemModifyMutex.RequestLock((Action) (() =>
-      {
+      this.itemModifyMutex.RequestLock((Action) (delegate() {
         StardewValley.Object @object = this.heldObject.Value;
         this.heldObject.Value = (StardewValley.Object) null;
         if (who.addItemToInventoryBool((Item) @object))
@@ -118,7 +115,8 @@ namespace StardewValley.Objects
           this.heldObject.Value = @object;
         this.UpdateItemMatch();
         this.itemModifyMutex.ReleaseLock();
-      }), (Action) (() => { }));
+      }), (Action) (delegate() {
+      }));
       return true;
     }
 

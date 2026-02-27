@@ -206,7 +206,10 @@ namespace StardewValley.Locations
           {
             Game1.activeClickableMenu = (IClickableMenu) new MuseumMenu(new InventoryMenu.highlightThisItem(this.isItemSuitableForDonation))
             {
-              exitFunction = (IClickableMenu.onExit) (() => this.mutex.ReleaseLock())
+              exitFunction = (IClickableMenu.onExit) (() =>
+              {
+                this.mutex.ReleaseLock();
+              })
             };
           }));
           break;
@@ -217,7 +220,10 @@ namespace StardewValley.Locations
             {
               Game1.activeClickableMenu = (IClickableMenu) new MuseumMenu(new InventoryMenu.highlightThisItem(InventoryMenu.highlightNoItems))
               {
-                exitFunction = (IClickableMenu.onExit) (() => this.mutex.ReleaseLock())
+                exitFunction = (IClickableMenu.onExit) (() =>
+                {
+                  this.mutex.ReleaseLock();
+                })
               };
             }));
             break;
