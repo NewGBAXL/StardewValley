@@ -13,9 +13,9 @@ namespace StardewValley
   {
     private AudioEngine audioEngine;
 
-    public AudioEngineWrapper(AudioEngine engine) { return this.audioEngine = engine; }
+    public AudioEngineWrapper(AudioEngine engine) { this.audioEngine = engine; }
 
-    public bool IsDisposed { get { return this.audioEngine.IsDisposed; };
+    public bool IsDisposed { get { return this.audioEngine.IsDisposed; } }
 
     public void Dispose() { this.audioEngine.Dispose(); }
 
@@ -25,7 +25,7 @@ namespace StardewValley
 
     public void Update() { this.audioEngine.Update(); }
 
-    public AudioEngine Engine { get { return this.audioEngine; };
+    public AudioEngine Engine { get { return this.audioEngine; } }
   }
 }
 

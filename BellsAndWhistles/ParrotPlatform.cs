@@ -87,7 +87,7 @@ namespace StardewValley.BellsAndWhistles
       xTile.Dimensions.Rectangle viewport = Game1.viewport;
       StringBuilder stringBuilder = new StringBuilder();
       Vector2 position = Game1.player.Position;
-      stringBuilder.Append("/0 0/farmer " + Game1.player.getTileX().ToString() + " " + Game1.player.getTileY().ToString() + " " + Game1.player.facingDirection?.ToString());
+      stringBuilder.Append("/0 0/farmer " + Game1.player.getTileX().ToString() + " " + Game1.player.getTileY().ToString() + " " + Game1.player.facingDirection.ToString());
       stringBuilder.Append("/playerControl parrotRide");
       this._takeoffEvent = new Event(stringBuilder.ToString())
       {
