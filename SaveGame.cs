@@ -415,7 +415,7 @@ namespace StardewValley
         }
         catch (IOException ex)
         {
-          fstream?.Close();
+          if (fstream != null) fstream.Close();
           Game1.gameMode = (byte) 9;
           Game1.debugOutput = Game1.parseText(ex.Message);
           yield break;
@@ -1388,5 +1388,6 @@ namespace StardewValley
     }
   }
 }
+
 
 

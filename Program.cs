@@ -161,7 +161,7 @@ namespace StardewValley
       {
         Exception exceptionObject = (Exception) args.ExceptionObject;
         sb.AppendLine("Message: " + exceptionObject.Message);
-        sb.AppendLine("InnerException: " + exceptionObject.InnerException?.ToString());
+        sb.AppendLine("InnerException: " + (exceptionObject.InnerException != null ? exceptionObject.InnerException.ToString() : null));
         sb.AppendLine("Stack Trace: " + exceptionObject.StackTrace);
         sb.AppendLine("");
       }
@@ -190,4 +190,5 @@ namespace StardewValley
     }
   }
 }
+
 

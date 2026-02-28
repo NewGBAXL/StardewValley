@@ -512,7 +512,7 @@ namespace StardewValley.Menus
       {
         b.Draw(Game1.objectSpriteSheet, new Vector2((float) x2, (float) y2), new Rectangle?(Game1.getSourceRectForStandardTileSheet(Game1.objectSpriteSheet, 73, 16, 16)), Color.White, 0.0f, Vector2.Zero, 2f, SpriteEffects.None, 0.0f);
         int x3 = x2 + 48;
-        b.DrawString(Game1.smallFont, Game1.netWorldState.Value.GoldenWalnuts?.ToString() ?? "", new Vector2((float) x3, (float) y2), Game1.textColor);
+        b.DrawString(Game1.smallFont, (Game1.netWorldState.Value.GoldenWalnuts != null ? Game1.netWorldState.Value.GoldenWalnuts.ToString() : ""), new Vector2((float) x3, (float) y2), Game1.textColor);
         x2 = x3 + 64;
       }
       if (Game1.player.QiGems > 0)
@@ -525,10 +525,11 @@ namespace StardewValley.Menus
       Game1.drawDialogueBox(this.xPositionOnScreen + IClickableMenu.spaceToClearSideBorder + 32, this.yPositionOnScreen + IClickableMenu.spaceToClearTopBorder + (int) ((double) this.height / 2.0) - 32, this.width - 64 - IClickableMenu.spaceToClearSideBorder * 2, this.height / 4 + 64, false, true);
       this.drawBorderLabel(b, Game1.content.LoadString("Strings\\StringsFromCSFiles:SkillsPage.cs.11610"), Game1.smallFont, this.xPositionOnScreen + IClickableMenu.spaceToClearSideBorder + 96, this.yPositionOnScreen + IClickableMenu.spaceToClearTopBorder + (int) ((double) this.height / 2.0) - 32);
       foreach (ClickableTextureComponent specialItem in this.specialItems)
-        specialItem?.draw(b);
+        if (specialItem != null) specialItem.draw(b);
       if (this.hoverText.Length <= 0)
         return;
       IClickableMenu.drawHoverText(b, this.hoverText, Game1.smallFont, boldTitleText: (this.hoverTitle.Length > 0 ? this.hoverTitle : (string) null));
     }
   }
 }
+

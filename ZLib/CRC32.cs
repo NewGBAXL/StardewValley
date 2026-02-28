@@ -60,13 +60,13 @@ namespace Ionic.Crc
       int count1 = 8192;
       this._TotalBytesRead = 0L;
       int count2 = input.Read(numArray, 0, count1);
-      output?.Write(numArray, 0, count2);
+      if (output != null) output.Write(numArray, 0, count2);
       this._TotalBytesRead += (long) count2;
       while (count2 > 0)
       {
         this.SlurpBlock(numArray, 0, count2);
         count2 = input.Read(numArray, 0, count1);
-        output?.Write(numArray, 0, count2);
+        if (output != null) output.Write(numArray, 0, count2);
         this._TotalBytesRead += (long) count2;
       }
       return ~(int) this._register;
@@ -323,6 +323,7 @@ namespace Ionic.Crc
     public void Reset() { this._register = uint.MaxValue; }
   }
 }
+
 
 
 

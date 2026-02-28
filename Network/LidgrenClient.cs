@@ -98,7 +98,7 @@ namespace StardewValley.Network
           case NetIncomingMessageType.DiscoveryResponse:
             if (!this.serverDiscovered)
             {
-              Console.WriteLine("Found server at " + netIncomingMessage.SenderEndPoint?.ToString());
+              Console.WriteLine("Found server at " + (netIncomingMessage.SenderEndPoint != null ? netIncomingMessage.SenderEndPoint.ToString() : null));
               if (this.validateProtocol(netIncomingMessage.ReadString()))
               {
                 this.serverName = netIncomingMessage.ReadString();
@@ -199,4 +199,5 @@ namespace StardewValley.Network
     }
   }
 }
+
 

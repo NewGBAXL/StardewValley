@@ -506,7 +506,7 @@ label_8:
       if (!probe)
       {
         who.currentLocation.playSound("woodyStep");
-        who?.reduceActiveItemByOne();
+        if (who != null) who.reduceActiveItemByOne();
       }
       return true;
     }
@@ -1186,7 +1186,7 @@ label_8:
         spriteBatch.Draw(Game1.mouseCursors, Game1.GlobalToLocal(Game1.viewport, new Vector2((float) (this.boundingBox.Center.X - 20), (float) this.boundingBox.Center.Y - 105.6f)), new Rectangle?(new Rectangle(276 + (int) ((Game1.currentGameTime.TotalGameTime.TotalMilliseconds + (double) (x * 3047) + (double) (y * 88)) % 400.0 / 100.0) * 12, 1985, 12, 11)), Color.White, 0.0f, Vector2.Zero, 4f, SpriteEffects.None, (float) (this.getBoundingBox(new Vector2((float) x, (float) y)).Bottom - 2) / 10000f);
       if (!Game1.debugMode)
         return;
-      spriteBatch.DrawString(Game1.smallFont, this.parentSheetIndex?.ToString() ?? "", Game1.GlobalToLocal(Game1.viewport, (Vector2) (NetFieldBase<Vector2, NetVector2>) this.drawPosition), Color.Yellow, 0.0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
+      spriteBatch.DrawString(Game1.smallFont, (this.parentSheetIndex != null ? this.parentSheetIndex.ToString() : ""), Game1.GlobalToLocal(Game1.viewport, (Vector2) (NetFieldBase<Vector2, NetVector2>) this.drawPosition), Color.Yellow, 0.0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
     }
 
     public virtual void drawAtNonTileSpot(
@@ -1229,6 +1229,7 @@ label_8:
     }
   }
 }
+
 
 
 

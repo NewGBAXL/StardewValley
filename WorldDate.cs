@@ -123,47 +123,48 @@ namespace StardewValley
 
     public static bool operator ==(WorldDate a, WorldDate b)
     {
-      int? totalDays1 = a?.TotalDays;
-      int? totalDays2 = b?.TotalDays;
+      int? totalDays1 = (a != null ? (int?) a.TotalDays : null);
+      int? totalDays2 = (b != null ? (int?) b.TotalDays : null);
       return totalDays1.GetValueOrDefault() == totalDays2.GetValueOrDefault() & totalDays1.HasValue == totalDays2.HasValue;
     }
 
     public static bool operator !=(WorldDate a, WorldDate b)
     {
-      int? totalDays1 = a?.TotalDays;
-      int? totalDays2 = b?.TotalDays;
+      int? totalDays1 = (a != null ? (int?) a.TotalDays : null);
+      int? totalDays2 = (b != null ? (int?) b.TotalDays : null);
       return !(totalDays1.GetValueOrDefault() == totalDays2.GetValueOrDefault() & totalDays1.HasValue == totalDays2.HasValue);
     }
 
     public static bool operator <(WorldDate a, WorldDate b)
     {
-      int? totalDays1 = a?.TotalDays;
-      int? totalDays2 = b?.TotalDays;
+      int? totalDays1 = (a != null ? (int?) a.TotalDays : null);
+      int? totalDays2 = (b != null ? (int?) b.TotalDays : null);
       return totalDays1.GetValueOrDefault() < totalDays2.GetValueOrDefault() & totalDays1.HasValue & totalDays2.HasValue;
     }
 
     public static bool operator >(WorldDate a, WorldDate b)
     {
-      int? totalDays1 = a?.TotalDays;
-      int? totalDays2 = b?.TotalDays;
+      int? totalDays1 = (a != null ? (int?) a.TotalDays : null);
+      int? totalDays2 = (b != null ? (int?) b.TotalDays : null);
       return totalDays1.GetValueOrDefault() > totalDays2.GetValueOrDefault() & totalDays1.HasValue & totalDays2.HasValue;
     }
 
     public static bool operator <=(WorldDate a, WorldDate b)
     {
-      int? totalDays1 = a?.TotalDays;
-      int? totalDays2 = b?.TotalDays;
+      int? totalDays1 = (a != null ? (int?) a.TotalDays : null);
+      int? totalDays2 = (b != null ? (int?) b.TotalDays : null);
       return totalDays1.GetValueOrDefault() <= totalDays2.GetValueOrDefault() & totalDays1.HasValue & totalDays2.HasValue;
     }
 
     public static bool operator >=(WorldDate a, WorldDate b)
     {
-      int? totalDays1 = a?.TotalDays;
-      int? totalDays2 = b?.TotalDays;
+      int? totalDays1 = (a != null ? (int?) a.TotalDays : null);
+      int? totalDays2 = (b != null ? (int?) b.TotalDays : null);
       return totalDays1.GetValueOrDefault() >= totalDays2.GetValueOrDefault() & totalDays1.HasValue & totalDays2.HasValue;
     }
   }
 }
+
 
 
 

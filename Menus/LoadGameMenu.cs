@@ -215,7 +215,7 @@ namespace StardewValley.Menus
             {
               Console.WriteLine("Exception occured trying to access file '{0}'", (object) path);
               Console.WriteLine(ex.GetBaseException().ToString());
-              target?.unload();
+              if (target != null) target.unload();
             }
           }
         }
@@ -886,6 +886,7 @@ namespace StardewValley.Menus
     }
   }
 }
+
 
 
 

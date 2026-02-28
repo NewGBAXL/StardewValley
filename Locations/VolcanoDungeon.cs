@@ -2030,7 +2030,7 @@ namespace StardewValley.Locations
       if (Game1.game1.takingMapScreenshot || (int) (NetFieldBase<int, NetInt>) this.level <= 0)
         return;
       int color = 2;
-      string s = this.level?.ToString() ?? "";
+      string s = (this.level != null ? this.level.ToString() : "");
       Microsoft.Xna.Framework.Rectangle titleSafeArea = Game1.game1.GraphicsDevice.Viewport.GetTitleSafeArea();
       SpriteText.drawString(b, s, titleSafeArea.Left + 16, titleSafeArea.Top + 16, layerDepth: 1f, drawBGScroll: 2, color: color);
     }
@@ -2328,5 +2328,6 @@ namespace StardewValley.Locations
     }
   }
 }
+
 
 

@@ -52,11 +52,11 @@ namespace StardewValley.Objects
       return true;
     }
 
-    public void RegisterToLocation(GameLocation location) { location?.OnMiniJukeboxAdded(); }
+    public void RegisterToLocation(GameLocation location) { if (location != null) location.OnMiniJukeboxAdded(); }
 
     public override void performRemoveAction(Vector2 tileLocation, GameLocation environment)
     {
-      environment?.OnMiniJukeboxRemoved();
+      if (environment != null) environment.OnMiniJukeboxRemoved();
       base.performRemoveAction(tileLocation, environment);
     }
 
@@ -106,4 +106,5 @@ namespace StardewValley.Objects
     }
   }
 }
+
 

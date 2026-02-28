@@ -54,7 +54,7 @@ namespace StardewValley.Monsters
       else
       {
         this.Health -= damage1;
-        this.currentLocation?.playSound("clank");
+        if (this.currentLocation != null) this.currentLocation.playSound("clank");
         if (this.Health <= 0)
           this.deathAnimation();
       }
@@ -124,4 +124,5 @@ namespace StardewValley.Monsters
     }
   }
 }
+
 

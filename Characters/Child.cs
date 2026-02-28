@@ -512,7 +512,7 @@ namespace StardewValley.Characters
         if (this.controller.pathToEndPoint == null || !currentLocation.isTileOnMap(this.controller.pathToEndPoint.Last<Point>().X, this.controller.pathToEndPoint.Last<Point>().Y))
           this.controller = (PathFindController) null;
         else
-          childBed?.ReserveForNPC();
+          if (childBed != null) childBed.ReserveForNPC();
       }
     }
 
@@ -992,5 +992,6 @@ namespace StardewValley.Characters
     public override void behaviorOnLocalFarmerLocationEntry(GameLocation location) { this.reloadSprite(); }
   }
 }
+
 
 

@@ -3738,7 +3738,7 @@ namespace StardewValley
         strArray[6] = str3;
         strArray[8] = this.Manners == 2 ? Game1.content.LoadString("Strings\\StringsFromCSFiles:NPC.cs.4280") : Game1.LoadStringByGender((int) (NetFieldBase<int, NetInt>) this.gender, "Strings\\StringsFromCSFiles:NPC.cs.4281");
       }
-      giver?.onGiftGiven(this, o);
+      if (giver != null) giver.onGiftGiven(this, o);
       if (this.getSpouse() != null && this.getSpouse().Equals((object) giver))
         friendshipChangeMultiplier /= 2f;
       if (str1 == null)
@@ -5954,6 +5954,7 @@ label_51:
     }
   }
 }
+
 
 
 

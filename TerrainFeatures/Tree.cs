@@ -786,7 +786,7 @@ namespace StardewValley.TerrainFeatures
         this.falling.Value = true;
         if (t != null && t.getLastFarmerToUse().IsLocalPlayer)
         {
-          t?.getLastFarmerToUse().gainExperience(2, 12);
+          if (t != null) t.getLastFarmerToUse().gainExperience(2, 12);
           if (t == null || t.getLastFarmerToUse() == null)
             this.shakeLeft.Value = true;
           else
@@ -924,3 +924,4 @@ namespace StardewValley.TerrainFeatures
     }
   }
 }
+

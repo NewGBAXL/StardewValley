@@ -1173,7 +1173,7 @@ namespace StardewValley
         this.rotationChange = this.motion.Y / 50f;
         this.acceleration.Y = 0.7f;
         this.yStopCoordinate = (int) this.initialPosition.Y;
-        this.parent?.playSound("thudStep");
+        if (this.parent != null) this.parent.playSound("thudStep");
       }
       else
       {
@@ -1628,6 +1628,7 @@ namespace StardewValley
     public delegate void endBehavior(int extraInfo);
   }
 }
+
 
 
 

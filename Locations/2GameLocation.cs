@@ -9415,7 +9415,7 @@ label_386:
         if (propertyValue == null && tile != null)
           this.map.GetLayer(layerName).PickTile(new Location(xTile * 64, yTile * 64), Game1.viewport.Size).Properties.TryGetValue(propertyName, out propertyValue);
       }
-      return propertyValue?.ToString();
+      return (propertyValue != null ? propertyValue.ToString() : null);
     }
 
     public virtual string doesTileHavePropertyNoNull(
@@ -12619,6 +12619,7 @@ label_19:
     }
   }
 }
+
 
 
 

@@ -3215,7 +3215,7 @@ namespace StardewValley
       else if (this.IsSaving)
       {
         Game1.PushUIMode();
-        Game1.activeClickableMenu?.update(gameTime);
+        if (Game1.activeClickableMenu != null) Game1.activeClickableMenu.update(gameTime);
         if (Game1.overlayMenu != null)
         {
           Game1.overlayMenu.update(gameTime);
@@ -10129,20 +10129,20 @@ label_82:
       if (!Game1.uiMode)
         return;
       Game1._oldUIModeCount = Game1.uiModeCount;
-      b?.End();
+      if (b != null) b.End();
       while (Game1.uiModeCount > 0)
         Game1.PopUIMode();
-      b?.Begin(blendState: BlendState.AlphaBlend, samplerState: SamplerState.PointClamp);
+      if (b != null) b.Begin(blendState: BlendState.AlphaBlend, samplerState: SamplerState.PointClamp);
     }
 
     public static void EndWorldDrawInUI(SpriteBatch b)
     {
       if (Game1._oldUIModeCount > 0)
       {
-        b?.End();
+        if (b != null) b.End();
         for (int index = 0; index < Game1._oldUIModeCount; ++index)
           Game1.PushUIMode();
-        b?.Begin(blendState: BlendState.AlphaBlend, samplerState: SamplerState.PointClamp);
+        if (b != null) b.Begin(blendState: BlendState.AlphaBlend, samplerState: SamplerState.PointClamp);
       }
       Game1._oldUIModeCount = 0;
     }
@@ -12924,7 +12924,7 @@ label_1159:
             Game1.addNewFarmBuildingMaps();
             goto case "break";
           case "version":
-            Game1.debugOutput = typeof (Game1).Assembly.GetName().Version?.ToString() ?? "";
+            Game1.debugOutput = typeof (Game1).Assembly.GetName()(.Version != null ? .Version.ToString() : "");
             goto case "break";
           case "viewport":
             Game1.viewport.X = Convert.ToInt32(debugSplit[1]) * 64;
@@ -13242,7 +13242,7 @@ label_1159:
       }
       catch (Exception ex)
       {
-        Console.WriteLine("Debug command error: " + ex?.ToString());
+        Console.WriteLine("Debug command error: " + (ex != null ? ex.ToString() : null));
         Game1.debugOutput = ex.Message;
         return false;
       }
@@ -14009,7 +14009,7 @@ label_4:
                 if (Game1.currentLocation.currentEvent == null && Game1.locationRequest == null)
                   Game1.eventUp = false;
                 else if (actionButtonPressed | useToolButtonPressed)
-                  Game1.CurrentEvent?.receiveMouseClick(Game1.getMouseX(), Game1.getMouseY());
+                  if (Game1.CurrentEvent != null) Game1.CurrentEvent.receiveMouseClick(Game1.getMouseX(), Game1.getMouseY());
               }
               bool flag2 = Game1.eventUp || Game1.farmEvent != null;
               if (actionButtonPressed || Game1.dialogueUp & useToolButtonPressed)
@@ -16596,7 +16596,7 @@ label_12:
         }
         catch (Exception ex)
         {
-          Console.WriteLine("Exception measuring string: " + ex?.ToString());
+          Console.WriteLine("Exception measuring string: " + (ex != null ? ex.ToString() : null));
         }
       }
       return str2 + str1;
@@ -17155,6 +17155,7 @@ label_12:
     public delegate void afterFadeFunction();
   }
 }
+
 
 
 

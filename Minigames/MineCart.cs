@@ -3324,7 +3324,7 @@ label_13:
           this._game.trackBuilderCharacter.position.Y = (float) (this._game.generatorPosition.Y * this._game.tileSize);
           this._game.trackBuilderCharacter.ForceGrounded();
           this._game.trackBuilderCharacter.Jump();
-          mushroomSpring?.BouncePlayer(this._game.trackBuilderCharacter);
+          if (mushroomSpring != null) mushroomSpring.BouncePlayer(this._game.trackBuilderCharacter);
           this._game.trackBuilderCharacter.Update(0.03f);
           int y1 = this._game.generatorPosition.Y;
           if (this.staggerPattern != null && this.staggerPattern.Count > 0)
@@ -5438,6 +5438,7 @@ label_13:
     }
   }
 }
+
 
 
 

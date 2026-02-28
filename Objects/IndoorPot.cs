@@ -170,10 +170,10 @@ namespace StardewValley.Objects
     {
       base.updateWhenCurrentLocation(time, environment);
       this.hoeDirt.Value.tickUpdate(time, (Vector2) (NetFieldBase<Vector2, NetVector2>) this.tileLocation, environment);
-      this.bush.Value?.tickUpdate(time, environment);
+      if (this.bush.Value != null) this.bush.Value.tickUpdate(time, environment);
       if (!(bool) (NetFieldBase<bool, NetBool>) this.bushLoadDirty)
         return;
-      this.bush.Value?.loadSprite();
+      if (this.bush.Value != null) this.bush.Value.loadSprite();
       this.bushLoadDirty.Value = false;
     }
 
@@ -202,3 +202,4 @@ namespace StardewValley.Objects
     }
   }
 }
+
