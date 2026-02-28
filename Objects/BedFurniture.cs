@@ -345,7 +345,7 @@ namespace StardewValley.Objects
     public override bool IntersectsForCollision(Rectangle rect)
     {
       Rectangle boundingBox = this.getBoundingBox((Vector2) (NetFieldBase<Vector2, NetVector2>) this.tileLocation);
-      if ((boundingBox with { Height = 64 }).Intersects(rect))
+      if ((new Rectangle(boundingBox.X, boundingBox.Y, boundingBox.Width, 64 )).Intersects(rect))
         return true;
       Rectangle rectangle = boundingBox;
       rectangle.Y += 128;
@@ -412,6 +412,7 @@ namespace StardewValley.Objects
     }
   }
 }
+
 
 
 

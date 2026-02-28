@@ -578,11 +578,8 @@ namespace StardewValley.BellsAndWhistles
           upgradeRect.Inflate(5, 0);
         }
         this.targetPosition = (Utility.getRandomPositionInThisRectangle(upgradeRect, Game1.random) + new Vector2(0.5f, 0.5f)) * 64f;
-        Vector2 zero = Vector2.Zero with
-        {
-          X = this.targetPosition.X - this.position.X,
-          Y = this.targetPosition.Y - this.position.Y
-        };
+        Vector2 zero = new Vector2(this.targetPosition.X - this.position.X, this.targetPosition.Y - this.position.Y
+        );
         if ((double) zero.X < 0.0)
           this.flipped = false;
         else if ((double) zero.X > 0.0)
@@ -715,5 +712,6 @@ namespace StardewValley.BellsAndWhistles
     }
   }
 }
+
 
 

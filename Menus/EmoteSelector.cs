@@ -183,11 +183,8 @@ namespace StardewValley.Menus
         for (int index = 0; index < 8; ++index)
         {
           float num = Utility.Lerp(0.0f, 6.283185f, (float) index / 8f);
-          Vector2 zero = Vector2.Zero with
-          {
-            X = (float) (int) ((double) (this.xPositionOnScreen - 64 + (int) (Math.Cos((double) num) * 12.0) * 4) - 3.5),
-            Y = (float) (int) ((double) (this.yPositionOnScreen + 192 + (int) (-Math.Sin((double) num) * 12.0) * 4) - 3.5)
-          };
+          Vector2 zero = new Vector2((float) (int) ((double) (this.xPositionOnScreen - 64 + (int) (Math.Cos((double) num) * 12.0) * 4) - 3.5), (float) (int) ((double) (this.yPositionOnScreen + 192 + (int) (-Math.Sin((double) num) * 12.0) * 4) - 3.5)
+          );
           Utility.drawWithShadow(b, this.emoteTexture, zero, new Rectangle(64 + (index == this.emoteIndex ? 8 : 0), 48, 8, 8), Color.White, 0.0f, Vector2.Zero);
         }
       }
@@ -204,4 +201,5 @@ namespace StardewValley.Menus
     }
   }
 }
+
 

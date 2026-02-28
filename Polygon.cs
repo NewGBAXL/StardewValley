@@ -69,7 +69,7 @@ namespace StardewValley
       edgeBorder.Lines.Add(new Polygon.Line(vector2, new Vector2(vector2.X + 1f, vector2.Y)));
       ++vector2.X;
       int num1 = width - 12;
-      List<int> source1 = new List<int>() { 2, 2, 2 }
+      List<int> source1 = new List<int>() { 2, 2, 2 };
       int num2 = 0;
       while (num2 < num1)
       {
