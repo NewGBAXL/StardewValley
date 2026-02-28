@@ -15,7 +15,7 @@ namespace StardewValley
   {
     public object staticVarHolder;
 
-    public bool IsMainInstance { get { return GameRunner.instance.gameInstances.Count == 0 || GameRunner.instance.gameInstances[0] == this; };
+    public bool IsMainInstance { get { return GameRunner.instance.gameInstances.Count == 0 || GameRunner.instance.gameInstances[0] == this; }
 
     protected virtual void Initialize()
     {
@@ -41,13 +41,13 @@ namespace StardewValley
     {
     }
 
-    public GraphicsDevice GraphicsDevice { get { return GameRunner.instance.GraphicsDevice; };
+    public GraphicsDevice GraphicsDevice { get { return GameRunner.instance.GraphicsDevice; }
 
-    public ContentManager Content { get { return GameRunner.instance.Content; };
+    public ContentManager Content { get { return GameRunner.instance.Content; }
 
-    public GameComponentCollection Components { get { return GameRunner.instance.Components; };
+    public GameComponentCollection Components { get { return GameRunner.instance.Components; }
 
-    public GameWindow Window { get { return GameRunner.instance.Window; };
+    public GameWindow Window { get { return GameRunner.instance.Window; }
 
     public bool IsFixedTimeStep
     {
@@ -80,6 +80,7 @@ namespace StardewValley
     }
   }
 }
+
 
 
 

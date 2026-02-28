@@ -33,15 +33,15 @@ namespace StardewValley
 
     public float GetVariable(string var) { return 0.0f; }
 
-    public bool IsStopped { get { return true; };
+    public bool IsStopped { get { return true; }
 
-    public bool IsStopping { get { return false; };
+    public bool IsStopping { get { return false; }
 
-    public bool IsPlaying { get { return false; };
+    public bool IsPlaying { get { return false; }
 
-    public bool IsPaused { get { return false; };
+    public bool IsPaused { get { return false; }
 
-    public string Name { get { return ""; };
+    public string Name { get { return ""; }
 
     public void Stop(AudioStopOptions options)
     {
@@ -70,6 +70,7 @@ namespace StardewValley
     public bool IsPitchBeingControlledByRPC { get { return true; }
   }
 }
+
 
 
 

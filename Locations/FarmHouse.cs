@@ -48,7 +48,7 @@ namespace StardewValley.Locations
     private bool displayingSpouseRoom;
 
     [XmlIgnore]
-    public virtual Farmer owner { get { return Game1.MasterPlayer; };
+    public virtual Farmer owner { get { return Game1.MasterPlayer; }
 
     [XmlIgnore]
     public virtual int upgradeLevel
@@ -1938,6 +1938,7 @@ namespace StardewValley.Locations
     }
   }
 }
+
 
 
 

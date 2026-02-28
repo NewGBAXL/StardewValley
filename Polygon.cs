@@ -126,7 +126,7 @@ namespace StardewValley
       }
       int num7 = (int) vector2.X - (int) edgeBorder.Lines[0].Start.X + 1;
       --vector2.X;
-      List<int> source3 = new List<int>() { 2, 2, 2 };
+      List<int> source3 = new List<int>() { 2, 2, 2 }
       edgeBorder.addPoint(vector2);
       int num8 = 0;
       while (num8 < num7)
@@ -155,7 +155,7 @@ namespace StardewValley
       }
       int num10 = (int) vector2.Y - (int) edgeBorder.Lines[0].Start.Y - 1;
       --vector2.Y;
-      List<int> source4 = new List<int>() { 2, 2, 2 };
+      List<int> source4 = new List<int>() { 2, 2, 2 }
       edgeBorder.addPoint(vector2);
       int num11 = 0;
       while (num11 < num10)
@@ -464,6 +464,7 @@ namespace StardewValley
     }
   }
 }
+
 
 
 

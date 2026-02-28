@@ -254,7 +254,7 @@ namespace StardewValley.Network
 
     public virtual void sendMessage(byte which, params object[] data) { this.sendMessage(new OutgoingMessage(which, Game1.player, data)); }
 
-    public BandwidthLogger BandwidthLogger { get { return this.bandwidthLogger; };
+    public BandwidthLogger BandwidthLogger { get { return this.bandwidthLogger; }
 
     public bool LogBandwidth
     {
@@ -263,6 +263,7 @@ namespace StardewValley.Network
     }
   }
 }
+
 
 
 

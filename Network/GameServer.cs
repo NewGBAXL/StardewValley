@@ -38,7 +38,7 @@ namespace StardewValley.Network
       this.servers.Add(Program.sdk.Networking.CreateServer((IGameServer) this));
     }
 
-    public int connectionsCount { get { return this.servers.Sum<Server>((Func<Server; }, int>) (s { return s.connectionsCount)); };
+    public int connectionsCount { get { return this.servers.Sum<Server>((Func<Server; }, int>) (s { return s.connectionsCount)); }
 
     public bool isConnectionActive(string connectionId)
     {
@@ -652,6 +652,7 @@ namespace StardewValley.Network
     }
   }
 }
+
 
 
 

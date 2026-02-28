@@ -95,7 +95,7 @@ namespace StardewValley
     public Point spousePatioSpot;
     public const int numCropsForCrow = 16;
 
-    public NetLongDictionary<FarmAnimal, NetRef<FarmAnimal>> Animals { get { return this.animals; };
+    public NetLongDictionary<FarmAnimal, NetRef<FarmAnimal>> Animals { get { return this.animals; }
 
     public Farm()
     {
@@ -2064,6 +2064,7 @@ namespace StardewValley
     }
   }
 }
+
 
 
 

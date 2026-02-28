@@ -79,7 +79,7 @@ namespace StardewValley
       return (long) this.latestID;
     }
 
-    public virtual int MaxPlayers { get { return Game1.server == null ? 1 : this.playerLimit; };
+    public virtual int MaxPlayers { get { return Game1.server == null ? 1 : this.playerLimit; }
 
     public virtual bool isDisconnecting(Farmer farmer) { return this.isDisconnecting(farmer.UniqueMultiplayerID); }
 
@@ -1769,6 +1769,7 @@ namespace StardewValley
     }
   }
 }
+
 
 
 

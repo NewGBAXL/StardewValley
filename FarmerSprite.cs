@@ -103,7 +103,7 @@ namespace StardewValley
 
     public FarmerSprite.AnimationFrame CurrentAnimationFrame { get { return this.CurrentAnimation == null ? new FarmerSprite.AnimationFrame(0; }, 100, 0, false, false) : this.CurrentAnimation[this.currentAnimationIndex % this.CurrentAnimation.Count];
 
-    public int CurrentSingleAnimation { get { return this.CurrentAnimation != null ? this.CurrentAnimation[0].frame : -1; };
+    public int CurrentSingleAnimation { get { return this.CurrentAnimation != null ? this.CurrentAnimation[0].frame : -1; }
 
     public void setOwner(Farmer owner) { this.owner = owner; }
 
@@ -1427,6 +1427,7 @@ namespace StardewValley
     }
   }
 }
+
 
 
 

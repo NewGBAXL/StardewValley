@@ -23,7 +23,7 @@ namespace StardewValley.SDKs
     private TextBox _keyboardTextBox;
     protected bool _runningOnSteamDeck;
 
-    public SDKNetHelper Networking { get { return this.networking; };
+    public SDKNetHelper Networking { get { return this.networking; }
 
     public bool ConnectionFinished { get; private set; }
 
@@ -224,12 +224,13 @@ namespace StardewValley.SDKs
 
     public string FilterDirtyWords(string words) { return words; }
 
-    public bool HasOverlay { get { return false; };
+    public bool HasOverlay { get { return false; }
 
-    public bool IsJapaneseRegionRelease { get { return false; };
+    public bool IsJapaneseRegionRelease { get { return false; }
 
-    public bool IsEnterButtonAssignmentFlipped { get { return false; };
+    public bool IsEnterButtonAssignmentFlipped { get { return false; }
   }
 }
+
 
 

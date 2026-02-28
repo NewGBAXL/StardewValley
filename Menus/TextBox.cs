@@ -25,9 +25,9 @@ namespace StardewValley.Menus
     private bool _showKeyboard;
     private bool _selected;
 
-    public SpriteFont Font { get { return this._font; };
+    public SpriteFont Font { get { return this._font; }
 
-    public Color TextColor { get { return this._textColor; };
+    public Color TextColor { get { return this._textColor; }
 
     public int X { get; set; }
 
@@ -240,6 +240,7 @@ namespace StardewValley.Menus
     }
   }
 }
+
 
 
 

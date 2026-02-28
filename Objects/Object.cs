@@ -3424,7 +3424,7 @@ namespace StardewValley
           new Response("Progress", Game1.content.LoadString("Strings\\StringsFromCSFiles:Object.cs.12873")),
           new Response("Endless", Game1.content.LoadString("Strings\\StringsFromCSFiles:Object.cs.12875")),
           new Response("Exit", Game1.content.LoadString("Strings\\StringsFromCSFiles:TitleMenu.cs.11738"))
-        };
+        }
         who.currentLocation.createQuestionDialogue(Game1.content.LoadString("Strings\\Locations:Saloon_Arcade_Minecart_Menu"), answerChoices, "MinecartGame");
         return true;
       }
@@ -3742,7 +3742,7 @@ namespace StardewValley
         int num5 = -1;
         string str = "Wild";
         int num6 = 0;
-        Crop closeFlower = Utility.findCloseFlower(who.currentLocation, (Vector2) (NetFieldBase<Vector2, NetVector2>) this.tileLocation, 5, (Func<Crop, bool>) (crop { return !crop.forageCrop.Value)); };
+        Crop closeFlower = Utility.findCloseFlower(who.currentLocation, (Vector2) (NetFieldBase<Vector2, NetVector2>) this.tileLocation, 5, (Func<Crop, bool>) (crop { return !crop.forageCrop.Value)); }
         if (closeFlower != null)
         {
           str = Game1.objectInformation[(int) (NetFieldBase<int, NetInt>) closeFlower.indexOfHarvest].Split('/')[0];
@@ -5549,6 +5549,7 @@ label_12:
     }
   }
 }
+
 
 
 

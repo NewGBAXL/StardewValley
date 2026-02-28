@@ -31,7 +31,7 @@ namespace StardewValley
 
     public bool ShouldDrawIcon() { return false; }
 
-    public string DisplayName { get { return this._displayName; };
+    public string DisplayName { get { return this._displayName; }
 
     public void drawInMenu(
       SpriteBatch spriteBatch,
@@ -45,7 +45,7 @@ namespace StardewValley
     {
     }
 
-    public string Name { get { return this._name; };
+    public string Name { get { return this._name; }
 
     public string getDescription() { return this._description; }
 
@@ -357,6 +357,7 @@ namespace StardewValley
     }
   }
 }
+
 
 
 

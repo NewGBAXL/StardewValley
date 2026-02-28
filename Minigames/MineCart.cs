@@ -147,9 +147,9 @@ namespace StardewValley.Minigames
     protected bool _buttonState;
     public bool _wasJustChatting;
 
-    public double totalTime { get { return this._totalTime; };
+    public double totalTime { get { return this._totalTime; }
 
-    public double totalTimeMS { get { return this._totalTime * 1000.0; };
+    public double totalTimeMS { get { return this._totalTime * 1000.0; }
 
     public MineCart(int whichTheme, int mode)
     {
@@ -3766,7 +3766,7 @@ label_13:
         3,
         3,
         2
-      };
+      }
       protected int _repeatedFrameCount = 4;
       protected float _lifeTime = 3f;
       public Vector2 bubbleOffset = Vector2.Zero;
@@ -5438,6 +5438,7 @@ label_13:
     }
   }
 }
+
 
 
 

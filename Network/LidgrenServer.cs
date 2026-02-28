@@ -20,7 +20,7 @@ namespace StardewValley.Network
     private HashSet<NetConnection> introductionsSent = new HashSet<NetConnection>();
     protected Bimap<long, NetConnection> peers = new Bimap<long, NetConnection>();
 
-    public override int connectionsCount { get { return this.server == null ? 0 : this.server.ConnectionsCount; };
+    public override int connectionsCount { get { return this.server == null ? 0 : this.server.ConnectionsCount; }
 
     public LidgrenServer(IGameServer gameServer)
       : base(gameServer)
@@ -270,6 +270,7 @@ namespace StardewValley.Network
     }
   }
 }
+
 
 
 

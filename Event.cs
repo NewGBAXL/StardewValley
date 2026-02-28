@@ -6422,7 +6422,7 @@ label_9:
             motion = new Vector2(0.0f, 1f),
             overrideLocationDestroy = true,
             id = 77777f
-          };
+          }
           location.temporarySprites.Add(temporaryAnimatedSprite7);
           for (int index = 0; index < 19; ++index)
             location.temporarySprites.Add(new TemporaryAnimatedSprite(10, new Vector2(32f, 32f), Microsoft.Xna.Framework.Color.White)
@@ -7163,7 +7163,7 @@ label_9:
           {
             acceleration = new Vector2(0.0f, -0.01f),
             accelerationChange = new Vector2(0.0f, -0.0001f)
-          };
+          }
           location.temporarySprites.Add(temporaryAnimatedSprite9);
           for (int index = 0; index < 420; ++index)
             location.TemporarySprites.Add(new TemporaryAnimatedSprite("TileSheets\\animations", new Microsoft.Xna.Framework.Rectangle(Game1.random.Next(4) * 64, 320, 64, 64), new Vector2((float) Game1.random.Next(96), 136f), false, 0.01f, Microsoft.Xna.Framework.Color.White * 0.75f)
@@ -8430,7 +8430,7 @@ label_9:
       this.eventCommands = regex6.Replace(input6, "animate $1 false true 600 0 3").Split('/');
     }
 
-    public string FestivalName { get { return this.festivalData == null ? "" : this.festivalData["name"]; };
+    public string FestivalName { get { return this.festivalData == null ? "" : this.festivalData["name"]; }
 
     private void judgeGrange()
     {
@@ -9860,6 +9860,7 @@ label_9:
     private void iceFishingWinnerMP() { this.specialEventVariable1 = !this.winners.Contains(Game1.player); }
   }
 }
+
 
 
 

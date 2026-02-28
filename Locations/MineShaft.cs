@@ -2817,7 +2817,7 @@ namespace StardewValley.Locations
       return new StardewValley.Object(parentSheetIndex, 1)
       {
         IsSpawnedObject = true
-      };
+      }
     }
 
     public bool shouldShowDarkHoeDirt() { return this.getMineArea() != 121 || this.isDinoArea; }
@@ -3098,7 +3098,7 @@ namespace StardewValley.Locations
         return new StardewValley.Object(tile, 95, "Stone", true, false, false, false)
         {
           MinutesUntilReady = 25
-        };
+        }
       int parentSheetIndex1;
       if (this.getMineArea() == 0 || this.getMineArea() == 10)
       {
@@ -3502,6 +3502,7 @@ namespace StardewValley.Locations
     }
   }
 }
+
 
 
 

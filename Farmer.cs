@@ -575,7 +575,7 @@ namespace StardewValley
     [XmlIgnore]
     public int festivalScore
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.netFestivalScore;
+      get { return (int) (NetFieldBase<NetInt>) this.netFestivalScore;
       set
       {
         if (Game1.player != null && Game1.player.team != null && Game1.player.team.festivalScoreStatus != null)
@@ -1168,13 +1168,13 @@ namespace StardewValley
       this.changeShirt(0);
       this.changeSkinColor(0);
       this.changeShoeColor(2);
-      this.shirtItem.fieldChangeVisibleEvent += (NetFieldBase<Clothing, NetRef<Clothing>>.FieldChange) (delegate(field, old_value, new_value) { return this.UpdateClothing(; }));
-      this.pantsItem.fieldChangeVisibleEvent += (NetFieldBase<Clothing, NetRef<Clothing>>.FieldChange) (delegate(field, old_value, new_value) { return this.UpdateClothing(; }));
+      this.shirtItem.fieldChangeVisibleEvent += (NetFieldBase<Clothing, NetRef<Clothing>>.FieldChange) (delegate(field, old_value, new_value) { this.UpdateClothing(; }));
+      this.pantsItem.fieldChangeVisibleEvent += (NetFieldBase<Clothing, NetRef<Clothing>>.FieldChange) (delegate(field, old_value, new_value) { this.UpdateClothing(; }));
       this.farmName.FilterStringEvent += new NetString.FilterString(Utility.FilterDirtyWords);
       this.name.FilterStringEvent += new NetString.FilterString(Utility.FilterDirtyWords);
     }
 
-    public bool CanEmote() { return Game1.farmEvent == null && (!Game1.eventUp || Game1.CurrentEvent == null || Game1.CurrentEvent.playerControlSequence || !this.IsLocalPlayer) && !this.usingSlingshot && !this.isEating && !this.UsingTool && (this.CanMove || !this.IsLocalPlayer) && !this.IsSitting() && !this.isRidingHorse() && !this.bathingClothes.Value; }
+    public bool CanEmote() { Game1.farmEvent == null && (!Game1.eventUp || Game1.CurrentEvent == null || Game1.CurrentEvent.playerControlSequence || !this.IsLocalPlayer) && !this.usingSlingshot && !this.isEating && !this.UsingTool && (this.CanMove || !this.IsLocalPlayer) && !this.IsSitting() && !this.isRidingHorse() && !this.bathingClothes.Value; }
 
     public void performRenovation(string location_name)
     {
@@ -1216,11 +1216,9 @@ namespace StardewValley
       }
     }
 
-    public bool ShouldHandleAnimationSound() { return !LocalMultiplayer.IsLocalMultiplayer(true) || this.IsLocalPlayer; }
+    public bool ShouldHandleAnimationSound() { !LocalMultiplayer.IsLocalMultiplayer(true) || this.IsLocalPlayer; }
 
-    public static List<Item> initialTools()
-    {
-      return new List<Item>()
+    public static List<Item> initialTools() { new List<Item>()
       {
         (Item) new Axe(),
         (Item) new Hoe(),
@@ -1239,16 +1237,16 @@ namespace StardewValley
           numArray1 = new int[4]{ 1200, 1600, 1900, 2400 }
           break;
         case 1:
-          numArray1 = new int[4]{ 1200, 1700, 2100, 2400 };
+          numArray1 = new int[4]{ 1200, 1700, 2100, 2400 }
           break;
         case 2:
-          numArray1 = new int[4]{ 1100, 1400, 1900, 2300 };
+          numArray1 = new int[4]{ 1100, 1400, 1900, 2300 }
           break;
         case 3:
-          numArray1 = new int[3]{ 1600, 1900, 2400 };
+          numArray1 = new int[3]{ 1600, 1900, 2400 }
           break;
         case 4:
-          numArray1 = new int[3]{ 700, 1200, 1900 };
+          numArray1 = new int[3]{ 700, 1200, 1900 }
           break;
       }
       if (!this.IsLocalPlayer)
@@ -1261,7 +1259,7 @@ namespace StardewValley
           1200 + Game1.random.Next(4) * 100,
           1600 + Game1.random.Next(4) * 100,
           2000 + Game1.random.Next(4) * 100
-        };
+        }
         for (int index = 0; index < numArray2.Length; ++index)
         {
           DelayedAction.playSoundAfterDelay("miniharp_note", Game1.random.Next(60, 150) * index, this.currentLocation, numArray2[index]);
@@ -1295,7 +1293,7 @@ namespace StardewValley
       Farmer.removeLowestUpgradeLevelTool(items, typeof (Hoe));
       Farmer.removeLowestUpgradeLevelTool(items, typeof (WateringCan));
       Farmer.removeLowestUpgradeLevelTool(items, typeof (Pickaxe));
-      Item obj = items.FirstOrDefault<Item>((Func<Item, bool>) (item { return item is MeleeWeapon && (item as Tool).InitialParentTileIndex == 47)); };
+      Item obj = items.FirstOrDefault<Item>((Func<Item, bool>) (item { return item is MeleeWeapon && (item as Tool).InitialParentTileIndex == 47)); }
       if (obj == null)
         return;
       items.Remove(obj);
@@ -1385,9 +1383,9 @@ namespace StardewValley
 
     public void removeBuffAttributes() { this.removeBuffAttributes(this.appliedBuffs.ToArray<int>()); }
 
-    public bool isActive() { return this == Game1.player || Game1.otherFarmers.ContainsKey(this.UniqueMultiplayerID); }
+    public bool isActive() { this == Game1.player || Game1.otherFarmers.ContainsKey(this.UniqueMultiplayerID); }
 
-    public string getTexture() { return "Characters\\Farmer\\farmer_" + (this.IsMale ? "" : "girl_") + "base" + (this.isBald() ? "_bald" : ""); }
+    public string getTexture() { "Characters\\Farmer\\farmer_" + (this.IsMale ? "" : "girl_") + "base" + (this.isBald() ? "_bald" : ""); }
 
     public void checkForLevelTenStatus()
     {
@@ -1416,7 +1414,7 @@ namespace StardewValley
       this.addItemToInventory(currentItem);
     }
 
-    public int getNumberOfChildren() { return this.getChildrenCount(); }
+    public int getNumberOfChildren() { this.getChildrenCount(); }
 
     private void setMount(Horse mount)
     {
@@ -1446,11 +1444,11 @@ namespace StardewValley
       }
     }
 
-    public bool isRidingHorse() { return this.mount != null && !Game1.eventUp; }
+    public bool isRidingHorse() { this.mount != null && !Game1.eventUp; }
 
-    public List<Child> getChildren() { return Utility.getHomeOfFarmer(this).getChildren(); }
+    public List<Child> getChildren() { Utility.getHomeOfFarmer(this).getChildren(); }
 
-    public int getChildrenCount() { return Utility.getHomeOfFarmer(this).getChildrenCount(); }
+    public int getChildrenCount() { Utility.getHomeOfFarmer(this).getChildrenCount(); }
 
     public Tool getToolFromName(string name)
     {
@@ -1482,7 +1480,7 @@ namespace StardewValley
       return this.friendshipData.TryGetValue(name, out friendship) ? friendship.Points : 0;
     }
 
-    public int getFriendshipHeartLevelForNPC(string name) { return this.getFriendshipLevelForNPC(name) / 250; }
+    public int getFriendshipHeartLevelForNPC(string name) { this.getFriendshipLevelForNPC(name) / 250; }
 
     public bool isRoommate(string name)
     {
@@ -1496,7 +1494,7 @@ namespace StardewValley
       return this.spouse != null && this.friendshipData.TryGetValue(this.spouse, out friendship) && friendship.RoommateMarriage;
     }
 
-    public bool hasRoommate() { return this.spouse != null && this.isRoommate(this.spouse); }
+    public bool hasRoommate() { this.spouse != null && this.isRoommate(this.spouse); }
 
     public bool hasAFriendWithHeartLevel(int heartLevel, bool datablesOnly)
     {
@@ -1771,7 +1769,7 @@ namespace StardewValley
         (int) (NetFieldBase<int, NetInt>) this.miningLevel,
         (int) (NetFieldBase<int, NetInt>) this.combatLevel,
         (int) (NetFieldBase<int, NetInt>) this.luckLevel
-      };
+      }
       for (int index = 0; index < this.newLevels.Count; ++index)
         --numArray[this.newLevels[index].X];
       return numArray[whichSkill];
@@ -1837,9 +1835,9 @@ namespace StardewValley
       }
     }
 
-    public bool hasGiftTasteBeenRevealed(NPC npc, int item_index) { return this.hasItemBeenGifted(npc, item_index) || this.giftedItems.ContainsKey((string) (NetFieldBase<string, NetString>) npc.name) && this.giftedItems[(string) (NetFieldBase<string, NetString>) npc.name].ContainsKey(item_index); }
+    public bool hasGiftTasteBeenRevealed(NPC npc, int item_index) { this.hasItemBeenGifted(npc, item_index) || this.giftedItems.ContainsKey((string) (NetFieldBase<string, NetString>) npc.name) && this.giftedItems[(string) (NetFieldBase<string, NetString>) npc.name].ContainsKey(item_index); }
 
-    public bool hasItemBeenGifted(NPC npc, int item_index) { return this.giftedItems.ContainsKey((string) (NetFieldBase<string, NetString>) npc.name) && this.giftedItems[(string) (NetFieldBase<string, NetString>) npc.name].ContainsKey(item_index) && this.giftedItems[(string) (NetFieldBase<string, NetString>) npc.name][item_index] > 0; }
+    public bool hasItemBeenGifted(NPC npc, int item_index) { this.giftedItems.ContainsKey((string) (NetFieldBase<string, NetString>) npc.name) && this.giftedItems[(string) (NetFieldBase<string, NetString>) npc.name].ContainsKey(item_index) && this.giftedItems[(string) (NetFieldBase<string, NetString>) npc.name][item_index] > 0; }
 
     public void MarkItemAsTailored(Item item)
     {
@@ -1851,7 +1849,7 @@ namespace StardewValley
       this.tailoredItems[descriptionFromItem]++;
     }
 
-    public bool HasTailoredThisItem(Item item) { return item != null && this.tailoredItems.ContainsKey(Utility.getStandardDescriptionFromItem(item, 1)); }
+    public bool HasTailoredThisItem(Item item) { item != null && this.tailoredItems.ContainsKey(Utility.getStandardDescriptionFromItem(item, 1)); }
 
     public void foundMineral(int index)
     {
@@ -1894,7 +1892,7 @@ namespace StardewValley
       }
     }
 
-    public int getItemCount(int item_index, int min_price = 0) { return this.getItemCountInList((IList<Item>) this.items, item_index, min_price); }
+    public int getItemCount(int item_index, int min_price = 0) { this.getItemCountInList((IList<Item>) this.items, item_index, min_price); }
 
     public bool hasItemInInventory(int itemIndex, int quantity, int minPrice = 0)
     {
@@ -1926,7 +1924,7 @@ namespace StardewValley
       return itemCountInList;
     }
 
-    public bool hasItemInList(IList<Item> list, int itemIndex, int quantity, int minPrice = 0) { return this.getItemCountInList(list, itemIndex, minPrice) >= quantity; }
+    public bool hasItemInList(IList<Item> list, int itemIndex, int quantity, int minPrice = 0) { this.getItemCountInList(list, itemIndex, minPrice) >= quantity; }
 
     public void addItemByMenuIfNecessaryElseHoldUp(
       Item item,
@@ -2145,7 +2143,7 @@ namespace StardewValley
       }
     }
 
-    public int GetDaysMarried() { return this.spouse == null || this.spouse == "" ? 0 : this.friendshipData[this.spouse].DaysMarried; }
+    public int GetDaysMarried() { this.spouse == null || this.spouse == "" ? 0 : this.friendshipData[this.spouse].DaysMarried; }
 
     public Friendship GetSpouseFriendship()
     {
@@ -2170,7 +2168,7 @@ namespace StardewValley
       if (!((NetFieldBase<Tool, NetRef<Tool>>) this.toolBeingUpgraded != (NetRef<Tool>) null) || (int) (NetFieldBase<int, NetInt>) this.daysLeftForToolUpgrade > 0 || this.toolBeingUpgraded.Value == null || Utility.isFestivalDay(dayOfMonth, Game1.currentSeason) || !(Game1.shortDayNameFromDayOfSeason(dayOfMonth) != "Fri") && this.hasCompletedCommunityCenter() && !Game1.isRaining || this.hasReceivedToolUpgradeMessageYet)
         return;
       if (Game1.newDay)
-        Game1.morningQueue.Enqueue((DelayedAction.delayedBehavior) (delegate() { return Game1.showGlobalMessage(Game1.content.LoadString("Strings\\StringsFromCSFiles:ToolReady", (object; }) this.toolBeingUpgraded.Value.DisplayName))));
+        Game1.morningQueue.Enqueue((DelayedAction.delayedBehavior) (delegate() { Game1.showGlobalMessage(Game1.content.LoadString("Strings\\StringsFromCSFiles:ToolReady", (object; }) this.toolBeingUpgraded.Value.DisplayName))));
       else
         Game1.showGlobalMessage(Game1.content.LoadString("Strings\\StringsFromCSFiles:ToolReady", (object) this.toolBeingUpgraded.Value.DisplayName));
       this.hasReceivedToolUpgradeMessageYet = true;
@@ -2352,7 +2350,7 @@ namespace StardewValley
             {
               motion = new Vector2((float) Game1.random.Next(-30, 31) / 10f, (float) Game1.random.Next(-6, -3)),
               acceleration = new Vector2(0.0f, 0.5f)
-            };
+            }
             who.currentLocation.temporarySprites.Add(temporaryAnimatedSprite2);
           }
           return;
@@ -2369,9 +2367,9 @@ namespace StardewValley
     {
     }
 
-    public bool hasBuff(int whichBuff) { return this.appliedSpecialBuffs.ContainsKey(whichBuff); }
+    public bool hasBuff(int whichBuff) { this.appliedSpecialBuffs.ContainsKey(whichBuff); }
 
-    public bool hasOrWillReceiveMail(string id) { return this.mailReceived.Contains(id) || this.mailForTomorrow.Contains(id) || Game1.mailbox.Contains(id) || this.mailForTomorrow.Contains(id + "%&NL&%"); }
+    public bool hasOrWillReceiveMail(string id) { this.mailReceived.Contains(id) || this.mailForTomorrow.Contains(id) || Game1.mailbox.Contains(id) || this.mailForTomorrow.Contains(id + "%&NL&%"); }
 
     public static void showHoldingItem(Farmer who)
     {
@@ -2565,7 +2563,7 @@ namespace StardewValley
       this.updateFriendshipGifts(date);
     }
 
-    public virtual int GetAppliedMagneticRadius() { return Math.Max(128, (int) (NetFieldBase<int, NetInt>) this.magneticRadius); }
+    public virtual int GetAppliedMagneticRadius() { Math.Max(128, (int) (NetFieldBase<int, NetInt>) this.magneticRadius); }
 
     public void updateFriendshipGifts(WorldDate date)
     {
@@ -2642,7 +2640,7 @@ namespace StardewValley
         {
           for (int index1 = 0; index1 < ingredient[1]; ++index1)
           {
-            int[] numArray = new int[2]{ 99999, -1 };
+            int[] numArray = new int[2]{ 99999, -1 }
             for (int index2 = 0; index2 < this.items.Count; ++index2)
             {
               if (this.items[index2] != null && this.items[index2] is Object && this.items[index2].ParentSheetIndex == ingredient[0] && !Farmer.containsIndex(locationOfIngredients, index2))
@@ -2783,7 +2781,7 @@ namespace StardewValley
       return false;
     }
 
-    public bool IsEquippedItem(Item item) { return item != null && (item == Game1.player.hat.Value || item == Game1.player.shirtItem.Value || item == Game1.player.pantsItem.Value || item == Game1.player.leftRing.Value || item == Game1.player.rightRing.Value || item == Game1.player.boots.Value); }
+    public bool IsEquippedItem(Item item) { item != null && (item == Game1.player.hat.Value || item == Game1.player.shirtItem.Value || item == Game1.player.pantsItem.Value || item == Game1.player.leftRing.Value || item == Game1.player.rightRing.Value || item == Game1.player.boots.Value); }
 
     public override bool collideWith(Object o)
     {
@@ -2864,7 +2862,7 @@ namespace StardewValley
         if (index < this.items.Count && this.items[index] != null && this.items[index].maximumStackSize() != -1 && this.items[index].Stack < this.items[index].maximumStackSize() && this.items[index].Name.Equals(item.Name) && (!(item is Object) || !(this.items[index] is Object) || (item as Object).quality.Value == (this.items[index] as Object).quality.Value && (item as Object).parentSheetIndex.Value == (this.items[index] as Object).parentSheetIndex.Value) && item.canStackWith((ISalable) this.items[index]))
         {
           int stack = this.items[index].addToStack(item);
-          affected_items_list?.Add(this.items[index]);
+          affected_items_list.Add(this.items[index]);
           if (stack <= 0)
             return (Item) null;
           item.Stack = stack;
@@ -2875,7 +2873,7 @@ namespace StardewValley
         if (this.items.Count > index && this.items[index] == null)
         {
           this.items[index] = item;
-          affected_items_list?.Add(this.items[index]);
+          affected_items_list.Add(this.items[index]);
           return (Item) null;
         }
       }
@@ -3098,13 +3096,13 @@ label_20:
       collection.Add(a);
       collection.Add(b);
       collection.Add(c);
-      collection.Sort((Comparison<Vector2>) (delegate(d, e) { return (d + new Vector2(0.5f, 0.5f; }) - mouse_pos).Length().CompareTo((e + new Vector2(0.5f, 0.5f) - mouse_pos).Length())));
+      collection.Sort((Comparison<Vector2>) (delegate(d, e) { (d + new Vector2(0.5f, 0.5f; }) - mouse_pos).Length().CompareTo((e + new Vector2(0.5f, 0.5f) - mouse_pos).Length())));
       list.AddRange((IEnumerable<Vector2>) collection);
     }
 
-    public virtual bool IsSitting() { return this.isSitting.Value; }
+    public virtual bool IsSitting() { this.isSitting.Value; }
 
-    public Item addItemToInventory(Item item) { return this.addItemToInventory(item, (List<Item>) null); }
+    public Item addItemToInventory(Item item) { this.addItemToInventory(item, (List<Item>) null); }
 
     public bool isInventoryFull()
     {
@@ -3154,7 +3152,7 @@ label_20:
       return false;
     }
 
-    public NPC getSpouse() { return this.isMarried() && this.spouse != null ? Game1.getCharacterFromName(this.spouse) : (NPC) null; }
+    public NPC getSpouse() { this.isMarried() && this.spouse != null ? Game1.getCharacterFromName(this.spouse) : (NPC) null; }
 
     public int freeSpotsInInventory()
     {
@@ -3573,7 +3571,7 @@ label_20:
       return Farmer.allHairStyleIndices;
     }
 
-    public static int GetLastHairStyle() { return Farmer.GetAllHairstyleIndices()[Farmer.GetAllHairstyleIndices().Count<int>() - 1]; }
+    public static int GetLastHairStyle() { Farmer.GetAllHairstyleIndices()[Farmer.GetAllHairstyleIndices().Count<int>() - 1]; }
 
     public void changeHairStyle(int whichHair)
     {
@@ -3616,7 +3614,7 @@ label_20:
       }
     }
 
-    private bool isBald() { return this.IsBaldHairStyle(this.getHair()); }
+    private bool isBald() { this.IsBaldHairStyle(this.getHair()); }
 
     public void changeShoeColor(int which)
     {
@@ -3656,7 +3654,7 @@ label_20:
       this.skin.Set(this.FarmerRenderer.recolorSkin(which, force));
     }
 
-    public bool hasDarkSkin() { return (int) (NetFieldBase<int, NetInt>) this.skin >= 4 && (int) (NetFieldBase<int, NetInt>) this.skin <= 8 || (int) (NetFieldBase<int, NetInt>) this.skin == 14; }
+    public bool hasDarkSkin() { (int) (NetFieldBase<int, NetInt>) this.skin >= 4 && (int) (NetFieldBase<int, NetInt>) this.skin <= 8 || (int) (NetFieldBase<int, NetInt>) this.skin == 14; }
 
     public void changeEyeColor(Color c)
     {
@@ -3767,7 +3765,7 @@ label_20:
       Game1.stats.checkForFriendshipAchievements();
     }
 
-    public bool knowsRecipe(string name) { return this.craftingRecipes.Keys.Contains(name.Replace(" Recipe", "")) || this.cookingRecipes.Keys.Contains(name.Replace(" Recipe", "")); }
+    public bool knowsRecipe(string name) { this.craftingRecipes.Keys.Contains(name.Replace(" Recipe", "")) || this.cookingRecipes.Keys.Contains(name.Replace(" Recipe", "")); }
 
     public Vector2 getUniformPositionAwayFromBox(int direction, int distance)
     {
@@ -3786,7 +3784,7 @@ label_20:
       }
     }
 
-    public bool hasTalkedToFriendToday(string npcName) { return this.friendshipData.ContainsKey(npcName) && this.friendshipData[npcName].TalkedToToday; }
+    public bool hasTalkedToFriendToday(string npcName) { this.friendshipData.ContainsKey(npcName) && this.friendshipData[npcName].TalkedToToday; }
 
     public void talkToFriend(NPC n, int friendshipPointChange = 20)
     {
@@ -4159,9 +4157,9 @@ label_20:
       return (bool) (NetFieldBase<bool, NetBool>) this.pantsItem.Value.isPrismatic ? Utility.GetPrismaticColor() : this.pantsItem.Value.clothesColor.Value;
     }
 
-    public bool movedDuringLastTick() { return !this.Position.Equals(this.lastPosition); }
+    public bool movedDuringLastTick() { !this.Position.Equals(this.lastPosition); }
 
-    public int CompareTo(object obj) { return ((Farmer) obj).saveTime - this.saveTime; }
+    public int CompareTo(object obj) { ((Farmer) obj).saveTime - this.saveTime; }
 
     public virtual void SetOnBridge(bool val)
     {
@@ -4198,7 +4196,7 @@ label_20:
         b.Draw(this.Sprite.Texture, new Vector2(this.getLocalPosition(Game1.viewport).X - 4f, this.getLocalPosition(Game1.viewport).Y - 4f), new Microsoft.Xna.Framework.Rectangle?(this.Sprite.SourceRect), this.glowingColor * this.glowingTransparency, 0.0f, Vector2.Zero, 1.1f, SpriteEffects.None, Math.Max(0.0f, drawLayer - 1f / 1000f));
       else if (this.isGlowing && !this.coloredBorder)
         this.FarmerRenderer.draw(b, this.FarmerSprite, this.FarmerSprite.SourceRect, this.getLocalPosition(Game1.viewport) + this.jitter + new Vector2(0.0f, (float) this.yJumpOffset), origin, Math.Max(0.0f, drawLayer + 0.00011f), this.glowingColor * this.glowingTransparency, this.rotation, this);
-      tile?.TileIndexProperties.TryGetValue("Shadow", out propertyValue);
+      tile.TileIndexProperties.TryGetValue("Shadow", out propertyValue);
       if (propertyValue == null)
       {
         if (this.IsSitting() || !Game1.shouldTimePass() || !this.temporarilyInvincible || this.temporaryInvincibilityTimer % 100 < 50)
@@ -4342,7 +4340,7 @@ label_20:
       {
         if (homeOfFarmer.characters[index] is Child)
         {
-          homeOfFarmer.GetChildBed(homeOfFarmer.characters[index].Gender)?.mutex.ReleaseLock();
+          homeOfFarmer.GetChildBed(homeOfFarmer.characters[index].Gender).mutex.ReleaseLock();
           if ((homeOfFarmer.characters[index] as Child).hat.Value != null)
           {
             Hat hat = (homeOfFarmer.characters[index] as Child).hat.Value;
@@ -4495,7 +4493,7 @@ label_20:
                 interval = (float) Math.Max(who.FarmerSprite.CurrentAnimationFrame.milliseconds, val2),
                 alpha = 0.5f,
                 rotation = 3.926991f
-              };
+              }
               break;
           }
           break;
@@ -4520,7 +4518,7 @@ label_20:
                 animationLength = 1,
                 interval = (float) Math.Max(who.FarmerSprite.CurrentAnimationFrame.milliseconds, val2),
                 alpha = 0.5f
-              };
+              }
               break;
           }
           break;
@@ -4546,7 +4544,7 @@ label_20:
                 interval = (float) Math.Max(who.FarmerSprite.CurrentAnimationFrame.milliseconds, val2),
                 alpha = 0.5f,
                 layerDepth = (float) (((double) who.Position.Y + 64.0) / 10000.0)
-              };
+              }
               break;
           }
           break;
@@ -4572,7 +4570,7 @@ label_20:
                 interval = (float) Math.Max(who.FarmerSprite.CurrentAnimationFrame.milliseconds, val2),
                 flipped = true,
                 alpha = 0.5f
-              };
+              }
               break;
           }
           break;
@@ -4904,7 +4902,7 @@ label_20:
       }
     }
 
-    public Vector2 getMostRecentMovementVector() { return new Vector2(this.Position.X - this.lastPosition.X, this.Position.Y - this.lastPosition.Y); }
+    public Vector2 getMostRecentMovementVector() { new Vector2(this.Position.X - this.lastPosition.X, this.Position.Y - this.lastPosition.Y); }
 
     public void dropActiveItem()
     {
@@ -4998,7 +4996,7 @@ label_20:
       }
     }
 
-    public bool hasCompletedCommunityCenter() { return this.mailReceived.Contains("ccBoilerRoom") && this.mailReceived.Contains("ccCraftsRoom") && this.mailReceived.Contains("ccPantry") && this.mailReceived.Contains("ccFishTank") && this.mailReceived.Contains("ccVault") && this.mailReceived.Contains("ccBulletin"); }
+    public bool hasCompletedCommunityCenter() { this.mailReceived.Contains("ccBoilerRoom") && this.mailReceived.Contains("ccCraftsRoom") && this.mailReceived.Contains("ccPantry") && this.mailReceived.Contains("ccFishTank") && this.mailReceived.Contains("ccVault") && this.mailReceived.Contains("ccBulletin"); }
 
     private bool localBusMoving()
     {
@@ -5013,7 +5011,7 @@ label_20:
       return currentLocation1.drivingOff || currentLocation1.drivingBack;
     }
 
-    public virtual bool CanBeDamaged() { return !this.temporarilyInvincible && !Game1.player.isEating && !Game1.fadeToBlack && !Game1.buffsDisplay.hasBuff(21); }
+    public virtual bool CanBeDamaged() { !this.temporarilyInvincible && !Game1.player.isEating && !Game1.fadeToBlack && !Game1.buffsDisplay.hasBuff(21); }
 
     public void takeDamage(int damage, bool overrideParry, Monster damager)
     {
@@ -5034,7 +5032,7 @@ label_20:
       {
         if (!(flag1 & flag3))
           return;
-        damager?.onDealContactDamage(this);
+        damager.onDealContactDamage(this);
         damage += Game1.random.Next(Math.Min(-1, -damage / 8), Math.Max(1, damage / 8));
         int resilience = this.resilience;
         if (this.CurrentTool is MeleeWeapon)
@@ -5065,7 +5063,7 @@ label_20:
           if (this.health <= 0 && this.GetEffectsOfRingMultiplier(863) > 0 && !this.hasUsedDailyRevive.Value)
           {
             Game1.player.startGlowing(new Color((int) byte.MaxValue, (int) byte.MaxValue, 0), false, 0.25f);
-            DelayedAction.functionAfterDelay((DelayedAction.delayedBehavior) (delegate() { return this.stopGlowing(; })), 500);
+            DelayedAction.functionAfterDelay((DelayedAction.delayedBehavior) (delegate() { this.stopGlowing(; })), 500);
             Game1.playSound("yoba");
             for (int index = 0; index < 13; ++index)
             {
@@ -6219,7 +6217,7 @@ label_20:
       }
     }
 
-    public bool IsCarrying() { return this.mount == null && !this.isAnimatingMount && !this.IsSitting() && !this.onBridge.Value && this.ActiveObject != null && !Game1.eventUp && !Game1.killScreen && !(this.ActiveObject is Furniture); }
+    public bool IsCarrying() { this.mount == null && !this.isAnimatingMount && !this.IsSitting() && !this.onBridge.Value && this.ActiveObject != null && !Game1.eventUp && !Game1.killScreen && !(this.ActiveObject is Furniture); }
 
     public void doneEating()
     {
@@ -6309,7 +6307,7 @@ label_20:
               "0",
               "0",
               "0"
-            };
+            }
           else
             strArray2 = strArray1[7].Split(' ');
           string[] buffs = strArray2;
@@ -6732,7 +6730,7 @@ label_20:
         null,
         null,
         null
-      };
+      }
       FarmerSprite.AnimationFrame[] frames1 = new FarmerSprite.AnimationFrame[10];
       frames1[0] = new FarmerSprite.AnimationFrame(3, 250, false, false);
       frames1[1] = new FarmerSprite.AnimationFrame(102, 50, false, false);
@@ -6742,7 +6740,7 @@ label_20:
           who.currentLocation.localSound("hitEnemy");
         who.jitterStrength = 1f;
       }));
-      frames1[2] = animationFrame1.AddFrameEndAction((AnimatedSprite.endOfAnimationBehavior) (who { return who.stopJittering())); };
+      frames1[2] = animationFrame1.AddFrameEndAction((AnimatedSprite.endOfAnimationBehavior) (who { return who.stopJittering())); }
       frames1[3] = new FarmerSprite.AnimationFrame(3, 250, false, false);
       frames1[4] = new FarmerSprite.AnimationFrame(102, 50, false, false);
       FarmerSprite.AnimationFrame animationFrame2 = new FarmerSprite.AnimationFrame(10, 250, false, false);
@@ -6751,7 +6749,7 @@ label_20:
           who.currentLocation.localSound("hitEnemy");
         who.jitterStrength = 1f;
       }));
-      frames1[5] = animationFrame2.AddFrameEndAction((AnimatedSprite.endOfAnimationBehavior) (who { return who.stopJittering())); };
+      frames1[5] = animationFrame2.AddFrameEndAction((AnimatedSprite.endOfAnimationBehavior) (who { return who.stopJittering())); }
       frames1[6] = new FarmerSprite.AnimationFrame(3, 250, false, false);
       frames1[7] = new FarmerSprite.AnimationFrame(102, 50, false, false);
       FarmerSprite.AnimationFrame animationFrame3 = new FarmerSprite.AnimationFrame(10, 250, false, false);
@@ -6760,7 +6758,7 @@ label_20:
           who.currentLocation.localSound("hitEnemy");
         who.jitterStrength = 1f;
       }));
-      frames1[8] = animationFrame3.AddFrameEndAction((AnimatedSprite.endOfAnimationBehavior) (who { return who.stopJittering())); };
+      frames1[8] = animationFrame3.AddFrameEndAction((AnimatedSprite.endOfAnimationBehavior) (who { return who.stopJittering())); }
       frames1[9] = new FarmerSprite.AnimationFrame(3, 500, false, false);
       emoteTypeArray[18] = new Farmer.EmoteType("taunt", "Emote_Taunt", 12, frames1, is_hidden: true);
       emoteTypeArray[19] = new Farmer.EmoteType("uh", "Emote_Uh", 40, new FarmerSprite.AnimationFrame[1]
@@ -6791,7 +6789,7 @@ label_20:
           who.currentLocation.localSound("fishingRodBend");
         who.jitterStrength = 1f;
       }));
-      frames2[1] = animationFrame4.AddFrameEndAction((AnimatedSprite.endOfAnimationBehavior) (who { return who.stopJittering())); };
+      frames2[1] = animationFrame4.AddFrameEndAction((AnimatedSprite.endOfAnimationBehavior) (who { return who.stopJittering())); }
       frames2[2] = new FarmerSprite.AnimationFrame(111, 500, false, false);
       FarmerSprite.AnimationFrame animationFrame5 = new FarmerSprite.AnimationFrame(111, 300, false, false);
       animationFrame5 = animationFrame5.AddFrameAction((AnimatedSprite.endOfAnimationBehavior) (who { return {; }
@@ -6799,7 +6797,7 @@ label_20:
           who.currentLocation.localSound("fishingRodBend");
         who.jitterStrength = 1f;
       }));
-      frames2[3] = animationFrame5.AddFrameEndAction((AnimatedSprite.endOfAnimationBehavior) (who { return who.stopJittering())); };
+      frames2[3] = animationFrame5.AddFrameEndAction((AnimatedSprite.endOfAnimationBehavior) (who { return who.stopJittering())); }
       frames2[4] = new FarmerSprite.AnimationFrame(111, 500, false, false);
       frames2[5] = new FarmerSprite.AnimationFrame(112, 1000, false, false).AddFrameAction((AnimatedSprite.endOfAnimationBehavior) (who { return {; }
         if (who.ShouldHandleAnimationSound())
@@ -6835,10 +6833,11 @@ label_20:
         this.displayNameKey = "Strings\\UI:" + display_name_key;
       }
 
-      public string displayName { get { return Game1.content.LoadString(this.displayNameKey); };
+      public string displayName { get { return Game1.content.LoadString(this.displayNameKey); }
     }
   }
 }
+
 
 
 

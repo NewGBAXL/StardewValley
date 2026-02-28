@@ -2978,7 +2978,7 @@ namespace StardewValley
           null,
           null,
           null
-        };
+        }
         num = this.getTileX();
         strArray2[3] = num.ToString();
         strArray2[4] = "_";
@@ -3164,7 +3164,7 @@ namespace StardewValley
         {
           finalFacingDirection = this.directionsToNewLocation.facingDirection,
           endBehaviorFunction = this.getRouteEndBehaviorFunction(this.directionsToNewLocation.endOfRouteBehavior, this.directionsToNewLocation.endOfRouteMessage)
-        };
+        }
         if (this.controller.pathToEndPoint == null || this.controller.pathToEndPoint.Count == 0)
         {
           if (this.controller.endBehaviorFunction != null)
@@ -5954,6 +5954,7 @@ label_51:
     }
   }
 }
+
 
 
 

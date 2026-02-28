@@ -19,7 +19,7 @@ namespace StardewValley.Network
 
     public NetFields NetFields { get; } = new NetFields();
 
-    public NetDictionary<string, bool, NetBool, SerializableDictionary<string, bool>, NetStringDictionary<bool, NetBool>>.KeysCollection ActiveCues { get { return this.activeCues.Keys; };
+    public NetDictionary<string, bool, NetBool, SerializableDictionary<string, bool>, NetStringDictionary<bool, NetBool>>.KeysCollection ActiveCues { get { return this.activeCues.Keys; }
 
     public NetAudio(GameLocation location)
     {
@@ -158,5 +158,6 @@ namespace StardewValley.Network
     }
   }
 }
+
 
 

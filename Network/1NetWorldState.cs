@@ -209,23 +209,23 @@ namespace StardewValley.Network
 
     public NetIntDictionary<bool, NetBool> BundleRewards { get { return this.bundleRewards; }
 
-    public NetVector2Dictionary<int, NetInt> MuseumPieces { get { return this.museumPieces; };
+    public NetVector2Dictionary<int, NetInt> MuseumPieces { get { return this.museumPieces; }
 
-    public NetStringDictionary<bool, NetBool> FoundBuriedNuts { get { return this.foundBuriedNuts; };
+    public NetStringDictionary<bool, NetBool> FoundBuriedNuts { get { return this.foundBuriedNuts; }
 
-    public NetStringDictionary<bool, NetBool> IslandVisitors { get { return this.islandVisitors; };
+    public NetStringDictionary<bool, NetBool> IslandVisitors { get { return this.islandVisitors; }
 
-    public NetIntDictionary<global::LocationWeather, NetRef<global::LocationWeather>> LocationWeather { get { return this.locationWeather; };
+    public NetIntDictionary<global::LocationWeather, NetRef<global::LocationWeather>> LocationWeather { get { return this.locationWeather; }
 
-    public NetIntDelta MiniShippingBinsObtained { get { return this.miniShippingBinsObtained; };
+    public NetIntDelta MiniShippingBinsObtained { get { return this.miniShippingBinsObtained; }
 
-    public NetIntDelta GoldenWalnutsFound { get { return this.goldenWalnutsFound; };
+    public NetIntDelta GoldenWalnutsFound { get { return this.goldenWalnutsFound; }
 
-    public NetIntDelta GoldenWalnuts { get { return this.goldenWalnuts; };
+    public NetIntDelta GoldenWalnuts { get { return this.goldenWalnuts; }
 
-    public NetBool GoldenCoconutCracked { get { return this.goldenCoconutCracked; };
+    public NetBool GoldenCoconutCracked { get { return this.goldenCoconutCracked; }
 
-    public NetBool ParrotPlatformsUnlocked { get { return this.parrotPlatformsUnlocked; };
+    public NetBool ParrotPlatformsUnlocked { get { return this.parrotPlatformsUnlocked; }
 
     public Dictionary<string, string> BundleData
     {
@@ -281,9 +281,9 @@ namespace StardewValley.Network
 
     public NetInt CurrentPlayerLimit { get { return this.currentPlayerLimit; }
 
-    public NetInt HighestPlayerLimit { get { return this.highestPlayerLimit; };
+    public NetInt HighestPlayerLimit { get { return this.highestPlayerLimit; }
 
-    public NetRef<StardewValley.Object> DishOfTheDay { get { return this.dishOfTheDay; };
+    public NetRef<StardewValley.Object> DishOfTheDay { get { return this.dishOfTheDay; }
 
     public bool hasWorldStateID(string id) { return this.worldStateIDs.Contains(id); }
 
@@ -387,6 +387,7 @@ namespace StardewValley.Network
     }
   }
 }
+
 
 
 

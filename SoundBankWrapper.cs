@@ -13,7 +13,7 @@ namespace StardewValley
   {
     private SoundBank soundBank;
 
-    public bool IsInUse { get { return this.soundBank.IsInUse; };
+    public bool IsInUse { get { return this.soundBank.IsInUse; }
 
     public SoundBankWrapper(SoundBank soundBank) { return this.soundBank = soundBank; }
 
@@ -23,7 +23,7 @@ namespace StardewValley
 
     public void PlayCue(string name, AudioListener listener, AudioEmitter emitter) { this.soundBank.PlayCue(name, listener, emitter); }
 
-    public bool IsDisposed { get { return this.soundBank.IsDisposed; };
+    public bool IsDisposed { get { return this.soundBank.IsDisposed; }
 
     public void Dispose() { this.soundBank.Dispose(); }
 
@@ -32,5 +32,6 @@ namespace StardewValley
     public CueDefinition GetCueDefinition(string name) { return this.soundBank.GetCueDefinition(name); }
   }
 }
+
 
 

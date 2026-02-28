@@ -28,7 +28,7 @@ namespace StardewValley.Locations
     public readonly NetMutex inventoryMutex = new NetMutex();
 
     [XmlIgnore]
-    public override Farmer owner { get { return this.getFarmhand().Value.isActive() ? Game1.otherFarmers[this.getFarmhand().Value.UniqueMultiplayerID] : this.getFarmhand().Value; };
+    public override Farmer owner { get { return this.getFarmhand().Value.isActive() ? Game1.otherFarmers[this.getFarmhand().Value.UniqueMultiplayerID] : this.getFarmhand().Value; }
 
     [XmlIgnore]
     public override int upgradeLevel
@@ -206,6 +206,7 @@ namespace StardewValley.Locations
     }
   }
 }
+
 
 
 

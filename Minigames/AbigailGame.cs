@@ -207,7 +207,7 @@ namespace StardewValley.Minigames
     private int player2FootstepSoundTimer;
     public AbigailGame.CowboyMonster targetMonster;
 
-    public static int TileSize { get { return 48; };
+    public static int TileSize { get { return 48; }
 
     public bool LoadGame()
     {
@@ -4242,5 +4242,6 @@ namespace StardewValley.Minigames
     }
   }
 }
+
 
 

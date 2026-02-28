@@ -18,15 +18,15 @@ namespace StardewValley.Network
     private MemoryStream stream;
     private BinaryReader reader;
 
-    public byte MessageType { get { return this.messageType; };
+    public byte MessageType { get { return this.messageType; }
 
-    public long FarmerID { get { return this.farmerID; };
+    public long FarmerID { get { return this.farmerID; }
 
-    public Farmer SourceFarmer { get { return Game1.getFarmer(this.farmerID); };
+    public Farmer SourceFarmer { get { return Game1.getFarmer(this.farmerID); }
 
-    public byte[] Data { get { return this.data; };
+    public byte[] Data { get { return this.data; }
 
-    public BinaryReader Reader { get { return this.reader; };
+    public BinaryReader Reader { get { return this.reader; }
 
     public void Read(BinaryReader reader)
     {
@@ -49,5 +49,6 @@ namespace StardewValley.Network
     }
   }
 }
+
 
 

@@ -35,10 +35,10 @@ namespace Ionic.Crc
     /// <summary>
     ///   Indicates the total number of bytes applied to the CRC.
     /// </summary>
-    public long TotalBytesRead { get { return this._TotalBytesRead; };
+    public long TotalBytesRead { get { return this._TotalBytesRead; }
 
     /// <summary>Indicates the current CRC for all blocks slurped in.</summary>
-    public int Crc32Result { get { return ~(int) this._register; };
+    public int Crc32Result { get { return ~(int) this._register; }
 
     /// <summary>Returns the CRC32 for the specified stream.</summary>
     /// <param name="input">The stream over which to calculate the CRC32</param>
@@ -323,5 +323,6 @@ namespace Ionic.Crc
     public void Reset() { this._register = uint.MaxValue; }
   }
 }
+
 
 

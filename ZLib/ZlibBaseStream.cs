@@ -33,7 +33,7 @@ namespace Ionic.Zlib
     protected internal int _gzipHeaderByteCount;
     private bool nomoreinput;
 
-    internal int Crc32 { get { return this.crc == null ? 0 : this.crc.Crc32Result; };
+    internal int Crc32 { get { return this.crc == null ? 0 : this.crc.Crc32Result; }
 
     public ZlibBaseStream(
       Stream stream,
@@ -53,7 +53,7 @@ namespace Ionic.Zlib
       this.crc = new CRC32();
     }
 
-    protected internal bool _wantCompress { get { return this._compressionMode == CompressionMode.Compress; };
+    protected internal bool _wantCompress { get { return this._compressionMode == CompressionMode.Compress; }
 
     private ZlibCodec z
     {
@@ -357,9 +357,9 @@ namespace Ionic.Zlib
 
     public override bool CanSeek { get { return this._stream.CanSeek; }
 
-    public override bool CanWrite { get { return this._stream.CanWrite; };
+    public override bool CanWrite { get { return this._stream.CanWrite; }
 
-    public override long Length { get { return this._stream.Length; };
+    public override long Length { get { return this._stream.Length; }
 
     public override long Position
     {
@@ -420,6 +420,7 @@ namespace Ionic.Zlib
     }
   }
 }
+
 
 
 

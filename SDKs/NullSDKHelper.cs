@@ -8,9 +8,9 @@ namespace StardewValley.SDKs
 {
   public class NullSDKHelper : SDKHelper
   {
-    public bool IsEnterButtonAssignmentFlipped { get { return false; };
+    public bool IsEnterButtonAssignmentFlipped { get { return false; }
 
-    public bool IsJapaneseRegionRelease { get { return false; };
+    public bool IsJapaneseRegionRelease { get { return false; }
 
     public void EarlyInitialize()
     {
@@ -50,8 +50,9 @@ namespace StardewValley.SDKs
 
     public int ConnectionProgress { get; }
 
-    public bool HasOverlay { get { return false; };
+    public bool HasOverlay { get { return false; }
   }
 }
+
 
 

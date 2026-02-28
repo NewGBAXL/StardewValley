@@ -180,9 +180,9 @@ namespace StardewValley.Buildings
       return (StardewValley.Object) null;
     }
 
-    public int FishCount { get { return this.currentOccupants.Value; };
+    public int FishCount { get { return this.currentOccupants.Value; }
 
-    public Item ItemWanted { get { return (Item) null; };
+    public Item ItemWanted { get { return (Item) null; }
 
     private Item CreateFishInstance() { return (Item) new StardewValley.Object((int) (NetFieldBase<int, NetInt>) this.fishType, 1); }
 
@@ -919,6 +919,7 @@ namespace StardewValley.Buildings
     }
   }
 }
+
 
 
 

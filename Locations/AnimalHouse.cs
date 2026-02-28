@@ -30,7 +30,7 @@ namespace StardewValley
     [XmlIgnore]
     public bool hasShownIncubatorBuildingFullMessage;
 
-    public NetLongDictionary<FarmAnimal, NetRef<FarmAnimal>> Animals { get { return this.animals; };
+    public NetLongDictionary<FarmAnimal, NetRef<FarmAnimal>> Animals { get { return this.animals; }
 
     public AnimalHouse()
     {
@@ -400,5 +400,6 @@ namespace StardewValley
     }
   }
 }
+
 
 

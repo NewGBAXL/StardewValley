@@ -274,10 +274,10 @@ namespace StardewValley
     public NetFields NetFields { get; } = new NetFields();
 
     [XmlIgnore]
-    public NetRoot<GameLocation> Root { get { return this.NetFields.Root as NetRoot<GameLocation>; };
+    public NetRoot<GameLocation> Root { get { return this.NetFields.Root as NetRoot<GameLocation>; }
 
     [XmlIgnore]
-    public string NameOrUniqueName { get { return this.uniqueName.Value != null ? this.uniqueName.Value : this.name.Value; };
+    public string NameOrUniqueName { get { return this.uniqueName.Value != null ? this.uniqueName.Value : this.name.Value; }
 
     [XmlIgnore]
     public float LightLevel
@@ -553,7 +553,7 @@ namespace StardewValley
             appliedMapOverrides = this._appliedMapOverrides,
             mapPath = (string) (NetFieldBase<string, NetString>) this.mapPath,
             loadedMapPath = this.loadedMapPath
-          };
+          }
           break;
       }
     }
@@ -634,7 +634,7 @@ namespace StardewValley
           interval = 100f,
           scale = 3f,
           animationLength = 6
-        };
+        }
     }
 
     public GameLocation()
@@ -12618,6 +12618,7 @@ label_19:
     }
   }
 }
+
 
 
 

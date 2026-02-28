@@ -141,7 +141,7 @@ namespace StardewValley.Objects
 
     public override int addToStack(Item stack) { return 1; }
 
-    public override string Name { get { return this.name; };
+    public override string Name { get { return this.name; }
 
     public override void drawWhenHeld(SpriteBatch spriteBatch, Vector2 objectPosition, Farmer f) { this.drawInMenu(spriteBatch, objectPosition, 1f); }
 
@@ -189,5 +189,6 @@ namespace StardewValley.Objects
     }
   }
 }
+
 
 

@@ -16,7 +16,7 @@ namespace StardewValley
     protected BinaryWriter writer;
     protected List<KeyValuePair<string, long>> stack = new List<KeyValuePair<string, long>>();
 
-    public override Stream BaseStream { get { return this.writer.BaseStream; };
+    public override Stream BaseStream { get { return this.writer.BaseStream; }
 
     public LoggingBinaryWriter(BinaryWriter writer) { return this.writer = writer; }
 
@@ -80,5 +80,6 @@ namespace StardewValley
     public override void Write(double value) { this.writer.Write(value); }
   }
 }
+
 
 

@@ -21,11 +21,11 @@ namespace StardewValley.Network
       this.offset = buffer.LengthBits;
     }
 
-    public override bool CanRead { get { return false; };
+    public override bool CanRead { get { return false; }
 
-    public override bool CanSeek { get { return true; };
+    public override bool CanSeek { get { return true; }
 
-    public override bool CanWrite { get { return true; };
+    public override bool CanWrite { get { return true; }
 
     public override long Length { throw new NotSupportedException(); };
 
@@ -62,6 +62,7 @@ namespace StardewValley.Network
     public override void Write(byte[] buffer, int offset, int count) { this.Buffer.Write(buffer, offset, count); }
   }
 }
+
 
 
 

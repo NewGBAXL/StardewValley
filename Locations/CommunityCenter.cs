@@ -70,10 +70,10 @@ namespace StardewValley.Locations
     private ICue buildUpSound;
 
     [XmlElement("bundles")]
-    public NetBundles bundles { get { return Game1.netWorldState.Value.Bundles; };
+    public NetBundles bundles { get { return Game1.netWorldState.Value.Bundles; }
 
     [XmlElement("bundleRewards")]
-    public NetIntDictionary<bool, NetBool> bundleRewards { get { return Game1.netWorldState.Value.BundleRewards; };
+    public NetIntDictionary<bool, NetBool> bundleRewards { get { return Game1.netWorldState.Value.BundleRewards; }
 
     public CommunityCenter()
     {
@@ -1151,5 +1151,6 @@ namespace StardewValley.Locations
       };
   }
 }
+
 
 

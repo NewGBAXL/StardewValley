@@ -780,7 +780,7 @@ namespace StardewValley
             "Юпитер",
             "Ягодка",
             "Яшка"
-          };
+          }
           source1 = strArray2[new Random().Next(0, strArray2.Length)];
           break;
         case LocalizedContentManager.LanguageCode.zh:
@@ -969,7 +969,7 @@ namespace StardewValley
             "静香",
             "茄子",
             "珍珠"
-          };
+          }
           source1 = strArray3[new Random().Next(0, strArray3.Length)];
           break;
         default:
@@ -1495,6 +1495,7 @@ namespace StardewValley
     public delegate bool onAnswerQuestion(int whichResponse);
   }
 }
+
 
 
 

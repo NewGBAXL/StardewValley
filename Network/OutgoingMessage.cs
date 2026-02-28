@@ -18,13 +18,13 @@ namespace StardewValley.Network
     private long farmerID;
     private object[] data;
 
-    public byte MessageType { get { return this.messageType; };
+    public byte MessageType { get { return this.messageType; }
 
-    public long FarmerID { get { return this.farmerID; };
+    public long FarmerID { get { return this.farmerID; }
 
-    public Farmer SourceFarmer { get { return Game1.getFarmer(this.farmerID); };
+    public Farmer SourceFarmer { get { return Game1.getFarmer(this.farmerID); }
 
-    public ReadOnlyCollection<object> Data { get { return Array.AsReadOnly<object>(this.data); };
+    public ReadOnlyCollection<object> Data { get { return Array.AsReadOnly<object>(this.data); }
 
     public OutgoingMessage(byte messageType, long farmerID, params object[] data)
     {
@@ -108,6 +108,7 @@ namespace StardewValley.Network
     }
   }
 }
+
 
 
 

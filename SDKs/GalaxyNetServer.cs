@@ -24,7 +24,7 @@ namespace StardewValley.SDKs
     {
     }
 
-    public override int connectionsCount { get { return this.server == null ? 0 : this.server.ConnectionCount; };
+    public override int connectionsCount { get { return this.server == null ? 0 : this.server.ConnectionCount; }
 
     public override string getUserId(long farmerId) { return !this.peers.ContainsLeft(farmerId) ? (string) null : this.peers[farmerId].ToString(); }
 
@@ -237,6 +237,7 @@ namespace StardewValley.SDKs
     }
   }
 }
+
 
 
 

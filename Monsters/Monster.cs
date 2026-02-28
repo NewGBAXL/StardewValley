@@ -71,7 +71,7 @@ namespace StardewValley.Monsters
     private int slideAnimationTimer;
 
     [XmlIgnore]
-    public Farmer Player { get { return this.findPlayer(); };
+    public Farmer Player { get { return this.findPlayer(); }
 
     [XmlIgnore]
     public int DamageToFarmer
@@ -1085,6 +1085,7 @@ namespace StardewValley.Monsters
     protected delegate void collisionBehavior(GameLocation location);
   }
 }
+
 
 
 

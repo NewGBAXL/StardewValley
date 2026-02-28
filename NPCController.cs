@@ -22,11 +22,11 @@ namespace StardewValley
     private int speed;
     private NPCController.endBehavior behaviorAtEnd;
 
-    private int CurrentPathX { get { return this.pathIndex >= this.path.Count ? 0 : (int) this.path[this.pathIndex].X; };
+    private int CurrentPathX { get { return this.pathIndex >= this.path.Count ? 0 : (int) this.path[this.pathIndex].X; }
 
-    private int CurrentPathY { get { return this.pathIndex >= this.path.Count ? 0 : (int) this.path[this.pathIndex].Y; };
+    private int CurrentPathY { get { return this.pathIndex >= this.path.Count ? 0 : (int) this.path[this.pathIndex].Y; }
 
-    private bool MovingHorizontally { get { return (uint) this.CurrentPathX > 0U; };
+    private bool MovingHorizontally { get { return (uint) this.CurrentPathX > 0U; }
 
     public NPCController(
       Character n,
@@ -152,5 +152,6 @@ namespace StardewValley
     public delegate void endBehavior();
   }
 }
+
 
 

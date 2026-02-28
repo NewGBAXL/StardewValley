@@ -468,12 +468,12 @@ namespace StardewValley
       this.cancelButton = new InputButton[1]
       {
         new InputButton(Keys.V)
-      };
+      }
       this.useToolButton = new InputButton[2]
       {
         new InputButton(Keys.C),
         new InputButton(true)
-      };
+      }
       this.moveUpButton = new InputButton[1]
       {
         new InputButton(Keys.W)
@@ -1647,6 +1647,7 @@ namespace StardewValley
     }
   }
 }
+
 
 
 

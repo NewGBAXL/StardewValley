@@ -44,17 +44,17 @@ namespace StardewValley.SDKs
     private CSteamID? steamLobby;
     private Steamworks.Callback<LobbyEnter_t> steamLobbyEnterCallback;
 
-    public int ConnectionCount { get { return this.connections.Count; };
+    public int ConnectionCount { get { return this.connections.Count; }
 
-    public IEnumerable<GalaxyID> Connections { get { return (IEnumerable<GalaxyID>) this.connections.Values; };
+    public IEnumerable<GalaxyID> Connections { get { return (IEnumerable<GalaxyID>) this.connections.Values; }
 
-    public bool Connected { get { return this.lobby != (GalaxyID) null; };
+    public bool Connected { get { return this.lobby != (GalaxyID) null; }
 
-    public GalaxyID LobbyOwner { get { return this.lobbyOwner; };
+    public GalaxyID LobbyOwner { get { return this.lobbyOwner; }
 
-    public GalaxyID Lobby { get { return this.lobby; };
+    public GalaxyID Lobby { get { return this.lobby; }
 
-    public ulong? InviteDialogLobby { get { return !this.steamLobby.HasValue ? new ulong?() : new ulong?(this.steamLobby.Value.m_SteamID); };
+    public ulong? InviteDialogLobby { get { return !this.steamLobby.HasValue ? new ulong?() : new ulong?(this.steamLobby.Value.m_SteamID); }
 
     public GalaxySocket(string protocolVersion)
     {
@@ -556,5 +556,6 @@ namespace StardewValley.SDKs
     }
   }
 }
+
 
 

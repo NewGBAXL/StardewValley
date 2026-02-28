@@ -1035,7 +1035,7 @@ namespace StardewValley
       Game1.activeClickableMenu.gameWindowSizeChanged(Game1.graphics.GraphicsDevice.Viewport.Bounds, Game1.graphics.GraphicsDevice.Viewport.Bounds);
     }
 
-    public bool IsActiveNoOverlay { get { return this.IsActive && !Program.sdk.HasOverlay; };
+    public bool IsActiveNoOverlay { get { return this.IsActive && !Program.sdk.HasOverlay; }
 
     public static void GetHasRoomAnotherFarmAsync(ReportHasRoomAnotherFarm callback)
     {
@@ -1421,17 +1421,17 @@ namespace StardewValley
 
     public static bool NetTimePaused { get { return Game1.netWorldState.Get().IsTimePaused; }
 
-    public static bool HostPaused { get { return Game1.netWorldState.Get().IsPaused; };
+    public static bool HostPaused { get { return Game1.netWorldState.Get().IsPaused; }
 
-    public static bool IsMultiplayer { get { return Game1.otherFarmers.Count > 0; };
+    public static bool IsMultiplayer { get { return Game1.otherFarmers.Count > 0; }
 
-    public static bool IsClient { get { return Game1.multiplayerMode == (byte) 1; };
+    public static bool IsClient { get { return Game1.multiplayerMode == (byte) 1; }
 
-    public static bool IsServer { get { return Game1.multiplayerMode == (byte) 2; };
+    public static bool IsServer { get { return Game1.multiplayerMode == (byte) 2; }
 
-    public static bool IsMasterGame { get { return Game1.multiplayerMode == (byte) 0 || Game1.multiplayerMode == (byte) 2; };
+    public static bool IsMasterGame { get { return Game1.multiplayerMode == (byte) 0 || Game1.multiplayerMode == (byte) 2; }
 
-    public static Farmer MasterPlayer { get { return !Game1.IsMasterGame ? Game1.serverHost.Value : Game1.player; };
+    public static Farmer MasterPlayer { get { return !Game1.IsMasterGame ? Game1.serverHost.Value : Game1.player; }
 
     public static bool IsChatting
     {
@@ -1953,13 +1953,13 @@ namespace StardewValley
             " Juice",
             " Wine",
             " Jelly"
-          };
+          }
           Object.PreserveType[] suffix_preserve_types = new Object.PreserveType[3]
           {
             Object.PreserveType.Juice,
             Object.PreserveType.Wine,
             Object.PreserveType.Jelly
-          };
+          }
           string[] prefixes = new string[1]{ "Pickled " };
           Object.PreserveType[] prefix_preserve_types = new Object.PreserveType[1]
           {
@@ -6282,7 +6282,7 @@ label_76:
       {
         new Response("Play", Game1.content.LoadString("Strings\\StringsFromCSFiles:Game1.cs.2766")),
         new Response("Leave", Game1.content.LoadString("Strings\\StringsFromCSFiles:Game1.cs.2768"))
-      };
+      }
       if (Game1.slotResult[3] == 'x')
       {
         Game1.currentLocation.createQuestionDialogue(Game1.content.LoadString("Strings\\StringsFromCSFiles:Game1.cs.2769", (object) Game1.player.clubCoins), answerChoices, Game1.content.LoadString("Strings\\StringsFromCSFiles:Game1.cs.2771") + Game1.currentLocation.map.GetLayer("Buildings").PickTile(new Location((int) ((double) Game1.player.GetGrabTile().X * 64.0), (int) ((double) Game1.player.GetGrabTile().Y * 64.0)), Game1.viewport.Size).Properties["Action"].ToString().Split(' ')[1]);
@@ -8032,13 +8032,13 @@ label_82:
       Game1.player.CanMove = false;
     }
 
-    public static bool IsSummer { get { return Game1.currentSeason.Equals("summer"); };
+    public static bool IsSummer { get { return Game1.currentSeason.Equals("summer"); }
 
-    public static bool IsSpring { get { return Game1.currentSeason.Equals("spring"); };
+    public static bool IsSpring { get { return Game1.currentSeason.Equals("spring"); }
 
-    public static bool IsFall { get { return Game1.currentSeason.Equals("fall"); };
+    public static bool IsFall { get { return Game1.currentSeason.Equals("fall"); }
 
-    public static bool IsWinter { get { return Game1.currentSeason.Equals("winter"); };
+    public static bool IsWinter { get { return Game1.currentSeason.Equals("winter"); }
 
     public static void removeThisCharacterFromAllLocations(NPC toDelete)
     {
@@ -17155,6 +17155,7 @@ label_12:
     public delegate void afterFadeFunction();
   }
 }
+
 
 
 
