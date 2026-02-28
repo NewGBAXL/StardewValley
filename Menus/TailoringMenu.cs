@@ -870,7 +870,7 @@ namespace StardewValley.Menus
               else if ((this.craftResultDisplay.item as Clothing).clothesType.Value == 0)
                 b.Draw(this.tailoringTextures, this.craftResultDisplay.bounds, new Rectangle?(new Rectangle(80, 208, 16, 16)), Color.White);
             }
-            else if (this.craftResultDisplay.item is StardewValley.Object @object && Utility.IsNormalObjectAtParentSheetIndex((Item) @object, 71))
+            else if ((this.craftResultDisplay.item as StardewValley.Object) != null && Utility.IsNormalObjectAtParentSheetIndex((Item) @object, 71))
               b.Draw(this.tailoringTextures, this.craftResultDisplay.bounds, new Rectangle?(new Rectangle(64, 208, 16, 16)), Color.White);
             Rectangle bounds = this.craftResultDisplay.bounds;
             bounds.X += 24;
@@ -974,4 +974,5 @@ namespace StardewValley.Menus
     }
   }
 }
+
 

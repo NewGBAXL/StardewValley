@@ -485,7 +485,7 @@ namespace StardewValley.Objects
 
     public override bool performObjectDropInAction(Item dropInItem, bool probe, Farmer who)
     {
-      if (!(dropInItem is StardewValley.Object @object) || (int) (NetFieldBase<int, NetInt>) this.furniture_type != 11 && (int) (NetFieldBase<int, NetInt>) this.furniture_type != 5 || this.heldObject.Value != null || (bool) (NetFieldBase<bool, NetBool>) @object.bigCraftable)
+      if (!((dropInItem as StardewValley.Object) != null) || (int) (NetFieldBase<int, NetInt>) this.furniture_type != 11 && (int) (NetFieldBase<int, NetInt>) this.furniture_type != 5 || this.heldObject.Value != null || (bool) (NetFieldBase<bool, NetBool>) @object.bigCraftable)
         return false;
       switch (@object)
       {
@@ -1229,6 +1229,7 @@ label_8:
     }
   }
 }
+
 
 
 

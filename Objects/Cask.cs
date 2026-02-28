@@ -78,7 +78,7 @@ namespace StardewValley.Objects
           Game1.showRedMessageUsingLoadString("Strings\\Objects:CaskNoCellar");
         return false;
       }
-      if ((int) (NetFieldBase<int, NetInt>) this.quality >= 4 || dropIn is StardewValley.Object @object && @object.Quality >= 4)
+      if ((int) (NetFieldBase<int, NetInt>) this.quality >= 4 || (dropIn as StardewValley.Object) != null && @object.Quality >= 4)
         return false;
       float multiplierForItem = this.GetAgingMultiplierForItem(dropIn);
       if ((double) multiplierForItem <= 0.0)
@@ -180,3 +180,4 @@ namespace StardewValley.Objects
     }
   }
 }
+

@@ -1444,7 +1444,7 @@ namespace StardewValley.Menus
             else
             {
               this.hoverText = clickableComponent.DisplayName + " x" + clickableComponent.Stack.ToString();
-              if (clickableComponent is StardewValley.Object @object && @object.needsToBeDonated())
+              if ((clickableComponent as StardewValley.Object) != null && @object.needsToBeDonated())
                 this.hoverText = this.hoverText + "\n\n" + clickableComponent.getDescription() + "\n";
               this.hoverPrice = (clickableComponent is StardewValley.Object ? (int) ((double) (clickableComponent as StardewValley.Object).sellToStorePrice() * (double) this.sellPercentage) : (int) ((double) (clickableComponent.salePrice() / 2) * (double) this.sellPercentage)) * clickableComponent.Stack;
             }
@@ -1689,4 +1689,5 @@ namespace StardewValley.Menus
     }
   }
 }
+
 

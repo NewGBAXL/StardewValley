@@ -154,7 +154,7 @@ namespace StardewValley.Locations
       Vector2 bobberTile,
       string locationName = null)
     {
-      return Game1.getLocationFromName("Beach") is Beach locationFromName ? locationFromName.getFish(millisecondsAfterNibble, bait, waterDepth, who, baitPotency, bobberTile, locationName) : base.getFish(millisecondsAfterNibble, bait, waterDepth, who, baitPotency, bobberTile, locationName);
+      var __maybe = Game1.getLocationFromName("Beach") as Beach;\n        return __maybe != null ? locationFromName.getFish(millisecondsAfterNibble, bait, waterDepth, who, baitPotency, bobberTile, locationName)  : base.getFish(millisecondsAfterNibble, bait, waterDepth, who, baitPotency, bobberTile, locationName);
     }
 
     public override bool answerDialogueAction(string questionAndAnswer, string[] questionParams)
@@ -662,3 +662,4 @@ namespace StardewValley.Locations
     }
   }
 }
+

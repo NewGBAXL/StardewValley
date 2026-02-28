@@ -159,7 +159,7 @@ namespace StardewValley.Objects
 
     public override bool performObjectDropInAction(Item dropInItem, bool probe, Farmer who)
     {
-      if (!(dropInItem is StardewValley.Object @object))
+      if (!((dropInItem as StardewValley.Object) != null))
         return false;
       Farmer farmer = Game1.getFarmer((long) this.owner);
       if (@object.Category != -21 || this.bait.Value != null || farmer != null && farmer.professions.Contains(11))
@@ -355,3 +355,4 @@ namespace StardewValley.Objects
     }
   }
 }
+
