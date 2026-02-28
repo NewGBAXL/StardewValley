@@ -56,7 +56,7 @@ namespace StardewValley.Menus
       Color color = Color.Black * 0.75f;
       spriteBatch.Draw(staminaRect, destinationRectangle, color);
       Vector2 vector2_1;
-      ref Vector2 local = ref vector2_1;
+      Vector2 local = vector2_1;
       Viewport viewport2 = Game1.graphics.GraphicsDevice.Viewport;
       double x = (double) (viewport2.Width / 2);
       viewport2 = Game1.graphics.GraphicsDevice.Viewport;
@@ -88,4 +88,5 @@ namespace StardewValley.Menus
     }
   }
 }
+
 

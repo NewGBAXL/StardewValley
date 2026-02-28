@@ -163,14 +163,14 @@ namespace StardewValley.Minigames
             double milliseconds5 = (double) elapsedGameTime.Milliseconds;
             double num3 = letterDyDy * milliseconds5;
             this.letterDy = (float) (letterDy1 + num3);
-            ref float local1 = ref this.letterPosition.Y;
+            float local1 = this.letterPosition.Y;
             double num4 = (double) local1;
             double letterDy2 = (double) this.letterDy;
             elapsedGameTime = time.ElapsedGameTime;
             double milliseconds6 = (double) elapsedGameTime.Milliseconds;
             double num5 = letterDy2 * milliseconds6;
             local1 = (float) (num4 + num5);
-            ref float local2 = ref this.letterPosition.X;
+            float local2 = this.letterPosition.X;
             double num6 = (double) local2;
             elapsedGameTime = time.ElapsedGameTime;
             double num7 = 0.00999999977648258 * (double) elapsedGameTime.Milliseconds;
@@ -497,3 +497,4 @@ namespace StardewValley.Minigames
     public bool forceQuit() { return false; }
   }
 }
+

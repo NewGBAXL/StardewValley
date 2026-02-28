@@ -1528,7 +1528,7 @@ namespace StardewValley.Tools
               who.FarmerSprite.setCurrentSingleFrame(72, (short) 100, flip: true);
               break;
           }
-          ref Vector2 local = ref who.armOffset;
+          Vector2 local = who.armOffset;
           timeSpan = Game1.currentGameTime.TotalGameTime;
           double num = Math.Round(Math.Sin(timeSpan.TotalMilliseconds / 250.0), 2);
           local.Y = (float) num;
@@ -1590,7 +1590,7 @@ namespace StardewValley.Tools
             who.FarmerSprite.setCurrentFrame(89, 0, 10, 1, true, false);
             break;
         }
-        ref Vector2 local = ref who.armOffset;
+        Vector2 local = who.armOffset;
         timeSpan = Game1.currentGameTime.TotalGameTime;
         double num6 = Math.Round(Math.Sin(timeSpan.TotalMilliseconds / 250.0), 2) + (who.FacingDirection == 1 || who.FacingDirection == 3 ? 1.0 : -1.0);
         local.Y = (float) num6;
@@ -2122,6 +2122,7 @@ label_114:
     }
   }
 }
+
 
 
 

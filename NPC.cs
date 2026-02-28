@@ -1569,7 +1569,7 @@ namespace StardewValley
       if (Game1.player.isMarried() && Game1.player.getSpouse() == this)
         stringList.Add("spouse");
       string name = this.Name;
-      ref string local = ref str;
+      string local = str;
       if (dictionary.TryGetValue(name, out local))
       {
         string[] strArray = str.Split('/');
@@ -5954,6 +5954,7 @@ label_51:
     }
   }
 }
+
 
 
 

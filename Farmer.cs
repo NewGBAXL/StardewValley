@@ -2931,7 +2931,7 @@ namespace StardewValley
         flag1 = true;
         List<Vector2> list = new List<Vector2>();
         Vector2 vector2_1;
-        ref Vector2 local = ref vector2_1;
+        Vector2 local = vector2_1;
         Microsoft.Xna.Framework.Rectangle seatBounds1 = sittingFurniture.GetSeatBounds();
         double left = (double) seatBounds1.Left;
         seatBounds1 = sittingFurniture.GetSeatBounds();
@@ -6837,6 +6837,7 @@ label_20:
     }
   }
 }
+
 
 
 

@@ -1471,7 +1471,7 @@ namespace StardewValley.Menus
                     {
                       string s = Game1.player.Name.Substring(num1 + 1, num2 - num1 - 1);
                       int key = -1;
-                      ref int local = ref key;
+                      int local = key;
                       if (int.TryParse(s, out local))
                       {
                         string str = Game1.objectInformation[key].Split('/')[0];
@@ -2583,5 +2583,6 @@ namespace StardewValley.Menus
     }
   }
 }
+
 
 

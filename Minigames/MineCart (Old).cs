@@ -444,17 +444,17 @@ namespace StardewValley.Minigames
         this.sparkShower[index].dy += 0.105f;
         this.sparkShower[index].x += this.sparkShower[index].dx;
         this.sparkShower[index].y += this.sparkShower[index].dy;
-        ref Color local1 = ref this.sparkShower[index].c;
+        Color local1 = this.sparkShower[index].c;
         timeSpan = time.TotalGameTime;
         int num12 = (int) (byte) (0.0 + Math.Max(0.0, Math.Sin((double) timeSpan.Milliseconds / (20.0 * Math.PI / (double) this.sparkShower[index].dx)) * (double) byte.MaxValue));
         local1.B = (byte) num12;
         if (this.reachedFinish)
         {
-          ref Color local2 = ref this.sparkShower[index].c;
+          Color local2 = this.sparkShower[index].c;
           timeSpan = time.TotalGameTime;
           int num13 = (int) (byte) (0.0 + Math.Max(0.0, Math.Sin((double) (timeSpan.Milliseconds + 50) / (20.0 * Math.PI / (double) this.sparkShower[index].dx)) * (double) byte.MaxValue));
           local2.R = (byte) num13;
-          ref Color local3 = ref this.sparkShower[index].c;
+          Color local3 = this.sparkShower[index].c;
           timeSpan = time.TotalGameTime;
           int num14 = (int) (byte) (0.0 + Math.Max(0.0, Math.Sin((double) (timeSpan.Milliseconds + 100) / (20.0 * Math.PI / (double) this.sparkShower[index].dx)) * (double) byte.MaxValue));
           local3.G = (byte) num14;
@@ -817,5 +817,6 @@ namespace StardewValley.Minigames
     }
   }
 }
+
 
 

@@ -87,12 +87,12 @@ namespace StardewValley.Events
       {
         if (this.timerSinceFade < 2000)
           return false;
-        ref float local1 = ref this.fairyPosition.X;
+        float local1 = this.fairyPosition.X;
         double num1 = (double) local1;
         timeSpan = time.ElapsedGameTime;
         double num2 = (double) timeSpan.Milliseconds * 0.100000001490116;
         local1 = (float) (num1 - num2);
-        ref float local2 = ref this.fairyPosition.Y;
+        float local2 = this.fairyPosition.Y;
         double num3 = (double) local2;
         timeSpan = time.TotalGameTime;
         double num4 = Math.Cos((double) timeSpan.Milliseconds * Math.PI / 512.0) * 1.0;
@@ -156,12 +156,12 @@ namespace StardewValley.Events
         this.fairyFrame = timeSpan.Milliseconds % 500 <= 250 ? 0 : 1;
         if (this.fairyAnimationTimer > 2000 && (double) this.fairyPosition.Y > -999999.0)
         {
-          ref float local3 = ref this.fairyPosition.X;
+          float local3 = this.fairyPosition.X;
           double num5 = (double) local3;
           timeSpan = time.TotalGameTime;
           double num6 = Math.Cos((double) timeSpan.Milliseconds * Math.PI / 256.0) * 2.0;
           local3 = (float) (num5 + num6);
-          ref float local4 = ref this.fairyPosition.Y;
+          float local4 = this.fairyPosition.Y;
           double num7 = (double) local4;
           timeSpan = time.ElapsedGameTime;
           double num8 = (double) timeSpan.Milliseconds * 0.200000002980232;
@@ -213,5 +213,6 @@ namespace StardewValley.Events
     }
   }
 }
+
 
 

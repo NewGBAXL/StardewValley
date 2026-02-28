@@ -852,7 +852,7 @@ namespace StardewValley
     public static void behaviorAfterFindingGrassPatch(Character c, GameLocation environment)
     {
       Vector2 key;
-      ref Vector2 local = ref key;
+      Vector2 local = key;
       Microsoft.Xna.Framework.Rectangle boundingBox = c.GetBoundingBox();
       double x = (double) (boundingBox.Center.X / 64);
       boundingBox = c.GetBoundingBox();
@@ -921,7 +921,7 @@ namespace StardewValley
     public void eatGrass(GameLocation environment)
     {
       Vector2 key;
-      ref Vector2 local = ref key;
+      Vector2 local = key;
       Microsoft.Xna.Framework.Rectangle boundingBox = this.GetBoundingBox();
       double x = (double) (boundingBox.Center.X / 64);
       boundingBox = this.GetBoundingBox();
@@ -941,7 +941,7 @@ namespace StardewValley
     public virtual void Eat(GameLocation location)
     {
       Vector2 vector2;
-      ref Vector2 local = ref vector2;
+      Vector2 local = vector2;
       Microsoft.Xna.Framework.Rectangle boundingBox = this.GetBoundingBox();
       double x = (double) (boundingBox.Center.X / 64);
       boundingBox = this.GetBoundingBox();
@@ -1710,6 +1710,7 @@ namespace StardewValley
     }
   }
 }
+
 
 
 

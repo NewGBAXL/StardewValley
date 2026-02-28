@@ -127,7 +127,7 @@ namespace StardewValley.Minigames
       {
         if (this.playerCards[index][1] > 0)
         {
-          ref int local = ref this.playerCards[index][1];
+          int local = this.playerCards[index][1];
           int num = local;
           elapsedGameTime = time.ElapsedGameTime;
           int milliseconds = elapsedGameTime.Milliseconds;
@@ -140,7 +140,7 @@ namespace StardewValley.Minigames
       {
         if (this.dealerCards[index][1] > 0)
         {
-          ref int local = ref this.dealerCards[index][1];
+          int local = this.dealerCards[index][1];
           int num = local;
           elapsedGameTime = time.ElapsedGameTime;
           int milliseconds = elapsedGameTime.Milliseconds;
@@ -528,4 +528,5 @@ namespace StardewValley.Minigames
     public bool forceQuit() { return true; }
   }
 }
+
 

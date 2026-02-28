@@ -2345,7 +2345,7 @@ namespace StardewValley
       int coinsToDrop = (int) (NetFieldBase<int, NetInt>) monster.coinsToDrop;
       IList<int> objectsToDrop = (IList<int>) monster.objectsToDrop;
       Vector2 vector2;
-      ref Vector2 local = ref vector2;
+      Vector2 local = vector2;
       Microsoft.Xna.Framework.Rectangle boundingBox = Game1.player.GetBoundingBox();
       double x1 = (double) boundingBox.Center.X;
       boundingBox = Game1.player.GetBoundingBox();
@@ -2867,7 +2867,7 @@ namespace StardewValley
             KeyValuePair<Vector2, Object> keyValuePair = pairs.ElementAt(index3);
             if ((bool) (NetFieldBase<bool, NetBool>) keyValuePair.Value.isSpawnedObject)
             {
-              ref Microsoft.Xna.Framework.Rectangle local = ref rectangle;
+              Microsoft.Xna.Framework.Rectangle local = rectangle;
               pairs = this.objects.Pairs;
               keyValuePair = pairs.ElementAt(index3);
               Point point = Utility.Vector2ToPoint(keyValuePair.Key);
@@ -12619,6 +12619,7 @@ label_19:
     }
   }
 }
+
 
 
 

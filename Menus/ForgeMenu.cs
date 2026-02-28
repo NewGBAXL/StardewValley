@@ -661,11 +661,11 @@ namespace StardewValley.Menus
       else if (this._craftState == ForgeMenu.CraftState.MissingShards)
         this._ValidateCraft();
       this.descriptionText = this.displayedDescription;
-      ref Vector2 local1 = ref this.questionMarkOffset;
+      Vector2 local1 = this.questionMarkOffset;
       TimeSpan timeSpan = time.TotalGameTime;
       double num1 = Math.Sin(timeSpan.TotalSeconds * 2.5) * 4.0;
       local1.X = (float) num1;
-      ref Vector2 local2 = ref this.questionMarkOffset;
+      Vector2 local2 = this.questionMarkOffset;
       timeSpan = time.TotalGameTime;
       double num2 = Math.Cos(timeSpan.TotalSeconds * 5.0) * -4.0;
       local2.Y = (float) num2;
@@ -1005,6 +1005,7 @@ namespace StardewValley.Menus
     }
   }
 }
+
 
 
 

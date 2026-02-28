@@ -4615,7 +4615,7 @@ label_186:
     public static Vector2 getAwayFromPlayerTrajectory(Microsoft.Xna.Framework.Rectangle monsterBox, Farmer who)
     {
       Vector2 playerTrajectory;
-      ref Vector2 local = ref playerTrajectory;
+      Vector2 local = playerTrajectory;
       Microsoft.Xna.Framework.Rectangle boundingBox = who.GetBoundingBox();
       double x = (double) -(boundingBox.Center.X - monsterBox.Center.X);
       boundingBox = who.GetBoundingBox();
@@ -9357,6 +9357,7 @@ label_38:
     public static bool ShouldIgnoreValueChangeCallback() { return Game1.gameMode != (byte) 3 || Game1.client != null && !Game1.client.readyToPlay || Game1.client != null && Game1.locationRequest != null; }
   }
 }
+
 
 
 

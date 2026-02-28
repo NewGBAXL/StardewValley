@@ -364,7 +364,7 @@ namespace StardewValley.Monsters
         return;
       int num = 0;
       Vector2 vector2_3;
-      ref Vector2 local1 = ref vector2_3;
+      Vector2 local1 = vector2_3;
       boundingBox = this.Player.GetBoundingBox();
       double x1 = (double) (boundingBox.Center.X / 64 + Game1.random.Next(-12, 12));
       boundingBox = this.Player.GetBoundingBox();
@@ -372,7 +372,7 @@ namespace StardewValley.Monsters
       local1 = new Vector2((float) x1, (float) y1);
       for (; num < 3 && ((double) vector2_3.X >= (double) this.currentLocation.map.GetLayer("Back").LayerWidth || (double) vector2_3.Y >= (double) this.currentLocation.map.GetLayer("Back").LayerHeight || (double) vector2_3.X < 0.0 || (double) vector2_3.Y < 0.0 || this.currentLocation.map.GetLayer("Back").Tiles[(int) vector2_3.X, (int) vector2_3.Y] == null || !this.currentLocation.isTilePassable(new Location((int) vector2_3.X, (int) vector2_3.Y), Game1.viewport) || vector2_3.Equals(new Vector2((float) (this.Player.getStandingX() / 64), (float) (this.Player.getStandingY() / 64)))); ++num)
       {
-        ref Vector2 local2 = ref vector2_3;
+        Vector2 local2 = vector2_3;
         boundingBox = this.Player.GetBoundingBox();
         double x2 = (double) (boundingBox.Center.X / 64 + Game1.random.Next(-12, 12));
         boundingBox = this.Player.GetBoundingBox();
@@ -392,4 +392,5 @@ namespace StardewValley.Monsters
     }
   }
 }
+
 

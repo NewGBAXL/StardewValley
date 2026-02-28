@@ -95,12 +95,12 @@ namespace StardewValley.Events
       {
         if (this.timerSinceFade < 2000)
           return false;
-        ref float local1 = ref this.witchPosition.X;
+        float local1 = this.witchPosition.X;
         double num1 = (double) local1;
         timeSpan = time.ElapsedGameTime;
         double num2 = (double) timeSpan.Milliseconds * 0.400000005960464;
         local1 = (float) (num1 - num2);
-        ref float local2 = ref this.witchPosition.Y;
+        float local2 = this.witchPosition.Y;
         double num3 = (double) local2;
         timeSpan = time.TotalGameTime;
         double num4 = Math.Cos((double) timeSpan.Milliseconds * Math.PI / 512.0) * 1.0;
@@ -108,7 +108,7 @@ namespace StardewValley.Events
       }
       else if (this.animationLoopsDone < 4)
       {
-        ref float local = ref this.witchPosition.Y;
+        float local = this.witchPosition.Y;
         double num5 = (double) local;
         timeSpan = time.TotalGameTime;
         double num6 = Math.Cos((double) timeSpan.Milliseconds * Math.PI / 512.0) * 1.0;
@@ -154,12 +154,12 @@ namespace StardewValley.Events
         this.witchFrame = 0;
         if (this.witchAnimationTimer > 1000 && (double) this.witchPosition.X > -999999.0)
         {
-          ref float local3 = ref this.witchPosition.Y;
+          float local3 = this.witchPosition.Y;
           double num7 = (double) local3;
           timeSpan = time.TotalGameTime;
           double num8 = Math.Cos((double) timeSpan.Milliseconds * Math.PI / 256.0) * 2.0;
           local3 = (float) (num7 + num8);
-          ref float local4 = ref this.witchPosition.X;
+          float local4 = this.witchPosition.X;
           double num9 = (double) local4;
           timeSpan = time.ElapsedGameTime;
           double num10 = (double) timeSpan.Milliseconds * 0.400000005960464;
@@ -228,4 +228,5 @@ namespace StardewValley.Events
     }
   }
 }
+
 

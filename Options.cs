@@ -392,7 +392,7 @@ namespace StardewValley
     {
       for (int index = 0; index < inputButton.Length; ++index)
       {
-        ref InputButton local = ref inputButton[index];
+        InputButton local = inputButton[index];
         if (inputButton[index].key != Keys.None)
           return inputButton[index].key;
       }
@@ -1647,6 +1647,7 @@ namespace StardewValley
     }
   }
 }
+
 
 
 

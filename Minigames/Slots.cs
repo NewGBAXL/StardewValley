@@ -411,7 +411,7 @@ namespace StardewValley.Minigames
       Vector2 zero1 = Vector2.Zero;
       Utility.drawWithShadow(b2, mouseCursors, position1, sourceRect, white1, 0.0f, zero1, 4f, layerDepth: 1f);
       Vector2 vector2;
-      ref Vector2 local = ref vector2;
+      Vector2 local = vector2;
       viewport3 = Game1.graphics.GraphicsDevice.Viewport;
       double x3 = (double) (viewport3.Width / 2 + 200);
       viewport3 = Game1.graphics.GraphicsDevice.Viewport;
@@ -498,3 +498,4 @@ namespace StardewValley.Minigames
     }
   }
 }
+

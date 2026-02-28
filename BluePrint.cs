@@ -57,7 +57,7 @@ namespace StardewValley
         Dictionary<string, string> dictionary = Game1.content.Load<Dictionary<string, string>>("Data\\Blueprints");
         string str1 = (string) null;
         string key = name;
-        ref string local = ref str1;
+        string local = str1;
         dictionary.TryGetValue(key, out local);
         if (str1 != null)
         {
@@ -199,3 +199,4 @@ namespace StardewValley
     }
   }
 }
+

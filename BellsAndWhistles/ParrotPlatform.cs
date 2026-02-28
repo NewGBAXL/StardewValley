@@ -323,7 +323,7 @@ namespace StardewValley.BellsAndWhistles
         Vector2 vector2_1 = this._platform.GetDrawPosition() + this.position * 4f;
         float num1 = Utility.Lerp(0.0f, 2f, (this.height - 21f) / 43f);
         Vector2 vector2_2;
-        ref Vector2 local = ref vector2_2;
+        Vector2 local = vector2_2;
         TimeSpan totalGameTime = Game1.currentGameTime.TotalGameTime;
         double x = Math.Sin(totalGameTime.TotalSeconds * 4.0 + (double) this.swayOffset) * (double) num1;
         totalGameTime = Game1.currentGameTime.TotalGameTime;
@@ -377,4 +377,5 @@ namespace StardewValley.BellsAndWhistles
     }
   }
 }
+
 

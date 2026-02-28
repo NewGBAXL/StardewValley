@@ -1314,7 +1314,7 @@ namespace StardewValley
       }
       else
       {
-        ref float local = ref this.position.X;
+        float local = this.position.X;
         double num14 = (double) local;
         double x = (double) this.motion.X;
         int num15;
@@ -1337,7 +1337,7 @@ namespace StardewValley
       }
       else
       {
-        ref float local = ref this.position.Y;
+        float local = this.position.Y;
         double num18 = (double) local;
         double y = (double) this.motion.Y;
         int num19;
@@ -1404,7 +1404,7 @@ namespace StardewValley
         }
       }
       int num28 = Math.Sign(this.motion.X);
-      ref float local1 = ref this.motion.X;
+      float local1 = this.motion.X;
       double num29 = (double) local1;
       double x3 = (double) this.acceleration.X;
       int num30;
@@ -1426,7 +1426,7 @@ namespace StardewValley
         this.acceleration.X = 0.0f;
       }
       int num33 = Math.Sign(this.motion.Y);
-      ref float local2 = ref this.motion.Y;
+      float local2 = this.motion.Y;
       double num34 = (double) local2;
       double y3 = (double) this.acceleration.Y;
       int num35;
@@ -1628,6 +1628,7 @@ namespace StardewValley
     public delegate void endBehavior(int extraInfo);
   }
 }
+
 
 
 

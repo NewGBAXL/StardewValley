@@ -63,7 +63,7 @@ namespace StardewValley.BellsAndWhistles
       TimeSpan elapsedGameTime;
       if (this.durationAfterSwipe > 0 && this.bgDest.Width <= Game1.uiViewport.Width)
       {
-        ref int local = ref this.bgDest.Width;
+        int local = this.bgDest.Width;
         int num1 = local;
         double swipeVelocity = (double) this.swipeVelocity;
         elapsedGameTime = time.ElapsedGameTime;
@@ -75,7 +75,7 @@ namespace StardewValley.BellsAndWhistles
       }
       else if (this.durationAfterSwipe <= 0)
       {
-        ref int local = ref this.bgDest.X;
+        int local = this.bgDest.X;
         int num3 = local;
         double swipeVelocity = (double) this.swipeVelocity;
         elapsedGameTime = time.ElapsedGameTime;
@@ -130,3 +130,4 @@ namespace StardewValley.BellsAndWhistles
     }
   }
 }
+

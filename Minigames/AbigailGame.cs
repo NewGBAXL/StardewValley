@@ -1510,7 +1510,7 @@ namespace StardewValley.Minigames
             {
               if (!this.playerBoundingBox.Intersects(this.shoppingCarpetNoPickup))
               {
-                ref Rectangle local = ref this.playerBoundingBox;
+                Rectangle local = this.playerBoundingBox;
                 KeyValuePair<Rectangle, int> keyValuePair = this.storeItems.ElementAt<KeyValuePair<Rectangle, int>>(index);
                 Rectangle key5 = keyValuePair.Key;
                 if (local.Intersects(key5))
@@ -4243,6 +4243,7 @@ namespace StardewValley.Minigames
     }
   }
 }
+
 
 
 

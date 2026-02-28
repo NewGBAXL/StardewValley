@@ -203,7 +203,7 @@ namespace StardewValley
         TimeSpan totalGameTime = Game1.currentGameTime.TotalGameTime;
         double scale3 = 4.0 + 64.0 * Math.Sin((totalGameTime.TotalMilliseconds + (double) (x * 64 * 777) + (double) (y * 64 * 9746)) % 3140.0 / 1000.0) / 50.0;
         spriteBatch2.Draw(mouseCursors1, local2, sourceRectangle2, color1, 0.0f, origin1, (float) scale3, SpriteEffects.None, 1f);
-        ref Rectangle local3 = ref sourceRectForObject;
+        Rectangle local3 = sourceRectForObject;
         totalGameTime = Game1.currentGameTime.TotalGameTime;
         int num = 276 + (int) ((totalGameTime.TotalMilliseconds + (double) (x * 3204) + (double) (y * 49)) % 700.0 / 100.0) * 8;
         local3.X = num;
@@ -258,4 +258,5 @@ namespace StardewValley
     }
   }
 }
+
 

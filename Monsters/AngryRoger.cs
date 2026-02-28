@@ -168,14 +168,14 @@ namespace StardewValley.Monsters
         return;
       int num = 0;
       Vector2 vector2;
-      ref Vector2 local1 = ref vector2;
+      Vector2 local1 = vector2;
       double x1 = (double) (this.Player.GetBoundingBox().Center.X / 64 + Game1.random.Next(-12, 12));
       Microsoft.Xna.Framework.Rectangle boundingBox = this.Player.GetBoundingBox();
       double y1 = (double) (boundingBox.Center.Y / 64 + Game1.random.Next(-12, 12));
       local1 = new Vector2((float) x1, (float) y1);
       for (; num < 3 && ((double) vector2.X >= (double) this.currentLocation.map.GetLayer("Back").LayerWidth || (double) vector2.Y >= (double) this.currentLocation.map.GetLayer("Back").LayerHeight || (double) vector2.X < 0.0 || (double) vector2.Y < 0.0 || this.currentLocation.map.GetLayer("Back").Tiles[(int) vector2.X, (int) vector2.Y] == null || !this.currentLocation.isTilePassable(new Location((int) vector2.X, (int) vector2.Y), Game1.viewport) || vector2.Equals(new Vector2((float) (this.Player.getStandingX() / 64), (float) (this.Player.getStandingY() / 64)))); ++num)
       {
-        ref Vector2 local2 = ref vector2;
+        Vector2 local2 = vector2;
         boundingBox = this.Player.GetBoundingBox();
         double x2 = (double) (boundingBox.Center.X / 64 + Game1.random.Next(-12, 12));
         boundingBox = this.Player.GetBoundingBox();
@@ -189,4 +189,5 @@ namespace StardewValley.Monsters
     }
   }
 }
+
 

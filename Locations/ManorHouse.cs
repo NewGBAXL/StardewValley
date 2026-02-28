@@ -401,7 +401,7 @@ namespace StardewValley.Locations
       {
         string s = questionAndAnswer.Split('_')[1];
         long id = 0;
-        ref long local = ref id;
+        long local = id;
         if (long.TryParse(s, out local))
         {
           Farmer farmerMaybeOffline = Game1.getFarmerMaybeOffline(id);
@@ -423,5 +423,6 @@ namespace StardewValley.Locations
     }
   }
 }
+
 
 

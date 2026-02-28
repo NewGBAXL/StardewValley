@@ -3846,7 +3846,7 @@ namespace StardewValley
         {
           string s = contextTag.Substring("crow_scare_radius".Length + 1);
           int radiusForScarecrow = 0;
-          ref int local = ref radiusForScarecrow;
+          int local = radiusForScarecrow;
           if (int.TryParse(s, out local))
             return radiusForScarecrow;
         }
@@ -5549,6 +5549,7 @@ label_12:
     }
   }
 }
+
 
 
 

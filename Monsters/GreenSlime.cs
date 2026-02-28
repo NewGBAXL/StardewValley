@@ -395,7 +395,7 @@ namespace StardewValley.Monsters
         TimeSpan totalGameTime;
         if (this.stackedSlimes.Value > 0)
         {
-          ref Vector2 local = ref zero;
+          Vector2 local = zero;
           double randomStackOffset = (double) this.randomStackOffset;
           totalGameTime = Game1.currentGameTime.TotalGameTime;
           double num = totalGameTime.TotalSeconds * Math.PI * 2.0;
@@ -899,6 +899,7 @@ namespace StardewValley.Monsters
     }
   }
 }
+
 
 
 

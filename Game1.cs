@@ -4107,7 +4107,7 @@ namespace StardewValley
         {
           if (Game1.isOneOfTheseKeysDown(Game1.oldKBState, Game1.options.moveUpButton) || Game1.options.snappyMenus && Game1.options.gamepadControls && ((double) Math.Abs(gamePadState.ThumbSticks.Left.X) < (double) gamePadState.ThumbSticks.Left.Y || gamePadState.IsButtonDown(Buttons.DPadUp)))
           {
-            ref int local = ref Game1.directionKeyPolling[0];
+            int local = Game1.directionKeyPolling[0];
             int num = local;
             elapsedGameTime = Game1.currentGameTime.ElapsedGameTime;
             int milliseconds = elapsedGameTime.Milliseconds;
@@ -4115,7 +4115,7 @@ namespace StardewValley
           }
           else if (Game1.isOneOfTheseKeysDown(Game1.oldKBState, Game1.options.moveRightButton) || Game1.options.snappyMenus && Game1.options.gamepadControls && ((double) gamePadState.ThumbSticks.Left.X > (double) Math.Abs(gamePadState.ThumbSticks.Left.Y) || gamePadState.IsButtonDown(Buttons.DPadRight)))
           {
-            ref int local = ref Game1.directionKeyPolling[1];
+            int local = Game1.directionKeyPolling[1];
             int num = local;
             elapsedGameTime = Game1.currentGameTime.ElapsedGameTime;
             int milliseconds = elapsedGameTime.Milliseconds;
@@ -4123,7 +4123,7 @@ namespace StardewValley
           }
           else if (Game1.isOneOfTheseKeysDown(Game1.oldKBState, Game1.options.moveDownButton) || Game1.options.snappyMenus && Game1.options.gamepadControls && ((double) Math.Abs(gamePadState.ThumbSticks.Left.X) < (double) Math.Abs(gamePadState.ThumbSticks.Left.Y) || gamePadState.IsButtonDown(Buttons.DPadDown)))
           {
-            ref int local = ref Game1.directionKeyPolling[2];
+            int local = Game1.directionKeyPolling[2];
             int num = local;
             elapsedGameTime = Game1.currentGameTime.ElapsedGameTime;
             int milliseconds = elapsedGameTime.Milliseconds;
@@ -4131,7 +4131,7 @@ namespace StardewValley
           }
           else if (Game1.isOneOfTheseKeysDown(Game1.oldKBState, Game1.options.moveLeftButton) || Game1.options.snappyMenus && Game1.options.gamepadControls && ((double) Math.Abs(gamePadState.ThumbSticks.Left.X) > (double) Math.Abs(gamePadState.ThumbSticks.Left.Y) || gamePadState.IsButtonDown(Buttons.DPadLeft)))
           {
-            ref int local = ref Game1.directionKeyPolling[3];
+            int local = Game1.directionKeyPolling[3];
             int num = local;
             elapsedGameTime = Game1.currentGameTime.ElapsedGameTime;
             int milliseconds = elapsedGameTime.Milliseconds;
@@ -4423,7 +4423,7 @@ namespace StardewValley
               else
                 goto label_60;
             }
-            ref int local = ref Game1.directionKeyPolling[3];
+            int local = Game1.directionKeyPolling[3];
             int num = local;
             elapsedGameTime = Game1.currentGameTime.ElapsedGameTime;
             int milliseconds = elapsedGameTime.Milliseconds;
@@ -4431,7 +4431,7 @@ namespace StardewValley
             goto label_60;
           }
 label_55:
-          ref int local1 = ref Game1.directionKeyPolling[2];
+          int local1 = Game1.directionKeyPolling[2];
           int num5 = local1;
           elapsedGameTime = Game1.currentGameTime.ElapsedGameTime;
           int milliseconds1 = elapsedGameTime.Milliseconds;
@@ -4439,7 +4439,7 @@ label_55:
           goto label_60;
         }
 label_51:
-        ref int local2 = ref Game1.directionKeyPolling[1];
+        int local2 = Game1.directionKeyPolling[1];
         int num6 = local2;
         elapsedGameTime = Game1.currentGameTime.ElapsedGameTime;
         int milliseconds2 = elapsedGameTime.Milliseconds;
@@ -4447,7 +4447,7 @@ label_51:
         goto label_60;
       }
 label_47:
-      ref int local3 = ref Game1.directionKeyPolling[0];
+      int local3 = Game1.directionKeyPolling[0];
       int num7 = local3;
       elapsedGameTime = Game1.currentGameTime.ElapsedGameTime;
       int milliseconds3 = elapsedGameTime.Milliseconds;
@@ -5685,7 +5685,7 @@ label_76:
         {
           if (Game1.rainDrops[index].frame == 0)
           {
-            ref int local = ref Game1.rainDrops[index].accumulator;
+            int local = Game1.rainDrops[index].accumulator;
             int num = local;
             elapsedGameTime = time.ElapsedGameTime;
             int milliseconds = elapsedGameTime.Milliseconds;
@@ -5709,7 +5709,7 @@ label_76:
           }
           else
           {
-            ref int local = ref Game1.rainDrops[index].accumulator;
+            int local = Game1.rainDrops[index].accumulator;
             int num = local;
             elapsedGameTime = time.ElapsedGameTime;
             int milliseconds = elapsedGameTime.Milliseconds;
@@ -15598,7 +15598,7 @@ label_12:
       Viewport viewport;
       if (Game1.currentLocation.orePanPoint.X * 64 > Game1.viewport.MaxCorner.X - 64)
       {
-        ref Vector2 local = ref position3;
+        Vector2 local = position3;
         viewport = Game1.graphics.GraphicsDevice.Viewport;
         double num4 = (double) (viewport.Bounds.Right - 8);
         local.X = (float) num4;
@@ -15613,7 +15613,7 @@ label_12:
         position3.X = (float) (Game1.currentLocation.orePanPoint.X * 64 - Game1.viewport.X);
       if (Game1.currentLocation.orePanPoint.Y * 64 > Game1.viewport.MaxCorner.Y - 64)
       {
-        ref Vector2 local = ref position3;
+        Vector2 local = position3;
         viewport = Game1.graphics.GraphicsDevice.Viewport;
         double num5 = (double) (viewport.Bounds.Bottom - 8);
         local.Y = (float) num5;
@@ -17155,6 +17155,7 @@ label_12:
     public delegate void afterFadeFunction();
   }
 }
+
 
 
 
