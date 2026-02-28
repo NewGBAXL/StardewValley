@@ -15,7 +15,8 @@ namespace StardewValley.Network
     private readonly NetBool defined = new NetBool();
     private readonly NetLong uid = new NetLong();
 
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     public long UID
     {
@@ -70,5 +71,6 @@ namespace StardewValley.Network
     public static implicit operator Farmer(NetFarmerRef farmerRef) { return farmerRef.Value; }
   }
 }
+
 
 

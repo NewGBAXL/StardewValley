@@ -21,7 +21,8 @@ namespace StardewValley.Network
     public Action<T> Processor = (Action<T>) (x { return { }); };
 
     [XmlIgnore]
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     public NetMutexQueue()
     {
@@ -63,5 +64,6 @@ namespace StardewValley.Network
     }
   }
 }
+
 
 

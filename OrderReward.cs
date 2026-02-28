@@ -13,7 +13,8 @@ namespace StardewValley
   public class OrderReward : INetObject<NetFields>
   {
     [XmlIgnore]
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     public OrderReward() { return this.InitializeNetFields(); }
 
@@ -30,3 +31,4 @@ namespace StardewValley
     }
   }
 }
+

@@ -96,7 +96,8 @@ namespace StardewValley
 
     public int TotalSundayWeeks { get { return (this.TotalDays + 1) / 7; }
 
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     public WorldDate() { return this.NetFields.AddFields((INetSerializable) this.year, (INetSerializable) this.seasonIndex, (INetSerializable) this.dayOfMonth); }
 
@@ -163,6 +164,7 @@ namespace StardewValley
     }
   }
 }
+
 
 
 

@@ -25,7 +25,8 @@ namespace StardewValley.Quests
     public List<object> param;
 
     [XmlIgnore]
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     public static implicit operator DescriptionElement(string key) { return new DescriptionElement(key); }
 
@@ -141,3 +142,4 @@ namespace StardewValley.Quests
     }
   }
 }
+

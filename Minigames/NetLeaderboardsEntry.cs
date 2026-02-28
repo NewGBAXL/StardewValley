@@ -13,7 +13,8 @@ namespace StardewValley.Minigames
     public readonly NetString name = new NetString("");
     public readonly NetInt score = new NetInt(0);
 
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     public void InitNetFields() { this.NetFields.AddFields((INetSerializable) this.name, (INetSerializable) this.score); }
 
@@ -27,4 +28,5 @@ namespace StardewValley.Minigames
     }
   }
 }
+
 

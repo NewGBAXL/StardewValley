@@ -132,7 +132,8 @@ namespace StardewValley.Buildings
       }
     }
 
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     public Building()
     {
@@ -1044,6 +1045,7 @@ namespace StardewValley.Buildings
     }
   }
 }
+
 
 
 

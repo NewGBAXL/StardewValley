@@ -19,7 +19,8 @@ namespace StardewValley
     private readonly NetFarmerCollection setPlayers = new NetFarmerCollection();
     private readonly NetFarmerCollection requiredPlayers = new NetFarmerCollection();
 
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     public string Name { get { return (string) (NetFieldBase<string, NetString>) this.name;
 
@@ -125,6 +126,7 @@ label_4:
     }
   }
 }
+
 
 
 

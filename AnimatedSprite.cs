@@ -36,7 +36,8 @@ namespace StardewValley
     protected ContentManager contentManager;
     public bool ignoreSourceRectUpdates;
 
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     public Texture2D Texture
     {
@@ -488,6 +489,7 @@ namespace StardewValley
     public delegate void endOfAnimationBehavior(Farmer who);
   }
 }
+
 
 
 

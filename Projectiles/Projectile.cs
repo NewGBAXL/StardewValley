@@ -89,7 +89,8 @@ namespace StardewValley.Projectiles
       set { this.ignoreLocationCollision.Value = value; }
     }
 
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     public Projectile() { return this.NetFields.AddFields((INetSerializable) this.currentTileSheetIndex, (INetSerializable) this.position.NetFields, (INetSerializable) this.tailLength, (INetSerializable) this.bouncesLeft, (INetSerializable) this.rotationVelocity, (INetSerializable) this.startingRotation, (INetSerializable) this.xVelocity, (INetSerializable) this.yVelocity, (INetSerializable) this.damagesMonsters, (INetSerializable) this.spriteFromObjectSheet, (INetSerializable) this.theOneWhoFiredMe.NetFields, (INetSerializable) this.ignoreLocationCollision, (INetSerializable) this.maxTravelDistance, (INetSerializable) this.ignoreTravelGracePeriod, (INetSerializable) this.ignoreMeleeAttacks, (INetSerializable) this.height, (INetSerializable) this.startingScale, (INetSerializable) this.scaleGrow, (INetSerializable) this.color, (INetSerializable) this.light); }
 
@@ -260,6 +261,7 @@ namespace StardewValley.Projectiles
     }
   }
 }
+
 
 
 

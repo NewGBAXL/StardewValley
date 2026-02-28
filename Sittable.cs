@@ -45,7 +45,8 @@ namespace StardewValley
     public Vector3? customDrawValues;
 
     [XmlIgnore]
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     public MapSeat() { return this.NetFields.AddFields((INetSerializable) this.sittingFarmers, (INetSerializable) this.tilePosition, (INetSerializable) this.size, (INetSerializable) this.direction, (INetSerializable) this.drawTilePosition, (INetSerializable) this.seasonal, (INetSerializable) this.seatType, (INetSerializable) this.textureFile); }
 
@@ -293,4 +294,5 @@ namespace StardewValley
     public virtual int GetSittingFarmerCount() { return this.sittingFarmers.Count(); }
   }
 }
+
 

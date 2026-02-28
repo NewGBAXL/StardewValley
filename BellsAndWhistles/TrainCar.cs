@@ -38,7 +38,8 @@ namespace StardewValley.BellsAndWhistles
     public readonly NetBool alternateCar = new NetBool();
     public readonly NetColor color = new NetColor();
 
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     public TrainCar() { return this.initNetFields(); }
 
@@ -135,4 +136,5 @@ namespace StardewValley.BellsAndWhistles
     }
   }
 }
+
 

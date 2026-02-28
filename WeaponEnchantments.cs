@@ -61,7 +61,8 @@ namespace StardewValley
     protected readonly NetInt level = new NetInt(1);
 
     [XmlIgnore]
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     [XmlElement("level")]
     public int Level
@@ -290,6 +291,7 @@ namespace StardewValley
     public virtual bool ShouldBeDisplayed() { return true; }
   }
 }
+
 
 
 

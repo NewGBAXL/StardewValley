@@ -21,7 +21,8 @@ namespace StardewValley.Network
     private Action onLockFailed;
 
     [XmlIgnore]
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     public NetMutex()
     {
@@ -90,5 +91,6 @@ namespace StardewValley.Network
     }
   }
 }
+
 
 

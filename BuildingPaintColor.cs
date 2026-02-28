@@ -28,7 +28,8 @@ namespace StardewValley
     protected bool _dirty;
 
     [XmlIgnore]
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     public BuildingPaintColor()
     {
@@ -65,4 +66,5 @@ namespace StardewValley
     public bool RequiresRecolor() { return !this.Color1Default.Value || !this.Color2Default.Value || !this.Color3Default.Value; }
   }
 }
+
 

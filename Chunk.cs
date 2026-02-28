@@ -57,7 +57,8 @@ namespace StardewValley
     }
 
     [XmlIgnore]
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     public Chunk()
     {
@@ -81,6 +82,7 @@ namespace StardewValley
     public float getSpeed() { return (float) Math.Sqrt((double) (float) (NetFieldBase<float, NetFloat>) this.xVelocity * (double) (float) (NetFieldBase<float, NetFloat>) this.xVelocity + (double) (float) (NetFieldBase<float, NetFloat>) this.yVelocity * (double) (float) (NetFieldBase<float, NetFloat>) this.yVelocity); }
   }
 }
+
 
 
 

@@ -20,7 +20,8 @@ namespace StardewValley.Network
       set { this.SetCharacter(value); }
     }
 
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     public NetDancePartner() { return this.NetFields.AddFields((INetSerializable) this.farmer.NetFields, (INetSerializable) this.villager); }
 
@@ -75,6 +76,7 @@ namespace StardewValley.Network
     public int GetGender() { return this.IsFarmer() ? (!this.TryGetFarmer().IsMale ? 1 : 0) : (this.IsVillager() ? this.TryGetVillager().Gender : 2); }
   }
 }
+
 
 
 

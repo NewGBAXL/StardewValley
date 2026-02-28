@@ -60,7 +60,8 @@ namespace StardewValley.Network
     public readonly NetInt currentPlayerLimit = new NetInt(-1);
     public readonly NetRef<StardewValley.Object> dishOfTheDay = new NetRef<StardewValley.Object>();
 
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     public NetWorldState()
     {
@@ -387,6 +388,7 @@ namespace StardewValley.Network
     }
   }
 }
+
 
 
 

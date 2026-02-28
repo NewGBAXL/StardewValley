@@ -18,7 +18,8 @@ namespace StardewValley.SDKs
     private GalaxyHelper.OperationalStateChangeListener stateChangeListener;
     private GalaxyNetHelper networking;
 
-    public string Name { get; } = "Galaxy";
+ string _name = "Galaxy";
+    public string Name { get { return _name; } }
 
     public bool ConnectionFinished { get; private set; }
 
@@ -172,6 +173,7 @@ namespace StardewValley.SDKs
     }
   }
 }
+
 
 
 

@@ -116,7 +116,8 @@ namespace StardewValley
     public NetEnum<SpecialOrder.QuestState> questState = new NetEnum<SpecialOrder.QuestState>(SpecialOrder.QuestState.InProgress);
 
     [XmlIgnore]
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     public SpecialOrder() { return this.InitializeNetFields(); }
 
@@ -1004,5 +1005,6 @@ namespace StardewValley
     }
   }
 }
+
 
 

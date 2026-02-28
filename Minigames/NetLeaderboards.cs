@@ -15,7 +15,8 @@ namespace StardewValley.Minigames
     public NetObjectList<NetLeaderboardsEntry> entries = new NetObjectList<NetLeaderboardsEntry>();
     public NetInt maxEntries = new NetInt(10);
 
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     public void InitNetFields() { this.NetFields.AddFields((INetSerializable) this.entries, (INetSerializable) this.maxEntries); }
 
@@ -50,5 +51,6 @@ namespace StardewValley.Minigames
     }
   }
 }
+
 
 

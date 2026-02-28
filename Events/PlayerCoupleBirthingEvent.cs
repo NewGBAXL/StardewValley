@@ -37,7 +37,8 @@ namespace StardewValley.Events
     private bool isPlayersTurn;
     private Child child;
 
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     public PlayerCoupleBirthingEvent()
     {
@@ -179,4 +180,5 @@ namespace StardewValley.Events
     }
   }
 }
+
 

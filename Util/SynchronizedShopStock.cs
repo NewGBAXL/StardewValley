@@ -19,7 +19,8 @@ namespace StardewValley.Util
     private readonly NetStringDictionary<int, NetInt> sharedTravelingMerchantStock = new NetStringDictionary<int, NetInt>();
     private readonly NetStringDictionary<int, NetInt> sharedSaloonStock = new NetStringDictionary<int, NetInt>();
 
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     public SynchronizedShopStock() { return this.initNetFields(); }
 
@@ -126,4 +127,5 @@ namespace StardewValley.Util
     }
   }
 }
+
 

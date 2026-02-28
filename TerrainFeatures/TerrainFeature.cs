@@ -62,7 +62,8 @@ namespace StardewValley.TerrainFeatures
       get { return this._needsUpdate; }
     }
 
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     protected TerrainFeature(bool needsTick)
     {
@@ -132,6 +133,7 @@ namespace StardewValley.TerrainFeatures
     }
   }
 }
+
 
 
 

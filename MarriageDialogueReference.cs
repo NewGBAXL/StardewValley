@@ -22,7 +22,8 @@ namespace StardewValley
     private readonly NetBool _isGendered = new NetBool(false);
     private readonly NetStringList _substitutions = new NetStringList();
 
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     public MarriageDialogueReference() { return this.NetFields.AddFields((INetSerializable) this._dialogueFile, (INetSerializable) this._dialogueKey, (INetSerializable) this._isGendered, (INetSerializable) this._substitutions); }
 
@@ -90,6 +91,7 @@ namespace StardewValley
     }
   }
 }
+
 
 
 

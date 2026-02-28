@@ -249,7 +249,8 @@ namespace StardewValley
       set { this.modData.SetFromSerialization(value); }
     }
 
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     public Character() { return this.initNetFields(); }
 
@@ -1196,6 +1197,7 @@ namespace StardewValley
     }
   }
 }
+
 
 
 

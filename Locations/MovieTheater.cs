@@ -15,7 +15,8 @@ namespace StardewValley
     protected NetString _invitedNPCName = new NetString();
     protected NetBool _fulfilled = new NetBool(false);
 
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     public Farmer farmer
     {
@@ -44,6 +45,7 @@ namespace StardewValley
     public MovieInvitation() { return this.NetFields.AddFields((INetSerializable) this._farmer.NetFields, (INetSerializable) this._invitedNPCName, (INetSerializable) this._fulfilled); }
   }
 }
+
 
 
 

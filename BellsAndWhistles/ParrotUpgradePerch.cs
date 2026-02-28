@@ -42,7 +42,8 @@ namespace StardewValley.BellsAndWhistles
     public Func<bool> onUpdateCompletionStatus;
     protected bool _cachedAvailablity;
 
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     public ParrotUpgradePerch()
     {
@@ -714,4 +715,5 @@ namespace StardewValley.BellsAndWhistles
     }
   }
 }
+
 

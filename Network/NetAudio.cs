@@ -17,7 +17,8 @@ namespace StardewValley.Network
     private readonly NetStringDictionary<bool, NetBool> activeCues = new NetStringDictionary<bool, NetBool>();
     private GameLocation location;
 
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     public NetDictionary<string, bool, NetBool, SerializableDictionary<string, bool>, NetStringDictionary<bool, NetBool>>.KeysCollection ActiveCues { get { return this.activeCues.Keys; }
 
@@ -158,6 +159,7 @@ namespace StardewValley.Network
     }
   }
 }
+
 
 
 

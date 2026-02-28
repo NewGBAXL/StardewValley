@@ -31,7 +31,8 @@ namespace StardewValley.Events
     private TextBox babyNameBox;
     private ClickableTextureComponent okButton;
 
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     public bool setUp()
     {
@@ -152,5 +153,6 @@ namespace StardewValley.Events
     }
   }
 }
+
 
 

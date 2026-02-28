@@ -28,7 +28,8 @@ namespace StardewValley.Locations
     public NetEvent0 openEvent = new NetEvent0();
     public NetEvent1Field<Point, NetPoint> pressEvent = new NetEvent1Field<Point, NetPoint>();
 
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     public DwarfGate() { return this.InitNetFields(); }
 
@@ -186,4 +187,5 @@ namespace StardewValley.Locations
     }
   }
 }
+
 

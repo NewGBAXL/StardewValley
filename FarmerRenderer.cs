@@ -347,7 +347,8 @@ namespace StardewValley
     private Vector2 positionOffset;
 
     [XmlIgnore]
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     public FarmerRenderer()
     {
@@ -1017,4 +1018,5 @@ namespace StardewValley
     }
   }
 }
+
 

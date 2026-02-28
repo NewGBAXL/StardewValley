@@ -26,7 +26,8 @@ namespace StardewValley.Events
     private bool animateLeft;
     private bool terminate;
 
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     public bool setUp()
     {
@@ -212,4 +213,5 @@ namespace StardewValley.Events
     }
   }
 }
+
 

@@ -33,7 +33,8 @@ namespace StardewValley.BellsAndWhistles
     public float smokeTimer;
     private TemporaryAnimatedSprite whistleSteam;
 
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     public Train()
     {
@@ -202,4 +203,5 @@ namespace StardewValley.BellsAndWhistles
     }
   }
 }
+
 

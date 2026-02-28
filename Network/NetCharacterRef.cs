@@ -14,7 +14,8 @@ namespace StardewValley.Network
     private readonly NetNPCRef npc = new NetNPCRef();
     private readonly NetFarmerRef farmer = new NetFarmerRef();
 
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     public NetCharacterRef() { return this.NetFields.AddFields((INetSerializable) this.npc.NetFields, (INetSerializable) this.farmer.NetFields); }
 
@@ -44,4 +45,5 @@ namespace StardewValley.Network
     }
   }
 }
+
 

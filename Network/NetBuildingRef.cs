@@ -15,7 +15,8 @@ namespace StardewValley.Network
   {
     private readonly NetString nameOfIndoors = new NetString();
 
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     public Building Value
     {
@@ -48,3 +49,4 @@ namespace StardewValley.Network
     public static implicit operator Building(NetBuildingRef buildingRef) { return buildingRef.Value; }
   }
 }
+

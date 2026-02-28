@@ -14,7 +14,8 @@ public class LocationWeather : INetObject<NetFields>
   public readonly NetBool isLightning = new NetBool();
   public readonly NetBool isDebrisWeather = new NetBool();
 
-  public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+  public NetFields NetFields { get { return _netFields; } }
 
   public LocationWeather() { return this.NetFields.AddFields((INetSerializable) this.isRaining, (INetSerializable) this.isSnowing, (INetSerializable) this.isLightning, (INetSerializable) this.isDebrisWeather, (INetSerializable) this.weatherForTomorrow); }
 
@@ -35,3 +36,4 @@ public class LocationWeather : INetObject<NetFields>
     this.weatherForTomorrow.Value = other.weatherForTomorrow.Value;
   }
 }
+

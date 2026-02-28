@@ -3173,7 +3173,8 @@ namespace StardewValley.Minigames
       public NetInt waveTimer = new NetInt();
       public NetList<Vector2, NetVector2> monsterChances = new NetList<Vector2, NetVector2>();
 
-      public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+      public NetFields NetFields { get { return _netFields; } }
 
       public JOTPKProgress() { return this.NetFields.AddFields((INetSerializable) this.bulletDamage, (INetSerializable) this.runSpeedLevel, (INetSerializable) this.ammoLevel, (INetSerializable) this.lives, (INetSerializable) this.coins, (INetSerializable) this.score, (INetSerializable) this.died, (INetSerializable) this.spreadPistol, (INetSerializable) this.whichRound, (INetSerializable) this.whichWave, (INetSerializable) this.heldItem, (INetSerializable) this.world, (INetSerializable) this.waveTimer, (INetSerializable) this.monsterChances); }
     }
@@ -4242,6 +4243,7 @@ namespace StardewValley.Minigames
     }
   }
 }
+
 
 
 

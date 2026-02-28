@@ -39,7 +39,8 @@ namespace StardewValley.Network
       }
     }
 
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     public NetPausableField(TField field)
     {
@@ -74,6 +75,7 @@ namespace StardewValley.Network
     public static implicit operator T(NetPausableField<T, TField, TBaseField> field) { return field.Get(); }
   }
 }
+
 
 
 

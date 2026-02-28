@@ -26,7 +26,8 @@ namespace StardewValley.BellsAndWhistles
     public PlayerStatusList.DisplayMode displayMode;
     protected Dictionary<string, KeyValuePair<string, Rectangle>> _iconDefinitions = new Dictionary<string, KeyValuePair<string, Rectangle>>();
 
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     public PlayerStatusList()
     {
@@ -214,4 +215,5 @@ namespace StardewValley.BellsAndWhistles
     }
   }
 }
+
 

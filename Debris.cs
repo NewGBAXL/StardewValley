@@ -108,7 +108,8 @@ namespace StardewValley
       set { this.netItem.Value = value; }
     }
 
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     public Debris()
     {
@@ -846,6 +847,7 @@ namespace StardewValley
     }
   }
 }
+
 
 
 

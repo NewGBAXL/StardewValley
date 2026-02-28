@@ -80,7 +80,8 @@ namespace StardewValley
     private static Vector2 origin = new Vector2(8f, 24f);
     private static Vector2 smallestTileSizeOrigin = new Vector2(8f, 8f);
 
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     public Crop()
     {
@@ -678,4 +679,5 @@ namespace StardewValley
     }
   }
 }
+
 

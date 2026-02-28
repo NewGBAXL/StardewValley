@@ -36,7 +36,8 @@ namespace StardewValley.BellsAndWhistles
     public NetBool whacked = new NetBool(false);
 
     [XmlIgnore]
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     public SandDuggy() { return this.InitNetFields(); }
 
@@ -220,5 +221,6 @@ namespace StardewValley.BellsAndWhistles
     }
   }
 }
+
 
 

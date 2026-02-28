@@ -30,7 +30,8 @@ namespace StardewValley.Events
     private Vector2 targetLocation;
     private Building targetBuilding;
 
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     public SoundInTheNightEvent() { return this.NetFields.AddField((INetSerializable) this.behavior); }
 
@@ -204,3 +205,4 @@ namespace StardewValley.Events
     }
   }
 }
+

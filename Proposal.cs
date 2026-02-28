@@ -20,8 +20,10 @@ namespace StardewValley
     public readonly NetBool canceled = new NetBool();
     public readonly NetBool cancelConfirmed = new NetBool();
 
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     public Proposal() { return this.NetFields.AddFields((INetSerializable) this.sender.NetFields, (INetSerializable) this.receiver.NetFields, (INetSerializable) this.proposalType, (INetSerializable) this.response, (INetSerializable) this.responseMessageKey, (INetSerializable) this.gift, (INetSerializable) this.canceled, (INetSerializable) this.cancelConfirmed); }
   }
 }
+

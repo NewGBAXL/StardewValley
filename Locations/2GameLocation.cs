@@ -271,7 +271,8 @@ namespace StardewValley
     };
 
     [XmlIgnore]
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     [XmlIgnore]
     public NetRoot<GameLocation> Root { get { return this.NetFields.Root as NetRoot<GameLocation>; }
@@ -12618,6 +12619,7 @@ label_19:
     }
   }
 }
+
 
 
 

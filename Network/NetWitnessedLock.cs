@@ -18,7 +18,8 @@ namespace StardewValley.Network
     private Action acquired;
 
     [XmlIgnore]
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     public NetWitnessedLock() { return this.NetFields.AddFields((INetSerializable) this.requested, (INetSerializable) this.witnesses.NetFields); }
 
@@ -62,3 +63,4 @@ namespace StardewValley.Network
     }
   }
 }
+

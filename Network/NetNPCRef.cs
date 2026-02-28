@@ -13,7 +13,8 @@ namespace StardewValley.Network
   {
     private readonly NetGuid guid = new NetGuid();
 
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     public NetNPCRef() { return this.NetFields.AddFields((INetSerializable) this.guid); }
 
@@ -40,4 +41,5 @@ namespace StardewValley.Network
     public void Clear() { this.guid.Value = Guid.Empty; }
   }
 }
+
 

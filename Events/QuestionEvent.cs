@@ -22,7 +22,8 @@ namespace StardewValley.Events
     public FarmAnimal animal;
     public bool forceProceed;
 
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     public QuestionEvent(int whichQuestion) { return this.whichQuestion = whichQuestion; }
 
@@ -119,4 +120,5 @@ namespace StardewValley.Events
     public void makeChangesToLocation() { Game1.messagePause = false; }
   }
 }
+
 

@@ -102,7 +102,8 @@ namespace StardewValley
     public NetInt itemIndex = new NetInt();
 
     [XmlIgnore]
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     public IslandGemBird()
     {
@@ -287,3 +288,4 @@ namespace StardewValley
     }
   }
 }
+

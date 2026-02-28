@@ -42,17 +42,20 @@ namespace StardewValley.SDKs
 
     public string FilterDirtyWords(string words) { return words; }
 
-    public virtual string Name { get; } = "?";
+ string _name = "?";
+    public virtual string Name { get { return _name; } }
 
     public SDKNetHelper Networking { get; }
 
-    public bool ConnectionFinished { get; } = true;
+ bool _connectionFinished = true;
+    public bool ConnectionFinished { get { return _connectionFinished; } }
 
     public int ConnectionProgress { get; }
 
     public bool HasOverlay { get { return false; }
   }
 }
+
 
 
 

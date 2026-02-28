@@ -69,7 +69,8 @@ namespace StardewValley.Quests
     private bool _loadedDescription;
     private bool _loadedTitle;
 
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     public Quest() { return this.initNetFields(); }
 
@@ -352,6 +353,7 @@ namespace StardewValley.Quests
     }
   }
 }
+
 
 
 

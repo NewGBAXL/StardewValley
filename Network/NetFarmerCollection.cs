@@ -20,7 +20,8 @@ namespace StardewValley.Network
     private List<Farmer> farmers = new List<Farmer>();
     private NetLongDictionary<bool, NetBool> uids = new NetLongDictionary<bool, NetBool>();
 
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     public int Count
     {
@@ -141,4 +142,5 @@ namespace StardewValley.Network
     public delegate void FarmerEvent(Farmer f);
   }
 }
+
 

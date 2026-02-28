@@ -15,7 +15,8 @@ namespace StardewValley.Events
   {
     public string NPCname;
 
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     /// <summary>
     /// return true if the event wasn't able to set up and should be skipped
@@ -65,4 +66,5 @@ namespace StardewValley.Events
     }
   }
 }
+
 

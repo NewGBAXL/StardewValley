@@ -29,7 +29,8 @@ namespace StardewValley.SDKs
 
     public int ConnectionProgress { get; private set; }
 
-    public string Name { get; } = "Steam";
+ string _name = "Steam";
+    public string Name { get { return _name; } }
 
     public void EarlyInitialize()
     {
@@ -231,6 +232,7 @@ namespace StardewValley.SDKs
     public bool IsEnterButtonAssignmentFlipped { get { return false; }
   }
 }
+
 
 
 

@@ -22,7 +22,8 @@ namespace StardewValley.Network
       set { this.Set(value); }
     }
 
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     public NetLocationRef()
     {
@@ -98,6 +99,7 @@ namespace StardewValley.Network
     public static implicit operator GameLocation(NetLocationRef locationRef) { return locationRef.Value; }
   }
 }
+
 
 
 

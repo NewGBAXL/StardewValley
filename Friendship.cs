@@ -25,7 +25,8 @@ namespace StardewValley
     private readonly NetBool roommateMarriage = new NetBool(false);
 
     [XmlIgnore]
-    public NetFields NetFields { get; } = new NetFields();
+ NetFields _netFields = new NetFields();
+    public NetFields NetFields { get { return _netFields; } }
 
     public int Points
     {
@@ -133,6 +134,7 @@ namespace StardewValley
     public bool IsRoommate() { return this.IsMarried() && this.roommateMarriage.Value; }
   }
 }
+
 
 
 
