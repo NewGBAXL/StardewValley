@@ -378,7 +378,7 @@ namespace StardewValley
 
     public bool IsWalkingTowardPlayer
     {
-      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.isWalkingTowardPlayer;
+      get { return (bool) (NetFieldBase<bool, NetBool>) this.isWalkingTowardPlayer;
       set { this.isWalkingTowardPlayer.Value = value; }
     }
 
@@ -406,63 +406,63 @@ namespace StardewValley
     [XmlIgnore]
     public string Birthday_Season
     {
-      get { return (string) (NetFieldBase<string; }, NetString>) this.birthday_Season;
+      get { return (string) (NetFieldBase<string, NetString>) this.birthday_Season;
       set { this.birthday_Season.Value = value; }
     }
 
     [XmlIgnore]
     public int Birthday_Day
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.birthday_Day;
+      get { return (int) (NetFieldBase<int, NetInt>) this.birthday_Day;
       set { this.birthday_Day.Value = value; }
     }
 
     [XmlIgnore]
     public int Age
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.age;
+      get { return (int) (NetFieldBase<int, NetInt>) this.age;
       set { this.age.Value = value; }
     }
 
     [XmlIgnore]
     public int Manners
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.manners;
+      get { return (int) (NetFieldBase<int, NetInt>) this.manners;
       set { this.manners.Value = value; }
     }
 
     [XmlIgnore]
     public int SocialAnxiety
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.socialAnxiety;
+      get { return (int) (NetFieldBase<int, NetInt>) this.socialAnxiety;
       set { this.socialAnxiety.Value = value; }
     }
 
     [XmlIgnore]
     public int Optimism
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.optimism;
+      get { return (int) (NetFieldBase<int, NetInt>) this.optimism;
       set { this.optimism.Value = value; }
     }
 
     [XmlIgnore]
     public int Gender
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.gender;
+      get { return (int) (NetFieldBase<int, NetInt>) this.gender;
       set { this.gender.Value = value; }
     }
 
     [XmlIgnore]
     public bool Breather
     {
-      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.breather;
+      get { return (bool) (NetFieldBase<bool, NetBool>) this.breather;
       set { this.breather.Value = value; }
     }
 
     [XmlIgnore]
     public bool HideShadow
     {
-      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.hideShadow;
+      get { return (bool) (NetFieldBase<bool, NetBool>) this.hideShadow;
       set { this.hideShadow.Value = value; }
     }
 
@@ -483,7 +483,7 @@ namespace StardewValley
     [XmlIgnore]
     public bool IsInvisible
     {
-      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.isInvisible;
+      get { return (bool) (NetFieldBase<bool, NetBool>) this.isInvisible;
       set { this.isInvisible.Value = value; }
     }
 
@@ -5954,6 +5954,7 @@ label_51:
     }
   }
 }
+
 
 
 

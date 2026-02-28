@@ -71,14 +71,14 @@ namespace StardewValley.TerrainFeatures
     [XmlIgnore]
     public bool GreenHouseTree
     {
-      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.greenHouseTree;
+      get { return (bool) (NetFieldBase<bool, NetBool>) this.greenHouseTree;
       set { this.greenHouseTree.Value = value; }
     }
 
     [XmlIgnore]
     public bool GreenHouseTileTree
     {
-      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.greenHouseTileTree;
+      get { return (bool) (NetFieldBase<bool, NetBool>) this.greenHouseTileTree;
       set { this.greenHouseTileTree.Value = value; }
     }
 
@@ -688,6 +688,7 @@ namespace StardewValley.TerrainFeatures
     }
   }
 }
+
 
 
 

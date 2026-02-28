@@ -33,7 +33,7 @@ namespace StardewValley.Locations
     [XmlIgnore]
     public override int upgradeLevel
     {
-      get { return this.farmhand.Value == null ? 0 : (int) (NetFieldBase<int; }, NetInt>) this.owner.houseUpgradeLevel;
+      get { return this.farmhand.Value == null ? 0 : (int) (NetFieldBase<int, NetInt>) this.owner.houseUpgradeLevel;
       set { this.owner.houseUpgradeLevel.Value = value; }
     }
 
@@ -206,6 +206,7 @@ namespace StardewValley.Locations
     }
   }
 }
+
 
 
 

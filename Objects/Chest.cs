@@ -81,7 +81,7 @@ namespace StardewValley.Objects
     [XmlIgnore]
     public Color Tint
     {
-      get { return (Color) (NetFieldBase<Color; }, NetColor>) this.tint;
+      get { return (Color) (NetFieldBase<Color, NetColor>) this.tint;
       set { this.tint.Value = value; }
     }
 
@@ -1036,6 +1036,7 @@ namespace StardewValley.Objects
     }
   }
 }
+
 
 
 

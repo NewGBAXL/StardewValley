@@ -29,25 +29,25 @@ namespace StardewValley
     [XmlIgnore]
     public NetFields NetFields { get; } = new NetFields();
 
-    public int X { get { return (int) (NetFieldBase<int; }, NetInt>) this.x;
+    public int X { get { return (int) (NetFieldBase<int, NetInt>) this.x;
 
-    public int Y { get { return (int) (NetFieldBase<int; }, NetInt>) this.y;
+    public int Y { get { return (int) (NetFieldBase<int, NetInt>) this.y;
 
     public int TargetX
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.targetX;
+      get { return (int) (NetFieldBase<int, NetInt>) this.targetX;
       set { this.targetX.Value = value; }
     }
 
     public int TargetY
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.targetY;
+      get { return (int) (NetFieldBase<int, NetInt>) this.targetY;
       set { this.targetY.Value = value; }
     }
 
     public string TargetName
     {
-      get { return (string) (NetFieldBase<string; }, NetString>) this.targetName;
+      get { return (string) (NetFieldBase<string, NetString>) this.targetName;
       set { this.targetName.Value = value; }
     }
 
@@ -73,6 +73,7 @@ namespace StardewValley
     }
   }
 }
+
 
 
 

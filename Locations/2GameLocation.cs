@@ -282,7 +282,7 @@ namespace StardewValley
     [XmlIgnore]
     public float LightLevel
     {
-      get { return (float) (NetFieldBase<float; }, NetFloat>) this.lightLevel;
+      get { return (float) (NetFieldBase<float, NetFloat>) this.lightLevel;
       set { this.lightLevel.Value = value; }
     }
 
@@ -303,25 +303,25 @@ namespace StardewValley
     [XmlIgnore]
     public List<TemporaryAnimatedSprite> TemporarySprites { get { return this.temporarySprites; }
 
-    public string Name { get { return (string) (NetFieldBase<string; }, NetString>) this.name;
+    public string Name { get { return (string) (NetFieldBase<string, NetString>) this.name;
 
     [XmlIgnore]
     public bool IsFarm
     {
-      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.isFarm;
+      get { return (bool) (NetFieldBase<bool, NetBool>) this.isFarm;
       set { this.isFarm.Value = value; }
     }
 
     [XmlIgnore]
     public bool IsOutdoors
     {
-      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.isOutdoors;
+      get { return (bool) (NetFieldBase<bool, NetBool>) this.isOutdoors;
       set { this.isOutdoors.Value = value; }
     }
 
     public bool IsGreenhouse
     {
-      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.isGreenhouse;
+      get { return (bool) (NetFieldBase<bool, NetBool>) this.isGreenhouse;
       set { this.isGreenhouse.Value = value; }
     }
 
@@ -10068,7 +10068,7 @@ label_386:
                 return;
             }
           }
-          if (Game1.random.NextDouble() <= 0.2 && (Game1.MasterPlayer.mailReceived.Contains("guntherBones") || Game1.player.team.specialOrders.Where<SpecialOrder>((Func<SpecialOrder, bool>) (x { return (string) (NetFieldBase<string; }, NetString>) x.questKey == "Gunther")) != null && Game1.player.team.specialOrders.Where<SpecialOrder>((Func<SpecialOrder, bool>) (x { return (string) (NetFieldBase<string; }, NetString>) x.questKey == "Gunther")).Count<SpecialOrder>() > 0))
+          if (Game1.random.NextDouble() <= 0.2 && (Game1.MasterPlayer.mailReceived.Contains("guntherBones") || Game1.player.team.specialOrders.Where<SpecialOrder>((Func<SpecialOrder, bool>) (x { return (string) (NetFieldBase<string, NetString>) x.questKey == "Gunther")) != null && Game1.player.team.specialOrders.Where<SpecialOrder>((Func<SpecialOrder, bool>) (x { return (string) (NetFieldBase<string, NetString>) x.questKey == "Gunther")).Count<SpecialOrder>() > 0))
             Game1.createMultipleObjectDebris(881, xLocation, yLocation, random.Next(2, 6), who.UniqueMultiplayerID, this);
           Dictionary<string, string> dictionary = Game1.content.Load<Dictionary<string, string>>("Data\\Locations");
           if (!dictionary.ContainsKey((string) (NetFieldBase<string, NetString>) this.name))
@@ -12618,6 +12618,7 @@ label_19:
     }
   }
 }
+
 
 
 

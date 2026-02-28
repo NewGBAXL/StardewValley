@@ -76,49 +76,49 @@ namespace StardewValley.Monsters
     [XmlIgnore]
     public int DamageToFarmer
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.damageToFarmer;
+      get { return (int) (NetFieldBase<int, NetInt>) this.damageToFarmer;
       set { this.damageToFarmer.Value = value; }
     }
 
     [XmlIgnore]
     public int Health
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.health;
+      get { return (int) (NetFieldBase<int, NetInt>) this.health;
       set { this.health.Value = value; }
     }
 
     [XmlIgnore]
     public int MaxHealth
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.maxHealth;
+      get { return (int) (NetFieldBase<int, NetInt>) this.maxHealth;
       set { this.maxHealth.Value = value; }
     }
 
     [XmlIgnore]
     public int ExperienceGained
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.experienceGained;
+      get { return (int) (NetFieldBase<int, NetInt>) this.experienceGained;
       set { this.experienceGained.Value = value; }
     }
 
     [XmlIgnore]
     public int Slipperiness
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.slipperiness;
+      get { return (int) (NetFieldBase<int, NetInt>) this.slipperiness;
       set { this.slipperiness.Value = value; }
     }
 
     [XmlIgnore]
     public bool focusedOnFarmers
     {
-      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.netFocusedOnFarmers;
+      get { return (bool) (NetFieldBase<bool, NetBool>) this.netFocusedOnFarmers;
       set { this.netFocusedOnFarmers.Value = value; }
     }
 
     [XmlIgnore]
     public bool wildernessFarmMonster
     {
-      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.netWildernessFarmMonster;
+      get { return (bool) (NetFieldBase<bool, NetBool>) this.netWildernessFarmMonster;
       set { this.netWildernessFarmMonster.Value = value; }
     }
 
@@ -1085,6 +1085,7 @@ namespace StardewValley.Monsters
     protected delegate void collisionBehavior(GameLocation location);
   }
 }
+
 
 
 

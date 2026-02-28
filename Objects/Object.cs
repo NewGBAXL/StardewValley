@@ -259,14 +259,14 @@ namespace StardewValley
     [XmlIgnore]
     public LightSource lightSource
     {
-      get { return (LightSource) (NetFieldBase<LightSource; }, NetRef<LightSource>>) this.netLightSource;
+      get { return (LightSource) (NetFieldBase<LightSource, NetRef<LightSource>>) this.netLightSource;
       set { this.netLightSource.Value = value; }
     }
 
     [XmlIgnore]
     public Vector2 TileLocation
     {
-      get { return (Vector2) (NetFieldBase<Vector2; }, NetVector2>) this.tileLocation;
+      get { return (Vector2) (NetFieldBase<Vector2, NetVector2>) this.tileLocation;
       set { this.tileLocation.Value = value; }
     }
 
@@ -296,14 +296,14 @@ namespace StardewValley
     [XmlIgnore]
     public override string Name
     {
-      get { return this.name + ((bool) (NetFieldBase<bool; }, NetBool>) this.isRecipe ? " Recipe" : "");
+      get { return this.name + ((bool) (NetFieldBase<bool, NetBool>) this.isRecipe ? " Recipe" : "");
       set { this.name = value; }
     }
 
     [XmlIgnore]
     public string Type
     {
-      get { return (string) (NetFieldBase<string; }, NetString>) this.type;
+      get { return (string) (NetFieldBase<string, NetString>) this.type;
       set { this.type.Value = value; }
     }
 
@@ -317,80 +317,80 @@ namespace StardewValley
     [XmlIgnore]
     public int Quality
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.quality;
+      get { return (int) (NetFieldBase<int, NetInt>) this.quality;
       set { this.quality.Value = value; }
     }
 
     [XmlIgnore]
     public bool CanBeSetDown
     {
-      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.canBeSetDown;
+      get { return (bool) (NetFieldBase<bool, NetBool>) this.canBeSetDown;
       set { this.canBeSetDown.Value = value; }
     }
 
     [XmlIgnore]
     public bool CanBeGrabbed
     {
-      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.canBeGrabbed;
+      get { return (bool) (NetFieldBase<bool, NetBool>) this.canBeGrabbed;
       set { this.canBeGrabbed.Value = value; }
     }
 
     [XmlIgnore]
     public bool HasBeenPickedUpByFarmer
     {
-      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.hasBeenPickedUpByFarmer;
+      get { return (bool) (NetFieldBase<bool, NetBool>) this.hasBeenPickedUpByFarmer;
       set { this.hasBeenPickedUpByFarmer.Value = value; }
     }
 
     [XmlIgnore]
-    public bool IsHoeDirt { get { return (bool) (NetFieldBase<bool; }, NetBool>) this.isHoedirt;
+    public bool IsHoeDirt { get { return (bool) (NetFieldBase<bool, NetBool>) this.isHoedirt;
 
     [XmlIgnore]
     public bool IsOn
     {
-      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.isOn;
+      get { return (bool) (NetFieldBase<bool, NetBool>) this.isOn;
       set { this.isOn.Value = value; }
     }
 
     [XmlIgnore]
     public bool IsSpawnedObject
     {
-      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.isSpawnedObject;
+      get { return (bool) (NetFieldBase<bool, NetBool>) this.isSpawnedObject;
       set { this.isSpawnedObject.Value = value; }
     }
 
     [XmlIgnore]
     public bool IsRecipe
     {
-      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.isRecipe;
+      get { return (bool) (NetFieldBase<bool, NetBool>) this.isRecipe;
       set { this.isRecipe.Value = value; }
     }
 
     [XmlIgnore]
     public bool Flipped
     {
-      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.flipped;
+      get { return (bool) (NetFieldBase<bool, NetBool>) this.flipped;
       set { this.flipped.Value = value; }
     }
 
     [XmlIgnore]
     public int Price
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.price;
+      get { return (int) (NetFieldBase<int, NetInt>) this.price;
       set { this.price.Value = value; }
     }
 
     [XmlIgnore]
     public int Edibility
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.edibility;
+      get { return (int) (NetFieldBase<int, NetInt>) this.edibility;
       set { this.edibility.Value = value; }
     }
 
     [XmlIgnore]
     public int Fragility
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.fragility;
+      get { return (int) (NetFieldBase<int, NetInt>) this.fragility;
       set { this.fragility.Value = value; }
     }
 
@@ -404,7 +404,7 @@ namespace StardewValley
     [XmlIgnore]
     public int MinutesUntilReady
     {
-      get { return (int) (NetFieldBase<int; }, NetIntDelta>) this.minutesUntilReady;
+      get { return (int) (NetFieldBase<int, NetIntDelta>) this.minutesUntilReady;
       set { this.minutesUntilReady.Value = value; }
     }
 
@@ -5549,6 +5549,7 @@ label_12:
     }
   }
 }
+
 
 
 

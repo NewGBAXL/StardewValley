@@ -54,21 +54,21 @@ namespace StardewValley
 
     public int SpecialVariable
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.specialVariable;
+      get { return (int) (NetFieldBase<int, NetInt>) this.specialVariable;
       set { this.specialVariable.Set(value); }
     }
 
     [XmlIgnore]
     public int Category
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.category;
+      get { return (int) (NetFieldBase<int, NetInt>) this.category;
       set { this.category.Set(value); }
     }
 
     [XmlIgnore]
     public bool HasBeenInInventory
     {
-      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.hasbeenInInventory;
+      get { return (bool) (NetFieldBase<bool, NetBool>) this.hasbeenInInventory;
       set { this.hasbeenInInventory.Set(value); }
     }
 
@@ -282,7 +282,7 @@ namespace StardewValley
     [XmlIgnore]
     public int ParentSheetIndex
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.parentSheetIndex;
+      get { return (int) (NetFieldBase<int, NetInt>) this.parentSheetIndex;
       set { this.parentSheetIndex.Value = value; }
     }
 
@@ -480,6 +480,7 @@ namespace StardewValley
     }
   }
 }
+
 
 
 

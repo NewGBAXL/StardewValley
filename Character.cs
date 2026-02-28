@@ -151,33 +151,33 @@ namespace StardewValley
     [XmlIgnore]
     public int speed
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.netSpeed;
+      get { return (int) (NetFieldBase<int, NetInt>) this.netSpeed;
       set { this.netSpeed.Value = value; }
     }
 
     [XmlIgnore]
     public int addedSpeed
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.netAddedSpeed;
+      get { return (int) (NetFieldBase<int, NetInt>) this.netAddedSpeed;
       set { this.netAddedSpeed.Value = value; }
     }
 
     [XmlIgnore]
     public virtual string displayName
     {
-      get { return this._displayName ?? (this._displayName = this.translateName((string) (NetFieldBase<string; }, NetString>) this.name));
+      get { return this._displayName ?? (this._displayName = this.translateName((string) (NetFieldBase<string, NetString>) this.name));
       set { this._displayName = value; }
     }
 
     public bool willDestroyObjectsUnderfoot
     {
-      get { return (bool) (NetFieldBase<bool; }, NetBool>) this._willDestroyObjectsUnderfoot;
+      get { return (bool) (NetFieldBase<bool, NetBool>) this._willDestroyObjectsUnderfoot;
       set { this._willDestroyObjectsUnderfoot.Value = value; }
     }
 
     public Vector2 Position
     {
-      get { return (Vector2) (NetPausableField<Vector2; }, NetVector2, NetVector2>) this.position;
+      get { return (Vector2) (NetPausableField<Vector2, NetVector2, NetVector2>) this.position;
       set
       {
         if (!(this.position.Value != value))
@@ -201,7 +201,7 @@ namespace StardewValley
     [XmlIgnore]
     public string Name
     {
-      get { return (string) (NetFieldBase<string; }, NetString>) this.name;
+      get { return (string) (NetFieldBase<string, NetString>) this.name;
       set { this.name.Set(value); }
     }
 
@@ -230,7 +230,7 @@ namespace StardewValley
 
     public float Scale
     {
-      get { return (float) (NetFieldBase<float; }, NetFloat>) this.scale;
+      get { return (float) (NetFieldBase<float, NetFloat>) this.scale;
       set { this.scale.Value = value; }
     }
 
@@ -1196,6 +1196,7 @@ namespace StardewValley
     }
   }
 }
+
 
 
 

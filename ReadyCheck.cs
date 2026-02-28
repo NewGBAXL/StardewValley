@@ -21,7 +21,7 @@ namespace StardewValley
 
     public NetFields NetFields { get; } = new NetFields();
 
-    public string Name { get { return (string) (NetFieldBase<string; }, NetString>) this.name;
+    public string Name { get { return (string) (NetFieldBase<string, NetString>) this.name;
 
     public ReadyCheck() { return this.NetFields.AddFields((INetSerializable) this.name, (INetSerializable) this.readyPlayers.NetFields, (INetSerializable) this.setPlayers.NetFields); }
 
@@ -125,6 +125,7 @@ label_4:
     }
   }
 }
+
 
 
 

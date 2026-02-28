@@ -31,7 +31,7 @@ namespace StardewValley.Tools
 
     public bool IsBottomless
     {
-      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.isBottomless;
+      get { return (bool) (NetFieldBase<bool, NetBool>) this.isBottomless;
       set { this.isBottomless.Value = value; }
     }
 
@@ -180,6 +180,7 @@ namespace StardewValley.Tools
     }
   }
 }
+
 
 
 

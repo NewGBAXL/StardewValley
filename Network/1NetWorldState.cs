@@ -131,7 +131,7 @@ namespace StardewValley.Network
       Game1.worldStateIDs.Add(id);
     }
 
-    public WorldDate Date { get { return new WorldDate((int) (NetFieldBase<int; }, NetInt>) this.year, (string) (NetFieldBase<string, NetString>) this.currentSeason, (int) (NetFieldBase<int, NetInt>) this.dayOfMonth);
+    public WorldDate Date { get { return new WorldDate((int) (NetFieldBase<int, NetInt>) this.year, (string) (NetFieldBase<string, NetString>) this.currentSeason, (int) (NetFieldBase<int, NetInt>) this.dayOfMonth);
 
     public ServerPrivacy ServerPrivacy
     {
@@ -141,55 +141,55 @@ namespace StardewValley.Network
 
     public bool IsTimePaused
     {
-      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.isTimePaused;
+      get { return (bool) (NetFieldBase<bool, NetBool>) this.isTimePaused;
       set { this.isTimePaused.Value = value; }
     }
 
     public bool IsPaused
     {
-      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.isPaused;
+      get { return (bool) (NetFieldBase<bool, NetBool>) this.isPaused;
       set { this.isPaused.Value = value; }
     }
 
     public bool IsGoblinRemoved
     {
-      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.goblinRemoved;
+      get { return (bool) (NetFieldBase<bool, NetBool>) this.goblinRemoved;
       set { this.goblinRemoved.Value = value; }
     }
 
     public bool IsSubmarineLocked
     {
-      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.submarineLocked;
+      get { return (bool) (NetFieldBase<bool, NetBool>) this.submarineLocked;
       set { this.submarineLocked.Value = value; }
     }
 
     public int SkullCavesDifficulty
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.skullCavesDifficulty;
+      get { return (int) (NetFieldBase<int, NetInt>) this.skullCavesDifficulty;
       set { this.skullCavesDifficulty.Value = value; }
     }
 
     public int MinesDifficulty
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.minesDifficulty;
+      get { return (int) (NetFieldBase<int, NetInt>) this.minesDifficulty;
       set { this.minesDifficulty.Value = value; }
     }
 
     public int LowestMineLevel
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.lowestMineLevel;
+      get { return (int) (NetFieldBase<int, NetInt>) this.lowestMineLevel;
       set { this.lowestMineLevel.Value = value; }
     }
 
     public int LowestMineLevelForOrder
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.lowestMineLevelForOrder;
+      get { return (int) (NetFieldBase<int, NetInt>) this.lowestMineLevelForOrder;
       set { this.lowestMineLevelForOrder.Value = value; }
     }
 
     public int WeatherForTomorrow
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.weatherForTomorrow;
+      get { return (int) (NetFieldBase<int, NetInt>) this.weatherForTomorrow;
       set { this.weatherForTomorrow.Value = value; }
     }
 
@@ -387,6 +387,7 @@ namespace StardewValley.Network
     }
   }
 }
+
 
 
 

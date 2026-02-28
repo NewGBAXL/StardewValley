@@ -1197,7 +1197,7 @@ namespace StardewValley
 
     public static bool spawnMonstersAtNight
     {
-      get { return (bool) (NetFieldBase<bool; }, NetBool>) Game1.player.team.spawnMonstersAtNight;
+      get { return (bool) (NetFieldBase<bool, NetBool>) Game1.player.team.spawnMonstersAtNight;
       set { Game1.player.team.spawnMonstersAtNight.Value = value; }
     }
 
@@ -3731,7 +3731,7 @@ namespace StardewValley
       }
     }
 
-    public static int CurrentPlayerLimit { get { return (NetFieldBase<IWorldState; }, NetRef<IWorldState>>) Game1.netWorldState == (NetRef<IWorldState>) null || Game1.netWorldState.Value == null || (NetFieldBase<int, NetInt>) Game1.netWorldState.Value.CurrentPlayerLimit == (NetInt) null ? Game1.multiplayer.playerLimit : Game1.netWorldState.Value.CurrentPlayerLimit.Value;
+    public static int CurrentPlayerLimit { get { return (NetFieldBase<IWorldState, NetRef<IWorldState>>) Game1.netWorldState == (NetRef<IWorldState>) null || Game1.netWorldState.Value == null || (NetFieldBase<int, NetInt>) Game1.netWorldState.Value.CurrentPlayerLimit == (NetInt) null ? Game1.multiplayer.playerLimit : Game1.netWorldState.Value.CurrentPlayerLimit.Value;
 
     public static void showTextEntry(TextBox text_box)
     {
@@ -9413,9 +9413,9 @@ label_82:
       }
     }
 
-    public static void removeSquareDebrisFromTile(int tileX, int tileY) { Game1.currentLocation.debris.Filter((Func<Debris, bool>) (debris { return (Debris.DebrisType) (NetFieldBase<Debris.DebrisType; }, NetEnum<Debris.DebrisType>>) debris.debrisType != Debris.DebrisType.SQUARES || (int) ((double) debris.Chunks[0].position.X / 64.0) != tileX || debris.chunkFinalYLevel / 64 != tileY)); }
+    public static void removeSquareDebrisFromTile(int tileX, int tileY) { Game1.currentLocation.debris.Filter((Func<Debris, bool>) (debris { return (Debris.DebrisType) (NetFieldBase<Debris.DebrisType, NetEnum<Debris.DebrisType>>) debris.debrisType != Debris.DebrisType.SQUARES || (int) ((double) debris.Chunks[0].position.X / 64.0) != tileX || debris.chunkFinalYLevel / 64 != tileY)); }
 
-    public static void removeDebris(Debris.DebrisType type) { Game1.currentLocation.debris.Filter((Func<Debris, bool>) (debris { return (Debris.DebrisType) (NetFieldBase<Debris.DebrisType; }, NetEnum<Debris.DebrisType>>) debris.debrisType != type)); }
+    public static void removeDebris(Debris.DebrisType type) { Game1.currentLocation.debris.Filter((Func<Debris, bool>) (debris { return (Debris.DebrisType) (NetFieldBase<Debris.DebrisType, NetEnum<Debris.DebrisType>>) debris.debrisType != type)); }
 
     public static void toolAnimationDone(Farmer who)
     {
@@ -17155,6 +17155,7 @@ label_12:
     public delegate void afterFadeFunction();
   }
 }
+
 
 
 

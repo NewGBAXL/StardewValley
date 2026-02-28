@@ -99,7 +99,7 @@ namespace StardewValley
 
     public string BaseName
     {
-      get { return (string) (NetFieldBase<string; }, NetString>) this.netName;
+      get { return (string) (NetFieldBase<string, NetString>) this.netName;
       set { this.netName.Set(value); }
     }
 
@@ -149,7 +149,7 @@ namespace StardewValley
 
     public override int Stack
     {
-      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.stackable ? ((StardewValley.Tools.Stackable) this).NumberInStack : 1;
+      get { return (bool) (NetFieldBase<bool, NetBool>) this.stackable ? ((StardewValley.Tools.Stackable) this).NumberInStack : 1;
       set
       {
         if (!(bool) (NetFieldBase<bool, NetBool>) this.stackable)
@@ -163,26 +163,26 @@ namespace StardewValley
     [XmlIgnore]
     public int CurrentParentTileIndex
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.currentParentTileIndex;
+      get { return (int) (NetFieldBase<int, NetInt>) this.currentParentTileIndex;
       set { this.currentParentTileIndex.Set(value); }
     }
 
     public int InitialParentTileIndex
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.initialParentTileIndex;
+      get { return (int) (NetFieldBase<int, NetInt>) this.initialParentTileIndex;
       set { this.initialParentTileIndex.Set(value); }
     }
 
     public int IndexOfMenuItemView
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.indexOfMenuItemView;
+      get { return (int) (NetFieldBase<int, NetInt>) this.indexOfMenuItemView;
       set { this.indexOfMenuItemView.Set(value); }
     }
 
     [XmlIgnore]
     public int UpgradeLevel
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.upgradeLevel;
+      get { return (int) (NetFieldBase<int, NetInt>) this.upgradeLevel;
       set
       {
         this.upgradeLevel.Value = value;
@@ -192,25 +192,25 @@ namespace StardewValley
 
     public bool InstantUse
     {
-      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.instantUse;
+      get { return (bool) (NetFieldBase<bool, NetBool>) this.instantUse;
       set { this.instantUse.Value = value; }
     }
 
     public bool IsEfficient
     {
-      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.isEfficient;
+      get { return (bool) (NetFieldBase<bool, NetBool>) this.isEfficient;
       set { this.isEfficient.Value = value; }
     }
 
     public float AnimationSpeedModifier
     {
-      get { return (float) (NetFieldBase<float; }, NetFloat>) this.animationSpeedModifier;
+      get { return (float) (NetFieldBase<float, NetFloat>) this.animationSpeedModifier;
       set { this.animationSpeedModifier.Value = value; }
     }
 
     public bool Stackable
     {
-      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.stackable;
+      get { return (bool) (NetFieldBase<bool, NetBool>) this.stackable;
       set { this.stackable.Value = value; }
     }
 
@@ -1335,6 +1335,7 @@ label_3:
     }
   }
 }
+
 
 
 

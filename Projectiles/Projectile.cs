@@ -85,7 +85,7 @@ namespace StardewValley.Projectiles
 
     public bool IgnoreLocationCollision
     {
-      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.ignoreLocationCollision;
+      get { return (bool) (NetFieldBase<bool, NetBool>) this.ignoreLocationCollision;
       set { this.ignoreLocationCollision.Value = value; }
     }
 
@@ -260,6 +260,7 @@ namespace StardewValley.Projectiles
     }
   }
 }
+
 
 
 

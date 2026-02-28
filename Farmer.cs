@@ -586,13 +586,13 @@ namespace StardewValley
 
     public int deepestMineLevel
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.netDeepestMineLevel;
+      get { return (int) (NetFieldBase<int, NetInt>) this.netDeepestMineLevel;
       set { this.netDeepestMineLevel.Value = value; }
     }
 
     public float stamina
     {
-      get { return (float) (NetFieldBase<float; }, NetFloat>) this.netStamina;
+      get { return (float) (NetFieldBase<float, NetFloat>) this.netStamina;
       set { this.netStamina.Value = value; }
     }
 
@@ -631,19 +631,19 @@ namespace StardewValley
 
     public bool hasRustyKey
     {
-      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.teamRoot.Value.hasRustyKey;
+      get { return (bool) (NetFieldBase<bool, NetBool>) this.teamRoot.Value.hasRustyKey;
       set { this.teamRoot.Value.hasRustyKey.Value = value; }
     }
 
     public bool hasSkullKey
     {
-      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.teamRoot.Value.hasSkullKey;
+      get { return (bool) (NetFieldBase<bool, NetBool>) this.teamRoot.Value.hasSkullKey;
       set { this.teamRoot.Value.hasSkullKey.Value = value; }
     }
 
     public bool canUnderstandDwarves
     {
-      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.teamRoot.Value.canUnderstandDwarves;
+      get { return (bool) (NetFieldBase<bool, NetBool>) this.teamRoot.Value.canUnderstandDwarves;
       set { this.teamRoot.Value.canUnderstandDwarves.Value = value; }
     }
 
@@ -675,13 +675,13 @@ namespace StardewValley
     [XmlElement("useSeparateWallets")]
     public bool useSeparateWallets
     {
-      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.teamRoot.Value.useSeparateWallets;
+      get { return (bool) (NetFieldBase<bool, NetBool>) this.teamRoot.Value.useSeparateWallets;
       set { this.teamRoot.Value.useSeparateWallets.Value = value; }
     }
 
     public int timesReachedMineBottom
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.netTimesReachedMineBottom;
+      get { return (int) (NetFieldBase<int, NetInt>) this.netTimesReachedMineBottom;
       set { this.netTimesReachedMineBottom.Value = value; }
     }
 
@@ -698,7 +698,7 @@ namespace StardewValley
     }
 
     [XmlIgnore]
-    public bool isUnclaimedFarmhand { get { return !this.IsMainPlayer && !(bool) (NetFieldBase<bool; }, NetBool>) this.isCustomized;
+    public bool isUnclaimedFarmhand { get { return !this.IsMainPlayer && !(bool) (NetFieldBase<bool, NetBool>) this.isCustomized;
 
     [XmlIgnore]
     public Horse mount
@@ -710,12 +710,12 @@ namespace StardewValley
     [XmlIgnore]
     public int MaxItems
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.maxItems;
+      get { return (int) (NetFieldBase<int, NetInt>) this.maxItems;
       set { this.maxItems.Value = value; }
     }
 
     [XmlIgnore]
-    public int Level { get { return ((int) (NetFieldBase<int; }, NetInt>) this.farmingLevel + (int) (NetFieldBase<int, NetInt>) this.fishingLevel + (int) (NetFieldBase<int, NetInt>) this.foragingLevel + (int) (NetFieldBase<int, NetInt>) this.combatLevel + (int) (NetFieldBase<int, NetInt>) this.miningLevel + (int) (NetFieldBase<int, NetInt>) this.luckLevel) / 2;
+    public int Level { get { return ((int) (NetFieldBase<int, NetInt>) this.farmingLevel + (int) (NetFieldBase<int, NetInt>) this.fishingLevel + (int) (NetFieldBase<int, NetInt>) this.foragingLevel + (int) (NetFieldBase<int, NetInt>) this.combatLevel + (int) (NetFieldBase<int, NetInt>) this.miningLevel + (int) (NetFieldBase<int, NetInt>) this.luckLevel) / 2;
 
     [XmlIgnore]
     public int CraftingTime
@@ -727,49 +727,49 @@ namespace StardewValley
     [XmlIgnore]
     public int NewSkillPointsToSpend
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.newSkillPointsToSpend;
+      get { return (int) (NetFieldBase<int, NetInt>) this.newSkillPointsToSpend;
       set { this.newSkillPointsToSpend.Value = value; }
     }
 
     [XmlIgnore]
     public int FarmingLevel
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.farmingLevel + (int) (NetFieldBase<int, NetInt>) this.addedFarmingLevel;
+      get { return (int) (NetFieldBase<int, NetInt>) this.farmingLevel + (int) (NetFieldBase<int, NetInt>) this.addedFarmingLevel;
       set { this.farmingLevel.Value = value; }
     }
 
     [XmlIgnore]
     public int MiningLevel
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.miningLevel + (int) (NetFieldBase<int, NetInt>) this.addedMiningLevel;
+      get { return (int) (NetFieldBase<int, NetInt>) this.miningLevel + (int) (NetFieldBase<int, NetInt>) this.addedMiningLevel;
       set { this.miningLevel.Value = value; }
     }
 
     [XmlIgnore]
     public int CombatLevel
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.combatLevel + (int) (NetFieldBase<int, NetInt>) this.addedCombatLevel;
+      get { return (int) (NetFieldBase<int, NetInt>) this.combatLevel + (int) (NetFieldBase<int, NetInt>) this.addedCombatLevel;
       set { this.combatLevel.Value = value; }
     }
 
     [XmlIgnore]
     public int ForagingLevel
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.foragingLevel + (int) (NetFieldBase<int, NetInt>) this.addedForagingLevel;
+      get { return (int) (NetFieldBase<int, NetInt>) this.foragingLevel + (int) (NetFieldBase<int, NetInt>) this.addedForagingLevel;
       set { this.foragingLevel.Value = value; }
     }
 
     [XmlIgnore]
     public int FishingLevel
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.fishingLevel + (int) (NetFieldBase<int, NetInt>) this.addedFishingLevel + (this.CurrentTool == null || !this.CurrentTool.hasEnchantmentOfType<MasterEnchantment>() ? 0 : 1);
+      get { return (int) (NetFieldBase<int, NetInt>) this.fishingLevel + (int) (NetFieldBase<int, NetInt>) this.addedFishingLevel + (this.CurrentTool == null || !this.CurrentTool.hasEnchantmentOfType<MasterEnchantment>() ? 0 : 1);
       set { this.fishingLevel.Value = value; }
     }
 
     [XmlIgnore]
     public int LuckLevel
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.luckLevel + (int) (NetFieldBase<int, NetInt>) this.addedLuckLevel;
+      get { return (int) (NetFieldBase<int, NetInt>) this.luckLevel + (int) (NetFieldBase<int, NetInt>) this.addedLuckLevel;
       set { this.luckLevel.Value = value; }
     }
 
@@ -779,7 +779,7 @@ namespace StardewValley
     [XmlIgnore]
     public int HouseUpgradeLevel
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.houseUpgradeLevel;
+      get { return (int) (NetFieldBase<int, NetInt>) this.houseUpgradeLevel;
       set { this.houseUpgradeLevel.Value = value; }
     }
 
@@ -842,7 +842,7 @@ namespace StardewValley
     [XmlIgnore]
     public bool IsMale
     {
-      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.isMale;
+      get { return (bool) (NetFieldBase<bool, NetBool>) this.isMale;
       set { this.isMale.Set(value); }
     }
 
@@ -922,7 +922,7 @@ namespace StardewValley
     [XmlIgnore]
     public bool UsingTool
     {
-      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.usingTool;
+      get { return (bool) (NetFieldBase<bool, NetBool>) this.usingTool;
       set { this.usingTool.Set(value); }
     }
 
@@ -967,7 +967,7 @@ namespace StardewValley
     [XmlIgnore]
     public int CurrentToolIndex
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.currentToolIndex;
+      get { return (int) (NetFieldBase<int, NetInt>) this.currentToolIndex;
       set
       {
         this.netItemStowed.Set(false);
@@ -981,13 +981,13 @@ namespace StardewValley
     public float Stamina
     {
       get { return this.stamina; }
-      set { this.stamina = Math.Min((float) (int) (NetFieldBase<int; }, NetInt>) this.maxStamina, Math.Max(value, -16f));
+      set { this.stamina = Math.Min((float) (int) (NetFieldBase<int, NetInt>) this.maxStamina, Math.Max(value, -16f));
     }
 
     [XmlIgnore]
     public int MaxStamina
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.maxStamina;
+      get { return (int) (NetFieldBase<int, NetInt>) this.maxStamina;
       set { this.maxStamina.Value = value; }
     }
 
@@ -1042,14 +1042,14 @@ namespace StardewValley
     [XmlIgnore]
     public FarmerRenderer FarmerRenderer
     {
-      get { return (FarmerRenderer) (NetFieldBase<FarmerRenderer; }, NetRef<FarmerRenderer>>) this.farmerRenderer;
+      get { return (FarmerRenderer) (NetFieldBase<FarmerRenderer, NetRef<FarmerRenderer>>) this.farmerRenderer;
       set { this.farmerRenderer.Set(value); }
     }
 
     [XmlElement("money")]
     public int _money
     {
-      get { return (int) (NetFieldBase<int; }, NetIntDelta>) this.teamRoot.Value.GetMoney(this);
+      get { return (int) (NetFieldBase<int, NetIntDelta>) this.teamRoot.Value.GetMoney(this);
       set { this.teamRoot.Value.GetMoney(this).Value = value; }
     }
 
@@ -6837,6 +6837,7 @@ label_20:
     }
   }
 }
+
 
 
 

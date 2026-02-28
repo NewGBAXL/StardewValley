@@ -39,7 +39,7 @@ namespace StardewValley.Characters
 
     public bool EventActor
     {
-      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.eventActor;
+      get { return (bool) (NetFieldBase<bool, NetBool>) this.eventActor;
       set { this.eventActor.Value = value; }
     }
 
@@ -630,6 +630,7 @@ namespace StardewValley.Characters
     }
   }
 }
+
 
 
 

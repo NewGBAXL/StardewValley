@@ -83,7 +83,7 @@ namespace StardewValley.TerrainFeatures
 
     public Crop crop
     {
-      get { return (Crop) (NetFieldBase<Crop; }, NetRef<Crop>>) this.netCrop;
+      get { return (Crop) (NetFieldBase<Crop, NetRef<Crop>>) this.netCrop;
       set { this.netCrop.Value = value; }
     }
 
@@ -832,6 +832,7 @@ label_19:
     }
   }
 }
+
 
 
 

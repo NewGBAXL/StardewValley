@@ -111,73 +111,73 @@ namespace StardewValley.Locations
 
     public int mineLevel
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.netMineLevel;
+      get { return (int) (NetFieldBase<int, NetInt>) this.netMineLevel;
       set { this.netMineLevel.Value = value; }
     }
 
     private int stonesLeftOnThisLevel
     {
-      get { return (int) (NetFieldBase<int; }, NetIntDelta>) this.netStonesLeftOnThisLevel;
+      get { return (int) (NetFieldBase<int, NetIntDelta>) this.netStonesLeftOnThisLevel;
       set { this.netStonesLeftOnThisLevel.Value = value; }
     }
 
     private Vector2 tileBeneathLadder
     {
-      get { return (Vector2) (NetFieldBase<Vector2; }, NetVector2>) this.netTileBeneathLadder;
+      get { return (Vector2) (NetFieldBase<Vector2, NetVector2>) this.netTileBeneathLadder;
       set { this.netTileBeneathLadder.Value = value; }
     }
 
     private Vector2 tileBeneathElevator
     {
-      get { return (Vector2) (NetFieldBase<Vector2; }, NetVector2>) this.netTileBeneathElevator;
+      get { return (Vector2) (NetFieldBase<Vector2, NetVector2>) this.netTileBeneathElevator;
       set { this.netTileBeneathElevator.Value = value; }
     }
 
     private Point ElevatorLightSpot
     {
-      get { return (Point) (NetFieldBase<Point; }, NetPoint>) this.netElevatorLightSpot;
+      get { return (Point) (NetFieldBase<Point, NetPoint>) this.netElevatorLightSpot;
       set { this.netElevatorLightSpot.Value = value; }
     }
 
     private bool isSlimeArea
     {
-      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.netIsSlimeArea;
+      get { return (bool) (NetFieldBase<bool, NetBool>) this.netIsSlimeArea;
       set { this.netIsSlimeArea.Value = value; }
     }
 
     private bool isDinoArea
     {
-      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.netIsDinoArea;
+      get { return (bool) (NetFieldBase<bool, NetBool>) this.netIsDinoArea;
       set { this.netIsDinoArea.Value = value; }
     }
 
     private bool isMonsterArea
     {
-      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.netIsMonsterArea;
+      get { return (bool) (NetFieldBase<bool, NetBool>) this.netIsMonsterArea;
       set { this.netIsMonsterArea.Value = value; }
     }
 
     private bool isQuarryArea
     {
-      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.netIsQuarryArea;
+      get { return (bool) (NetFieldBase<bool, NetBool>) this.netIsQuarryArea;
       set { this.netIsQuarryArea.Value = value; }
     }
 
     private bool ambientFog
     {
-      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.netAmbientFog;
+      get { return (bool) (NetFieldBase<bool, NetBool>) this.netAmbientFog;
       set { this.netAmbientFog.Value = value; }
     }
 
     private Microsoft.Xna.Framework.Color lighting
     {
-      get { return (Microsoft.Xna.Framework.Color) (NetFieldBase<Microsoft.Xna.Framework.Color; }, NetColor>) this.netLighting;
+      get { return (Microsoft.Xna.Framework.Color) (NetFieldBase<Microsoft.Xna.Framework.Color, NetColor>) this.netLighting;
       set { this.netLighting.Value = value; }
     }
 
     private Microsoft.Xna.Framework.Color fogColor
     {
-      get { return (Microsoft.Xna.Framework.Color) (NetFieldBase<Microsoft.Xna.Framework.Color; }, NetColor>) this.netFogColor;
+      get { return (Microsoft.Xna.Framework.Color) (NetFieldBase<Microsoft.Xna.Framework.Color, NetColor>) this.netFogColor;
       set { this.netFogColor.Value = value; }
     }
 
@@ -3502,6 +3502,7 @@ namespace StardewValley.Locations
     }
   }
 }
+
 
 
 

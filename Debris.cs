@@ -70,19 +70,19 @@ namespace StardewValley
 
     public int itemQuality
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.netItemQuality;
+      get { return (int) (NetFieldBase<int, NetInt>) this.netItemQuality;
       set { this.netItemQuality.Value = value; }
     }
 
     public int chunkFinalYLevel
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.netChunkFinalYLevel;
+      get { return (int) (NetFieldBase<int, NetInt>) this.netChunkFinalYLevel;
       set { this.netChunkFinalYLevel.Value = value; }
     }
 
     public int chunkFinalYTarget
     {
-      get { return (int) (NetFieldBase<int; }, NetInt>) this.netChunkFinalYTarget;
+      get { return (int) (NetFieldBase<int, NetInt>) this.netChunkFinalYTarget;
       set { this.netChunkFinalYTarget.Value = value; }
     }
 
@@ -104,7 +104,7 @@ namespace StardewValley
 
     public Item item
     {
-      get { return (Item) (NetFieldBase<Item; }, NetRef<Item>>) this.netItem;
+      get { return (Item) (NetFieldBase<Item, NetRef<Item>>) this.netItem;
       set { this.netItem.Value = value; }
     }
 
@@ -846,6 +846,7 @@ namespace StardewValley
     }
   }
 }
+
 
 
 

@@ -53,7 +53,7 @@ namespace StardewValley.Locations
     [XmlIgnore]
     public virtual int upgradeLevel
     {
-      get { return this.owner == null ? 0 : (int) (NetFieldBase<int; }, NetInt>) this.owner.houseUpgradeLevel;
+      get { return this.owner == null ? 0 : (int) (NetFieldBase<int, NetInt>) this.owner.houseUpgradeLevel;
       set
       {
         if (this.owner == null)
@@ -1938,6 +1938,7 @@ namespace StardewValley.Locations
     }
   }
 }
+
 
 
 
