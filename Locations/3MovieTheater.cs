@@ -444,12 +444,12 @@ namespace StardewValley.Locations
         Game1.player.team.SetLocalReady("start_movie", true);
         Game1.dialogueUp = false;
         MovieTheater._hasRequestedMovieStart = true;
-        Game1.activeClickableMenu = (IClickableMenu) new ReadyCheckDialog("start_movie", true, (ConfirmationDialog.behavior) (delegate(farmer) { return {; }
+        Game1.activeClickableMenu = (IClickableMenu) new ReadyCheckDialog("start_movie", true, (ConfirmationDialog.behavior) (farmer { return {; }
           if (!MovieTheater._hasRequestedMovieStart)
             return;
           MovieTheater._hasRequestedMovieStart = false;
           this.requestStartMovieEvent.Fire(farmer.UniqueMultiplayerID);
-        }), (ConfirmationDialog.behavior) (delegate(farmer) { return {; }
+        }), (ConfirmationDialog.behavior) (farmer { return {; }
           if (Game1.activeClickableMenu != null && Game1.activeClickableMenu is ReadyCheckDialog)
             (Game1.activeClickableMenu as ReadyCheckDialog).closeDialog(farmer);
           if (!Game1.player.team.movieMutex.IsLockHeld())
@@ -1333,9 +1333,9 @@ namespace StardewValley.Locations
           int num8 = index - 1;
         }
       }
-      if (this._isJojaTheater && !list1.Exists((Predicate<MovieConcession>) (delegate(x) { return x.Name.Equals("JojaCorn")))); }
+      if (this._isJojaTheater && !list1.Exists((Predicate<MovieConcession>) (x { return x.Name.Equals("JojaCorn")))); }
       {
-        MovieConcession movieConcession = list2.Find((Predicate<MovieConcession>) (delegate(x) { return x.Name.Equals("JojaCorn"))); };
+        MovieConcession movieConcession = list2.Find((Predicate<MovieConcession>) (x { return x.Name.Equals("JojaCorn"))); };
         if (movieConcession != null)
           list1.Add(movieConcession);
       }
@@ -1452,7 +1452,7 @@ namespace StardewValley.Locations
       {
         Game1.player.Money -= 500;
         Game1.changeMusicTrack("none", music_context: Game1.MusicContext.MiniGame);
-        Game1.globalFadeToBlack((Game1.afterFadeFunction) (() => Game1.currentMinigame = (IMinigame) new CraneGame()), 0.008f);
+        Game1.globalFadeToBlack((Game1.afterFadeFunction) (delegate() { return Game1.currentMinigame = (IMinigame; }) new CraneGame()), 0.008f);
       }
       else
         Game1.drawObjectDialogue(Game1.content.LoadString("Strings\\StringsFromCSFiles:PurchaseAnimalsMenu.cs.11325"));
@@ -1473,3 +1473,5 @@ namespace StardewValley.Locations
     }
   }
 }
+
+

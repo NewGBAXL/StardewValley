@@ -79,7 +79,7 @@ namespace StardewValley
       return (long) this.latestID;
     }
 
-    public virtual int delegate(MaxPlayers) { return Game1.server == null ? 1 : this.playerLimit; };
+    public virtual int MaxPlayers { get { return Game1.server == null ? 1 : this.playerLimit; };
 
     public virtual bool isDisconnecting(Farmer farmer) { return this.isDisconnecting(farmer.UniqueMultiplayerID); }
 
@@ -250,12 +250,12 @@ namespace StardewValley
           if ((NetFieldBase<GameLocation, NetRef<GameLocation>>) location.Root != (NetRef<GameLocation>) null && location.Root.Dirty)
             this.broadcastLocationDelta(location);
         }
-        MineShaft.ForEach((Action<MineShaft>) (delegate(mine) { return {; }
+        MineShaft.ForEach((Action<MineShaft>) (mine { return {; }
           if (!((NetFieldBase<GameLocation, NetRef<GameLocation>>) mine.Root != (NetRef<GameLocation>) null) || !mine.Root.Dirty)
             return;
           this.broadcastLocationDelta((GameLocation) mine);
         }));
-        VolcanoDungeon.ForEach((Action<VolcanoDungeon>) (delegate(level) { return {; }
+        VolcanoDungeon.ForEach((Action<VolcanoDungeon>) (level { return {; }
           if (!((NetFieldBase<GameLocation, NetRef<GameLocation>>) level.Root != (NetRef<GameLocation>) null) || !level.Root.Dirty)
             return;
           this.broadcastLocationDelta((GameLocation) level);
@@ -290,7 +290,7 @@ namespace StardewValley
       }
       else
       {
-        Action<Farmer> action = (Action<Farmer>) (delegate(f) { return {; }
+        Action<Farmer> action = (Action<Farmer>) (f { return {; }
           if (f == Game1.player)
             return;
           Game1.server.sendMessage(f.UniqueMultiplayerID, message);
@@ -453,8 +453,8 @@ namespace StardewValley
         string nameOrUniqueName = Utility.getHomeOfFarmer(farmer).NameOrUniqueName;
         Point bed_point = Utility.getHomeOfFarmer(farmer).GetPlayerBedSpot();
         bool has_bed = Utility.getHomeOfFarmer(farmer).GetPlayerBed() != null;
-        if (farmer.currentLocation.GetLocationContext() == GameLocation.LocationContext.Island && Game1.getLocationFromName("IslandWest") is IslandWest locationFromName1 && locationFromName1.farmhouseRestored.Value && Game1.getLocationFromName("IslandFarmHouse") is IslandFarmHouse locationFromName2)
-        {
+        IslandFarmHouse locationFromName2 = farmer.currentLocation.GetLocationContext() == GameLocation.LocationContext.Island && Game1.getLocationFromName("IslandWest") is IslandWest locationFromName1 && locationFromName1.farmhouseRestored.Value && Game1.getLocationFromName("IslandFarmHouse") as IslandFarmHouse;
+      if (locationFromName2 != ) {
           nameOrUniqueName = locationFromName2.NameOrUniqueName;
           bed_point = new Point(14, 17);
           has_bed = false;
@@ -524,7 +524,7 @@ namespace StardewValley
       }
     }
 
-    protected virtual void receiveRequestGrandpaReevaluation(IncomingMessage msg) { return Game1.getFarm()?.requestGrandpaReevaluation(); }
+    protected virtual void receiveRequestGrandpaReevaluation(IncomingMessage msg) { Game1.getFarm()?.requestGrandpaReevaluation(); }
 
     protected virtual void receiveFarmerKilledMonster(IncomingMessage msg)
     {
@@ -742,7 +742,7 @@ namespace StardewValley
       Game1.chatBox.addInfoMessage(Game1.content.LoadString("Strings\\UI:Chat_PlayerJoined", (object) sub1));
     }
 
-    public virtual void receivePlayerIntroduction(BinaryReader reader) { return this.addPlayer(this.readFarmer(reader)); }
+    public virtual void receivePlayerIntroduction(BinaryReader reader) { this.addPlayer(this.readFarmer(reader)); }
 
     public virtual void broadcastPlayerIntroduction(NetFarmerRoot farmerRoot)
     {
@@ -802,7 +802,7 @@ namespace StardewValley
       this.disconnectingFarmers.Clear();
     }
 
-    public virtual void sendFarmhand() { return (Game1.player.NetFields.Root as NetFarmerRoot).MarkReassigned(); }
+    public virtual void sendFarmhand() { (Game1.player.NetFields.Root as NetFarmerRoot).MarkReassigned(); }
 
     protected virtual void saveFarmhand(NetFarmerRoot farmhand)
     {
@@ -983,7 +983,7 @@ namespace StardewValley
         return;
       try
       {
-        string[] array = ((IEnumerable<string>) args).Select<string, string>((Func<string, string>) (delegate(arg) { return {; }
+        string[] array = ((IEnumerable<string>) args).Select<string, string>((Func<string, string>) (arg { return {; }
           if (arg.StartsWith("achievement:"))
           {
             int int32 = Convert.ToInt32(arg.Substring("achievement:".Length));
@@ -1164,7 +1164,7 @@ namespace StardewValley
       return temporaryAnimatedSpriteArray;
     }
 
-    protected virtual void receiveTeamDelta(BinaryReader msg) { return this.readObjectDelta<FarmerTeam>(msg, Game1.player.teamRoot); }
+    protected virtual void receiveTeamDelta(BinaryReader msg) { this.readObjectDelta<FarmerTeam>(msg, Game1.player.teamRoot); }
 
     protected virtual void receiveNewDaySync(IncomingMessage msg)
     {
@@ -1182,11 +1182,11 @@ namespace StardewValley
       Game1.player.gainExperience(msg.Reader.ReadInt32(), msg.Reader.ReadInt32());
     }
 
-    protected virtual void receiveSharedAchievement(IncomingMessage msg) { return Game1.getAchievement(msg.Reader.ReadInt32(), false); }
+    protected virtual void receiveSharedAchievement(IncomingMessage msg) { Game1.getAchievement(msg.Reader.ReadInt32(), false); }
 
-    protected virtual void receiveRemoveLocationFromLookup(IncomingMessage msg) { return Game1.removeLocationFromLocationLookup(msg.Reader.ReadString()); }
+    protected virtual void receiveRemoveLocationFromLookup(IncomingMessage msg) { Game1.removeLocationFromLocationLookup(msg.Reader.ReadString()); }
 
-    protected virtual void receivePartyWideMail(IncomingMessage msg) { return this._performPartyWideMail(msg.Reader.ReadString(), (Multiplayer.PartyWideMessageQueue) msg.Reader.ReadInt32(), msg.Reader.ReadBoolean()); }
+    protected virtual void receivePartyWideMail(IncomingMessage msg) { this._performPartyWideMail(msg.Reader.ReadString(), (Multiplayer.PartyWideMessageQueue) msg.Reader.ReadInt32(), msg.Reader.ReadBoolean()); }
 
     protected void _performPartyWideMail(
       string mail_key,
@@ -1479,8 +1479,8 @@ namespace StardewValley
         case null:
           activeClickableMenu.performButtonAction("Invite");
           break;
-        case FarmhandMenu _:
-        case CoopMenu _:
+        case FarmhandMenu:
+        case CoopMenu:
           TitleMenu.subMenu = (IClickableMenu) new FarmhandMenu();
           break;
       }
@@ -1725,7 +1725,7 @@ namespace StardewValley
           return false;
         }
 
-        public GameLocation delegate(Current) { return this._current; };
+        public GameLocation Current { get { return this._current; }
 
         public void Dispose()
         {
@@ -1769,3 +1769,7 @@ namespace StardewValley
     }
   }
 }
+
+
+
+

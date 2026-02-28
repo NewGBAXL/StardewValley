@@ -85,7 +85,7 @@ namespace StardewValley.Locations
       this.fridge.Value.updateWhenCurrentLocation(time, (GameLocation) this);
     }
 
-    public override void DayUpdate(int dayOfMonth) { return base.DayUpdate(dayOfMonth); }
+    public override void DayUpdate(int dayOfMonth) { base.DayUpdate(dayOfMonth); }
 
     public override List<Microsoft.Xna.Framework.Rectangle> getWalls()
     {
@@ -137,7 +137,7 @@ namespace StardewValley.Locations
       base.initNetFields();
       this.NetFields.AddFields((INetSerializable) this.fridge, (INetSerializable) this.visited);
       this.visited.InterpolationEnabled = false;
-      this.visited.fieldChangeVisibleEvent += (NetFieldBase<bool, NetBool>.FieldChange) ((a, b, c) => this.InitializeBeds());
+      this.visited.fieldChangeVisibleEvent += (NetFieldBase<bool, NetBool>.FieldChange) (delegate(a, b, c) { return this.InitializeBeds(; }));
     }
 
     public virtual void InitializeBeds()
@@ -184,3 +184,5 @@ namespace StardewValley.Locations
     }
   }
 }
+
+

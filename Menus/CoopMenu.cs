@@ -83,7 +83,7 @@ namespace StardewValley.Menus
         leftNeighborID = -99998,
         rightNeighborID = -99998,
         downNeighborID = 81114
-      };
+      }
       this._refreshDelay = 8f;
       this.smallScreenFormat = Game1.graphics.GraphicsDevice.Viewport.Height < 1080;
       string str2 = Game1.content.LoadString("Strings\\UI:CoopMenu_Join");
@@ -95,7 +95,7 @@ namespace StardewValley.Menus
         downNeighborID = -99998,
         rightNeighborID = 812,
         region = 1000
-      };
+      }
       string str3 = Game1.content.LoadString("Strings\\UI:CoopMenu_Host");
       int width3 = (int) Game1.dialogueFont.MeasureString(str3).X + 64;
       Vector2 vector2_3 = this.smallScreenFormat ? new Vector2((float) (this.joinTab.bounds.Right + (this.smallScreenFormat ? 0 : 4)), (float) this.yPositionOnScreen) : new Vector2((float) (this.joinTab.bounds.Right + 4), (float) (this.yPositionOnScreen - 64));
@@ -106,7 +106,7 @@ namespace StardewValley.Menus
         leftNeighborID = 811,
         rightNeighborID = 800,
         region = 1000
-      };
+      }
       this.backButton.upNeighborID = 810;
       if (this._tooManyFarms)
         this.hostSlots.Add((LoadGameMenu.MenuSlot) new CoopMenu.TooManyFarmsSlot(this));
@@ -205,7 +205,7 @@ namespace StardewValley.Menus
       {
         Lobby = lobby,
         Date = new WorldDate()
-      };
+      }
       friendFarmData.OwnerName = Program.sdk.Networking.GetLobbyOwnerName(lobby);
       friendFarmData.FarmName = Program.sdk.Networking.GetLobbyData(lobby, "farmName");
       string lobbyData1 = Program.sdk.Networking.GetLobbyData(lobby, "farmType");
@@ -298,7 +298,7 @@ namespace StardewValley.Menus
 
     protected override void addSaveFiles(List<Farmer> files)
     {
-      this.hostSlots.AddRange(files.Where<Farmer>((Func<Farmer, bool>) (delegate(file) { return file.slotCanHost)).Select<Farmer; }, LoadGameMenu.MenuSlot>((Func<Farmer, LoadGameMenu.MenuSlot>) (delegate(file) { return (LoadGameMenu.MenuSlot) new CoopMenu.HostFileSlot(this; }, file))));
+      this.hostSlots.AddRange(files.Where<Farmer>((Func<Farmer, bool>) (file { return file.slotCanHost)).Select<Farmer; }, LoadGameMenu.MenuSlot>((Func<Farmer, LoadGameMenu.MenuSlot>) (file { return (LoadGameMenu.MenuSlot) new CoopMenu.HostFileSlot(this; }, file))));
       this.UpdateButtons();
     }
 
@@ -322,7 +322,7 @@ namespace StardewValley.Menus
       catch (Exception ex)
       {
       }
-      this.setMenu((IClickableMenu) new TitleTextInputMenu(Game1.content.LoadString("Strings\\UI:CoopMenu_EnterIP"), (NamingMenu.doneNamingBehavior) (delegate(address) { return {; }
+      this.setMenu((IClickableMenu) new TitleTextInputMenu(Game1.content.LoadString("Strings\\UI:CoopMenu_EnterIP"), (NamingMenu.doneNamingBehavior) (address { return {; }
         try
         {
           StartupPreferences startupPreferences = new StartupPreferences();
@@ -343,7 +343,7 @@ namespace StardewValley.Menus
     {
       if (Program.sdk.Networking == null || !Program.sdk.Networking.SupportsInviteCodes())
         return;
-      this.setMenu((IClickableMenu) new TitleTextInputMenu(Game1.content.LoadString("Strings\\UI:CoopMenu_EnterInviteCode"), (NamingMenu.doneNamingBehavior) (delegate(code) { return {; }
+      this.setMenu((IClickableMenu) new TitleTextInputMenu(Game1.content.LoadString("Strings\\UI:CoopMenu_EnterInviteCode"), (NamingMenu.doneNamingBehavior) (code { return {; }
         CoopMenu.lastEnteredInviteCode = code;
         object lobbyFromInviteCode = Program.sdk.Networking.GetLobbyFromInviteCode(code);
         if (lobbyFromInviteCode == null)
@@ -563,7 +563,7 @@ namespace StardewValley.Menus
       {
       }
 
-      public override void Activate() { return this.menu.enterIPPressed(); }
+      public override void Activate() { this.menu.enterIPPressed(); }
     }
 
     protected class InviteCodeSlot : CoopMenu.LabeledSlot
@@ -573,7 +573,7 @@ namespace StardewValley.Menus
       {
       }
 
-      public override void Activate() { return this.menu.enterInviteCodePressed(); }
+      public override void Activate() { this.menu.enterInviteCodePressed(); }
     }
 
     protected class HostNewFarmSlot : CoopMenu.LabeledSlot
@@ -655,9 +655,9 @@ namespace StardewValley.Menus
 
       public bool MatchAddress(object Lobby) { return object.Equals(this.Farm.Lobby, Lobby); }
 
-      public void Update(CoopMenu.FriendFarmData newData) { return this.Farm = newData; }
+      public void Update(CoopMenu.FriendFarmData newData) { this.Farm = newData; }
 
-      public override void Activate() { return this.menu.setMenu((IClickableMenu) new FarmhandMenu(Program.sdk.Networking.CreateClient(this.Farm.Lobby))); }
+      public override void Activate() { this.menu.setMenu((IClickableMenu) new FarmhandMenu(Program.sdk.Networking.CreateClient(this.Farm.Lobby))); }
 
       protected virtual string slotName()
       {
@@ -665,9 +665,9 @@ namespace StardewValley.Menus
         return Game1.content.LoadString(path, (object) this.Farm.FarmName);
       }
 
-      protected virtual void drawSlotName(SpriteBatch b, int i) { return SpriteText.drawString(b, this.slotName(), this.menu.slotButtons[i].bounds.X + 128 + 36, this.menu.slotButtons[i].bounds.Y + 36); }
+      protected virtual void drawSlotName(SpriteBatch b, int i) { SpriteText.drawString(b, this.slotName(), this.menu.slotButtons[i].bounds.X + 128 + 36, this.menu.slotButtons[i].bounds.Y + 36); }
 
-      protected virtual void drawSlotDate(SpriteBatch b, int i) { return Utility.drawTextWithShadow(b, this.Farm.Date.Localize(), Game1.dialogueFont, new Vector2((float) (this.menu.slotButtons[i].bounds.X + 128 + 32), (float) (this.menu.slotButtons[i].bounds.Y + 64 + 40)), Game1.textColor); }
+      protected virtual void drawSlotDate(SpriteBatch b, int i) { Utility.drawTextWithShadow(b, this.Farm.Date.Localize(), Game1.dialogueFont, new Vector2((float) (this.menu.slotButtons[i].bounds.X + 128 + 32), (float) (this.menu.slotButtons[i].bounds.Y + 64 + 40)), Game1.textColor); }
 
       protected virtual void drawSlotFarm(SpriteBatch b, int i)
       {
@@ -719,3 +719,6 @@ namespace StardewValley.Menus
     }
   }
 }
+
+
+

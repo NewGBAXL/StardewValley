@@ -69,13 +69,13 @@ namespace StardewValley
       };
     }
 
-    public string delegate(DialogueFile) { return this._dialogueFile.Value; };
+    public string DialogueFile { get { return this._dialogueFile.Value; };
 
-    public string delegate(DialogueKey) { return this._dialogueKey.Value; };
+    public string DialogueKey { get { return this._dialogueKey.Value; };
 
-    public bool delegate(IsGendered) { return this._isGendered.Value; };
+    public bool IsGendered { get { return this._isGendered.Value; };
 
-    public string[] delegate(Substitutions) { return this._substitutions.ToArray<string>(); };
+    public string[] Substitutions { get { return this._substitutions.ToArray<string>(); };
 
     public bool Equals(MarriageDialogueReference other) { return object.Equals((object) this._dialogueFile.Value, (object) other._dialogueFile.Value) && object.Equals((object) this._dialogueKey.Value, (object) other._dialogueKey.Value) && object.Equals((object) this._isGendered.Value, (object) other._isGendered.Value) && this._substitutions.SequenceEqual<string>((IEnumerable<string>) other._substitutions); }
 
@@ -90,3 +90,5 @@ namespace StardewValley
     }
   }
 }
+
+

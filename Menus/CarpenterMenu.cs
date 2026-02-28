@@ -74,7 +74,7 @@ namespace StardewValley.Menus
       }
     }
 
-    public BluePrint delegate(CurrentBlueprint) { return this.blueprints[this.currentBlueprintIndex]; };
+    public BluePrint CurrentBlueprint { get { return this.blueprints[this.currentBlueprintIndex]; }
 
     public CarpenterMenu(bool magicalConstruction = false)
     {
@@ -776,7 +776,7 @@ namespace StardewValley.Menus
       this.upgrading = true;
     }
 
-    public override void gameWindowSizeChanged(Microsoft.Xna.Framework.Rectangle oldBounds, Microsoft.Xna.Framework.Rectangle newBounds) { return this.resetBounds(); }
+    public override void gameWindowSizeChanged(Microsoft.Xna.Framework.Rectangle oldBounds, Microsoft.Xna.Framework.Rectangle newBounds) { this.resetBounds(); }
 
     public virtual bool CanDemolishThis(Building building)
     {
@@ -957,3 +957,5 @@ namespace StardewValley.Menus
     }
   }
 }
+
+

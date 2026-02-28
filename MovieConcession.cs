@@ -20,11 +20,11 @@ namespace StardewValley
     protected int _id;
     protected List<string> _tags;
 
-    public string delegate(DisplayName) { return this._displayName; };
+    public string DisplayName { get { return this._displayName; };
 
-    public int delegate(id) { return this._id; };
+    public int id { get { return this._id; };
 
-    public List<string> delegate(tags) { return this._tags; };
+    public List<string> tags { get { return this._tags; };
 
     public MovieConcession(ConcessionItemData data)
     {
@@ -66,7 +66,7 @@ namespace StardewValley
 
     public bool ShouldDrawIcon() { return true; }
 
-    public string delegate(Name) { return this._name; };
+    public string Name { get { return this._name; };
 
     public string getDescription() { return this._description; }
 
@@ -78,7 +78,7 @@ namespace StardewValley
 
     public int Stack
     {
-      delegate(get) { return 1; };
+      get { return 1; }
       set
       {
       }
@@ -95,3 +95,6 @@ namespace StardewValley
     public ISalable GetSalableInstance() { return (ISalable) this; }
   }
 }
+
+
+

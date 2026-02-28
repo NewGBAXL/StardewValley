@@ -172,7 +172,7 @@ namespace StardewValley.Characters
       this.doCutsceneEvent();
     }
 
-    private void doCutsceneEvent() { return this.cutsceneEvent.Fire(); }
+    private void doCutsceneEvent() { this.cutsceneEvent.Fire(); }
 
     private void doCutscene()
     {
@@ -183,7 +183,7 @@ namespace StardewValley.Characters
       if (Game1.activeClickableMenu != null)
         return;
       Game1.player.freezePause = 2000;
-      Game1.globalFadeToBlack((Game1.afterFadeFunction) (() => Game1.currentLocation.startEvent(new StardewValley.Event("spring_day_ambient/-1000 -1000/farmer 104 95 3/skippable/addTemporaryActor TrashBear 32 32 102 95 0 false/animate TrashBear false true 250 0 1/viewport 102 97 clamp true/pause 3000/stopAnimation TrashBear/move TrashBear 0 2 2/faceDirection farmer 2/pause 1000/animate TrashBear false true 275 13 14 15 14/playSound trashbear_flute/specificTemporarySprite trashBearPrelude/viewport move -1 1 4000/pause 9000/stopAnimation TrashBear/playSound yoba/specificTemporarySprite trashBearMagic/pause 500/animate farmer false true 100 94/jump farmer/pause 2000/viewport move 1 -1 4000/stopAnimation farmer/move farmer 0 2 2/pause 4000/playSound trashbear/specificTemporarySprite trashBearUmbrella1/warp TrashBear -100 -100/pause 2000/faceDirection farmer 1/pause 2000/fade/viewport -5000 -5000/changeLocation Town/viewport 54 68 true/specificTemporarySprite trashBearTown/pause 10000/end", 777111))));
+      Game1.globalFadeToBlack((Game1.afterFadeFunction) (delegate() { return Game1.currentLocation.startEvent(new StardewValley.Event("spring_day_ambient/-1000 -1000/farmer 104 95 3/skippable/addTemporaryActor TrashBear 32 32 102 95 0 false/animate TrashBear false true 250 0 1/viewport 102 97 clamp true/pause 3000/stopAnimation TrashBear/move TrashBear 0 2 2/faceDirection farmer 2/pause 1000/animate TrashBear false true 275 13 14 15 14/playSound trashbear_flute/specificTemporarySprite trashBearPrelude/viewport move -1 1 4000/pause 9000/stopAnimation TrashBear/playSound yoba/specificTemporarySprite trashBearMagic/pause 500/animate farmer false true 100 94/jump farmer/pause 2000/viewport move 1 -1 4000/stopAnimation farmer/move farmer 0 2 2/pause 4000/playSound trashbear/specificTemporarySprite trashBearUmbrella1/warp TrashBear -100 -100/pause 2000/faceDirection farmer 1/pause 2000/fade/viewport -5000 -5000/changeLocation Town/viewport 54 68 true/specificTemporarySprite trashBearTown/pause 10000/end", 777111; }))));
     }
 
     public override void draw(SpriteBatch b)
@@ -200,3 +200,5 @@ namespace StardewValley.Characters
     }
   }
 }
+
+

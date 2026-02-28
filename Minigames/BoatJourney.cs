@@ -113,7 +113,7 @@ namespace StardewValley.Minigames
         Vector2 positionInThisRectangle2 = Utility.getRandomPositionInThisRectangle(r, Game1.random);
         this.CreateFlockOfSeagulls((int) positionInThisRectangle2.X, (int) positionInThisRectangle2.Y, 1);
       }
-      this._seagulls.Sort((Comparison<BoatJourney.Entity>) ((a, b) => a.position.Y.CompareTo(b.position.Y)));
+      this._seagulls.Sort((Comparison<BoatJourney.Entity>) (delegate(a, b) { return a.position.Y.CompareTo(b.position.Y; })));
       this._boat = new BoatJourney.Boat(this, "Minigames\\boatJourneyMap", new Rectangle(640, 352, 32, 32), new Vector2(16f, 16f), new Vector2(293f, 53f));
       this._boat.smokeStack = new Vector2?(new Vector2(0.0f, -12f));
       this._boat.numFrames = 2;
@@ -384,9 +384,9 @@ namespace StardewValley.Minigames
       this._zoomLevel = (float) Game1.viewport.Height / (float) this.mapSourceRectangle.Height;
     }
 
-    public void unload() { return Game1.stopMusicTrack(Game1.MusicContext.MiniGame); }
+    public void unload() { Game1.stopMusicTrack(Game1.MusicContext.MiniGame); }
 
-    public void receiveEventPoke(int data) { return throw new NotImplementedException(); }
+    public void receiveEventPoke(int data) { throw new NotImplementedException(); }
 
     public string minigameId() { return (string) null; }
 
@@ -577,7 +577,7 @@ namespace StardewValley.Minigames
       {
       }
 
-      public virtual void SetSourceRect(Rectangle rectangle) { return this._sourceRect = rectangle; }
+      public virtual void SetSourceRect(Rectangle rectangle) { this._sourceRect = rectangle; }
 
       public virtual Rectangle GetSourceRect()
       {
@@ -593,7 +593,10 @@ namespace StardewValley.Minigames
 
       public virtual float GetLayerDepth() { return (double) this.layerDepth >= 0.0 ? this.layerDepth : this.position.Y / 100000f; }
 
-      public virtual void Draw(SpriteBatch b) { return b.Draw(this._texture, this._context.TransformDraw(this.position), new Rectangle?(this.GetSourceRect()), Color.White, 0.0f, this.origin, this._context._zoomLevel, this.flipX ? SpriteEffects.FlipHorizontally : SpriteEffects.None, this.GetLayerDepth()); }
+      public virtual void Draw(SpriteBatch b) { b.Draw(this._texture, this._context.TransformDraw(this.position), new Rectangle?(this.GetSourceRect()), Color.White, 0.0f, this.origin, this._context._zoomLevel, this.flipX ? SpriteEffects.FlipHorizontally : SpriteEffects.None, this.GetLayerDepth()); }
     }
   }
 }
+
+
+

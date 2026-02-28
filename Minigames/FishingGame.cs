@@ -175,7 +175,7 @@ namespace StardewValley.Minigames
     {
     }
 
-    public void releaseLeftClick(int x, int y) { return this.handleCastInputReleased(); }
+    public void releaseLeftClick(int x, int y) { this.handleCastInputReleased(); }
 
     public void releaseRightClick(int x, int y)
     {
@@ -354,7 +354,7 @@ namespace StardewValley.Minigames
       }
     }
 
-    public static void startMe() { return Game1.currentMinigame = (IMinigame) new FishingGame(); }
+    public static void startMe() { Game1.currentMinigame = (IMinigame) new FishingGame(); }
 
     public void changeScreenSize()
     {
@@ -387,3 +387,4 @@ namespace StardewValley.Minigames
     public bool forceQuit() { return false; }
   }
 }
+

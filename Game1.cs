@@ -1035,7 +1035,7 @@ namespace StardewValley
       Game1.activeClickableMenu.gameWindowSizeChanged(Game1.graphics.GraphicsDevice.Viewport.Bounds, Game1.graphics.GraphicsDevice.Viewport.Bounds);
     }
 
-    public bool delegate(IsActiveNoOverlay) { return this.IsActive && !Program.sdk.HasOverlay; };
+    public bool IsActiveNoOverlay { get { return this.IsActive && !Program.sdk.HasOverlay; };
 
     public static void GetHasRoomAnotherFarmAsync(ReportHasRoomAnotherFarm callback)
     {
@@ -1100,7 +1100,7 @@ namespace StardewValley
 
     public static Farmer player
     {
-      delegate(get) { return Game1._player; };
+      get { return Game1._player; }
       set
       {
         if (Game1._player != null)
@@ -1112,14 +1112,14 @@ namespace StardewValley
       }
     }
 
-    public static bool delegate(isWarping) { return Game1._isWarping; };
+    public static bool isWarping { get { return Game1._isWarping; }
 
-    public static IList<GameLocation> delegate(locations) { return Game1.game1._locations; };
+    public static IList<GameLocation> locations { get { return Game1.game1._locations; }
 
     public static GameLocation currentLocation
     {
-      delegate(get) { return Game1.game1.instanceGameLocation; };
-      delegate(set) { return Game1.game1.instanceGameLocation = value; };
+      get { return Game1.game1.instanceGameLocation; }
+      set { Game1.game1.instanceGameLocation = value; }
     }
 
     public static Texture2D toolSpriteSheet
@@ -1150,7 +1150,7 @@ namespace StardewValley
       Game1._toolSpriteSheet = texture2D2;
     }
 
-    public static RenderTarget2D delegate(lightmap) { return Game1._lightmap; };
+    public static RenderTarget2D lightmap { get { return Game1._lightmap; }
 
     public static void SetSaveName(string new_save_name)
     {
@@ -1197,51 +1197,51 @@ namespace StardewValley
 
     public static bool spawnMonstersAtNight
     {
-      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) Game1.player.team.spawnMonstersAtNight;
-      delegate(set) { return Game1.player.team.spawnMonstersAtNight.Value = value; };
+      get { return (bool) (NetFieldBase<bool; }, NetBool>) Game1.player.team.spawnMonstersAtNight;
+      set { Game1.player.team.spawnMonstersAtNight.Value = value; }
     }
 
     public static bool fadeToBlack
     {
-      delegate(get) { return Game1.screenFade.fadeToBlack; };
-      delegate(set) { return Game1.screenFade.fadeToBlack = value; };
+      get { return Game1.screenFade.fadeToBlack; }
+      set { Game1.screenFade.fadeToBlack = value; }
     }
 
     public static bool fadeIn
     {
-      delegate(get) { return Game1.screenFade.fadeIn; };
-      delegate(set) { return Game1.screenFade.fadeIn = value; };
+      get { return Game1.screenFade.fadeIn; }
+      set { Game1.screenFade.fadeIn = value; }
     }
 
     public static bool globalFade
     {
-      delegate(get) { return Game1.screenFade.globalFade; };
-      delegate(set) { return Game1.screenFade.globalFade = value; };
+      get { return Game1.screenFade.globalFade; }
+      set { Game1.screenFade.globalFade = value; }
     }
 
     public static bool nonWarpFade
     {
-      delegate(get) { return Game1.screenFade.nonWarpFade; };
-      delegate(set) { return Game1.screenFade.nonWarpFade = value; };
+      get { return Game1.screenFade.nonWarpFade; }
+      set { Game1.screenFade.nonWarpFade = value; }
     }
 
     public static float fadeToBlackAlpha
     {
-      delegate(get) { return Game1.screenFade.fadeToBlackAlpha; };
-      delegate(set) { return Game1.screenFade.fadeToBlackAlpha = value; };
+      get { return Game1.screenFade.fadeToBlackAlpha; }
+      set { Game1.screenFade.fadeToBlackAlpha = value; }
     }
 
     public static float globalFadeSpeed
     {
-      delegate(get) { return Game1.screenFade.globalFadeSpeed; };
-      delegate(set) { return Game1.screenFade.globalFadeSpeed = value; };
+      get { return Game1.screenFade.globalFadeSpeed; }
+      set { Game1.screenFade.globalFadeSpeed = value; }
     }
 
-    public static string delegate(CurrentSeasonDisplayName) { return Game1.content.LoadString("Strings\\StringsFromCSFiles:" + Game1.currentSeason); };
+    public static string CurrentSeasonDisplayName { get { return Game1.content.LoadString("Strings\\StringsFromCSFiles:" + Game1.currentSeason); }
 
     public static string debugOutput
     {
-      delegate(get) { return Game1._debugOutput; };
+      get { return Game1._debugOutput; }
       set
       {
         lock (Game1._debugOutputLock)
@@ -1271,25 +1271,25 @@ namespace StardewValley
 
     protected static Dictionary<Game1.MusicContext, KeyValuePair<string, bool>> _requestedMusicTracks
     {
-      delegate(get) { return Game1.game1._instanceRequestedMusicTracks; };
-      delegate(set) { return Game1.game1._instanceRequestedMusicTracks = value; };
+      get { return Game1.game1._instanceRequestedMusicTracks; }
+      set { Game1.game1._instanceRequestedMusicTracks = value; }
     }
 
     protected static Game1.MusicContext _activeMusicContext
     {
-      delegate(get) { return Game1.game1._instanceActiveMusicContext; };
-      delegate(set) { return Game1.game1._instanceActiveMusicContext = value; };
+      get { return Game1.game1._instanceActiveMusicContext; }
+      set { Game1.game1._instanceActiveMusicContext = value; }
     }
 
     public static bool isOverridingTrack
     {
-      delegate(get) { return Game1.game1.instanceIsOverridingTrack; };
-      delegate(set) { return Game1.game1.instanceIsOverridingTrack = value; };
+      get { return Game1.game1.instanceIsOverridingTrack; }
+      set { Game1.game1.instanceIsOverridingTrack = value; }
     }
 
     public bool useUnscaledLighting
     {
-      delegate(get) { return this._useUnscaledLighting; };
+      get { return this._useUnscaledLighting; }
       set
       {
         if (this._useUnscaledLighting == value)
@@ -1299,23 +1299,23 @@ namespace StardewValley
       }
     }
 
-    public static IList<string> delegate(mailbox) { return (IList<string>) Game1.player.mailbox; };
+    public static IList<string> mailbox { get { return (IList<string>) Game1.player.mailbox; }
 
     public static ICue currentSong
     {
-      delegate(get) { return Game1.game1.instanceCurrentSong; };
-      delegate(set) { return Game1.game1.instanceCurrentSong = value; };
+      get { return Game1.game1.instanceCurrentSong; }
+      set { Game1.game1.instanceCurrentSong = value; }
     }
 
     public static PlayerIndex playerOneIndex
     {
-      delegate(get) { return Game1.game1.instancePlayerOneIndex; };
-      delegate(set) { return Game1.game1.instancePlayerOneIndex = value; };
+      get { return Game1.game1.instancePlayerOneIndex; }
+      set { Game1.game1.instancePlayerOneIndex = value; }
     }
 
     public static byte gameMode
     {
-      delegate(get) { return Game1._gameMode; };
+      get { return Game1._gameMode; }
       set
       {
         if ((int) Game1._gameMode == (int) value)
@@ -1327,15 +1327,15 @@ namespace StardewValley
 
     public bool IsSaving
     {
-      delegate(get) { return this._isSaving; };
-      delegate(set) { return this._isSaving = value; };
+      get { return this._isSaving; }
+      set { this._isSaving = value; }
     }
 
-    public static Stats delegate(stats) { return Game1.player.stats; };
+    public static Stats stats { get { return Game1.player.stats; }
 
     public static IClickableMenu activeClickableMenu
     {
-      delegate(get) { return Game1._activeClickableMenu; };
+      get { return Game1._activeClickableMenu; }
       set
       {
         if (Game1._activeClickableMenu is IDisposable && !Game1._activeClickableMenu.HasDependencies())
@@ -1353,7 +1353,7 @@ namespace StardewValley
 
     public static IMinigame currentMinigame
     {
-      delegate(get) { return Game1._currentMinigame; };
+      get { return Game1._currentMinigame; }
       set
       {
         Game1._currentMinigame = value;
@@ -1395,47 +1395,47 @@ namespace StardewValley
 
     public static Object dishOfTheDay
     {
-      delegate(get) { return Game1.netWorldState.Value.DishOfTheDay.Value; };
-      delegate(set) { return Game1.netWorldState.Value.DishOfTheDay.Value = value; };
+      get { return Game1.netWorldState.Value.DishOfTheDay.Value; }
+      set { Game1.netWorldState.Value.DishOfTheDay.Value = value; }
     }
 
     public static KeyboardDispatcher keyboardDispatcher
     {
-      delegate(get) { return Game1.game1.instanceKeyboardDispatcher; };
-      delegate(set) { return Game1.game1.instanceKeyboardDispatcher = value; };
+      get { return Game1.game1.instanceKeyboardDispatcher; }
+      set { Game1.game1.instanceKeyboardDispatcher = value; }
     }
 
     public static Options options
     {
-      delegate(get) { return Game1.game1.instanceOptions; };
-      delegate(set) { return Game1.game1.instanceOptions = value; };
+      get { return Game1.game1.instanceOptions; }
+      set { Game1.game1.instanceOptions = value; }
     }
 
     public static TextEntryMenu textEntry
     {
-      delegate(get) { return Game1.game1.instanceTextEntry; };
-      delegate(set) { return Game1.game1.instanceTextEntry = value; };
+      get { return Game1.game1.instanceTextEntry; }
+      set { Game1.game1.instanceTextEntry = value; }
     }
 
-    public static WorldDate delegate(Date) { return Game1.netWorldState.Value.Date; };
+    public static WorldDate Date { get { return Game1.netWorldState.Value.Date; }
 
-    public static bool delegate(NetTimePaused) { return Game1.netWorldState.Get().IsTimePaused; };
+    public static bool NetTimePaused { get { return Game1.netWorldState.Get().IsTimePaused; }
 
-    public static bool delegate(HostPaused) { return Game1.netWorldState.Get().IsPaused; };
+    public static bool HostPaused { get { return Game1.netWorldState.Get().IsPaused; };
 
-    public static bool delegate(IsMultiplayer) { return Game1.otherFarmers.Count > 0; };
+    public static bool IsMultiplayer { get { return Game1.otherFarmers.Count > 0; };
 
-    public static bool delegate(IsClient) { return Game1.multiplayerMode == (byte) 1; };
+    public static bool IsClient { get { return Game1.multiplayerMode == (byte) 1; };
 
-    public static bool delegate(IsServer) { return Game1.multiplayerMode == (byte) 2; };
+    public static bool IsServer { get { return Game1.multiplayerMode == (byte) 2; };
 
-    public static bool delegate(IsMasterGame) { return Game1.multiplayerMode == (byte) 0 || Game1.multiplayerMode == (byte) 2; };
+    public static bool IsMasterGame { get { return Game1.multiplayerMode == (byte) 0 || Game1.multiplayerMode == (byte) 2; };
 
-    public static Farmer delegate(MasterPlayer) { return !Game1.IsMasterGame ? Game1.serverHost.Value : Game1.player; };
+    public static Farmer MasterPlayer { get { return !Game1.IsMasterGame ? Game1.serverHost.Value : Game1.player; };
 
     public static bool IsChatting
     {
-      delegate(get) { return Game1.chatBox != null && Game1.chatBox.isActive(); };
+      get { return Game1.chatBox != null && Game1.chatBox.isActive(); }
       set
       {
         if (value == Game1.chatBox.isActive())
@@ -1447,7 +1447,7 @@ namespace StardewValley
       }
     }
 
-    public static Event delegate(CurrentEvent) { return Game1.currentLocation == null ? (Event) null : Game1.currentLocation.currentEvent; };
+    public static Event CurrentEvent { get { return Game1.currentLocation == null ? (Event) null : Game1.currentLocation.currentEvent; }
 
     public static MineShaft mine
     {
@@ -1459,7 +1459,7 @@ namespace StardewValley
       }
     }
 
-    public static int delegate(CurrentMineLevel) { return Game1.currentLocation is MineShaft ? (Game1.currentLocation as MineShaft).mineLevel : 0; };
+    public static int CurrentMineLevel { get { return Game1.currentLocation is MineShaft ? (Game1.currentLocation as MineShaft).mineLevel : 0; }
 
     public Game1(PlayerIndex player_index, int index)
       : this()
@@ -1526,7 +1526,7 @@ namespace StardewValley
       Game1.keyboardDispatcher.Cleanup();
     }
 
-    public void refreshWindowSettings() { return GameRunner.instance.OnWindowSizeChange((object) null, (EventArgs) null); }
+    public void refreshWindowSettings() { GameRunner.instance.OnWindowSizeChange((object) null, (EventArgs) null); }
 
     public void Window_ClientSizeChanged(object sender, EventArgs e)
     {
@@ -1542,7 +1542,7 @@ namespace StardewValley
         this._windowResizing = true;
         int w = Game1.graphics.IsFullScreen ? Game1.graphics.PreferredBackBufferWidth : this.Window.ClientBounds.Width;
         int h = Game1.graphics.IsFullScreen ? Game1.graphics.PreferredBackBufferHeight : this.Window.ClientBounds.Height;
-        GameRunner.instance.ExecuteForInstances((Action<Game1>) (delegate(instance) { return instance.SetWindowSize(w; }, h)));
+        GameRunner.instance.ExecuteForInstances((Action<Game1>) (instance { return instance.SetWindowSize(w; }, h)));
         this._windowResizing = false;
       }
     }
@@ -1655,7 +1655,7 @@ namespace StardewValley
       Game1.PopUIMode();
     }
 
-    private void Game1_Exiting(object sender, EventArgs e) { return Program.sdk.Shutdown(); }
+    private void Game1_Exiting(object sender, EventArgs e) { Program.sdk.Shutdown(); }
 
     public static void setGameMode(byte mode)
     {
@@ -1722,7 +1722,7 @@ namespace StardewValley
       }
     }
 
-    public void Instance_Initialize() { return this.Initialize(); }
+    public void Instance_Initialize() { this.Initialize(); }
 
     public static bool IsFading()
     {
@@ -1849,7 +1849,7 @@ namespace StardewValley
         }
       }
       Game1.recalculateLostBookCount();
-      Utility.iterateChestsAndStorage((Action<Item>) (delegate(item) { return item.HasBeenInInventory = true)); };
+      Utility.iterateChestsAndStorage((Action<Item>) (item { return item.HasBeenInInventory = true)); }
       foreach (TerrainFeature terrainFeature in Game1.getLocationFromName("Greenhouse").terrainFeatures.Values)
       {
         if (terrainFeature is HoeDirt)
@@ -1863,7 +1863,7 @@ namespace StardewValley
       switch (save_fix)
       {
         case SaveGame.SaveFixes.StoredBigCraftablesStackFix:
-          Utility.iterateChestsAndStorage((Action<Item>) (delegate(item) { return {; }
+          Utility.iterateChestsAndStorage((Action<Item>) (item { return {; }
             if (!(item is Object))
               return;
             Object @object = item as Object;
@@ -1898,7 +1898,7 @@ namespace StardewValley
             break;
           }
         case SaveGame.SaveFixes.CreateStorageDressers:
-          Utility.iterateChestsAndStorage((Action<Item>) (delegate(item) { return {; }
+          Utility.iterateChestsAndStorage((Action<Item>) (item { return {; }
             if (!(item is Clothing))
               return;
             item.Category = -100;
@@ -1947,7 +1947,7 @@ namespace StardewValley
             348,
             344,
             342
-          };
+          }
           string[] suffixes = new string[3]
           {
             " Juice",
@@ -1965,7 +1965,7 @@ namespace StardewValley
           {
             Object.PreserveType.Pickle
           };
-          Utility.iterateAllItems((Action<Item>) (delegate(item) { return {; }
+          Utility.iterateAllItems((Action<Item>) (item { return {; }
             if (!(item is Object) || !Utility.IsNormalObjectAtParentSheetIndex(item, item.ParentSheetIndex) || !((IEnumerable<int>) preserve_item_indices).Contains<int>(item.ParentSheetIndex) || (item as Object).preserve.Value.HasValue)
               return;
             for (int index = 0; index < suffixes.Length; ++index)
@@ -2017,7 +2017,7 @@ namespace StardewValley
           }));
           break;
         case SaveGame.SaveFixes.TransferHatSkipHairFlag:
-          Utility.iterateAllItems((Action<Item>) (delegate(item) { return {; }
+          Utility.iterateAllItems((Action<Item>) (item { return {; }
             if (!(item is StardewValley.Objects.Hat))
               return;
             StardewValley.Objects.Hat hat = item as StardewValley.Objects.Hat;
@@ -2037,7 +2037,7 @@ namespace StardewValley
           break;
         case SaveGame.SaveFixes.TransferHoneyTypeToPreserves:
           new int[1][0] = 340;
-          Utility.iterateAllItems((Action<Item>) (delegate(item) { return {; }
+          Utility.iterateAllItems((Action<Item>) (item { return {; }
             if (!(item is Object) || !Utility.IsNormalObjectAtParentSheetIndex(item, item.ParentSheetIndex) || item.ParentSheetIndex != 340 || (item as Object).preservedParentSheetIndex.Value > 0)
               return;
             if ((item as Object).honeyType.Value.HasValue && (item as Object).honeyType.Value.Value >= ~Object.HoneyType.Wild)
@@ -2052,14 +2052,14 @@ namespace StardewValley
           }));
           break;
         case SaveGame.SaveFixes.TransferNoteBlockScale:
-          Utility.iterateAllItems((Action<Item>) (delegate(item) { return {; }
+          Utility.iterateAllItems((Action<Item>) (item { return {; }
             if (!(item is Object) || !Utility.IsNormalObjectAtParentSheetIndex(item, item.ParentSheetIndex) || item.ParentSheetIndex != 363 && item.ParentSheetIndex != 464)
               return;
             (item as Object).preservedParentSheetIndex.Value = (int) (item as Object).scale.X;
           }));
           break;
         case SaveGame.SaveFixes.FixCropHarvestAmountsAndInferSeedIndex:
-          Utility.iterateAllCrops((Action<Crop>) (delegate(crop) { return crop.ResetCropYield())); };
+          Utility.iterateAllCrops((Action<Crop>) (crop { return crop.ResetCropYield())); };
           break;
         case SaveGame.SaveFixes.Level9PuddingFishingRecipe2:
         case SaveGame.SaveFixes.Level9PuddingFishingRecipe3:
@@ -2098,8 +2098,8 @@ namespace StardewValley
           {
             while (enumerator.MoveNext())
             {
-              if (enumerator.Current is FarmHouse current)
-              {
+              FarmHouse current = enumerator.Current as FarmHouse;
+      if (current != ) {
                 for (int index1 = 0; index1 < current.map.Layers[0].TileWidth; ++index1)
                 {
                   for (int index2 = 0; index2 < current.map.Layers[0].TileHeight; ++index2)
@@ -2143,8 +2143,8 @@ namespace StardewValley
           {
             while (enumerator.MoveNext())
             {
-              if (enumerator.Current is FarmHouse current)
-              {
+              FarmHouse current = enumerator.Current as FarmHouse;
+      if (current != ) {
                 for (int index3 = 0; index3 < current.map.Layers[0].TileWidth; ++index3)
                 {
                   for (int index4 = 0; index4 < current.map.Layers[0].TileHeight; ++index4)
@@ -2161,7 +2161,7 @@ namespace StardewValley
           Game1.getFarm().AddModularShippingBin();
           break;
         case SaveGame.SaveFixes.FixFlooringFlags:
-          Utility.ForAllLocations((Action<GameLocation>) (delegate(location) { return {; }
+          Utility.ForAllLocations((Action<GameLocation>) (location { return {; }
             foreach (TerrainFeature terrainFeature in location.terrainFeatures.Values)
             {
               if (terrainFeature is Flooring)
@@ -2193,7 +2193,7 @@ namespace StardewValley
           Game1.player.craftingRecipes.Add("Glowstone Ring", 0);
           break;
         case SaveGame.SaveFixes.ResetForges:
-          Utility.iterateAllItems((Action<Item>) (delegate(item) { return {; }
+          Utility.iterateAllItems((Action<Item>) (item { return {; }
             if (!(item is MeleeWeapon))
               return;
             (item as MeleeWeapon).RecalculateAppliedForges();
@@ -2205,14 +2205,14 @@ namespace StardewValley
           Game1.player.cookingRecipes.Add("Squid Ink Ravioli", 0);
           break;
         case SaveGame.SaveFixes.MakeDarkSwordVampiric:
-          Utility.iterateAllItems((Action<Item>) (delegate(item) { return {; }
+          Utility.iterateAllItems((Action<Item>) (item { return {; }
             if (!(item is MeleeWeapon) || (item as MeleeWeapon).InitialParentTileIndex != 2)
               return;
             (item as MeleeWeapon).AddEnchantment((BaseEnchantment) new VampiricEnchantment());
           }));
           break;
         case SaveGame.SaveFixes.FixRingSheetIndex:
-          Utility.iterateAllItems((Action<Item>) (delegate(item) { return {; }
+          Utility.iterateAllItems((Action<Item>) (item { return {; }
             if (!(item is Ring) || item.ParentSheetIndex != -1)
               return;
             item.ParentSheetIndex = (item as Ring).indexInTileSheet.Value;
@@ -2237,8 +2237,8 @@ namespace StardewValley
               {
                 if (largeTerrainFeature is StardewValley.TerrainFeatures.Bush)
                 {
-                  if (largeTerrainFeature is StardewValley.TerrainFeatures.Bush bush)
-                  {
+                  StardewValley.TerrainFeatures.Bush bush = largeTerrainFeature as StardewValley.TerrainFeatures.Bush;
+      if (bush != ) {
                     bush.tilePosition.Value = new Vector2(bush.tilePosition.X, bush.tilePosition.Y + 1f);
                     break;
                   }
@@ -2255,7 +2255,7 @@ namespace StardewValley
           Game1.player.craftingRecipes.Add("Cookout Kit", 0);
           break;
         case SaveGame.SaveFixes.OstrichIncubatorFragility:
-          Utility.iterateAllItems((Action<Item>) (delegate(item) { return {; }
+          Utility.iterateAllItems((Action<Item>) (item { return {; }
             if (!(item is Object) || (item as Object).Fragility != 2 || !(item.Name == "Ostrich Incubator"))
               return;
             (item as Object).Fragility = 0;
@@ -2366,7 +2366,7 @@ namespace StardewValley
       return new LocalizedContentManager(serviceProvider, rootDirectory);
     }
 
-    public void Instance_LoadContent() { return this.LoadContent(); }
+    public void Instance_LoadContent() { this.LoadContent(); }
 
     /// <summary>
     /// LoadContent will be called once per game and is the place to load
@@ -2477,7 +2477,7 @@ namespace StardewValley
       Game1.setGameMode((byte) 0);
     }
 
-    public static void resetPlayer() { return Game1.player = new Farmer(new FarmerSprite((string) null), new Vector2(192f, 192f), 1, "", Farmer.initialTools(), true); }
+    public static void resetPlayer() { Game1.player = new Farmer(new FarmerSprite((string) null), new Vector2(192f, 192f), 1, "", Farmer.initialTools(), true); }
 
     public static void resetVariables()
     {
@@ -2946,7 +2946,7 @@ namespace StardewValley
       Game1.player.friendshipData.Add("Kent", new Friendship());
     }
 
-    public void Instance_UnloadContent() { return this.UnloadContent(); }
+    public void Instance_UnloadContent() { this.UnloadContent(); }
 
     /// <summary>
     /// UnloadContent will be called once per game and is the place to unload
@@ -2997,7 +2997,7 @@ namespace StardewValley
       }
     }
 
-    public static void showRedMessageUsingLoadString(string loadString) { return Game1.showRedMessage(Game1.content.LoadString(loadString)); }
+    public static void showRedMessageUsingLoadString(string loadString) { Game1.showRedMessage(Game1.content.LoadString(loadString)); }
 
     public static bool didPlayerJustLeftClick(bool ignoreNonMouseHeldInput = false) { return Game1.input.GetMouseState().LeftButton == ButtonState.Pressed && Game1.oldMouseState.LeftButton != ButtonState.Pressed || Game1.input.GetGamePadState().Buttons.X == ButtonState.Pressed && (!ignoreNonMouseHeldInput || !Game1.oldPadState.IsButtonDown(Buttons.X)) || Game1.isOneOfTheseKeysDown(Game1.input.GetKeyboardState(), Game1.options.useToolButton) && (!ignoreNonMouseHeldInput || Game1.areAllOfTheseKeysUp(Game1.oldKBState, Game1.options.useToolButton)); }
 
@@ -3005,11 +3005,11 @@ namespace StardewValley
 
     public static bool didPlayerJustClickAtAll(bool ignoreNonMouseHeldInput = false) { return Game1.didPlayerJustLeftClick(ignoreNonMouseHeldInput) || Game1.didPlayerJustRightClick(ignoreNonMouseHeldInput); }
 
-    public static void showGlobalMessage(string message) { return Game1.addHUDMessage(new HUDMessage(message, "")); }
+    public static void showGlobalMessage(string message) { Game1.addHUDMessage(new HUDMessage(message, "")); }
 
-    public static void globalFadeToBlack(Game1.afterFadeFunction afterFade = null, float fadeSpeed = 0.02f) { return Game1.screenFade.GlobalFadeToBlack(afterFade, fadeSpeed); }
+    public static void globalFadeToBlack(Game1.afterFadeFunction afterFade = null, float fadeSpeed = 0.02f) { Game1.screenFade.GlobalFadeToBlack(afterFade, fadeSpeed); }
 
-    public static void globalFadeToClear(Game1.afterFadeFunction afterFade = null, float fadeSpeed = 0.02f) { return Game1.screenFade.GlobalFadeToClear(afterFade, fadeSpeed); }
+    public static void globalFadeToClear(Game1.afterFadeFunction afterFade = null, float fadeSpeed = 0.02f) { Game1.screenFade.GlobalFadeToClear(afterFade, fadeSpeed); }
 
     public void CheckGamepadMode()
     {
@@ -3075,7 +3075,7 @@ namespace StardewValley
       }
     }
 
-    public void Instance_Update(GameTime gameTime) { return this.Update(gameTime); }
+    public void Instance_Update(GameTime gameTime) { this.Update(gameTime); }
 
     protected override void Update(GameTime gameTime)
     {
@@ -3127,7 +3127,7 @@ namespace StardewValley
       base.Update(gameTime);
     }
 
-    public void Instance_OnActivated(object sender, EventArgs args) { return this.OnActivated(sender, args); }
+    public void Instance_OnActivated(object sender, EventArgs args) { this.OnActivated(sender, args); }
 
     protected override void OnActivated(object sender, EventArgs args)
     {
@@ -3569,8 +3569,8 @@ namespace StardewValley
               Game1.farmEvent = (FarmEvent) null;
               Game1.netWorldState.Value.WriteToGame1();
               Game1.currentLocation = Game1.player.currentLocation;
-              if (Game1.currentLocation is FarmHouse currentLocation)
-              {
+              FarmHouse currentLocation = Game1.currentLocation as FarmHouse;
+      if (currentLocation != ) {
                 Game1.player.Position = Utility.PointToVector2(currentLocation.GetPlayerBedSpot()) * 64f;
                 BedFurniture.ShiftPositionForBed(Game1.player);
               }
@@ -3731,7 +3731,7 @@ namespace StardewValley
       }
     }
 
-    public static int delegate(CurrentPlayerLimit) { return (NetFieldBase<IWorldState; }, NetRef<IWorldState>>) Game1.netWorldState == (NetRef<IWorldState>) null || Game1.netWorldState.Value == null || (NetFieldBase<int, NetInt>) Game1.netWorldState.Value.CurrentPlayerLimit == (NetInt) null ? Game1.multiplayer.playerLimit : Game1.netWorldState.Value.CurrentPlayerLimit.Value;
+    public static int CurrentPlayerLimit { get { return (NetFieldBase<IWorldState; }, NetRef<IWorldState>>) Game1.netWorldState == (NetRef<IWorldState>) null || Game1.netWorldState.Value == null || (NetFieldBase<int, NetInt>) Game1.netWorldState.Value.CurrentPlayerLimit == (NetInt) null ? Game1.multiplayer.playerLimit : Game1.netWorldState.Value.CurrentPlayerLimit.Value;
 
     public static void showTextEntry(TextBox text_box)
     {
@@ -3829,7 +3829,7 @@ namespace StardewValley
     /// adds a function that will be called 1 second after fully waking up in the morning. These will not be saved, so only use for "fluff" functions, like sending multiplayer chat messages, etc.
     /// </summary>
     /// <param name="func"></param>
-    public static void addMorningFluffFunction(DelayedAction.delayedBehavior func) { return Game1.morningQueue.Enqueue(func); }
+    public static void addMorningFluffFunction(DelayedAction.delayedBehavior func) { Game1.morningQueue.Enqueue(func); }
 
     private Point getViewportCenter()
     {
@@ -3900,13 +3900,13 @@ namespace StardewValley
         Game1.setMousePositionRaw((int) ((double) x * (double) Game1.options.zoomLevel), (int) ((double) y * (double) Game1.options.zoomLevel));
     }
 
-    public static void setMousePosition(int x, int y) { return Game1.setMousePosition(x, y, Game1.uiMode); }
+    public static void setMousePosition(int x, int y) { Game1.setMousePosition(x, y, Game1.uiMode); }
 
-    public static void setMousePosition(Point position, bool ui_scale) { return Game1.setMousePosition(position.X, position.Y, ui_scale); }
+    public static void setMousePosition(Point position, bool ui_scale) { Game1.setMousePosition(position.X, position.Y, ui_scale); }
 
-    public static void setMousePosition(Point position) { return Game1.setMousePosition(position, Game1.uiMode); }
+    public static void setMousePosition(Point position) { Game1.setMousePosition(position, Game1.uiMode); }
 
-    public static void setMousePositionRaw(Point position) { return Game1.setMousePositionRaw(position.X, position.Y); }
+    public static void setMousePositionRaw(Point position) { Game1.setMousePositionRaw(position.X, position.Y); }
 
     public static void setMousePositionRaw(int x, int y)
     {
@@ -4248,7 +4248,7 @@ namespace StardewValley
       switch (Game1.activeClickableMenu)
       {
         case null:
-        case ScreenSizeAdjustMenu _:
+        case ScreenSizeAdjustMenu:
           if (Game1.activeClickableMenu != null)
             break;
           Game1.activeClickableMenu = (IClickableMenu) new ScreenSizeAdjustMenu();
@@ -4706,7 +4706,7 @@ label_76:
       GameRunner.instance.OnWindowSizeChange((object) null, (EventArgs) null);
     }
 
-    public static bool delegate(isFullscreen) { return Game1.graphics.IsFullScreen; };
+    public static bool isFullscreen { get { return Game1.graphics.IsFullScreen; }
 
     private void checkForEscapeKeys()
     {
@@ -5237,11 +5237,11 @@ label_76:
       }
     }
 
-    public static void exitActiveMenu() { return Game1.activeClickableMenu = (IClickableMenu) null; }
+    public static void exitActiveMenu() { Game1.activeClickableMenu = (IClickableMenu) null; }
 
-    public static void fadeScreenToBlack() { return Game1.screenFade.FadeScreenToBlack(); }
+    public static void fadeScreenToBlack() { Game1.screenFade.FadeScreenToBlack(); }
 
-    public static void fadeClear() { return Game1.screenFade.FadeClear(); }
+    public static void fadeClear() { Game1.screenFade.FadeClear(); }
 
     private bool onFadeToBlackComplete()
     {
@@ -5284,7 +5284,7 @@ label_76:
         {
           Game1.eventFinished();
           if (Game1.dayOfMonth == 0)
-            Game1.newDayAfterFade((Action) (() => Game1.player.Position = new Vector2(320f, 320f)));
+            Game1.newDayAfterFade((Action) (delegate() { Game1.player.Position = new Vector2(320f, 320f; })));
           return true;
         }
         if (Game1.locationRequest.IsRequestFor(Game1.currentLocation) && Game1.player.previousLocationName != "" && !Game1.eventUp && !Game1.currentLocation.Name.StartsWith("UndergroundMine"))
@@ -5393,7 +5393,7 @@ label_76:
           {
             Game1.eventFinished();
             if (Game1.dayOfMonth == 0)
-              Game1.newDayAfterFade((Action) (() => Game1.player.Position = new Vector2(320f, 320f)));
+              Game1.newDayAfterFade((Action) (delegate() { Game1.player.Position = new Vector2(320f, 320f; })));
           }
           Game1.nonWarpFade = false;
           Game1.fadeIn = false;
@@ -5973,7 +5973,7 @@ label_76:
       return song_name.EndsWith("Mine") ? 20 : 10;
     }
 
-    public static void updateRainDropPositionForPlayerMovement(int direction) { return Game1.updateRainDropPositionForPlayerMovement(direction, false); }
+    public static void updateRainDropPositionForPlayerMovement(int direction) { Game1.updateRainDropPositionForPlayerMovement(direction, false); }
 
     public static void updateRainDropPositionForPlayerMovement(
       int direction,
@@ -6210,7 +6210,7 @@ label_76:
       {
         if (locationRequest.Location is Farm && (double) Game1.player.positionBeforeEvent.Y == 64.0)
           ++Game1.player.positionBeforeEvent.X;
-        locationRequest.OnWarp += (LocationRequest.Callback) (() => Game1.player.locationBeforeForcedEvent.Value = (string) null);
+        locationRequest.OnWarp += (LocationRequest.Callback) (delegate() { return Game1.player.locationBeforeForcedEvent.Value = (string; }) null);
         Game1.warpFarmer(locationRequest, (int) Game1.player.positionBeforeEvent.X, (int) Game1.player.positionBeforeEvent.Y, Game1.player.orientationBeforeEvent);
       }
       else
@@ -6257,7 +6257,7 @@ label_76:
         Game1.currentSeason = "summer";
       Game1.setGraphicsForSeason();
       Game1.dayOfMonth = 1;
-      Utility.ForAllLocations((Action<GameLocation>) (delegate(l) { return l.seasonUpdate(Game1.GetSeasonForLocation(l)))); };
+      Utility.ForAllLocations((Action<GameLocation>) (l { return l.seasonUpdate(Game1.GetSeasonForLocation(l)))); }
     }
 
     public static void playItemNumberSelectSound()
@@ -6451,7 +6451,7 @@ label_76:
         foreach (Debris debris in debrisList)
           location.debris.Remove(debris);
       }
-      Utility.iterateChestsAndStorage((Action<Item>) (delegate(item) { return Game1.checkIsMissingTool(missingTools; }, ref missingScythes, item)));
+      Utility.iterateChestsAndStorage((Action<Item>) (item { return Game1.checkIsMissingTool(missingTools; }, ref missingScythes, item)));
       List<string> stringList1 = new List<string>();
 label_82:
       for (int index = 0; index < missingTools.Count; ++index)
@@ -6724,7 +6724,7 @@ label_82:
       }
       NetLongDictionary<NetList<Item, NetRef<Item>>, NetRef<NetList<Item, NetRef<Item>>>> additional_shipped_items = new NetLongDictionary<NetList<Item, NetRef<Item>>, NetRef<NetList<Item, NetRef<Item>>>>();
       if (Game1.IsMasterGame)
-        Utility.ForAllLocations((Action<GameLocation>) (delegate(location) { return {; }
+        Utility.ForAllLocations((Action<GameLocation>) (location { return {; }
           foreach (Object @object in location.objects.Values)
           {
             if (@object is Chest && @object is Chest chest2 && chest2.SpecialChestType == Chest.SpecialChestTypes.MiniShippingBin)
@@ -7241,7 +7241,7 @@ label_82:
       if (Game1.farmEvent == null)
         Game1.RemoveDeliveredMailForTomorrow();
       if (Game1.player.team.newLostAndFoundItems.Value)
-        Game1.morningQueue.Enqueue((DelayedAction.delayedBehavior) (() => Game1.showGlobalMessage(Game1.content.LoadString("Strings\\StringsFromCSFiles:NewLostAndFoundItems"))));
+        Game1.morningQueue.Enqueue((DelayedAction.delayedBehavior) (delegate() { return Game1.showGlobalMessage(Game1.content.LoadString("Strings\\StringsFromCSFiles:NewLostAndFoundItems"; }))));
       Game1.newDaySync.barrier("mail");
       while (!Game1.newDaySync.isBarrierReady("mail"))
         yield return 0;
@@ -7295,7 +7295,7 @@ label_82:
           Game1.multiplayer.globalChatInfoMessageEvenInSinglePlayer("Eternal1");
         Game1.playSound("discoverMineral");
         if (Game1.IsMasterGame)
-          DelayedAction.functionAfterDelay((DelayedAction.delayedBehavior) (() => Game1.multiplayer.globalChatInfoMessageEvenInSinglePlayer("Eternal2", (string) (NetFieldBase<string, NetString>) Game1.MasterPlayer.farmName)), 4000);
+          DelayedAction.functionAfterDelay((DelayedAction.delayedBehavior) (delegate() { return Game1.multiplayer.globalChatInfoMessageEvenInSinglePlayer("Eternal2", (string; }) (NetFieldBase<string, NetString>) Game1.MasterPlayer.farmName)), 4000);
         Game1.player.mailReceived.Add("Farm_Eternal");
         DelayedAction.functionAfterDelay((DelayedAction.delayedBehavior) (() =>
         {
@@ -7470,7 +7470,7 @@ label_82:
       Game1.weddingToday = false;
       if (!Game1.canHaveWeddingOnDay(Game1.dayOfMonth, Game1.currentSeason))
         return;
-      foreach (Farmer farmer in (IEnumerable<Farmer>) Game1.getOnlineFarmers().OrderBy<Farmer, long>((Func<Farmer, long>) (delegate(farmer) { return farmer.UniqueMultiplayerID))); }
+      foreach (Farmer farmer in (IEnumerable<Farmer>) Game1.getOnlineFarmers().OrderBy<Farmer, long>((Func<Farmer, long>) (farmer { return farmer.UniqueMultiplayerID))); }
       {
         if (farmer.spouse != null && farmer.isEngaged() && farmer.friendshipData[farmer.spouse].CountdownToWedding <= 1)
           Game1.weddingsToday.Add(farmer.UniqueMultiplayerID);
@@ -7723,7 +7723,7 @@ label_82:
       switch (Game1.activeClickableMenu)
       {
         case null:
-        case BobberBar _:
+        case BobberBar:
           return Game1.player.CanMove || Game1.player.UsingTool || Game1.player.forceTimePass;
         default:
           return false;
@@ -8004,7 +8004,7 @@ label_82:
         Game1.questionChoices.Add((Response) npcResponseOptions[index]);
     }
 
-    public static void drawLetterMessage(string message) { return Game1.activeClickableMenu = (IClickableMenu) new LetterViewerMenu(message); }
+    public static void drawLetterMessage(string message) { Game1.activeClickableMenu = (IClickableMenu) new LetterViewerMenu(message); }
 
     public static void drawObjectDialogue(string dialogue)
     {
@@ -8032,13 +8032,13 @@ label_82:
       Game1.player.CanMove = false;
     }
 
-    public static bool delegate(IsSummer) { return Game1.currentSeason.Equals("summer"); };
+    public static bool IsSummer { get { return Game1.currentSeason.Equals("summer"); };
 
-    public static bool delegate(IsSpring) { return Game1.currentSeason.Equals("spring"); };
+    public static bool IsSpring { get { return Game1.currentSeason.Equals("spring"); };
 
-    public static bool delegate(IsFall) { return Game1.currentSeason.Equals("fall"); };
+    public static bool IsFall { get { return Game1.currentSeason.Equals("fall"); };
 
-    public static bool delegate(IsWinter) { return Game1.currentSeason.Equals("winter"); };
+    public static bool IsWinter { get { return Game1.currentSeason.Equals("winter"); };
 
     public static void removeThisCharacterFromAllLocations(NPC toDelete)
     {
@@ -8049,9 +8049,9 @@ label_82:
       }
     }
 
-    public static void warpCharacter(NPC character, string targetLocationName, Point position) { return Game1.warpCharacter(character, targetLocationName, new Vector2((float) position.X, (float) position.Y)); }
+    public static void warpCharacter(NPC character, string targetLocationName, Point position) { Game1.warpCharacter(character, targetLocationName, new Vector2((float) position.X, (float) position.Y)); }
 
-    public static void warpCharacter(NPC character, string targetLocationName, Vector2 position) { return Game1.warpCharacter(character, Game1.getLocationFromName(targetLocationName), position); }
+    public static void warpCharacter(NPC character, string targetLocationName, Vector2 position) { Game1.warpCharacter(character, Game1.getLocationFromName(targetLocationName), position); }
 
     public static void warpCharacter(NPC character, GameLocation targetLocation, Vector2 position)
     {
@@ -8139,11 +8139,11 @@ label_82:
     public static void warpHome()
     {
       LocationRequest locationRequest = Game1.getLocationRequest(Game1.player.homeLocation.Value);
-      locationRequest.OnWarp += (LocationRequest.Callback) (() => Game1.player.position.Set(Utility.PointToVector2((Game1.currentLocation as FarmHouse).GetPlayerBedSpot()) * 64f));
+      locationRequest.OnWarp += (LocationRequest.Callback) (delegate() { return Game1.player.position.Set(Utility.PointToVector2((Game1.currentLocation as FarmHouse; }).GetPlayerBedSpot()) * 64f));
       Game1.warpFarmer(locationRequest, 5, 9, Game1.player.FacingDirection);
     }
 
-    public static void warpFarmer(string locationName, int tileX, int tileY, bool flip) { return Game1.warpFarmer(Game1.getLocationRequest(locationName), tileX, tileY, flip ? (Game1.player.FacingDirection + 2) % 4 : Game1.player.FacingDirection); }
+    public static void warpFarmer(string locationName, int tileX, int tileY, bool flip) { Game1.warpFarmer(Game1.getLocationRequest(locationName), tileX, tileY, flip ? (Game1.player.FacingDirection + 2) % 4 : Game1.player.FacingDirection); }
 
     public static void warpFarmer(
       string locationName,
@@ -8352,7 +8352,7 @@ label_82:
           if (Game1.IsMultiplayer)
           {
             Game1.player.team.SetLocalReady("festivalStart", true);
-            Game1.activeClickableMenu = (IClickableMenu) new ReadyCheckDialog("festivalStart", true, (ConfirmationDialog.behavior) (delegate(who) { return {; }
+            Game1.activeClickableMenu = (IClickableMenu) new ReadyCheckDialog("festivalStart", true, (ConfirmationDialog.behavior) (who { return {; }
               Game1.exitActiveMenu();
               if (Game1.player.mount != null)
               {
@@ -8414,7 +8414,7 @@ label_82:
       Game1.player.faceDirection(Game1.facingDirectionAfterWarp);
     }
 
-    public static void changeInvisibility(string name, bool invisibility) { return Game1.getCharacterFromName(name).IsInvisible = invisibility; }
+    public static void changeInvisibility(string name, bool invisibility) { Game1.getCharacterFromName(name).IsInvisible = invisibility; }
 
     public static T getCharacterFromName<T>(string name, bool mustBeVillager = true) where T : NPC
     {
@@ -8461,7 +8461,7 @@ label_82:
         switch (Game1.currentLocation)
         {
           case null:
-          case MovieTheater _:
+          case MovieTheater:
             break;
           default:
             using (List<NPC>.Enumerator enumerator = Game1.currentLocation.getCharacters().GetEnumerator())
@@ -8576,7 +8576,7 @@ label_82:
       return !isStructure ? Game1.getLocationFromName(name, true) : (GameLocation) null;
     }
 
-    public static void flushLocationLookup() { return Game1._locationLookup.Clear(); }
+    public static void flushLocationLookup() { Game1._locationLookup.Clear(); }
 
     public static void removeLocationFromLocationLookup(string name_or_unique_name)
     {
@@ -8678,7 +8678,7 @@ label_82:
           Game1.activeClickableMenu.emergencyShutDown();
           Game1.exitActiveMenu();
         }
-        Game1.activeClickableMenu = (IClickableMenu) new ReadyCheckDialog("sleep", false, (ConfirmationDialog.behavior) (delegate(_) { return Game1.NewDay(0.0f))); };
+        Game1.activeClickableMenu = (IClickableMenu) new ReadyCheckDialog("sleep", false, (ConfirmationDialog.behavior) (_ { return Game1.NewDay(0.0f))); };
       }
     }
 
@@ -9023,7 +9023,7 @@ label_82:
         Game1.createObjectDebris(index, xTile, yTile, who, location);
     }
 
-    public static void createDebris(int debrisType, int xTile, int yTile, int numberOfChunks) { return Game1.createDebris(debrisType, xTile, yTile, numberOfChunks, Game1.currentLocation); }
+    public static void createDebris(int debrisType, int xTile, int yTile, int numberOfChunks) { Game1.createDebris(debrisType, xTile, yTile, numberOfChunks, Game1.currentLocation); }
 
     public static void createDebris(
       int debrisType,
@@ -9251,7 +9251,7 @@ label_82:
       }
     }
 
-    public static void createObjectDebris(int objectIndex, int xTile, int yTile, long whichPlayer) { return Game1.currentLocation.debris.Add(new Debris(objectIndex, new Vector2((float) (xTile * 64 + 32), (float) (yTile * 64 + 32)), Game1.getFarmer(whichPlayer).getStandingPosition())); }
+    public static void createObjectDebris(int objectIndex, int xTile, int yTile, long whichPlayer) { Game1.currentLocation.debris.Add(new Debris(objectIndex, new Vector2((float) (xTile * 64 + 32), (float) (yTile * 64 + 32)), Game1.getFarmer(whichPlayer).getStandingPosition())); }
 
     public static void createObjectDebris(
       int objectIndex,
@@ -9343,7 +9343,7 @@ label_82:
 
     public static FarmerCollection getOnlineFarmers() { return Game1._onlineFarmers; }
 
-    public static void farmerFindsArtifact(int objectIndex) { return Game1.player.addItemToInventoryBool((Item) new Object(objectIndex, 1)); }
+    public static void farmerFindsArtifact(int objectIndex) { Game1.player.addItemToInventoryBool((Item) new Object(objectIndex, 1)); }
 
     public static bool doesHUDMessageExist(string s)
     {
@@ -9388,7 +9388,7 @@ label_82:
       }
     }
 
-    public static void nextMineLevel() { return Game1.warpFarmer("UndergroundMine" + (Game1.CurrentMineLevel + 1).ToString(), 16, 16, false); }
+    public static void nextMineLevel() { Game1.warpFarmer("UndergroundMine" + (Game1.CurrentMineLevel + 1).ToString(), 16, 16, false); }
 
     public static void showSwordswipeAnimation(
       int direction,
@@ -9413,9 +9413,9 @@ label_82:
       }
     }
 
-    public static void removeSquareDebrisFromTile(int tileX, int tileY) { return Game1.currentLocation.debris.Filter((Func<Debris, bool>) (delegate(debris) { return (Debris.DebrisType) (NetFieldBase<Debris.DebrisType; }, NetEnum<Debris.DebrisType>>) debris.debrisType != Debris.DebrisType.SQUARES || (int) ((double) debris.Chunks[0].position.X / 64.0) != tileX || debris.chunkFinalYLevel / 64 != tileY)); }
+    public static void removeSquareDebrisFromTile(int tileX, int tileY) { Game1.currentLocation.debris.Filter((Func<Debris, bool>) (debris { return (Debris.DebrisType) (NetFieldBase<Debris.DebrisType; }, NetEnum<Debris.DebrisType>>) debris.debrisType != Debris.DebrisType.SQUARES || (int) ((double) debris.Chunks[0].position.X / 64.0) != tileX || debris.chunkFinalYLevel / 64 != tileY)); }
 
-    public static void removeDebris(Debris.DebrisType type) { return Game1.currentLocation.debris.Filter((Func<Debris, bool>) (delegate(debris) { return (Debris.DebrisType) (NetFieldBase<Debris.DebrisType; }, NetEnum<Debris.DebrisType>>) debris.debrisType != type)); }
+    public static void removeDebris(Debris.DebrisType type) { Game1.currentLocation.debris.Filter((Func<Debris, bool>) (debris { return (Debris.DebrisType) (NetFieldBase<Debris.DebrisType; }, NetEnum<Debris.DebrisType>>) debris.debrisType != type)); }
 
     public static void toolAnimationDone(Farmer who)
     {
@@ -9803,7 +9803,7 @@ label_82:
       if (Game1.player.onBridge.Value)
         return false;
       Game1.haltAfterCheck = true;
-      if (!Utility.tileWithinRadiusOfPlayer((int) grabTile.X, (int) grabTile.Y, 1, Game1.player) || !Game1.hooks.OnGameLocation_CheckAction(Game1.currentLocation, new Location((int) grabTile.X, (int) grabTile.Y), Game1.viewport, who, (Func<bool>) (() => Game1.currentLocation.checkAction(new Location((int) grabTile.X, (int) grabTile.Y), Game1.viewport, who))))
+      if (!Utility.tileWithinRadiusOfPlayer((int) grabTile.X, (int) grabTile.Y, 1, Game1.player) || !Game1.hooks.OnGameLocation_CheckAction(Game1.currentLocation, new Location((int) grabTile.X, (int) grabTile.Y), Game1.viewport, who, (Func<bool>) (delegate() { return Game1.currentLocation.checkAction(new Location((int; }) grabTile.X, (int) grabTile.Y), Game1.viewport, who))))
         return false;
       Game1.updateCursorTileHint();
       who.lastGrabTile = grabTile;
@@ -9954,7 +9954,7 @@ label_82:
       if (Utility.canGrabSomethingFromHere((int) position.X, (int) position.Y, Game1.player))
       {
         Vector2 tile = new Vector2(position.X / 64f, position.Y / 64f);
-        if (Game1.hooks.OnGameLocation_CheckAction(Game1.currentLocation, new Location((int) tile.X, (int) tile.Y), Game1.viewport, Game1.player, (Func<bool>) (() => Game1.currentLocation.checkAction(new Location((int) tile.X, (int) tile.Y), Game1.viewport, Game1.player))))
+        if (Game1.hooks.OnGameLocation_CheckAction(Game1.currentLocation, new Location((int) tile.X, (int) tile.Y), Game1.viewport, Game1.player, (Func<bool>) (delegate() { return Game1.currentLocation.checkAction(new Location((int; }) tile.X, (int) tile.Y), Game1.viewport, Game1.player))))
         {
           Game1.updateCursorTileHint();
           return true;
@@ -9978,7 +9978,7 @@ label_82:
           Game1.player.netItemStowed.Set(true);
           return true;
         }
-        if (Utility.withinRadiusOfPlayer((int) position.X, (int) position.Y, 1, Game1.player) && Game1.hooks.OnGameLocation_CheckAction(Game1.currentLocation, new Location((int) position.X / 64, (int) position.Y / 64), Game1.viewport, Game1.player, (Func<bool>) (() => Game1.currentLocation.checkAction(new Location((int) position.X / 64, (int) position.Y / 64), Game1.viewport, Game1.player))))
+        if (Utility.withinRadiusOfPlayer((int) position.X, (int) position.Y, 1, Game1.player) && Game1.hooks.OnGameLocation_CheckAction(Game1.currentLocation, new Location((int) position.X / 64, (int) position.Y / 64), Game1.viewport, Game1.player, (Func<bool>) (delegate() { return Game1.currentLocation.checkAction(new Location((int; }) position.X / 64, (int) position.Y / 64), Game1.viewport, Game1.player))))
           return true;
         Vector2 placementGrabTile = Game1.GetPlacementGrabTile();
         Vector2 placementPosition = Utility.GetNearbyValidPlacementPosition(Game1.player, Game1.currentLocation, (Item) Game1.player.ActiveObject, (int) placementGrabTile.X * 64, (int) placementGrabTile.Y * 64);
@@ -10668,8 +10668,8 @@ label_1159:
             Game1.player.currentLocation.fishSplashPoint.Set(new Point(Game1.player.getTileX() + point.X, Game1.player.getTileX() + point.Y));
             goto case "break";
           case "crib":
-            if (Game1.getLocationFromName(Game1.player.homeLocation.Value) is FarmHouse locationFromName3)
-            {
+            FarmHouse locationFromName3 = Game1.getLocationFromName(Game1.player.homeLocation.Value) as FarmHouse;
+      if (locationFromName3 != ) {
               int int32_2 = Convert.ToInt32(debugSplit[1]);
               locationFromName3.cribStyle.Value = int32_2;
               goto case "break";
@@ -10865,7 +10865,7 @@ label_1159:
                         Game1.player.eventsSeen.Remove(event_id);
                     }
                     LocationRequest locationRequest = Game1.getLocationRequest(locationName);
-                    locationRequest.OnLoad += (LocationRequest.Callback) (() => Game1.currentLocation.currentEvent = new Event(location_events[key], event_id));
+                    locationRequest.OnLoad += (LocationRequest.Callback) (delegate() { return Game1.currentLocation.currentEvent = new Event(location_events[key], event_id; }));
                     int x = 8;
                     int y = 8;
                     Utility.getDefaultWarpLocation(locationRequest.Name, ref x, ref y);
@@ -11731,10 +11731,10 @@ label_1159:
             {
               switch (terrainFeature)
               {
-                case Grass _:
+                case Grass:
                   ++num8;
                   continue;
-                case Tree _:
+                case Tree:
                   ++num9;
                   continue;
                 default:
@@ -12007,7 +12007,7 @@ label_1159:
               }
             }
             MovieTheaterScreeningEvent event_generator = new MovieTheaterScreeningEvent();
-            Game1.globalFadeToBlack((Game1.afterFadeFunction) (() => Game1.currentLocation.startEvent(event_generator.getMovieEvent(movie_title, group1, group2))));
+            Game1.globalFadeToBlack((Game1.afterFadeFunction) (delegate() { return Game1.currentLocation.startEvent(event_generator.getMovieEvent(movie_title, group1, group2; }))));
             goto case "break";
           case "mp":
             Game1.player.addItemToInventoryBool((Item) new MilkPail());
@@ -14506,7 +14506,7 @@ label_4:
 
     public RenderTarget2D screen
     {
-      delegate(get) { return this._screen; };
+      get { return this._screen; }
       set
       {
         if (this._screen != null)
@@ -14520,7 +14520,7 @@ label_4:
 
     public RenderTarget2D uiScreen
     {
-      delegate(get) { return this._uiScreen; };
+      get { return this._uiScreen; }
       set
       {
         if (this._uiScreen != null)
@@ -14558,7 +14558,7 @@ label_4:
       Game1.bgColor.B = b;
     }
 
-    public void Instance_Draw(GameTime gameTime) { return this.Draw(gameTime); }
+    public void Instance_Draw(GameTime gameTime) { this.Draw(gameTime); }
 
     /// <summary>This is called when the game should draw itself.</summary>
     /// <param name="gameTime">Provides a snapshot of timing values.</param>
@@ -15059,7 +15059,7 @@ label_4:
                 Viewport viewport2 = this.GraphicsDevice.Viewport with
                 {
                   Bounds = target_screen != null ? target_screen.Bounds : this.GraphicsDevice.PresentationParameters.Bounds
-                };
+                }
                 this.GraphicsDevice.Viewport = viewport2;
                 float scale = (float) (Game1.options.lightingQuality / 2);
                 if (this.useUnscaledLighting)
@@ -15504,10 +15504,10 @@ label_4:
       }
       switch (Game1.currentLocation)
       {
-        case MineShaft _:
-        case Woods _:
-        case SlimeHutch _:
-        case VolcanoDungeon _:
+        case MineShaft:
+        case Woods:
+        case SlimeHutch:
+        case VolcanoDungeon:
 label_12:
           Game1.showingHealthBar = true;
           Game1.showingHealth = true;
@@ -15752,8 +15752,8 @@ label_12:
 
     public static float mouseCursorTransparency
     {
-      delegate(get) { return Game1._mouseCursorTransparency; };
-      delegate(set) { return Game1._mouseCursorTransparency = value; };
+      get { return Game1._mouseCursorTransparency; }
+      set { Game1._mouseCursorTransparency = value; }
     }
 
     public static void panScreen(int x, int y)
@@ -15801,7 +15801,7 @@ label_12:
       }
     }
 
-    public static void drawDialogueBox(string message) { return Game1.drawDialogueBox(Game1.viewport.Width / 2, Game1.viewport.Height / 2, false, false, message); }
+    public static void drawDialogueBox(string message) { Game1.drawDialogueBox(Game1.viewport.Width / 2, Game1.viewport.Height / 2, false, false, message); }
 
     public static void drawDialogueBox(
       int centerX,
@@ -16103,7 +16103,7 @@ label_12:
       f.ActiveObject.drawWhenHeld(Game1.spriteBatch, new Vector2((float) (int) x, (float) (int) y), f);
     }
 
-    public static void drawTool(Farmer f) { return Game1.drawTool(f, f.CurrentTool.CurrentParentTileIndex); }
+    public static void drawTool(Farmer f) { Game1.drawTool(f, f.CurrentTool.CurrentParentTileIndex); }
 
     public static void drawTool(Farmer f, int currentToolIndex)
     {
@@ -17155,3 +17155,10 @@ label_12:
     public delegate void afterFadeFunction();
   }
 }
+
+
+
+
+
+
+

@@ -15,6 +15,8 @@ namespace StardewValley
 
     public KeyEventArgs(Keys keyCode) { return this.keyCode = keyCode; }
 
-    public Keys delegate(KeyCode) { return this.keyCode; };
+    public Keys KeyCode { get { return this.keyCode; };
   }
 }
+
+

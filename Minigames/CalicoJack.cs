@@ -511,7 +511,7 @@ namespace StardewValley.Minigames
       b.End();
     }
 
-    public void changeScreenSize() { return this.RepositionButtons(); }
+    public void changeScreenSize() { this.RepositionButtons(); }
 
     public void unload()
     {
@@ -528,3 +528,4 @@ namespace StardewValley.Minigames
     public bool forceQuit() { return true; }
   }
 }
+

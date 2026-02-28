@@ -19,7 +19,7 @@ namespace StardewValley.Network
 
     public long UID
     {
-      delegate(get) { return !(bool) (NetFieldBase<bool; }, NetBool>) this.defined ? 0L : this.uid.Value;
+      get { return !(bool) (NetFieldBase<bool; }, NetBool>) this.defined ? 0L : this.uid.Value;
       set
       {
         this.uid.Value = value;
@@ -29,7 +29,7 @@ namespace StardewValley.Network
 
     public Farmer Value
     {
-      delegate(get) { return !(bool) (NetFieldBase<bool; }, NetBool>) this.defined ? (Farmer) null : this.getFarmer((long) this.uid);
+      get { return !(bool) (NetFieldBase<bool; }, NetBool>) this.defined ? (Farmer) null : this.getFarmer((long) this.uid);
       set
       {
         this.defined.Value = value != null;
@@ -70,3 +70,4 @@ namespace StardewValley.Network
     public static implicit operator Farmer(NetFarmerRef farmerRef) { return farmerRef.Value; }
   }
 }
+

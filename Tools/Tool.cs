@@ -94,13 +94,13 @@ namespace StardewValley
           this._description = this.loadDescription();
         return this._description;
       }
-      delegate(set) { return this._description = value; };
+      set { this._description = value; }
     }
 
     public string BaseName
     {
-      delegate(get) { return (string) (NetFieldBase<string; }, NetString>) this.netName;
-      delegate(set) { return this.netName.Set(value); };
+      get { return (string) (NetFieldBase<string; }, NetString>) this.netName;
+      set { this.netName.Set(value); }
     }
 
     [XmlIgnore]
@@ -123,7 +123,7 @@ namespace StardewValley
             return this.displayName;
         }
       }
-      delegate(set) { return this.displayName = value; };
+      set { this.displayName = value; }
     }
 
     public override string Name
@@ -144,12 +144,12 @@ namespace StardewValley
             return this.BaseName;
         }
       }
-      delegate(set) { return this.BaseName = value; };
+      set { this.BaseName = value; }
     }
 
     public override int Stack
     {
-      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.stackable ? ((StardewValley.Tools.Stackable) this).NumberInStack : 1;
+      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.stackable ? ((StardewValley.Tools.Stackable) this).NumberInStack : 1;
       set
       {
         if (!(bool) (NetFieldBase<bool, NetBool>) this.stackable)
@@ -158,31 +158,31 @@ namespace StardewValley
       }
     }
 
-    public string delegate(Description) { return this.description; };
+    public string Description { get { return this.description; }
 
     [XmlIgnore]
     public int CurrentParentTileIndex
     {
-      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.currentParentTileIndex;
-      delegate(set) { return this.currentParentTileIndex.Set(value); };
+      get { return (int) (NetFieldBase<int; }, NetInt>) this.currentParentTileIndex;
+      set { this.currentParentTileIndex.Set(value); }
     }
 
     public int InitialParentTileIndex
     {
-      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.initialParentTileIndex;
-      delegate(set) { return this.initialParentTileIndex.Set(value); };
+      get { return (int) (NetFieldBase<int; }, NetInt>) this.initialParentTileIndex;
+      set { this.initialParentTileIndex.Set(value); }
     }
 
     public int IndexOfMenuItemView
     {
-      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.indexOfMenuItemView;
-      delegate(set) { return this.indexOfMenuItemView.Set(value); };
+      get { return (int) (NetFieldBase<int; }, NetInt>) this.indexOfMenuItemView;
+      set { this.indexOfMenuItemView.Set(value); }
     }
 
     [XmlIgnore]
     public int UpgradeLevel
     {
-      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.upgradeLevel;
+      get { return (int) (NetFieldBase<int; }, NetInt>) this.upgradeLevel;
       set
       {
         this.upgradeLevel.Value = value;
@@ -192,26 +192,26 @@ namespace StardewValley
 
     public bool InstantUse
     {
-      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.instantUse;
-      delegate(set) { return this.instantUse.Value = value; };
+      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.instantUse;
+      set { this.instantUse.Value = value; }
     }
 
     public bool IsEfficient
     {
-      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.isEfficient;
-      delegate(set) { return this.isEfficient.Value = value; };
+      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.isEfficient;
+      set { this.isEfficient.Value = value; }
     }
 
     public float AnimationSpeedModifier
     {
-      delegate(get) { return (float) (NetFieldBase<float; }, NetFloat>) this.animationSpeedModifier;
-      delegate(set) { return this.animationSpeedModifier.Value = value; };
+      get { return (float) (NetFieldBase<float; }, NetFloat>) this.animationSpeedModifier;
+      set { this.animationSpeedModifier.Value = value; }
     }
 
     public bool Stackable
     {
-      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.stackable;
-      delegate(set) { return this.stackable.Value = value; };
+      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.stackable;
+      set { this.stackable.Value = value; }
     }
 
     public Tool()
@@ -240,7 +240,7 @@ namespace StardewValley
       this.Category = -99;
     }
 
-    protected virtual void initNetFields() { return this.NetFields.AddFields((INetSerializable) this.initialParentTileIndex, (INetSerializable) this.currentParentTileIndex, (INetSerializable) this.indexOfMenuItemView, (INetSerializable) this.stackable, (INetSerializable) this.instantUse, (INetSerializable) this.upgradeLevel, (INetSerializable) this.numAttachmentSlots, (INetSerializable) this.attachments, (INetSerializable) this.enchantments, (INetSerializable) this.isEfficient, (INetSerializable) this.animationSpeedModifier, (INetSerializable) this.previousEnchantments); }
+    protected virtual void initNetFields() { this.NetFields.AddFields((INetSerializable) this.initialParentTileIndex, (INetSerializable) this.currentParentTileIndex, (INetSerializable) this.indexOfMenuItemView, (INetSerializable) this.stackable, (INetSerializable) this.instantUse, (INetSerializable) this.upgradeLevel, (INetSerializable) this.numAttachmentSlots, (INetSerializable) this.attachments, (INetSerializable) this.enchantments, (INetSerializable) this.isEfficient, (INetSerializable) this.animationSpeedModifier, (INetSerializable) this.previousEnchantments); }
 
     protected abstract string loadDisplayName();
 
@@ -290,7 +290,7 @@ namespace StardewValley
       Point tooltipSpecialIcons = base.getExtraSpaceNeededForTooltipSpecialIcons(font, minWidth, horizontalBuffer, startingHeight, descriptionText, boldTitleText, moneyAmountToDisplayAtBottom) with
       {
         Y = startingHeight
-      };
+      }
       foreach (BaseEnchantment enchantment in this.enchantments)
       {
         if (enchantment.ShouldBeDisplayed())
@@ -307,9 +307,9 @@ namespace StardewValley
     {
       switch (this)
       {
-        case MeleeWeapon _:
-        case Hoe _:
-        case Axe _:
+        case MeleeWeapon:
+        case Hoe:
+        case Axe:
           return true;
         default:
           return this is Pickaxe;
@@ -440,7 +440,7 @@ namespace StardewValley
       {
         switch (this)
         {
-          case WateringCan _:
+          case WateringCan:
             if ((this as WateringCan).WaterLeft > 0 && who.ShouldHandleAnimationSound())
               who.currentLocation.localSound("wateringCan");
             switch (who.FacingDirection)
@@ -465,11 +465,11 @@ namespace StardewValley
               break;
             this.DoFunction(who.currentLocation, (int) who.lastClick.X, (int) who.lastClick.Y, 1, who);
             break;
-          case MeleeWeapon _:
-          case Pan _:
-          case Shears _:
-          case MilkPail _:
-          case Slingshot _:
+          case MeleeWeapon:
+          case Pan:
+          case Shears:
+          case MilkPail:
+          case Slingshot:
             break;
           default:
             switch (who.FacingDirection)
@@ -585,7 +585,7 @@ namespace StardewValley
             who.CanMove = true;
             who.canReleaseTool = false;
             break;
-          case WateringCan _:
+          case WateringCan:
             who.jitterStrength = 0.25f;
             switch (who.FacingDirection)
             {
@@ -607,7 +607,7 @@ namespace StardewValley
                 break;
             }
             break;
-          case FishingRod _:
+          case FishingRod:
             switch (who.FacingDirection)
             {
               case 0:
@@ -629,7 +629,7 @@ namespace StardewValley
             }
             who.canReleaseTool = false;
             break;
-          case MeleeWeapon _:
+          case MeleeWeapon:
             ((MeleeWeapon) this).setFarmerAnimating(who);
             break;
           default:
@@ -779,13 +779,13 @@ namespace StardewValley
       {
         switch (this)
         {
-          case Axe _:
-          case Pickaxe _:
-          case Hoe _:
-          case WateringCan _:
+          case Axe:
+          case Pickaxe:
+          case Hoe:
+          case WateringCan:
 label_3:
             return true;
-          case GenericTool _:
+          case GenericTool:
             if ((int) (NetFieldBase<int, NetInt>) this.indexOfMenuItemView < 13 || (int) (NetFieldBase<int, NetInt>) this.indexOfMenuItemView > 16)
               break;
             goto label_3;
@@ -800,10 +800,10 @@ label_3:
       {
         switch (this)
         {
-          case Axe _:
-          case Pickaxe _:
-          case Hoe _:
-          case WateringCan _:
+          case Axe:
+          case Pickaxe:
+          case Hoe:
+          case WateringCan:
             Tool toolFromName = Game1.player.getToolFromName(this.BaseName);
             ++toolFromName.UpgradeLevel;
             Game1.player.removeItemFromInventory((Item) toolFromName);
@@ -813,7 +813,7 @@ label_3:
             Game1.exitActiveMenu();
             Game1.drawDialogue(Game1.getCharacterFromName("Clint"), Game1.content.LoadString("Strings\\StringsFromCSFiles:Tool.cs.14317"));
             return true;
-          case GenericTool _:
+          case GenericTool:
             switch ((int) (NetFieldBase<int, NetInt>) this.indexOfMenuItemView)
             {
               case 13:
@@ -1021,39 +1021,39 @@ label_3:
     {
       switch (this)
       {
-        case MeleeWeapon _:
+        case MeleeWeapon:
           break;
-        case MagnifyingGlass _:
+        case MagnifyingGlass:
           break;
-        case MilkPail _:
+        case MilkPail:
           break;
-        case Shears _:
+        case Shears:
           break;
-        case Pan _:
+        case Pan:
           break;
-        case Slingshot _:
+        case Slingshot:
           break;
-        case Wand _:
+        case Wand:
           break;
         default:
           int num1 = 21;
           switch (this)
           {
-            case FishingRod _:
+            case FishingRod:
               this.InitialParentTileIndex = 8 + (int) (NetFieldBase<int, NetInt>) this.upgradeLevel;
               this.CurrentParentTileIndex = this.InitialParentTileIndex;
               this.IndexOfMenuItemView = this.InitialParentTileIndex;
               return;
-            case Axe _:
+            case Axe:
               num1 = 189;
               break;
-            case Hoe _:
+            case Hoe:
               num1 = 21;
               break;
-            case Pickaxe _:
+            case Pickaxe:
               num1 = 105;
               break;
-            case WateringCan _:
+            case WateringCan:
               num1 = 273;
               break;
           }
@@ -1335,3 +1335,7 @@ label_3:
     }
   }
 }
+
+
+
+

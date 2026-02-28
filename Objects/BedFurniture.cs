@@ -54,7 +54,7 @@ namespace StardewValley.Objects
         }
         return this._bedType.Value;
       }
-      delegate(set) { return this._bedType.Value = value; };
+      set { this._bedType.Value = value; }
     }
 
     public BedFurniture()
@@ -95,7 +95,7 @@ namespace StardewValley.Objects
       this.mutex.ReleaseLock();
     }
 
-    public virtual void ReserveForNPC() { return this.mutex.RequestLock(); }
+    public virtual void ReserveForNPC() { this.mutex.RequestLock(); }
 
     public override void AttemptRemoval(Action<Furniture> removal_action)
     {
@@ -298,7 +298,7 @@ namespace StardewValley.Objects
 
     public virtual Point GetBedSpot() { return new Point((int) this.tileLocation.X + 1, (int) this.tileLocation.Y + 1); }
 
-    public override void resetOnPlayerEntry(GameLocation environment, bool dropDown = false) { return this.UpdateBedTile(false); }
+    public override void resetOnPlayerEntry(GameLocation environment, bool dropDown = false) { this.UpdateBedTile(false); }
 
     public virtual void UpdateBedTile(bool check_bounds)
     {
@@ -412,3 +412,6 @@ namespace StardewValley.Objects
     }
   }
 }
+
+
+

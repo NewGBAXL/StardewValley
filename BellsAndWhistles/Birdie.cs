@@ -39,7 +39,7 @@ namespace StardewValley.BellsAndWhistles
       this.state = 0;
     }
 
-    public void hop(Farmer who) { return this.gravityAffectedDY = -2f; }
+    public void hop(Farmer who) { this.gravityAffectedDY = -2f; }
 
     public override void drawAboveFrontLayer(SpriteBatch b)
     {
@@ -55,7 +55,7 @@ namespace StardewValley.BellsAndWhistles
       base.draw(b);
     }
 
-    private void donePecking(Farmer who) { return this.state = Game1.random.NextDouble() < 0.5 ? 0 : 3; }
+    private void donePecking(Farmer who) { this.state = Game1.random.NextDouble() < 0.5 ? 0 : 3; }
 
     private void playFlap(Farmer who)
     {
@@ -209,3 +209,4 @@ namespace StardewValley.BellsAndWhistles
     }
   }
 }
+

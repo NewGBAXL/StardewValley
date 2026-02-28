@@ -36,8 +36,8 @@ namespace StardewValley.Characters
 
     private JunimoHut home
     {
-      delegate(get) { return Game1.getFarm().buildings[this.netHome.Value] as JunimoHut; };
-      delegate(set) { return this.netHome.Value = Game1.getFarm().buildings.GuidOf((Building) value); };
+      get { return Game1.getFarm().buildings[this.netHome.Value] as JunimoHut; }
+      set { this.netHome.Value = Game1.getFarm().buildings.GuidOf((Building) value); }
     }
 
     public JunimoHarvester()
@@ -215,7 +215,7 @@ namespace StardewValley.Characters
       }
     }
 
-    public void reachFirstDestinationFromHut(Character c, GameLocation l) { return this.tryToHarvestHere(); }
+    public void reachFirstDestinationFromHut(Character c, GameLocation l) { this.tryToHarvestHere(); }
 
     public void tryToHarvestHere()
     {
@@ -249,7 +249,7 @@ namespace StardewValley.Characters
       this.motion.Y = (float) ySpeed;
     }
 
-    public void setMoving(Vector2 motion) { return this.motion = motion; }
+    public void setMoving(Vector2 motion) { this.motion = motion; }
 
     public override void Halt()
     {
@@ -536,7 +536,7 @@ namespace StardewValley.Characters
       }
     }
 
-    public void pathfindToRandomSpotAroundHut() { return this.controller = new PathFindController((Character) this, this.currentLocation, Utility.Vector2ToPoint(new Vector2((float) ((int) (NetFieldBase<int, NetInt>) this.home.tileX + 1 + Game1.random.Next(-8, 9)), (float) ((int) (NetFieldBase<int, NetInt>) this.home.tileY + 1 + Game1.random.Next(-8, 9)))), -1, new PathFindController.endBehavior(this.reachFirstDestinationFromHut), 100); }
+    public void pathfindToRandomSpotAroundHut() { this.controller = new PathFindController((Character) this, this.currentLocation, Utility.Vector2ToPoint(new Vector2((float) ((int) (NetFieldBase<int, NetInt>) this.home.tileX + 1 + Game1.random.Next(-8, 9)), (float) ((int) (NetFieldBase<int, NetInt>) this.home.tileY + 1 + Game1.random.Next(-8, 9)))), -1, new PathFindController.endBehavior(this.reachFirstDestinationFromHut), 100); }
 
     public void tryToAddItemToHut(Item i)
     {
@@ -571,3 +571,6 @@ namespace StardewValley.Characters
     }
   }
 }
+
+
+

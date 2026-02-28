@@ -280,17 +280,17 @@ namespace StardewValley
 
     public bool hardwareCursor
     {
-      delegate(get) { return !LocalMultiplayer.IsLocalMultiplayer() && this._hardwareCursor; };
-      delegate(set) { return this._hardwareCursor = value; };
+      get { return !LocalMultiplayer.IsLocalMultiplayer() && this._hardwareCursor; }
+      set { this._hardwareCursor = value; }
     }
 
     [XmlIgnore]
-    public float delegate(zoomLevel) { return Game1.game1.takingMapScreenshot ? this.baseZoomLevel : this.baseZoomLevel * Game1.game1.zoomModifier; };
+    public float zoomLevel { get { return Game1.game1.takingMapScreenshot ? this.baseZoomLevel : this.baseZoomLevel * Game1.game1.zoomModifier; }
 
     [XmlIgnore]
     public float desiredBaseZoomLevel
     {
-      delegate(get) { return LocalMultiplayer.IsLocalMultiplayer() || !Game1.game1.IsMainInstance ? this.localCoopBaseZoomLevel : this.singlePlayerBaseZoomLevel; };
+      get { return LocalMultiplayer.IsLocalMultiplayer() || !Game1.game1.IsMainInstance ? this.localCoopBaseZoomLevel : this.singlePlayerBaseZoomLevel; }
       set
       {
         if (LocalMultiplayer.IsLocalMultiplayer() || !Game1.game1.IsMainInstance)
@@ -321,9 +321,9 @@ namespace StardewValley
     }
 
     [XmlIgnore]
-    public float delegate(uiScale) { return this.baseUIScale * Game1.game1.zoomModifier; };
+    public float uiScale { get { return this.baseUIScale * Game1.game1.zoomModifier; }
 
-    public bool delegate(allowStowing) { return this.stowingMode != Options.ItemStowingModes.Off && (this.stowingMode != Options.ItemStowingModes.GamepadOnly || this.gamepadControls); };
+    public bool allowStowing { get { return this.stowingMode != Options.ItemStowingModes.Off && (this.stowingMode != Options.ItemStowingModes.GamepadOnly || this.gamepadControls); }
 
     public Options() { return this.setToDefaults(); }
 
@@ -386,7 +386,7 @@ namespace StardewValley
     {
     }
 
-    public bool delegate(SnappyMenus) { return this.snappyMenus && this.gamepadControls && Game1.input.GetMouseState().LeftButton != ButtonState.Pressed && Game1.input.GetMouseState().RightButton != ButtonState.Pressed; };
+    public bool SnappyMenus { get { return this.snappyMenus && this.gamepadControls && Game1.input.GetMouseState().LeftButton != ButtonState.Pressed && Game1.input.GetMouseState().RightButton != ButtonState.Pressed; }
 
     public Keys getFirstKeyboardKeyFromInputButtonList(InputButton[] inputButton)
     {
@@ -464,7 +464,7 @@ namespace StardewValley
       {
         new InputButton(Keys.X),
         new InputButton(false)
-      };
+      }
       this.cancelButton = new InputButton[1]
       {
         new InputButton(Keys.V)
@@ -1647,3 +1647,7 @@ namespace StardewValley
     }
   }
 }
+
+
+
+

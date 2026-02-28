@@ -288,8 +288,9 @@ namespace StardewValley.Minigames
     {
     }
 
-    public void unload() { return this.content.Unload(); }
+    public void unload() { this.content.Unload(); }
 
     public bool forceQuit() { return false; }
   }
 }
+

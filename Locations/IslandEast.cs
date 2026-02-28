@@ -413,7 +413,7 @@ namespace StardewValley.Locations
       temporarySpriteById.motion = new Vector2(0.0f, -3f);
       temporarySpriteById.animationLength = 2;
       temporarySpriteById.yStopCoordinate = 1280;
-      temporarySpriteById.reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (delegate(x) { return this.removeTemporarySpritesWithID(777)); };
+      temporarySpriteById.reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (x { return this.removeTemporarySpritesWithID(777)); };
       this.temporarySprites.Add(temporarySpriteById);
       if (Game1.currentLocation != this)
         return;
@@ -424,3 +424,4 @@ namespace StardewValley.Locations
     }
   }
 }
+

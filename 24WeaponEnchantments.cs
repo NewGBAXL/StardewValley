@@ -22,7 +22,8 @@ namespace StardewValley
     protected override void _ApplyTo(Item item)
     {
       base._ApplyTo(item);
-      if (!(item is Tool tool))
+      Tool tool = item as Tool;
+      if (tool == null)
         return;
       if (tool is Pickaxe)
         (tool as Pickaxe).additionalPower.Value += this.GetLevel();
@@ -34,7 +35,8 @@ namespace StardewValley
     protected override void _UnapplyTo(Item item)
     {
       base._UnapplyTo(item);
-      if (!(item is Tool tool))
+      Tool tool = item as Tool;
+      if (tool == null)
         return;
       if (tool is Pickaxe)
         (tool as Pickaxe).additionalPower.Value -= this.GetLevel();
@@ -44,3 +46,5 @@ namespace StardewValley
     }
   }
 }
+
+

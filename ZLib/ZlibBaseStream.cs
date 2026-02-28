@@ -33,7 +33,7 @@ namespace Ionic.Zlib
     protected internal int _gzipHeaderByteCount;
     private bool nomoreinput;
 
-    internal int delegate(Crc32) { return this.crc == null ? 0 : this.crc.Crc32Result; };
+    internal int Crc32 { get { return this.crc == null ? 0 : this.crc.Crc32Result; };
 
     public ZlibBaseStream(
       Stream stream,
@@ -53,7 +53,7 @@ namespace Ionic.Zlib
       this.crc = new CRC32();
     }
 
-    protected internal bool delegate(_wantCompress) { return this._compressionMode == CompressionMode.Compress; };
+    protected internal bool _wantCompress { get { return this._compressionMode == CompressionMode.Compress; };
 
     private ZlibCodec z
     {
@@ -219,11 +219,11 @@ namespace Ionic.Zlib
       }
     }
 
-    public override void Flush() { return this._stream.Flush(); }
+    public override void Flush() { this._stream.Flush(); }
 
-    public override long Seek(long offset, SeekOrigin origin) { return throw new NotImplementedException(); }
+    public override long Seek(long offset, SeekOrigin origin) { throw new NotImplementedException(); }
 
-    public override void SetLength(long value) { return this._stream.SetLength(value); }
+    public override void SetLength(long value) { this._stream.SetLength(value); }
 
     private string ReadZeroTerminatedString()
     {
@@ -353,18 +353,18 @@ namespace Ionic.Zlib
       return count1;
     }
 
-    public override bool delegate(CanRead) { return this._stream.CanRead; };
+    public override bool CanRead { get { return this._stream.CanRead; }
 
-    public override bool delegate(CanSeek) { return this._stream.CanSeek; };
+    public override bool CanSeek { get { return this._stream.CanSeek; }
 
-    public override bool delegate(CanWrite) { return this._stream.CanWrite; };
+    public override bool CanWrite { get { return this._stream.CanWrite; };
 
-    public override long delegate(Length) { return this._stream.Length; };
+    public override long Length { get { return this._stream.Length; };
 
     public override long Position
     {
-      delegate(get) { return throw new NotImplementedException(); };
-      delegate(set) { return throw new NotImplementedException(); };
+      get { throw new NotImplementedException(); }
+      set { throw new NotImplementedException(); }
     }
 
     public static void CompressString(string s, Stream compressor)
@@ -420,3 +420,7 @@ namespace Ionic.Zlib
     }
   }
 }
+
+
+
+

@@ -19,7 +19,7 @@ namespace StardewValley.Network
 
     public NetFields NetFields { get; } = new NetFields();
 
-    public NetDictionary<string, bool, NetBool, SerializableDictionary<string, bool>, NetStringDictionary<bool, NetBool>>.KeysCollection delegate(ActiveCues) { return this.activeCues.Keys; };
+    public NetDictionary<string, bool, NetBool, SerializableDictionary<string, bool>, NetStringDictionary<bool, NetBool>>.KeysCollection ActiveCues { get { return this.activeCues.Keys; };
 
     public NetAudio(GameLocation location)
     {
@@ -28,7 +28,7 @@ namespace StardewValley.Network
       this.audioEvent.AddReaderHandler(new Action<BinaryReader>(this.handleAudioEvent));
     }
 
-    private void handleAudioEvent(BinaryReader reader) { return this.PlayLocalAt(reader.ReadString(), reader.ReadVector2(), reader.ReadInt32(), (NetAudio.SoundContext) reader.ReadInt32()); }
+    private void handleAudioEvent(BinaryReader reader) { this.PlayLocalAt(reader.ReadString(), reader.ReadVector2(), reader.ReadInt32(), (NetAudio.SoundContext) reader.ReadInt32()); }
 
     public void PlayLocalAt(
       string audioName,
@@ -56,7 +56,7 @@ namespace StardewValley.Network
         Game1.playSoundPitched(audioName, pitch);
     }
 
-    public void Update() { return this.audioEvent.Poll(); }
+    public void Update() { this.audioEvent.Poll(); }
 
     public bool CanHear(Vector2 position) { return position == Vector2.Zero || Utility.isOnScreen(position * 64f, 384); }
 
@@ -80,7 +80,7 @@ namespace StardewValley.Network
       if (someone_can_hear && position != Vector2.Zero)
       {
         someone_can_hear = false;
-        GameRunner.instance.ExecuteForInstances((Action<Game1>) (delegate(instance) { return {; }
+        GameRunner.instance.ExecuteForInstances((Action<Game1>) (instance { return {; }
           if (someone_can_hear || this.location != Game1.currentLocation || !this.CanHear(position))
             return;
           someone_can_hear = true;
@@ -97,7 +97,7 @@ namespace StardewValley.Network
       }
       else
       {
-        this.audioEvent.Fire((NetEventBinary.ArgWriter) (delegate(writer) { return {; }
+        this.audioEvent.Fire((NetEventBinary.ArgWriter) (writer { return {; }
           writer.Write(audioName);
           writer.WriteVector2(Vector2.Zero);
           writer.Write(-1);
@@ -115,7 +115,7 @@ namespace StardewValley.Network
       }
       else
       {
-        this.audioEvent.Fire((NetEventBinary.ArgWriter) (delegate(writer) { return {; }
+        this.audioEvent.Fire((NetEventBinary.ArgWriter) (writer { return {; }
           writer.Write(audioName);
           writer.WriteVector2(position);
           writer.Write(-1);
@@ -137,7 +137,7 @@ namespace StardewValley.Network
       }
       else
       {
-        this.audioEvent.Fire((NetEventBinary.ArgWriter) (delegate(writer) { return {; }
+        this.audioEvent.Fire((NetEventBinary.ArgWriter) (writer { return {; }
           writer.Write(audioName);
           writer.WriteVector2(position);
           writer.Write(pitch);
@@ -147,9 +147,9 @@ namespace StardewValley.Network
       }
     }
 
-    public void StartPlaying(string cueName) { return this.activeCues[cueName] = false; }
+    public void StartPlaying(string cueName) { this.activeCues[cueName] = false; }
 
-    public void StopPlaying(string cueName) { return this.activeCues.Remove(cueName); }
+    public void StopPlaying(string cueName) { this.activeCues.Remove(cueName); }
 
     public enum SoundContext
     {
@@ -158,3 +158,5 @@ namespace StardewValley.Network
     }
   }
 }
+
+

@@ -167,13 +167,13 @@ namespace StardewValley.Objects
           this.loadDisplayFields();
         return this.displayName;
       }
-      delegate(set) { return this.displayName = value; };
+      set { this.displayName = value; }
     }
 
     [XmlIgnore]
     public override int Stack
     {
-      delegate(get) { return 1; };
+      get { return 1; }
       set
       {
       }
@@ -206,3 +206,6 @@ namespace StardewValley.Objects
     }
   }
 }
+
+
+

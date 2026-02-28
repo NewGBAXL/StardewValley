@@ -74,15 +74,15 @@ namespace StardewValley.Objects
     [XmlIgnore]
     public Chest.SpecialChestTypes SpecialChestType
     {
-      delegate(get) { return this.specialChestType.Value; };
-      delegate(set) { return this.specialChestType.Value = value; };
+      get { return this.specialChestType.Value; }
+      set { this.specialChestType.Value = value; }
     }
 
     [XmlIgnore]
     public Color Tint
     {
-      delegate(get) { return (Color) (NetFieldBase<Color; }, NetColor>) this.tint;
-      delegate(set) { return this.tint.Value = value; };
+      get { return (Color) (NetFieldBase<Color; }, NetColor>) this.tint;
+      set { this.tint.Value = value; }
     }
 
     protected override void initNetFields()
@@ -217,7 +217,7 @@ namespace StardewValley.Objects
       this.boundingBox.Value = new Microsoft.Xna.Framework.Rectangle((int) this.tileLocation.X * 64, (int) this.tileLocation.Y * 64, 64, 64);
     }
 
-    public void resetLidFrame() { return this.currentLidFrame = (int) (NetFieldBase<int, NetInt>) this.startingLidFrame; }
+    public void resetLidFrame() { this.currentLidFrame = (int) (NetFieldBase<int, NetInt>) this.startingLidFrame; }
 
     public void fixLidFrame()
     {
@@ -503,7 +503,7 @@ namespace StardewValley.Objects
       {
         destroyable = false,
         holdLastFrame = true
-      };
+      }
       if (location.netObjects.ContainsKey((Vector2) (NetFieldBase<Vector2, NetVector2>) this.tileLocation) && location.netObjects[(Vector2) (NetFieldBase<Vector2, NetVector2>) this.tileLocation] == this)
       {
         Game1.multiplayer.broadcastSprites(location, temporaryAnimatedSprite);
@@ -591,7 +591,7 @@ namespace StardewValley.Objects
       this.ShowMenu();
     }
 
-    public virtual void performOpenChest() { return this.frameCounter.Value = 5; }
+    public virtual void performOpenChest() { this.frameCounter.Value = 5; }
 
     public virtual void grabItemFromChest(Item item, Farmer who)
     {
@@ -1036,3 +1036,6 @@ namespace StardewValley.Objects
     }
   }
 }
+
+
+

@@ -211,7 +211,7 @@ namespace StardewValley.Locations
           {
             Game1.addMailForTomorrow("Island_VolcanoBridge", true, true);
             this.bridgeUnlocked.Value = true;
-          }), (Func<bool>) (() => this.bridgeUnlocked.Value), "VolcanoBridge", "reachedCaldera, Island_Turtle"));
+          }), (Func<bool>) (delegate() { return this.bridgeUnlocked.Value; }), "VolcanoBridge", "reachedCaldera, Island_Turtle"));
         }
         else if (this.level.Value == 5)
         {
@@ -223,7 +223,7 @@ namespace StardewValley.Locations
           {
             Game1.addMailForTomorrow("Island_VolcanoShortcutOut", true, true);
             this.shortcutOutUnlocked.Value = true;
-          }), (Func<bool>) (() => this.shortcutOutUnlocked.Value), "VolcanoShortcutOut", "Island_Turtle"));
+          }), (Func<bool>) (delegate() { return this.shortcutOutUnlocked.Value; }), "VolcanoShortcutOut", "Island_Turtle"));
         }
         else if (this.level.Value == 9)
         {
@@ -567,9 +567,9 @@ namespace StardewValley.Locations
       }));
       this.possibleSwitchPositions = new Dictionary<int, List<Point>>();
       this.possibleGatePositions = new Dictionary<int, List<Point>>();
-      this.ApplyToColor(new Microsoft.Xna.Framework.Color(128, 128, 128), (Action<int, int>) ((x, y) => this.AddPossibleSwitchLocation(0, x, y)));
+      this.ApplyToColor(new Microsoft.Xna.Framework.Color(128, 128, 128), (Action<int, int>) (delegate(x, y) { this.AddPossibleSwitchLocation(0, x, y; })));
       this.ApplySetPieces();
-      this.GenerateWalls(Microsoft.Xna.Framework.Color.Black, 0, 4, random_wall_variants: 4, start_in_wall: true, on_insufficient_wall_height: ((Action<int, int>) ((x, y) => this.SetPixelMap(x, y, Microsoft.Xna.Framework.Color.Chartreuse))), use_corner_hack: true);
+      this.GenerateWalls(Microsoft.Xna.Framework.Color.Black, 0, 4, random_wall_variants: 4, start_in_wall: true, on_insufficient_wall_height: ((Action<int, int>) (delegate(x, y) { this.SetPixelMap(x, y, Microsoft.Xna.Framework.Color.Chartreuse; }))), use_corner_hack: true);
       this.GenerateWalls(Microsoft.Xna.Framework.Color.Chartreuse, 0, 13, 1);
       this.ApplyToColor(Microsoft.Xna.Framework.Color.Blue, (Action<int, int>) ((x, y) =>
       {
@@ -1042,9 +1042,9 @@ namespace StardewValley.Locations
     public virtual void GenerateEntities()
     {
       List<Point> spawn_points = new List<Point>();
-      this.ApplyToColor(new Microsoft.Xna.Framework.Color(0, (int) byte.MaxValue, (int) byte.MaxValue), (Action<int, int>) ((x, y) => spawn_points.Add(new Point(x, y))));
+      this.ApplyToColor(new Microsoft.Xna.Framework.Color(0, (int) byte.MaxValue, (int) byte.MaxValue), (Action<int, int>) (delegate(x, y) { spawn_points.Add(new Point(x, y; }))));
       List<Point> spiker_spawn_points = new List<Point>();
-      this.ApplyToColor(new Microsoft.Xna.Framework.Color(0, 128, (int) byte.MaxValue), (Action<int, int>) ((x, y) => spiker_spawn_points.Add(new Point(x, y))));
+      this.ApplyToColor(new Microsoft.Xna.Framework.Color(0, 128, (int) byte.MaxValue), (Action<int, int>) (delegate(x, y) { spiker_spawn_points.Add(new Point(x, y; }))));
       double stoneChance = (double) this.generationRandom.Next(11, 18) / 150.0;
       double monsterChance = 0.0008 + (double) this.generationRandom.Next(70) / 10000.0;
       double itemChance = 0.001;
@@ -1921,7 +1921,7 @@ namespace StardewValley.Locations
             scale = 8f,
             id = 89898f,
             yStopCoordinate = 2208,
-            reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (delegate(x) { return {; }
+            reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (x { return {; }
               this.removeTemporarySpritesWithID(89898);
               Game1.playSound("steam");
               for (int index = 0; index < 4; ++index)
@@ -2230,7 +2230,7 @@ namespace StardewValley.Locations
 
     public static void ClearAllLevels()
     {
-      VolcanoDungeon.activeLevels.RemoveAll((Predicate<VolcanoDungeon>) (delegate(level)
+      VolcanoDungeon.activeLevels.RemoveAll((Predicate<VolcanoDungeon>) (level
       {
         level.CleanUp();
         level.mapContent.Dispose();
@@ -2328,3 +2328,5 @@ namespace StardewValley.Locations
     }
   }
 }
+
+

@@ -33,7 +33,7 @@ namespace StardewValley.BellsAndWhistles
       this.sprite = new AnimatedSprite(Critter.critterTexture, 320, 16, 16);
     }
 
-    public override void drawAboveFrontLayer(SpriteBatch b) { return this.sprite.draw(b, Game1.GlobalToLocal(Game1.viewport, this.position + new Vector2(-80f, this.yJumpOffset - 64f + this.yOffset)), 1f, 0, 0, Color.White, this.flip, 4f); }
+    public override void drawAboveFrontLayer(SpriteBatch b) { this.sprite.draw(b, Game1.GlobalToLocal(Game1.viewport, this.position + new Vector2(-80f, this.yJumpOffset - 64f + this.yOffset)), 1f, 0, 0, Color.White, this.flip, 4f); }
 
     public override void draw(SpriteBatch b)
     {
@@ -52,7 +52,7 @@ namespace StardewValley.BellsAndWhistles
       spriteBatch.Draw(shadowTexture, local, sourceRectangle, white, 0.0f, origin, (float) scale, SpriteEffects.None, (float) layerDepth);
     }
 
-    private void donePecking(Farmer who) { return this.peckTimer = Game1.random.Next(1000, 3000); }
+    private void donePecking(Farmer who) { this.peckTimer = Game1.random.Next(1000, 3000); }
 
     private void playFlap(Farmer who)
     {
@@ -127,3 +127,4 @@ namespace StardewValley.BellsAndWhistles
     }
   }
 }
+

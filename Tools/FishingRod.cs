@@ -291,7 +291,7 @@ namespace StardewValley.Tools
             return this.BaseName;
         }
       }
-      delegate(set) { return this.BaseName = value; };
+      set { this.BaseName = value; }
     }
 
     private int getAddedDistance(Farmer who)
@@ -311,7 +311,7 @@ namespace StardewValley.Tools
       {
         X = this.bobber.X / 64f,
         Y = this.bobber.Y / 64f
-      };
+      }
     }
 
     public override void DoFunction(GameLocation location, int x, int y, int power, Farmer who)
@@ -731,7 +731,7 @@ namespace StardewValley.Tools
       bool caughtDouble = false,
       string itemCategory = "Object")
     {
-      this.pullFishFromWaterEvent.Fire((NetEventBinary.ArgWriter) (delegate(writer) { return {; }
+      this.pullFishFromWaterEvent.Fire((NetEventBinary.ArgWriter) (writer { return {; }
         writer.Write(whichFish);
         writer.Write(fishSize);
         writer.Write(fishQuality);
@@ -1254,7 +1254,7 @@ namespace StardewValley.Tools
       }
     }
 
-    public void doneFishing(Farmer who, bool consumeBaitAndTackle = false) { return this.doneFishingEvent.Fire(consumeBaitAndTackle); }
+    public void doneFishing(Farmer who, bool consumeBaitAndTackle = false) { this.doneFishingEvent.Fire(consumeBaitAndTackle); }
 
     private void doDoneFishing(bool consumeBaitAndTackle)
     {
@@ -1353,9 +1353,9 @@ namespace StardewValley.Tools
       this.castingEndEnableMovement();
     }
 
-    private void castingEndEnableMovement() { return this.castingEndEnableMovementEvent.Fire(); }
+    private void castingEndEnableMovement() { this.castingEndEnableMovementEvent.Fire(); }
 
-    private void doCastingEndEnableMovement() { return Farmer.canMoveNow(this.lastUser); }
+    private void doCastingEndEnableMovement() { Farmer.canMoveNow(this.lastUser); }
 
     public override void tickUpdate(GameTime time, Farmer who)
     {
@@ -1386,7 +1386,7 @@ namespace StardewValley.Tools
         switch (Game1.activeClickableMenu)
         {
           case null:
-          case BobberBar _:
+          case BobberBar:
             break;
           default:
             return;
@@ -1878,9 +1878,9 @@ label_114:
       }
     }
 
-    private void startCasting() { return this.startCastingEvent.Fire(); }
+    private void startCasting() { this.startCastingEvent.Fire(); }
 
-    public void beginReeling() { return this.isReeling = true; }
+    public void beginReeling() { this.isReeling = true; }
 
     private void doStartCasting()
     {
@@ -2122,3 +2122,7 @@ label_114:
     }
   }
 }
+
+
+
+

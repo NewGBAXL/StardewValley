@@ -47,9 +47,9 @@ namespace Force.DeepCloner.Helpers
 
     private class CustomEqualityComparer : IEqualityComparer<object>, IEqualityComparer
     {
-      bool IEqualityComparer<object>.Equals(object x, object y) => x == y;
+      bool IEqualityComparer<object>.Equals(object x, object y) { return x == y; }
 
-      bool IEqualityComparer.Equals(object x, object y) => x == y;
+      bool IEqualityComparer.Equals(object x, object y) { return x == y; }
 
       public int GetHashCode(object obj) { return RuntimeHelpers.GetHashCode(obj); }
     }
@@ -227,7 +227,7 @@ namespace Force.DeepCloner.Helpers
         this._buckets[index] = count;
       }
 
-      private void Resize() { return this.Resize(DeepCloneState.MiniDictionary.ExpandPrime(this._count)); }
+      private void Resize() { this.Resize(DeepCloneState.MiniDictionary.ExpandPrime(this._count)); }
 
       private void Resize(int newSize)
       {
@@ -259,3 +259,5 @@ namespace Force.DeepCloner.Helpers
     }
   }
 }
+
+

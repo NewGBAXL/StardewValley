@@ -88,7 +88,7 @@ namespace StardewValley.Locations
         AmbientLocationSounds.removeSound(new Vector2(100f, 79f));
     }
 
-    public void checkedBoard() { return this.playerCheckedBoard = true; }
+    public void checkedBoard() { this.playerCheckedBoard = true; }
 
     private void addClintMachineGraphics()
     {
@@ -190,7 +190,7 @@ namespace StardewValley.Locations
                   scale = 4f,
                   Parent = (GameLocation) this,
                   shakeIntensity = flag2 ? 0.0f : 1f,
-                  reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (delegate(x) { return {; }
+                  reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (x { return {; }
                     this.removeTemporarySpritesWithID(97654);
                     this.playSound("thudStep");
                     for (int index4 = 0; index4 < 3; ++index4)
@@ -1037,3 +1037,5 @@ namespace StardewValley.Locations
     public override bool performAction(string action, Farmer who, Location tileLocation) { return base.performAction(action, who, tileLocation); }
   }
 }
+
+

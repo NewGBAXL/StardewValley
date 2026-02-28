@@ -1002,8 +1002,8 @@ namespace StardewValley.Menus
           this.forSale.Clear();
           foreach (ISalable key in this.itemPriceAndStock.Keys)
           {
-            if (key is Item obj)
-            {
+            Item obj = key as Item;
+      if (obj != ) {
               if (this.currentTab == 1)
               {
                 if (obj.Category == -95)
@@ -1041,8 +1041,8 @@ namespace StardewValley.Menus
           this.forSale.Clear();
           foreach (ISalable key in this.itemPriceAndStock.Keys)
           {
-            if (key is Item obj)
-            {
+            Item obj = key as Item;
+      if (obj != ) {
               if (this.currentTab == 1)
               {
                 if (obj is Wallpaper && (obj as Wallpaper).isFloor.Value)
@@ -1065,8 +1065,8 @@ namespace StardewValley.Menus
           this.forSale.Clear();
           foreach (ISalable key in this.itemPriceAndStock.Keys)
           {
-            if (key is Item obj)
-            {
+            Item obj = key as Item;
+      if (obj != ) {
               if (this.currentTab == 1)
               {
                 if (obj is Furniture && ((obj as Furniture).furniture_type.Value == 5 || (obj as Furniture).furniture_type.Value == 4 || (obj as Furniture).furniture_type.Value == 11))
@@ -1689,3 +1689,4 @@ namespace StardewValley.Menus
     }
   }
 }
+

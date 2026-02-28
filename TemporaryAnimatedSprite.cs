@@ -101,16 +101,16 @@ namespace StardewValley
 
     public Vector2 Position
     {
-      delegate(get) { return this.position; };
-      delegate(set) { return this.position = value; };
+      get { return this.position; }
+      set { this.position = value; }
     }
 
-    public Texture2D delegate(Texture) { return this.texture; };
+    public Texture2D Texture { get { return this.texture; }
 
     public GameLocation Parent
     {
-      delegate(get) { return this.parent; };
-      delegate(set) { return this.parent = value; };
+      get { return this.parent; }
+      set { this.parent = value; }
     }
 
     public TemporaryAnimatedSprite getClone()
@@ -171,7 +171,7 @@ namespace StardewValley
         sourceRect = this.sourceRect,
         sourceRectStartingPos = this.sourceRectStartingPos,
         startSound = this.startSound
-      };
+      }
       clone.timeBasedMotion = this.timeBasedMotion;
       clone.verticalFlipped = this.verticalFlipped;
       clone.xPeriodic = this.xPeriodic;
@@ -1628,3 +1628,7 @@ namespace StardewValley
     public delegate void endBehavior(int extraInfo);
   }
 }
+
+
+
+

@@ -718,8 +718,8 @@ namespace StardewValley
         deserializeTask = (Task) null;
       }
       Game1.player = SaveGame.loaded.player;
-      if (Game1.MasterPlayer.hasOrWillReceiveMail("leoMoved") && Game1.getLocationFromName("Mountain") is Mountain locationFromName)
-      {
+      Mountain locationFromName = Game1.MasterPlayer.hasOrWillReceiveMail("leoMoved") && Game1.getLocationFromName("Mountain") as Mountain;
+      if (locationFromName != ) {
         locationFromName.reloadMap();
         locationFromName.ApplyTreehouseIfNecessary();
         if (locationFromName.treehouseDoorDirty)
@@ -1142,7 +1142,7 @@ namespace StardewValley
           }
         }
       }
-      target.questLog.Filter((Func<Quest, bool>) (delegate(x) { return x != null)); };
+      target.questLog.Filter((Func<Quest, bool>) (x { return x != null)); };
       target.songsHeard = target.songsHeard.Distinct<string>().ToList<string>();
       target.ConvertClothingOverrideToClothesItems();
       target.UpdateClothing();
@@ -1388,3 +1388,5 @@ namespace StardewValley
     }
   }
 }
+
+

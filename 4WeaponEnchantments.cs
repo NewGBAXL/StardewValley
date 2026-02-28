@@ -13,7 +13,8 @@ namespace StardewValley
     protected override void _ApplyTo(Item item)
     {
       base._ApplyTo(item);
-      if (!(item is MeleeWeapon meleeWeapon))
+      MeleeWeapon meleeWeapon = item as MeleeWeapon;
+      if (meleeWeapon == null)
         return;
       meleeWeapon.addedDefense.Value += this.GetLevel();
     }
@@ -21,7 +22,8 @@ namespace StardewValley
     protected override void _UnapplyTo(Item item)
     {
       base._UnapplyTo(item);
-      if (!(item is MeleeWeapon meleeWeapon))
+      MeleeWeapon meleeWeapon = item as MeleeWeapon;
+      if (meleeWeapon == null)
         return;
       meleeWeapon.addedDefense.Value -= this.GetLevel();
     }

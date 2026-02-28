@@ -991,7 +991,7 @@ label_186:
       position.Y = (float) y;
     }
 
-    public static void makeSafe(ref Microsoft.Xna.Framework.Rectangle bounds) { return Utility.makeSafe(ref bounds.X, ref bounds.Y, bounds.Width, bounds.Height); }
+    public static void makeSafe(ref Microsoft.Xna.Framework.Rectangle bounds) { Utility.makeSafe(ref bounds.X, ref bounds.Y, bounds.Width, bounds.Height); }
 
     public static void makeSafe(ref int x, ref int y, int width, int height)
     {
@@ -1785,7 +1785,7 @@ label_186:
         return number == 1 ? Game1.player : (Farmer) null;
       if (number <= 1 && (NetFieldBase<Farmer, NetRef<Farmer>>) Game1.serverHost != (NetRef<Farmer>) null)
         return (Farmer) (NetFieldBase<Farmer, NetRef<Farmer>>) Game1.serverHost;
-      return number <= Game1.numberOfPlayers() ? Game1.otherFarmers.Values.Where<Farmer>((Func<Farmer, bool>) (delegate(f) { return f != Game1.serverHost.Value)).OrderBy<Farmer; }, long>((Func<Farmer, long>) (delegate(f) { return f.UniqueMultiplayerID)).ElementAt<Farmer>(number - 2) : (Farmer) null; };
+      return number <= Game1.numberOfPlayers() ? Game1.otherFarmers.Values.Where<Farmer>((Func<Farmer, bool>) (f { return f != Game1.serverHost.Value)).OrderBy<Farmer; }, long>((Func<Farmer, long>) (f { return f.UniqueMultiplayerID)).ElementAt<Farmer>(number - 2) : (Farmer) null; };
     }
 
     public static string getLoveInterest(string who)
@@ -2926,7 +2926,7 @@ label_186:
     public static bool doesItemWithThisIndexExistAnywhere(int index, bool bigCraftable = false)
     {
       bool item_found = false;
-      Utility.iterateAllItems((Action<Item>) (delegate(item) { return {; }
+      Utility.iterateAllItems((Action<Item>) (item { return {; }
         if (!(item is Object) || (bool) (NetFieldBase<bool, NetBool>) (item as Object).bigCraftable != bigCraftable || (int) (NetFieldBase<int, NetInt>) item.parentSheetIndex != index)
           return;
         item_found = true;
@@ -2966,7 +2966,7 @@ label_186:
       return false;
     }
 
-    internal static void CollectGarbage(string filePath = "", int lineNumber = 0) { return GC.Collect(0, GCCollectionMode.Forced); }
+    internal static void CollectGarbage(string filePath = "", int lineNumber = 0) { GC.Collect(0, GCCollectionMode.Forced); }
 
     public static string InvokeSimpleReturnTypeMethod(
       object toBeCalled,
@@ -3688,7 +3688,7 @@ label_186:
     public static float percentGameComplete()
     {
       float num1 = 0.0f;
-      KeyValuePair<Farmer, float> farmCompletion1 = Utility.GetFarmCompletion((Func<Farmer, float>) (delegate(farmer) { return Utility.getFarmerItemsShippedPercent(farmer))); };
+      KeyValuePair<Farmer, float> farmCompletion1 = Utility.GetFarmCompletion((Func<Farmer, float>) (farmer { return Utility.getFarmerItemsShippedPercent(farmer))); };
       double num2 = 0.0 + (double) farmCompletion1.Value * 15.0;
       float num3 = num1 + 15f;
       double num4 = (double) Math.Min((float) Utility.numObelisksOnFarm(), 4f);
@@ -3697,31 +3697,31 @@ label_186:
       double num7 = Game1.getFarm().isBuildingConstructed("Gold Clock") ? 10.0 : 0.0;
       double num8 = num5 + num7;
       float num9 = num6 + 10f;
-      KeyValuePair<Farmer, bool> farmCompletion2 = Utility.GetFarmCompletion((Func<Farmer, bool>) (delegate(farmer) { return farmer.hasCompletedAllMonsterSlayerQuests.Value)); };
+      KeyValuePair<Farmer, bool> farmCompletion2 = Utility.GetFarmCompletion((Func<Farmer, bool>) (farmer { return farmer.hasCompletedAllMonsterSlayerQuests.Value)); };
       double num10 = farmCompletion2.Value ? 10.0 : 0.0;
       double num11 = num8 + num10;
       float num12 = num9 + 10f;
-      farmCompletion1 = Utility.GetFarmCompletion((Func<Farmer, float>) (delegate(farmer) { return Utility.getMaxedFriendshipPercent(farmer))); };
+      farmCompletion1 = Utility.GetFarmCompletion((Func<Farmer, float>) (farmer { return Utility.getMaxedFriendshipPercent(farmer))); };
       double num13 = (double) farmCompletion1.Value * 11.0;
       double num14 = num11 + num13;
       float num15 = num12 + 11f;
-      farmCompletion1 = Utility.GetFarmCompletion((Func<Farmer, float>) (delegate(farmer) { return Math.Min((float) farmer.Level; }, 25f) / 25f));
+      farmCompletion1 = Utility.GetFarmCompletion((Func<Farmer, float>) (farmer { return Math.Min((float) farmer.Level; }, 25f) / 25f));
       double num16 = (double) farmCompletion1.Value * 5.0;
       double num17 = num14 + num16;
       float num18 = num15 + 5f;
-      farmCompletion2 = Utility.GetFarmCompletion((Func<Farmer, bool>) (delegate(farmer) { return Utility.foundAllStardrops(farmer))); };
+      farmCompletion2 = Utility.GetFarmCompletion((Func<Farmer, bool>) (farmer { return Utility.foundAllStardrops(farmer))); };
       double num19 = farmCompletion2.Value ? 10.0 : 0.0;
       double num20 = num17 + num19;
       float num21 = num18 + 10f;
-      farmCompletion1 = Utility.GetFarmCompletion((Func<Farmer, float>) (delegate(farmer) { return Utility.getCookedRecipesPercent(farmer))); };
+      farmCompletion1 = Utility.GetFarmCompletion((Func<Farmer, float>) (farmer { return Utility.getCookedRecipesPercent(farmer))); };
       double num22 = (double) farmCompletion1.Value * 10.0;
       double num23 = num20 + num22;
       float num24 = num21 + 10f;
-      farmCompletion1 = Utility.GetFarmCompletion((Func<Farmer, float>) (delegate(farmer) { return Utility.getCraftedRecipesPercent(farmer))); };
+      farmCompletion1 = Utility.GetFarmCompletion((Func<Farmer, float>) (farmer { return Utility.getCraftedRecipesPercent(farmer))); };
       double num25 = (double) farmCompletion1.Value * 10.0;
       double num26 = num23 + num25;
       float num27 = num24 + 10f;
-      farmCompletion1 = Utility.GetFarmCompletion((Func<Farmer, float>) (delegate(farmer) { return Utility.getFishCaughtPercent(farmer))); };
+      farmCompletion1 = Utility.GetFarmCompletion((Func<Farmer, float>) (farmer { return Utility.getFishCaughtPercent(farmer))); };
       double num28 = (double) farmCompletion1.Value * 10.0;
       double num29 = num26 + num28;
       float num30 = num27 + 10f;
@@ -4075,9 +4075,9 @@ label_186:
         {
           case Object _ when !(bool) (NetFieldBase<bool, NetBool>) (i as Object).bigCraftable:
             return (int) ((double) i.Stack * ((double) (i as Object).sellToStorePrice() * (double) num));
-          case MeleeWeapon _:
-          case Ring _:
-          case Boots _:
+          case MeleeWeapon:
+          case Ring:
+          case Boots:
             return (int) ((double) i.Stack * ((double) (i.salePrice() / 2) * (double) num));
         }
       }
@@ -4549,14 +4549,14 @@ label_186:
       int currentParentTileIndex = item.parentSheetIndex.Value;
       switch (item)
       {
-        case Furniture _:
+        case Furniture:
           str = "F";
           break;
-        case Object _:
+        case Object:
           Object @object = item as Object;
           str = !@object.bigCraftable.Value ? (!@object.IsRecipe ? "O" : "BL") : (!@object.IsRecipe ? "BO" : "BBL");
           break;
-        case Ring _:
+        case Ring:
           str = "R";
           break;
         case Boots boots:
@@ -4571,7 +4571,7 @@ label_186:
           str = "H";
           currentParentTileIndex = hat.which.Value;
           break;
-        case Clothing _:
+        case Clothing:
           str = "C";
           break;
       }
@@ -5429,7 +5429,7 @@ label_38:
       });
       if (!who.HasTownKey)
       {
-        PurchaseableKeyItem key8 = new PurchaseableKeyItem(Game1.content.LoadString("Strings\\StringsFromCSFiles:KeyToTheTown"), Game1.content.LoadString("Strings\\StringsFromCSFiles:Key To The Town_desc"), 912, (Action<Farmer>) (delegate(farmer) { return farmer.HasTownKey = true)); };
+        PurchaseableKeyItem key8 = new PurchaseableKeyItem(Game1.content.LoadString("Strings\\StringsFromCSFiles:KeyToTheTown"), Game1.content.LoadString("Strings\\StringsFromCSFiles:Key To The Town_desc"), 912, (Action<Farmer>) (farmer { return farmer.HasTownKey = true)); };
         challengeRewardStock.Add((ISalable) key8, new int[4]
         {
           0,
@@ -7449,7 +7449,7 @@ label_38:
       return heldItem;
     }
 
-    public static void iterateAllItemsHere(GameLocation location, Action<Item> action) { return Utility._recursiveIterateLocation(location, action); }
+    public static void iterateAllItemsHere(GameLocation location, Action<Item> action) { Utility._recursiveIterateLocation(location, action); }
 
     public static void iterateAllItems(Action<Item> action)
     {
@@ -8000,7 +8000,7 @@ label_38:
         if (l.isTileOccupiedForPlacement(vector2_1) || l.isOpenWater((int) vector2_1.X, (int) vector2_1.Y))
         {
           vector2Set.Add(vector2_1);
-          foreach (Vector2 vector2_2 in Utility.getAdjacentTileLocations(vector2_1).OrderBy<Vector2, Guid>((Func<Vector2, Guid>) (delegate(a) { return Guid.NewGuid())).ToList<Vector2>()); }
+          foreach (Vector2 vector2_2 in Utility.getAdjacentTileLocations(vector2_1).OrderBy<Vector2, Guid>((Func<Vector2, Guid>) (a { return Guid.NewGuid())).ToList<Vector2>()); }
           {
             if (!vector2Set.Contains(vector2_2))
               vector2Queue.Enqueue(vector2_2);
@@ -8292,10 +8292,10 @@ label_38:
         {
           switch (item)
           {
-            case Furniture _:
+            case Furniture:
               Game1.player.ActiveObject = (Object) (item as Furniture);
               break;
-            case Wallpaper _:
+            case Wallpaper:
               return false;
           }
         }
@@ -9357,3 +9357,6 @@ label_38:
     public static bool ShouldIgnoreValueChangeCallback() { return Game1.gameMode != (byte) 3 || Game1.client != null && !Game1.client.readyToPlay || Game1.client != null && Game1.locationRequest != null; }
   }
 }
+
+
+

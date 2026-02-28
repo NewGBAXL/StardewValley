@@ -80,9 +80,9 @@ namespace StardewValley.Menus
       }
     }
 
-    public override void receiveRightClick(int x, int y, bool playSound = true) { return this.updatePosition(); }
+    public override void receiveRightClick(int x, int y, bool playSound = true) { this.updatePosition(); }
 
-    public void questIconPulse() { return this.questPulseTimer = 2000; }
+    public void questIconPulse() { this.questPulseTimer = 2000; }
 
     public override void performHoverAction(int x, int y)
     {
@@ -141,9 +141,9 @@ namespace StardewValley.Menus
       this.questsDirty = false;
     }
 
-    public virtual void PingQuestLog() { return this.questPingTimer = 6000; }
+    public virtual void PingQuestLog() { this.questPingTimer = 6000; }
 
-    public virtual void DismissQuestPing() { return this.questPingTimer = 0; }
+    public virtual void DismissQuestPing() { this.questPingTimer = 0; }
 
     public override void draw(SpriteBatch b)
     {
@@ -386,3 +386,4 @@ namespace StardewValley.Menus
     }
   }
 }
+

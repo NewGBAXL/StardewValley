@@ -20,7 +20,7 @@ namespace StardewValley.Network
     private HashSet<NetConnection> introductionsSent = new HashSet<NetConnection>();
     protected Bimap<long, NetConnection> peers = new Bimap<long, NetConnection>();
 
-    public override int delegate(connectionsCount) { return this.server == null ? 0 : this.server.ConnectionsCount; };
+    public override int connectionsCount { get { return this.server == null ? 0 : this.server.ConnectionsCount; };
 
     public LidgrenServer(IGameServer gameServer)
       : base(gameServer)
@@ -93,7 +93,7 @@ namespace StardewValley.Network
       {
         IPAddress[] hostAddresses = Dns.GetHostAddresses(host_name_or_address);
         IPAddress[] local_ips = Dns.GetHostAddresses(Dns.GetHostName());
-        Func<IPAddress, bool> predicate = (Func<IPAddress, bool>) (delegate(host_ip) { return IPAddress.IsLoopback(host_ip) || ((IEnumerable<IPAddress>) local_ips).Contains<IPAddress>(host_ip)); };
+        Func<IPAddress, bool> predicate = (Func<IPAddress, bool>) (host_ip { return IPAddress.IsLoopback(host_ip) || ((IEnumerable<IPAddress>) local_ips).Contains<IPAddress>(host_ip)); };
         return ((IEnumerable<IPAddress>) hostAddresses).Any<IPAddress>(predicate);
       }
       catch
@@ -151,7 +151,7 @@ namespace StardewValley.Network
         if (conn.Status == NetConnectionStatus.Connected && !this.introductionsSent.Contains(conn))
         {
           if (!this.gameServer.whenGameAvailable((Action) (delegate() {
-            this.gameServer.sendAvailableFarmhands("", (Action<OutgoingMessage>) (delegate(msg) {
+            this.gameServer.sendAvailableFarmhands("", (Action<OutgoingMessage>) (msg {
               this.sendMessage(conn, msg);
             }));
           }), (Func<bool>) (delegate() {
@@ -234,7 +234,7 @@ namespace StardewValley.Network
               else if (message.MessageType == (byte) 2)
               {
                 NetFarmerRoot farmer = Game1.multiplayer.readFarmer(message.Reader);
-                this.gameServer.checkFarmhandRequest("", this.getConnectionId(dataMsg.SenderConnection), farmer, closure_0 ?? (closure_0 = (Action<OutgoingMessage>) (delegate(msg) { return this.sendMessage(peer; }, msg))), (Action) (() => this.peers[farmer.Value.UniqueMultiplayerID] = peer));
+                this.gameServer.checkFarmhandRequest("", this.getConnectionId(dataMsg.SenderConnection), farmer, closure_0 ?? (closure_0 = (Action<OutgoingMessage>) (msg { return this.sendMessage(peer; }, msg))), (Action) (delegate() { this.peers[farmer.Value.UniqueMultiplayerID] = peer; }));
               }
             }
           }
@@ -270,3 +270,6 @@ namespace StardewValley.Network
     }
   }
 }
+
+
+

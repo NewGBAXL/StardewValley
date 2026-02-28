@@ -561,21 +561,21 @@ namespace StardewValley
 
     public Item recoveredItem
     {
-      delegate(get) { return this._recoveredItem.Value; };
-      delegate(set) { return this._recoveredItem.Value = value; };
+      get { return this._recoveredItem.Value; }
+      set { this._recoveredItem.Value = value; }
     }
 
     [XmlElement("theaterBuildDate")]
     public long theaterBuildDate
     {
-      delegate(get) { return (long) this.teamRoot.Value.theaterBuildDate; };
-      delegate(set) { return this.teamRoot.Value.theaterBuildDate.Value = value; };
+      get { return (long) this.teamRoot.Value.theaterBuildDate; }
+      set { this.teamRoot.Value.theaterBuildDate.Value = value; }
     }
 
     [XmlIgnore]
     public int festivalScore
     {
-      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.netFestivalScore;
+      get { return (int) (NetFieldBase<int; }, NetInt>) this.netFestivalScore;
       set
       {
         if (Game1.player != null && Game1.player.team != null && Game1.player.team.festivalScoreStatus != null)
@@ -586,22 +586,22 @@ namespace StardewValley
 
     public int deepestMineLevel
     {
-      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.netDeepestMineLevel;
-      delegate(set) { return this.netDeepestMineLevel.Value = value; };
+      get { return (int) (NetFieldBase<int; }, NetInt>) this.netDeepestMineLevel;
+      set { this.netDeepestMineLevel.Value = value; }
     }
 
     public float stamina
     {
-      delegate(get) { return (float) (NetFieldBase<float; }, NetFloat>) this.netStamina;
-      delegate(set) { return this.netStamina.Value = value; };
+      get { return (float) (NetFieldBase<float; }, NetFloat>) this.netStamina;
+      set { this.netStamina.Value = value; }
     }
 
     [XmlIgnore]
-    public FarmerTeam delegate(team) { return Game1.player != null && this != Game1.player ? Game1.player.team : this.teamRoot.Value; };
+    public FarmerTeam team { get { return Game1.player != null && this != Game1.player ? Game1.player.team : this.teamRoot.Value; }
 
     public uint totalMoneyEarned
     {
-      delegate(get) { return (uint) this.teamRoot.Value.totalMoneyEarned.Value; };
+      get { return (uint) this.teamRoot.Value.totalMoneyEarned.Value; }
       set
       {
         if (this.teamRoot.Value.totalMoneyEarned.Value != 0)
@@ -625,32 +625,32 @@ namespace StardewValley
 
     public ulong millisecondsPlayed
     {
-      delegate(get) { return (ulong) this.netMillisecondsPlayed.Value; };
-      delegate(set) { return this.netMillisecondsPlayed.Value = (long) value; };
+      get { return (ulong) this.netMillisecondsPlayed.Value; }
+      set { this.netMillisecondsPlayed.Value = (long) value; }
     }
 
     public bool hasRustyKey
     {
-      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.teamRoot.Value.hasRustyKey;
-      delegate(set) { return this.teamRoot.Value.hasRustyKey.Value = value; };
+      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.teamRoot.Value.hasRustyKey;
+      set { this.teamRoot.Value.hasRustyKey.Value = value; }
     }
 
     public bool hasSkullKey
     {
-      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.teamRoot.Value.hasSkullKey;
-      delegate(set) { return this.teamRoot.Value.hasSkullKey.Value = value; };
+      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.teamRoot.Value.hasSkullKey;
+      set { this.teamRoot.Value.hasSkullKey.Value = value; }
     }
 
     public bool canUnderstandDwarves
     {
-      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.teamRoot.Value.canUnderstandDwarves;
-      delegate(set) { return this.teamRoot.Value.canUnderstandDwarves.Value = value; };
+      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.teamRoot.Value.canUnderstandDwarves;
+      set { this.teamRoot.Value.canUnderstandDwarves.Value = value; }
     }
 
     public bool HasTownKey
     {
-      delegate(get) { return this.hasTownKey.Value; };
-      delegate(set) { return this.hasTownKey.Value = value; };
+      get { return this.hasTownKey.Value; }
+      set { this.hasTownKey.Value = value; }
     }
 
     [XmlIgnore]
@@ -675,19 +675,19 @@ namespace StardewValley
     [XmlElement("useSeparateWallets")]
     public bool useSeparateWallets
     {
-      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.teamRoot.Value.useSeparateWallets;
-      delegate(set) { return this.teamRoot.Value.useSeparateWallets.Value = value; };
+      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.teamRoot.Value.useSeparateWallets;
+      set { this.teamRoot.Value.useSeparateWallets.Value = value; }
     }
 
     public int timesReachedMineBottom
     {
-      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.netTimesReachedMineBottom;
-      delegate(set) { return this.netTimesReachedMineBottom.Value = value; };
+      get { return (int) (NetFieldBase<int; }, NetInt>) this.netTimesReachedMineBottom;
+      set { this.netTimesReachedMineBottom.Value = value; }
     }
 
     public string spouse
     {
-      delegate(get) { return this.netSpouse.Value != null && this.netSpouse.Value.Length != 0 ? this.netSpouse.Value : (string) null; };
+      get { return this.netSpouse.Value != null && this.netSpouse.Value.Length != 0 ? this.netSpouse.Value : (string) null; }
       set
       {
         if (value == null)
@@ -698,124 +698,124 @@ namespace StardewValley
     }
 
     [XmlIgnore]
-    public bool delegate(isUnclaimedFarmhand) { return !this.IsMainPlayer && !(bool) (NetFieldBase<bool; }, NetBool>) this.isCustomized;
+    public bool isUnclaimedFarmhand { get { return !this.IsMainPlayer && !(bool) (NetFieldBase<bool; }, NetBool>) this.isCustomized;
 
     [XmlIgnore]
     public Horse mount
     {
-      delegate(get) { return this.netMount.Value; };
-      delegate(set) { return this.setMount(value); };
+      get { return this.netMount.Value; }
+      set { this.setMount(value); }
     }
 
     [XmlIgnore]
     public int MaxItems
     {
-      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.maxItems;
-      delegate(set) { return this.maxItems.Value = value; };
+      get { return (int) (NetFieldBase<int; }, NetInt>) this.maxItems;
+      set { this.maxItems.Value = value; }
     }
 
     [XmlIgnore]
-    public int delegate(Level) { return ((int) (NetFieldBase<int; }, NetInt>) this.farmingLevel + (int) (NetFieldBase<int, NetInt>) this.fishingLevel + (int) (NetFieldBase<int, NetInt>) this.foragingLevel + (int) (NetFieldBase<int, NetInt>) this.combatLevel + (int) (NetFieldBase<int, NetInt>) this.miningLevel + (int) (NetFieldBase<int, NetInt>) this.luckLevel) / 2;
+    public int Level { get { return ((int) (NetFieldBase<int; }, NetInt>) this.farmingLevel + (int) (NetFieldBase<int, NetInt>) this.fishingLevel + (int) (NetFieldBase<int, NetInt>) this.foragingLevel + (int) (NetFieldBase<int, NetInt>) this.combatLevel + (int) (NetFieldBase<int, NetInt>) this.miningLevel + (int) (NetFieldBase<int, NetInt>) this.luckLevel) / 2;
 
     [XmlIgnore]
     public int CraftingTime
     {
-      delegate(get) { return this.craftingTime; };
-      delegate(set) { return this.craftingTime = value; };
+      get { return this.craftingTime; }
+      set { this.craftingTime = value; }
     }
 
     [XmlIgnore]
     public int NewSkillPointsToSpend
     {
-      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.newSkillPointsToSpend;
-      delegate(set) { return this.newSkillPointsToSpend.Value = value; };
+      get { return (int) (NetFieldBase<int; }, NetInt>) this.newSkillPointsToSpend;
+      set { this.newSkillPointsToSpend.Value = value; }
     }
 
     [XmlIgnore]
     public int FarmingLevel
     {
-      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.farmingLevel + (int) (NetFieldBase<int, NetInt>) this.addedFarmingLevel;
-      delegate(set) { return this.farmingLevel.Value = value; };
+      get { return (int) (NetFieldBase<int; }, NetInt>) this.farmingLevel + (int) (NetFieldBase<int, NetInt>) this.addedFarmingLevel;
+      set { this.farmingLevel.Value = value; }
     }
 
     [XmlIgnore]
     public int MiningLevel
     {
-      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.miningLevel + (int) (NetFieldBase<int, NetInt>) this.addedMiningLevel;
-      delegate(set) { return this.miningLevel.Value = value; };
+      get { return (int) (NetFieldBase<int; }, NetInt>) this.miningLevel + (int) (NetFieldBase<int, NetInt>) this.addedMiningLevel;
+      set { this.miningLevel.Value = value; }
     }
 
     [XmlIgnore]
     public int CombatLevel
     {
-      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.combatLevel + (int) (NetFieldBase<int, NetInt>) this.addedCombatLevel;
-      delegate(set) { return this.combatLevel.Value = value; };
+      get { return (int) (NetFieldBase<int; }, NetInt>) this.combatLevel + (int) (NetFieldBase<int, NetInt>) this.addedCombatLevel;
+      set { this.combatLevel.Value = value; }
     }
 
     [XmlIgnore]
     public int ForagingLevel
     {
-      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.foragingLevel + (int) (NetFieldBase<int, NetInt>) this.addedForagingLevel;
-      delegate(set) { return this.foragingLevel.Value = value; };
+      get { return (int) (NetFieldBase<int; }, NetInt>) this.foragingLevel + (int) (NetFieldBase<int, NetInt>) this.addedForagingLevel;
+      set { this.foragingLevel.Value = value; }
     }
 
     [XmlIgnore]
     public int FishingLevel
     {
-      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.fishingLevel + (int) (NetFieldBase<int, NetInt>) this.addedFishingLevel + (this.CurrentTool == null || !this.CurrentTool.hasEnchantmentOfType<MasterEnchantment>() ? 0 : 1);
-      delegate(set) { return this.fishingLevel.Value = value; };
+      get { return (int) (NetFieldBase<int; }, NetInt>) this.fishingLevel + (int) (NetFieldBase<int, NetInt>) this.addedFishingLevel + (this.CurrentTool == null || !this.CurrentTool.hasEnchantmentOfType<MasterEnchantment>() ? 0 : 1);
+      set { this.fishingLevel.Value = value; }
     }
 
     [XmlIgnore]
     public int LuckLevel
     {
-      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.luckLevel + (int) (NetFieldBase<int, NetInt>) this.addedLuckLevel;
-      delegate(set) { return this.luckLevel.Value = value; };
+      get { return (int) (NetFieldBase<int; }, NetInt>) this.luckLevel + (int) (NetFieldBase<int, NetInt>) this.addedLuckLevel;
+      set { this.luckLevel.Value = value; }
     }
 
     [XmlIgnore]
-    public double delegate(DailyLuck) { return this.team.sharedDailyLuck.Value + (this.hasSpecialCharm ? 0.025000000372529 : 0.0); };
+    public double DailyLuck { get { return this.team.sharedDailyLuck.Value + (this.hasSpecialCharm ? 0.025000000372529 : 0.0); }
 
     [XmlIgnore]
     public int HouseUpgradeLevel
     {
-      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.houseUpgradeLevel;
-      delegate(set) { return this.houseUpgradeLevel.Value = value; };
+      get { return (int) (NetFieldBase<int; }, NetInt>) this.houseUpgradeLevel;
+      set { this.houseUpgradeLevel.Value = value; }
     }
 
     [XmlIgnore]
     public int CoopUpgradeLevel
     {
-      delegate(get) { return this.coopUpgradeLevel; };
-      delegate(set) { return this.coopUpgradeLevel = value; };
+      get { return this.coopUpgradeLevel; }
+      set { this.coopUpgradeLevel = value; }
     }
 
     [XmlIgnore]
     public int BarnUpgradeLevel
     {
-      delegate(get) { return this.barnUpgradeLevel; };
-      delegate(set) { return this.barnUpgradeLevel = value; };
+      get { return this.barnUpgradeLevel; }
+      set { this.barnUpgradeLevel = value; }
     }
 
     [XmlIgnore]
     public BoundingBoxGroup TemporaryPassableTiles
     {
-      delegate(get) { return this.temporaryPassableTiles; };
-      delegate(set) { return this.temporaryPassableTiles = value; };
+      get { return this.temporaryPassableTiles; }
+      set { this.temporaryPassableTiles = value; }
     }
 
     [XmlIgnore]
     public IList<Item> Items
     {
-      delegate(get) { return (IList<Item>) this.items; };
-      delegate(set) { return this.items.CopyFrom(value); };
+      get { return (IList<Item>) this.items; }
+      set { this.items.CopyFrom(value); }
     }
 
     [XmlIgnore]
     public int MagneticRadius
     {
-      delegate(get) { return this.magneticRadius.Value; };
-      delegate(set) { return this.magneticRadius.Value = value; };
+      get { return this.magneticRadius.Value; }
+      set { this.magneticRadius.Value = value; }
     }
 
     [XmlIgnore]
@@ -842,94 +842,94 @@ namespace StardewValley
     [XmlIgnore]
     public bool IsMale
     {
-      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.isMale;
-      delegate(set) { return this.isMale.Set(value); };
+      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.isMale;
+      set { this.isMale.Set(value); }
     }
 
     [XmlIgnore]
-    public IList<int> delegate(DialogueQuestionsAnswered) { return (IList<int>) this.dialogueQuestionsAnswered; };
+    public IList<int> DialogueQuestionsAnswered { get { return (IList<int>) this.dialogueQuestionsAnswered; }
 
     [XmlIgnore]
     public int WoodPieces
     {
-      delegate(get) { return this.woodPieces; };
-      delegate(set) { return this.woodPieces = value; };
+      get { return this.woodPieces; }
+      set { this.woodPieces = value; }
     }
 
     [XmlIgnore]
     public int StonePieces
     {
-      delegate(get) { return this.stonePieces; };
-      delegate(set) { return this.stonePieces = value; };
+      get { return this.stonePieces; }
+      set { this.stonePieces = value; }
     }
 
     [XmlIgnore]
     public int CopperPieces
     {
-      delegate(get) { return this.copperPieces; };
-      delegate(set) { return this.copperPieces = value; };
+      get { return this.copperPieces; }
+      set { this.copperPieces = value; }
     }
 
     [XmlIgnore]
     public int IronPieces
     {
-      delegate(get) { return this.ironPieces; };
-      delegate(set) { return this.ironPieces = value; };
+      get { return this.ironPieces; }
+      set { this.ironPieces = value; }
     }
 
     [XmlIgnore]
     public int CoalPieces
     {
-      delegate(get) { return this.coalPieces; };
-      delegate(set) { return this.coalPieces = value; };
+      get { return this.coalPieces; }
+      set { this.coalPieces = value; }
     }
 
     [XmlIgnore]
     public int GoldPieces
     {
-      delegate(get) { return this.goldPieces; };
-      delegate(set) { return this.goldPieces = value; };
+      get { return this.goldPieces; }
+      set { this.goldPieces = value; }
     }
 
     [XmlIgnore]
     public int IridiumPieces
     {
-      delegate(get) { return this.iridiumPieces; };
-      delegate(set) { return this.iridiumPieces = value; };
+      get { return this.iridiumPieces; }
+      set { this.iridiumPieces = value; }
     }
 
     [XmlIgnore]
     public int QuartzPieces
     {
-      delegate(get) { return this.quartzPieces; };
-      delegate(set) { return this.quartzPieces = value; };
+      get { return this.quartzPieces; }
+      set { this.quartzPieces = value; }
     }
 
     [XmlIgnore]
     public int Feed
     {
-      delegate(get) { return this.feed; };
-      delegate(set) { return this.feed = value; };
+      get { return this.feed; }
+      set { this.feed = value; }
     }
 
     [XmlIgnore]
     public bool CanMove
     {
-      delegate(get) { return this.canMove; };
-      delegate(set) { return this.canMove = value; };
+      get { return this.canMove; }
+      set { this.canMove = value; }
     }
 
     [XmlIgnore]
     public bool UsingTool
     {
-      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.usingTool;
-      delegate(set) { return this.usingTool.Set(value); };
+      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.usingTool;
+      set { this.usingTool.Set(value); }
     }
 
     [XmlIgnore]
     public Tool CurrentTool
     {
-      delegate(get) { return this.CurrentItem != null && this.CurrentItem is Tool ? (Tool) this.CurrentItem : (Tool) null; };
+      get { return this.CurrentItem != null && this.CurrentItem is Tool ? (Tool) this.CurrentItem : (Tool) null; }
       set
       {
         while (this.CurrentToolIndex >= this.items.Count)
@@ -941,14 +941,14 @@ namespace StardewValley
     [XmlIgnore]
     public Item TemporaryItem
     {
-      delegate(get) { return this.temporaryItem.Value; };
-      delegate(set) { return this.temporaryItem.Value = value; };
+      get { return this.temporaryItem.Value; }
+      set { this.temporaryItem.Value = value; }
     }
 
     public Item CursorSlotItem
     {
-      delegate(get) { return this.cursorSlotItem.Value; };
-      delegate(set) { return this.cursorSlotItem.Value = value; };
+      get { return this.cursorSlotItem.Value; }
+      set { this.cursorSlotItem.Value = value; }
     }
 
     [XmlIgnore]
@@ -967,7 +967,7 @@ namespace StardewValley
     [XmlIgnore]
     public int CurrentToolIndex
     {
-      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.currentToolIndex;
+      get { return (int) (NetFieldBase<int; }, NetInt>) this.currentToolIndex;
       set
       {
         this.netItemStowed.Set(false);
@@ -980,21 +980,21 @@ namespace StardewValley
     [XmlIgnore]
     public float Stamina
     {
-      delegate(get) { return this.stamina; };
-      delegate(set) { return this.stamina = Math.Min((float) (int) (NetFieldBase<int; }, NetInt>) this.maxStamina, Math.Max(value, -16f));
+      get { return this.stamina; }
+      set { this.stamina = Math.Min((float) (int) (NetFieldBase<int; }, NetInt>) this.maxStamina, Math.Max(value, -16f));
     }
 
     [XmlIgnore]
     public int MaxStamina
     {
-      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.maxStamina;
-      delegate(set) { return this.maxStamina.Value = value; };
+      get { return (int) (NetFieldBase<int; }, NetInt>) this.maxStamina;
+      set { this.maxStamina.Value = value; }
     }
 
     public long UniqueMultiplayerID
     {
-      delegate(get) { return (long) this.uniqueMultiplayerID; };
-      delegate(set) { return this.uniqueMultiplayerID.Value = value; };
+      get { return (long) this.uniqueMultiplayerID; }
+      set { this.uniqueMultiplayerID.Value = value; }
     }
 
     [XmlIgnore]
@@ -1022,7 +1022,7 @@ namespace StardewValley
     [XmlIgnore]
     public override AnimatedSprite Sprite
     {
-      delegate(get) { return base.Sprite; };
+      get { return base.Sprite; }
       set
       {
         base.Sprite = value;
@@ -1035,35 +1035,35 @@ namespace StardewValley
     [XmlIgnore]
     public FarmerSprite FarmerSprite
     {
-      delegate(get) { return (FarmerSprite) this.Sprite; };
-      delegate(set) { return this.Sprite = (AnimatedSprite) value; };
+      get { return (FarmerSprite) this.Sprite; }
+      set { this.Sprite = (AnimatedSprite) value; }
     }
 
     [XmlIgnore]
     public FarmerRenderer FarmerRenderer
     {
-      delegate(get) { return (FarmerRenderer) (NetFieldBase<FarmerRenderer; }, NetRef<FarmerRenderer>>) this.farmerRenderer;
-      delegate(set) { return this.farmerRenderer.Set(value); };
+      get { return (FarmerRenderer) (NetFieldBase<FarmerRenderer; }, NetRef<FarmerRenderer>>) this.farmerRenderer;
+      set { this.farmerRenderer.Set(value); }
     }
 
     [XmlElement("money")]
     public int _money
     {
-      delegate(get) { return (int) (NetFieldBase<int; }, NetIntDelta>) this.teamRoot.Value.GetMoney(this);
-      delegate(set) { return this.teamRoot.Value.GetMoney(this).Value = value; };
+      get { return (int) (NetFieldBase<int; }, NetIntDelta>) this.teamRoot.Value.GetMoney(this);
+      set { this.teamRoot.Value.GetMoney(this).Value = value; }
     }
 
     [XmlIgnore]
     public int QiGems
     {
-      delegate(get) { return this.netQiGems.Value; };
-      delegate(set) { return this.netQiGems.Value = value; };
+      get { return this.netQiGems.Value; }
+      set { this.netQiGems.Value = value; }
     }
 
     [XmlIgnore]
     public int Money
     {
-      delegate(get) { return this._money; };
+      get { return this._money; }
       set
       {
         if (Game1.player != this)
@@ -1080,7 +1080,7 @@ namespace StardewValley
       }
     }
 
-    public void addUnearnedMoney(int money) { return this._money += money; }
+    public void addUnearnedMoney(int money) { this._money += money; }
 
     public NetStringList GetEmoteFavorites()
     {
@@ -1168,8 +1168,8 @@ namespace StardewValley
       this.changeShirt(0);
       this.changeSkinColor(0);
       this.changeShoeColor(2);
-      this.shirtItem.fieldChangeVisibleEvent += (NetFieldBase<Clothing, NetRef<Clothing>>.FieldChange) ((field, old_value, new_value) => this.UpdateClothing());
-      this.pantsItem.fieldChangeVisibleEvent += (NetFieldBase<Clothing, NetRef<Clothing>>.FieldChange) ((field, old_value, new_value) => this.UpdateClothing());
+      this.shirtItem.fieldChangeVisibleEvent += (NetFieldBase<Clothing, NetRef<Clothing>>.FieldChange) (delegate(field, old_value, new_value) { return this.UpdateClothing(; }));
+      this.pantsItem.fieldChangeVisibleEvent += (NetFieldBase<Clothing, NetRef<Clothing>>.FieldChange) (delegate(field, old_value, new_value) { return this.UpdateClothing(; }));
       this.farmName.FilterStringEvent += new NetString.FilterString(Utility.FilterDirtyWords);
       this.name.FilterStringEvent += new NetString.FilterString(Utility.FilterDirtyWords);
     }
@@ -1227,16 +1227,16 @@ namespace StardewValley
         (Item) new WateringCan(),
         (Item) new Pickaxe(),
         (Item) new MeleeWeapon(47)
-      };
+      }
     }
 
     private void playHarpEmoteSound()
     {
-      int[] numArray1 = new int[4]{ 1200, 1600, 1900, 2400 };
+      int[] numArray1 = new int[4]{ 1200, 1600, 1900, 2400 }
       switch (Game1.random.Next(5))
       {
         case 0:
-          numArray1 = new int[4]{ 1200, 1600, 1900, 2400 };
+          numArray1 = new int[4]{ 1200, 1600, 1900, 2400 }
           break;
         case 1:
           numArray1 = new int[4]{ 1200, 1700, 2100, 2400 };
@@ -1295,7 +1295,7 @@ namespace StardewValley
       Farmer.removeLowestUpgradeLevelTool(items, typeof (Hoe));
       Farmer.removeLowestUpgradeLevelTool(items, typeof (WateringCan));
       Farmer.removeLowestUpgradeLevelTool(items, typeof (Pickaxe));
-      Item obj = items.FirstOrDefault<Item>((Func<Item, bool>) (delegate(item) { return item is MeleeWeapon && (item as Tool).InitialParentTileIndex == 47)); };
+      Item obj = items.FirstOrDefault<Item>((Func<Item, bool>) (item { return item is MeleeWeapon && (item as Tool).InitialParentTileIndex == 47)); };
       if (obj == null)
         return;
       items.Remove(obj);
@@ -1383,7 +1383,7 @@ namespace StardewValley
         this.attack -= buffAttributes[11];
     }
 
-    public void removeBuffAttributes() { return this.removeBuffAttributes(this.appliedBuffs.ToArray<int>()); }
+    public void removeBuffAttributes() { this.removeBuffAttributes(this.appliedBuffs.ToArray<int>()); }
 
     public bool isActive() { return this == Game1.player || Game1.otherFarmers.ContainsKey(this.UniqueMultiplayerID); }
 
@@ -1462,13 +1462,13 @@ namespace StardewValley
       return (Tool) null;
     }
 
-    public override void SetMovingDown(bool b) { return this.setMoving((byte) (4 + (b ? 0 : 32))); }
+    public override void SetMovingDown(bool b) { this.setMoving((byte) (4 + (b ? 0 : 32))); }
 
-    public override void SetMovingRight(bool b) { return this.setMoving((byte) (2 + (b ? 0 : 32))); }
+    public override void SetMovingRight(bool b) { this.setMoving((byte) (2 + (b ? 0 : 32))); }
 
-    public override void SetMovingUp(bool b) { return this.setMoving((byte) (1 + (b ? 0 : 32))); }
+    public override void SetMovingUp(bool b) { this.setMoving((byte) (1 + (b ? 0 : 32))); }
 
-    public override void SetMovingLeft(bool b) { return this.setMoving((byte) (8 + (b ? 0 : 32))); }
+    public override void SetMovingLeft(bool b) { this.setMoving((byte) (8 + (b ? 0 : 32))); }
 
     public int? tryGetFriendshipLevelForNPC(string name)
     {
@@ -1873,8 +1873,8 @@ namespace StardewValley
 
     public override int FacingDirection
     {
-      delegate(get) { return this.isEmoteAnimating ? this.emoteFacingDirection : (int) this.facingDirection; };
-      delegate(set) { return this.facingDirection.Set(value); };
+      get { return this.isEmoteAnimating ? this.emoteFacingDirection : (int) this.facingDirection; }
+      set { this.facingDirection.Set(value); }
     }
 
     public void consumeObject(int index, int quantity)
@@ -2170,7 +2170,7 @@ namespace StardewValley
       if (!((NetFieldBase<Tool, NetRef<Tool>>) this.toolBeingUpgraded != (NetRef<Tool>) null) || (int) (NetFieldBase<int, NetInt>) this.daysLeftForToolUpgrade > 0 || this.toolBeingUpgraded.Value == null || Utility.isFestivalDay(dayOfMonth, Game1.currentSeason) || !(Game1.shortDayNameFromDayOfSeason(dayOfMonth) != "Fri") && this.hasCompletedCommunityCenter() && !Game1.isRaining || this.hasReceivedToolUpgradeMessageYet)
         return;
       if (Game1.newDay)
-        Game1.morningQueue.Enqueue((DelayedAction.delayedBehavior) (() => Game1.showGlobalMessage(Game1.content.LoadString("Strings\\StringsFromCSFiles:ToolReady", (object) this.toolBeingUpgraded.Value.DisplayName))));
+        Game1.morningQueue.Enqueue((DelayedAction.delayedBehavior) (delegate() { return Game1.showGlobalMessage(Game1.content.LoadString("Strings\\StringsFromCSFiles:ToolReady", (object; }) this.toolBeingUpgraded.Value.DisplayName))));
       else
         Game1.showGlobalMessage(Game1.content.LoadString("Strings\\StringsFromCSFiles:ToolReady", (object) this.toolBeingUpgraded.Value.DisplayName));
       this.hasReceivedToolUpgradeMessageYet = true;
@@ -2323,7 +2323,7 @@ namespace StardewValley
             {
               motion = new Vector2(0.8f, -11f),
               acceleration = new Vector2(0.0f, 0.5f)
-            };
+            }
             break;
           }
           if (Game1.currentLocation == who.currentLocation)
@@ -2332,7 +2332,7 @@ namespace StardewValley
           {
             motion = new Vector2(0.8f, -11f),
             acceleration = new Vector2(0.0f, 0.5f)
-          };
+          }
           break;
         case 3:
           who.yJumpVelocity = 6f;
@@ -3098,7 +3098,7 @@ label_20:
       collection.Add(a);
       collection.Add(b);
       collection.Add(c);
-      collection.Sort((Comparison<Vector2>) ((d, e) => (d + new Vector2(0.5f, 0.5f) - mouse_pos).Length().CompareTo((e + new Vector2(0.5f, 0.5f) - mouse_pos).Length())));
+      collection.Sort((Comparison<Vector2>) (delegate(d, e) { return (d + new Vector2(0.5f, 0.5f; }) - mouse_pos).Length().CompareTo((e + new Vector2(0.5f, 0.5f) - mouse_pos).Length())));
       list.AddRange((IEnumerable<Vector2>) collection);
     }
 
@@ -3624,9 +3624,9 @@ label_20:
       this.shoes.Set(which);
     }
 
-    public void changeHairColor(Color c) { return this.hairstyleColor.Set(c); }
+    public void changeHairColor(Color c) { this.hairstyleColor.Set(c); }
 
-    public void changePants(Color color) { return this.pantsColor.Set(color); }
+    public void changePants(Color color) { this.pantsColor.Set(color); }
 
     public void changeHat(int newHat)
     {
@@ -3885,9 +3885,9 @@ label_20:
       Game1.warpFarmer(w.TargetName, targetX, targetY, (bool) (NetFieldBase<bool, NetBool>) w.flipFarmer);
     }
 
-    public void warpFarmer(Warp w) { return this.warpFarmer(w, -1); }
+    public void warpFarmer(Warp w) { this.warpFarmer(w, -1); }
 
-    public void startToPassOut() { return this.passOutEvent.Fire(); }
+    public void startToPassOut() { this.passOutEvent.Fire(); }
 
     private void performPassOut()
     {
@@ -4116,7 +4116,7 @@ label_20:
       return false;
     }
 
-    public void UpdateClothing() { return this.FarmerRenderer.MarkSpriteDirty(); }
+    public void UpdateClothing() { this.FarmerRenderer.MarkSpriteDirty(); }
 
     public int GetPantsIndex()
     {
@@ -4632,7 +4632,7 @@ label_20:
       who.xVelocity = 0.0f;
     }
 
-    public void FireTool() { return this.fireToolEvent.Fire(); }
+    public void FireTool() { this.fireToolEvent.Fire(); }
 
     public void synchronizedJump(float velocity)
     {
@@ -4676,7 +4676,7 @@ label_20:
       }
     }
 
-    public void BeginUsingTool() { return this.beginUsingToolEvent.Fire(); }
+    public void BeginUsingTool() { this.beginUsingToolEvent.Fire(); }
 
     private void performBeginUsingTool()
     {
@@ -5065,7 +5065,7 @@ label_20:
           if (this.health <= 0 && this.GetEffectsOfRingMultiplier(863) > 0 && !this.hasUsedDailyRevive.Value)
           {
             Game1.player.startGlowing(new Color((int) byte.MaxValue, (int) byte.MaxValue, 0), false, 0.25f);
-            DelayedAction.functionAfterDelay((DelayedAction.delayedBehavior) (() => this.stopGlowing()), 500);
+            DelayedAction.functionAfterDelay((DelayedAction.delayedBehavior) (delegate() { return this.stopGlowing(; })), 500);
             Game1.playSound("yoba");
             for (int index = 0; index < 13; ++index)
             {
@@ -5824,7 +5824,7 @@ label_20:
       return -1;
     }
 
-    public void behaviorOnMovement(int direction) { return this.hasMoved = true; }
+    public void behaviorOnMovement(int direction) { this.hasMoved = true; }
 
     public void OnEmoteAnimationEnd(Farmer farmer)
     {
@@ -5857,7 +5857,7 @@ label_20:
         Farmer.completelyStopAnimating(who);
     }
 
-    private void performHaltAnimation() { return this.completelyStopAnimatingOrDoingAction(); }
+    private void performHaltAnimation() { this.completelyStopAnimatingOrDoingAction(); }
 
     public void performKissFarmer(long otherPlayerID)
     {
@@ -6358,7 +6358,7 @@ label_20:
       return flag;
     }
 
-    public static void completelyStopAnimating(Farmer who) { return who.completelyStopAnimatingOrDoingAction(); }
+    public static void completelyStopAnimating(Farmer who) { who.completelyStopAnimatingOrDoingAction(); }
 
     public void completelyStopAnimatingOrDoingAction()
     {
@@ -6435,7 +6435,7 @@ label_20:
       }
     }
 
-    public void addSeenResponse(int id) { return this.dialogueQuestionsAnswered.Add(id); }
+    public void addSeenResponse(int id) { this.dialogueQuestionsAnswered.Add(id); }
 
     public void eatObject(Object o, bool overrideFullness = false)
     {
@@ -6522,7 +6522,7 @@ label_20:
       this.isEating = true;
     }
 
-    public void netDoEmote(string emote_type) { return this.doEmoteEvent.Fire(emote_type); }
+    public void netDoEmote(string emote_type) { this.doEmoteEvent.Fire(emote_type); }
 
     private void performSickAnimation()
     {
@@ -6620,9 +6620,9 @@ label_20:
       return level > 2 ? Game1.content.LoadString("Strings\\StringsFromCSFiles:Farmer.cs.2031") : Game1.content.LoadString("Strings\\StringsFromCSFiles:Farmer.cs.2032");
     }
 
-    public void queueMessage(byte messageType, Farmer sourceFarmer, params object[] data) { return this.queueMessage(new OutgoingMessage(messageType, sourceFarmer, data)); }
+    public void queueMessage(byte messageType, Farmer sourceFarmer, params object[] data) { this.queueMessage(new OutgoingMessage(messageType, sourceFarmer, data)); }
 
-    public void queueMessage(OutgoingMessage message) { return this.messageQueue.Add(message); }
+    public void queueMessage(OutgoingMessage message) { this.messageQueue.Add(message); }
 
     static Farmer()
     {
@@ -6642,7 +6642,7 @@ label_20:
         new Farmer.EmoteType("angry", "Emote_Angry", 12),
         new Farmer.EmoteType("yes", "Emote_Yes", 56, new FarmerSprite.AnimationFrame[7]
         {
-          new FarmerSprite.AnimationFrame(0, 250, false, false).AddFrameAction((AnimatedSprite.endOfAnimationBehavior) (delegate(who) { return {; }
+          new FarmerSprite.AnimationFrame(0, 250, false, false).AddFrameAction((AnimatedSprite.endOfAnimationBehavior) (who { return {; }
             if (!who.ShouldHandleAnimationSound())
               return;
             who.currentLocation.localSound("jingle1");
@@ -6656,7 +6656,7 @@ label_20:
         }),
         new Farmer.EmoteType("no", "Emote_No", 36, new FarmerSprite.AnimationFrame[5]
         {
-          new FarmerSprite.AnimationFrame(25, 250, false, false).AddFrameAction((AnimatedSprite.endOfAnimationBehavior) (delegate(who) { return {; }
+          new FarmerSprite.AnimationFrame(25, 250, false, false).AddFrameAction((AnimatedSprite.endOfAnimationBehavior) (who { return {; }
             if (!who.ShouldHandleAnimationSound())
               return;
             who.currentLocation.localSound("cancel");
@@ -6668,7 +6668,7 @@ label_20:
         }),
         new Farmer.EmoteType("sick", "Emote_Sick", 12, new FarmerSprite.AnimationFrame[8]
         {
-          new FarmerSprite.AnimationFrame(104, 350, false, false).AddFrameAction((AnimatedSprite.endOfAnimationBehavior) (delegate(who) { return {; }
+          new FarmerSprite.AnimationFrame(104, 350, false, false).AddFrameAction((AnimatedSprite.endOfAnimationBehavior) (who { return {; }
             if (!who.ShouldHandleAnimationSound())
               return;
             who.currentLocation.localSound("croak");
@@ -6683,25 +6683,25 @@ label_20:
         }),
         new Farmer.EmoteType("laugh", "Emote_Laugh", 56, new FarmerSprite.AnimationFrame[8]
         {
-          new FarmerSprite.AnimationFrame(102, 150, false, false).AddFrameAction((AnimatedSprite.endOfAnimationBehavior) (delegate(who) { return {; }
+          new FarmerSprite.AnimationFrame(102, 150, false, false).AddFrameAction((AnimatedSprite.endOfAnimationBehavior) (who { return {; }
             if (!who.ShouldHandleAnimationSound())
               return;
             who.currentLocation.localSound("dustMeep");
           })),
           new FarmerSprite.AnimationFrame(103, 150, false, false),
-          new FarmerSprite.AnimationFrame(102, 150, false, false).AddFrameAction((AnimatedSprite.endOfAnimationBehavior) (delegate(who) { return {; }
+          new FarmerSprite.AnimationFrame(102, 150, false, false).AddFrameAction((AnimatedSprite.endOfAnimationBehavior) (who { return {; }
             if (!who.ShouldHandleAnimationSound())
               return;
             who.currentLocation.localSound("dustMeep");
           })),
           new FarmerSprite.AnimationFrame(103, 150, false, false),
-          new FarmerSprite.AnimationFrame(102, 150, false, false).AddFrameAction((AnimatedSprite.endOfAnimationBehavior) (delegate(who) { return {; }
+          new FarmerSprite.AnimationFrame(102, 150, false, false).AddFrameAction((AnimatedSprite.endOfAnimationBehavior) (who { return {; }
             if (!who.ShouldHandleAnimationSound())
               return;
             who.currentLocation.localSound("dustMeep");
           })),
           new FarmerSprite.AnimationFrame(103, 150, false, false),
-          new FarmerSprite.AnimationFrame(102, 150, false, false).AddFrameAction((AnimatedSprite.endOfAnimationBehavior) (delegate(who) { return {; }
+          new FarmerSprite.AnimationFrame(102, 150, false, false).AddFrameAction((AnimatedSprite.endOfAnimationBehavior) (who { return {; }
             if (!who.ShouldHandleAnimationSound())
               return;
             who.currentLocation.localSound("dustMeep");
@@ -6710,7 +6710,7 @@ label_20:
         }),
         new Farmer.EmoteType("surprised", "Emote_Surprised", 16, new FarmerSprite.AnimationFrame[1]
         {
-          new FarmerSprite.AnimationFrame(94, 1500, false, false).AddFrameAction((AnimatedSprite.endOfAnimationBehavior) (delegate(who) { return {; }
+          new FarmerSprite.AnimationFrame(94, 1500, false, false).AddFrameAction((AnimatedSprite.endOfAnimationBehavior) (who { return {; }
             if (who.ShouldHandleAnimationSound())
               who.currentLocation.localSound("batScreech");
             who.jumpWithoutSound(4f);
@@ -6719,7 +6719,7 @@ label_20:
         }),
         new Farmer.EmoteType("hi", "Emote_Hi", 56, new FarmerSprite.AnimationFrame[4]
         {
-          new FarmerSprite.AnimationFrame(3, 250, false, false).AddFrameAction((AnimatedSprite.endOfAnimationBehavior) (delegate(who) { return {; }
+          new FarmerSprite.AnimationFrame(3, 250, false, false).AddFrameAction((AnimatedSprite.endOfAnimationBehavior) (who { return {; }
             if (!who.ShouldHandleAnimationSound())
               return;
             who.currentLocation.localSound("give_gift");
@@ -6737,35 +6737,35 @@ label_20:
       frames1[0] = new FarmerSprite.AnimationFrame(3, 250, false, false);
       frames1[1] = new FarmerSprite.AnimationFrame(102, 50, false, false);
       FarmerSprite.AnimationFrame animationFrame1 = new FarmerSprite.AnimationFrame(10, 250, false, false);
-      animationFrame1 = animationFrame1.AddFrameAction((AnimatedSprite.endOfAnimationBehavior) (delegate(who) { return {; }
+      animationFrame1 = animationFrame1.AddFrameAction((AnimatedSprite.endOfAnimationBehavior) (who { return {; }
         if (who.ShouldHandleAnimationSound())
           who.currentLocation.localSound("hitEnemy");
         who.jitterStrength = 1f;
       }));
-      frames1[2] = animationFrame1.AddFrameEndAction((AnimatedSprite.endOfAnimationBehavior) (delegate(who) { return who.stopJittering())); };
+      frames1[2] = animationFrame1.AddFrameEndAction((AnimatedSprite.endOfAnimationBehavior) (who { return who.stopJittering())); };
       frames1[3] = new FarmerSprite.AnimationFrame(3, 250, false, false);
       frames1[4] = new FarmerSprite.AnimationFrame(102, 50, false, false);
       FarmerSprite.AnimationFrame animationFrame2 = new FarmerSprite.AnimationFrame(10, 250, false, false);
-      animationFrame2 = animationFrame2.AddFrameAction((AnimatedSprite.endOfAnimationBehavior) (delegate(who) { return {; }
+      animationFrame2 = animationFrame2.AddFrameAction((AnimatedSprite.endOfAnimationBehavior) (who { return {; }
         if (who.ShouldHandleAnimationSound())
           who.currentLocation.localSound("hitEnemy");
         who.jitterStrength = 1f;
       }));
-      frames1[5] = animationFrame2.AddFrameEndAction((AnimatedSprite.endOfAnimationBehavior) (delegate(who) { return who.stopJittering())); };
+      frames1[5] = animationFrame2.AddFrameEndAction((AnimatedSprite.endOfAnimationBehavior) (who { return who.stopJittering())); };
       frames1[6] = new FarmerSprite.AnimationFrame(3, 250, false, false);
       frames1[7] = new FarmerSprite.AnimationFrame(102, 50, false, false);
       FarmerSprite.AnimationFrame animationFrame3 = new FarmerSprite.AnimationFrame(10, 250, false, false);
-      animationFrame3 = animationFrame3.AddFrameAction((AnimatedSprite.endOfAnimationBehavior) (delegate(who) { return {; }
+      animationFrame3 = animationFrame3.AddFrameAction((AnimatedSprite.endOfAnimationBehavior) (who { return {; }
         if (who.ShouldHandleAnimationSound())
           who.currentLocation.localSound("hitEnemy");
         who.jitterStrength = 1f;
       }));
-      frames1[8] = animationFrame3.AddFrameEndAction((AnimatedSprite.endOfAnimationBehavior) (delegate(who) { return who.stopJittering())); };
+      frames1[8] = animationFrame3.AddFrameEndAction((AnimatedSprite.endOfAnimationBehavior) (who { return who.stopJittering())); };
       frames1[9] = new FarmerSprite.AnimationFrame(3, 500, false, false);
       emoteTypeArray[18] = new Farmer.EmoteType("taunt", "Emote_Taunt", 12, frames1, is_hidden: true);
       emoteTypeArray[19] = new Farmer.EmoteType("uh", "Emote_Uh", 40, new FarmerSprite.AnimationFrame[1]
       {
-        new FarmerSprite.AnimationFrame(10, 1500, false, false).AddFrameAction((AnimatedSprite.endOfAnimationBehavior) (delegate(who) { return {; }
+        new FarmerSprite.AnimationFrame(10, 1500, false, false).AddFrameAction((AnimatedSprite.endOfAnimationBehavior) (who { return {; }
           if (!who.ShouldHandleAnimationSound())
             return;
           who.currentLocation.localSound("clam_tone");
@@ -6773,7 +6773,7 @@ label_20:
       });
       emoteTypeArray[20] = new Farmer.EmoteType("music", "Emote_Music", 56, new FarmerSprite.AnimationFrame[9]
       {
-        new FarmerSprite.AnimationFrame(98, 150, false, false).AddFrameAction((AnimatedSprite.endOfAnimationBehavior) (delegate(who) { return who.playHarpEmoteSound())); },
+        new FarmerSprite.AnimationFrame(98, 150, false, false).AddFrameAction((AnimatedSprite.endOfAnimationBehavior) (who { return who.playHarpEmoteSound())); },
         new FarmerSprite.AnimationFrame(99, 150, false, false),
         new FarmerSprite.AnimationFrame(100, 150, false, false),
         new FarmerSprite.AnimationFrame(98, 150, false, false),
@@ -6786,22 +6786,22 @@ label_20:
       FarmerSprite.AnimationFrame[] frames2 = new FarmerSprite.AnimationFrame[6];
       frames2[0] = new FarmerSprite.AnimationFrame(111, 150, false, false);
       FarmerSprite.AnimationFrame animationFrame4 = new FarmerSprite.AnimationFrame(111, 300, false, false);
-      animationFrame4 = animationFrame4.AddFrameAction((AnimatedSprite.endOfAnimationBehavior) (delegate(who) { return {; }
+      animationFrame4 = animationFrame4.AddFrameAction((AnimatedSprite.endOfAnimationBehavior) (who { return {; }
         if (who.ShouldHandleAnimationSound())
           who.currentLocation.localSound("fishingRodBend");
         who.jitterStrength = 1f;
       }));
-      frames2[1] = animationFrame4.AddFrameEndAction((AnimatedSprite.endOfAnimationBehavior) (delegate(who) { return who.stopJittering())); };
+      frames2[1] = animationFrame4.AddFrameEndAction((AnimatedSprite.endOfAnimationBehavior) (who { return who.stopJittering())); };
       frames2[2] = new FarmerSprite.AnimationFrame(111, 500, false, false);
       FarmerSprite.AnimationFrame animationFrame5 = new FarmerSprite.AnimationFrame(111, 300, false, false);
-      animationFrame5 = animationFrame5.AddFrameAction((AnimatedSprite.endOfAnimationBehavior) (delegate(who) { return {; }
+      animationFrame5 = animationFrame5.AddFrameAction((AnimatedSprite.endOfAnimationBehavior) (who { return {; }
         if (who.ShouldHandleAnimationSound())
           who.currentLocation.localSound("fishingRodBend");
         who.jitterStrength = 1f;
       }));
-      frames2[3] = animationFrame5.AddFrameEndAction((AnimatedSprite.endOfAnimationBehavior) (delegate(who) { return who.stopJittering())); };
+      frames2[3] = animationFrame5.AddFrameEndAction((AnimatedSprite.endOfAnimationBehavior) (who { return who.stopJittering())); };
       frames2[4] = new FarmerSprite.AnimationFrame(111, 500, false, false);
-      frames2[5] = new FarmerSprite.AnimationFrame(112, 1000, false, false).AddFrameAction((AnimatedSprite.endOfAnimationBehavior) (delegate(who) { return {; }
+      frames2[5] = new FarmerSprite.AnimationFrame(112, 1000, false, false).AddFrameAction((AnimatedSprite.endOfAnimationBehavior) (who { return {; }
         if (who.ShouldHandleAnimationSound())
           who.currentLocation.localSound("coin");
         who.jumpWithoutSound(4f);
@@ -6835,7 +6835,12 @@ label_20:
         this.displayNameKey = "Strings\\UI:" + display_name_key;
       }
 
-      public string delegate(displayName) { return Game1.content.LoadString(this.displayNameKey); };
+      public string displayName { get { return Game1.content.LoadString(this.displayNameKey); };
     }
   }
 }
+
+
+
+
+

@@ -43,8 +43,8 @@ namespace StardewValley.TerrainFeatures
     [XmlElement("modData")]
     public ModDataDictionary modDataForSerialization
     {
-      delegate(get) { return this.modData.GetForSerialization(); };
-      delegate(set) { return this.modData.SetFromSerialization(value); };
+      get { return this.modData.GetForSerialization(); }
+      set { this.modData.SetFromSerialization(value); }
     }
 
     [XmlIgnore]
@@ -59,7 +59,7 @@ namespace StardewValley.TerrainFeatures
           return;
         this.currentLocation.UpdateTerrainFeatureUpdateSubscription(this);
       }
-      delegate(get) { return this._needsUpdate; };
+      get { return this._needsUpdate; }
     }
 
     public NetFields NetFields { get; } = new NetFields();
@@ -114,7 +114,7 @@ namespace StardewValley.TerrainFeatures
 
     public virtual bool isActionable() { return false; }
 
-    public virtual void performPlayerEntryAction(Vector2 tileLocation) { return this.isTemporarilyInvisible = false; }
+    public virtual void performPlayerEntryAction(Vector2 tileLocation) { this.isTemporarilyInvisible = false; }
 
     public virtual void draw(SpriteBatch spriteBatch, Vector2 tileLocation)
     {
@@ -132,3 +132,6 @@ namespace StardewValley.TerrainFeatures
     }
   }
 }
+
+
+

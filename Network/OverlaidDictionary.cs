@@ -61,7 +61,7 @@ namespace StardewValley.Network
 
     public int Count() { return this.Keys.Count(); }
 
-    public void Add(Vector2 key, StardewValley.Object value) { return this.baseDict.Add(key, value); }
+    public void Add(Vector2 key, StardewValley.Object value) { this.baseDict.Add(key, value); }
 
     public void Clear()
     {
@@ -334,7 +334,7 @@ namespace StardewValley.Network
           return false;
         }
 
-        public KeyValuePair<Vector2, StardewValley.Object> delegate(Current) { return this._current; };
+        public KeyValuePair<Vector2, StardewValley.Object> Current { get { return this._current; }
 
         public void Dispose()
         {
@@ -361,3 +361,5 @@ namespace StardewValley.Network
     }
   }
 }
+
+

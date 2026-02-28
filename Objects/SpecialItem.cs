@@ -191,11 +191,11 @@ namespace StardewValley.Objects
         {
           scale = 4f,
           layerDepth = 1f
-        };
+        }
       return new TemporaryAnimatedSprite("LooseSprites\\Cursors", new Rectangle(129 + 16 * (int) (NetFieldBase<int, NetInt>) this.which, 320, 16, 16), position, false, 0.0f, Color.White)
       {
         layerDepth = 1f
-      };
+      }
     }
 
     public override string checkForSpecialItemHoldUpMeessage()
@@ -242,8 +242,8 @@ namespace StardewValley.Objects
     [XmlIgnore]
     public override string DisplayName
     {
-      delegate(get) { return this.displayName; };
-      delegate(set) { return this.displayName = value; };
+      get { return this.displayName; }
+      set { this.displayName = value; }
     }
 
     public override string Name
@@ -270,17 +270,20 @@ namespace StardewValley.Objects
         }
         return (string) (NetFieldBase<string, NetString>) this.netName;
       }
-      delegate(set) { return this.netName.Value = value; };
+      set { this.netName.Value = value; }
     }
 
     public override int Stack
     {
-      delegate(get) { return 1; };
+      get { return 1; }
       set
       {
       }
     }
 
-    public override Item getOne() { return throw new NotImplementedException(); }
+    public override Item getOne() { throw new NotImplementedException(); }
   }
 }
+
+
+

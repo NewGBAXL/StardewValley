@@ -52,7 +52,7 @@ namespace StardewValley.Buildings
     {
       base.initNetFields();
       this.NetFields.AddFields((INetSerializable) this.output, (INetSerializable) this.noHarvest, (INetSerializable) this.wasLit, (INetSerializable) this.shouldSendOutJunimos);
-      this.wasLit.fieldChangeVisibleEvent += (NetFieldBase<bool, NetBool>.FieldChange) ((field, old_value, new_value) => this.updateLightState());
+      this.wasLit.fieldChangeVisibleEvent += (NetFieldBase<bool, NetBool>.FieldChange) (delegate(field, old_value, new_value) { return this.updateLightState(; }));
     }
 
     public override Rectangle getRectForAnimalDoor() { return new Rectangle((1 + (int) (NetFieldBase<int, NetInt>) this.tileX) * 64, ((int) (NetFieldBase<int, NetInt>) this.tileY + 1) * 64, 64, 64); }
@@ -80,7 +80,7 @@ namespace StardewValley.Buildings
       }
     }
 
-    public void sendOutJunimos() { return this.junimoSendOutTimer = 1000; }
+    public void sendOutJunimos() { this.junimoSendOutTimer = 1000; }
 
     public override void performActionOnConstruction(GameLocation location)
     {
@@ -285,3 +285,5 @@ namespace StardewValley.Buildings
     }
   }
 }
+
+

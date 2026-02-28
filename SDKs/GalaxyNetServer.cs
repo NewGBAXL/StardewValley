@@ -24,7 +24,7 @@ namespace StardewValley.SDKs
     {
     }
 
-    public override int delegate(connectionsCount) { return this.server == null ? 0 : this.server.ConnectionCount; };
+    public override int connectionsCount { get { return this.server == null ? 0 : this.server.ConnectionCount; };
 
     public override string getUserId(long farmerId) { return !this.peers.ContainsLeft(farmerId) ? (string) null : this.peers[farmerId].ToString(); }
 
@@ -58,7 +58,7 @@ namespace StardewValley.SDKs
 
     public override float getPingToClient(long farmerId) { return !this.peers.ContainsLeft(farmerId) ? -1f : (float) this.server.GetPingWith(new GalaxyID(this.peers[farmerId])); }
 
-    public override void setPrivacy(ServerPrivacy privacy) { return this.server.SetPrivacy(privacy); }
+    public override void setPrivacy(ServerPrivacy privacy) { this.server.SetPrivacy(privacy); }
 
     public override bool connected() { return this.server.Connected; }
 
@@ -143,7 +143,7 @@ namespace StardewValley.SDKs
         return;
       Console.WriteLine("{0} connected", (object) peer);
       this.onConnect(this.getConnectionId(peer));
-      this.gameServer.sendAvailableFarmhands(this.createUserID(peer), (Action<OutgoingMessage>) (delegate(msg) { return this.sendMessage(peer; }, msg)));
+      this.gameServer.sendAvailableFarmhands(this.createUserID(peer), (Action<OutgoingMessage>) (msg { return this.sendMessage(peer; }, msg)));
     }
 
     protected virtual void onReceiveMessage(GalaxyID peer, Stream messageStream)
@@ -165,7 +165,7 @@ namespace StardewValley.SDKs
               return;
             NetFarmerRoot farmer = Game1.multiplayer.readFarmer(message.Reader);
             GalaxyID capturedPeer = new GalaxyID(peer.ToUint64());
-            this.gameServer.checkFarmhandRequest(this.createUserID(peer), this.getConnectionId(peer), farmer, (Action<OutgoingMessage>) (delegate(msg) { return this.sendMessage(capturedPeer; }, msg)), (Action) (() => this.peers[farmer.Value.UniqueMultiplayerID] = capturedPeer.ToUint64()));
+            this.gameServer.checkFarmhandRequest(this.createUserID(peer), this.getConnectionId(peer), farmer, (Action<OutgoingMessage>) (msg { return this.sendMessage(capturedPeer; }, msg)), (Action) (delegate() { this.peers[farmer.Value.UniqueMultiplayerID] = capturedPeer.ToUint64(; })));
           }
         }
       }
@@ -180,7 +180,7 @@ namespace StardewValley.SDKs
       this.playerDisconnected(this.peers[peer.ToUint64()]);
     }
 
-    protected virtual void onReceiveError(string messageKey) { return Console.WriteLine("Server error: " + Game1.content.LoadString(messageKey)); }
+    protected virtual void onReceiveError(string messageKey) { Console.WriteLine("Server error: " + Game1.content.LoadString(messageKey)); }
 
     public override void playerDisconnected(long disconnectee)
     {
@@ -215,7 +215,7 @@ namespace StardewValley.SDKs
         this.server.Send(peer, message);
     }
 
-    public override void setLobbyData(string key, string value) { return this.server.SetLobbyData(key, value); }
+    public override void setLobbyData(string key, string value) { this.server.SetLobbyData(key, value); }
 
     private class GalaxyPersonaDataChangedListener : IPersonaDataChangedListener
     {
@@ -227,7 +227,7 @@ namespace StardewValley.SDKs
         GalaxyInstance.ListenerRegistrar().Register(GalaxyTypeAwareListenerPersonaDataChanged.GetListenerType(), (IGalaxyListener) this);
       }
 
-      public override void OnPersonaDataChanged(GalaxyID userID, uint avatarCriteria) { return this.callback(userID, avatarCriteria); }
+      public override void OnPersonaDataChanged(GalaxyID userID, uint avatarCriteria) { this.callback(userID, avatarCriteria); }
 
       public override void Dispose()
       {
@@ -237,3 +237,6 @@ namespace StardewValley.SDKs
     }
   }
 }
+
+
+

@@ -30,7 +30,7 @@ namespace StardewValley.Minigames
     {
     }
 
-    public void receiveLeftClick(int x, int y, bool playSound = true) { return Game1.currentMinigame = (IMinigame) null; }
+    public void receiveLeftClick(int x, int y, bool playSound = true) { Game1.currentMinigame = (IMinigame) null; }
 
     public void leftClickHeld(int x, int y)
     {
@@ -93,3 +93,4 @@ namespace StardewValley.Minigames
     public bool forceQuit() { return true; }
   }
 }
+

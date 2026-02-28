@@ -28,7 +28,7 @@ namespace StardewValley.Network
       this.NetFields.AddFields((INetSerializable) this.owner, (INetSerializable) this.lockRequest);
       this.lockRequest.InterpolationWait = false;
       this.owner.InterpolationWait = false;
-      this.lockRequest.onEvent += (AbstractNetEvent1<long>.Event) (delegate(playerId) { return {; }
+      this.lockRequest.onEvent += (AbstractNetEvent1<long>.Event) (playerId { return {; }
         if (!Game1.IsMasterGame || this.owner.Value != -1L && this.owner.Value != playerId)
           return;
         this.owner.Value = playerId;
@@ -69,7 +69,7 @@ namespace StardewValley.Network
 
     public bool IsLockHeld() { return this.owner.Value == Game1.player.UniqueMultiplayerID; }
 
-    public void Update(GameLocation location) { return this.Update(location.farmers); }
+    public void Update(GameLocation location) { this.Update(location.farmers); }
 
     public void Update(FarmerCollection farmers)
     {
@@ -84,9 +84,11 @@ namespace StardewValley.Network
         this.onLockFailed = (Action) null;
         this.prevOwner = this.owner.Value;
       }
-      if (!Game1.IsMasterGame || this.owner.Value == -1L || farmers.FirstOrDefault<Farmer>((Func<Farmer, bool>) (delegate(f) { return f.UniqueMultiplayerID == this.owner.Value && f.locationBeforeForcedEvent.Value == null)) != null); }
+      if (!Game1.IsMasterGame || this.owner.Value == -1L || farmers.FirstOrDefault<Farmer>((Func<Farmer, bool>) (f { return f.UniqueMultiplayerID == this.owner.Value && f.locationBeforeForcedEvent.Value == null)) != null); }
         return;
       this.ReleaseLock();
     }
   }
 }
+
+

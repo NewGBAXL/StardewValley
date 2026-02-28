@@ -17,7 +17,7 @@ namespace StardewValley.Minigames
 
     public NetFields NetFields { get; } = new NetFields();
 
-    public void InitNetFields() { return this.NetFields.AddFields((INetSerializable) this.entries, (INetSerializable) this.maxEntries); }
+    public void InitNetFields() { this.NetFields.AddFields((INetSerializable) this.entries, (INetSerializable) this.maxEntries); }
 
     public NetLeaderboards() { return this.InitNetFields(); }
 
@@ -25,7 +25,7 @@ namespace StardewValley.Minigames
     {
       List<NetLeaderboardsEntry> list = new List<NetLeaderboardsEntry>((IEnumerable<NetLeaderboardsEntry>) this.entries);
       list.Add(new NetLeaderboardsEntry(name, score));
-      list.Sort((Comparison<NetLeaderboardsEntry>) ((a, b) => a.score.Value.CompareTo(b.score.Value)));
+      list.Sort((Comparison<NetLeaderboardsEntry>) (delegate(a, b) { return a.score.Value.CompareTo(b.score.Value; })));
       list.Reverse();
       while (list.Count > this.maxEntries.Value)
         list.RemoveAt(list.Count - 1);
@@ -37,7 +37,7 @@ namespace StardewValley.Minigames
       List<KeyValuePair<string, int>> scores = new List<KeyValuePair<string, int>>();
       foreach (NetLeaderboardsEntry entry in (NetList<NetLeaderboardsEntry, NetRef<NetLeaderboardsEntry>>) this.entries)
         scores.Add(new KeyValuePair<string, int>(entry.name.Value, entry.score.Value));
-      scores.Sort((Comparison<KeyValuePair<string, int>>) ((a, b) => a.Value.CompareTo(b.Value)));
+      scores.Sort((Comparison<KeyValuePair<string, int>>) (delegate(a, b) { return a.Value.CompareTo(b.Value; })));
       scores.Reverse();
       return scores;
     }
@@ -50,3 +50,5 @@ namespace StardewValley.Minigames
     }
   }
 }
+
+

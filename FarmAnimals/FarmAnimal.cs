@@ -162,8 +162,8 @@ namespace StardewValley
     [XmlIgnore]
     public Building home
     {
-      delegate(get) { return this.netHome.Value; };
-      delegate(set) { return this.netHome.Value = value; };
+      get { return this.netHome.Value; }
+      set { this.netHome.Value = value; }
     }
 
     [XmlIgnore]
@@ -181,7 +181,7 @@ namespace StardewValley
         }
         return this._displayHouse;
       }
-      delegate(set) { return this._displayHouse = value; };
+      set { this._displayHouse = value; }
     }
 
     [XmlIgnore]
@@ -198,12 +198,12 @@ namespace StardewValley
         }
         return this._displayType;
       }
-      delegate(set) { return this._displayType = value; };
+      set { this._displayType = value; }
     }
 
     public override string displayName
     {
-      delegate(get) { return this.Name; };
+      get { return this.Name; }
       set
       {
       }
@@ -486,7 +486,7 @@ namespace StardewValley
       }
     }
 
-    public void Poke() { return this.doBuildingPokeEvent.Fire(); }
+    public void Poke() { this.doBuildingPokeEvent.Fire(); }
 
     private void doBuildingPoke()
     {
@@ -1710,3 +1710,6 @@ namespace StardewValley
     }
   }
 }
+
+
+

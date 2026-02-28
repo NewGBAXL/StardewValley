@@ -48,28 +48,28 @@ namespace StardewValley
     [XmlElement("modData")]
     public ModDataDictionary modDataForSerialization
     {
-      delegate(get) { return this.modData.GetForSerialization(); };
-      delegate(set) { return this.modData.SetFromSerialization(value); };
+      get { return this.modData.GetForSerialization(); }
+      set { this.modData.SetFromSerialization(value); }
     }
 
     public int SpecialVariable
     {
-      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.specialVariable;
-      delegate(set) { return this.specialVariable.Set(value); };
+      get { return (int) (NetFieldBase<int; }, NetInt>) this.specialVariable;
+      set { this.specialVariable.Set(value); }
     }
 
     [XmlIgnore]
     public int Category
     {
-      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.category;
-      delegate(set) { return this.category.Set(value); };
+      get { return (int) (NetFieldBase<int; }, NetInt>) this.category;
+      set { this.category.Set(value); }
     }
 
     [XmlIgnore]
     public bool HasBeenInInventory
     {
-      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.hasbeenInInventory;
-      delegate(set) { return this.hasbeenInInventory.Set(value); };
+      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.hasbeenInInventory;
+      set { this.hasbeenInInventory.Set(value); }
     }
 
     [XmlIgnore]
@@ -77,7 +77,7 @@ namespace StardewValley
 
     public bool IsInfiniteStock() { return this.isLostItem; }
 
-    public void MarkContextTagsDirty() { return this._contextTagsDirty = true; }
+    public void MarkContextTagsDirty() { this._contextTagsDirty = true; }
 
     public List<string> GetContextTagList() { return this.GetContextTags().ToList<string>(); }
 
@@ -282,8 +282,8 @@ namespace StardewValley
     [XmlIgnore]
     public int ParentSheetIndex
     {
-      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.parentSheetIndex;
-      delegate(set) { return this.parentSheetIndex.Value = value; };
+      get { return (int) (NetFieldBase<int; }, NetInt>) this.parentSheetIndex;
+      set { this.parentSheetIndex.Value = value; }
     }
 
     public virtual void drawTooltip(
@@ -350,7 +350,7 @@ namespace StardewValley
       this.drawInMenu(spriteBatch, location, scaleSize, transparency, layerDepth, StackDrawType.Draw, Color.White, true);
     }
 
-    public void drawInMenu(SpriteBatch spriteBatch, Vector2 location, float scaleSize) { return this.drawInMenu(spriteBatch, location, scaleSize, 1f, 0.9f, StackDrawType.Draw, Color.White, true); }
+    public void drawInMenu(SpriteBatch spriteBatch, Vector2 location, float scaleSize) { this.drawInMenu(spriteBatch, location, scaleSize, 1f, 0.9f, StackDrawType.Draw, Color.White, true); }
 
     public abstract int maximumStackSize();
 
@@ -429,8 +429,8 @@ namespace StardewValley
 
     public virtual string Name
     {
-      delegate(get) { return this.netName.Value; };
-      delegate(set) { return this.netName.Value = value; };
+      get { return this.netName.Value; }
+      set { this.netName.Value = value; }
     }
 
     public abstract int Stack { get; set; }
@@ -480,3 +480,6 @@ namespace StardewValley
     }
   }
 }
+
+
+

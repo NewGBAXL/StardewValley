@@ -458,7 +458,7 @@ namespace StardewValley.Monsters
       }
     }
 
-    public override void drawAboveAlwaysFrontLayer(SpriteBatch b) { return base.drawAboveAlwaysFrontLayer(b); }
+    public override void drawAboveAlwaysFrontLayer(SpriteBatch b) { base.drawAboveAlwaysFrontLayer(b); }
 
     public override void behaviorAtGameTick(GameTime time)
     {
@@ -629,3 +629,4 @@ namespace StardewValley.Monsters
     }
   }
 }
+

@@ -39,8 +39,8 @@ namespace StardewValley.Characters
 
     public bool EventActor
     {
-      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.eventActor;
-      delegate(set) { return this.eventActor.Value = value; };
+      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.eventActor;
+      set { this.eventActor.Value = value; }
     }
 
     public Junimo() { return this.forceUpdateTimer = 9999; }
@@ -188,7 +188,7 @@ namespace StardewValley.Characters
       this.alphaChange.Value = (bool) (NetFieldBase<bool, NetBool>) this.stayPut ? -0.005f : -0.015f;
     }
 
-    public void setAlpha(float a) { return this.alpha.Value = a; }
+    public void setAlpha(float a) { this.alpha.Value = a; }
 
     public void fadeBack()
     {
@@ -203,7 +203,7 @@ namespace StardewValley.Characters
       this.motion.Y = (float) ySpeed;
     }
 
-    public void setMoving(Vector2 motion) { return this.motion.Value = motion; }
+    public void setMoving(Vector2 motion) { this.motion.Value = motion; }
 
     public override void Halt()
     {
@@ -226,7 +226,7 @@ namespace StardewValley.Characters
       this.motion.Value = Vector2.Zero;
     }
 
-    public void allowToMoveAgain() { return this.stayPut.Value = false; }
+    public void allowToMoveAgain() { this.stayPut.Value = false; }
 
     private void returnToJunimoHutToFetchFinalStar()
     {
@@ -630,3 +630,6 @@ namespace StardewValley.Characters
     }
   }
 }
+
+
+

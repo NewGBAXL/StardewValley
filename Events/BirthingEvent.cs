@@ -49,7 +49,7 @@ namespace StardewValley.Events
       Game1.exitActiveMenu();
     }
 
-    public void afterMessage() { return this.getBabyName = true; }
+    public void afterMessage() { this.getBabyName = true; }
 
     public bool tickUpdate(GameTime time)
     {
@@ -128,7 +128,7 @@ namespace StardewValley.Events
             {
               this.babyName
             }));
-          Game1.morningQueue.Enqueue((DelayedAction.delayedBehavior) (() => Game1.multiplayer.globalChatInfoMessage("Baby", Lexicon.capitalize(Game1.player.Name), Game1.player.spouse, Lexicon.getGenderedChildTerm(this.isMale), Lexicon.getPronoun(this.isMale), baby.displayName)));
+          Game1.morningQueue.Enqueue((DelayedAction.delayedBehavior) (delegate() { return Game1.multiplayer.globalChatInfoMessage("Baby", Lexicon.capitalize(Game1.player.Name; }), Game1.player.spouse, Lexicon.getGenderedChildTerm(this.isMale), Lexicon.getPronoun(this.isMale), baby.displayName)));
           if (Game1.keyboardDispatcher != null)
             Game1.keyboardDispatcher.Subscriber = (IKeyboardSubscriber) null;
           Game1.player.Position = Utility.PointToVector2(Utility.getHomeOfFarmer(Game1.player).GetPlayerBedSpot()) * 64f;
@@ -152,3 +152,5 @@ namespace StardewValley.Events
     }
   }
 }
+
+

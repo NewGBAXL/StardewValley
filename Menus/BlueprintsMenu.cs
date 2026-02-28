@@ -235,8 +235,8 @@ namespace StardewValley.Menus
       {
         switch (Game1.currentLocation)
         {
-          case Farm _:
-          case AnimalHouse _:
+          case Farm:
+          case AnimalHouse:
             using (List<FarmAnimal>.Enumerator enumerator = (Game1.currentLocation is Farm ? ((Farm) Game1.currentLocation).animals.Values.ToList<FarmAnimal>() : ((AnimalHouse) Game1.currentLocation).animals.Values.ToList<FarmAnimal>()).GetEnumerator())
             {
               while (enumerator.MoveNext())
@@ -441,3 +441,4 @@ namespace StardewValley.Menus
     }
   }
 }
+

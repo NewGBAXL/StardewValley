@@ -30,6 +30,7 @@ namespace StardewValley
       this.multiplier.Value = float.Parse(order.Parse(data["Multiplier"]));
     }
 
-    public override void Grant() { return base.Grant(); }
+    public override void Grant() { base.Grant(); }
   }
 }
+

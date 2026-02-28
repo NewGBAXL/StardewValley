@@ -47,7 +47,7 @@ namespace StardewValley.Characters
 
     public int CurrentBehavior
     {
-      delegate(get) { return this.netCurrentBehavior.Value; };
+      get { return this.netCurrentBehavior.Value; }
       set
       {
         if (this.netCurrentBehavior.Value == value)
@@ -62,9 +62,9 @@ namespace StardewValley.Characters
       this.NetFields.AddFields((INetSerializable) this.netCurrentBehavior, (INetSerializable) this.whichBreed, (INetSerializable) this.friendshipTowardFarmer, (INetSerializable) this.grantedFriendshipForPet, (INetSerializable) this.mutex.NetFields, (INetSerializable) this.lastPetDay, (INetSerializable) this.petAnimationEvent, (INetSerializable) this.isSleepingOnFarmerBed);
       this.name.FilterStringEvent += new NetString.FilterString(Utility.FilterDirtyWords);
       this.petAnimationEvent.onEvent += new AbstractNetEvent1<string>.Event(this.OnPetAnimationEvent);
-      this.friendshipTowardFarmer.fieldChangeVisibleEvent += (NetFieldBase<int, NetInt>.FieldChange) ((field, old_value, new_value) => this.GrantLoveMailIfNecessary());
-      this.isSleepingOnFarmerBed.fieldChangeVisibleEvent += (NetFieldBase<bool, NetBool>.FieldChange) ((a, b, c) => this.UpdateSleepingOnBed());
-      this.whichBreed.fieldChangeVisibleEvent += (NetFieldBase<int, NetInt>.FieldChange) ((a, b, c) => this.reloadBreedSprite());
+      this.friendshipTowardFarmer.fieldChangeVisibleEvent += (NetFieldBase<int, NetInt>.FieldChange) (delegate(field, old_value, new_value) { return this.GrantLoveMailIfNecessary(; }));
+      this.isSleepingOnFarmerBed.fieldChangeVisibleEvent += (NetFieldBase<bool, NetBool>.FieldChange) (delegate(a, b, c) { return this.UpdateSleepingOnBed(; }));
+      this.whichBreed.fieldChangeVisibleEvent += (NetFieldBase<int, NetInt>.FieldChange) (delegate(a, b, c) { return this.reloadBreedSprite(; }));
     }
 
     protected void _FlipFrames()
@@ -444,3 +444,6 @@ namespace StardewValley.Characters
     }
   }
 }
+
+
+

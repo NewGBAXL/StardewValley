@@ -20,24 +20,24 @@ namespace StardewValley
 
     public int Year
     {
-      delegate(get) { return this.year.Value; };
-      delegate(set) { return this.year.Value = value; };
+      get { return this.year.Value; }
+      set { this.year.Value = value; }
     }
 
     [XmlIgnore]
     public int SeasonIndex
     {
-      delegate(get) { return this.seasonIndex.Value; };
-      internal delegate(set) { return this.seasonIndex.Value = value; };
+      get { return this.seasonIndex.Value; }
+      internal set { get { return this.seasonIndex.Value = value; }
     }
 
     public int DayOfMonth
     {
-      delegate(get) { return this.dayOfMonth.Value; };
-      delegate(set) { return this.dayOfMonth.Value = value; };
+      get { return this.dayOfMonth.Value; }
+      set { this.dayOfMonth.Value = value; }
     }
 
-    public DayOfWeek delegate(DayOfWeek) { return (DayOfWeek) (this.DayOfMonth % 7); };
+    public DayOfWeek DayOfWeek { get { return (DayOfWeek) (this.DayOfMonth % 7); }
 
     public string Season
     {
@@ -82,7 +82,7 @@ namespace StardewValley
 
     public int TotalDays
     {
-      delegate(get) { return ((this.Year - 1) * 4 + this.SeasonIndex) * 28 + (this.DayOfMonth - 1); };
+      get { return ((this.Year - 1) * 4 + this.SeasonIndex) * 28 + (this.DayOfMonth - 1); }
       set
       {
         int num = value / 28;
@@ -92,9 +92,9 @@ namespace StardewValley
       }
     }
 
-    public int delegate(TotalWeeks) { return this.TotalDays / 7; };
+    public int TotalWeeks { get { return this.TotalDays / 7; }
 
-    public int delegate(TotalSundayWeeks) { return (this.TotalDays + 1) / 7; };
+    public int TotalSundayWeeks { get { return (this.TotalDays + 1) / 7; }
 
     public NetFields NetFields { get; } = new NetFields();
 
@@ -163,3 +163,7 @@ namespace StardewValley
     }
   }
 }
+
+
+
+

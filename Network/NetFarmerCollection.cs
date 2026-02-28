@@ -73,7 +73,7 @@ namespace StardewValley.Network
       int num = this.uids.Count();
       if (num == 0)
         return false;
-      this.uids.Filter((Func<KeyValuePair<long, bool>, bool>) (delegate(x) { return NetFarmerCollection.playerIsOnline(x.Key))); };
+      this.uids.Filter((Func<KeyValuePair<long, bool>, bool>) (x { return NetFarmerCollection.playerIsOnline(x.Key))); }
       this.farmers.Clear();
       foreach (long key in this.uids.Keys)
       {
@@ -141,3 +141,4 @@ namespace StardewValley.Network
     public delegate void FarmerEvent(Farmer f);
   }
 }
+

@@ -44,8 +44,8 @@ namespace StardewValley.Objects
 
     public int Price
     {
-      delegate(set) { return this.price.Value = value; };
-      delegate(get) { return this.price.Value; };
+      set { this.price.Value = value; }
+      get { return this.price.Value; }
     }
 
     public Clothing()
@@ -261,13 +261,13 @@ namespace StardewValley.Objects
           this.LoadData();
         return this.displayName;
       }
-      delegate(set) { return this.displayName = value; };
+      set { this.displayName = value; }
     }
 
     [XmlIgnore]
     public override int Stack
     {
-      delegate(get) { return 1; };
+      get { return 1; }
       set
       {
       }
@@ -289,3 +289,6 @@ namespace StardewValley.Objects
     }
   }
 }
+
+
+

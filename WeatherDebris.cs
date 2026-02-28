@@ -56,7 +56,7 @@ namespace StardewValley
       }
     }
 
-    public void update() { return this.update(false); }
+    public void update() { this.update(false); }
 
     public void update(bool slow)
     {
@@ -133,6 +133,7 @@ namespace StardewValley
       }
     }
 
-    public void draw(SpriteBatch b) { return b.Draw(Game1.mouseCursors, this.position, new Rectangle?(this.sourceRect), Color.White, 0.0f, Vector2.Zero, 3f, SpriteEffects.None, 1E-06f); }
+    public void draw(SpriteBatch b) { b.Draw(Game1.mouseCursors, this.position, new Rectangle?(this.sourceRect), Color.White, 0.0f, Vector2.Zero, 3f, SpriteEffects.None, 1E-06f); }
   }
 }
+

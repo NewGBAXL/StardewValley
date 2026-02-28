@@ -40,20 +40,20 @@ namespace StardewValley
 
     public int debrisType
     {
-      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.netDebrisType;
-      delegate(set) { return this.netDebrisType.Value = value; };
+      get { return (int) (NetFieldBase<int; }, NetInt>) this.netDebrisType;
+      set { this.netDebrisType.Value = value; }
     }
 
     public float scale
     {
-      delegate(get) { return (float) (NetFieldBase<float; }, NetFloat>) this.netScale;
-      delegate(set) { return this.netScale.Value = value; };
+      get { return (float) (NetFieldBase<float; }, NetFloat>) this.netScale;
+      set { this.netScale.Value = value; }
     }
 
     public float alpha
     {
-      delegate(get) { return (float) (NetFieldBase<float; }, NetFloat>) this.netAlpha;
-      delegate(set) { return this.netAlpha.Value = value; };
+      get { return (float) (NetFieldBase<float; }, NetFloat>) this.netAlpha;
+      set { this.netAlpha.Value = value; }
     }
 
     [XmlIgnore]
@@ -81,3 +81,6 @@ namespace StardewValley
     public float getSpeed() { return (float) Math.Sqrt((double) (float) (NetFieldBase<float, NetFloat>) this.xVelocity * (double) (float) (NetFieldBase<float, NetFloat>) this.xVelocity + (double) (float) (NetFieldBase<float, NetFloat>) this.yVelocity * (double) (float) (NetFieldBase<float, NetFloat>) this.yVelocity); }
   }
 }
+
+
+

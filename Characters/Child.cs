@@ -59,7 +59,7 @@ namespace StardewValley.Characters
     {
       base.initNetFields();
       this.NetFields.AddFields((INetSerializable) this.setStateEvent, (INetSerializable) this.darkSkinned, (INetSerializable) this.daysOld, (INetSerializable) this.idOfParent, (INetSerializable) this.mutex.NetFields, (INetSerializable) this.hat);
-      this.age.fieldChangeVisibleEvent += (NetFieldBase<int, NetInt>.FieldChange) ((a, b, c) => this.reloadSprite());
+      this.age.fieldChangeVisibleEvent += (NetFieldBase<int, NetInt>.FieldChange) (delegate(a, b, c) { return this.reloadSprite(; }));
       this.setStateEvent.onEvent += new AbstractNetEvent1<int>.Event(this.doSetState);
       this.name.FilterStringEvent += new NetString.FilterString(Utility.FilterDirtyWords);
     }
@@ -386,7 +386,7 @@ namespace StardewValley.Characters
       }
     }
 
-    private void setState(int state) { return this.setStateEvent.Fire(state); }
+    private void setState(int state) { this.setStateEvent.Fire(state); }
 
     private void doSetState(int state)
     {
@@ -522,7 +522,7 @@ namespace StardewValley.Characters
       if (farmerMaybeOffline == null)
         return this.Gender;
       List<Child> children = farmerMaybeOffline.getChildren();
-      children.Sort((Comparison<Child>) ((a, b) => a.daysOld.Value.CompareTo(b.daysOld.Value)));
+      children.Sort((Comparison<Child>) (delegate(a, b) { return a.daysOld.Value.CompareTo(b.daysOld.Value; })));
       children.Reverse();
       return children.IndexOf(this);
     }
@@ -989,6 +989,8 @@ namespace StardewValley.Characters
       this.hat.Value.draw(b, this.getLocalPosition(Game1.viewport) + vector2 + new Vector2(30f, -42f), 1.333333f, 1f, layerDepth, direction);
     }
 
-    public override void behaviorOnLocalFarmerLocationEntry(GameLocation location) { return this.reloadSprite(); }
+    public override void behaviorOnLocalFarmerLocationEntry(GameLocation location) { this.reloadSprite(); }
   }
 }
+
+

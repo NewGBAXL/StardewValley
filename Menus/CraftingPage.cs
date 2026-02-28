@@ -133,7 +133,7 @@ namespace StardewValley.Menus
       this.snapToDefaultClickableComponent();
     }
 
-    protected override void cleanupBeforeExit() { return base.cleanupBeforeExit(); }
+    protected override void cleanupBeforeExit() { base.cleanupBeforeExit(); }
 
     protected virtual IList<Item> getContainerContents()
     {
@@ -570,3 +570,4 @@ namespace StardewValley.Menus
     }
   }
 }
+

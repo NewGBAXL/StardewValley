@@ -37,7 +37,7 @@ namespace StardewValley
       if (!Program.releaseBuild)
         this.InactiveSleepTime = new TimeSpan(0L);
       Game1.graphics = new GraphicsDeviceManager((Game) this);
-      Game1.graphics.PreparingDeviceSettings += (EventHandler<PreparingDeviceSettingsEventArgs>) ((sender, args) => args.GraphicsDeviceInformation.PresentationParameters.RenderTargetUsage = RenderTargetUsage.PreserveContents);
+      Game1.graphics.PreparingDeviceSettings += (EventHandler<PreparingDeviceSettingsEventArgs>) (delegate(sender, args) { return args.GraphicsDeviceInformation.PresentationParameters.RenderTargetUsage = RenderTargetUsage.PreserveContents; });
       Game1.graphics.PreferredBackBufferWidth = 1280;
       Game1.graphics.PreferredBackBufferHeight = 720;
       this.Content.RootDirectory = "Content";
@@ -48,17 +48,17 @@ namespace StardewValley
       this.SubscribeClientSizeChange();
       this.Exiting += (EventHandler<EventArgs>) ((sender, args) =>
       {
-        this.ExecuteForInstances((Action<Game1>) (delegate(instance) { return instance.exitEvent(sender; }, args)));
+        this.ExecuteForInstances((Action<Game1>) (instance { return instance.exitEvent(sender; }, args)));
         Process.GetCurrentProcess().Kill();
       });
       Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
-      LocalizedContentManager.OnLanguageChange += (LocalizedContentManager.LanguageChangedHandler) (delegate(code) { return this.ExecuteForInstances((Action<Game1>) (instance => instance.TranslateFields()))); };
+      LocalizedContentManager.OnLanguageChange += (LocalizedContentManager.LanguageChangedHandler) (code { return this.ExecuteForInstances((Action<Game1>) (instance => instance.TranslateFields()))); };
       DebugTools.GameConstructed((Game) this);
     }
 
-    protected override void OnActivated(object sender, EventArgs args) { return this.ExecuteForInstances((Action<Game1>) (delegate(instance) { return instance.Instance_OnActivated(sender; }, args))); }
+    protected override void OnActivated(object sender, EventArgs args) { this.ExecuteForInstances((Action<Game1>) (instance { return instance.Instance_OnActivated(sender; }, args))); }
 
-    public void SubscribeClientSizeChange() { return this.Window.ClientSizeChanged += new EventHandler<EventArgs>(this.OnWindowSizeChange); }
+    public void SubscribeClientSizeChange() { this.Window.ClientSizeChanged += new EventHandler<EventArgs>(this.OnWindowSizeChange); }
 
     public void OnWindowSizeChange(object sender, EventArgs args)
     {
@@ -68,15 +68,15 @@ namespace StardewValley
 
     protected override bool BeginDraw() { return base.BeginDraw(); }
 
-    protected override void BeginRun() { return base.BeginRun(); }
+    protected override void BeginRun() { base.BeginRun(); }
 
-    protected override void Dispose(bool disposing) { return base.Dispose(disposing); }
+    protected override void Dispose(bool disposing) { base.Dispose(disposing); }
 
     protected override void Draw(GameTime gameTime)
     {
       if (this._windowSizeChanged)
       {
-        this.ExecuteForInstances((Action<Game1>) (delegate(instance) { return instance.Window_ClientSizeChanged((object) null; }, (EventArgs) null)));
+        this.ExecuteForInstances((Action<Game1>) (instance { return instance.Window_ClientSizeChanged((object) null; }, (EventArgs) null)));
         this._windowSizeChanged = false;
         this.SubscribeClientSizeChange();
       }
@@ -150,9 +150,9 @@ namespace StardewValley
       return (Game1) null;
     }
 
-    protected override void EndDraw() { return base.EndDraw(); }
+    protected override void EndDraw() { base.EndDraw(); }
 
-    protected override void EndRun() { return base.EndRun(); }
+    protected override void EndRun() { base.EndRun(); }
 
     protected override void Initialize()
     {
@@ -402,3 +402,6 @@ namespace StardewValley
     }
   }
 }
+
+
+

@@ -40,7 +40,7 @@ namespace StardewValley.Monsters
       this.NetFields.AddFields((INetSerializable) this.casting);
     }
 
-    public override void reloadSprite() { return this.Sprite = new AnimatedSprite("Characters\\Monsters\\Shadow Shaman"); }
+    public override void reloadSprite() { this.Sprite = new AnimatedSprite("Characters\\Monsters\\Shadow Shaman"); }
 
     public override void draw(SpriteBatch b)
     {
@@ -268,3 +268,4 @@ namespace StardewValley.Monsters
     }
   }
 }
+

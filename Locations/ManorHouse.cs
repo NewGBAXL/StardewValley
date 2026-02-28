@@ -137,7 +137,7 @@ namespace StardewValley.Locations
       }
     }
 
-    protected override void resetLocalState() { return base.resetLocalState(); }
+    protected override void resetLocalState() { base.resetLocalState(); }
 
     public void CheckLostAndFound()
     {
@@ -250,13 +250,13 @@ namespace StardewValley.Locations
       }
       else
       {
-        responseList.Sort((Comparison<Response>) ((x, y) => string.Compare(x.responseKey, y.responseKey)));
+        responseList.Sort((Comparison<Response>) (delegate(x, y) { return string.Compare(x.responseKey, y.responseKey; })));
         responseList.Add(new Response("Cancel", Game1.content.LoadString("Strings\\Locations:ManorHouse_LedgerBook_TransferCancel")));
         Game1.currentLocation.createQuestionDialogue(Game1.content.LoadString("Strings\\Locations:ManorHouse_LedgerBook_SeparateWallets_TransferQuestion"), responseList.ToArray(), "chooseRecipient");
       }
     }
 
-    private void beginSendMoney(Farmer recipient) { return Game1.activeClickableMenu = (IClickableMenu) new DigitEntryMenu(Game1.content.LoadString("Strings\\Locations:ManorHouse_LedgerBook_SeparateWallets_HowMuchQuestion"), (NumberSelectionMenu.behaviorOnNumberSelect) ((currentValue, price, who) => this.sendMoney(recipient, currentValue)), minValue: 1, maxValue: Game1.player.Money); }
+    private void beginSendMoney(Farmer recipient) { Game1.activeClickableMenu = (IClickableMenu) new DigitEntryMenu(Game1.content.LoadString("Strings\\Locations:ManorHouse_LedgerBook_SeparateWallets_HowMuchQuestion"), (NumberSelectionMenu.behaviorOnNumberSelect) (delegate(currentValue, price, who) { return this.sendMoney(recipient, currentValue; })), minValue: 1, maxValue: Game1.player.Money); }
 
     public void sendMoney(Farmer recipient, int amount)
     {
@@ -423,3 +423,5 @@ namespace StardewValley.Locations
     }
   }
 }
+
+

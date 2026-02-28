@@ -14,12 +14,12 @@ namespace StardewValley
   {
     protected override bool _AttemptActivity(Farm farm)
     {
-      TerrainFeature randomTerrainFeature = this.GetRandomTerrainFeature(farm, (Func<TerrainFeature, bool>) (delegate(feature) { return {; }
+      TerrainFeature randomTerrainFeature = this.GetRandomTerrainFeature(farm, (Func<TerrainFeature, bool>) (feature { return {; }
         switch (feature)
         {
           case Tree _ when (feature as Tree).growthStage.Value >= 5:
             return true;
-          case FruitTree _:
+          case FruitTree:
             return (feature as FruitTree).growthStage.Value >= 4;
           default:
             return false;
@@ -45,8 +45,8 @@ namespace StardewValley
             {
               switch (farm.terrainFeatures[new Vector2((float) left, (float) top)])
               {
-                case Tree _:
-                case FruitTree _:
+                case Tree:
+                case FruitTree:
                   return false;
                 default:
                   continue;
@@ -76,6 +76,9 @@ namespace StardewValley
       }
     }
 
-    protected override void _EndActivity() { return this._character.EndActivityRouteEndBehavior(); }
+    protected override void _EndActivity() { this._character.EndActivityRouteEndBehavior(); }
   }
 }
+
+
+

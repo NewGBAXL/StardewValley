@@ -37,7 +37,7 @@ namespace StardewValley.Monsters
       this.Halt();
     }
 
-    public override void reloadSprite() { return this.Sprite = new AnimatedSprite("Characters\\Monsters\\Shadow " + ((double) this.Position.X % 4.0 == 0.0 ? "Girl" : "Guy")); }
+    public override void reloadSprite() { this.Sprite = new AnimatedSprite("Characters\\Monsters\\Shadow " + ((double) this.Position.X % 4.0 == 0.0 ? "Girl" : "Guy")); }
 
     public override void draw(SpriteBatch b)
     {
@@ -97,7 +97,7 @@ namespace StardewValley.Monsters
       return damage1;
     }
 
-    protected override void localDeathAnimation() { return this.currentLocation.temporarySprites.Add(new TemporaryAnimatedSprite(45, this.Position, Color.White, 10)); }
+    protected override void localDeathAnimation() { this.currentLocation.temporarySprites.Add(new TemporaryAnimatedSprite(45, this.Position, Color.White, 10)); }
 
     protected override void sharedDeathAnimation()
     {
@@ -224,3 +224,4 @@ namespace StardewValley.Monsters
     }
   }
 }
+

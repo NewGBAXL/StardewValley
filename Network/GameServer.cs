@@ -38,7 +38,7 @@ namespace StardewValley.Network
       this.servers.Add(Program.sdk.Networking.CreateServer((IGameServer) this));
     }
 
-    public int delegate(connectionsCount) { return this.servers.Sum<Server>((Func<Server; }, int>) (delegate(s) { return s.connectionsCount)); };
+    public int connectionsCount { get { return this.servers.Sum<Server>((Func<Server; }, int>) (s { return s.connectionsCount)); };
 
     public bool isConnectionActive(string connectionId)
     {
@@ -50,7 +50,7 @@ namespace StardewValley.Network
       return false;
     }
 
-    public virtual void onConnect(string connectionID) { return this.UpdateLocalOnlyFlag(); }
+    public virtual void onConnect(string connectionID) { this.UpdateLocalOnlyFlag(); }
 
     public virtual void onDisconnect(string connectionID)
     {
@@ -72,7 +72,7 @@ namespace StardewValley.Network
         return;
       bool flag = true;
       HashSet<long> local_clients = new HashSet<long>();
-      GameRunner.instance.ExecuteForInstances((Action<Game1>) (delegate(instance) { return {; }
+      GameRunner.instance.ExecuteForInstances((Action<Game1>) (instance { return {; }
         Client client = Game1.client;
         if (client == null && Game1.activeClickableMenu is FarmhandMenu)
           client = (Game1.activeClickableMenu as FarmhandMenu).client;
@@ -201,12 +201,12 @@ namespace StardewValley.Network
 
     public bool canAcceptIPConnections()
     {
-      return this.servers.Select<Server, bool>((Func<Server, bool>) (delegate(s) { return s.canAcceptIPConnections(); })).Aggregate<bool>(false, (Func<bool, bool, bool>) ((a, b) => a | b));
+      return this.servers.Select<Server, bool>((Func<Server, bool>) (s { return s.canAcceptIPConnections(); })).Aggregate<bool>(false, (Func<bool, bool, bool>) (delegate(a, b) { return a | b; }));
     }
 
     public bool canOfferInvite()
     {
-      return this.servers.Select<Server, bool>((Func<Server, bool>) (delegate(s) { return s.canOfferInvite(); })).Aggregate<bool>(false, (Func<bool, bool, bool>) ((a, b) => a | b));
+      return this.servers.Select<Server, bool>((Func<Server, bool>) (s { return s.canOfferInvite(); })).Aggregate<bool>(false, (Func<bool, bool, bool>) (delegate(a, b) { return a | b; }));
     }
 
     public void offerInvite()
@@ -610,7 +610,7 @@ namespace StardewValley.Network
       else
         this.setLobbyData("modFarmType", "");
       this.setLobbyData("date", Convert.ToString(new WorldDate(Game1.year, Game1.currentSeason, Game1.dayOfMonth).TotalDays));
-      this.setLobbyData("farmhands", string.Join(",", Game1.getAllFarmhands().Select<Farmer, string>((Func<Farmer, string>) (delegate(farmhand) { return farmhand.userID.Value)).Where<string>((Func<string; }, bool>) (delegate(user) { return user != "")))); };
+      this.setLobbyData("farmhands", string.Join(",", Game1.getAllFarmhands().Select<Farmer, string>((Func<Farmer, string>) (farmhand { return farmhand.userID.Value)).Where<string>((Func<string; }, bool>) (user { return user != "")))); };
       this.setLobbyData("newFarmhands", Convert.ToString(Game1.options.enableFarmhandCreation && this.unclaimedFarmhandsExist()));
     }
 
@@ -652,3 +652,6 @@ namespace StardewValley.Network
     }
   }
 }
+
+
+

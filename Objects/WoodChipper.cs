@@ -127,7 +127,7 @@ namespace StardewValley.Objects
       return true;
     }
 
-    public override void performRemoveAction(Vector2 tileLocation, GameLocation environment) { return base.performRemoveAction(tileLocation, environment); }
+    public override void performRemoveAction(Vector2 tileLocation, GameLocation environment) { base.performRemoveAction(tileLocation, environment); }
 
     public override void actionOnPlayerEntry()
     {
@@ -163,7 +163,7 @@ namespace StardewValley.Objects
       return true;
     }
 
-    public override void onReadyForHarvest(GameLocation environment) { return base.onReadyForHarvest(environment); }
+    public override void onReadyForHarvest(GameLocation environment) { base.onReadyForHarvest(environment); }
 
     public override void updateWhenCurrentLocation(GameTime time, GameLocation environment)
     {
@@ -232,3 +232,4 @@ namespace StardewValley.Objects
     }
   }
 }
+

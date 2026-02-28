@@ -112,7 +112,7 @@ namespace StardewValley.Menus
 
     public static IClickableMenu subMenu
     {
-      delegate(get) { return TitleMenu._subMenu; };
+      get { return TitleMenu._subMenu; }
       set
       {
         if (TitleMenu._subMenu != null)
@@ -146,7 +146,7 @@ namespace StardewValley.Menus
       this.titleInPosition = true;
     }
 
-    public bool delegate(HasActiveUser) { return true; };
+    public bool HasActiveUser { get { return true; }
 
     public TitleMenu()
       : base(0, 0, Game1.uiViewport.Width, Game1.uiViewport.Height)
@@ -490,7 +490,7 @@ namespace StardewValley.Menus
     }
 
     [STAThread]
-    private void GetSaveFileInClipboard() { return this.debugSaveFileToTry = (string) null; }
+    private void GetSaveFileInClipboard() { this.debugSaveFileToTry = (string) null; }
 
     public override void receiveKeyPress(Keys key)
     {
@@ -623,7 +623,7 @@ namespace StardewValley.Menus
       this.buttonsDX = -1;
       switch (TitleMenu.subMenu)
       {
-        case AboutMenu _:
+        case AboutMenu:
           TitleMenu.subMenu = (IClickableMenu) null;
           this.buttonsDX = 0;
           if (!Game1.options.SnappyMenus)
@@ -632,7 +632,7 @@ namespace StardewValley.Menus
           this.snapCursorToCurrentSnappedComponent();
           break;
         case TitleTextInputMenu _ when (TitleMenu.subMenu as TitleTextInputMenu).context == "join_menu":
-        case FarmhandMenu _:
+        case FarmhandMenu:
           this.buttonsDX = 0;
           ((CoopMenu) (TitleMenu.subMenu = (IClickableMenu) new CoopMenu(false))).SetTab(CoopMenu.Tab.JOIN_TAB, false);
           if (!Game1.options.SnappyMenus)
@@ -661,7 +661,7 @@ namespace StardewValley.Menus
     {
       lock (this)
         this.hasRoomAnotherFarm = new bool?();
-      Game1.GetHasRoomAnotherFarmAsync((ReportHasRoomAnotherFarm) (delegate(yes) { return {; }
+      Game1.GetHasRoomAnotherFarmAsync((ReportHasRoomAnotherFarm) (yes { return {; }
         lock (this)
           this.hasRoomAnotherFarm = new bool?(yes);
       }));
@@ -674,8 +674,8 @@ namespace StardewValley.Menus
       this.buttonsDX = -1;
       switch (TitleMenu.subMenu)
       {
-        case AboutMenu _:
-        case LanguageSelectionMenu _:
+        case AboutMenu:
+        case LanguageSelectionMenu:
           TitleMenu.subMenu = (IClickableMenu) null;
           this.buttonsDX = 0;
           break;
@@ -763,8 +763,8 @@ namespace StardewValley.Menus
           this.buttonsDX = -1;
           switch (TitleMenu.subMenu)
           {
-            case AboutMenu _:
-            case LanguageSelectionMenu _:
+            case AboutMenu:
+            case LanguageSelectionMenu:
               TitleMenu.subMenu = (IClickableMenu) null;
               this.buttonsDX = 0;
               break;
@@ -1583,8 +1583,8 @@ namespace StardewValley.Menus
       switch (TitleMenu.subMenu)
       {
         case null:
-        case AboutMenu _:
-        case LanguageSelectionMenu _:
+        case AboutMenu:
+        case LanguageSelectionMenu:
           b.Draw(Game1.staminaRect, new Rectangle(0, 0, this.width, this.height), new Color(64, 136, 248));
           b.Draw(Game1.mouseCursors, new Rectangle(0, (int) (-900.0 - (double) this.viewportY * 0.660000026226044), this.width, 900 + this.height - 360), new Rectangle?(new Rectangle(703, 1912, 1, 264)), Color.White);
           if (!this.whichSubMenu.Equals("Load"))
@@ -1922,3 +1922,7 @@ namespace StardewValley.Menus
     }
   }
 }
+
+
+
+

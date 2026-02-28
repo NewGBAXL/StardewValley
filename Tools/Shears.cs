@@ -49,10 +49,10 @@ namespace StardewValley.Tools
       Rectangle toolRect = new Rectangle(x - 32, y - 32, 64, 64);
       switch (location)
       {
-        case Farm _:
+        case Farm:
           this.animal = Utility.GetBestHarvestableFarmAnimal((IEnumerable<FarmAnimal>) (location as Farm).animals.Values, (Tool) this, toolRect);
           break;
-        case AnimalHouse _:
+        case AnimalHouse:
           this.animal = Utility.GetBestHarvestableFarmAnimal((IEnumerable<FarmAnimal>) (location as AnimalHouse).animals.Values, (Tool) this, toolRect);
           break;
       }
@@ -65,7 +65,7 @@ namespace StardewValley.Tools
       return true;
     }
 
-    public static void playSnip(Farmer who) { return who.currentLocation.playSound("scissors"); }
+    public static void playSnip(Farmer who) { who.currentLocation.playSound("scissors"); }
 
     public override void tickUpdate(GameTime time, Farmer who)
     {
@@ -112,7 +112,7 @@ namespace StardewValley.Tools
       this.finish();
     }
 
-    private void finish() { return this.finishEvent.Fire(); }
+    private void finish() { this.finishEvent.Fire(); }
 
     private void doFinish()
     {
@@ -124,3 +124,5 @@ namespace StardewValley.Tools
     }
   }
 }
+
+

@@ -25,7 +25,7 @@ namespace StardewValley.Objects
       this.NetFields.AddField((INetSerializable) this.combinedRings);
     }
 
-    public virtual void UpdateDescription() { return this.loadDisplayFields(); }
+    public virtual void UpdateDescription() { this.loadDisplayFields(); }
 
     protected override bool loadDisplayFields()
     {
@@ -190,3 +190,4 @@ namespace StardewValley.Objects
     }
   }
 }
+

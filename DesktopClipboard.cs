@@ -57,7 +57,7 @@ namespace StardewValley
       {
         RedirectStandardInput = true,
         UseShellExecute = false
-      };
+      }
       try
       {
         using (Process process = Process.Start(startInfo))
@@ -80,7 +80,7 @@ namespace StardewValley
       {
         RedirectStandardOutput = true,
         UseShellExecute = false
-      };
+      }
       try
       {
         using (Process process = Process.Start(startInfo))
@@ -99,3 +99,5 @@ namespace StardewValley
     }
   }
 }
+
+

@@ -13,17 +13,19 @@ namespace StardewValley
     protected override void _ApplyTo(Item item)
     {
       base._ApplyTo(item);
-      if (!(item is MeleeWeapon meleeWeapon))
-        return;
-      meleeWeapon.critMultiplier.Value += 0.1f * (float) this.GetLevel();
+       MeleeWeapon meleeWeapon = item as MeleeWeapon;
+       if (meleeWeapon == null)
+         return;
+       meleeWeapon.critMultiplier.Value += 0.1f * (float) this.GetLevel();
     }
 
     protected override void _UnapplyTo(Item item)
     {
       base._UnapplyTo(item);
-      if (!(item is MeleeWeapon meleeWeapon))
-        return;
-      meleeWeapon.critMultiplier.Value -= 0.1f * (float) this.GetLevel();
+       MeleeWeapon meleeWeapon = item as MeleeWeapon;
+       if (meleeWeapon == null)
+         return;
+       meleeWeapon.critMultiplier.Value -= 0.1f * (float) this.GetLevel();
     }
 
     public override bool ShouldBeDisplayed() { return false; }

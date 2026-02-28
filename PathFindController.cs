@@ -419,8 +419,8 @@ namespace StardewValley
 
     public static bool IsPositionImpassableOnFarm(GameLocation loc, int x, int y)
     {
-      if (loc is Farm farm)
-      {
+      Farm farm = loc as Farm;
+      if (farm != ) {
         NPC.isCheckingSpouseTileOccupancy = true;
         if (farm.isTileOccupied(new Vector2((float) x, (float) y), "", true))
         {
@@ -624,3 +624,4 @@ namespace StardewValley
     public delegate void endBehavior(Character c, GameLocation location);
   }
 }
+

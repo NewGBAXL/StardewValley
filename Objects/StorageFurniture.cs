@@ -55,12 +55,12 @@ namespace StardewValley.Objects
       return true;
     }
 
-    public virtual void ShowMenu() { return this.ShowShopMenu(); }
+    public virtual void ShowMenu() { this.ShowShopMenu(); }
 
     public virtual void ShowChestMenu()
     {
       ItemGrabMenu itemGrabMenu = new ItemGrabMenu((IList<Item>) this.heldItems, false, true, new InventoryMenu.highlightThisItem(InventoryMenu.highlightAllItems), new ItemGrabMenu.behaviorOnItemSelect(this.GrabItemFromInventory), (string) null, new ItemGrabMenu.behaviorOnItemSelect(this.GrabItemFromChest), canBeExitedWithKey: true, showOrganizeButton: true, source: 1, sourceItem: ((Item) this), context: ((object) this));
-      itemGrabMenu.behaviorBeforeCleanup = (Action<IClickableMenu>) (delegate(menu) { return {; }
+      itemGrabMenu.behaviorBeforeCleanup = (Action<IClickableMenu>) (menu { return {; }
         this.mutex.ReleaseLock();
         this.OnMenuClose();
       });
@@ -139,7 +139,7 @@ namespace StardewValley.Objects
         };
       ShopMenu shopMenu = new ShopMenu(itemPriceAndStock, on_purchase: new Func<ISalable, Farmer, int, bool>(this.onDresserItemWithdrawn), on_sell: new Func<ISalable, bool>(this.onDresserItemDeposited), context: this.GetShopMenuContext());
       shopMenu.source = (object) this;
-      shopMenu.behaviorBeforeCleanup = (Action<IClickableMenu>) (delegate(menu) { return {; }
+      shopMenu.behaviorBeforeCleanup = (Action<IClickableMenu>) (menu { return {; }
         this.mutex.ReleaseLock();
         this.OnMenuClose();
       });
@@ -227,3 +227,5 @@ namespace StardewValley.Objects
     }
   }
 }
+
+

@@ -518,7 +518,7 @@ namespace StardewValley.Minigames
         if (this.Position.X < 0 || this.Position.Right > TargetGame.Target.spawnRightPosition + 64)
           return true;
         bool projectileHit = false;
-        location.projectiles.Filter((Func<Projectile, bool>) (delegate(projectile) { return {; }
+        location.projectiles.Filter((Func<Projectile, bool>) (projectile { return {; }
           if (projectile.getBoundingBox().Intersects(this.Position))
           {
             this.shatter(location, projectile);
@@ -571,3 +571,4 @@ namespace StardewValley.Minigames
     }
   }
 }
+

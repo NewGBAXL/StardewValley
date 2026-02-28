@@ -125,7 +125,7 @@ namespace StardewValley.Tools
       this.finish();
     }
 
-    private void finish() { return this.finishEvent.Fire(); }
+    private void finish() { this.finishEvent.Fire(); }
 
     private void doFinish()
     {
@@ -137,3 +137,4 @@ namespace StardewValley.Tools
     }
   }
 }
+

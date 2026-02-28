@@ -113,7 +113,7 @@ namespace StardewValley.TerrainFeatures
       }
     }
 
-    public override void OnAddedToLocation(GameLocation location, Vector2 tile) { return this.loadSprite(); }
+    public override void OnAddedToLocation(GameLocation location, Vector2 tile) { this.loadSprite(); }
 
     public override Rectangle getBoundingBox(Vector2 tileLocation) { return new Rectangle((int) ((double) tileLocation.X * 64.0), (int) ((double) tileLocation.Y * 64.0), 64, 64); }
 
@@ -355,3 +355,4 @@ namespace StardewValley.TerrainFeatures
     }
   }
 }
+

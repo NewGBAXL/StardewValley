@@ -45,7 +45,7 @@ namespace StardewValley.Monsters
 
     public override int GetBaseDifficultyLevel() { return 1; }
 
-    public virtual void OnFire() { return this.shakeTimer = 250; }
+    public virtual void OnFire() { this.shakeTimer = 250; }
 
     public override bool ShouldActuallyMoveAwayFromPlayer() { return this.Player != null && Math.Abs(this.Player.getTileX() - this.getTileX()) < this.desiredDistance && Math.Abs(this.Player.getTileY() - this.getTileY()) < this.desiredDistance || base.ShouldActuallyMoveAwayFromPlayer(); }
 
@@ -265,3 +265,4 @@ namespace StardewValley.Monsters
     }
   }
 }
+

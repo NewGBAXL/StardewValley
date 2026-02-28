@@ -122,7 +122,7 @@ namespace StardewValley.Objects
 
     public override bool performToolAction(Tool t, GameLocation location) { return false; }
 
-    public override void updateWhenCurrentLocation(GameTime time, GameLocation environment) { return this.itemModifyMutex.Update(environment); }
+    public override void updateWhenCurrentLocation(GameTime time, GameLocation environment) { this.itemModifyMutex.Update(environment); }
 
     public override bool onExplosion(Farmer who, GameLocation location) { return false; }
 
@@ -147,3 +147,4 @@ namespace StardewValley.Objects
     }
   }
 }
+

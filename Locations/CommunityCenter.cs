@@ -70,10 +70,10 @@ namespace StardewValley.Locations
     private ICue buildUpSound;
 
     [XmlElement("bundles")]
-    public NetBundles delegate(bundles) { return Game1.netWorldState.Value.Bundles; };
+    public NetBundles bundles { get { return Game1.netWorldState.Value.Bundles; };
 
     [XmlElement("bundleRewards")]
-    public NetIntDictionary<bool, NetBool> delegate(bundleRewards) { return Game1.netWorldState.Value.BundleRewards; };
+    public NetIntDictionary<bool, NetBool> bundleRewards { get { return Game1.netWorldState.Value.BundleRewards; };
 
     public CommunityCenter()
     {
@@ -262,7 +262,7 @@ namespace StardewValley.Locations
       return num;
     }
 
-    public void addStarToPlaque() { return ++this.numberOfStarsOnPlaque.Value; }
+    public void addStarToPlaque() { ++this.numberOfStarsOnPlaque.Value; }
 
     private string getMessageForAreaCompletion()
     {
@@ -292,7 +292,7 @@ namespace StardewValley.Locations
       return numberOfAreasComplete;
     }
 
-    public Dictionary<int, bool[]> bundlesDict() { return this.bundles.Pairs.Select<KeyValuePair<int, bool[]>, KeyValuePair<int, bool[]>>((Func<KeyValuePair<int, bool[]>, KeyValuePair<int, bool[]>>) (delegate(kvp) { return new KeyValuePair<int; }, bool[]>(kvp.Key, ((IEnumerable<bool>) kvp.Value).ToArray<bool>()))).ToDictionary<KeyValuePair<int, bool[]>, int, bool[]>((Func<KeyValuePair<int, bool[]>, int>) (delegate(x) { return x.Key); }, (Func<KeyValuePair<int, bool[]>, bool[]>) (delegate(y) { return y.Value)); }; }
+    public Dictionary<int, bool[]> bundlesDict() { return this.bundles.Pairs.Select<KeyValuePair<int, bool[]>, KeyValuePair<int, bool[]>>((Func<KeyValuePair<int, bool[]>, KeyValuePair<int, bool[]>>) (kvp { return new KeyValuePair<int; }, bool[]>(kvp.Key, ((IEnumerable<bool>) kvp.Value).ToArray<bool>()))).ToDictionary<KeyValuePair<int, bool[]>, int, bool[]>((Func<KeyValuePair<int, bool[]>, int>) (x { return x.Key); }, (Func<KeyValuePair<int, bool[]>, bool[]>) (y { return y.Value)); }; }
 
     public override bool performAction(string action, Farmer who, Location tileLocation)
     {
@@ -314,7 +314,7 @@ namespace StardewValley.Locations
       return true;
     }
 
-    private void rewardGrabbed(Item item, Farmer who) { return this.bundleRewards[item.SpecialVariable] = false; }
+    private void rewardGrabbed(Item item, Farmer who) { this.bundleRewards[item.SpecialVariable] = false; }
 
     public override bool checkAction(Location tileLocation, xTile.Dimensions.Rectangle viewport, Farmer who)
     {
@@ -360,7 +360,7 @@ namespace StardewValley.Locations
       this.junimoNotesViewportTargets.Add(area);
     }
 
-    public void checkForNewJunimoNotes() { return this.newJunimoNoteCheckEvent.Fire(); }
+    public void checkForNewJunimoNotes() { this.newJunimoNoteCheckEvent.Fire(); }
 
     private void doCheckForNewJunimoNotes()
     {
@@ -609,7 +609,7 @@ namespace StardewValley.Locations
       }
     }
 
-    public override void cleanupBeforeSave() { return this.removeJunimo(); }
+    public override void cleanupBeforeSave() { this.removeJunimo(); }
 
     public override void cleanupBeforePlayerExit()
     {
@@ -653,7 +653,7 @@ namespace StardewValley.Locations
       return false;
     }
 
-    public void areaCompleteReward(int whichArea) { return this.areaCompleteRewardEvent.Fire(whichArea); }
+    public void areaCompleteReward(int whichArea) { this.areaCompleteRewardEvent.Fire(whichArea); }
 
     private void doAreaCompleteReward(int whichArea)
     {
@@ -731,7 +731,7 @@ namespace StardewValley.Locations
       this.addLightGlows();
     }
 
-    public void restoreAreaCutscene(int whichArea) { return this.restoreAreaCutsceneEvent.Fire(whichArea); }
+    public void restoreAreaCutscene(int whichArea) { this.restoreAreaCutsceneEvent.Fire(whichArea); }
 
     public void markAreaAsComplete(int area)
     {
@@ -1151,3 +1151,5 @@ namespace StardewValley.Locations
       };
   }
 }
+
+

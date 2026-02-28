@@ -48,7 +48,7 @@ namespace StardewValley.Tools
       Rectangle rectangle = new Rectangle(x / 64 * 64, y / 64 * 64, 64, 64);
       switch (location)
       {
-        case Farm _:
+        case Farm:
           using (NetDictionary<long, FarmAnimal, NetRef<FarmAnimal>, SerializableDictionary<long, FarmAnimal>, NetLongDictionary<FarmAnimal, NetRef<FarmAnimal>>>.PairsCollection.Enumerator enumerator = (location as Farm).animals.Pairs.GetEnumerator())
           {
             while (enumerator.MoveNext())
@@ -62,7 +62,7 @@ namespace StardewValley.Tools
             }
             break;
           }
-        case AnimalHouse _:
+        case AnimalHouse:
           using (NetDictionary<long, FarmAnimal, NetRef<FarmAnimal>, SerializableDictionary<long, FarmAnimal>, NetLongDictionary<FarmAnimal, NetRef<FarmAnimal>>>.PairsCollection.Enumerator enumerator = (location as AnimalHouse).animals.Pairs.GetEnumerator())
           {
             while (enumerator.MoveNext())
@@ -80,3 +80,4 @@ namespace StardewValley.Tools
     }
   }
 }
+

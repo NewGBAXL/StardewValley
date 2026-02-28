@@ -85,8 +85,8 @@ namespace StardewValley
     public Crop()
     {
       this.NetFields.AddFields((INetSerializable) this.phaseDays, (INetSerializable) this.rowInSpriteSheet, (INetSerializable) this.phaseToShow, (INetSerializable) this.currentPhase, (INetSerializable) this.harvestMethod, (INetSerializable) this.indexOfHarvest, (INetSerializable) this.regrowAfterHarvest, (INetSerializable) this.dayOfCurrentPhase, (INetSerializable) this.minHarvest, (INetSerializable) this.maxHarvest, (INetSerializable) this.maxHarvestIncreasePerFarmingLevel, (INetSerializable) this.daysOfUnclutteredGrowth, (INetSerializable) this.whichForageCrop, (INetSerializable) this.seasonsToGrowIn, (INetSerializable) this.tintColor, (INetSerializable) this.flip, (INetSerializable) this.fullyGrown, (INetSerializable) this.raisedSeeds, (INetSerializable) this.programColored, (INetSerializable) this.dead, (INetSerializable) this.forageCrop, (INetSerializable) this.chanceForExtraCrops, (INetSerializable) this.netSeedIndex);
-      this.dayOfCurrentPhase.fieldChangeVisibleEvent += (NetFieldBase<int, NetInt>.FieldChange) ((x, y, z) => this.updateDrawMath(this.tilePosition));
-      this.fullyGrown.fieldChangeVisibleEvent += (NetFieldBase<bool, NetBool>.FieldChange) ((x, y, z) => this.updateDrawMath(this.tilePosition));
+      this.dayOfCurrentPhase.fieldChangeVisibleEvent += (NetFieldBase<int, NetInt>.FieldChange) (delegate(x, y, z) { return this.updateDrawMath(this.tilePosition; }));
+      this.fullyGrown.fieldChangeVisibleEvent += (NetFieldBase<bool, NetBool>.FieldChange) (delegate(x, y, z) { return this.updateDrawMath(this.tilePosition; }));
     }
 
     public Crop(bool forageCrop, int which, int tileX, int tileY)
@@ -678,3 +678,4 @@ namespace StardewValley
     }
   }
 }
+

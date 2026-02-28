@@ -20,11 +20,11 @@ namespace Force.DeepCloner.Helpers
 
     public static Type BaseType(this Type t) { return t.GetTypeInfo().BaseType; }
 
-    public static FieldInfo[] GetAllFields(this Type t) { return t.GetTypeInfo().DeclaredFields.Where<FieldInfo>((Func<FieldInfo, bool>) (delegate(x) { return !x.IsStatic)).ToArray<FieldInfo>(); }; }
+    public static FieldInfo[] GetAllFields(this Type t) { return t.GetTypeInfo().DeclaredFields.Where<FieldInfo>((Func<FieldInfo, bool>) (x { return !x.IsStatic)).ToArray<FieldInfo>(); }; }
 
     public static PropertyInfo[] GetPublicProperties(this Type t) { return t.GetTypeInfo().DeclaredProperties.ToArray<PropertyInfo>(); }
 
-    public static FieldInfo[] GetDeclaredFields(this Type t) { return t.GetTypeInfo().DeclaredFields.Where<FieldInfo>((Func<FieldInfo, bool>) (delegate(x) { return !x.IsStatic)).ToArray<FieldInfo>(); }; }
+    public static FieldInfo[] GetDeclaredFields(this Type t) { return t.GetTypeInfo().DeclaredFields.Where<FieldInfo>((Func<FieldInfo, bool>) (x { return !x.IsStatic)).ToArray<FieldInfo>(); }; }
 
     public static ConstructorInfo[] GetPrivateConstructors(this Type t) { return t.GetTypeInfo().DeclaredConstructors.ToArray<ConstructorInfo>(); }
 
@@ -55,3 +55,4 @@ namespace Force.DeepCloner.Helpers
     public static Type[] GenericArguments(this Type t) { return t.GetTypeInfo().GenericTypeArguments; }
   }
 }
+

@@ -29,7 +29,7 @@ namespace StardewValley
 
     public static LocalizedContentManager.LanguageCode CurrentLanguageCode
     {
-      delegate(get) { return LocalizedContentManager._currentLangCode; };
+      get { return LocalizedContentManager._currentLangCode; }
       set
       {
         if (LocalizedContentManager._currentLangCode == value)
@@ -423,3 +423,5 @@ namespace StardewValley
     }
   }
 }
+
+

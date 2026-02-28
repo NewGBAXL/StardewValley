@@ -91,8 +91,8 @@ namespace StardewValley.Buildings
     [XmlElement("modData")]
     public ModDataDictionary modDataForSerialization
     {
-      delegate(get) { return this.modData.GetForSerialization(); };
-      delegate(set) { return this.modData.SetFromSerialization(value); };
+      get { return this.modData.GetForSerialization(); }
+      set { this.modData.SetFromSerialization(value); }
     }
 
     public bool isCabin
@@ -114,11 +114,11 @@ namespace StardewValley.Buildings
       }
     }
 
-    public string delegate(nameOfIndoorsWithoutUnique) { return this.indoors.Value == null ? "null" : this.getBuildingMapFileName(this.indoors.Value.Name); };
+    public string nameOfIndoorsWithoutUnique { get { return this.indoors.Value == null ? "null" : this.getBuildingMapFileName(this.indoors.Value.Name); }
 
     public bool isMoving
     {
-      delegate(get) { return this._isMoving; };
+      get { return this._isMoving; }
       set
       {
         if (this._isMoving == value)
@@ -191,7 +191,7 @@ namespace StardewValley.Buildings
     protected virtual void initNetFields()
     {
       this.NetFields.AddFields((INetSerializable) this.indoors, (INetSerializable) this.tileX, (INetSerializable) this.tileY, (INetSerializable) this.tilesWide, (INetSerializable) this.tilesHigh, (INetSerializable) this.maxOccupants, (INetSerializable) this.currentOccupants, (INetSerializable) this.daysOfConstructionLeft, (INetSerializable) this.daysUntilUpgrade, (INetSerializable) this.buildingType, (INetSerializable) this.humanDoor, (INetSerializable) this.animalDoor, (INetSerializable) this.magical, (INetSerializable) this.animalDoorOpen, (INetSerializable) this.owner, (INetSerializable) this.newConstructionTimer, (INetSerializable) this.additionalPlacementTiles, (INetSerializable) this.netBuildingPaintColor);
-      this.buildingType.fieldChangeVisibleEvent += (NetFieldBase<string, NetString>.FieldChange) ((a, b, c) => this.resetTexture());
+      this.buildingType.fieldChangeVisibleEvent += (NetFieldBase<string, NetString>.FieldChange) (delegate(a, b, c) { return this.resetTexture(; }));
       if (this.netBuildingPaintColor.Value == null)
         this.netBuildingPaintColor.Value = new BuildingPaintColor();
       this.NetFields.AddField((INetSerializable) this.modData);
@@ -357,7 +357,8 @@ namespace StardewValley.Buildings
 
     public virtual void performActionOnBuildingPlacement()
     {
-      if (!(Game1.getLocationFromName("Farm") is Farm locationFromName))
+      Farm locationFromName = Game1.getLocationFromName("Farm") as Farm;
+      if (locationFromName == null)
         return;
       for (int index1 = 0; index1 < (int) (NetFieldBase<int, NetInt>) this.tilesHigh; ++index1)
       {
@@ -447,7 +448,7 @@ namespace StardewValley.Buildings
     public virtual void BeforeDemolish()
     {
       List<Item> quest_items = new List<Item>();
-      Action<Item> action = (Action<Item>) (delegate(item) { return {; }
+      Action<Item> action = (Action<Item>) (item { return {; }
         if (item == null || !(item is StardewValley.Object) || !(item as StardewValley.Object).questItem.Value)
           return;
         Item one = item.getOne();
@@ -1043,3 +1044,8 @@ namespace StardewValley.Buildings
     }
   }
 }
+
+
+
+
+

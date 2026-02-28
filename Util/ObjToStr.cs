@@ -102,14 +102,14 @@ public static class ObjToStr
 
     public string Name
     {
-      delegate(get) { return !string.IsNullOrEmpty(this._name) ? this._name : this.Member.Name; };
-      delegate(set) { return this._name = value; };
+      get { return !string.IsNullOrEmpty(this._name) ? this._name : this.Member.Name; }
+      set { this._name = value; }
     }
 
     public string Format
     {
-      delegate(get) { return !string.IsNullOrEmpty(this._format) ? this._format : "{0}"; };
-      delegate(set) { return this._format = value; };
+      get { return !string.IsNullOrEmpty(this._format) ? this._format : "{0}"; }
+      set { this._format = value; }
     }
   }
 
@@ -126,14 +126,14 @@ public static class ObjToStr
       ObjectDelimiter = ":",
       MemberDelimiter = ",",
       MemberNameValueDelimiter = "="
-    };
+    }
     public static ObjToStr.Style MembersOnlyMultiline = new ObjToStr.Style()
     {
       ShowRootObjectType = false,
       ObjectDelimiter = "",
       MemberDelimiter = "\n",
       MemberNameValueDelimiter = "="
-    };
+    }
 
     public Style()
     {
@@ -144,3 +144,7 @@ public static class ObjToStr
     }
   }
 }
+
+
+
+

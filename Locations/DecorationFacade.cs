@@ -35,7 +35,7 @@ namespace StardewValley.Locations
       }
     }
 
-    public int delegate(Count) { return this.Field.Count() == 0 ? 0 : this.Field.Keys.Max() + 1; };
+    public int Count { get { return this.Field.Count() == 0 ? 0 : this.Field.Keys.Max() + 1; }
 
     public DecorationFacade()
     {
@@ -71,9 +71,9 @@ namespace StardewValley.Locations
       return intList;
     }
 
-    protected override void DeserializeAdd(int serialValue) { return this.Field[this.Count] = serialValue; }
+    protected override void DeserializeAdd(int serialValue) { this.Field[this.Count] = serialValue; }
 
-    public void Set(DecorationFacade other) { return this.Field.Set((IEnumerable<KeyValuePair<int, int>>) other.Field.Pairs); }
+    public void Set(DecorationFacade other) { this.Field.Set((IEnumerable<KeyValuePair<int, int>>) other.Field.Pairs); }
 
     public void SetCountAtLeast(int targetCount)
     {
@@ -99,3 +99,5 @@ namespace StardewValley.Locations
     public delegate void ChangeEvent(int whichRoom, int which);
   }
 }
+
+

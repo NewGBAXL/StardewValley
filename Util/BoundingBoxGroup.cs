@@ -50,7 +50,7 @@ namespace StardewValley.Util
       }
     }
 
-    public void Clear() { return this.rectangles.Clear(); }
+    public void Clear() { this.rectangles.Clear(); }
 
     public void Draw(SpriteBatch b)
     {
@@ -64,3 +64,4 @@ namespace StardewValley.Util
     public bool IsEmpty() { return this.rectangles.Count == 0; }
   }
 }
+

@@ -37,9 +37,9 @@ namespace StardewValley.Quests
     {
       switch (item)
       {
-        case Clothing _:
+        case Clothing:
           return false;
-        case Object _:
+        case Object:
           if ((item as Object).bigCraftable.Value == this.isBigCraftable.Value && (item as Object).parentSheetIndex.Value == this.indexToCraft.Value)
           {
             this.questComplete();
@@ -51,3 +51,4 @@ namespace StardewValley.Quests
     }
   }
 }
+

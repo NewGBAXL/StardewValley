@@ -26,9 +26,9 @@ namespace StardewValley.Objects
       {
         case StardewValley.Object _ when (bool) (NetFieldBase<bool, NetBool>) (i as StardewValley.Object).bigCraftable:
           return new ItemDescription((byte) 1, (i as StardewValley.Object).ParentSheetIndex, i.Stack);
-        case StardewValley.Object _:
+        case StardewValley.Object:
           return new ItemDescription((byte) 0, (i as StardewValley.Object).ParentSheetIndex, i.Stack);
-        case MeleeWeapon _:
+        case MeleeWeapon:
           return new ItemDescription((byte) 2, (i as MeleeWeapon).CurrentParentTileIndex, i.Stack);
         default:
           throw new Exception("ItemFactory trying to create item description from unknown item");
@@ -55,3 +55,4 @@ namespace StardewValley.Objects
     }
   }
 }
+

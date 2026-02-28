@@ -93,7 +93,7 @@ namespace StardewValley.Buildings
       this._fishObject = (StardewValley.Object) null;
     }
 
-    public virtual void Reseed() { return this.seedOffset.Value = DateTime.UtcNow.Millisecond; }
+    public virtual void Reseed() { this.seedOffset.Value = DateTime.UtcNow.Millisecond; }
 
     public List<PondFishSilhouette> GetFishSilhouettes() { return this._fishSilhouettes; }
 
@@ -180,9 +180,9 @@ namespace StardewValley.Buildings
       return (StardewValley.Object) null;
     }
 
-    public int delegate(FishCount) { return this.currentOccupants.Value; };
+    public int FishCount { get { return this.currentOccupants.Value; };
 
-    public Item delegate(ItemWanted) { return (Item) null; };
+    public Item ItemWanted { get { return (Item) null; };
 
     private Item CreateFishInstance() { return (Item) new StardewValley.Object((int) (NetFieldBase<int, NetInt>) this.fishType, 1); }
 
@@ -595,8 +595,8 @@ namespace StardewValley.Buildings
     {
       switch (t)
       {
-        case Axe _:
-        case Pickaxe _:
+        case Axe:
+        case Pickaxe:
           if (this.sign.Value != null)
           {
             if (t.getLastFarmerToUse() != null)
@@ -919,3 +919,6 @@ namespace StardewValley.Buildings
     }
   }
 }
+
+
+

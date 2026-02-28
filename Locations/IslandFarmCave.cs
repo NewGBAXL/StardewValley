@@ -446,7 +446,7 @@ namespace StardewValley.Locations
     {
       if (!(action == "Gourmand"))
         return base.performAction(action, who, tileLocation);
-      this.gourmandMutex.RequestLock((Action) (() => this.TalkToGourmand()));
+      this.gourmandMutex.RequestLock((Action) (delegate() { this.TalkToGourmand(; })));
       return true;
     }
 
@@ -459,3 +459,4 @@ namespace StardewValley.Locations
     }
   }
 }
+

@@ -24,7 +24,7 @@ namespace Sickhead.Engine.Util
 
     public static object GetValue(this MemberInfo info, object obj) { return info.GetValue(obj, (object[]) null); }
 
-    public static void SetValue(this MemberInfo info, object obj, object value) { return info.SetValue(obj, value, (object[]) null); }
+    public static void SetValue(this MemberInfo info, object obj, object value) { info.SetValue(obj, value, (object[]) null); }
 
     public static object GetValue(this MemberInfo info, object obj, object[] index)
     {
@@ -86,3 +86,4 @@ namespace Sickhead.Engine.Util
     public static Delegate CreateDelegate(this MethodInfo method, Type type) { return Delegate.CreateDelegate(type, method); }
   }
 }
+

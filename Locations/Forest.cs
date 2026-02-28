@@ -36,15 +36,15 @@ namespace StardewValley.Locations
     [XmlIgnore]
     public bool travelingMerchantDay
     {
-      delegate(get) { return this.netTravelingMerchantDay.Value; };
-      delegate(set) { return this.netTravelingMerchantDay.Value = value; };
+      get { return this.netTravelingMerchantDay.Value; }
+      set { this.netTravelingMerchantDay.Value = value; }
     }
 
     [XmlIgnore]
     public ResourceClump log
     {
-      delegate(get) { return this.netLog.Value; };
-      delegate(set) { return this.netLog.Value = value; };
+      get { return this.netLog.Value; }
+      set { this.netLog.Value = value; }
     }
 
     public Forest()
@@ -410,3 +410,6 @@ namespace StardewValley.Locations
     }
   }
 }
+
+
+

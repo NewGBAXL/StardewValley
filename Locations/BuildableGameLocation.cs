@@ -449,7 +449,7 @@ namespace StardewValley.Locations
       }
       if (!this.buildings.Contains(b))
         this.buildings.Add(b);
-      Action<Vector2> action = (Action<Vector2>) (delegate(tile_location) { return {; }
+      Action<Vector2> action = (Action<Vector2>) (tile_location { return {; }
         if (!Utility.IsNormalObjectAtParentSheetIndex((Item) this.getObjectAtTile((int) tile_location.X, (int) tile_location.Y), 590))
           return;
         this.removeObject(tile_location, false);
@@ -672,3 +672,4 @@ namespace StardewValley.Locations
     }
   }
 }
+

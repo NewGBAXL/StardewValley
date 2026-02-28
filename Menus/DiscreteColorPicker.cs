@@ -57,7 +57,7 @@ namespace StardewValley.Menus
     {
     }
 
-    public override void update(GameTime time) { return base.update(time); }
+    public override void update(GameTime time) { base.update(time); }
 
     public override void receiveLeftClick(int x, int y, bool playSound = true)
     {
@@ -150,3 +150,4 @@ namespace StardewValley.Menus
     }
   }
 }
+

@@ -47,11 +47,11 @@ namespace StardewValley.Network
 
     public virtual float getPingToClient(long farmerId) { return 0.0f; }
 
-    public virtual bool isConnectionActive(string connectionId) { return throw new NotImplementedException(); }
+    public virtual bool isConnectionActive(string connectionId) { throw new NotImplementedException(); }
 
-    public virtual void onConnect(string connectionId) { return this.gameServer.onConnect(connectionId); }
+    public virtual void onConnect(string connectionId) { this.gameServer.onConnect(connectionId); }
 
-    public virtual void onDisconnect(string connectionId) { return this.gameServer.onDisconnect(connectionId); }
+    public virtual void onDisconnect(string connectionId) { this.gameServer.onDisconnect(connectionId); }
 
     public abstract string getUserName(long farmerId);
 
@@ -61,11 +61,11 @@ namespace StardewValley.Network
     {
     }
 
-    public virtual void playerDisconnected(long disconnectee) { return this.gameServer.playerDisconnected(disconnectee); }
+    public virtual void playerDisconnected(long disconnectee) { this.gameServer.playerDisconnected(disconnectee); }
 
     public bool LogBandwidth
     {
-      delegate(get) { return this.bandwidthLogger != null; };
+      get { return this.bandwidthLogger != null; }
       set
       {
         if (value)
@@ -75,6 +75,9 @@ namespace StardewValley.Network
       }
     }
 
-    public BandwidthLogger delegate(BandwidthLogger) { return this.bandwidthLogger; };
+    public BandwidthLogger BandwidthLogger { get { return this.bandwidthLogger; }
   }
 }
+
+
+

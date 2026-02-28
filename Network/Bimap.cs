@@ -17,7 +17,7 @@ namespace StardewValley.Network
 
     public R this[L l]
     {
-      delegate(get) { return this.leftToRight[l]; };
+      get { return this.leftToRight[l]; }
       set
       {
         if (this.leftToRight.ContainsKey(l))
@@ -31,7 +31,7 @@ namespace StardewValley.Network
 
     public L this[R r]
     {
-      delegate(get) { return this.rightToLeft[r]; };
+      get { return this.rightToLeft[r]; }
       set
       {
         if (this.rightToLeft.ContainsKey(r))
@@ -43,11 +43,11 @@ namespace StardewValley.Network
       }
     }
 
-    public ICollection<L> delegate(LeftValues) { return (ICollection<L>) this.leftToRight.Keys; };
+    public ICollection<L> LeftValues { get { return (ICollection<L>) this.leftToRight.Keys; }
 
-    public ICollection<R> delegate(RightValues) { return (ICollection<R>) this.rightToLeft.Keys; };
+    public ICollection<R> RightValues { get { return (ICollection<R>) this.rightToLeft.Keys; }
 
-    public int delegate(Count) { return this.rightToLeft.Count; };
+    public int Count { get { return this.rightToLeft.Count; }
 
     public void Clear()
     {
@@ -93,3 +93,7 @@ namespace StardewValley.Network
     }
   }
 }
+
+
+
+

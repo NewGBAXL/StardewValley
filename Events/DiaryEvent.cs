@@ -58,10 +58,11 @@ namespace StardewValley.Events
     {
     }
 
-    public void makeChangesToLocation() { return Game1.messagePause = false; }
+    public void makeChangesToLocation() { Game1.messagePause = false; }
 
     public void drawAboveEverything(SpriteBatch b)
     {
     }
   }
 }
+

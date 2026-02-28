@@ -151,33 +151,33 @@ namespace StardewValley
     [XmlIgnore]
     public int speed
     {
-      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.netSpeed;
-      delegate(set) { return this.netSpeed.Value = value; };
+      get { return (int) (NetFieldBase<int; }, NetInt>) this.netSpeed;
+      set { this.netSpeed.Value = value; }
     }
 
     [XmlIgnore]
     public int addedSpeed
     {
-      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.netAddedSpeed;
-      delegate(set) { return this.netAddedSpeed.Value = value; };
+      get { return (int) (NetFieldBase<int; }, NetInt>) this.netAddedSpeed;
+      set { this.netAddedSpeed.Value = value; }
     }
 
     [XmlIgnore]
     public virtual string displayName
     {
-      delegate(get) { return this._displayName ?? (this._displayName = this.translateName((string) (NetFieldBase<string; }, NetString>) this.name));
-      delegate(set) { return this._displayName = value; };
+      get { return this._displayName ?? (this._displayName = this.translateName((string) (NetFieldBase<string; }, NetString>) this.name));
+      set { this._displayName = value; }
     }
 
     public bool willDestroyObjectsUnderfoot
     {
-      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this._willDestroyObjectsUnderfoot;
-      delegate(set) { return this._willDestroyObjectsUnderfoot.Value = value; };
+      get { return (bool) (NetFieldBase<bool; }, NetBool>) this._willDestroyObjectsUnderfoot;
+      set { this._willDestroyObjectsUnderfoot.Value = value; }
     }
 
     public Vector2 Position
     {
-      delegate(get) { return (Vector2) (NetPausableField<Vector2; }, NetVector2, NetVector2>) this.position;
+      get { return (Vector2) (NetPausableField<Vector2; }, NetVector2, NetVector2>) this.position;
       set
       {
         if (!(this.position.Value != value))
@@ -188,65 +188,65 @@ namespace StardewValley
 
     public int Speed
     {
-      delegate(get) { return this.speed; };
-      delegate(set) { return this.speed = value; };
+      get { return this.speed; }
+      set { this.speed = value; }
     }
 
     public virtual int FacingDirection
     {
-      delegate(get) { return (int) this.facingDirection; };
-      delegate(set) { return this.facingDirection.Set(value); };
+      get { return (int) this.facingDirection; }
+      set { this.facingDirection.Set(value); }
     }
 
     [XmlIgnore]
     public string Name
     {
-      delegate(get) { return (string) (NetFieldBase<string; }, NetString>) this.name;
-      delegate(set) { return this.name.Set(value); };
+      get { return (string) (NetFieldBase<string; }, NetString>) this.name;
+      set { this.name.Set(value); }
     }
 
     [XmlIgnore]
     public virtual AnimatedSprite Sprite
     {
-      delegate(get) { return this.sprite.Value; };
-      delegate(set) { return this.sprite.Value = value; };
+      get { return this.sprite.Value; }
+      set { this.sprite.Value = value; }
     }
 
     public bool IsEmoting
     {
-      delegate(get) { return this.isEmoting; };
-      delegate(set) { return this.isEmoting = value; };
+      get { return this.isEmoting; }
+      set { this.isEmoting = value; }
     }
 
     public int CurrentEmote
     {
-      delegate(get) { return this.currentEmote; };
-      delegate(set) { return this.currentEmote = value; };
+      get { return this.currentEmote; }
+      set { this.currentEmote = value; }
     }
 
-    public int delegate(CurrentEmoteIndex) { return this.currentEmoteFrame; };
+    public int CurrentEmoteIndex { get { return this.currentEmoteFrame; }
 
-    public virtual bool delegate(IsMonster) { return false; };
+    public virtual bool IsMonster { get { return false; }
 
     public float Scale
     {
-      delegate(get) { return (float) (NetFieldBase<float; }, NetFloat>) this.scale;
-      delegate(set) { return this.scale.Value = value; };
+      get { return (float) (NetFieldBase<float; }, NetFloat>) this.scale;
+      set { this.scale.Value = value; }
     }
 
     [XmlIgnore]
     public GameLocation currentLocation
     {
-      delegate(get) { return this.currentLocationRef.Value; };
-      delegate(set) { return this.currentLocationRef.Value = value; };
+      get { return this.currentLocationRef.Value; }
+      set { this.currentLocationRef.Value = value; }
     }
 
     /// <summary>Get the mod populated metadata as it will be serialized for game saving. Identical to <see cref="F:StardewValley.Character.modData" /> except returns null during save if it is empty. It is strongly recommended to use <see cref="F:StardewValley.Character.modData" /> instead.</summary>
     [XmlElement("modData")]
     public ModDataDictionary modDataForSerialization
     {
-      delegate(get) { return this.modData.GetForSerialization(); };
-      delegate(set) { return this.modData.SetFromSerialization(value); };
+      get { return this.modData.GetForSerialization(); }
+      set { this.modData.SetFromSerialization(value); }
     }
 
     public NetFields NetFields { get; } = new NetFields();
@@ -335,7 +335,7 @@ namespace StardewValley
       return this.Sprite.currentFrame < 12 ? 0 : 3;
     }
 
-    public void setTrajectory(int xVelocity, int yVelocity) { return this.setTrajectory(new Vector2((float) xVelocity, (float) yVelocity)); }
+    public void setTrajectory(int xVelocity, int yVelocity) { this.setTrajectory(new Vector2((float) xVelocity, (float) yVelocity)); }
 
     public virtual void setTrajectory(Vector2 trajectory)
     {
@@ -651,7 +651,7 @@ namespace StardewValley
       this.nextEventcommandAfterEmote = nextEventCommand;
     }
 
-    public void doEmote(int whichEmote, bool nextEventCommand = true) { return this.doEmote(whichEmote, true, nextEventCommand); }
+    public void doEmote(int whichEmote, bool nextEventCommand = true) { this.doEmote(whichEmote, true, nextEventCommand); }
 
     public void updateEmote(GameTime time)
     {
@@ -842,9 +842,9 @@ namespace StardewValley
       this.faceDirection(this.getGeneralDirectionTowards(target, yBias, opposite, useTileCalculations));
     }
 
-    public void faceGeneralDirection(Vector2 target, int yBias = 0, bool opposite = false) { return this.faceGeneralDirection(target, yBias, opposite, true); }
+    public void faceGeneralDirection(Vector2 target, int yBias = 0, bool opposite = false) { this.faceGeneralDirection(target, yBias, opposite, true); }
 
-    public virtual void draw(SpriteBatch b) { return this.draw(b, 1f); }
+    public virtual void draw(SpriteBatch b) { this.draw(b, 1f); }
 
     public virtual void drawAboveAlwaysFrontLayer(SpriteBatch b)
     {
@@ -1028,7 +1028,7 @@ namespace StardewValley
     {
     }
 
-    public virtual void checkForFootstep() { return Game1.currentLocation.playTerrainSound(this.getTileLocation(), this); }
+    public virtual void checkForFootstep() { Game1.currentLocation.playTerrainSound(this.getTileLocation(), this); }
 
     public virtual void update(GameTime time, GameLocation location, long id, bool move)
     {
@@ -1196,3 +1196,7 @@ namespace StardewValley
     }
   }
 }
+
+
+
+

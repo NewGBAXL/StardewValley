@@ -83,7 +83,7 @@ namespace StardewValley.Menus
           ++this.numFarmers;
         }
       }
-      foreach (KeyValuePair<string, string> keyValuePair in (IEnumerable<KeyValuePair<string, string>>) this.npcNames.OrderBy<KeyValuePair<string, string>, int>((Func<KeyValuePair<string, string>, int>) (delegate(p) { return -Game1.player.getFriendshipLevelForNPC(p.Key)))); }
+      foreach (KeyValuePair<string, string> keyValuePair in (IEnumerable<KeyValuePair<string, string>>) this.npcNames.OrderBy<KeyValuePair<string, string>, int>((Func<KeyValuePair<string, string>, int>) (p { return -Game1.player.getFriendshipLevelForNPC(p.Key)))); }
       {
         NPC npc = (NPC) null;
         if (this.kidsNames.Contains(keyValuePair.Key))
@@ -345,8 +345,9 @@ namespace StardewValley.Menus
                 ProfileMenu menu = new ProfileMenu(characterFromName);
                 menu.exitFunction = (IClickableMenu.onExit) (() =>
                 {
-                  if (!(((GameMenu) (Game1.activeClickableMenu = (IClickableMenu) new GameMenu(2, playOpeningSound: false))).GetCurrentPage() is SocialPage currentPage2))
-                    return;
+                  SocialPage currentPage2 = ((GameMenu) (Game1.activeClickableMenu = (IClickableMenu) new GameMenu(2, playOpeningSound: false))).GetCurrentPage() as SocialPage;
+      if (currentPage2 == null)
+        return;
                   Character character = menu.GetCharacter();
                   if (character == null)
                     return;
@@ -576,3 +577,6 @@ namespace StardewValley.Menus
     }
   }
 }
+
+
+

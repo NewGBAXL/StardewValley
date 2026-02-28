@@ -37,7 +37,7 @@ namespace StardewValley.SDKs
       }
     }
 
-    public override void ShowInviteDialog(object lobby) { return SteamFriends.ActivateGameOverlayInviteDialog(new CSteamID((ulong) lobby)); }
+    public override void ShowInviteDialog(object lobby) { SteamFriends.ActivateGameOverlayInviteDialog(new CSteamID((ulong) lobby)); }
 
     private void onLobbyDataUpdate(LobbyDataUpdate_t pCallback)
     {
@@ -69,7 +69,7 @@ namespace StardewValley.SDKs
       return (GalaxyID) null;
     }
 
-    private void onGameLobbyJoinRequested(GameLobbyJoinRequested_t pCallback) { return SteamMatchmaking.JoinLobby(pCallback.m_steamIDLobby); }
+    private void onGameLobbyJoinRequested(GameLobbyJoinRequested_t pCallback) { SteamMatchmaking.JoinLobby(pCallback.m_steamIDLobby); }
 
     private void onLobbyEnter(LobbyEnter_t pCallback)
     {
@@ -86,3 +86,4 @@ namespace StardewValley.SDKs
     public override string GetLobbyOwnerName(object lobbyID) { return this.lobbyOwners.ContainsKey((ulong) lobbyID) ? SteamFriends.GetFriendPersonaName(this.lobbyOwners[(ulong) lobbyID]) : ""; }
   }
 }
+

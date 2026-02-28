@@ -47,19 +47,19 @@ namespace StardewValley
       }
     }
 
-    protected int delegate(textureWidth) { return this.Texture != null ? this.Texture.Width : 96; };
+    protected int textureWidth { get { return this.Texture != null ? this.Texture.Width : 96; }
 
-    protected int delegate(textureHeight) { return this.Texture != null ? this.Texture.Height : 128; };
+    protected int textureHeight { get { return this.Texture != null ? this.Texture.Height : 128; }
 
     public int SpriteWidth
     {
-      delegate(get) { return this.spriteWidth.Get(); };
-      delegate(set) { return this.spriteWidth.Value = value; };
+      get { return this.spriteWidth.Get(); }
+      set { this.spriteWidth.Value = value; }
     }
 
     public int SpriteHeight
     {
-      delegate(get) { return this.tempSpriteHeight != -1 ? this.tempSpriteHeight : this.spriteHeight.Get(); };
+      get { return this.tempSpriteHeight != -1 ? this.tempSpriteHeight : this.spriteHeight.Get(); }
       set
       {
         this.spriteHeight.Value = value;
@@ -69,7 +69,7 @@ namespace StardewValley
 
     public virtual int CurrentFrame
     {
-      delegate(get) { return this.currentFrame; };
+      get { return this.currentFrame; }
       set
       {
         this.currentFrame = value;
@@ -79,7 +79,7 @@ namespace StardewValley
 
     public List<FarmerSprite.AnimationFrame> CurrentAnimation
     {
-      delegate(get) { return this.currentAnimation.Count == 0 ? (List<FarmerSprite.AnimationFrame>) null : this.currentAnimation; };
+      get { return this.currentAnimation.Count == 0 ? (List<FarmerSprite.AnimationFrame>) null : this.currentAnimation; }
       set
       {
         this.currentAnimation.Clear();
@@ -91,8 +91,8 @@ namespace StardewValley
 
     public Rectangle SourceRect
     {
-      delegate(get) { return this.sourceRect; };
-      delegate(set) { return this.sourceRect = value; };
+      get { return this.sourceRect; }
+      set { this.sourceRect = value; }
     }
 
     public AnimatedSprite()
@@ -133,7 +133,7 @@ namespace StardewValley
     {
     }
 
-    protected virtual void initNetFields() { return this.NetFields.AddFields((INetSerializable) this.textureName, (INetSerializable) this.spriteWidth, (INetSerializable) this.spriteHeight); }
+    protected virtual void initNetFields() { this.NetFields.AddFields((INetSerializable) this.textureName, (INetSerializable) this.spriteWidth, (INetSerializable) this.spriteHeight); }
 
     public void LoadTexture(string textureName)
     {
@@ -456,9 +456,9 @@ namespace StardewValley
       b.Draw(this.Texture, screenPosition, new Rectangle?(new Rectangle(this.sourceRect.X + xOffset, this.sourceRect.Y + yOffset, this.sourceRect.Width, this.sourceRect.Height)), c, rotation, characterSourceRectOffset ? new Vector2((float) (this.SpriteWidth / 2), (float) ((double) this.SpriteHeight * 3.0 / 4.0)) : Vector2.Zero, scale, flip || this.CurrentAnimation != null && this.CurrentAnimation[this.currentAnimationIndex].flip ? SpriteEffects.FlipHorizontally : SpriteEffects.None, layerDepth);
     }
 
-    public void drawShadow(SpriteBatch b, Vector2 screenPosition, float scale = 4f, float alpha = 1f) { return b.Draw(Game1.shadowTexture, screenPosition + new Vector2((float) (this.SpriteWidth / 2 * 4) - scale, (float) (this.SpriteHeight * 4) - scale), new Rectangle?(Game1.shadowTexture.Bounds), Color.White * alpha, 0.0f, Utility.PointToVector2(Game1.shadowTexture.Bounds.Center), scale, SpriteEffects.None, 1E-05f); }
+    public void drawShadow(SpriteBatch b, Vector2 screenPosition, float scale = 4f, float alpha = 1f) { b.Draw(Game1.shadowTexture, screenPosition + new Vector2((float) (this.SpriteWidth / 2 * 4) - scale, (float) (this.SpriteHeight * 4) - scale), new Rectangle?(Game1.shadowTexture.Bounds), Color.White * alpha, 0.0f, Utility.PointToVector2(Game1.shadowTexture.Bounds.Center), scale, SpriteEffects.None, 1E-05f); }
 
-    public void drawShadow(SpriteBatch b, Vector2 screenPosition, float scale = 4f) { return this.drawShadow(b, screenPosition, scale, 1f); }
+    public void drawShadow(SpriteBatch b, Vector2 screenPosition, float scale = 4f) { this.drawShadow(b, screenPosition, scale, 1f); }
 
     public AnimatedSprite Clone()
     {
@@ -488,3 +488,7 @@ namespace StardewValley
     public delegate void endOfAnimationBehavior(Farmer who);
   }
 }
+
+
+
+

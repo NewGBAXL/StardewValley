@@ -469,9 +469,9 @@ namespace StardewValley.Minigames
       return false;
     }
 
-    public void receiveLeftClick(int x, int y, bool playSound = true) { return this.jump(); }
+    public void receiveLeftClick(int x, int y, bool playSound = true) { this.jump(); }
 
-    public void releaseLeftClick(int x, int y) { return this.releaseJump(); }
+    public void releaseLeftClick(int x, int y) { this.releaseJump(); }
 
     public void releaseRightClick(int x, int y)
     {
@@ -792,7 +792,7 @@ namespace StardewValley.Minigames
       this.reachedJumpApex = true;
     }
 
-    public void receiveEventPoke(int data) { return throw new NotImplementedException(); }
+    public void receiveEventPoke(int data) { throw new NotImplementedException(); }
 
     public string minigameId() { return nameof (OldMineCart); }
 
@@ -817,3 +817,5 @@ namespace StardewValley.Minigames
     }
   }
 }
+
+

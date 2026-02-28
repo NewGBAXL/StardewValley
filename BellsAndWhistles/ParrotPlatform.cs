@@ -203,7 +203,7 @@ namespace StardewValley.BellsAndWhistles
       return false;
     }
 
-    public virtual void Cleanup() { return ParrotPlatform.activePlatform = (ParrotPlatform) null; }
+    public virtual void Cleanup() { ParrotPlatform.activePlatform = (ParrotPlatform) null; }
 
     public virtual bool CheckCollisions(Microsoft.Xna.Framework.Rectangle rectangle)
     {
@@ -377,3 +377,4 @@ namespace StardewValley.BellsAndWhistles
     }
   }
 }
+

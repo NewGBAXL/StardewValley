@@ -113,37 +113,37 @@ namespace StardewValley
 
     public uint GoodFriends
     {
-      delegate(get) { return this.goodFriends; };
-      delegate(set) { return this.goodFriends = value; };
+      get { return this.goodFriends; }
+      set { this.goodFriends = value; }
     }
 
     public uint CropsShipped
     {
-      delegate(get) { return this.cropsShipped; };
-      delegate(set) { return this.cropsShipped = value; };
+      get { return this.cropsShipped; }
+      set { this.cropsShipped = value; }
     }
 
     public uint ItemsForaged
     {
-      delegate(get) { return this.itemsForaged; };
-      delegate(set) { return this.itemsForaged = value; };
+      get { return this.itemsForaged; }
+      set { this.itemsForaged = value; }
     }
 
     public uint GeodesCracked
     {
-      delegate(get) { return this.geodesCracked; };
-      delegate(set) { return this.geodesCracked = value; };
+      get { return this.geodesCracked; }
+      set { this.geodesCracked = value; }
     }
 
     public uint SlimesKilled
     {
-      delegate(get) { return this.slimesKilled; };
-      delegate(set) { return this.slimesKilled = value; };
+      get { return this.slimesKilled; }
+      set { this.slimesKilled = value; }
     }
 
     public uint StarLevelCropsShipped
     {
-      delegate(get) { return this.starLevelCropsShipped; };
+      get { return this.starLevelCropsShipped; }
       set
       {
         this.starLevelCropsShipped = value;
@@ -153,13 +153,13 @@ namespace StardewValley
 
     public uint StoneGathered
     {
-      delegate(get) { return this.stoneGathered; };
-      delegate(set) { return this.stoneGathered = value; };
+      get { return this.stoneGathered; }
+      set { this.stoneGathered = value; }
     }
 
     public uint QuestsCompleted
     {
-      delegate(get) { return this.questsCompleted; };
+      get { return this.questsCompleted; }
       set
       {
         this.questsCompleted = value;
@@ -169,235 +169,235 @@ namespace StardewValley
 
     public uint FishCaught
     {
-      delegate(get) { return this.fishCaught; };
-      delegate(set) { return this.fishCaught = value; };
+      get { return this.fishCaught; }
+      set { this.fishCaught = value; }
     }
 
     public uint NotesFound
     {
-      delegate(get) { return this.notesFound; };
-      delegate(set) { return this.notesFound = value; };
+      get { return this.notesFound; }
+      set { this.notesFound = value; }
     }
 
     public uint SticksChopped
     {
-      delegate(get) { return this.sticksChopped; };
-      delegate(set) { return this.sticksChopped = value; };
+      get { return this.sticksChopped; }
+      set { this.sticksChopped = value; }
     }
 
     public uint WeedsEliminated
     {
-      delegate(get) { return this.weedsEliminated; };
-      delegate(set) { return this.weedsEliminated = value; };
+      get { return this.weedsEliminated; }
+      set { this.weedsEliminated = value; }
     }
 
     public uint DaysPlayed
     {
-      delegate(get) { return this.daysPlayed; };
-      delegate(set) { return this.daysPlayed = value; };
+      get { return this.daysPlayed; }
+      set { this.daysPlayed = value; }
     }
 
     public uint BouldersCracked
     {
-      delegate(get) { return this.bouldersCracked; };
-      delegate(set) { return this.bouldersCracked = value; };
+      get { return this.bouldersCracked; }
+      set { this.bouldersCracked = value; }
     }
 
     public uint MysticStonesCrushed
     {
-      delegate(get) { return this.mysticStonesCrushed; };
-      delegate(set) { return this.mysticStonesCrushed = value; };
+      get { return this.mysticStonesCrushed; }
+      set { this.mysticStonesCrushed = value; }
     }
 
     public uint GoatCheeseMade
     {
-      delegate(get) { return this.goatCheeseMade; };
-      delegate(set) { return this.goatCheeseMade = value; };
+      get { return this.goatCheeseMade; }
+      set { this.goatCheeseMade = value; }
     }
 
     public uint CheeseMade
     {
-      delegate(get) { return this.cheeseMade; };
-      delegate(set) { return this.cheeseMade = value; };
+      get { return this.cheeseMade; }
+      set { this.cheeseMade = value; }
     }
 
     public uint PiecesOfTrashRecycled
     {
-      delegate(get) { return this.piecesOfTrashRecycled; };
-      delegate(set) { return this.piecesOfTrashRecycled = value; };
+      get { return this.piecesOfTrashRecycled; }
+      set { this.piecesOfTrashRecycled = value; }
     }
 
     public uint PreservesMade
     {
-      delegate(get) { return this.preservesMade; };
-      delegate(set) { return this.preservesMade = value; };
+      get { return this.preservesMade; }
+      set { this.preservesMade = value; }
     }
 
     public uint BeveragesMade
     {
-      delegate(get) { return this.beveragesMade; };
-      delegate(set) { return this.beveragesMade = value; };
+      get { return this.beveragesMade; }
+      set { this.beveragesMade = value; }
     }
 
     public uint BarsSmelted
     {
-      delegate(get) { return this.barsSmelted; };
-      delegate(set) { return this.barsSmelted = value; };
+      get { return this.barsSmelted; }
+      set { this.barsSmelted = value; }
     }
 
     public uint IridiumFound
     {
-      delegate(get) { return this.iridiumFound; };
-      delegate(set) { return this.iridiumFound = value; };
+      get { return this.iridiumFound; }
+      set { this.iridiumFound = value; }
     }
 
     public uint GoldFound
     {
-      delegate(get) { return this.goldFound; };
-      delegate(set) { return this.goldFound = value; };
+      get { return this.goldFound; }
+      set { this.goldFound = value; }
     }
 
     public uint CoinsFound
     {
-      delegate(get) { return this.coinsFound; };
-      delegate(set) { return this.coinsFound = value; };
+      get { return this.coinsFound; }
+      set { this.coinsFound = value; }
     }
 
     public uint CoalFound
     {
-      delegate(get) { return this.coalFound; };
-      delegate(set) { return this.coalFound = value; };
+      get { return this.coalFound; }
+      set { this.coalFound = value; }
     }
 
     public uint IronFound
     {
-      delegate(get) { return this.ironFound; };
-      delegate(set) { return this.ironFound = value; };
+      get { return this.ironFound; }
+      set { this.ironFound = value; }
     }
 
     public uint CopperFound
     {
-      delegate(get) { return this.copperFound; };
-      delegate(set) { return this.copperFound = value; };
+      get { return this.copperFound; }
+      set { this.copperFound = value; }
     }
 
     public uint CaveCarrotsFound
     {
-      delegate(get) { return this.caveCarrotsFound; };
-      delegate(set) { return this.caveCarrotsFound = value; };
+      get { return this.caveCarrotsFound; }
+      set { this.caveCarrotsFound = value; }
     }
 
     public uint OtherPreciousGemsFound
     {
-      delegate(get) { return this.otherPreciousGemsFound; };
-      delegate(set) { return this.otherPreciousGemsFound = value; };
+      get { return this.otherPreciousGemsFound; }
+      set { this.otherPreciousGemsFound = value; }
     }
 
     public uint PrismaticShardsFound
     {
-      delegate(get) { return this.prismaticShardsFound; };
-      delegate(set) { return this.prismaticShardsFound = value; };
+      get { return this.prismaticShardsFound; }
+      set { this.prismaticShardsFound = value; }
     }
 
     public uint DiamondsFound
     {
-      delegate(get) { return this.diamondsFound; };
-      delegate(set) { return this.diamondsFound = value; };
+      get { return this.diamondsFound; }
+      set { this.diamondsFound = value; }
     }
 
     public uint MonstersKilled
     {
-      delegate(get) { return this.monstersKilled; };
-      delegate(set) { return this.monstersKilled = value; };
+      get { return this.monstersKilled; }
+      set { this.monstersKilled = value; }
     }
 
     public uint StepsTaken
     {
-      delegate(get) { return this.stepsTaken; };
-      delegate(set) { return this.stepsTaken = value; };
+      get { return this.stepsTaken; }
+      set { this.stepsTaken = value; }
     }
 
     public uint StumpsChopped
     {
-      delegate(get) { return this.stumpsChopped; };
-      delegate(set) { return this.stumpsChopped = value; };
+      get { return this.stumpsChopped; }
+      set { this.stumpsChopped = value; }
     }
 
     public uint TimesFished
     {
-      delegate(get) { return this.timesFished; };
-      delegate(set) { return this.timesFished = value; };
+      get { return this.timesFished; }
+      set { this.timesFished = value; }
     }
 
     public uint AverageBedtime
     {
-      delegate(get) { return this.averageBedtime; };
-      delegate(set) { return this.averageBedtime = (this.averageBedtime * (this.daysPlayed - 1U) + value) / Math.Max(1U; }, this.daysPlayed);
+      get { return this.averageBedtime; }
+      set { this.averageBedtime = (this.averageBedtime * (this.daysPlayed - 1U) + value) / Math.Max(1U; }, this.daysPlayed);
     }
 
     public uint TimesUnconscious
     {
-      delegate(get) { return this.timesUnconscious; };
-      delegate(set) { return this.timesUnconscious = value; };
+      get { return this.timesUnconscious; }
+      set { this.timesUnconscious = value; }
     }
 
     public uint GiftsGiven
     {
-      delegate(get) { return this.giftsGiven; };
-      delegate(set) { return this.giftsGiven = value; };
+      get { return this.giftsGiven; }
+      set { this.giftsGiven = value; }
     }
 
     public uint DirtHoed
     {
-      delegate(get) { return this.dirtHoed; };
-      delegate(set) { return this.dirtHoed = value; };
+      get { return this.dirtHoed; }
+      set { this.dirtHoed = value; }
     }
 
     public uint RocksCrushed
     {
-      delegate(get) { return this.rocksCrushed; };
-      delegate(set) { return this.rocksCrushed = value; };
+      get { return this.rocksCrushed; }
+      set { this.rocksCrushed = value; }
     }
 
     public uint TrufflesFound
     {
-      delegate(get) { return this.trufflesFound; };
-      delegate(set) { return this.trufflesFound = value; };
+      get { return this.trufflesFound; }
+      set { this.trufflesFound = value; }
     }
 
     public uint SheepWoolProduced
     {
-      delegate(get) { return this.sheepWoolProduced; };
-      delegate(set) { return this.sheepWoolProduced = value; };
+      get { return this.sheepWoolProduced; }
+      set { this.sheepWoolProduced = value; }
     }
 
     public uint RabbitWoolProduced
     {
-      delegate(get) { return this.rabbitWoolProduced; };
-      delegate(set) { return this.rabbitWoolProduced = value; };
+      get { return this.rabbitWoolProduced; }
+      set { this.rabbitWoolProduced = value; }
     }
 
     public uint GoatMilkProduced
     {
-      delegate(get) { return this.goatMilkProduced; };
-      delegate(set) { return this.goatMilkProduced = value; };
+      get { return this.goatMilkProduced; }
+      set { this.goatMilkProduced = value; }
     }
 
     public uint CowMilkProduced
     {
-      delegate(get) { return this.cowMilkProduced; };
-      delegate(set) { return this.cowMilkProduced = value; };
+      get { return this.cowMilkProduced; }
+      set { this.cowMilkProduced = value; }
     }
 
     public uint DuckEggsLayed
     {
-      delegate(get) { return this.duckEggsLayed; };
-      delegate(set) { return this.duckEggsLayed = value; };
+      get { return this.duckEggsLayed; }
+      set { this.duckEggsLayed = value; }
     }
 
     public uint ItemsCrafted
     {
-      delegate(get) { return this.itemsCrafted; };
+      get { return this.itemsCrafted; }
       set
       {
         this.itemsCrafted = value;
@@ -407,31 +407,31 @@ namespace StardewValley
 
     public uint ChickenEggsLayed
     {
-      delegate(get) { return this.chickenEggsLayed; };
-      delegate(set) { return this.chickenEggsLayed = value; };
+      get { return this.chickenEggsLayed; }
+      set { this.chickenEggsLayed = value; }
     }
 
     public uint ItemsCooked
     {
-      delegate(get) { return this.itemsCooked; };
-      delegate(set) { return this.itemsCooked = value; };
+      get { return this.itemsCooked; }
+      set { this.itemsCooked = value; }
     }
 
     public uint ItemsShipped
     {
-      delegate(get) { return this.itemsShipped; };
-      delegate(set) { return this.itemsShipped = value; };
+      get { return this.itemsShipped; }
+      set { this.itemsShipped = value; }
     }
 
     public uint SeedsSown
     {
-      delegate(get) { return this.seedsSown; };
-      delegate(set) { return this.seedsSown = value; };
+      get { return this.seedsSown; }
+      set { this.seedsSown = value; }
     }
 
     public uint IndividualMoneyEarned
     {
-      delegate(get) { return this.individualMoneyEarned; };
+      get { return this.individualMoneyEarned; }
       set
       {
         uint individualMoneyEarned = this.individualMoneyEarned;
@@ -717,3 +717,6 @@ namespace StardewValley
     }
   }
 }
+
+
+

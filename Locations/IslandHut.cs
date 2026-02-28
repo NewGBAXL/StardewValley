@@ -290,7 +290,7 @@ namespace StardewValley.Locations
         Game1.addMailForTomorrow("Island_FirstParrot", true, true);
         this.firstParrotDone.Value = true;
         this.parrotBoyEvent.Fire();
-      }), (Func<bool>) (() => this.firstParrotDone.Value), "Hut"));
+      }), (Func<bool>) (delegate() { return this.firstParrotDone.Value; }), "Hut"));
     }
 
     public override bool performToolAction(Tool t, int tileX, int tileY)
@@ -299,8 +299,8 @@ namespace StardewValley.Locations
       {
         switch (t)
         {
-          case Pickaxe _:
-          case Axe _:
+          case Pickaxe:
+          case Axe:
             if (!this.treeHitLocal)
             {
               this.hitTreeEvent.Fire();
@@ -388,7 +388,7 @@ namespace StardewValley.Locations
       if (!Game1.IsMasterGame || this.treeNutObtained.Value)
         return;
       Game1.player.team.MarkCollectedNut("TreeNut");
-      DelayedAction.functionAfterDelay((DelayedAction.delayedBehavior) (() => Game1.createItemDebris((Item) new StardewValley.Object(73, 1), new Vector2(10.5f, 7f) * 64f, 0, (GameLocation) this, 0)), 1250);
+      DelayedAction.functionAfterDelay((DelayedAction.delayedBehavior) (delegate() { return Game1.createItemDebris((Item; }) new StardewValley.Object(73, 1), new Vector2(10.5f, 7f) * 64f, 0, (GameLocation) this, 0)), 1250);
       this.treeNutObtained.Value = true;
     }
 
@@ -454,3 +454,5 @@ namespace StardewValley.Locations
     }
   }
 }
+
+

@@ -25,7 +25,7 @@ namespace StardewValley.Locations
       this.setUpAgingBoards();
     }
 
-    public override void DayUpdate(int dayOfMonth) { return base.DayUpdate(dayOfMonth); }
+    public override void DayUpdate(int dayOfMonth) { base.DayUpdate(dayOfMonth); }
 
     public void setUpAgingBoards()
     {
@@ -63,6 +63,7 @@ namespace StardewValley.Locations
         warp.TargetName = str;
     }
 
-    public override void updateWarps() { return base.updateWarps(); }
+    public override void updateWarps() { base.updateWarps(); }
   }
 }
+

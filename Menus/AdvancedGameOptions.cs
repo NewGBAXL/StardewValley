@@ -111,36 +111,36 @@ namespace StardewValley.Menus
       {
         style = OptionsElement.Style.OptionLabel
       });
-      this.AddDropdown<Game1.BundleType>("", Game1.content.LoadString("Strings\\UI:AGO_CCB_Tooltip"), (Func<Game1.BundleType>) (delegate() { return Game1.bundleType; }), (Action<Game1.BundleType>) (delegate(val) { return Game1.bundleType = val; }), new KeyValuePair<string, Game1.BundleType>(Game1.content.LoadString("Strings\\UI:AGO_CCB_Normal"), Game1.BundleType.Default), new KeyValuePair<string, Game1.BundleType>(Game1.content.LoadString("Strings\\UI:AGO_CCB_Remixed"), Game1.BundleType.Remixed));
-        this.AddDropdown<Game1.BundleType>("", Game1.content.LoadString("Strings\\UI:AGO_CCB_Tooltip"), (Func<Game1.BundleType>) (delegate() { return Game1.bundleType; }), (Action<Game1.BundleType>) (delegate(val) {
+      this.AddDropdown<Game1.BundleType>("", Game1.content.LoadString("Strings\\UI:AGO_CCB_Tooltip"), (Func<Game1.BundleType>) (delegate() { return Game1.bundleType; }), (Action<Game1.BundleType>) (val { return Game1.bundleType = val; }), new KeyValuePair<string, Game1.BundleType>(Game1.content.LoadString("Strings\\UI:AGO_CCB_Normal"), Game1.BundleType.Default), new KeyValuePair<string, Game1.BundleType>(Game1.content.LoadString("Strings\\UI:AGO_CCB_Remixed"), Game1.BundleType.Remixed));
+        this.AddDropdown<Game1.BundleType>("", Game1.content.LoadString("Strings\\UI:AGO_CCB_Tooltip"), (Func<Game1.BundleType>) (delegate() { return Game1.bundleType; }), (Action<Game1.BundleType>) (val {
           Game1.bundleType = val;
         }), new KeyValuePair<string, Game1.BundleType>(Game1.content.LoadString("Strings\\UI:AGO_CCB_Normal"), Game1.BundleType.Default), new KeyValuePair<string, Game1.BundleType>(Game1.content.LoadString("Strings\\UI:AGO_CCB_Remixed"), Game1.BundleType.Remixed));
-      this.AddCheckbox(Game1.content.LoadString("Strings\\UI:AGO_Year1Completable"), Game1.content.LoadString("Strings\\UI:AGO_Year1Completable_Tooltip"), (Func<bool>) (delegate() { return Game1.game1.GetNewGameOption<bool>("YearOneCompletable"); }), (Action<bool>) (delegate(val) { return Game1.game1.SetNewGameOption<bool>("YearOneCompletable"; }, val)));
+      this.AddCheckbox(Game1.content.LoadString("Strings\\UI:AGO_Year1Completable"), Game1.content.LoadString("Strings\\UI:AGO_Year1Completable_Tooltip"), (Func<bool>) (delegate() { return Game1.game1.GetNewGameOption<bool>("YearOneCompletable"); }), (Action<bool>) (val { return Game1.game1.SetNewGameOption<bool>("YearOneCompletable"; }, val)));
       this.options.Add(new OptionsElement(Game1.content.LoadString("Strings\\UI:AGO_MineTreasureShuffle"))
       {
         style = OptionsElement.Style.OptionLabel
       });
-      this.AddDropdown<Game1.MineChestType>("", Game1.content.LoadString("Strings\\UI:AGO_MineTreasureShuffle_Tooltip"), (Func<Game1.MineChestType>) (() => Game1.game1.GetNewGameOption<Game1.MineChestType>("MineChests")), (Action<Game1.MineChestType>) (delegate(val) { return Game1.game1.SetNewGameOption<Game1.MineChestType>("MineChests"; }, val)), new KeyValuePair<string, Game1.MineChestType>(Game1.content.LoadString("Strings\\UI:AGO_CCB_Normal"), Game1.MineChestType.Default), new KeyValuePair<string, Game1.MineChestType>(Game1.content.LoadString("Strings\\UI:AGO_CCB_Remixed"), Game1.MineChestType.Remixed));
+      this.AddDropdown<Game1.MineChestType>("", Game1.content.LoadString("Strings\\UI:AGO_MineTreasureShuffle_Tooltip"), (Func<Game1.MineChestType>) (delegate() { return Game1.game1.GetNewGameOption<Game1.MineChestType>("MineChests"; })), (Action<Game1.MineChestType>) (val { return Game1.game1.SetNewGameOption<Game1.MineChestType>("MineChests"; }, val)), new KeyValuePair<string, Game1.MineChestType>(Game1.content.LoadString("Strings\\UI:AGO_CCB_Normal"), Game1.MineChestType.Default), new KeyValuePair<string, Game1.MineChestType>(Game1.content.LoadString("Strings\\UI:AGO_CCB_Remixed"), Game1.MineChestType.Remixed));
       this.AddCheckbox(Game1.content.LoadString("Strings\\UI:AGO_FarmMonsters"), Game1.content.LoadString("Strings\\UI:AGO_FarmMonsters_Tooltip"), (Func<bool>) (delegate() {
         bool flag = Game1.spawnMonstersAtNight;
         if (Game1.game1.newGameSetupOptions.ContainsKey("SpawnMonstersAtNight"))
           flag = Game1.game1.GetNewGameOption<bool>("SpawnMonstersAtNight");
         this.initialMonsterSpawnAtValue = flag;
         return flag;
-      }), (Action<bool>) (delegate(val) { return {; }
+      }), (Action<bool>) (val { return {; }
           if (this.initialMonsterSpawnAtValue == val) return;
           Game1.game1.SetNewGameOption<bool>("SpawnMonstersAtNight", val);
         }));
-      this.AddDropdown<float>(Game1.content.LoadString("Strings\\UI:Character_Difficulty"), Game1.content.LoadString("Strings\\UI:AGO_ProfitMargin_Tooltip"), (Func<float>) (() => Game1.player.difficultyModifier), (Action<float>) (delegate(val) { return Game1.player.difficultyModifier = val); }, new KeyValuePair<string, float>(Game1.content.LoadString("Strings\\UI:Character_Normal"), 1f), new KeyValuePair<string, float>("75%", 0.75f), new KeyValuePair<string, float>("50%", 0.5f), new KeyValuePair<string, float>("25%", 0.25f));
+      this.AddDropdown<float>(Game1.content.LoadString("Strings\\UI:Character_Difficulty"), Game1.content.LoadString("Strings\\UI:AGO_ProfitMargin_Tooltip"), (Func<float>) (delegate() { return Game1.player.difficultyModifier; }), (Action<float>) (val { return Game1.player.difficultyModifier = val); }, new KeyValuePair<string, float>(Game1.content.LoadString("Strings\\UI:Character_Normal"), 1f), new KeyValuePair<string, float>("75%", 0.75f), new KeyValuePair<string, float>("50%", 0.5f), new KeyValuePair<string, float>("25%", 0.25f));
       this.options.Add(new OptionsElement(Game1.content.LoadString("Strings\\UI:AGO_MPOptions_Label")));
-      this.AddDropdown<int>(Game1.content.LoadString("Strings\\UI:Character_StartingCabins"), Game1.content.LoadString("Strings\\UI:AGO_StartingCabins_Tooltip"), (Func<int>) (() => Game1.startingCabins), (Action<int>) (delegate(val) { return Game1.startingCabins = val); }, new KeyValuePair<string, int>(Game1.content.LoadString("Strings\\UI:Character_none"), 0), new KeyValuePair<string, int>("1", 1), new KeyValuePair<string, int>("2", 2), new KeyValuePair<string, int>("3", 3));
-      this.AddDropdown<bool>(Game1.content.LoadString("Strings\\UI:Character_CabinLayout"), Game1.content.LoadString("Strings\\UI:AGO_CabinLayout_Tooltip"), (Func<bool>) (() => Game1.cabinsSeparate), (Action<bool>) (delegate(val) { return Game1.cabinsSeparate = val); }, new KeyValuePair<string, bool>(Game1.content.LoadString("Strings\\UI:Character_Close"), false), new KeyValuePair<string, bool>(Game1.content.LoadString("Strings\\UI:Character_Separate"), true));
+      this.AddDropdown<int>(Game1.content.LoadString("Strings\\UI:Character_StartingCabins"), Game1.content.LoadString("Strings\\UI:AGO_StartingCabins_Tooltip"), (Func<int>) (delegate() { return Game1.startingCabins; }), (Action<int>) (val { return Game1.startingCabins = val); }, new KeyValuePair<string, int>(Game1.content.LoadString("Strings\\UI:Character_none"), 0), new KeyValuePair<string, int>("1", 1), new KeyValuePair<string, int>("2", 2), new KeyValuePair<string, int>("3", 3));
+      this.AddDropdown<bool>(Game1.content.LoadString("Strings\\UI:Character_CabinLayout"), Game1.content.LoadString("Strings\\UI:AGO_CabinLayout_Tooltip"), (Func<bool>) (delegate() { return Game1.cabinsSeparate; }), (Action<bool>) (val { return Game1.cabinsSeparate = val); }, new KeyValuePair<string, bool>(Game1.content.LoadString("Strings\\UI:Character_Close"), false), new KeyValuePair<string, bool>(Game1.content.LoadString("Strings\\UI:Character_Separate"), true));
       this.options.Add(new OptionsElement(Game1.content.LoadString("Strings\\UI:AGO_OtherOptions_Label")));
       this.options.Add(new OptionsElement(Game1.content.LoadString("Strings\\UI:AGO_RandomSeed"))
       {
         style = OptionsElement.Style.OptionLabel
       });
-      OptionsTextEntry optionsTextEntry = this.AddTextEntry("", Game1.content.LoadString("Strings\\UI:AGO_RandomSeed_Tooltip"), (Func<string>) (delegate() { return !Game1.startingGameSeed.HasValue ? "" : Game1.startingGameSeed.Value.ToString(); }), (Action<string>) (delegate(val) { return {; }
+      OptionsTextEntry optionsTextEntry = this.AddTextEntry("", Game1.content.LoadString("Strings\\UI:AGO_RandomSeed_Tooltip"), (Func<string>) (delegate() { return !Game1.startingGameSeed.HasValue ? "" : Game1.startingGameSeed.Value.ToString(); }), (Action<string>) (val { return {; }
         val.Trim();
         if (string.IsNullOrEmpty(val))
         {
@@ -312,7 +312,7 @@ namespace StardewValley.Menus
       }
     }
 
-    protected override void cleanupBeforeExit() { return base.cleanupBeforeExit(); }
+    protected override void cleanupBeforeExit() { base.cleanupBeforeExit(); }
 
     public virtual void SetScrollFromY(int y)
     {
@@ -568,3 +568,6 @@ namespace StardewValley.Menus
     }
   }
 }
+
+
+

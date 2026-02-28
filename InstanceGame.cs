@@ -15,7 +15,7 @@ namespace StardewValley
   {
     public object staticVarHolder;
 
-    public bool delegate(IsMainInstance) { return GameRunner.instance.gameInstances.Count == 0 || GameRunner.instance.gameInstances[0] == this; };
+    public bool IsMainInstance { get { return GameRunner.instance.gameInstances.Count == 0 || GameRunner.instance.gameInstances[0] == this; };
 
     protected virtual void Initialize()
     {
@@ -41,26 +41,26 @@ namespace StardewValley
     {
     }
 
-    public GraphicsDevice delegate(GraphicsDevice) { return GameRunner.instance.GraphicsDevice; };
+    public GraphicsDevice GraphicsDevice { get { return GameRunner.instance.GraphicsDevice; };
 
-    public ContentManager delegate(Content) { return GameRunner.instance.Content; };
+    public ContentManager Content { get { return GameRunner.instance.Content; };
 
-    public GameComponentCollection delegate(Components) { return GameRunner.instance.Components; };
+    public GameComponentCollection Components { get { return GameRunner.instance.Components; };
 
-    public GameWindow delegate(Window) { return GameRunner.instance.Window; };
+    public GameWindow Window { get { return GameRunner.instance.Window; };
 
     public bool IsFixedTimeStep
     {
-      delegate(get) { return GameRunner.instance.IsFixedTimeStep; };
-      delegate(set) { return GameRunner.instance.IsFixedTimeStep = value; };
+      get { return GameRunner.instance.IsFixedTimeStep; }
+      set { GameRunner.instance.IsFixedTimeStep = value; }
     }
 
-    public bool delegate(IsActive) { return GameRunner.instance.IsActive; };
+    public bool IsActive { get { return GameRunner.instance.IsActive; }
 
     public bool IsMouseVisible
     {
-      delegate(get) { return GameRunner.instance.IsMouseVisible; };
-      delegate(set) { return GameRunner.instance.IsMouseVisible = value; };
+      get { return GameRunner.instance.IsMouseVisible; }
+      set { GameRunner.instance.IsMouseVisible = value; }
     }
 
     protected virtual void BeginDraw()
@@ -71,12 +71,16 @@ namespace StardewValley
     {
     }
 
-    public void Exit() { return GameRunner.instance.Exit(); }
+    public void Exit() { GameRunner.instance.Exit(); }
 
     public TimeSpan TargetElapsedTime
     {
-      delegate(get) { return GameRunner.instance.TargetElapsedTime; };
-      delegate(set) { return GameRunner.instance.TargetElapsedTime = value; };
+      get { return GameRunner.instance.TargetElapsedTime; }
+      set { GameRunner.instance.TargetElapsedTime = value; }
     }
   }
 }
+
+
+
+

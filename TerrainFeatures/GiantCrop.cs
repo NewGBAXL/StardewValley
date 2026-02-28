@@ -47,7 +47,7 @@ namespace StardewValley.TerrainFeatures
       this.health.Value = 3f;
     }
 
-    public override void draw(SpriteBatch spriteBatch, Vector2 tileLocation) { return spriteBatch.Draw(Game1.cropSpriteSheet, Game1.GlobalToLocal(Game1.viewport, tileLocation * 64f - new Vector2((double) this.shakeTimer > 0.0 ? (float) (Math.Sin(2.0 * Math.PI / (double) this.shakeTimer) * 2.0) : 0.0f, 64f)), new Rectangle?(new Rectangle(112 + (int) (NetFieldBase<int, NetInt>) this.which * 48, 512, 48, 63)), Color.White, 0.0f, Vector2.Zero, 4f, SpriteEffects.None, (float) (((double) tileLocation.Y + 2.0) * 64.0 / 10000.0)); }
+    public override void draw(SpriteBatch spriteBatch, Vector2 tileLocation) { spriteBatch.Draw(Game1.cropSpriteSheet, Game1.GlobalToLocal(Game1.viewport, tileLocation * 64f - new Vector2((double) this.shakeTimer > 0.0 ? (float) (Math.Sin(2.0 * Math.PI / (double) this.shakeTimer) * 2.0) : 0.0f, 64f)), new Rectangle?(new Rectangle(112 + (int) (NetFieldBase<int, NetInt>) this.which * 48, 512, 48, 63)), Color.White, 0.0f, Vector2.Zero, 4f, SpriteEffects.None, (float) (((double) tileLocation.Y + 2.0) * 64.0 / 10000.0)); }
 
     public override bool performToolAction(
       Tool t,
@@ -114,3 +114,4 @@ namespace StardewValley.TerrainFeatures
     }
   }
 }
+

@@ -211,6 +211,7 @@ namespace StardewValley.Menus
       this.hasDrawn = true;
     }
 
-    public void Dispose() { return Game1.game1.IsSaving = false; }
+    public void Dispose() { Game1.game1.IsSaving = false; }
   }
 }
+

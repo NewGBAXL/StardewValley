@@ -210,7 +210,7 @@ namespace StardewValley.Menus
         displayOptions.Add("100%");
         Texture2D mouseCursors2 = Game1.mouseCursors2;
         Rectangle buttonRect = new Rectangle(72, 31, 18, 16);
-        OptionsPlusMinusButton optionsPlusMinusButton = new OptionsPlusMinusButton(label, 36, options2, displayOptions, mouseCursors2, buttonRect, (Action<string>) (delegate(selection) { return {; }
+        OptionsPlusMinusButton optionsPlusMinusButton = new OptionsPlusMinusButton(label, 36, options2, displayOptions, mouseCursors2, buttonRect, (Action<string>) (selection { return {; }
           Game1.flashAlpha = 1f;
           selection = selection.Substring(0, selection.Length - 1);
           int result = 25;
@@ -243,11 +243,11 @@ namespace StardewValley.Menus
       else
       {
         IClickableMenu thisMenu = Game1.activeClickableMenu;
-        ConfirmationDialog.behavior onClose = (ConfirmationDialog.behavior) (delegate(who) { return {; }
+        ConfirmationDialog.behavior onClose = (ConfirmationDialog.behavior) (who { return {; }
           Game1.activeClickableMenu = thisMenu;
           thisMenu.snapCursorToCurrentSnappedComponent();
         });
-        Game1.activeClickableMenu = (IClickableMenu) new ServerConnectionDialog((ConfirmationDialog.behavior) (delegate(who) { return {; }
+        Game1.activeClickableMenu = (IClickableMenu) new ServerConnectionDialog((ConfirmationDialog.behavior) (who { return {; }
           onClose(who);
           onConnection();
         }), onClose);
@@ -268,7 +268,7 @@ namespace StardewValley.Menus
       IClickableMenu thisMenu = Game1.activeClickableMenu;
       this.waitForServerConnection((Action) (() =>
       {
-        ConfirmationDialog.behavior onClose = (ConfirmationDialog.behavior) (delegate(who) { return {; }
+        ConfirmationDialog.behavior onClose = (ConfirmationDialog.behavior) (who { return {; }
           Game1.activeClickableMenu = thisMenu;
           thisMenu.snapCursorToCurrentSnappedComponent();
         });
@@ -565,3 +565,4 @@ namespace StardewValley.Menus
     }
   }
 }
+

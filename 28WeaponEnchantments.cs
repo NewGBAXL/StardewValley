@@ -15,7 +15,8 @@ namespace StardewValley
     protected override void _ApplyTo(Item item)
     {
       base._ApplyTo(item);
-      if (!(item is WateringCan wateringCan))
+      WateringCan wateringCan = item as WateringCan;
+      if (wateringCan == null)
         return;
       wateringCan.IsBottomless = true;
       wateringCan.WaterLeft = wateringCan.waterCanMax;
@@ -24,9 +25,12 @@ namespace StardewValley
     protected override void _UnapplyTo(Item item)
     {
       base._UnapplyTo(item);
-      if (!(item is WateringCan wateringCan))
+      WateringCan wateringCan = item as WateringCan;
+      if (wateringCan == null)
         return;
       wateringCan.IsBottomless = false;
     }
   }
 }
+
+

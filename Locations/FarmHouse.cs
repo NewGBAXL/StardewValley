@@ -48,12 +48,12 @@ namespace StardewValley.Locations
     private bool displayingSpouseRoom;
 
     [XmlIgnore]
-    public virtual Farmer delegate(owner) { return Game1.MasterPlayer; };
+    public virtual Farmer owner { get { return Game1.MasterPlayer; };
 
     [XmlIgnore]
     public virtual int upgradeLevel
     {
-      delegate(get) { return this.owner == null ? 0 : (int) (NetFieldBase<int; }, NetInt>) this.owner.houseUpgradeLevel;
+      get { return this.owner == null ? 0 : (int) (NetFieldBase<int; }, NetInt>) this.owner.houseUpgradeLevel;
       set
       {
         if (this.owner == null)
@@ -91,7 +91,7 @@ namespace StardewValley.Locations
       });
     }
 
-    public List<Child> getChildren() { return this.characters.Where<NPC>((Func<NPC, bool>) (delegate(n) { return n is Child)).Select<NPC; }, Child>((Func<NPC, Child>) (delegate(n) { return n as Child)).ToList<Child>(); }; }
+    public List<Child> getChildren() { return this.characters.Where<NPC>((Func<NPC, bool>) (n { return n is Child)).Select<NPC; }, Child>((Func<NPC, Child>) (n { return n as Child)).ToList<Child>(); } }
 
     public int getChildrenCount()
     {
@@ -735,7 +735,7 @@ namespace StardewValley.Locations
             switch (@object)
             {
               case null:
-              case Furniture _:
+              case Furniture:
                 continue;
               default:
                 @object.performRemoveAction(new Vector2((float) x, (float) y), (GameLocation) this);
@@ -1037,10 +1037,10 @@ namespace StardewValley.Locations
                 switch (object1)
                 {
                   case null:
-                  case Chest _:
-                  case StorageFurniture _:
-                  case IndoorPot _:
-                  case BedFurniture _:
+                  case Chest:
+                  case StorageFurniture:
+                  case IndoorPot:
+                  case BedFurniture:
                     continue;
                   default:
                     if (object1.Name != null && object1.Name.Contains("Table") && object1.heldObject.Value != null)
@@ -1587,7 +1587,7 @@ namespace StardewValley.Locations
       }
     }
 
-    public void createCellarWarps() { return this.updateCellarWarps(); }
+    public void createCellarWarps() { this.updateCellarWarps(); }
 
     public void updateCellarWarps()
     {
@@ -1781,7 +1781,7 @@ namespace StardewValley.Locations
       this.ApplyMapOverride("FarmHouse_Crib_" + this.cribStyle.Value.ToString(), "crib", destination_rect: cribBounds);
     }
 
-    public void playerDivorced() { return this.displayingSpouseRoom = false; }
+    public void playerDivorced() { this.displayingSpouseRoom = false; }
 
     public virtual List<Microsoft.Xna.Framework.Rectangle> getForbiddenPetWarpTiles()
     {
@@ -1938,3 +1938,7 @@ namespace StardewValley.Locations
     }
   }
 }
+
+
+
+

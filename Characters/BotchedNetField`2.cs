@@ -24,13 +24,13 @@ namespace StardewValley.Characters
 
     public T Value
     {
-      delegate(get) { return this.netField.Value; };
-      delegate(set) { return this.netField.Value = value; };
+      get { return this.netField.Value; }
+      set { this.netField.Value = value; }
     }
 
     public XmlSchema GetSchema() { return (XmlSchema) null; }
 
-    public void WriteXml(XmlWriter writer) { return writer.WriteValue((object) this.netField.Value); }
+    public void WriteXml(XmlWriter writer) { writer.WriteValue((object) this.netField.Value); }
 
     protected virtual object _ParseValue(XmlReader reader) { return (object) null; }
 
@@ -63,3 +63,6 @@ namespace StardewValley.Characters
     }
   }
 }
+
+
+

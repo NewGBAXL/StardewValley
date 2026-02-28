@@ -95,7 +95,7 @@ namespace StardewValley.SDKs
       }
     }
 
-    protected virtual void onReceiveError(string message) { return this.connectionMessage = message; }
+    protected virtual void onReceiveError(string message) { this.connectionMessage = message; }
 
     public override void sendMessage(OutgoingMessage message)
     {
@@ -120,3 +120,4 @@ namespace StardewValley.SDKs
     }
   }
 }
+

@@ -17,7 +17,7 @@ namespace StardewValley
     protected override bool _AttemptActivity(Farm farm)
     {
       this._cropObject = (Object) null;
-      HoeDirt randomCrop = this.GetRandomCrop(farm, (Func<Crop, bool>) (delegate(crop) { return crop.currentPhase.Value <= 0 && new Object(Vector2.Zero; }, crop.indexOfHarvest.Value, 1).category.Value != -80));
+      HoeDirt randomCrop = this.GetRandomCrop(farm, (Func<Crop, bool>) (crop { return crop.currentPhase.Value <= 0 && new Object(Vector2.Zero; }, crop.indexOfHarvest.Value, 1).category.Value != -80));
       if (randomCrop == null)
         return false;
       this._cropObject = new Object(Vector2.Zero, randomCrop.crop.indexOfHarvest.Value, 1);
@@ -25,7 +25,7 @@ namespace StardewValley
       return true;
     }
 
-    protected override void _EndActivity() { return this._cropObject = (Object) null; }
+    protected override void _EndActivity() { this._cropObject = (Object) null; }
 
     protected override void _BeginActivity()
     {
@@ -48,3 +48,5 @@ namespace StardewValley
     }
   }
 }
+
+

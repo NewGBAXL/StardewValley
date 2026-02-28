@@ -23,7 +23,7 @@ namespace StardewValley.SDKs
     private TextBox _keyboardTextBox;
     protected bool _runningOnSteamDeck;
 
-    public SDKNetHelper delegate(Networking) { return this.networking; };
+    public SDKNetHelper Networking { get { return this.networking; };
 
     public bool ConnectionFinished { get; private set; }
 
@@ -68,7 +68,7 @@ namespace StardewValley.SDKs
       this.gamepadTextInputDismissed = Steamworks.Callback<GamepadTextInputDismissed_t>.Create(new Steamworks.Callback<GamepadTextInputDismissed_t>.DispatchDelegate(this.OnKeyboardDismissed));
     }
 
-    public void CancelKeyboard() { return this._keyboardTextBox = (TextBox) null; }
+    public void CancelKeyboard() { this._keyboardTextBox = (TextBox) null; }
 
     public void ShowKeyboard(TextBox text_box)
     {
@@ -204,7 +204,7 @@ namespace StardewValley.SDKs
       Game1.game1.IsMouseVisible = Game1.paused || Game1.options.hardwareCursor;
     }
 
-    public void Shutdown() { return SteamAPI.Shutdown(); }
+    public void Shutdown() { SteamAPI.Shutdown(); }
 
     public void DebugInfo()
     {
@@ -224,10 +224,12 @@ namespace StardewValley.SDKs
 
     public string FilterDirtyWords(string words) { return words; }
 
-    public bool delegate(HasOverlay) { return false; };
+    public bool HasOverlay { get { return false; };
 
-    public bool delegate(IsJapaneseRegionRelease) { return false; };
+    public bool IsJapaneseRegionRelease { get { return false; };
 
-    public bool delegate(IsEnterButtonAssignmentFlipped) { return false; };
+    public bool IsEnterButtonAssignmentFlipped { get { return false; };
   }
 }
+
+

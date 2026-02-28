@@ -109,9 +109,9 @@ namespace StardewValley.Menus
       this.heldItem = (Item) null;
     }
 
-    public override void receiveRightClick(int x, int y, bool playSound = true) { return this.heldItem = this.inventory.rightClick(x, y, this.heldItem, playSound); }
+    public override void receiveRightClick(int x, int y, bool playSound = true) { this.heldItem = this.inventory.rightClick(x, y, this.heldItem, playSound); }
 
-    public void receiveRightClickOnlyToolAttachments(int x, int y) { return this.heldItem = this.inventory.rightClick(x, y, this.heldItem, onlyCheckToolAttachments: true); }
+    public void receiveRightClickOnlyToolAttachments(int x, int y) { this.heldItem = this.inventory.rightClick(x, y, this.heldItem, onlyCheckToolAttachments: true); }
 
     public override void performHoverAction(int x, int y)
     {
@@ -218,6 +218,8 @@ namespace StardewValley.Menus
       this.trashCan = new ClickableTextureComponent(new Rectangle(this.xPositionOnScreen + this.width + 4, this.yPositionOnScreen + this.height - 192 - 32 - IClickableMenu.borderWidth - 104, 64, 104), Game1.mouseCursors, new Rectangle(669, 261, 16, 26), 4f);
     }
 
-    public override void draw(SpriteBatch b) { return throw new NotImplementedException(); }
+    public override void draw(SpriteBatch b) { throw new NotImplementedException(); }
   }
 }
+
+

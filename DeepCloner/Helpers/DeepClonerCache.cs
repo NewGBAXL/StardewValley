@@ -23,7 +23,7 @@ namespace Force.DeepCloner.Helpers
       if (DeepClonerCache._typeCache.TryGetValue(type, out orAddClass))
         return orAddClass;
       lock (type)
-        return DeepClonerCache._typeCache.GetOrAdd(type, (Func<Type, object>) (delegate(t) { return (object) adder(t))); };
+        return DeepClonerCache._typeCache.GetOrAdd(type, (Func<Type, object>) (t { return (object) adder(t))); };
     }
 
     public static object GetOrAddDeepClassTo<T>(Type type, Func<Type, T> adder)
@@ -32,7 +32,7 @@ namespace Force.DeepCloner.Helpers
       if (DeepClonerCache._typeCacheDeepTo.TryGetValue(type, out orAddDeepClassTo))
         return orAddDeepClassTo;
       lock (type)
-        return DeepClonerCache._typeCacheDeepTo.GetOrAdd(type, (Func<Type, object>) (delegate(t) { return (object) adder(t))); };
+        return DeepClonerCache._typeCacheDeepTo.GetOrAdd(type, (Func<Type, object>) (t { return (object) adder(t))); };
     }
 
     public static object GetOrAddShallowClassTo<T>(Type type, Func<Type, T> adder)
@@ -41,7 +41,7 @@ namespace Force.DeepCloner.Helpers
       if (DeepClonerCache._typeCacheShallowTo.TryGetValue(type, out addShallowClassTo))
         return addShallowClassTo;
       lock (type)
-        return DeepClonerCache._typeCacheShallowTo.GetOrAdd(type, (Func<Type, object>) (delegate(t) { return (object) adder(t))); };
+        return DeepClonerCache._typeCacheShallowTo.GetOrAdd(type, (Func<Type, object>) (t { return (object) adder(t))); };
     }
 
     public static object GetOrAddStructAsObject<T>(Type type, Func<Type, T> adder)
@@ -50,12 +50,12 @@ namespace Force.DeepCloner.Helpers
       if (DeepClonerCache._structAsObjectCache.TryGetValue(type, out addStructAsObject))
         return addStructAsObject;
       lock (type)
-        return DeepClonerCache._structAsObjectCache.GetOrAdd(type, (Func<Type, object>) (delegate(t) { return (object) adder(t))); };
+        return DeepClonerCache._structAsObjectCache.GetOrAdd(type, (Func<Type, object>) (t { return (object) adder(t))); };
     }
 
     public static T GetOrAddConvertor<T>(Type from, Type to, Func<Type, Type, T> adder)
     {
-      return (T) DeepClonerCache._typeConvertCache.GetOrAdd(new Tuple<Type, Type>(from, to), (Func<Tuple<Type, Type>, object>) (delegate(tuple)
+      return (T) DeepClonerCache._typeConvertCache.GetOrAdd(new Tuple<Type, Type>(from, to), (Func<Tuple<Type, Type>, object>) (tuple
       {
         return (object) adder(tuple.Item1, tuple.Item2);
       }));
@@ -74,3 +74,4 @@ namespace Force.DeepCloner.Helpers
     }
   }
 }
+

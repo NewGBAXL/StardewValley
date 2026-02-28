@@ -21,8 +21,9 @@ namespace StardewValley
 
     public override bool CanDeserialize(XmlReader xmlReader) { return xmlReader.IsStartElement("Vector2"); }
 
-    protected override void Serialize(object o, XmlSerializationWriter writer) { return this._writer.WriteVector2((Vector2) o); }
+    protected override void Serialize(object o, XmlSerializationWriter writer) { this._writer.WriteVector2((Vector2) o); }
 
     protected override object Deserialize(XmlSerializationReader reader) { return (object) this._reader.ReadVector2(); }
   }
 }
+

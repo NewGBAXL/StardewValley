@@ -56,7 +56,7 @@ namespace StardewValley
       Rumble.isRumbling = false;
     }
 
-    public static void rumble(float leftPower, float rightPower, float milliseconds) { return Rumble.rumble(leftPower, milliseconds); }
+    public static void rumble(float leftPower, float rightPower, float milliseconds) { Rumble.rumble(leftPower, milliseconds); }
 
     public static void rumble(float power, float milliseconds)
     {
@@ -83,3 +83,4 @@ namespace StardewValley
     }
   }
 }
+

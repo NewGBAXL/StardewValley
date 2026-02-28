@@ -97,7 +97,7 @@ namespace StardewValley.Locations
       Game1.addMailForTomorrow("volcanoShortcutUnlocked", true);
     }
 
-    public override void performTenMinuteUpdate(int timeOfDay) { return base.performTenMinuteUpdate(timeOfDay); }
+    public override void performTenMinuteUpdate(int timeOfDay) { base.performTenMinuteUpdate(timeOfDay); }
 
     public override void cleanupBeforePlayerExit()
     {
@@ -202,3 +202,4 @@ namespace StardewValley.Locations
     }
   }
 }
+

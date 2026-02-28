@@ -830,7 +830,7 @@ namespace StardewValley
       {
         if (!(rule == "QI_COOKING"))
           return;
-        Utility.iterateAllItems((Action<Item>) (delegate(item) { return {; }
+        Utility.iterateAllItems((Action<Item>) (item { return {; }
           if (!(item is Object) || !((item as Object).orderData.Value == "QI_COOKING"))
             return;
           (item as Object).orderData.Value = (string) null;
@@ -853,7 +853,7 @@ namespace StardewValley
     {
     }
 
-    public virtual void AddObjective(OrderObjective objective) { return this.objectives.Add(objective); }
+    public virtual void AddObjective(OrderObjective objective) { this.objectives.Add(objective); }
 
     public void CheckCompletion()
     {
@@ -1004,3 +1004,5 @@ namespace StardewValley
     }
   }
 }
+
+

@@ -363,7 +363,7 @@ namespace StardewValley.Minigames
       return pointsForAim;
     }
 
-    public virtual void FireDart(float radius) { return this.SetGameState(Darts.GameState.Firing); }
+    public virtual void FireDart(float radius) { this.SetGameState(Darts.GameState.Firing); }
 
     public void releaseRightClick(int x, int y)
     {
@@ -575,7 +575,7 @@ namespace StardewValley.Minigames
     {
     }
 
-    public void receiveEventPoke(int data) { return throw new NotImplementedException(); }
+    public void receiveEventPoke(int data) { throw new NotImplementedException(); }
 
     public string minigameId() { return nameof (Darts); }
 
@@ -592,3 +592,5 @@ namespace StardewValley.Minigames
     }
   }
 }
+
+

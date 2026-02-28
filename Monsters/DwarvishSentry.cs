@@ -34,9 +34,9 @@ namespace StardewValley.Monsters
       DelayedAction.playSoundAfterDelay(nameof (DwarvishSentry), 500);
     }
 
-    protected override void initNetFields() { return base.initNetFields(); }
+    protected override void initNetFields() { base.initNetFields(); }
 
-    public override void reloadSprite() { return this.Sprite = new AnimatedSprite("Characters\\Monsters\\Dwarvish Sentry"); }
+    public override void reloadSprite() { this.Sprite = new AnimatedSprite("Characters\\Monsters\\Dwarvish Sentry"); }
 
     public override int takeDamage(
       int damage,
@@ -104,7 +104,7 @@ namespace StardewValley.Monsters
       this.resetAnimationSpeed();
     }
 
-    public override void update(GameTime time, GameLocation location) { return base.update(time, location); }
+    public override void update(GameTime time, GameLocation location) { base.update(time, location); }
 
     public override void behaviorAtGameTick(GameTime time)
     {
@@ -124,3 +124,4 @@ namespace StardewValley.Monsters
     }
   }
 }
+

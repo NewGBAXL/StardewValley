@@ -55,7 +55,7 @@ namespace StardewValley.Locations
       this.restoreAreaCutsceneEvent.Poll();
     }
 
-    public void restoreAreaCutscene() { return this.restoreAreaCutsceneEvent.Fire(); }
+    public void restoreAreaCutscene() { this.restoreAreaCutsceneEvent.Fire(); }
 
     private void doRestoreAreaCutscene()
     {
@@ -88,3 +88,4 @@ namespace StardewValley.Locations
     }
   }
 }
+

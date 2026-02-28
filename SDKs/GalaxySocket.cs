@@ -44,17 +44,17 @@ namespace StardewValley.SDKs
     private CSteamID? steamLobby;
     private Steamworks.Callback<LobbyEnter_t> steamLobbyEnterCallback;
 
-    public int delegate(ConnectionCount) { return this.connections.Count; };
+    public int ConnectionCount { get { return this.connections.Count; };
 
-    public IEnumerable<GalaxyID> delegate(Connections) { return (IEnumerable<GalaxyID>) this.connections.Values; };
+    public IEnumerable<GalaxyID> Connections { get { return (IEnumerable<GalaxyID>) this.connections.Values; };
 
-    public bool delegate(Connected) { return this.lobby != (GalaxyID) null; };
+    public bool Connected { get { return this.lobby != (GalaxyID) null; };
 
-    public GalaxyID delegate(LobbyOwner) { return this.lobbyOwner; };
+    public GalaxyID LobbyOwner { get { return this.lobbyOwner; };
 
-    public GalaxyID delegate(Lobby) { return this.lobby; };
+    public GalaxyID Lobby { get { return this.lobby; };
 
-    public ulong? delegate(InviteDialogLobby) { return !this.steamLobby.HasValue ? new ulong?() : new ulong?(this.steamLobby.Value.m_SteamID); };
+    public ulong? InviteDialogLobby { get { return !this.steamLobby.HasValue ? new ulong?() : new ulong?(this.steamLobby.Value.m_SteamID); };
 
     public GalaxySocket(string protocolVersion)
     {
@@ -304,7 +304,7 @@ namespace StardewValley.SDKs
       this.incompletePackets.Remove(peer.ToUint64());
     }
 
-    public void Kick(GalaxyID user) { return this.ghosts.Add(user.ToUint64()); }
+    public void Kick(GalaxyID user) { this.ghosts.Add(user.ToUint64()); }
 
     public void Close()
     {
@@ -382,7 +382,7 @@ namespace StardewValley.SDKs
             onConnection(lobbyMember);
           }
         }
-        this.ghosts.IntersectWith(this.LobbyMembers().Select<GalaxyID, ulong>((Func<GalaxyID, ulong>) (delegate(peer) { return peer.ToUint64()))); };
+        this.ghosts.IntersectWith(this.LobbyMembers().Select<GalaxyID, ulong>((Func<GalaxyID, ulong>) (peer { return peer.ToUint64()))); };
         byte[] numArray = new byte[1300];
         uint outMsgSize = 1300;
         GalaxyID outGalaxyID = new GalaxyID();
@@ -502,7 +502,7 @@ namespace StardewValley.SDKs
         GalaxyInstance.ListenerRegistrar().Register(GalaxyTypeAwareListenerLobbyCreated.GetListenerType(), (IGalaxyListener) this);
       }
 
-      public override void OnLobbyCreated(GalaxyID lobbyID, LobbyCreateResult result) { return this.callback(lobbyID, result); }
+      public override void OnLobbyCreated(GalaxyID lobbyID, LobbyCreateResult result) { this.callback(lobbyID, result); }
 
       public override void Dispose()
       {
@@ -521,7 +521,7 @@ namespace StardewValley.SDKs
         GalaxyInstance.ListenerRegistrar().Register(GalaxyTypeAwareListenerLobbyEntered.GetListenerType(), (IGalaxyListener) this);
       }
 
-      public override void OnLobbyEntered(GalaxyID lobbyID, LobbyEnterResult result) { return this.callback(lobbyID, result); }
+      public override void OnLobbyEntered(GalaxyID lobbyID, LobbyEnterResult result) { this.callback(lobbyID, result); }
 
       public override void Dispose()
       {
@@ -556,3 +556,5 @@ namespace StardewValley.SDKs
     }
   }
 }
+
+

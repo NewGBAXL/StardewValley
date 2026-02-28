@@ -19,8 +19,8 @@ namespace StardewValley.Network
 
     public T Value
     {
-      delegate(get) { return this.Get(); };
-      delegate(set) { return this.Set(value); };
+      get { return this.Get(); }
+      set { this.Set(value); }
     }
 
     public bool Paused
@@ -50,7 +50,7 @@ namespace StardewValley.Network
     protected virtual void initNetFields()
     {
       this.NetFields.AddFields((INetSerializable) this.Field, (INetSerializable) this.pauseEvent);
-      this.pauseEvent.onEvent += (AbstractNetEvent1<bool>.Event) (delegate(newPauseValue) { return this.paused = newPauseValue); };
+      this.pauseEvent.onEvent += (AbstractNetEvent1<bool>.Event) (newPauseValue { return this.paused = newPauseValue); }
     }
 
     public NetPausableField()
@@ -65,12 +65,15 @@ namespace StardewValley.Network
       return this.Field.Get();
     }
 
-    public void Set(T value) { return this.Field.Set(value); }
+    public void Set(T value) { this.Field.Set(value); }
 
-    public bool IsPausePending() { return this.pauseEvent.HasPendingEvent((Predicate<bool>) (delegate(p) { return p)); }; }
+    public bool IsPausePending() { return this.pauseEvent.HasPendingEvent((Predicate<bool>) (p { return p)); } }
 
     public bool IsInterpolating() { return this.Field.IsInterpolating() && !this.Paused; }
 
     public static implicit operator T(NetPausableField<T, TField, TBaseField> field) { return field.Get(); }
   }
 }
+
+
+

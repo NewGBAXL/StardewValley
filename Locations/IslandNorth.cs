@@ -212,7 +212,7 @@ namespace StardewValley.Locations
           t.motion = new Vector2(-3f, -10f);
           t.acceleration = new Vector2(0.0f, 0.3f);
           t.yStopCoordinate = (int) t.position.Y + 1;
-          t.reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (delegate(x) { return {; }
+          t.reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (x { return {; }
             this.temporarySprites.Add(new TemporaryAnimatedSprite(50, t.position, Color.Green)
             {
               drawAboveAlwaysFront = true
@@ -260,19 +260,19 @@ namespace StardewValley.Locations
       {
         Game1.addMailForTomorrow("Island_UpgradeBridge", true, true);
         this.bridgeFixed.Value = true;
-      }), (Func<bool>) (() => this.bridgeFixed.Value), "Bridge", "Island_Turtle"));
+      }), (Func<bool>) (delegate() { return this.bridgeFixed.Value; }), "Bridge", "Island_Turtle"));
       this.parrotUpgradePerches.Add(new ParrotUpgradePerch((GameLocation) this, new Point(32, 72), new Microsoft.Xna.Framework.Rectangle(33, 68, 5, 5), 10, (Action) (() =>
       {
         Game1.addMailForTomorrow("Island_UpgradeTrader", true, true);
         this.traderActivated.Value = true;
-      }), (Func<bool>) (() => this.traderActivated.Value), "Trader", "Island_UpgradeHouse"));
+      }), (Func<bool>) (delegate() { return this.traderActivated.Value; }), "Trader", "Island_UpgradeHouse"));
       this.largeTerrainFeatures.Add((LargeTerrainFeature) new Bush(new Vector2(45f, 38f), 4, (GameLocation) this));
       this.largeTerrainFeatures.Add((LargeTerrainFeature) new Bush(new Vector2(47f, 40f), 4, (GameLocation) this));
       this.largeTerrainFeatures.Add((LargeTerrainFeature) new Bush(new Vector2(13f, 33f), 4, (GameLocation) this));
       this.largeTerrainFeatures.Add((LargeTerrainFeature) new Bush(new Vector2(5f, 30f), 4, (GameLocation) this));
     }
 
-    protected override void resetSharedState() { return base.resetSharedState(); }
+    protected override void resetSharedState() { base.resetSharedState(); }
 
     public override void TransferDataFromSavedLocation(GameLocation l)
     {
@@ -675,7 +675,7 @@ namespace StardewValley.Locations
           temporarySpriteById3.motion = new Vector2(0.0f, -4f);
           temporarySpriteById3.acceleration = new Vector2(0.0f, -0.04f);
           temporarySpriteById3.yStopCoordinate = 1216;
-          temporarySpriteById3.reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (delegate(x) { return this.removeTemporarySpritesWithID(9999)); };
+          temporarySpriteById3.reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (x { return this.removeTemporarySpritesWithID(9999)); };
         }
         this.localSound("magma_sprite_spot");
         TemporaryAnimatedSprite temporarySpriteById4 = this.getTemporarySpriteByID(9998);
@@ -686,7 +686,7 @@ namespace StardewValley.Locations
           temporarySpriteById4.motion = new Vector2(0.0f, -4f);
           temporarySpriteById4.acceleration = new Vector2(0.0f, -0.04f);
           temporarySpriteById4.yStopCoordinate = 1280;
-          temporarySpriteById4.reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (delegate(x) { return this.removeTemporarySpritesWithID(9998)); };
+          temporarySpriteById4.reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (x { return this.removeTemporarySpritesWithID(9998)); };
         }
         this._sawFlameSpriteNorth = true;
       }
@@ -816,7 +816,7 @@ namespace StardewValley.Locations
                   Utility.spawnObjectAround(tileLocation, new StardewValley.Object(tileLocation, 818, 1)
                   {
                     MinutesUntilReady = 4
-                  }, (GameLocation) this, false, (Action<StardewValley.Object>) (delegate(o) { return {; }
+                  }, (GameLocation) this, false, (Action<StardewValley.Object>) (o { return {; }
                     o.CanBeGrabbed = false;
                     o.IsSpawnedObject = false;
                   }));
@@ -1106,3 +1106,6 @@ namespace StardewValley.Locations
     }
   }
 }
+
+
+

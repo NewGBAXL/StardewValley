@@ -133,7 +133,7 @@ namespace StardewValley.Menus
       }
     }
 
-    public override void snapToDefaultClickableComponent() { return this.snapCursorToCurrentSnappedComponent(); }
+    public override void snapToDefaultClickableComponent() { this.snapCursorToCurrentSnappedComponent(); }
 
     public override void receiveLeftClick(int x, int y, bool playSound = true)
     {
@@ -195,7 +195,7 @@ namespace StardewValley.Menus
       this.drawMouse(b);
     }
 
-    public override void update(GameTime time) { return base.update(time); }
+    public override void update(GameTime time) { base.update(time); }
 
     protected override void cleanupBeforeExit()
     {
@@ -204,3 +204,4 @@ namespace StardewValley.Menus
     }
   }
 }
+

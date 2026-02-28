@@ -260,9 +260,9 @@ namespace StardewValley.Menus
       this.Close();
     }
 
-    public void OnSpaceBar() { return this._target.RecieveTextInput(' '); }
+    public void OnSpaceBar() { this._target.RecieveTextInput(' '); }
 
-    public void OnBackSpace() { return this._target.RecieveCommandInput('\b'); }
+    public void OnBackSpace() { this._target.RecieveCommandInput('\b'); }
 
     public void OnLetter(string letter)
     {
@@ -326,3 +326,4 @@ namespace StardewValley.Menus
     }
   }
 }
+

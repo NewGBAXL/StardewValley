@@ -92,7 +92,7 @@ namespace StardewValley.TerrainFeatures
               Game1.drawObjectDialogue(Game1.content.LoadString("Strings\\StringsFromCSFiles:ResourceClump.cs.13945"));
               Game1.player.jitterStrength = 1f;
               return false;
-            case Axe _:
+            case Axe:
               location.playSound("axchop");
               break;
             default:
@@ -107,7 +107,7 @@ namespace StardewValley.TerrainFeatures
               Game1.drawObjectDialogue(Game1.content.LoadString("Strings\\StringsFromCSFiles:ResourceClump.cs.13948"));
               Game1.player.jitterStrength = 1f;
               return false;
-            case Axe _:
+            case Axe:
               location.playSound("axchop");
               break;
             default:
@@ -123,7 +123,7 @@ namespace StardewValley.TerrainFeatures
               Game1.drawObjectDialogue(Game1.content.LoadString("Strings\\StringsFromCSFiles:ResourceClump.cs.13952"));
               Game1.player.jitterStrength = 1f;
               return false;
-            case Pickaxe _:
+            case Pickaxe:
               location.playSound("hammer");
               debrisType = 14;
               break;
@@ -140,7 +140,7 @@ namespace StardewValley.TerrainFeatures
               Game1.drawObjectDialogue(Game1.content.LoadString("Strings\\StringsFromCSFiles:ResourceClump.cs.13956"));
               Game1.player.jitterStrength = 1f;
               return false;
-            case Pickaxe _:
+            case Pickaxe:
               location.playSound("hammer");
               debrisType = 14;
               break;
@@ -360,3 +360,4 @@ namespace StardewValley.TerrainFeatures
     public override bool seasonUpdate(bool onLoad) { return false; }
   }
 }
+

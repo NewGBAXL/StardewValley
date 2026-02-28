@@ -39,9 +39,9 @@ namespace StardewValley.BellsAndWhistles
     {
       this._statusList.InterpolationWait = false;
       this.NetFields.AddFields((INetSerializable) this._statusList);
-      this._statusList.OnConflictResolve += (NetDictionary<long, string, NetString, SerializableDictionary<long, string>, NetLongDictionary<string, NetString>>.ConflictResolveEvent) ((a, b, c) => this._OnValueChanged());
-      this._statusList.OnValueAdded += (NetDictionary<long, string, NetString, SerializableDictionary<long, string>, NetLongDictionary<string, NetString>>.ContentsChangeEvent) ((a, b) => this._OnValueChanged());
-      this._statusList.OnValueRemoved += (NetDictionary<long, string, NetString, SerializableDictionary<long, string>, NetLongDictionary<string, NetString>>.ContentsChangeEvent) ((a, b) => this._OnValueChanged());
+      this._statusList.OnConflictResolve += (NetDictionary<long, string, NetString, SerializableDictionary<long, string>, NetLongDictionary<string, NetString>>.ConflictResolveEvent) (delegate(a, b, c) { return this._OnValueChanged(; }));
+      this._statusList.OnValueAdded += (NetDictionary<long, string, NetString, SerializableDictionary<long, string>, NetLongDictionary<string, NetString>>.ContentsChangeEvent) (delegate(a, b) { return this._OnValueChanged(; }));
+      this._statusList.OnValueRemoved += (NetDictionary<long, string, NetString, SerializableDictionary<long, string>, NetLongDictionary<string, NetString>>.ContentsChangeEvent) (delegate(a, b) { return this._OnValueChanged(; }));
     }
 
     public void AddSpriteDefinition(
@@ -98,7 +98,7 @@ namespace StardewValley.BellsAndWhistles
       }
       if (this.sortMode == PlayerStatusList.SortMode.AlphaSort || this.sortMode == PlayerStatusList.SortMode.AlphaSortDescending)
       {
-        this._sortedFarmers.Sort((Comparison<Farmer>) ((a, b) => this.GetStatusText(a.UniqueMultiplayerID).CompareTo(this.GetStatusText(b.UniqueMultiplayerID))));
+        this._sortedFarmers.Sort((Comparison<Farmer>) (delegate(a, b) { return this.GetStatusText(a.UniqueMultiplayerID; }).CompareTo(this.GetStatusText(b.UniqueMultiplayerID))));
         if (this.sortMode != PlayerStatusList.SortMode.AlphaSortDescending)
           return;
         this._sortedFarmers.Reverse();
@@ -107,7 +107,7 @@ namespace StardewValley.BellsAndWhistles
       {
         if (this.sortMode != PlayerStatusList.SortMode.NumberSort && this.sortMode != PlayerStatusList.SortMode.NumberSortDescending)
           return;
-        this._sortedFarmers.Sort((Comparison<Farmer>) ((a, b) => int.Parse(this.GetStatusText(a.UniqueMultiplayerID)).CompareTo(int.Parse(this.GetStatusText(b.UniqueMultiplayerID)))));
+        this._sortedFarmers.Sort((Comparison<Farmer>) (delegate(a, b) { return int.Parse(this.GetStatusText(a.UniqueMultiplayerID; })).CompareTo(int.Parse(this.GetStatusText(b.UniqueMultiplayerID)))));
         if (this.sortMode != PlayerStatusList.SortMode.NumberSortDescending)
           return;
         this._sortedFarmers.Reverse();
@@ -214,3 +214,4 @@ namespace StardewValley.BellsAndWhistles
     }
   }
 }
+

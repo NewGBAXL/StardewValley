@@ -15,7 +15,8 @@ namespace StardewValley
     protected override void _ApplyTo(Item item)
     {
       base._ApplyTo(item);
-      if (!(item is MeleeWeapon meleeWeapon))
+      MeleeWeapon meleeWeapon = item as MeleeWeapon;
+      if (meleeWeapon == null)
         return;
       string[] strArray = Game1.temporaryContent.Load<Dictionary<int, string>>("Data\\weapons")[meleeWeapon.InitialParentTileIndex].Split('/');
       int int32_1 = Convert.ToInt32(strArray[2]);
@@ -27,7 +28,8 @@ namespace StardewValley
     protected override void _UnapplyTo(Item item)
     {
       base._UnapplyTo(item);
-      if (!(item is MeleeWeapon meleeWeapon))
+      MeleeWeapon meleeWeapon = item as MeleeWeapon;
+      if (meleeWeapon == null)
         return;
       string[] strArray = Game1.temporaryContent.Load<Dictionary<int, string>>("Data\\weapons")[meleeWeapon.InitialParentTileIndex].Split('/');
       int int32_1 = Convert.ToInt32(strArray[2]);

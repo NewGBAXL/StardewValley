@@ -18,13 +18,13 @@ namespace StardewValley.Network
     private long farmerID;
     private object[] data;
 
-    public byte delegate(MessageType) { return this.messageType; };
+    public byte MessageType { get { return this.messageType; };
 
-    public long delegate(FarmerID) { return this.farmerID; };
+    public long FarmerID { get { return this.farmerID; };
 
-    public Farmer delegate(SourceFarmer) { return Game1.getFarmer(this.farmerID); };
+    public Farmer SourceFarmer { get { return Game1.getFarmer(this.farmerID); };
 
-    public ReadOnlyCollection<object> delegate(Data) { return Array.AsReadOnly<object>(this.data); };
+    public ReadOnlyCollection<object> Data { get { return Array.AsReadOnly<object>(this.data); };
 
     public OutgoingMessage(byte messageType, long farmerID, params object[] data)
     {
@@ -56,7 +56,7 @@ namespace StardewValley.Network
         {
           switch (obj)
           {
-            case Vector2 _:
+            case Vector2:
               writer.Write(((Vector2) obj).X);
               writer.Write(((Vector2) obj).Y);
               break;
@@ -84,7 +84,7 @@ namespace StardewValley.Network
             case long num10:
               writer.Write(num10);
               break;
-            case string _:
+            case string:
               writer.Write((string) obj);
               break;
             case string[] _:
@@ -93,7 +93,7 @@ namespace StardewValley.Network
               for (int index = 0; index < strArray.Length; ++index)
                 writer.Write(strArray[index]);
               break;
-            case IConvertible _:
+            case IConvertible:
               if (obj.GetType().IsValueType)
               {
                 writer.WriteEnum(obj);
@@ -108,3 +108,6 @@ namespace StardewValley.Network
     }
   }
 }
+
+
+

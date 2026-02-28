@@ -73,7 +73,7 @@ namespace StardewValley.Quests
 
     public Quest() { return this.initNetFields(); }
 
-    protected virtual void initNetFields() { return this.NetFields.AddFields((INetSerializable) this.rewardDescription, (INetSerializable) this.completionString, (INetSerializable) this.accepted, (INetSerializable) this.completed, (INetSerializable) this.dailyQuest, (INetSerializable) this.showNew, (INetSerializable) this.canBeCancelled, (INetSerializable) this.destroy, (INetSerializable) this.id, (INetSerializable) this.moneyReward, (INetSerializable) this.questType, (INetSerializable) this.daysLeft, (INetSerializable) this.nextQuests, (INetSerializable) this.dayQuestAccepted); }
+    protected virtual void initNetFields() { this.NetFields.AddFields((INetSerializable) this.rewardDescription, (INetSerializable) this.completionString, (INetSerializable) this.accepted, (INetSerializable) this.completed, (INetSerializable) this.dailyQuest, (INetSerializable) this.showNew, (INetSerializable) this.canBeCancelled, (INetSerializable) this.destroy, (INetSerializable) this.id, (INetSerializable) this.moneyReward, (INetSerializable) this.questType, (INetSerializable) this.daysLeft, (INetSerializable) this.nextQuests, (INetSerializable) this.dayQuestAccepted); }
 
     public string questTitle
     {
@@ -108,7 +108,7 @@ namespace StardewValley.Quests
           this._questTitle = "";
         return this._questTitle;
       }
-      delegate(set) { return this._questTitle = value; };
+      set { this._questTitle = value; }
     }
 
     [XmlIgnore]
@@ -128,7 +128,7 @@ namespace StardewValley.Quests
           this._questDescription = "";
         return this._questDescription;
       }
-      delegate(set) { return this._questDescription = value; };
+      set { this._questDescription = value; }
     }
 
     [XmlIgnore]
@@ -148,7 +148,7 @@ namespace StardewValley.Quests
           this._currentObjective = "";
         return this._currentObjective;
       }
-      delegate(set) { return this._currentObjective = value; };
+      set { this._currentObjective = value; }
     }
 
     public static Quest getQuestFromId(int id)
@@ -250,7 +250,7 @@ namespace StardewValley.Quests
     {
     }
 
-    public virtual void accept() { return this.accepted.Value = true; }
+    public virtual void accept() { this.accepted.Value = true; }
 
     public virtual bool checkIfComplete(NPC n = null, int number1 = -1, int number2 = -2, Item item = null, string str = null)
     {
@@ -309,7 +309,7 @@ namespace StardewValley.Quests
       return new List<string>()
       {
         this.currentObjective
-      };
+      }
     }
 
     public bool CanBeCancelled() { return this.canBeCancelled.Value; }
@@ -323,7 +323,7 @@ namespace StardewValley.Quests
 
     public bool HasMoneyReward() { return this.completed.Value && this.moneyReward.Value > 0; }
 
-    public void MarkAsViewed() { return this.showNew.Value = false; }
+    public void MarkAsViewed() { this.showNew.Value = false; }
 
     public bool ShouldDisplayAsNew() { return this.showNew.Value; }
 
@@ -352,3 +352,6 @@ namespace StardewValley.Quests
     }
   }
 }
+
+
+

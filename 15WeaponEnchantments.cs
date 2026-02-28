@@ -18,14 +18,14 @@ namespace StardewValley
     {
       switch (monster)
       {
-        case Ghost _:
-        case Skeleton _:
-        case Mummy _:
-        case ShadowBrute _:
-        case ShadowShaman _:
-        case ShadowGirl _:
-        case ShadowGuy _:
-        case Shooter _:
+        case Ghost:
+        case Skeleton:
+        case Mummy:
+        case ShadowBrute:
+        case ShadowShaman:
+        case ShadowGirl:
+        case ShadowGuy:
+        case Shooter:
           amount = (int) ((double) amount * 1.5);
           break;
       }
@@ -34,3 +34,4 @@ namespace StardewValley
     public override string GetName() { return "Crusader"; }
   }
 }
+

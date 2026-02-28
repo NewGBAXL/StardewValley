@@ -132,7 +132,7 @@ namespace StardewValley
       this.price.Value = 1;
     }
 
-    public virtual void repair() { return this.ResetHealth((float) Game1.random.Next(-100, 101) / 100f); }
+    public virtual void repair() { this.ResetHealth((float) Game1.random.Next(-100, 101) / 100f); }
 
     public static void populateFenceDrawGuide()
     {
@@ -301,7 +301,7 @@ namespace StardewValley
       }
     }
 
-    public void toggleGate(Farmer who, bool open, bool is_toggling_counterpart = false) { return this.toggleGate(who.currentLocation, open, is_toggling_counterpart, who); }
+    public void toggleGate(Farmer who, bool open, bool is_toggling_counterpart = false) { this.toggleGate(who.currentLocation, open, is_toggling_counterpart, who); }
 
     public override void performRemoveAction(Vector2 tileLocation, GameLocation environment)
     {
@@ -309,7 +309,7 @@ namespace StardewValley
       base.performRemoveAction(tileLocation, environment);
     }
 
-    public override void dropItem(GameLocation location, Vector2 origin, Vector2 destination) { return location.debris.Add(new Debris(this.GetItemParentSheetIndex(), origin, destination)); }
+    public override void dropItem(GameLocation location, Vector2 origin, Vector2 destination) { location.debris.Add(new Debris(this.GetItemParentSheetIndex(), origin, destination)); }
 
     public virtual int GetItemParentSheetIndex()
     {
@@ -375,7 +375,7 @@ namespace StardewValley
         switch (t)
         {
           case null:
-          case Pickaxe _:
+          case Pickaxe:
             location.playSound("hammer");
             location.objects.Remove((Vector2) (NetFieldBase<Vector2, NetVector2>) this.tileLocation);
             for (int index = 0; index < 4; ++index)
@@ -597,7 +597,7 @@ namespace StardewValley
       return Game1.content.Load<Texture2D>("LooseSprites\\Fence" + Math.Max(1, val2).ToString());
     }
 
-    public override void drawWhenHeld(SpriteBatch spriteBatch, Vector2 objectPosition, Farmer f) { return spriteBatch.Draw(this.fenceTexture.Value, objectPosition - new Vector2(0.0f, 64f), new Rectangle?(new Rectangle(5 * Fence.fencePieceWidth % this.fenceTexture.Value.Bounds.Width, 5 * Fence.fencePieceWidth / this.fenceTexture.Value.Bounds.Width * Fence.fencePieceHeight, Fence.fencePieceWidth, Fence.fencePieceHeight)), Color.White, 0.0f, Vector2.Zero, 1f, SpriteEffects.None, (float) (f.getStandingY() + 1) / 10000f); }
+    public override void drawWhenHeld(SpriteBatch spriteBatch, Vector2 objectPosition, Farmer f) { spriteBatch.Draw(this.fenceTexture.Value, objectPosition - new Vector2(0.0f, 64f), new Rectangle?(new Rectangle(5 * Fence.fencePieceWidth % this.fenceTexture.Value.Bounds.Width, 5 * Fence.fencePieceWidth / this.fenceTexture.Value.Bounds.Width * Fence.fencePieceHeight, Fence.fencePieceWidth, Fence.fencePieceHeight)), Color.White, 0.0f, Vector2.Zero, 1f, SpriteEffects.None, (float) (f.getStandingY() + 1) / 10000f); }
 
     public override void drawInMenu(
       SpriteBatch spriteBatch,
@@ -700,3 +700,5 @@ namespace StardewValley
     }
   }
 }
+
+

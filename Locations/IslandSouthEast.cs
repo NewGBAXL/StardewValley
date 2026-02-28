@@ -164,7 +164,7 @@ namespace StardewValley.Locations
       base.cleanupBeforePlayerExit();
     }
 
-    public override void DayUpdate(int dayOfMonth) { return base.DayUpdate(dayOfMonth); }
+    public override void DayUpdate(int dayOfMonth) { base.DayUpdate(dayOfMonth); }
 
     public override void SetBuriedNutLocations()
     {
@@ -388,3 +388,4 @@ namespace StardewValley.Locations
     }
   }
 }
+

@@ -28,9 +28,9 @@ namespace StardewValley.BellsAndWhistles
       this.state = 0;
     }
 
-    public void hop(Farmer who) { return this.gravityAffectedDY = -4f; }
+    public void hop(Farmer who) { this.gravityAffectedDY = -4f; }
 
-    private void donePecking(Farmer who) { return this.state = Game1.random.NextDouble() < 0.5 ? 0 : 3; }
+    private void donePecking(Farmer who) { this.state = Game1.random.NextDouble() < 0.5 ? 0 : 3; }
 
     private void playFlap(Farmer who)
     {
@@ -170,3 +170,4 @@ namespace StardewValley.BellsAndWhistles
     }
   }
 }
+

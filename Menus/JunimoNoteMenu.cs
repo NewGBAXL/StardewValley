@@ -553,7 +553,7 @@ namespace StardewValley.Menus
         }
         if (one.Stack > 0)
           this.partialDonationComponents.Add(one);
-        this.partialDonationComponents.Sort((Comparison<Item>) ((a, b) => b.Stack.CompareTo(a.Stack)));
+        this.partialDonationComponents.Sort((Comparison<Item>) (delegate(a, b) { return b.Stack.CompareTo(a.Stack; })));
       }
       if (item.Stack <= 0 && item == this.heldItem)
         this.heldItem = (Item) null;
@@ -756,7 +756,7 @@ namespace StardewValley.Menus
       Game1.activeClickableMenu.exitFunction = this.exitFunction != null ? this.exitFunction : new IClickableMenu.onExit(this.reOpenThisMenu);
     }
 
-    private void rewardGrabbed(Item item, Farmer who) { return ((CommunityCenter) Game1.getLocationFromName("CommunityCenter")).bundleRewards[item.SpecialVariable] = false; }
+    private void rewardGrabbed(Item item, Farmer who) { ((CommunityCenter) Game1.getLocationFromName("CommunityCenter")).bundleRewards[item.SpecialVariable] = false; }
 
     private void checkIfBundleIsComplete()
     {
@@ -811,7 +811,7 @@ namespace StardewValley.Menus
       this.checkForRewards();
     }
 
-    private void restoreaAreaOnExit_AbandonedJojaMart() { return ((AbandonedJojaMart) Game1.getLocationFromName("AbandonedJojaMart")).restoreAreaCutscene(); }
+    private void restoreaAreaOnExit_AbandonedJojaMart() { ((AbandonedJojaMart) Game1.getLocationFromName("AbandonedJojaMart")).restoreAreaCutscene(); }
 
     private void restoreAreaOnExit()
     {
@@ -1409,3 +1409,5 @@ namespace StardewValley.Menus
     }
   }
 }
+
+

@@ -13,14 +13,14 @@ namespace StardewValley.Tools
 
     public new int NumberInStack
     {
-      delegate(get) { return this.numberInStack; };
-      delegate(set) { return this.numberInStack = value; };
+      get { return this.numberInStack; }
+      set { this.numberInStack = value; }
     }
 
     public string SeedType
     {
-      delegate(get) { return this.seedType; };
-      delegate(set) { return this.seedType = value; };
+      get { return this.seedType; }
+      set { this.seedType = value; }
     }
 
     public Seeds()
@@ -205,3 +205,6 @@ namespace StardewValley.Tools
     }
   }
 }
+
+
+

@@ -220,8 +220,8 @@ namespace StardewValley.TerrainFeatures
         {
           switch (t)
           {
-            case Pickaxe _:
-            case Axe _:
+            case Pickaxe:
+            case Axe:
               break;
             default:
               goto label_20;
@@ -417,9 +417,9 @@ label_20:
       }
     }
 
-    public void OnNeighborAdded(byte direction) { return this.neighborMask |= direction; }
+    public void OnNeighborAdded(byte direction) { this.neighborMask |= direction; }
 
-    public void OnNeighborRemoved(byte direction) { return this.neighborMask &= ~direction; }
+    public void OnNeighborRemoved(byte direction) { this.neighborMask &= ~direction; }
 
     private struct NeighborLoc
     {
@@ -450,3 +450,5 @@ label_20:
     }
   }
 }
+
+

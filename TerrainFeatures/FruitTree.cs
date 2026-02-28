@@ -71,15 +71,15 @@ namespace StardewValley.TerrainFeatures
     [XmlIgnore]
     public bool GreenHouseTree
     {
-      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.greenHouseTree;
-      delegate(set) { return this.greenHouseTree.Value = value; };
+      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.greenHouseTree;
+      set { this.greenHouseTree.Value = value; }
     }
 
     [XmlIgnore]
     public bool GreenHouseTileTree
     {
-      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.greenHouseTileTree;
-      delegate(set) { return this.greenHouseTileTree.Value = value; };
+      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.greenHouseTileTree;
+      set { this.greenHouseTileTree.Value = value; }
     }
 
     public FruitTree()
@@ -278,7 +278,7 @@ namespace StardewValley.TerrainFeatures
             Debris debris = new Debris((int) (NetFieldBase<int, NetInt>) this.struckByLightningCountdown > 0 ? 382 : (int) (NetFieldBase<int, NetInt>) this.indexOfFruit, new Vector2((float) ((double) tileLocation.X * 64.0 + 32.0), (float) (((double) tileLocation.Y - 3.0) * 64.0 + 32.0)) + vector2, new Vector2((float) Game1.player.getStandingX(), (float) Game1.player.getStandingY()))
             {
               itemQuality = num1
-            };
+            }
             debris.Chunks[0].xVelocity.Value += (float) Game1.random.Next(-10, 11) / 10f;
             debris.chunkFinalYLevel = (int) ((double) tileLocation.Y * 64.0 + 64.0);
             location.debris.Add(debris);
@@ -418,7 +418,7 @@ namespace StardewValley.TerrainFeatures
               Debris debris = new Debris((int) (NetFieldBase<int, NetInt>) this.struckByLightningCountdown > 0 ? 382 : (int) (NetFieldBase<int, NetInt>) this.indexOfFruit, new Vector2((float) ((double) tileLocation.X * 64.0 + 32.0), (float) (((double) tileLocation.Y - 3.0) * 64.0 + 32.0)) + vector2, new Vector2((float) Game1.player.getStandingX(), (float) Game1.player.getStandingY()))
               {
                 itemQuality = num
-              };
+              }
               debris.Chunks[0].xVelocity.Value += (float) Game1.random.Next(-10, 11) / 10f;
               debris.chunkFinalYLevel = (int) ((double) tileLocation.Y * 64.0 + 64.0);
               location.debris.Add(debris);
@@ -688,3 +688,7 @@ namespace StardewValley.TerrainFeatures
     }
   }
 }
+
+
+
+

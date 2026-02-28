@@ -131,7 +131,7 @@ namespace StardewValley.BellsAndWhistles
         scale = 4f,
         yStopCoordinate = ground_position
       };
-      duggy_sprite.reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (delegate(extra_info) { return {; }
+      duggy_sprite.reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (extra_info { return {; }
         duggy_sprite.motion.Y = -3f;
         duggy_sprite.acceleration.Y = 0.25f;
         duggy_sprite.yStopCoordinate = ground_position;
@@ -140,7 +140,7 @@ namespace StardewValley.BellsAndWhistles
       Game1.currentLocation.temporarySprites.Add(duggy_sprite);
     }
 
-    public virtual void ResetForPlayerEntry() { return this.texture = Game1.temporaryContent.Load<Texture2D>("LooseSprites\\SandDuggy"); }
+    public virtual void ResetForPlayerEntry() { this.texture = Game1.temporaryContent.Load<Texture2D>("LooseSprites\\SandDuggy"); }
 
     public virtual void PerformToolAction(Tool tool, int tile_x, int tile_y)
     {
@@ -220,3 +220,5 @@ namespace StardewValley.BellsAndWhistles
     }
   }
 }
+
+

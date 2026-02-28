@@ -40,7 +40,7 @@ namespace StardewValley.Menus
       return draw_y;
     }
 
-    public virtual void DrawItemName(SpriteBatch b) { return b.DrawString(Game1.smallFont, this.GetName(), this._nameDrawPosition, Game1.textColor); }
+    public virtual void DrawItemName(SpriteBatch b) { b.DrawString(Game1.smallFont, this.GetName(), this._nameDrawPosition, Game1.textColor); }
 
     public virtual void Draw(SpriteBatch b)
     {
@@ -55,3 +55,4 @@ namespace StardewValley.Menus
     public virtual bool ShouldDraw() { return true; }
   }
 }
+

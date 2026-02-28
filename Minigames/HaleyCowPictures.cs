@@ -168,9 +168,9 @@ namespace StardewValley.Minigames
       this.centerOfScreen = new Vector2((float) (Game1.game1.localMultiplayerWindow.Width / 2), (float) (Game1.game1.localMultiplayerWindow.Height / 2)) * num;
     }
 
-    public void unload() { return this.content.Unload(); }
+    public void unload() { this.content.Unload(); }
 
-    public void receiveEventPoke(int data) { return throw new NotImplementedException(); }
+    public void receiveEventPoke(int data) { throw new NotImplementedException(); }
 
     public string minigameId() { return (string) null; }
 
@@ -179,3 +179,5 @@ namespace StardewValley.Minigames
     public bool forceQuit() { return false; }
   }
 }
+
+

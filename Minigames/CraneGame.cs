@@ -1272,8 +1272,8 @@ namespace StardewValley.Minigames
 
       public float openAngle
       {
-        delegate(get) { return this._leftArm.rotation; };
-        delegate(set) { return this._leftArm.rotation = value; };
+        get { return this._leftArm.rotation; }
+        set { this._leftArm.rotation = value; }
       }
 
       public Claw(CraneGame game)
@@ -1369,7 +1369,7 @@ namespace StardewValley.Minigames
         this._grabbedPrize.ApplyDrawEffect((CraneGame.DrawEffect) new CraneGame.ShakeEffect(1f, 1f, 20));
       }
 
-      public override void Move(float x, float y) { return base.Move(x, y); }
+      public override void Move(float x, float y) { base.Move(x, y); }
 
       public CraneGame.Prize GetGrabbedPrize() { return this._grabbedPrize; }
 
@@ -1460,7 +1460,7 @@ namespace StardewValley.Minigames
         this.position.Y = (float) y;
       }
 
-      public override void Update(GameTime time) { return this.rotation = (float) Math.Sin(time.TotalGameTime.TotalMilliseconds * (1.0 / 400.0) + (double) this.position.Y + (double) this.position.X * 2.0) * 2f; }
+      public override void Update(GameTime time) { this.rotation = (float) Math.Sin(time.TotalGameTime.TotalMilliseconds * (1.0 / 400.0) + (double) this.position.Y + (double) this.position.X * 2.0) * 2f; }
     }
 
     public class Prize : CraneGame.CraneGameObject
@@ -1746,7 +1746,7 @@ namespace StardewValley.Minigames
         return rendererLayerDepth;
       }
 
-      public void ApplyDrawEffect(CraneGame.DrawEffect new_effect) { return this.drawEffects.Add(new_effect); }
+      public void ApplyDrawEffect(CraneGame.DrawEffect new_effect) { this.drawEffects.Add(new_effect); }
 
       public virtual void Draw(SpriteBatch b, float layer_depth)
       {
@@ -1854,3 +1854,6 @@ namespace StardewValley.Minigames
     }
   }
 }
+
+
+

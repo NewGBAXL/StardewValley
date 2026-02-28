@@ -63,7 +63,7 @@ namespace StardewValley
           null,
           null,
           null
-        };
+        }
         DateTime now = DateTime.Now;
         strArray[2] = now.Month.ToString();
         strArray[3] = "-";
@@ -190,3 +190,4 @@ namespace StardewValley
     }
   }
 }
+

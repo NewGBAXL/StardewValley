@@ -75,14 +75,15 @@ namespace StardewValley.Projectiles
       this.explosionAnimation(location);
     }
 
-    public override void behaviorOnCollisionWithMineWall(int tileX, int tileY) { return this.explosionAnimation((GameLocation) Game1.mine); }
+    public override void behaviorOnCollisionWithMineWall(int tileX, int tileY) { this.explosionAnimation((GameLocation) Game1.mine); }
 
-    public override void behaviorOnCollisionWithOther(GameLocation location) { return this.explosionAnimation(location); }
+    public override void behaviorOnCollisionWithOther(GameLocation location) { this.explosionAnimation(location); }
 
-    private void explosionAnimation(GameLocation location) { return Game1.multiplayer.broadcastSprites(location, new TemporaryAnimatedSprite(352, (float) Game1.random.Next(100, 150), 2, 1, (Vector2) (NetPausableField<Vector2, NetVector2, NetVector2>) this.position, false, false)); }
+    private void explosionAnimation(GameLocation location) { Game1.multiplayer.broadcastSprites(location, new TemporaryAnimatedSprite(352, (float) Game1.random.Next(100, 150), 2, 1, (Vector2) (NetPausableField<Vector2, NetVector2, NetVector2>) this.position, false, false)); }
 
     public override void behaviorOnCollisionWithMonster(NPC n, GameLocation location)
     {
     }
   }
 }
+

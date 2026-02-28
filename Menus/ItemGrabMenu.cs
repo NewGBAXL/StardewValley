@@ -482,9 +482,9 @@ namespace StardewValley.Menus
       return (direction != 1 || !this.ItemsToGrabMenu.inventory.Contains(a) || !this.inventory.inventory.Contains(b)) && base.IsAutomaticSnapValid(direction, a, b);
     }
 
-    public void setBackgroundTransparency(bool b) { return this.drawBG = b; }
+    public void setBackgroundTransparency(bool b) { this.drawBG = b; }
 
-    public void setDestroyItemOnClick(bool b) { return this.destroyItemOnClick = b; }
+    public void setDestroyItemOnClick(bool b) { this.destroyItemOnClick = b; }
 
     public override void receiveRightClick(int x, int y, bool playSound = true)
     {
@@ -1181,7 +1181,8 @@ namespace StardewValley.Menus
         return (double) this.age >= (double) num;
       }
 
-      public void Draw(SpriteBatch b) { return this.item.drawInMenu(b, this.position, 1f, this.alpha, 0.9f, StackDrawType.Hide, Color.White, false); }
+      public void Draw(SpriteBatch b) { this.item.drawInMenu(b, this.position, 1f, this.alpha, 0.9f, StackDrawType.Hide, Color.White, false); }
     }
   }
 }
+

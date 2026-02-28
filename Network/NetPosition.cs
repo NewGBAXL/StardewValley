@@ -18,14 +18,14 @@ namespace StardewValley.Network
 
     public float X
     {
-      delegate(get) { return this.Get().X; };
-      delegate(set) { return this.Set(new Vector2(value; }, this.Y));
+      get { return this.Get().X; }
+      set { this.Set(new Vector2(value; }, this.Y));
     }
 
     public float Y
     {
-      delegate(get) { return this.Get().Y; };
-      delegate(set) { return this.Set(new Vector2(this.X; }, value));
+      get { return this.Get().Y; }
+      set { this.Set(new Vector2(this.X; }, value));
     }
 
     public NetPosition()
@@ -81,3 +81,6 @@ namespace StardewValley.Network
     }
   }
 }
+
+
+

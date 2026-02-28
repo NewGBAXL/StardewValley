@@ -106,7 +106,7 @@ namespace StardewValley
       this.endOfNightStatus.AddSpriteDefinition("ready", "LooseSprites\\PlayerStatusList", 48, 0, 16, 16);
       this.endOfNightStatus.iconAnimationFrames = 4;
       this.money.Minimum = new int?(0);
-      this.festivalPropRemovalEvent.onEvent += (AbstractNetEvent1<Rectangle>.Event) (delegate(rect) { return {; }
+      this.festivalPropRemovalEvent.onEvent += (AbstractNetEvent1<Rectangle>.Event) (rect { return {; }
         if (Game1.CurrentEvent == null)
           return;
         Game1.CurrentEvent.removeFestivalProps(rect);
@@ -129,7 +129,7 @@ namespace StardewValley
       this.requestPetWarpHomeEvent.InterpolationWait = false;
     }
 
-    protected virtual void _AddQiGemsToTeam(int amount) { return Game1.player.QiGems += amount; }
+    protected virtual void _AddQiGemsToTeam(int amount) { Game1.player.QiGems += amount; }
 
     public virtual void OnKickOutOfMinesEvent()
     {
@@ -230,13 +230,13 @@ namespace StardewValley
       characterFromName.ignoreScheduleToday = false;
     }
 
-    public virtual void MarkCollectedNut(string key) { return this.collectedNutTracker[key] = true; }
+    public virtual void MarkCollectedNut(string key) { this.collectedNutTracker[key] = true; }
 
     public int GetIndividualMoney(Farmer who) { return this.GetMoney(who).Value; }
 
-    public void AddIndividualMoney(Farmer who, int value) { return this.GetMoney(who).Value += value; }
+    public void AddIndividualMoney(Farmer who, int value) { this.GetMoney(who).Value += value; }
 
-    public void SetIndividualMoney(Farmer who, int value) { return this.GetMoney(who).Value = value; }
+    public void SetIndividualMoney(Farmer who, int value) { this.GetMoney(who).Value = value; }
 
     public NetIntDelta GetMoney(Farmer who)
     {
@@ -304,7 +304,7 @@ namespace StardewValley
         Game1.activeClickableMenu = (IClickableMenu) new ShopMenu(itemPriceAndStock, on_purchase: new Func<ISalable, Farmer, int, bool>(this.OnDonatedItemWithdrawn), on_sell: new Func<ISalable, bool>(this.OnReturnedDonationDeposited), context: "ReturnedDonations")
         {
           source = (object) this,
-        behaviorBeforeCleanup = (Action<IClickableMenu>) (delegate(menu) { return this.returnedDonationsMutex.ReleaseLock()); }
+        behaviorBeforeCleanup = (Action<IClickableMenu>) (menu { return this.returnedDonationsMutex.ReleaseLock()); }
       };
     }));
 
@@ -422,7 +422,7 @@ namespace StardewValley
       }
     }
 
-    public void OnRingPhoneEvent(int which_call) { return Phone.Ring(which_call); }
+    public void OnRingPhoneEvent(int which_call) { Phone.Ring(which_call); }
 
     public void OnEndMovieEvent(long uid)
     {
@@ -434,7 +434,7 @@ namespace StardewValley
       Game1.CurrentEvent.onEventFinished += (Action) (() =>
       {
         LocationRequest locationRequest = Game1.getLocationRequest("MovieTheater");
-        locationRequest.OnWarp += (LocationRequest.Callback) (() => { });
+        locationRequest.OnWarp += (LocationRequest.Callback) (delegate() { });
         Game1.warpFarmer(locationRequest, 13, 4, 2);
         Game1.fadeToBlackAlpha = 1f;
       });
@@ -451,7 +451,7 @@ namespace StardewValley
       Game1.player.mount.dismount(true);
     }
 
-    public void DeleteFarmhand(Farmer farmhand) { return this.friendshipData.Filter((Func<KeyValuePair<FarmerPair, Friendship>, bool>) (delegate(pair) { return !pair.Key.Contains(farmhand.UniqueMultiplayerID))); }; }
+    public void DeleteFarmhand(Farmer farmhand) { this.friendshipData.Filter((Func<KeyValuePair<FarmerPair, Friendship>, bool>) (pair { return !pair.Key.Contains(farmhand.UniqueMultiplayerID))); }; }
 
     public Friendship GetFriendship(long farmer1, long farmer2)
     {
@@ -541,7 +541,7 @@ namespace StardewValley
       return new long?();
     }
 
-    public void FestivalPropsRemoved(Rectangle rect) { return this.festivalPropRemovalEvent.Fire(rect); }
+    public void FestivalPropsRemoved(Rectangle rect) { this.festivalPropRemovalEvent.Fire(rect); }
 
     public void SendProposal(Farmer receiver, ProposalType proposalType, Item gift = null)
     {
@@ -559,7 +559,7 @@ namespace StardewValley
       return this.proposals.TryGetValue(Game1.player.UniqueMultiplayerID, out proposal) ? proposal : (Proposal) null;
     }
 
-    public void RemoveOutgoingProposal() { return this.proposals.Remove(Game1.player.UniqueMultiplayerID); }
+    public void RemoveOutgoingProposal() { this.proposals.Remove(Game1.player.UniqueMultiplayerID); }
 
     public Proposal GetIncomingProposal()
     {
@@ -650,7 +650,7 @@ namespace StardewValley
       foreach (ReadyCheck readyCheck in this.readyChecks.Values)
         readyCheck.Update();
       if (Game1.IsMasterGame && this.proposals.Count() > 0)
-        this.proposals.Filter((Func<KeyValuePair<long, Proposal>, bool>) (delegate(pair) { return this.playerIsOnline(pair.Key) && this.playerIsOnline(pair.Value.receiver.UID))); };
+        this.proposals.Filter((Func<KeyValuePair<long, Proposal>, bool>) (pair { return this.playerIsOnline(pair.Key) && this.playerIsOnline(pair.Value.receiver.UID))); };
       Proposal incomingProposal = this.GetIncomingProposal();
       if (incomingProposal != null && incomingProposal.canceled.Value)
         incomingProposal.cancelConfirmed.Value = true;
@@ -881,3 +881,6 @@ namespace StardewValley
     }
   }
 }
+
+
+

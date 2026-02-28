@@ -19,7 +19,7 @@ namespace StardewValley
   {
     private GameLocation location;
 
-    public InteriorDoorDictionary.DoorCollection delegate(Doors) { return new InteriorDoorDictionary.DoorCollection(this); };
+    public InteriorDoorDictionary.DoorCollection Doors { get { return new InteriorDoorDictionary.DoorCollection(this); };
 
     public InteriorDoorDictionary(GameLocation location) { return this.location = location; }
 
@@ -134,7 +134,7 @@ namespace StardewValley
           return false;
         }
 
-        public InteriorDoor delegate(Current) { return this._current; };
+        public InteriorDoor Current { get { return this._current; };
 
         public void Dispose()
         {
@@ -160,3 +160,5 @@ namespace StardewValley
     }
   }
 }
+
+

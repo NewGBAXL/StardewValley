@@ -25,10 +25,11 @@ namespace StardewValley.TerrainFeatures
 
     public Rectangle getBoundingBox() { return this.getBoundingBox((Vector2) (NetFieldBase<Vector2, NetVector2>) this.tilePosition); }
 
-    public void dayUpdate(GameLocation l) { return this.dayUpdate(l, (Vector2) (NetFieldBase<Vector2, NetVector2>) this.tilePosition); }
+    public void dayUpdate(GameLocation l) { this.dayUpdate(l, (Vector2) (NetFieldBase<Vector2, NetVector2>) this.tilePosition); }
 
     public bool tickUpdate(GameTime time, GameLocation location) { return this.tickUpdate(time, (Vector2) (NetFieldBase<Vector2, NetVector2>) this.tilePosition, location); }
 
-    public void draw(SpriteBatch b) { return this.draw(b, (Vector2) (NetFieldBase<Vector2, NetVector2>) this.tilePosition); }
+    public void draw(SpriteBatch b) { this.draw(b, (Vector2) (NetFieldBase<Vector2, NetVector2>) this.tilePosition); }
   }
 }
+

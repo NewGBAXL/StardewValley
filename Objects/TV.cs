@@ -73,7 +73,7 @@ namespace StardewValley.Objects
       return (Item) one;
     }
 
-    public override void updateWhenCurrentLocation(GameTime time, GameLocation environment) { return base.updateWhenCurrentLocation(time, environment); }
+    public override void updateWhenCurrentLocation(GameTime time, GameLocation environment) { base.updateWhenCurrentLocation(time, environment); }
 
     public virtual void selectChannel(Farmer who, string answer)
     {
@@ -564,3 +564,4 @@ namespace StardewValley.Objects
     }
   }
 }
+

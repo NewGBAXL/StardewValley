@@ -45,10 +45,11 @@ namespace Force.DeepCloner.Helpers
       static ShallowSafeObjectCloner()
       {
         MethodInfo privateMethod = typeof (object).GetPrivateMethod("MemberwiseClone");
-        ShallowObjectCloner.ShallowSafeObjectCloner._cloneFunc = ((Expression<Func<object, object>>) (delegate(obj) { return Expression.Call(obj; }, privateMethod))).Compile();
+        ShallowObjectCloner.ShallowSafeObjectCloner._cloneFunc = ((Expression<Func<object, object>>) (obj { return Expression.Call(obj; }, privateMethod))).Compile();
       }
 
       protected override object DoCloneObject(object obj) { return ShallowObjectCloner.ShallowSafeObjectCloner._cloneFunc(obj); }
     }
   }
 }
+

@@ -33,14 +33,14 @@ namespace StardewValley
 
     public int Identifier
     {
-      delegate(get) { return this.identifier.Value; };
-      delegate(set) { return this.identifier.Value = value; };
+      get { return this.identifier.Value; }
+      set { this.identifier.Value = value; }
     }
 
     public long PlayerID
     {
-      delegate(get) { return this.playerID.Value; };
-      delegate(set) { return this.playerID.Value = value; };
+      get { return this.playerID.Value; }
+      set { this.playerID.Value = value; }
     }
 
     public NetFields NetFields { get; } = new NetFields();
@@ -48,7 +48,7 @@ namespace StardewValley
     public LightSource()
     {
       this.NetFields.AddFields((INetSerializable) this.textureIndex, (INetSerializable) this.position, (INetSerializable) this.color, (INetSerializable) this.radius, (INetSerializable) this.identifier, (INetSerializable) this.lightContext, (INetSerializable) this.playerID);
-      this.textureIndex.fieldChangeEvent += (NetFieldBase<int, NetInt>.FieldChange) ((field, oldValue, newValue) => this.loadTextureFromConstantValue(newValue));
+      this.textureIndex.fieldChangeEvent += (NetFieldBase<int, NetInt>.FieldChange) (delegate(field, oldValue, newValue) { return this.loadTextureFromConstantValue(newValue; }));
     }
 
     public LightSource(
@@ -141,3 +141,7 @@ namespace StardewValley
     }
   }
 }
+
+
+
+

@@ -129,7 +129,7 @@ namespace StardewValley.Menus
       this.clickAway();
     }
 
-    public virtual void addInfoMessage(string message) { return this.receiveChatMessage(0L, 2, LocalizedContentManager.CurrentLanguageCode, message); }
+    public virtual void addInfoMessage(string message) { this.receiveChatMessage(0L, 2, LocalizedContentManager.CurrentLanguageCode, message); }
 
     public virtual void globalInfoMessage(string messageKey, params string[] args)
     {
@@ -139,7 +139,7 @@ namespace StardewValley.Menus
         this.addInfoMessage(Game1.content.LoadString("Strings\\UI:Chat_" + messageKey, (object[]) args));
     }
 
-    public virtual void addErrorMessage(string message) { return this.receiveChatMessage(0L, 1, LocalizedContentManager.CurrentLanguageCode, message); }
+    public virtual void addErrorMessage(string message) { this.receiveChatMessage(0L, 1, LocalizedContentManager.CurrentLanguageCode, message); }
 
     public virtual void listPlayers(bool otherPlayersOnly = false)
     {
@@ -715,7 +715,7 @@ namespace StardewValley.Menus
       return this.choosingEmoji && this.emojiMenu.isWithinBounds(x, y);
     }
 
-    public virtual void setText(string text) { return this.chatBox.setText(text); }
+    public virtual void setText(string text) { this.chatBox.setText(text); }
 
     public override void receiveKeyPress(Keys key)
     {
@@ -911,7 +911,7 @@ namespace StardewValley.Menus
       this.emojiMenu.receiveScrollWheelAction(direction);
     }
 
-    public override void gameWindowSizeChanged(Rectangle oldBounds, Rectangle newBounds) { return this.updatePosition(); }
+    public override void gameWindowSizeChanged(Rectangle oldBounds, Rectangle newBounds) { this.updatePosition(); }
 
     public static SpriteFont messageFont(LocalizedContentManager.LanguageCode language) { return Game1.content.Load<SpriteFont>("Fonts\\SmallFont", language); }
 
@@ -961,3 +961,4 @@ namespace StardewValley.Menus
     }
   }
 }
+

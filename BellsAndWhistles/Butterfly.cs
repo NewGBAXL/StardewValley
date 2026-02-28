@@ -50,7 +50,7 @@ namespace StardewValley.BellsAndWhistles
       this.startingPosition = position;
     }
 
-    public void doneWithFlap(Farmer who) { return this.flapTimer = 200 + Game1.random.Next(-5, 6); }
+    public void doneWithFlap(Farmer who) { this.flapTimer = 200 + Game1.random.Next(-5, 6); }
 
     public Butterfly setStayInbounds(bool stayInbounds)
     {
@@ -118,6 +118,7 @@ namespace StardewValley.BellsAndWhistles
     {
     }
 
-    public override void drawAboveFrontLayer(SpriteBatch b) { return this.sprite.draw(b, Game1.GlobalToLocal(Game1.viewport, this.position + new Vector2(-64f, this.yJumpOffset - 128f + this.yOffset)), this.position.Y / 10000f, 0, 0, Color.White, this.flip, 4f); }
+    public override void drawAboveFrontLayer(SpriteBatch b) { this.sprite.draw(b, Game1.GlobalToLocal(Game1.viewport, this.position + new Vector2(-64f, this.yJumpOffset - 128f + this.yOffset)), this.position.Y / 10000f, 0, 0, Color.White, this.flip, 4f); }
   }
 }
+

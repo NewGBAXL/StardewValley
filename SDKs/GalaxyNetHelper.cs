@@ -64,9 +64,9 @@ namespace StardewValley.SDKs
 
     public Client GetRequestedClient() { return this.lobbyRequested != (GalaxyID) null ? this.createClient(this.lobbyRequested) : (Client) null; }
 
-    public void AddLobbyUpdateListener(LobbyUpdateListener listener) { return this.lobbyUpdateListeners.Add(listener); }
+    public void AddLobbyUpdateListener(LobbyUpdateListener listener) { this.lobbyUpdateListeners.Add(listener); }
 
-    public void RemoveLobbyUpdateListener(LobbyUpdateListener listener) { return this.lobbyUpdateListeners.Remove(listener); }
+    public void RemoveLobbyUpdateListener(LobbyUpdateListener listener) { this.lobbyUpdateListeners.Remove(listener); }
 
     public virtual void RequestFriendLobbyData()
     {
@@ -128,7 +128,7 @@ namespace StardewValley.SDKs
       return num != 0UL && num >> 56 == 0UL ? (object) GalaxyID.FromRealID(GalaxyID.IDType.ID_TYPE_LOBBY, num).ToUint64() : (object) null;
     }
 
-    public virtual void ShowInviteDialog(object lobby) { return GalaxyInstance.Friends().ShowOverlayInviteDialog("-connect-lobby-" + Convert.ToString((ulong) lobby)); }
+    public virtual void ShowInviteDialog(object lobby) { GalaxyInstance.Friends().ShowOverlayInviteDialog("-connect-lobby-" + Convert.ToString((ulong) lobby)); }
 
     public void MutePlayer(string userId, bool mute)
     {
@@ -213,3 +213,4 @@ namespace StardewValley.SDKs
     }
   }
 }
+

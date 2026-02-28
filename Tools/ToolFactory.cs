@@ -22,19 +22,19 @@ namespace StardewValley.Tools
     {
       switch (t)
       {
-        case Axe _:
+        case Axe:
           return new ToolDescription((byte) 0, (byte) (int) (NetFieldBase<int, NetInt>) t.upgradeLevel);
-        case Hoe _:
+        case Hoe:
           return new ToolDescription((byte) 1, (byte) (int) (NetFieldBase<int, NetInt>) t.upgradeLevel);
-        case FishingRod _:
+        case FishingRod:
           return new ToolDescription((byte) 2, (byte) (int) (NetFieldBase<int, NetInt>) t.upgradeLevel);
-        case Pickaxe _:
+        case Pickaxe:
           return new ToolDescription((byte) 3, (byte) (int) (NetFieldBase<int, NetInt>) t.upgradeLevel);
-        case WateringCan _:
+        case WateringCan:
           return new ToolDescription((byte) 4, (byte) (int) (NetFieldBase<int, NetInt>) t.upgradeLevel);
-        case MeleeWeapon _:
+        case MeleeWeapon:
           return new ToolDescription((byte) 5, (byte) (int) (NetFieldBase<int, NetInt>) t.upgradeLevel);
-        case Slingshot _:
+        case Slingshot:
           return new ToolDescription((byte) 6, (byte) (int) (NetFieldBase<int, NetInt>) t.upgradeLevel);
         default:
           return new ToolDescription((byte) 0, (byte) 0);
@@ -73,3 +73,4 @@ namespace StardewValley.Tools
     }
   }
 }
+

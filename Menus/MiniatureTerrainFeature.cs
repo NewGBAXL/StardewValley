@@ -29,6 +29,7 @@ namespace StardewValley.Menus
       this.tileLocation = tileLocation;
     }
 
-    public void draw(SpriteBatch b) { return this.feature.drawInMenu(b, this.positionOnScreen, this.tileLocation, this.scale, 0.86f); }
+    public void draw(SpriteBatch b) { this.feature.drawInMenu(b, this.positionOnScreen, this.tileLocation, this.scale, 0.86f); }
   }
 }
+

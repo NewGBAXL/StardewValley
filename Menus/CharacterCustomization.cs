@@ -320,7 +320,7 @@ namespace StardewValley.Menus
       this.setUpPositions();
     }
 
-    public void showAdvancedCharacterCreationHighlight() { return this.advancedCCHighlightTimer = 4000f; }
+    public void showAdvancedCharacterCreationHighlight() { this.advancedCCHighlightTimer = 4000f; }
 
     private void setUpPositions()
     {
@@ -1488,7 +1488,7 @@ namespace StardewValley.Menus
                             break;
                           case 3:
                             Game1.chatBox.addMessage(Game1.content.LoadString("Strings\\UI:NameChange_EasterEgg4"), new Microsoft.Xna.Framework.Color(0, 220, 40));
-                            DelayedAction.functionAfterDelay((DelayedAction.delayedBehavior) (() => Game1.chatBox.addMessage(Game1.content.LoadString("Strings\\UI:NameChange_EasterEgg5"), new Microsoft.Xna.Framework.Color(104, 214, (int) byte.MaxValue))), 12000);
+                            DelayedAction.functionAfterDelay((DelayedAction.delayedBehavior) (delegate() { return Game1.chatBox.addMessage(Game1.content.LoadString("Strings\\UI:NameChange_EasterEgg5"; }), new Microsoft.Xna.Framework.Color(104, 214, (int) byte.MaxValue))), 12000);
                             break;
                           case 4:
                             Game1.chatBox.addMessage(Game1.content.LoadString("Strings\\UI:NameChange_EasterEgg6", (object) Lexicon.getProperArticleForWord(str), (object) str), new Microsoft.Xna.Framework.Color(100, 120, (int) byte.MaxValue));
@@ -2583,3 +2583,5 @@ namespace StardewValley.Menus
     }
   }
 }
+
+

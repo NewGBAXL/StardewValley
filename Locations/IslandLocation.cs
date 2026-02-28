@@ -208,7 +208,7 @@ namespace StardewValley.Locations
       this.addButterflies(Math.Max(0.1, Math.Min(0.25, (double) (this.map.Layers[0].LayerWidth * this.map.Layers[0].LayerHeight) / 15000.0)), onlyIfOnScreen);
     }
 
-    public override void performTenMinuteUpdate(int timeOfDay) { return base.performTenMinuteUpdate(timeOfDay); }
+    public override void performTenMinuteUpdate(int timeOfDay) { base.performTenMinuteUpdate(timeOfDay); }
 
     public override void DayUpdate(int dayOfMonth)
     {
@@ -485,3 +485,4 @@ namespace StardewValley.Locations
     }
   }
 }
+

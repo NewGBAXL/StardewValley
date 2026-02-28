@@ -177,7 +177,7 @@ namespace StardewValley.Locations
       {
         this.triggeredOpen = true;
         if (Game1.IsMasterGame)
-          DelayedAction.functionAfterDelay((DelayedAction.delayedBehavior) (() => this.openEvent.Fire()), 500);
+          DelayedAction.functionAfterDelay((DelayedAction.delayedBehavior) (delegate() { return this.openEvent.Fire(; })), 500);
       }
       if (this.localOpened)
         this.locationRef.Value.removeTile(this.tilePosition.X, this.tilePosition.Y + 1, "Buildings");
@@ -186,3 +186,4 @@ namespace StardewValley.Locations
     }
   }
 }
+

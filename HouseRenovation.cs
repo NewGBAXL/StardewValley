@@ -31,7 +31,7 @@ namespace StardewValley
 
     public bool ShouldDrawIcon() { return false; }
 
-    public string delegate(DisplayName) { return this._displayName; };
+    public string DisplayName { get { return this._displayName; };
 
     public void drawInMenu(
       SpriteBatch spriteBatch,
@@ -45,7 +45,7 @@ namespace StardewValley
     {
     }
 
-    public string delegate(Name) { return this._name; };
+    public string Name { get { return this._name; };
 
     public string getDescription() { return this._description; }
 
@@ -55,7 +55,7 @@ namespace StardewValley
 
     public int Stack
     {
-      delegate(get) { return 1; };
+      get { return 1; }
       set
       {
       }
@@ -73,7 +73,7 @@ namespace StardewValley
 
     public ISalable GetSalableInstance() { return (ISalable) this; }
 
-    public static void ShowRenovationMenu() { return Game1.activeClickableMenu = (IClickableMenu) new ShopMenu(HouseRenovation.GetAvailableRenovations(), on_purchase: new Func<ISalable, Farmer, int, bool>(HouseRenovation.OnPurchaseRenovation)); }
+    public static void ShowRenovationMenu() { Game1.activeClickableMenu = (IClickableMenu) new ShopMenu(HouseRenovation.GetAvailableRenovations(), on_purchase: new Func<ISalable, Farmer, int, bool>(HouseRenovation.OnPurchaseRenovation)); }
 
     public static List<ISalable> GetAvailableRenovations()
     {
@@ -216,7 +216,7 @@ namespace StardewValley
           }
           if (flag1)
           {
-            houseRenovation.onRenovation += (Action<HouseRenovation, int>) ((a, b) => farmhouse.UpdateForRenovation());
+            houseRenovation.onRenovation += (Action<HouseRenovation, int>) (delegate(a, b) { farmhouse.UpdateForRenovation(; }));
             availableRenovations.Add((ISalable) houseRenovation);
           }
         }
@@ -247,8 +247,8 @@ namespace StardewValley
           }
         }
         Rectangle rectangle2 = new Rectangle(rectangle1.X * 64, rectangle1.Y * 64, rectangle1.Width * 64, rectangle1.Height * 64);
-        if (renovation.location is DecoratableLocation location)
-        {
+        DecoratableLocation location = renovation.location as DecoratableLocation;
+      if (location != ) {
           foreach (Furniture furniture in location.furniture)
           {
             if (furniture.getBoundingBox((Vector2) (NetFieldBase<Vector2, NetVector2>) furniture.tileLocation).Intersects(rectangle2))
@@ -264,21 +264,24 @@ namespace StardewValley
 
     public static void BuildCrib(HouseRenovation renovation, int selected_index)
     {
-      if (!(renovation.location is FarmHouse location))
+      FarmHouse location = renovation.location as FarmHouse;
+      if (location == null)
         return;
       location.cribStyle.Value = 1;
     }
 
     public static void RemoveCrib(HouseRenovation renovation, int selected_index)
     {
-      if (!(renovation.location is FarmHouse location))
+      FarmHouse location = renovation.location as FarmHouse;
+      if (location == null)
         return;
       location.cribStyle.Value = 0;
     }
 
     public static void OpenBedroom(HouseRenovation renovation, int selected_index)
     {
-      if (!(renovation.location is FarmHouse location))
+      FarmHouse location = renovation.location as FarmHouse;
+      if (location == null)
         return;
       Game1.player.mailReceived.Add("renovation_bedroom_open");
       location.UpdateForRenovation();
@@ -286,7 +289,8 @@ namespace StardewValley
 
     public static void CloseBedroom(HouseRenovation renovation, int selected_index)
     {
-      if (!(renovation.location is FarmHouse location))
+      FarmHouse location = renovation.location as FarmHouse;
+      if (location == null)
         return;
       Game1.player.mailReceived.Remove("renovation_bedroom_open");
       location.UpdateForRenovation();
@@ -294,7 +298,8 @@ namespace StardewValley
 
     public static void OpenSouthernRoom(HouseRenovation renovation, int selected_index)
     {
-      if (!(renovation.location is FarmHouse location))
+      FarmHouse location = renovation.location as FarmHouse;
+      if (location == null)
         return;
       Game1.player.mailReceived.Add("renovation_southern_open");
       location.UpdateForRenovation();
@@ -302,7 +307,8 @@ namespace StardewValley
 
     public static void CloseSouthernRoom(HouseRenovation renovation, int selected_index)
     {
-      if (!(renovation.location is FarmHouse location))
+      FarmHouse location = renovation.location as FarmHouse;
+      if (location == null)
         return;
       Game1.player.mailReceived.Remove("renovation_southern_open");
       location.UpdateForRenovation();
@@ -310,7 +316,8 @@ namespace StardewValley
 
     public static void OpenCornernRoom(HouseRenovation renovation, int selected_index)
     {
-      if (!(renovation.location is FarmHouse location))
+      FarmHouse location = renovation.location as FarmHouse;
+      if (location == null)
         return;
       Game1.player.mailReceived.Add("renovation_corner_open");
       location.UpdateForRenovation();
@@ -318,7 +325,8 @@ namespace StardewValley
 
     public static void CloseCornerRoom(HouseRenovation renovation, int selected_index)
     {
-      if (!(renovation.location is FarmHouse location))
+      FarmHouse location = renovation.location as FarmHouse;
+      if (location == null)
         return;
       Game1.player.mailReceived.Remove("renovation_corner_open");
       location.UpdateForRenovation();
@@ -340,7 +348,7 @@ namespace StardewValley
       });
     }
 
-    public virtual void AddRenovationBound(List<Rectangle> bounds) { return this.renovationBounds.Add(bounds); }
+    public virtual void AddRenovationBound(List<Rectangle> bounds) { this.renovationBounds.Add(bounds); }
 
     public enum AnimationType
     {
@@ -349,3 +357,8 @@ namespace StardewValley
     }
   }
 }
+
+
+
+
+

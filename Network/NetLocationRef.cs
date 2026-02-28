@@ -18,8 +18,8 @@ namespace StardewValley.Network
 
     public GameLocation Value
     {
-      delegate(get) { return this.Get(); };
-      delegate(set) { return this.Set(value); };
+      get { return this.Get(); }
+      set { this.Set(value); }
     }
 
     public NetFields NetFields { get; } = new NetFields();
@@ -31,9 +31,9 @@ namespace StardewValley.Network
       this.isStructure.fieldChangeVisibleEvent += new NetFieldBase<bool, NetBool>.FieldChange(this.OnStructureValueChanged);
     }
 
-    public virtual void OnLocationNameChanged(NetString field, string old_value, string new_value) { return this._dirty = true; }
+    public virtual void OnLocationNameChanged(NetString field, string old_value, string new_value) { this._dirty = true; }
 
-    public virtual void OnStructureValueChanged(NetBool field, bool old_value, bool new_value) { return this._dirty = true; }
+    public virtual void OnStructureValueChanged(NetBool field, bool old_value, bool new_value) { this._dirty = true; }
 
     public NetLocationRef(GameLocation value)
       : this()
@@ -43,7 +43,7 @@ namespace StardewValley.Network
 
     public bool IsChanging() { return this.locationName.IsChanging() || this.isStructure.IsChanging(); }
 
-    public void Update() { return this.ApplyChangesIfDirty(); }
+    public void Update() { this.ApplyChangesIfDirty(); }
 
     public void ApplyChangesIfDirty()
     {
@@ -98,3 +98,6 @@ namespace StardewValley.Network
     public static implicit operator GameLocation(NetLocationRef locationRef) { return locationRef.Value; }
   }
 }
+
+
+

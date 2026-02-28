@@ -86,7 +86,7 @@ namespace StardewValley.Network
       {
         this._bundleDataDirty = true;
       });
-      this.serverPrivacy.fieldChangeVisibleEvent += (NetFieldBase<ServerPrivacy, NetEnum<ServerPrivacy>>.FieldChange) ((field, old_value, new_value) => { });
+      this.serverPrivacy.fieldChangeVisibleEvent += (NetFieldBase<ServerPrivacy, NetEnum<ServerPrivacy>>.FieldChange) (delegate(field, old_value, new_value) { });
     }
 
     public virtual void RegisterSpecialCurrencies()
@@ -131,101 +131,101 @@ namespace StardewValley.Network
       Game1.worldStateIDs.Add(id);
     }
 
-    public WorldDate delegate(Date) { return new WorldDate((int) (NetFieldBase<int; }, NetInt>) this.year, (string) (NetFieldBase<string, NetString>) this.currentSeason, (int) (NetFieldBase<int, NetInt>) this.dayOfMonth);
+    public WorldDate Date { get { return new WorldDate((int) (NetFieldBase<int; }, NetInt>) this.year, (string) (NetFieldBase<string, NetString>) this.currentSeason, (int) (NetFieldBase<int, NetInt>) this.dayOfMonth);
 
     public ServerPrivacy ServerPrivacy
     {
-      delegate(get) { return this.serverPrivacy.Value; };
-      delegate(set) { return this.serverPrivacy.Value = value; };
+      get { return this.serverPrivacy.Value; }
+      set { this.serverPrivacy.Value = value; }
     }
 
     public bool IsTimePaused
     {
-      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.isTimePaused;
-      delegate(set) { return this.isTimePaused.Value = value; };
+      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.isTimePaused;
+      set { this.isTimePaused.Value = value; }
     }
 
     public bool IsPaused
     {
-      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.isPaused;
-      delegate(set) { return this.isPaused.Value = value; };
+      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.isPaused;
+      set { this.isPaused.Value = value; }
     }
 
     public bool IsGoblinRemoved
     {
-      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.goblinRemoved;
-      delegate(set) { return this.goblinRemoved.Value = value; };
+      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.goblinRemoved;
+      set { this.goblinRemoved.Value = value; }
     }
 
     public bool IsSubmarineLocked
     {
-      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.submarineLocked;
-      delegate(set) { return this.submarineLocked.Value = value; };
+      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.submarineLocked;
+      set { this.submarineLocked.Value = value; }
     }
 
     public int SkullCavesDifficulty
     {
-      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.skullCavesDifficulty;
-      delegate(set) { return this.skullCavesDifficulty.Value = value; };
+      get { return (int) (NetFieldBase<int; }, NetInt>) this.skullCavesDifficulty;
+      set { this.skullCavesDifficulty.Value = value; }
     }
 
     public int MinesDifficulty
     {
-      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.minesDifficulty;
-      delegate(set) { return this.minesDifficulty.Value = value; };
+      get { return (int) (NetFieldBase<int; }, NetInt>) this.minesDifficulty;
+      set { this.minesDifficulty.Value = value; }
     }
 
     public int LowestMineLevel
     {
-      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.lowestMineLevel;
-      delegate(set) { return this.lowestMineLevel.Value = value; };
+      get { return (int) (NetFieldBase<int; }, NetInt>) this.lowestMineLevel;
+      set { this.lowestMineLevel.Value = value; }
     }
 
     public int LowestMineLevelForOrder
     {
-      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.lowestMineLevelForOrder;
-      delegate(set) { return this.lowestMineLevelForOrder.Value = value; };
+      get { return (int) (NetFieldBase<int; }, NetInt>) this.lowestMineLevelForOrder;
+      set { this.lowestMineLevelForOrder.Value = value; }
     }
 
     public int WeatherForTomorrow
     {
-      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.weatherForTomorrow;
-      delegate(set) { return this.weatherForTomorrow.Value = value; };
+      get { return (int) (NetFieldBase<int; }, NetInt>) this.weatherForTomorrow;
+      set { this.weatherForTomorrow.Value = value; }
     }
 
     public Game1.MineChestType ShuffleMineChests
     {
-      delegate(get) { return this.shuffleMineChests.Value; };
-      delegate(set) { return this.shuffleMineChests.Value = value; };
+      get { return this.shuffleMineChests.Value; }
+      set { this.shuffleMineChests.Value = value; }
     }
 
     public int VisitsUntilY1Guarantee
     {
-      delegate(get) { return this.visitsUntilY1Guarantee.Value; };
-      delegate(set) { return this.visitsUntilY1Guarantee.Value = value; };
+      get { return this.visitsUntilY1Guarantee.Value; }
+      set { this.visitsUntilY1Guarantee.Value = value; }
     }
 
-    public NetBundles delegate(Bundles) { return this.bundles; };
+    public NetBundles Bundles { get { return this.bundles; }
 
-    public NetIntDictionary<bool, NetBool> delegate(BundleRewards) { return this.bundleRewards; };
+    public NetIntDictionary<bool, NetBool> BundleRewards { get { return this.bundleRewards; }
 
-    public NetVector2Dictionary<int, NetInt> delegate(MuseumPieces) { return this.museumPieces; };
+    public NetVector2Dictionary<int, NetInt> MuseumPieces { get { return this.museumPieces; };
 
-    public NetStringDictionary<bool, NetBool> delegate(FoundBuriedNuts) { return this.foundBuriedNuts; };
+    public NetStringDictionary<bool, NetBool> FoundBuriedNuts { get { return this.foundBuriedNuts; };
 
-    public NetStringDictionary<bool, NetBool> delegate(IslandVisitors) { return this.islandVisitors; };
+    public NetStringDictionary<bool, NetBool> IslandVisitors { get { return this.islandVisitors; };
 
-    public NetIntDictionary<global::LocationWeather, NetRef<global::LocationWeather>> delegate(LocationWeather) { return this.locationWeather; };
+    public NetIntDictionary<global::LocationWeather, NetRef<global::LocationWeather>> LocationWeather { get { return this.locationWeather; };
 
-    public NetIntDelta delegate(MiniShippingBinsObtained) { return this.miniShippingBinsObtained; };
+    public NetIntDelta MiniShippingBinsObtained { get { return this.miniShippingBinsObtained; };
 
-    public NetIntDelta delegate(GoldenWalnutsFound) { return this.goldenWalnutsFound; };
+    public NetIntDelta GoldenWalnutsFound { get { return this.goldenWalnutsFound; };
 
-    public NetIntDelta delegate(GoldenWalnuts) { return this.goldenWalnuts; };
+    public NetIntDelta GoldenWalnuts { get { return this.goldenWalnuts; };
 
-    public NetBool delegate(GoldenCoconutCracked) { return this.goldenCoconutCracked; };
+    public NetBool GoldenCoconutCracked { get { return this.goldenCoconutCracked; };
 
-    public NetBool delegate(ParrotPlatformsUnlocked) { return this.parrotPlatformsUnlocked; };
+    public NetBool ParrotPlatformsUnlocked { get { return this.parrotPlatformsUnlocked; };
 
     public Dictionary<string, string> BundleData
     {
@@ -277,13 +277,13 @@ namespace StardewValley.Network
       }
     }
 
-    public NetIntDelta delegate(LostBooksFound) { return this.lostBooksFound; };
+    public NetIntDelta LostBooksFound { get { return this.lostBooksFound; }
 
-    public NetInt delegate(CurrentPlayerLimit) { return this.currentPlayerLimit; };
+    public NetInt CurrentPlayerLimit { get { return this.currentPlayerLimit; }
 
-    public NetInt delegate(HighestPlayerLimit) { return this.highestPlayerLimit; };
+    public NetInt HighestPlayerLimit { get { return this.highestPlayerLimit; };
 
-    public NetRef<StardewValley.Object> delegate(DishOfTheDay) { return this.dishOfTheDay; };
+    public NetRef<StardewValley.Object> DishOfTheDay { get { return this.dishOfTheDay; };
 
     public bool hasWorldStateID(string id) { return this.worldStateIDs.Contains(id); }
 
@@ -294,7 +294,7 @@ namespace StardewValley.Network
       this.worldStateIDs.Add(id);
     }
 
-    public void removeWorldStateID(string id) { return this.worldStateIDs.Remove(id); }
+    public void removeWorldStateID(string id) { this.worldStateIDs.Remove(id); }
 
     public void UpdateFromGame1()
     {
@@ -387,3 +387,8 @@ namespace StardewValley.Network
     }
   }
 }
+
+
+
+
+

@@ -122,7 +122,7 @@ namespace StardewValley.Network
       Game1.multiplayer.processIncomingMessage(message);
     }
 
-    protected virtual void receiveUserNameUpdate(BinaryReader msg) { return this.userNames[msg.ReadInt64()] = msg.ReadString(); }
+    protected virtual void receiveUserNameUpdate(BinaryReader msg) { this.userNames[msg.ReadInt64()] = msg.ReadString(); }
 
     protected virtual void receiveAvailableFarmhands(BinaryReader msg)
     {
@@ -147,9 +147,9 @@ namespace StardewValley.Network
       this.connectionMessage = (string) null;
       switch (Game1.activeClickableMenu)
       {
-        case TitleMenu _:
+        case TitleMenu:
           break;
-        case FarmhandMenu _:
+        case FarmhandMenu:
           break;
         default:
           using (List<Farmer>.Enumerator enumerator = this.availableFarmhands.GetEnumerator())
@@ -252,14 +252,18 @@ namespace StardewValley.Network
         otherFarmer.Value.messageQueue.Clear();
     }
 
-    public virtual void sendMessage(byte which, params object[] data) { return this.sendMessage(new OutgoingMessage(which, Game1.player, data)); }
+    public virtual void sendMessage(byte which, params object[] data) { this.sendMessage(new OutgoingMessage(which, Game1.player, data)); }
 
-    public BandwidthLogger delegate(BandwidthLogger) { return this.bandwidthLogger; };
+    public BandwidthLogger BandwidthLogger { get { return this.bandwidthLogger; };
 
     public bool LogBandwidth
     {
-      delegate(get) { return this.bandwidthLogger != null; };
-      delegate(set) { return this.bandwidthLogger = value ? new BandwidthLogger() : (BandwidthLogger) null; };
+      get { return this.bandwidthLogger != null; }
+      set { this.bandwidthLogger = value ? new BandwidthLogger() : (BandwidthLogger) null; }
     }
   }
 }
+
+
+
+

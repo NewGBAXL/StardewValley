@@ -21,7 +21,7 @@ namespace StardewValley
 
     public NetFields NetFields { get; } = new NetFields();
 
-    public string delegate(Name) { return (string) (NetFieldBase<string; }, NetString>) this.name;
+    public string Name { get { return (string) (NetFieldBase<string; }, NetString>) this.name;
 
     public ReadyCheck() { return this.NetFields.AddFields((INetSerializable) this.name, (INetSerializable) this.readyPlayers.NetFields, (INetSerializable) this.setPlayers.NetFields); }
 
@@ -94,8 +94,8 @@ namespace StardewValley
       {
         switch (Game1.activeClickableMenu)
         {
-          case SaveGameMenu _:
-          case ShippingMenu _:
+          case SaveGameMenu:
+          case ShippingMenu:
             goto label_4;
           case ReadyCheckDialog readyCheckDialog:
             if (!(readyCheckDialog.checkName != this.Name))
@@ -125,3 +125,6 @@ label_4:
     }
   }
 }
+
+
+

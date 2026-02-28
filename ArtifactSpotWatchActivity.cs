@@ -12,7 +12,7 @@ namespace StardewValley
   {
     protected override bool _AttemptActivity(Farm farm)
     {
-      Object randomObject = this.GetRandomObject(farm, (Func<Object, bool>) (delegate(o) { return Utility.IsNormalObjectAtParentSheetIndex((Item) o; }, 595)));
+      Object randomObject = this.GetRandomObject(farm, (Func<Object, bool>) (o { return Utility.IsNormalObjectAtParentSheetIndex((Item) o; }, 595)));
       if (randomObject == null)
         return false;
       this.activityPosition = this.GetNearbyTile(farm, randomObject.TileLocation);
@@ -20,3 +20,4 @@ namespace StardewValley
     }
   }
 }
+

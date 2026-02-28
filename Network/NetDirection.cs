@@ -81,6 +81,7 @@ namespace StardewValley.Network
       this.setInterpolationTarget(newValue);
     }
 
-    protected override void WriteDelta(BinaryWriter writer) { return writer.Write(this.value); }
+    protected override void WriteDelta(BinaryWriter writer) { writer.Write(this.value); }
   }
 }
+

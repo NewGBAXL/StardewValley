@@ -112,7 +112,7 @@ namespace StardewValley
       return true;
     }
 
-    public override void DayUpdate(GameLocation location) { return base.DayUpdate(location); }
+    public override void DayUpdate(GameLocation location) { base.DayUpdate(location); }
 
     public override bool isPassable() { return !(bool) (NetFieldBase<bool, NetBool>) this.bigCraftable; }
 
@@ -129,7 +129,7 @@ namespace StardewValley
       Utility.addSmokePuff(environment, this.tileLocation.Value * 64f + new Vector2(32f, -32f));
     }
 
-    public override void actionWhenBeingHeld(Farmer who) { return base.actionWhenBeingHeld(who); }
+    public override void actionWhenBeingHeld(Farmer who) { base.actionWhenBeingHeld(who); }
 
     private void updateAshes(int identifier)
     {
@@ -258,3 +258,4 @@ namespace StardewValley
     }
   }
 }
+

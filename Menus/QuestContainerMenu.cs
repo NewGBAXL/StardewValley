@@ -156,7 +156,7 @@ namespace StardewValley.Menus
       base.cleanupBeforeExit();
     }
 
-    public override void update(GameTime time) { return base.update(time); }
+    public override void update(GameTime time) { base.update(time); }
 
     public override void performHoverAction(int x, int y)
     {
@@ -188,3 +188,4 @@ namespace StardewValley.Menus
     }
   }
 }
+

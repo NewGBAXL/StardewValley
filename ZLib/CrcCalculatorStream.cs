@@ -240,7 +240,7 @@ namespace Ionic.Crc
     }
 
     /// <summary>Flush the stream.</summary>
-    public override void Flush() { return this._innerStream.Flush(); }
+    public override void Flush() { this._innerStream.Flush(); }
 
     /// <summary>Returns the length of the underlying stream.</summary>
     public override long Length
@@ -266,14 +266,14 @@ namespace Ionic.Crc
     /// <param name="offset">N/A</param>
     /// <param name="origin">N/A</param>
     /// <returns>N/A</returns>
-    public override long Seek(long offset, SeekOrigin origin) { return throw new NotSupportedException(); }
+    public override long Seek(long offset, SeekOrigin origin) { throw new NotSupportedException(); }
 
     /// <summary>
     /// This method always throws
     /// <see cref="T:System.NotSupportedException" />
     /// </summary>
     /// <param name="value">N/A</param>
-    public override void SetLength(long value) { return throw new NotSupportedException(); }
+    public override void SetLength(long value) { throw new NotSupportedException(); }
 
     void IDisposable.Dispose()
     {
@@ -290,3 +290,5 @@ namespace Ionic.Crc
     }
   }
 }
+
+

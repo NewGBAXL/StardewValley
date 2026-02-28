@@ -336,7 +336,7 @@ namespace StardewValley.Objects
 
     public virtual bool HasSittingFarmers() { return this.sittingFarmers.Count() > 0; }
 
-    public virtual void RemoveSittingFarmer(Farmer farmer) { return this.sittingFarmers.Remove(farmer.UniqueMultiplayerID); }
+    public virtual void RemoveSittingFarmer(Farmer farmer) { this.sittingFarmers.Remove(farmer.UniqueMultiplayerID); }
 
     public virtual int GetSittingFarmerCount() { return this.sittingFarmers.Count(); }
 
@@ -489,10 +489,10 @@ namespace StardewValley.Objects
         return false;
       switch (@object)
       {
-        case Wallpaper _:
+        case Wallpaper:
 label_8:
           return false;
-        case Furniture _:
+        case Furniture:
           if ((@object as Furniture).getTilesWide() != 1 || (@object as Furniture).getTilesHigh() != 1)
             goto label_8;
           else
@@ -798,7 +798,7 @@ label_8:
       return this.GetAdditionalFurniturePlacementStatus(l, (int) tile.X * 64, (int) tile.Y * 64) == 0 && base.canBePlacedHere(l, tile);
     }
 
-    public virtual void updateDrawPosition() { return this.drawPosition.Value = new Vector2((float) this.boundingBox.X, (float) (this.boundingBox.Y - (this.sourceRect.Height * 4 - this.boundingBox.Height))); }
+    public virtual void updateDrawPosition() { this.drawPosition.Value = new Vector2((float) this.boundingBox.X, (float) (this.boundingBox.Y - (this.sourceRect.Height * 4 - this.boundingBox.Height))); }
 
     public virtual int getTilesWide() { return this.boundingBox.Width / 64; }
 
@@ -1088,7 +1088,7 @@ label_8:
 
     public override int addToStack(Item stack) { return 1; }
 
-    public override string delegate(Name) { return this.name; };
+    public override string Name { get { return this.name; }
 
     protected virtual float getScaleSize()
     {
@@ -1229,3 +1229,6 @@ label_8:
     }
   }
 }
+
+
+

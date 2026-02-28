@@ -98,7 +98,7 @@ namespace StardewValley.Menus
       this._childMenu._parentMenu = this;
     }
 
-    public void AddDependency() { return ++this._dependencies; }
+    public void AddDependency() { ++this._dependencies; }
 
     public void RemoveDependency()
     {
@@ -299,7 +299,7 @@ namespace StardewValley.Menus
 
     /// <summary>Only use this if the child class overrides</summary>
     /// <param name="id"></param>
-    public virtual void setCurrentlySnappedComponentTo(int id) { return this.currentlySnappedComponent = this.getComponentWithID(id); }
+    public virtual void setCurrentlySnappedComponentTo(int id) { this.currentlySnappedComponent = this.getComponentWithID(id); }
 
     public void moveCursorInDirection(int direction)
     {
@@ -541,7 +541,7 @@ namespace StardewValley.Menus
       return (ClickableComponent) null;
     }
 
-    public void initializeUpperRightCloseButton() { return this.upperRightCloseButton = new ClickableTextureComponent(new Rectangle(this.xPositionOnScreen + this.width - 36, this.yPositionOnScreen - 8, 48, 48), Game1.mouseCursors, new Rectangle(337, 494, 12, 12), 4f); }
+    public void initializeUpperRightCloseButton() { this.upperRightCloseButton = new ClickableTextureComponent(new Rectangle(this.xPositionOnScreen + this.width - 36, this.yPositionOnScreen - 8, 48, 48), Game1.mouseCursors, new Rectangle(337, 494, 12, 12), 4f); }
 
     public virtual void drawBackground(SpriteBatch b)
     {
@@ -573,10 +573,10 @@ namespace StardewValley.Menus
     {
       switch (this)
       {
-        case GameMenu _:
-        case ShopMenu _:
-        case WheelSpinGame _:
-        case ItemGrabMenu _:
+        case GameMenu:
+        case ShopMenu:
+        case WheelSpinGame:
+        case ItemGrabMenu:
           return true;
         default:
           return false;
@@ -681,7 +681,7 @@ namespace StardewValley.Menus
 
     public virtual bool shouldDrawCloseButton() { return true; }
 
-    public void exitThisMenuNoSound() { return this.exitThisMenu(false); }
+    public void exitThisMenuNoSound() { this.exitThisMenu(false); }
 
     public void exitThisMenu(bool playSound = true)
     {
@@ -1190,3 +1190,5 @@ namespace StardewValley.Menus
     public delegate void onExit();
   }
 }
+
+

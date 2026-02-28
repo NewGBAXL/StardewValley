@@ -24,11 +24,11 @@ namespace StardewValley.Network
     {
       switch (character)
       {
-        case NPC _:
+        case NPC:
           this.npc.Set(location, character as NPC);
           this.farmer.Value = (Farmer) null;
           break;
-        case Farmer _:
+        case Farmer:
           this.npc.Clear();
           this.farmer.Value = character as Farmer;
           break;
@@ -44,3 +44,4 @@ namespace StardewValley.Network
     }
   }
 }
+

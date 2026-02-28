@@ -288,8 +288,9 @@ namespace StardewValley
       return new Rectangle((int) this.tilePosition.X, (int) this.tilePosition.Y, (int) this.size.X, (int) this.size.Y);
     }
 
-    public virtual void RemoveSittingFarmer(Farmer farmer) { return this.sittingFarmers.Remove(farmer.UniqueMultiplayerID); }
+    public virtual void RemoveSittingFarmer(Farmer farmer) { this.sittingFarmers.Remove(farmer.UniqueMultiplayerID); }
 
     public virtual int GetSittingFarmerCount() { return this.sittingFarmers.Count(); }
   }
 }
+

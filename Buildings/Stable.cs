@@ -18,8 +18,8 @@ namespace StardewValley.Buildings
 
     public Guid HorseId
     {
-      delegate(get) { return this.horseId.Value; };
-      delegate(set) { return this.horseId.Value = value; };
+      get { return this.horseId.Value; }
+      set { this.horseId.Value = value; }
     }
 
     public Stable()
@@ -103,7 +103,7 @@ namespace StardewValley.Buildings
       base.performActionOnDemolition(location);
     }
 
-    public override void Update(GameTime time) { return base.Update(time); }
+    public override void Update(GameTime time) { base.Update(time); }
 
     public override void draw(SpriteBatch b)
     {
@@ -121,3 +121,6 @@ namespace StardewValley.Buildings
     }
   }
 }
+
+
+

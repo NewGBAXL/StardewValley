@@ -17,7 +17,7 @@ namespace StardewValley.Menus
   {
     public ScreenSizeAdjustMenu() { return Game1.shouldDrawSafeAreaBounds = true; }
 
-    public override void update(GameTime time) { return base.update(time); }
+    public override void update(GameTime time) { base.update(time); }
 
     public override void receiveGamePadButton(Buttons b)
     {
@@ -88,3 +88,4 @@ namespace StardewValley.Menus
     }
   }
 }
+

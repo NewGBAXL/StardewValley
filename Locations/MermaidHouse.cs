@@ -189,7 +189,7 @@ namespace StardewValley.Locations
       return base.checkAction(tileLocation, viewport, who);
     }
 
-    public void playClamTone(int which) { return this.playClamTone(which, (Farmer) null); }
+    public void playClamTone(int which) { this.playClamTone(which, (Farmer) null); }
 
     public void playClamTone(int which, Farmer who)
     {
@@ -683,3 +683,4 @@ namespace StardewValley.Locations
     }
   }
 }
+

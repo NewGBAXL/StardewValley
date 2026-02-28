@@ -1185,6 +1185,7 @@ namespace StardewValley.Locations
       }
     }
 
-    public override void draw(SpriteBatch b) { return base.draw(b); }
+    public override void draw(SpriteBatch b) { base.draw(b); }
   }
 }
+

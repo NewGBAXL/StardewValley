@@ -13,9 +13,9 @@ namespace StardewValley
   {
     private ICue dummyCue = (ICue) new DummyCue();
 
-    public bool delegate(IsInUse) { return false; };
+    public bool IsInUse { get { return false; };
 
-    public bool delegate(IsDisposed) { return true; };
+    public bool IsDisposed { get { return true; };
 
     public void Dispose()
     {
@@ -38,3 +38,5 @@ namespace StardewValley
     public CueDefinition GetCueDefinition(string cue_name) { return (CueDefinition) null; }
   }
 }
+
+

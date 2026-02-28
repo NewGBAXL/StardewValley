@@ -56,7 +56,7 @@ namespace StardewValley.Events
       List<Farmer> farmerList = new List<Farmer>();
       farmerList.Add(Game1.player);
       farmerList.Add(this.spouse);
-      farmerList.Sort((Comparison<Farmer>) ((p1, p2) => p1.UniqueMultiplayerID.CompareTo(p2.UniqueMultiplayerID)));
+      farmerList.Sort((Comparison<Farmer>) (delegate(p1, p2) { return p1.UniqueMultiplayerID.CompareTo(p2.UniqueMultiplayerID; })));
       foreach (Farmer farmer in farmerList)
       {
         if (Game1.getLocationFromName((string) (NetFieldBase<string, NetString>) farmer.homeLocation) is FarmHouse locationFromName && locationFromName == farmer.currentLocation && this.isSuitableHome(locationFromName))
@@ -101,7 +101,7 @@ namespace StardewValley.Events
       }
       else
       {
-        Game1.afterDialogues = (Game1.afterFadeFunction) (() => this.getBabyName = true);
+        Game1.afterDialogues = (Game1.afterFadeFunction) (delegate() { return this.getBabyName = true; });
         Game1.drawObjectDialogue(Game1.content.LoadString("Strings\\Events:BirthMessage_SpouseNaming_" + (this.isMale ? "Male" : "Female"), (object) this.spouse.Name));
       }
     }
@@ -179,3 +179,4 @@ namespace StardewValley.Events
     }
   }
 }
+

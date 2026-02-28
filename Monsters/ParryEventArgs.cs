@@ -16,8 +16,8 @@ namespace StardewValley.Monsters
 
     public Farmer who
     {
-      delegate(get) { return Game1.getFarmer(this.farmerId); };
-      delegate(set) { return this.farmerId = value.UniqueMultiplayerID; };
+      get { return Game1.getFarmer(this.farmerId); }
+      set { this.farmerId = value.UniqueMultiplayerID; }
     }
 
     public ParryEventArgs()
@@ -43,3 +43,6 @@ namespace StardewValley.Monsters
     }
   }
 }
+
+
+

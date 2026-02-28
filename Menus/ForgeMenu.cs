@@ -262,7 +262,7 @@ namespace StardewValley.Menus
             switch (heldItem2)
             {
               case null:
-              case Ring _:
+              case Ring:
                 if (Game1.player.rightRing.Value != null)
                   Game1.player.rightRing.Value.onUnequip(Game1.player, Game1.currentLocation);
                 Game1.player.rightRing.Value = heldItem2 as Ring;
@@ -292,7 +292,7 @@ namespace StardewValley.Menus
             switch (heldItem3)
             {
               case null:
-              case Ring _:
+              case Ring:
                 if (Game1.player.leftRing.Value != null)
                   Game1.player.leftRing.Value.onUnequip(Game1.player, Game1.currentLocation);
                 Game1.player.leftRing.Value = heldItem3 as Ring;
@@ -809,8 +809,8 @@ namespace StardewValley.Menus
         }
         else if (this.leftIngredientSpot.item is CombinedRing)
         {
-          if (this.leftIngredientSpot.item is CombinedRing combinedRing)
-          {
+          CombinedRing combinedRing = this.leftIngredientSpot.item as CombinedRing;
+      if (combinedRing != ) {
             List<Ring> ringList = new List<Ring>((IEnumerable<Ring>) combinedRing.combinedRings);
             combinedRing.combinedRings.Clear();
             foreach (Item obj in ringList)
@@ -978,7 +978,7 @@ namespace StardewValley.Menus
       this.drawMouse(b);
     }
 
-    protected override void cleanupBeforeExit() { return this._OnCloseMenu(); }
+    protected override void cleanupBeforeExit() { this._OnCloseMenu(); }
 
     protected void _OnCloseMenu()
     {
@@ -1005,3 +1005,6 @@ namespace StardewValley.Menus
     }
   }
 }
+
+
+

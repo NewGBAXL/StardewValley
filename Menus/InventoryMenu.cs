@@ -188,7 +188,7 @@ namespace StardewValley.Menus
       this.dropItemInvisibleButton.bounds.Y += y;
     }
 
-    public void ShakeItem(Item item) { return this.ShakeItem(this.actualInventory.IndexOf(item)); }
+    public void ShakeItem(Item item) { this.ShakeItem(this.actualInventory.IndexOf(item)); }
 
     public void ShakeItem(int index)
     {
@@ -443,7 +443,7 @@ label_17:
       Game1.setMousePosition(this.inventory[0].bounds.Right - this.inventory[0].bounds.Width / 8, this.inventory[0].bounds.Bottom - this.inventory[0].bounds.Height / 8);
     }
 
-    public override void draw(SpriteBatch b) { return this.draw(b, -1, -1, -1); }
+    public override void draw(SpriteBatch b) { this.draw(b, -1, -1, -1); }
 
     public override void draw(SpriteBatch b, int red = -1, int green = -1, int blue = -1)
     {
@@ -521,7 +521,7 @@ label_17:
       return slotDrawPositions;
     }
 
-    public override void gameWindowSizeChanged(Rectangle oldBounds, Rectangle newBounds) { return base.gameWindowSizeChanged(oldBounds, newBounds); }
+    public override void gameWindowSizeChanged(Rectangle oldBounds, Rectangle newBounds) { base.gameWindowSizeChanged(oldBounds, newBounds); }
 
     public override void receiveLeftClick(int x, int y, bool playSound = true)
     {
@@ -546,3 +546,4 @@ label_17:
     }
   }
 }
+

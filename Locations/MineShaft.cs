@@ -111,74 +111,74 @@ namespace StardewValley.Locations
 
     public int mineLevel
     {
-      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.netMineLevel;
-      delegate(set) { return this.netMineLevel.Value = value; };
+      get { return (int) (NetFieldBase<int; }, NetInt>) this.netMineLevel;
+      set { this.netMineLevel.Value = value; }
     }
 
     private int stonesLeftOnThisLevel
     {
-      delegate(get) { return (int) (NetFieldBase<int; }, NetIntDelta>) this.netStonesLeftOnThisLevel;
-      delegate(set) { return this.netStonesLeftOnThisLevel.Value = value; };
+      get { return (int) (NetFieldBase<int; }, NetIntDelta>) this.netStonesLeftOnThisLevel;
+      set { this.netStonesLeftOnThisLevel.Value = value; }
     }
 
     private Vector2 tileBeneathLadder
     {
-      delegate(get) { return (Vector2) (NetFieldBase<Vector2; }, NetVector2>) this.netTileBeneathLadder;
-      delegate(set) { return this.netTileBeneathLadder.Value = value; };
+      get { return (Vector2) (NetFieldBase<Vector2; }, NetVector2>) this.netTileBeneathLadder;
+      set { this.netTileBeneathLadder.Value = value; }
     }
 
     private Vector2 tileBeneathElevator
     {
-      delegate(get) { return (Vector2) (NetFieldBase<Vector2; }, NetVector2>) this.netTileBeneathElevator;
-      delegate(set) { return this.netTileBeneathElevator.Value = value; };
+      get { return (Vector2) (NetFieldBase<Vector2; }, NetVector2>) this.netTileBeneathElevator;
+      set { this.netTileBeneathElevator.Value = value; }
     }
 
     private Point ElevatorLightSpot
     {
-      delegate(get) { return (Point) (NetFieldBase<Point; }, NetPoint>) this.netElevatorLightSpot;
-      delegate(set) { return this.netElevatorLightSpot.Value = value; };
+      get { return (Point) (NetFieldBase<Point; }, NetPoint>) this.netElevatorLightSpot;
+      set { this.netElevatorLightSpot.Value = value; }
     }
 
     private bool isSlimeArea
     {
-      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.netIsSlimeArea;
-      delegate(set) { return this.netIsSlimeArea.Value = value; };
+      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.netIsSlimeArea;
+      set { this.netIsSlimeArea.Value = value; }
     }
 
     private bool isDinoArea
     {
-      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.netIsDinoArea;
-      delegate(set) { return this.netIsDinoArea.Value = value; };
+      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.netIsDinoArea;
+      set { this.netIsDinoArea.Value = value; }
     }
 
     private bool isMonsterArea
     {
-      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.netIsMonsterArea;
-      delegate(set) { return this.netIsMonsterArea.Value = value; };
+      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.netIsMonsterArea;
+      set { this.netIsMonsterArea.Value = value; }
     }
 
     private bool isQuarryArea
     {
-      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.netIsQuarryArea;
-      delegate(set) { return this.netIsQuarryArea.Value = value; };
+      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.netIsQuarryArea;
+      set { this.netIsQuarryArea.Value = value; }
     }
 
     private bool ambientFog
     {
-      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.netAmbientFog;
-      delegate(set) { return this.netAmbientFog.Value = value; };
+      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.netAmbientFog;
+      set { this.netAmbientFog.Value = value; }
     }
 
     private Microsoft.Xna.Framework.Color lighting
     {
-      delegate(get) { return (Microsoft.Xna.Framework.Color) (NetFieldBase<Microsoft.Xna.Framework.Color; }, NetColor>) this.netLighting;
-      delegate(set) { return this.netLighting.Value = value; };
+      get { return (Microsoft.Xna.Framework.Color) (NetFieldBase<Microsoft.Xna.Framework.Color; }, NetColor>) this.netLighting;
+      set { this.netLighting.Value = value; }
     }
 
     private Microsoft.Xna.Framework.Color fogColor
     {
-      delegate(get) { return (Microsoft.Xna.Framework.Color) (NetFieldBase<Microsoft.Xna.Framework.Color; }, NetColor>) this.netFogColor;
-      delegate(set) { return this.netFogColor.Value = value; };
+      get { return (Microsoft.Xna.Framework.Color) (NetFieldBase<Microsoft.Xna.Framework.Color; }, NetColor>) this.netFogColor;
+      set { this.netFogColor.Value = value; }
     }
 
     public MineShaft()
@@ -217,8 +217,8 @@ namespace StardewValley.Locations
           this.fogTime = 0;
         }
       });
-      this.createLadderAtEvent.OnValueAdded += (NetDictionary<Vector2, bool, NetBool, SerializableDictionary<Vector2, bool>, NetVector2Dictionary<bool, NetBool>>.ContentsChangeEvent) ((v, b) => this.doCreateLadderAt(v));
-      this.createLadderDownEvent.OnValueAdded += (NetDictionary<Point, bool, NetBool, SerializableDictionary<Point, bool>, NetPointDictionary<bool, NetBool>>.ContentsChangeEvent) ((p, b) => this.doCreateLadderDown(p, b));
+      this.createLadderAtEvent.OnValueAdded += (NetDictionary<Vector2, bool, NetBool, SerializableDictionary<Vector2, bool>, NetVector2Dictionary<bool, NetBool>>.ContentsChangeEvent) (delegate(v, b) { return this.doCreateLadderAt(v; }));
+      this.createLadderDownEvent.OnValueAdded += (NetDictionary<Point, bool, NetBool, SerializableDictionary<Point, bool>, NetPointDictionary<bool, NetBool>>.ContentsChangeEvent) (delegate(p, b) { return this.doCreateLadderDown(p, b; }));
       this.mapImageSource.fieldChangeEvent += (NetFieldBase<string, NetString>.FieldChange) ((field, oldValue, newValue) =>
       {
         if (newValue == null || !(newValue != oldValue))
@@ -468,7 +468,7 @@ namespace StardewValley.Locations
       }
     }
 
-    public void chestConsumed() { return Game1.player.chestConsumedMineLevels[this.mineLevel] = true; }
+    public void chestConsumed() { Game1.player.chestConsumedMineLevels[this.mineLevel] = true; }
 
     public bool isLevelSlimeArea() { return this.isSlimeArea; }
 
@@ -540,7 +540,7 @@ namespace StardewValley.Locations
       this.isFallingDownShaft = false;
     }
 
-    public int delegate(EnemyCount) { return this.characters.OfType<Monster>().Count<Monster>(); };
+    public int EnemyCount { get { return this.characters.OfType<Monster>().Count<Monster>(); }
 
     public override void performTenMinuteUpdate(int timeOfDay)
     {
@@ -1620,7 +1620,7 @@ namespace StardewValley.Locations
       this.overlayObjects[vector2] = (StardewValley.Object) new Chest(0, items, vector2)
       {
         Tint = color
-      };
+      }
     }
 
     public static Item getTreasureRoomItem()
@@ -2173,7 +2173,7 @@ namespace StardewValley.Locations
             {
               new Response("Jump", Game1.content.LoadString("Strings\\Locations:Mines_ShaftJumpIn")).SetHotKey(Keys.Y),
               new Response("Do", Game1.content.LoadString("Strings\\Locations:Mines_DoNothing")).SetHotKey(Keys.Escape)
-            };
+            }
             this.createQuestionDialogue(Game1.content.LoadString("Strings\\Locations:Mines_Shaft"), answerChoices, "Shaft");
             return true;
           case 194:
@@ -2513,7 +2513,7 @@ namespace StardewValley.Locations
         this.setMapTileIndex(10, 5, 300, "Front");
         this.setMapTileIndex(11, 5, 301, "Front");
         if (Game1.player.team.mineShrineActivated.Value && !Game1.player.team.toggleMineShrineOvernight.Value || !Game1.player.team.mineShrineActivated.Value && Game1.player.team.toggleMineShrineOvernight.Value)
-          DelayedAction.functionAfterDelay((DelayedAction.delayedBehavior) (() => this.addBlueFlamesToChallengeShrine()), 1000);
+          DelayedAction.functionAfterDelay((DelayedAction.delayedBehavior) (delegate() { return this.addBlueFlamesToChallengeShrine(; })), 1000);
       }
       this.ApplyDiggableTileFixes();
       if (this.isMonsterArea || this.isSlimeArea)
@@ -2578,7 +2578,7 @@ namespace StardewValley.Locations
       this.map.TileSheets[0].TileIndexProperties[183].Add("Diggable", new PropertyValue("true"));
     }
 
-    public void createLadderDown(int x, int y, bool forceShaft = false) { return this.createLadderDownEvent[new Point(x, y)] = forceShaft || this.getMineArea() == 121 && !this.mustKillAllMonstersToAdvance() && this.mineRandom.NextDouble() < 0.2; }
+    public void createLadderDown(int x, int y, bool forceShaft = false) { this.createLadderDownEvent[new Point(x, y)] = forceShaft || this.getMineArea() == 121 && !this.mustKillAllMonstersToAdvance() && this.mineRandom.NextDouble() < 0.2; }
 
     private void doCreateLadderDown(Point point, bool shaft)
     {
@@ -3371,7 +3371,7 @@ namespace StardewValley.Locations
 
     public static void clearActiveMines()
     {
-      MineShaft.activeMines.RemoveAll((Predicate<MineShaft>) (delegate(mine)
+      MineShaft.activeMines.RemoveAll((Predicate<MineShaft>) (mine
       {
         mine.mapContent.Dispose();
         return true;
@@ -3409,7 +3409,7 @@ namespace StardewValley.Locations
             maxMineLevel = Math.Max(maxMineLevel, activeMine.mineLevel);
         }
       }
-      MineShaft.activeMines.RemoveAll((Predicate<MineShaft>) (delegate(mine) { return {; }
+      MineShaft.activeMines.RemoveAll((Predicate<MineShaft>) (mine { return {; }
         if (mine.mineLevel == 77377)
           return false;
         if (mine.mineLevel > 120)
@@ -3502,3 +3502,8 @@ namespace StardewValley.Locations
     }
   }
 }
+
+
+
+
+

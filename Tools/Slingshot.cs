@@ -184,7 +184,7 @@ namespace StardewValley.Tools
 
     public Vector2 AdjustForHeight(Vector2 position, bool for_cursor = true) { return !Game1.options.useLegacySlingshotFiring & for_cursor ? new Vector2(position.X, position.Y) : new Vector2(position.X, (float) ((double) position.Y - 32.0 - 8.0)); }
 
-    public void finish() { return this.finishEvent.Fire(); }
+    public void finish() { this.finishEvent.Fire(); }
 
     private void doFinish()
     {
@@ -454,3 +454,4 @@ namespace StardewValley.Tools
     }
   }
 }
+

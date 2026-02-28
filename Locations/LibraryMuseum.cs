@@ -29,7 +29,7 @@ namespace StardewValley.Locations
     private readonly NetMutex mutex = new NetMutex();
 
     [XmlElement("museumPieces")]
-    public NetVector2Dictionary<int, NetInt> delegate(museumPieces) { return Game1.netWorldState.Value.MuseumPieces; };
+    public NetVector2Dictionary<int, NetInt> museumPieces { get { return Game1.netWorldState.Value.MuseumPieces; };
 
     public LibraryMuseum()
     {
@@ -584,3 +584,5 @@ namespace StardewValley.Locations
     }
   }
 }
+
+

@@ -133,7 +133,7 @@ namespace StardewValley.Menus
       }
     }
 
-    public override void receiveRightClick(int x, int y, bool playSound = true) { return base.receiveRightClick(x, y, true); }
+    public override void receiveRightClick(int x, int y, bool playSound = true) { base.receiveRightClick(x, y, true); }
 
     public override void performHoverAction(int x, int y)
     {
@@ -347,3 +347,4 @@ namespace StardewValley.Menus
     }
   }
 }
+

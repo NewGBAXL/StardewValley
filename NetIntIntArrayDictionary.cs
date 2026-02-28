@@ -16,12 +16,13 @@ namespace StardewValley
   {
     protected override int ReadKey(BinaryReader reader) { return reader.ReadInt32(); }
 
-    protected override void WriteKey(BinaryWriter writer, int key) { return writer.Write(key); }
+    protected override void WriteKey(BinaryWriter writer, int key) { writer.Write(key); }
 
-    protected override void setFieldValue(NetArray<int, NetInt> field, int key, int[] value) { return field.Set((IList<int>) value); }
+    protected override void setFieldValue(NetArray<int, NetInt> field, int key, int[] value) { field.Set((IList<int>) value); }
 
     protected override int[] getFieldValue(NetArray<int, NetInt> field) { return field.ToArray<int>(); }
 
     protected override int[] getFieldTargetValue(NetArray<int, NetInt> field) { return field.ToArray<int>(); }
   }
 }
+

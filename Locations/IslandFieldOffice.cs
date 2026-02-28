@@ -378,7 +378,7 @@ namespace StardewValley.Locations
       return true;
     }
 
-    public void triggerFinaleCutscene() { return this._shouldTriggerFinalCutscene = true; }
+    public void triggerFinaleCutscene() { this._shouldTriggerFinalCutscene = true; }
 
     private void _triggerFinaleCutsceneActual()
     {
@@ -388,7 +388,7 @@ namespace StardewValley.Locations
       {
         if (Game1.activeClickableMenu != null)
           Game1.activeClickableMenu = (IClickableMenu) null;
-        Game1.globalFadeToBlack((Game1.afterFadeFunction) (() => this._StartFinaleEvent()));
+        Game1.globalFadeToBlack((Game1.afterFadeFunction) (delegate() { return this._StartFinaleEvent(; })));
       }), 500);
       this._shouldTriggerFinalCutscene = false;
     }
@@ -637,3 +637,5 @@ namespace StardewValley.Locations
     }
   }
 }
+
+

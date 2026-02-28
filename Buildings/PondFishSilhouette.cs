@@ -37,7 +37,7 @@ namespace StardewValley.Buildings
       this.ResetDartTime();
     }
 
-    public void ResetDartTime() { return this.nextDart = Utility.Lerp(20f, 40f, (float) Game1.random.NextDouble()); }
+    public void ResetDartTime() { this.nextDart = Utility.Lerp(20f, 40f, (float) Game1.random.NextDouble()); }
 
     public void Draw(SpriteBatch b)
     {
@@ -156,3 +156,4 @@ namespace StardewValley.Buildings
     }
   }
 }
+

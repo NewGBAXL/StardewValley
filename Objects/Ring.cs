@@ -302,8 +302,8 @@ namespace StardewValley.Objects
         {
           switch (environment)
           {
-            case MineShaft _:
-            case VolcanoDungeon _:
+            case MineShaft:
+            case VolcanoDungeon:
               break;
             default:
               LightSource lightSource = environment.getLightSource(this._lightSourceID.Value);
@@ -396,13 +396,13 @@ namespace StardewValley.Objects
           this.loadDisplayFields();
         return this.displayName;
       }
-      delegate(set) { return this.displayName = value; };
+      set { this.displayName = value; }
     }
 
     [XmlIgnore]
     public override int Stack
     {
-      delegate(get) { return this.zeroStack ? 0 : 1; };
+      get { return this.zeroStack ? 0 : 1; }
       set
       {
         if (value == 0)
@@ -442,3 +442,7 @@ namespace StardewValley.Objects
     }
   }
 }
+
+
+
+

@@ -29,8 +29,8 @@ namespace Ionic.Zlib
 
     internal bool HandleRfc1950HeaderBytes
     {
-      delegate(get) { return this._handleRfc1950HeaderBytes; };
-      delegate(set) { return this._handleRfc1950HeaderBytes = value; };
+      get { return this._handleRfc1950HeaderBytes; }
+      set { this._handleRfc1950HeaderBytes = value; }
     }
 
     public InflateManager()
@@ -366,3 +366,6 @@ label_54:
     }
   }
 }
+
+
+

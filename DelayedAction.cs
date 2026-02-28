@@ -166,7 +166,7 @@ namespace StardewValley
       });
     }
 
-    public void doGlobalFade() { return Game1.globalFadeToBlack(this.afterFadeBehavior); }
+    public void doGlobalFade() { Game1.globalFadeToBlack(this.afterFadeBehavior); }
 
     public void showTextAboveHead()
     {
@@ -192,7 +192,7 @@ namespace StardewValley
       Game1.changeMusicTrack("fallFest");
     }
 
-    public void showDialogue() { return Game1.drawObjectDialogue(this.stringData); }
+    public void showDialogue() { Game1.drawObjectDialogue(this.stringData); }
 
     public void warp()
     {
@@ -251,3 +251,4 @@ namespace StardewValley
     public delegate void delayedBehavior();
   }
 }
+

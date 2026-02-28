@@ -48,23 +48,23 @@ namespace StardewValley.Network
       this.bitsDown.Enqueue(this.lastBitsDownPerSecond);
     }
 
-    public double delegate(AvgBitsDownPerSecond) { return this.avgBitsDownPerSecond; };
+    public double AvgBitsDownPerSecond { get { return this.avgBitsDownPerSecond; };
 
-    public double delegate(AvgBitsUpPerSecond) { return this.avgBitsUpPerSecond; };
+    public double AvgBitsUpPerSecond { get { return this.avgBitsUpPerSecond; };
 
-    public double delegate(BitsDownPerSecond) { return this.lastBitsDownPerSecond; };
+    public double BitsDownPerSecond { get { return this.lastBitsDownPerSecond; };
 
-    public double delegate(BitsUpPerSecond) { return this.lastBitsUpPerSecond; };
+    public double BitsUpPerSecond { get { return this.lastBitsUpPerSecond; };
 
-    public double delegate(TotalBitsDown) { return (double) this.totalBitsDown; };
+    public double TotalBitsDown { get { return (double) this.totalBitsDown; };
 
-    public double delegate(TotalBitsUp) { return (double) this.totalBitsUp; };
+    public double TotalBitsUp { get { return (double) this.totalBitsUp; };
 
-    public double delegate(TotalMs) { return this.totalMs; };
+    public double TotalMs { get { return this.totalMs; };
 
-    public Queue<double> delegate(LoggedAvgBitsUp) { return this.bitsUp; };
+    public Queue<double> LoggedAvgBitsUp { get { return this.bitsUp; };
 
-    public Queue<double> delegate(LoggedAvgBitsDown) { return this.bitsDown; };
+    public Queue<double> LoggedAvgBitsDown { get { return this.bitsDown; };
 
     public void RecordBytesDown(long bytes)
     {
@@ -79,3 +79,5 @@ namespace StardewValley.Network
     }
   }
 }
+
+

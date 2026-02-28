@@ -133,9 +133,9 @@ namespace StardewValley.Network
       Game1.debugOutput = "Ping: " + (this.client.ServerConnection.AverageRoundtripTime * 1000f).ToString() + "ms";
     }
 
-    private void readLatency(NetIncomingMessage msg) { return this.lastLatencyMs = msg.ReadFloat() * 1000f; }
+    private void readLatency(NetIncomingMessage msg) { this.lastLatencyMs = msg.ReadFloat() * 1000f; }
 
-    private void receiveHandshake(NetIncomingMessage msg) { return this.client.Connect(msg.SenderEndPoint.Address.ToString(), msg.SenderEndPoint.Port); }
+    private void receiveHandshake(NetIncomingMessage msg) { this.client.Connect(msg.SenderEndPoint.Address.ToString(), msg.SenderEndPoint.Port); }
 
     private void statusChanged(NetIncomingMessage message)
     {
@@ -199,3 +199,4 @@ namespace StardewValley.Network
     }
   }
 }
+

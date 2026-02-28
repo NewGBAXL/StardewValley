@@ -209,7 +209,7 @@ namespace StardewValley
     }
 
     /// <summary>The number of pressed buttons.</summary>
-    public int delegate(Count) { return this._count; };
+    public int Count { get { return this._count; };
 
     public ButtonCollection.ButtonEnumerator GetEnumerator() { return new ButtonCollection.ButtonEnumerator(this._pressed); }
 
@@ -247,7 +247,9 @@ namespace StardewValley
         return false;
       }
 
-      public void Reset() { return this._current = -1; }
+      public void Reset() { this._current = -1; }
     }
   }
 }
+
+

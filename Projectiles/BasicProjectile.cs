@@ -119,9 +119,9 @@ namespace StardewValley.Projectiles
       this.explosionAnimation(location);
     }
 
-    public override void behaviorOnCollisionWithMineWall(int tileX, int tileY) { return this.explosionAnimation((GameLocation) Game1.mine); }
+    public override void behaviorOnCollisionWithMineWall(int tileX, int tileY) { this.explosionAnimation((GameLocation) Game1.mine); }
 
-    public override void behaviorOnCollisionWithOther(GameLocation location) { return this.explosionAnimation(location); }
+    public override void behaviorOnCollisionWithOther(GameLocation location) { this.explosionAnimation(location); }
 
     public override void behaviorOnCollisionWithMonster(NPC n, GameLocation location)
     {
@@ -197,7 +197,7 @@ namespace StardewValley.Projectiles
       this.destroyMe = true;
     }
 
-    public static void explodeOnImpact(GameLocation location, int x, int y, Character who) { return location.explode(new Vector2((float) (x / 64), (float) (y / 64)), 2, who is Farmer ? (Farmer) who : (Farmer) null); }
+    public static void explodeOnImpact(GameLocation location, int x, int y, Character who) { location.explode(new Vector2((float) (x / 64), (float) (y / 64)), 2, who is Farmer ? (Farmer) who : (Farmer) null); }
 
     public delegate void onCollisionBehavior(
       GameLocation location,
@@ -206,3 +206,4 @@ namespace StardewValley.Projectiles
       Character who);
   }
 }
+

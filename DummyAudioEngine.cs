@@ -17,7 +17,7 @@ namespace StardewValley
     {
     }
 
-    public bool delegate(IsDisposed) { return true; };
+    public bool IsDisposed { get { return true; };
 
     public IAudioCategory GetCategory(string name) { return this.category; }
 
@@ -27,6 +27,8 @@ namespace StardewValley
     {
     }
 
-    public AudioEngine delegate(Engine) { return (AudioEngine) null; };
+    public AudioEngine Engine { get { return (AudioEngine) null; };
   }
 }
+
+

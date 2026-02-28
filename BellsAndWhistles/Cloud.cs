@@ -43,6 +43,7 @@ namespace StardewValley.BellsAndWhistles
     {
     }
 
-    public override void drawAboveFrontLayer(SpriteBatch b) { return b.Draw(Game1.mouseCursors, Game1.GlobalToLocal(this.position), new Rectangle?(new Rectangle(128, 0, 146, 99)), Color.White, !this.verticalFlip || !this.horizontalFlip ? 0.0f : 3.141593f, Vector2.Zero, (float) this.zoom, !this.verticalFlip || this.horizontalFlip ? (!this.horizontalFlip || this.verticalFlip ? SpriteEffects.None : SpriteEffects.FlipHorizontally) : SpriteEffects.FlipVertically, 1f); }
+    public override void drawAboveFrontLayer(SpriteBatch b) { b.Draw(Game1.mouseCursors, Game1.GlobalToLocal(this.position), new Rectangle?(new Rectangle(128, 0, 146, 99)), Color.White, !this.verticalFlip || !this.horizontalFlip ? 0.0f : 3.141593f, Vector2.Zero, (float) this.zoom, !this.verticalFlip || this.horizontalFlip ? (!this.horizontalFlip || this.verticalFlip ? SpriteEffects.None : SpriteEffects.FlipHorizontally) : SpriteEffects.FlipVertically, 1f); }
   }
 }
+

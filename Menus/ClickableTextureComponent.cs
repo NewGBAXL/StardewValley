@@ -51,7 +51,7 @@ namespace StardewValley.Menus
 
     public Vector2 getVector2() { return new Vector2((float) this.bounds.X, (float) this.bounds.Y); }
 
-    public void setPosition(Vector2 position) { return this.setPosition((int) position.X, (int) position.Y); }
+    public void setPosition(Vector2 position) { this.setPosition((int) position.X, (int) position.Y); }
 
     public void setPosition(int x, int y)
     {
@@ -107,3 +107,4 @@ namespace StardewValley.Menus
     }
   }
 }
+

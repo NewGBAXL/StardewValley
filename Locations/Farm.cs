@@ -95,7 +95,7 @@ namespace StardewValley
     public Point spousePatioSpot;
     public const int numCropsForCrow = 16;
 
-    public NetLongDictionary<FarmAnimal, NetRef<FarmAnimal>> delegate(Animals) { return this.animals; };
+    public NetLongDictionary<FarmAnimal, NetRef<FarmAnimal>> Animals { get { return this.animals; };
 
     public Farm()
     {
@@ -163,8 +163,8 @@ namespace StardewValley
       this.NetFields.AddFields((INetSerializable) this.animals, (INetSerializable) this.piecesOfHay, (INetSerializable) this.sharedShippingBin, (INetSerializable) this.houseSource, (INetSerializable) this.spawnCrowEvent, (INetSerializable) this.petBowlWatered, (INetSerializable) this.petBowlPosition, (INetSerializable) this.lightningStrikeEvent, (INetSerializable) this.grandpaScore, (INetSerializable) this.greenhouseUnlocked, (INetSerializable) this.greenhouseMoved, (INetSerializable) this.housePaintColor, (INetSerializable) this.farmCaveReady);
       this.spawnCrowEvent.onEvent += new AbstractNetEvent1<Vector2>.Event(this.doSpawnCrow);
       this.lightningStrikeEvent.onEvent += new AbstractNetEvent1<Farm.LightningStrikeEvent>.Event(this.doLightningStrike);
-      this.greenhouseMoved.fieldChangeVisibleEvent += (NetFieldBase<bool, NetBool>.FieldChange) ((field, old_value, new_value) => this.ClearGreenhouseGrassTiles());
-      this.petBowlWatered.fieldChangeVisibleEvent += (NetFieldBase<bool, NetBool>.FieldChange) ((field, old_value, new_value) => this._UpdateWaterBowl());
+      this.greenhouseMoved.fieldChangeVisibleEvent += (NetFieldBase<bool, NetBool>.FieldChange) (delegate(field, old_value, new_value) { return this.ClearGreenhouseGrassTiles(; }));
+      this.petBowlWatered.fieldChangeVisibleEvent += (NetFieldBase<bool, NetBool>.FieldChange) (delegate(field, old_value, new_value) { return this._UpdateWaterBowl(; }));
       if (this.housePaintColor.Value != null)
         return;
       this.housePaintColor.Value = new BuildingPaintColor();
@@ -899,7 +899,7 @@ namespace StardewValley
         switch (character)
         {
           case null:
-          case FarmAnimal _:
+          case FarmAnimal:
             break;
           default:
             Microsoft.Xna.Framework.Rectangle boundingBox1 = Game1.player.GetBoundingBox();
@@ -1736,7 +1736,7 @@ namespace StardewValley
       base.startEvent(evt);
     }
 
-    public override void drawAboveAlwaysFrontLayer(SpriteBatch b) { return base.drawAboveAlwaysFrontLayer(b); }
+    public override void drawAboveAlwaysFrontLayer(SpriteBatch b) { base.drawAboveAlwaysFrontLayer(b); }
 
     public virtual void ApplyHousePaint()
     {
@@ -2064,3 +2064,7 @@ namespace StardewValley
     }
   }
 }
+
+
+
+

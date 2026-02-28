@@ -337,7 +337,7 @@ namespace StardewValley.Characters
       this.Sprite.setCurrentAnimation(animation);
     }
 
-    public void doneWagging(Farmer who) { return this.wagging = false; }
+    public void doneWagging(Farmer who) { this.wagging = false; }
 
     public void hitGround(Farmer who)
     {
@@ -369,3 +369,4 @@ namespace StardewValley.Characters
     }
   }
 }
+

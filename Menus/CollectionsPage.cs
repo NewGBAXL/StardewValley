@@ -156,7 +156,7 @@ namespace StardewValley.Menus
       int num4 = this.yPositionOnScreen + IClickableMenu.borderWidth + IClickableMenu.spaceToClearTopBorder - 16;
       int num5 = 10;
       List<KeyValuePair<int, string>> keyValuePairList = new List<KeyValuePair<int, string>>((IEnumerable<KeyValuePair<int, string>>) Game1.objectInformation);
-      keyValuePairList.Sort((Comparison<KeyValuePair<int, string>>) ((a, b) => a.Key.CompareTo(b.Key)));
+      keyValuePairList.Sort((Comparison<KeyValuePair<int, string>>) (delegate(a, b) { return a.Key.CompareTo(b.Key; })));
       foreach (KeyValuePair<int, string> keyValuePair in keyValuePairList)
       {
         string str = keyValuePair.Value.Split('/')[3];
@@ -690,3 +690,4 @@ namespace StardewValley.Menus
     }
   }
 }
+

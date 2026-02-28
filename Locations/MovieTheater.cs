@@ -19,13 +19,13 @@ namespace StardewValley
 
     public Farmer farmer
     {
-      delegate(get) { return this._farmer.Value; };
-      delegate(set) { return this._farmer.Value = value; };
+      get { return this._farmer.Value; }
+      set { this._farmer.Value = value; }
     }
 
     public NPC invitedNPC
     {
-      delegate(get) { return Game1.getCharacterFromName(this._invitedNPCName.Value); };
+      get { return Game1.getCharacterFromName(this._invitedNPCName.Value); }
       set
       {
         if (value == null)
@@ -37,10 +37,13 @@ namespace StardewValley
 
     public bool fulfilled
     {
-      delegate(get) { return this._fulfilled.Value; };
-      delegate(set) { return this._fulfilled.Set(value); };
+      get { return this._fulfilled.Value; }
+      set { this._fulfilled.Set(value); }
     }
 
     public MovieInvitation() { return this.NetFields.AddFields((INetSerializable) this._farmer.NetFields, (INetSerializable) this._invitedNPCName, (INetSerializable) this._fulfilled); }
   }
 }
+
+
+

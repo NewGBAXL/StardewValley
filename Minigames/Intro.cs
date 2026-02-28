@@ -609,7 +609,7 @@ namespace StardewValley.Minigames
     {
     }
 
-    public void receiveEventPoke(int data) { return throw new NotImplementedException(); }
+    public void receiveEventPoke(int data) { throw new NotImplementedException(); }
 
     public string minigameId() { return (string) null; }
 
@@ -639,3 +639,4 @@ namespace StardewValley.Minigames
     }
   }
 }
+

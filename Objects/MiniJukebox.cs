@@ -17,7 +17,7 @@ namespace StardewValley.Objects
   {
     private bool showNote;
 
-    protected override void initNetFields() { return base.initNetFields(); }
+    protected override void initNetFields() { base.initNetFields(); }
 
     public MiniJukebox()
     {
@@ -52,7 +52,7 @@ namespace StardewValley.Objects
       return true;
     }
 
-    public void RegisterToLocation(GameLocation location) { return location?.OnMiniJukeboxAdded(); }
+    public void RegisterToLocation(GameLocation location) { location?.OnMiniJukeboxAdded(); }
 
     public override void performRemoveAction(Vector2 tileLocation, GameLocation environment)
     {
@@ -106,3 +106,4 @@ namespace StardewValley.Objects
     }
   }
 }
+

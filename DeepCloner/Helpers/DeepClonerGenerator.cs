@@ -26,7 +26,7 @@ namespace Force.DeepCloner.Helpers
     {
       if (obj == null)
         return (object) null;
-      Func<object, DeepCloneState, object> orAddClass = (Func<object, DeepCloneState, object>) DeepClonerCache.GetOrAddClass<object>(obj.GetType(), (Func<Type, object>) (delegate(t) { return DeepClonerGenerator.GenerateCloner(t; }, true)));
+      Func<object, DeepCloneState, object> orAddClass = (Func<object, DeepCloneState, object>) DeepClonerCache.GetOrAddClass<object>(obj.GetType(), (Func<Type, object>) (t { return DeepClonerGenerator.GenerateCloner(t; }, true)));
       return orAddClass == null ? obj : orAddClass(obj, new DeepCloneState());
     }
 
@@ -34,7 +34,7 @@ namespace Force.DeepCloner.Helpers
     {
       if (obj == null)
         return (object) null;
-      Func<object, DeepCloneState, object> orAddClass = (Func<object, DeepCloneState, object>) DeepClonerCache.GetOrAddClass<object>(obj.GetType(), (Func<Type, object>) (delegate(t) { return DeepClonerGenerator.GenerateCloner(t; }, true)));
+      Func<object, DeepCloneState, object> orAddClass = (Func<object, DeepCloneState, object>) DeepClonerCache.GetOrAddClass<object>(obj.GetType(), (Func<Type, object>) (t { return DeepClonerGenerator.GenerateCloner(t; }, true)));
       return orAddClass == null ? obj : state.GetKnownRef(obj) ?? orAddClass(obj, state);
     }
 
@@ -154,8 +154,9 @@ label_3:
         throw new InvalidOperationException("From object should be derived from From object, but From object has type " + objFrom.GetType().FullName + " and to " + objTo.GetType().FullName);
       if (objFrom is string)
         throw new InvalidOperationException("It is forbidden to clone strings");
-      Func<object, object, DeepCloneState, object> func = isDeep ? (Func<object, object, DeepCloneState, object>) DeepClonerCache.GetOrAddDeepClassTo<object>(type, (Func<Type, object>) (delegate(t) { return ClonerToExprGenerator.GenerateClonerInternal(t; }, true))) : (Func<object, object, DeepCloneState, object>) DeepClonerCache.GetOrAddShallowClassTo<object>(type, (Func<Type, object>) (delegate(t) { return ClonerToExprGenerator.GenerateClonerInternal(t; }, false)));
+      Func<object, object, DeepCloneState, object> func = isDeep ? (Func<object, object, DeepCloneState, object>) DeepClonerCache.GetOrAddDeepClassTo<object>(type, (Func<Type, object>) (t { return ClonerToExprGenerator.GenerateClonerInternal(t; }, true))) : (Func<object, object, DeepCloneState, object>) DeepClonerCache.GetOrAddShallowClassTo<object>(type, (Func<Type, object>) (t { return ClonerToExprGenerator.GenerateClonerInternal(t; }, false)));
       return func == null ? objTo : func(objFrom, objTo, new DeepCloneState());
     }
   }
 }
+

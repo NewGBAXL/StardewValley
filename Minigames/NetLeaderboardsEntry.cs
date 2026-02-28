@@ -15,7 +15,7 @@ namespace StardewValley.Minigames
 
     public NetFields NetFields { get; } = new NetFields();
 
-    public void InitNetFields() { return this.NetFields.AddFields((INetSerializable) this.name, (INetSerializable) this.score); }
+    public void InitNetFields() { this.NetFields.AddFields((INetSerializable) this.name, (INetSerializable) this.score); }
 
     public NetLeaderboardsEntry() { return this.InitNetFields(); }
 
@@ -27,3 +27,4 @@ namespace StardewValley.Minigames
     }
   }
 }
+

@@ -62,8 +62,8 @@ namespace StardewValley.Menus
 
     protected virtual List<LoadGameMenu.MenuSlot> MenuSlots
     {
-      delegate(get) { return this.menuSlots; };
-      delegate(set) { return this.menuSlots = value; };
+      get { return this.menuSlots; }
+      set { this.menuSlots = value; }
     }
 
     public LoadGameMenu()
@@ -76,7 +76,7 @@ namespace StardewValley.Menus
         leftNeighborID = -99998,
         rightNeighborID = -99998,
         downNeighborID = -99998
-      };
+      }
       ClickableTextureComponent textureComponent1 = new ClickableTextureComponent(new Rectangle(this.xPositionOnScreen + this.width + 16, this.yPositionOnScreen + 16, 44, 48), Game1.mouseCursors, new Rectangle(421, 459, 11, 12), 4f);
       textureComponent1.myID = 800;
       textureComponent1.downNeighborID = 801;
@@ -184,7 +184,7 @@ namespace StardewValley.Menus
 
     protected virtual void addSaveFiles(List<Farmer> files)
     {
-      this.MenuSlots.AddRange(files.Select<Farmer, LoadGameMenu.MenuSlot>((Func<Farmer, LoadGameMenu.MenuSlot>) (delegate(file) { return (LoadGameMenu.MenuSlot) new LoadGameMenu.SaveFileSlot(this; }, file))));
+      this.MenuSlots.AddRange(files.Select<Farmer, LoadGameMenu.MenuSlot>((Func<Farmer, LoadGameMenu.MenuSlot>) (file { return (LoadGameMenu.MenuSlot) new LoadGameMenu.SaveFileSlot(this; }, file))));
       this.UpdateButtons();
     }
 
@@ -412,7 +412,8 @@ namespace StardewValley.Menus
 
     private void deleteFile(int which)
     {
-      if (!(this.MenuSlots[which] is LoadGameMenu.SaveFileSlot menuSlot))
+      LoadGameMenu.SaveFileSlot menuSlot = this.MenuSlots[which] as LoadGameMenu.SaveFileSlot;
+      if (menuSlot == null)
         return;
       string slotName = menuSlot.Farmer.slotName;
       string path = Path.Combine(Path.Combine(Path.Combine(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "StardewValley"), "Saves"), slotName));
@@ -569,8 +570,8 @@ namespace StardewValley.Menus
       }
       else
       {
-        if (this.selectedForDelete != -1 && !this.deleteConfirmationScreen && !this.deleting && this.MenuSlots[this.selectedForDelete] is LoadGameMenu.SaveFileSlot menuSlot)
-        {
+        LoadGameMenu.SaveFileSlot menuSlot = this.selectedForDelete != -1 && !this.deleteConfirmationScreen && !this.deleting && this.MenuSlots[this.selectedForDelete] as LoadGameMenu.SaveFileSlot;
+      if (menuSlot != ) {
           menuSlot.Farmer.unload();
           this.MenuSlots.RemoveAt(this.selectedForDelete);
           this.selectedForDelete = -1;
@@ -613,7 +614,7 @@ namespace StardewValley.Menus
     {
     }
 
-    protected virtual void drawSlotBackground(SpriteBatch b, int i, LoadGameMenu.MenuSlot slot) { return IClickableMenu.drawTextureBox(b, Game1.mouseCursors, new Rectangle(384, 396, 15, 15), this.slotButtons[i].bounds.X, this.slotButtons[i].bounds.Y, this.slotButtons[i].bounds.Width, this.slotButtons[i].bounds.Height, this.currentItemIndex + i == this.selected && this.timerToLoad % 150 > 75 && this.timerToLoad > 1000 || this.selected == -1 && (double) this.slotButtons[i].scale > 1.0 && !this.scrolling && !this.deleteConfirmationScreen ? (this.deleteButtons.Count <= i || !this.deleteButtons[i].containsPoint(Game1.getOldMouseX(), Game1.getOldMouseY()) ? Color.Wheat : Color.White) : Color.White, 4f, false); }
+    protected virtual void drawSlotBackground(SpriteBatch b, int i, LoadGameMenu.MenuSlot slot) { IClickableMenu.drawTextureBox(b, Game1.mouseCursors, new Rectangle(384, 396, 15, 15), this.slotButtons[i].bounds.X, this.slotButtons[i].bounds.Y, this.slotButtons[i].bounds.Width, this.slotButtons[i].bounds.Height, this.currentItemIndex + i == this.selected && this.timerToLoad % 150 > 75 && this.timerToLoad > 1000 || this.selected == -1 && (double) this.slotButtons[i].scale > 1.0 && !this.scrolling && !this.deleteConfirmationScreen ? (this.deleteButtons.Count <= i || !this.deleteButtons[i].containsPoint(Game1.getOldMouseX(), Game1.getOldMouseY()) ? Color.Wheat : Color.White) : Color.White, 4f, false); }
 
     protected virtual void drawBefore(SpriteBatch b)
     {
@@ -727,7 +728,7 @@ namespace StardewValley.Menus
     protected override bool _ShouldAutoSnapPrioritizeAlignedElements() { return false; }
 
     [Conditional("LOG_FS_IO")]
-    private static void LogFsio(string format, params object[] args) { return Console.WriteLine(format, args); }
+    private static void LogFsio(string format, params object[] args) { Console.WriteLine(format, args); }
 
     public abstract class MenuSlot : IDisposable
     {
@@ -782,7 +783,7 @@ namespace StardewValley.Menus
 
       public virtual float getSlotAlpha() { return 1f; }
 
-      protected virtual void drawSlotName(SpriteBatch b, int i) { return SpriteText.drawString(b, this.slotName(), this.menu.slotButtons[i].bounds.X + 128 + 36, this.menu.slotButtons[i].bounds.Y + 36, alpha: this.getSlotAlpha()); }
+      protected virtual void drawSlotName(SpriteBatch b, int i) { SpriteText.drawString(b, this.slotName(), this.menu.slotButtons[i].bounds.X + 128 + 36, this.menu.slotButtons[i].bounds.Y + 36, alpha: this.getSlotAlpha()); }
 
       protected virtual void drawSlotShadow(SpriteBatch b, int i)
       {
@@ -881,7 +882,12 @@ namespace StardewValley.Menus
         }
       }
 
-      public new void Dispose() { return this.Farmer.unload(); }
+      public new void Dispose() { this.Farmer.unload(); }
     }
   }
 }
+
+
+
+
+

@@ -83,8 +83,8 @@ namespace StardewValley.TerrainFeatures
 
     public Crop crop
     {
-      delegate(get) { return (Crop) (NetFieldBase<Crop; }, NetRef<Crop>>) this.netCrop;
-      delegate(set) { return this.netCrop.Value = value; };
+      get { return (Crop) (NetFieldBase<Crop; }, NetRef<Crop>>) this.netCrop;
+      set { this.netCrop.Value = value; }
     }
 
     public HoeDirt()
@@ -160,8 +160,8 @@ namespace StardewValley.TerrainFeatures
         {
           switch (location)
           {
-            case Beach _:
-            case Desert _:
+            case Beach:
+            case Desert:
               break;
             default:
               this.c.Value = new Color(250, 210, 240);
@@ -455,7 +455,7 @@ label_14:
           }
           else
             goto label_19;
-        case Hoe _:
+        case Hoe:
           if (this.crop != null && this.crop.hitWithHoe((int) tileLocation.X, (int) tileLocation.Y, location, this))
           {
             this.destroyCrop(tileLocation, true, location);
@@ -464,7 +464,7 @@ label_14:
           break;
         case Pickaxe _ when this.crop == null:
           return true;
-        case WateringCan _:
+        case WateringCan:
           this.state.Value = 1;
           break;
         case MeleeWeapon _ when (t as MeleeWeapon).isScythe():
@@ -656,7 +656,7 @@ label_19:
       this.crop.drawInMenu(spriteBatch, positionOnScreen + new Vector2(64f * scale, 64f * scale), Color.White, 0.0f, scale, layerDepth + (float) (((double) positionOnScreen.Y + 64.0 * (double) scale) / 20000.0));
     }
 
-    public override void draw(SpriteBatch spriteBatch, Vector2 tileLocation) { return this.DrawOptimized(spriteBatch, spriteBatch, spriteBatch, tileLocation); }
+    public override void draw(SpriteBatch spriteBatch, Vector2 tileLocation) { this.DrawOptimized(spriteBatch, spriteBatch, spriteBatch, tileLocation); }
 
     public void DrawOptimized(
       SpriteBatch dirt_batch,
@@ -773,7 +773,7 @@ label_19:
       this.UpdateDrawSums();
     }
 
-    public void OnAdded(GameLocation loc, Vector2 tilePos) { return this.updateNeighbors(loc, tilePos); }
+    public void OnAdded(GameLocation loc, Vector2 tilePos) { this.updateNeighbors(loc, tilePos); }
 
     public void OnRemoved(GameLocation loc, Vector2 tilePos)
     {
@@ -799,9 +799,9 @@ label_19:
       this.wateredRectPosition = HoeDirt.drawGuide[this.wateredNeighborMask];
     }
 
-    public void OnNeighborAdded(byte direction) { return this.neighborMask |= direction; }
+    public void OnNeighborAdded(byte direction) { this.neighborMask |= direction; }
 
-    public void OnNeighborRemoved(byte direction) { return this.neighborMask &= ~direction; }
+    public void OnNeighborRemoved(byte direction) { this.neighborMask &= ~direction; }
 
     private struct NeighborLoc
     {
@@ -832,3 +832,7 @@ label_19:
     }
   }
 }
+
+
+
+

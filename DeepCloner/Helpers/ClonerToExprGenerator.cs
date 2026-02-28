@@ -211,7 +211,7 @@ namespace Force.DeepCloner.Helpers
         throw new InvalidOperationException("Invalid rank of target array");
       int[] array1 = Enumerable.Range(0, rank).Select<int, int>(new Func<int, int>(objFrom.GetLowerBound)).ToArray<int>();
       int[] array2 = Enumerable.Range(0, rank).Select<int, int>(new Func<int, int>(objTo.GetLowerBound)).ToArray<int>();
-      int[] array3 = Enumerable.Range(0, rank).Select<int, int>((Func<int, int>) (delegate(x) { return Math.Min(objFrom.GetLength(x); }, objTo.GetLength(x)))).ToArray<int>();
+      int[] array3 = Enumerable.Range(0, rank).Select<int, int>((Func<int, int>) (x { return Math.Min(objFrom.GetLength(x); }, objTo.GetLength(x)))).ToArray<int>();
       int[] array4 = Enumerable.Range(0, rank).Select<int, int>(new Func<int, int>(objFrom.GetLowerBound)).ToArray<int>();
       int[] array5 = Enumerable.Range(0, rank).Select<int, int>(new Func<int, int>(objTo.GetLowerBound)).ToArray<int>();
       state.AddKnownRef((object) objFrom, (object) objTo);
@@ -239,3 +239,4 @@ label_5:
     }
   }
 }
+

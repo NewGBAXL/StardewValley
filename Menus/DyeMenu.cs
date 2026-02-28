@@ -528,7 +528,7 @@ namespace StardewValley.Menus
       this.drawMouse(b);
     }
 
-    protected override void cleanupBeforeExit() { return this._OnCloseMenu(); }
+    protected override void cleanupBeforeExit() { this._OnCloseMenu(); }
 
     protected void _OnCloseMenu()
     {
@@ -543,3 +543,4 @@ namespace StardewValley.Menus
     }
   }
 }
+

@@ -173,22 +173,22 @@ namespace StardewValley.Locations
       {
         Game1.addMailForTomorrow("Island_W_Obelisk", true, true);
         this.farmObelisk.Value = true;
-      }), (Func<bool>) (() => this.farmObelisk.Value), "Obelisk", "Island_UpgradeHouse_Mailbox"));
+      }), (Func<bool>) (delegate() { return this.farmObelisk.Value; }), "Obelisk", "Island_UpgradeHouse_Mailbox"));
       this.parrotUpgradePerches.Add(new ParrotUpgradePerch((GameLocation) this, new Point(81, 40), new Microsoft.Xna.Framework.Rectangle(80, 39, 3, 2), 5, (Action) (() =>
       {
         Game1.addMailForTomorrow("Island_UpgradeHouse_Mailbox", true, true);
         this.farmhouseMailbox.Value = true;
-      }), (Func<bool>) (() => this.farmhouseMailbox.Value), "House_Mailbox", "Island_UpgradeHouse"));
+      }), (Func<bool>) (delegate() { return this.farmhouseMailbox.Value; }), "House_Mailbox", "Island_UpgradeHouse"));
       this.parrotUpgradePerches.Add(new ParrotUpgradePerch((GameLocation) this, new Point(81, 40), new Microsoft.Xna.Framework.Rectangle(74, 36, 7, 4), 20, (Action) (() =>
       {
         Game1.addMailForTomorrow("Island_UpgradeHouse", true, true);
         this.farmhouseRestored.Value = true;
-      }), (Func<bool>) (() => this.farmhouseRestored.Value), "House"));
+      }), (Func<bool>) (delegate() { return this.farmhouseRestored.Value; }), "House"));
       this.parrotUpgradePerches.Add(new ParrotUpgradePerch((GameLocation) this, new Point(72, 10), new Microsoft.Xna.Framework.Rectangle(73, 5, 3, 5), 10, (Action) (() =>
       {
         Game1.addMailForTomorrow("Island_UpgradeParrotPlatform", true, true);
         Game1.netWorldState.Value.ParrotPlatformsUnlocked.Value = true;
-      }), (Func<bool>) (() => Game1.netWorldState.Value.ParrotPlatformsUnlocked.Value), "ParrotPlatforms"));
+      }), (Func<bool>) (delegate() { return Game1.netWorldState.Value.ParrotPlatformsUnlocked.Value; }), "ParrotPlatforms"));
     }
 
     public override bool performAction(string action, Farmer who, Location tileLocation)
@@ -729,3 +729,4 @@ namespace StardewValley.Locations
     private bool isShippingBinLidOpen(bool requiredToBeFullyOpen = false) { return this.shippingBinLid != null && this.shippingBinLid.currentParentTileIndex >= (requiredToBeFullyOpen ? this.shippingBinLid.animationLength - 1 : 1); }
   }
 }
+

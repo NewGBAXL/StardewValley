@@ -55,7 +55,7 @@ namespace StardewValley.Quests
           }
         }
       }
-      source.OrderBy<NPC, string>((Func<NPC, string>) (delegate(n) { return n.Name)); };
+      source.OrderBy<NPC, string>((Func<NPC, string>) (n { return n.Name)); };
       for (int index = 0; index < source.Count; ++index)
       {
         NPC npc = source[index];
@@ -563,3 +563,4 @@ namespace StardewValley.Quests
     }
   }
 }
+

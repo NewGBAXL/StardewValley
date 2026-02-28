@@ -560,7 +560,7 @@ namespace StardewValley.Tools
       return areaOfEffect;
     }
 
-    public void triggerDefenseSwordFunction(Farmer who) { return this.defenseSwordEvent.Fire(); }
+    public void triggerDefenseSwordFunction(Farmer who) { this.defenseSwordEvent.Fire(); }
 
     private void doDefenseSwordFunction()
     {
@@ -578,7 +578,7 @@ namespace StardewValley.Tools
       who.yVelocity = 0.0f;
     }
 
-    public void triggerDaggerFunction(Farmer who, int dagger_hits_left) { return this.daggerEvent.Fire(dagger_hits_left); }
+    public void triggerDaggerFunction(Farmer who, int dagger_hits_left) { this.daggerEvent.Fire(dagger_hits_left); }
 
     private void doDaggerFunction(int dagger_hits)
     {
@@ -635,7 +635,7 @@ namespace StardewValley.Tools
 
     private void quickStab(Farmer who)
     {
-      AnimatedSprite.endOfAnimationBehavior endOfBehaviorFunction = (AnimatedSprite.endOfAnimationBehavior) (delegate(f) { return this.triggerDaggerFunction(f; }, MeleeWeapon.daggerHitsLeft));
+      AnimatedSprite.endOfAnimationBehavior endOfBehaviorFunction = (AnimatedSprite.endOfAnimationBehavior) (f { return this.triggerDaggerFunction(f; }, MeleeWeapon.daggerHitsLeft));
       if (!this.lastUser.IsLocalPlayer)
         endOfBehaviorFunction = (AnimatedSprite.endOfAnimationBehavior) null;
       switch (who.FacingDirection)
@@ -902,7 +902,7 @@ namespace StardewValley.Tools
       who.forceCanMove();
     }
 
-    public override void actionWhenBeingHeld(Farmer who) { return base.actionWhenBeingHeld(who); }
+    public override void actionWhenBeingHeld(Farmer who) { base.actionWhenBeingHeld(who); }
 
     public override void actionWhenStopBeingHeld(Farmer who)
     {
@@ -911,7 +911,7 @@ namespace StardewValley.Tools
       base.actionWhenStopBeingHeld(who);
     }
 
-    public override void endUsing(GameLocation location, Farmer who) { return base.endUsing(location, who); }
+    public override void endUsing(GameLocation location, Farmer who) { base.endUsing(location, who); }
 
     public virtual void RecalculateAppliedForges(bool force = false)
     {
@@ -972,7 +972,7 @@ namespace StardewValley.Tools
       if (location.damageMonster(areaOfEffect, (int) ((double) (int) (NetFieldBase<int, NetInt>) this.minDamage * (1.0 + (double) who.attackIncreaseModifier)), (int) ((double) (int) (NetFieldBase<int, NetInt>) this.maxDamage * (1.0 + (double) who.attackIncreaseModifier)), false, (float) (NetFieldBase<float, NetFloat>) this.knockback * (1f + who.knockbackModifier), (int) ((double) (int) (NetFieldBase<int, NetInt>) this.addedPrecision * (1.0 + (double) who.weaponPrecisionModifier)), num * (1f + who.critChanceModifier), (float) (NetFieldBase<float, NetFloat>) this.critMultiplier * (1f + who.critPowerModifier), (int) (NetFieldBase<int, NetInt>) this.type != 1 || !this.isOnSpecial, this.lastUser) && (int) (NetFieldBase<int, NetInt>) this.type == 2)
         location.playSound("clubhit");
       string cueName = "";
-      location.projectiles.Filter((Func<Projectile, bool>) (delegate(projectile) { return {; }
+      location.projectiles.Filter((Func<Projectile, bool>) (projectile { return {; }
         if (areaOfEffect.Intersects(projectile.getBoundingBox()) && !projectile.ignoreMeleeAttacks.Value)
           projectile.behaviorOnCollisionWithOther(location);
         return !projectile.destroyMe;
@@ -1119,7 +1119,7 @@ namespace StardewValley.Tools
       MeleeWeapon.drawDuringUse(frameOfFarmerAnimation, facingDirection, spriteBatch, playerPosition, f, MeleeWeapon.getSourceRect(this.getDrawnItemIndex()), (int) (NetFieldBase<int, NetInt>) this.type, this.isOnSpecial);
     }
 
-    public override bool CanForge(Item item) { return item is MeleeWeapon meleeWeapon && (NetFieldBase<int, NetInt>) meleeWeapon.type == this.type || base.CanForge(item); }
+    public override bool CanForge(Item item) { MeleeWeapon meleeWeapon = item as MeleeWeapon; return (meleeWeapon != null && (NetFieldBase<int, NetInt>) meleeWeapon.type == this.type) || base.CanForge(item); }
 
     public override bool CanAddEnchantment(BaseEnchantment enchantment) { return (!(enchantment is GalaxySoulEnchantment) || this.isGalaxyWeapon()) && base.CanAddEnchantment(enchantment); }
 
@@ -1138,7 +1138,8 @@ namespace StardewValley.Tools
     {
       if (this.isScythe())
         return false;
-      if (!(item is MeleeWeapon meleeWeapon) || !((NetFieldBase<int, NetInt>) meleeWeapon.type == this.type))
+      MeleeWeapon meleeWeapon = item as MeleeWeapon;
+      if (meleeWeapon == null || !((NetFieldBase<int, NetInt>) meleeWeapon.type == this.type))
         return base.Forge(item, count_towards_stats);
       this.appearance.Value = this.IndexOfMenuItemView = meleeWeapon.getDrawnItemIndex();
       return true;
@@ -1474,3 +1475,5 @@ namespace StardewValley.Tools
     }
   }
 }
+
+

@@ -37,6 +37,7 @@ namespace StardewValley.Network
       }
     }
 
-    public void Clear() { return this.guid.Value = Guid.Empty; }
+    public void Clear() { this.guid.Value = Guid.Empty; }
   }
 }
+

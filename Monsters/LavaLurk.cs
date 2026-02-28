@@ -113,9 +113,9 @@ namespace StardewValley.Monsters
       });
     }
 
-    public virtual void OnEmergeAnimationEnd(Farmer who) { return this.PlayAnimation(this.idleAnimation, true); }
+    public virtual void OnEmergeAnimationEnd(Farmer who) { this.PlayAnimation(this.idleAnimation, true); }
 
-    public virtual void OnDiveAnimationEnd(Farmer who) { return this.PlayAnimation(this.submergedAnimation, true); }
+    public virtual void OnDiveAnimationEnd(Farmer who) { this.PlayAnimation(this.submergedAnimation, true); }
 
     protected override void initNetFields()
     {
@@ -198,7 +198,7 @@ namespace StardewValley.Monsters
 
     public virtual bool TargetInRange() { return this.targettedFarmer != null && (double) Math.Abs(this.targettedFarmer.Position.X - this.Position.X) <= 640.0 && (double) Math.Abs(this.targettedFarmer.Position.Y - this.Position.Y) <= 640.0; }
 
-    public virtual void SetRandomMovement() { return this.velocity = new Vector2(Game1.random.Next(2) == 1 ? -1f : 1f, Game1.random.Next(2) == 1 ? -1f : 1f); }
+    public virtual void SetRandomMovement() { this.velocity = new Vector2(Game1.random.Next(2) == 1 ? -1f : 1f, Game1.random.Next(2) == 1 ? -1f : 1f); }
 
     protected override void updateMonsterSlaveAnimation(GameTime time)
     {
@@ -375,3 +375,4 @@ namespace StardewValley.Monsters
     }
   }
 }
+

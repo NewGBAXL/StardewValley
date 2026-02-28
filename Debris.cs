@@ -70,26 +70,26 @@ namespace StardewValley
 
     public int itemQuality
     {
-      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.netItemQuality;
-      delegate(set) { return this.netItemQuality.Value = value; };
+      get { return (int) (NetFieldBase<int; }, NetInt>) this.netItemQuality;
+      set { this.netItemQuality.Value = value; }
     }
 
     public int chunkFinalYLevel
     {
-      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.netChunkFinalYLevel;
-      delegate(set) { return this.netChunkFinalYLevel.Value = value; };
+      get { return (int) (NetFieldBase<int; }, NetInt>) this.netChunkFinalYLevel;
+      set { this.netChunkFinalYLevel.Value = value; }
     }
 
     public int chunkFinalYTarget
     {
-      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.netChunkFinalYTarget;
-      delegate(set) { return this.netChunkFinalYTarget.Value = value; };
+      get { return (int) (NetFieldBase<int; }, NetInt>) this.netChunkFinalYTarget;
+      set { this.netChunkFinalYTarget.Value = value; }
     }
 
     public bool chunksMoveTowardPlayer
     {
-      delegate(get) { return this._chunksMoveTowardsPlayer.Value; };
-      delegate(set) { return this._chunksMoveTowardsPlayer.Value = value; };
+      get { return this._chunksMoveTowardsPlayer.Value; }
+      set { this._chunksMoveTowardsPlayer.Value = value; }
     }
 
     public Texture2D spriteChunkSheet
@@ -104,8 +104,8 @@ namespace StardewValley
 
     public Item item
     {
-      delegate(get) { return (Item) (NetFieldBase<Item; }, NetRef<Item>>) this.netItem;
-      delegate(set) { return this.netItem.Value = value; };
+      get { return (Item) (NetFieldBase<Item; }, NetRef<Item>>) this.netItem;
+      set { this.netItem.Value = value; }
     }
 
     public NetFields NetFields { get; } = new NetFields();
@@ -116,7 +116,7 @@ namespace StardewValley
       this.player.Delayed(false);
     }
 
-    public NetObjectShrinkList<Chunk> delegate(Chunks) { return this.chunks; };
+    public NetObjectShrinkList<Chunk> Chunks { get { return this.chunks; }
 
     public Debris(int objectIndex, Vector2 debrisOrigin, Vector2 playerPosition)
       : this(objectIndex, 1, debrisOrigin, playerPosition)
@@ -325,7 +325,7 @@ namespace StardewValley
             @object = new Object(Vector2.Zero, num, 1)
             {
               Quality = this.itemQuality
-            };
+            }
           else
             @object = (Object) new Torch(Vector2.Zero, 1, num);
           if (!farmer1.addItemToInventoryBool((Item) @object))
@@ -846,3 +846,7 @@ namespace StardewValley
     }
   }
 }
+
+
+
+

@@ -235,7 +235,7 @@ namespace StardewValley.BellsAndWhistles
       return true;
     }
 
-    public virtual void StartAnimation() { return this.animationEvent.Fire(); }
+    public virtual void StartAnimation() { this.animationEvent.Fire(); }
 
     public bool CheckAction(Location tile_location, Farmer farmer)
     {
@@ -714,3 +714,4 @@ namespace StardewValley.BellsAndWhistles
     }
   }
 }
+

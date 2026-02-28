@@ -158,7 +158,7 @@ namespace StardewValley.Objects
 
     public override string GetShopMenuContext() { return "FishTank"; }
 
-    public override void ShowMenu() { return this.ShowShopMenu(); }
+    public override void ShowMenu() { this.ShowShopMenu(); }
 
     public override bool checkForAction(Farmer who, bool justCheckingForActivity = false)
     {
@@ -540,3 +540,4 @@ namespace StardewValley.Objects
     }
   }
 }
+

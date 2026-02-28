@@ -116,7 +116,7 @@ namespace StardewValley
       if (Event._commandLookup != null)
         return;
       Event._commandLookup = new Dictionary<string, MethodInfo>((IEqualityComparer<string>) StringComparer.InvariantCultureIgnoreCase);
-      MethodInfo[] array = ((IEnumerable<MethodInfo>) typeof (Event).GetMethods()).Where<MethodInfo>((Func<MethodInfo, bool>) (delegate(method_info) { return method_info.Name.StartsWith("command_"))).ToArray<MethodInfo>(); };
+      MethodInfo[] array = ((IEnumerable<MethodInfo>) typeof (Event).GetMethods()).Where<MethodInfo>((Func<MethodInfo, bool>) (method_info { return method_info.Name.StartsWith("command_"))).ToArray<MethodInfo>(); };
       foreach (MethodInfo methodInfo in array)
         Event._commandLookup.Add(methodInfo.Name.Substring("command_".Length), methodInfo);
       Console.WriteLine("setupEventCommands() registered '{0}' methods", (object) array.Length);
@@ -313,7 +313,7 @@ namespace StardewValley
       Game1.activeClickableMenu = (IClickableMenu) new ItemListMenu(Game1.content.LoadString("Strings\\UI:ItemList_ItemsLost"), Game1.player.itemsLostLastDeath.ToList<Item>());
     }
 
-    public virtual void command_end(GameLocation location, GameTime time, string[] split) { return this.endBehaviors(split, location); }
+    public virtual void command_end(GameLocation location, GameTime time, string[] split) { this.endBehaviors(split, location); }
 
     public virtual void command_locationSpecificCommand(
       GameLocation location,
@@ -519,7 +519,7 @@ namespace StardewValley
     public virtual void command_doAction(GameLocation location, GameTime time, string[] split)
     {
       Location tile_location = new Location(this.OffsetTileX(Convert.ToInt32(split[1])), this.OffsetTileY(Convert.ToInt32(split[2])));
-      Game1.hooks.OnGameLocation_CheckAction(location, tile_location, Game1.viewport, this.farmer, (Func<bool>) (() => location.checkAction(tile_location, Game1.viewport, this.farmer)));
+      Game1.hooks.OnGameLocation_CheckAction(location, tile_location, Game1.viewport, this.farmer, (Func<bool>) (delegate() { return location.checkAction(tile_location, Game1.viewport, this.farmer; })));
       ++this.CurrentCommand;
     }
 
@@ -707,7 +707,7 @@ namespace StardewValley
       GameTime time,
       string[] split)
     {
-      this.changeLocation(split[1], this.farmer.getTileX(), this.farmer.getTileY(), onComplete: ((Action) (() => ++this.CurrentCommand)));
+      this.changeLocation(split[1], this.farmer.getTileX(), this.farmer.getTileY(), onComplete: ((Action) (delegate() { ++this.CurrentCommand; })));
     }
 
     public virtual void command_halt(GameLocation location, GameTime time, string[] split)
@@ -912,7 +912,7 @@ namespace StardewValley
       this.checkForNextCommand(location, time);
     }
 
-    public virtual void command_addFloorProp(GameLocation location, GameTime time, string[] split) { return this.command_addProp(location, time, split); }
+    public virtual void command_addFloorProp(GameLocation location, GameTime time, string[] split) { this.command_addProp(location, time, split); }
 
     public virtual void command_addProp(GameLocation location, GameTime time, string[] split)
     {
@@ -1562,7 +1562,7 @@ label_9:
     {
       if (Game1.activeClickableMenu != null)
         return;
-      Game1.activeClickableMenu = (IClickableMenu) new NamingMenu((NamingMenu.doneNamingBehavior) (delegate(animal_name) { return {; }
+      Game1.activeClickableMenu = (IClickableMenu) new NamingMenu((NamingMenu.doneNamingBehavior) (animal_name { return {; }
         (Game1.currentLocation as AnimalHouse).addNewHatchedAnimal(animal_name);
         ++this.CurrentCommand;
       }), Game1.content.LoadString("Strings\\StringsFromCSFiles:Event.cs.1236"));
@@ -2409,8 +2409,8 @@ label_9:
                   List<Point> pointList2 = new List<Point>();
                   foreach (Point point3 in pointArray)
                     pointList1.Add(new Point(point2.X + point3.X, point2.Y + point3.Y));
-                  Func<Point, bool> func1 = (Func<Point, bool>) (delegate(point) { return this.temporaryLocation.isTilePassable(new Location(point.X; }, point.Y), Game1.viewport));
-                  Func<Point, bool> func2 = (Func<Point, bool>) (delegate(point) { return {; }
+                  Func<Point, bool> func1 = (Func<Point, bool>) (point { return this.temporaryLocation.isTilePassable(new Location(point.X; }, point.Y), Game1.viewport));
+                  Func<Point, bool> func2 = (Func<Point, bool>) (point { return {; }
                     int num = 1;
                     for (int x = point.X - num; x <= point.X + num; ++x)
                     {
@@ -2608,7 +2608,7 @@ label_9:
 
     public bool playerControlSequence
     {
-      delegate(get) { return this._playerControlSequence; };
+      get { return this._playerControlSequence; }
       set
       {
         if (this._playerControlSequence == value)
@@ -2620,7 +2620,7 @@ label_9:
       }
     }
 
-    public Farmer delegate(farmer) { return this.farmerActors.Count <= 0 ? Game1.player : this.farmerActors[0]; };
+    public Farmer farmer { get { return this.farmerActors.Count <= 0 ? Game1.player : this.farmerActors[0]; }
 
     public Texture2D festivalTexture
     {
@@ -2634,8 +2634,8 @@ label_9:
 
     public int CurrentCommand
     {
-      delegate(get) { return this.currentCommand; };
-      delegate(set) { return this.currentCommand = value; };
+      get { return this.currentCommand; }
+      set { this.currentCommand = value; }
     }
 
     public Event(string eventString, int eventID = -1, Farmer farmerActor = null)
@@ -3945,7 +3945,7 @@ label_9:
             xPeriodicRange = 32f,
             motion = new Vector2(0.0f, -1.25f),
             initialPosition = new Vector2((float) (Game1.viewport.Width / 2), (float) Game1.viewport.Height)
-          };
+          }
           location.temporarySprites.Add(temporaryAnimatedSprite1);
           for (int index = 0; index < 19; ++index)
             location.temporarySprites.Add(new TemporaryAnimatedSprite("LooseSprites\\Cursors", new Microsoft.Xna.Framework.Rectangle(516, 1916, 7, 10), 99999f, 1, 99999, new Vector2(64f, 32f), false, false, 1f, 0.0f, Microsoft.Xna.Framework.Color.White, 4f, 0.0f, 0.0f, 0.0f)
@@ -4423,13 +4423,13 @@ label_9:
             delayBeforeAnimationStart = 0,
             pingPong = true,
             xStopCoordinate = 1040,
-            reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (delegate(param2) { return {; }
+            reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (param2 { return {; }
               TemporaryAnimatedSprite temporaryAnimatedSprite3 = this.aboveMapSprites.First<TemporaryAnimatedSprite>();
               if (temporaryAnimatedSprite3 == null)
                 return;
               temporaryAnimatedSprite3.motion = new Vector2(0.0f, 2f);
               temporaryAnimatedSprite3.yStopCoordinate = 2336;
-              temporaryAnimatedSprite3.reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (delegate(param3) { return {; }
+              temporaryAnimatedSprite3.reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (param3 { return {; }
                 TemporaryAnimatedSprite temporaryAnimatedSprite4 = this.aboveMapSprites.First<TemporaryAnimatedSprite>();
                 temporaryAnimatedSprite4.animationLength = 1;
                 temporaryAnimatedSprite4.pingPong = false;
@@ -5104,7 +5104,7 @@ label_9:
             yPeriodicRange = 32f,
             id = 777f,
             xStopCoordinate = 3392,
-            reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (delegate(param) { return {; }
+            reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (param { return {; }
               this.aboveMapSprites.First<TemporaryAnimatedSprite>().xStopCoordinate = -1;
               this.aboveMapSprites.First<TemporaryAnimatedSprite>().motion = new Vector2(4f, 0.0f);
               location.ApplyMapOverride("Town-TrashGone", destination_rect: new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(57, 68, 17, 5)));
@@ -5120,7 +5120,7 @@ label_9:
                 scale = 4f,
                 alphaFade = 0.0f,
                 extraInfoForEndBehavior = -777
-              };
+              }
               temporaryAnimatedSprite5.reachedStopCoordinate = new TemporaryAnimatedSprite.endBehavior(temporaryAnimatedSprite5.bounce);
               temporaryAnimatedSprite5.initialPosition.Y = 4372f;
               this.aboveMapSprites.Add(temporaryAnimatedSprite5);
@@ -5810,7 +5810,7 @@ label_9:
             layerDepth = 1f,
             id = 777f,
             yStopCoordinate = 6144,
-            reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (delegate(param) { return {; }
+            reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (param { return {; }
               location.getTemporarySpriteByID(777).yStopCoordinate = -1;
               location.getTemporarySpriteByID(777).motion = new Vector2(0.0f, (float) param * 0.75f);
               location.getTemporarySpriteByID(777).acceleration = new Vector2(0.04f, -0.19f);
@@ -7066,7 +7066,7 @@ label_9:
             motion = new Vector2(2f, 0.0f),
             xStopCoordinate = 3136,
             id = 777f,
-            reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (delegate(param1) { return {; }
+            reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (param1 { return {; }
               ++this.CurrentCommand;
               location.removeTemporarySpritesWithID(777);
             })
@@ -7405,7 +7405,7 @@ label_9:
             rotationChange = -0.02f,
             yStopCoordinate = 5952,
             layerDepth = 0.99f,
-            reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (delegate(param1) { return {; }
+            reachedStopCoordinate = (TemporaryAnimatedSprite.endBehavior) (param1 { return {; }
               location.TemporarySprites.Add(new TemporaryAnimatedSprite("Maps\\springobjects", new Microsoft.Xna.Framework.Rectangle(48, 16, 16, 16), 100f, 5, 1, location.getTemporarySpriteByID(9999).position, false, false, 0.01f, 0.0f, Microsoft.Xna.Framework.Color.White, 4f, 0.0f, 0.0f, 0.0f)
               {
                 layerDepth = 1f
@@ -8373,7 +8373,7 @@ label_9:
         "Alex",
         "Shane"
       };
-      List<Farmer> list = Game1.getOnlineFarmers().OrderBy<Farmer, long>((Func<Farmer, long>) (delegate(f) { return f.UniqueMultiplayerID)).ToList<Farmer>(); };
+      List<Farmer> list = Game1.getOnlineFarmers().OrderBy<Farmer, long>((Func<Farmer, long>) (f { return f.UniqueMultiplayerID)).ToList<Farmer>(); };
       while (list.Count > 0)
       {
         Farmer farmer = list[0];
@@ -8430,7 +8430,7 @@ label_9:
       this.eventCommands = regex6.Replace(input6, "animate $1 false true 600 0 3").Split('/');
     }
 
-    public string delegate(FestivalName) { return this.festivalData == null ? "" : this.festivalData["name"]; };
+    public string FestivalName { get { return this.festivalData == null ? "" : this.festivalData["name"]; };
 
     private void judgeGrange()
     {
@@ -9654,7 +9654,7 @@ label_9:
       Game1.exitActiveMenu();
     }
 
-    public void clickToAddItemToLuauSoup(Item i, Farmer who) { return this.addItemToLuauSoup(i, who); }
+    public void clickToAddItemToLuauSoup(Item i, Farmer who) { this.addItemToLuauSoup(i, who); }
 
     public void setUpAdvancedMove(string[] split, NPCController.endBehavior endBehavior = null)
     {
@@ -9857,6 +9857,11 @@ label_9:
       Game1.drawDialogue(this.getActorByName("Lewis"));
     }
 
-    private void iceFishingWinnerMP() { return this.specialEventVariable1 = !this.winners.Contains(Game1.player); }
+    private void iceFishingWinnerMP() { this.specialEventVariable1 = !this.winners.Contains(Game1.player); }
   }
 }
+
+
+
+
+

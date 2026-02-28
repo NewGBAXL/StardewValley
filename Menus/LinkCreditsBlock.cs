@@ -31,7 +31,7 @@ namespace StardewValley.Menus
 
     public override int getHeight(int maxWidth) { return !(this.text == "") ? SpriteText.getHeightOfString(this.text, maxWidth) : 64; }
 
-    public override void hovered() { return this.currentlyHovered = true; }
+    public override void hovered() { this.currentlyHovered = true; }
 
     public override void clicked()
     {
@@ -46,3 +46,4 @@ namespace StardewValley.Menus
     }
   }
 }
+

@@ -73,7 +73,7 @@ namespace StardewValley.Menus
         else
         {
           this.approvingFarmhand = false;
-          this.menuSlots.AddRange((IEnumerable<LoadGameMenu.MenuSlot>) this.client.availableFarmhands.Select<Farmer, FarmhandMenu.FarmhandSlot>((Func<Farmer, FarmhandMenu.FarmhandSlot>) (delegate(farmer) { return new FarmhandMenu.FarmhandSlot(this; }, farmer))));
+          this.menuSlots.AddRange((IEnumerable<LoadGameMenu.MenuSlot>) this.client.availableFarmhands.Select<Farmer, FarmhandMenu.FarmhandSlot>((Func<Farmer, FarmhandMenu.FarmhandSlot>) (farmer { return new FarmhandMenu.FarmhandSlot(this; }, farmer))));
         }
         if (Game1.activeClickableMenu is TitleMenu)
           Game1.gameMode = (byte) 0;
@@ -147,11 +147,11 @@ namespace StardewValley.Menus
           this.loadClientOptions();
           switch (Game1.activeClickableMenu)
           {
-            case FarmhandMenu _:
+            case FarmhandMenu:
 label_8:
               Game1.exitActiveMenu();
               break;
-            case TitleMenu _:
+            case TitleMenu:
               if (!(TitleMenu.subMenu is FarmhandMenu))
                 break;
               goto label_8;
@@ -162,7 +162,7 @@ label_8:
           if (this.approvingFarmhand)
             Game1.multiplayer.clientRemotelyDisconnected(Multiplayer.IsTimeout(this.client.pendingDisconnect) ? Multiplayer.DisconnectType.Timeout_FarmhandSelection : this.client.pendingDisconnect);
           else
-            this.menuSlots.RemoveAll((Predicate<LoadGameMenu.MenuSlot>) (delegate(slot) { return slot is FarmhandMenu.FarmhandSlot)); };
+            this.menuSlots.RemoveAll((Predicate<LoadGameMenu.MenuSlot>) (slot { return slot is FarmhandMenu.FarmhandSlot)); };
         }
       }
       base.update(time);
@@ -288,3 +288,5 @@ label_8:
     }
   }
 }
+
+

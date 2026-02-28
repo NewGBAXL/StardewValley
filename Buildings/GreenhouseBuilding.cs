@@ -30,7 +30,7 @@ namespace StardewValley.Buildings
     {
     }
 
-    protected override void initNetFields() { return base.initNetFields(); }
+    protected override void initNetFields() { base.initNetFields(); }
 
     public override void drawInMenu(SpriteBatch b, int x, int y)
     {
@@ -44,7 +44,7 @@ namespace StardewValley.Buildings
 
     public override Microsoft.Xna.Framework.Rectangle getSourceRect() { return new Microsoft.Xna.Framework.Rectangle(0, 160, 112, 160); }
 
-    public override void Update(GameTime time) { return base.Update(time); }
+    public override void Update(GameTime time) { base.Update(time); }
 
     public override void drawInConstruction(SpriteBatch b)
     {
@@ -193,3 +193,4 @@ namespace StardewValley.Buildings
     }
   }
 }
+

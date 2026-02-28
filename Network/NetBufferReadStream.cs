@@ -21,18 +21,18 @@ namespace StardewValley.Network
       this.offset = buffer.Position;
     }
 
-    public override bool delegate(CanRead) { return true; };
+    public override bool CanRead { get { return true; };
 
-    public override bool delegate(CanSeek) { return true; };
+    public override bool CanSeek { get { return true; };
 
-    public override bool delegate(CanWrite) { return false; };
+    public override bool CanWrite { get { return false; };
 
-    public override long delegate(Length) { return ((long) this.Buffer.LengthBits - this.offset) / 8L; };
+    public override long Length { get { return ((long) this.Buffer.LengthBits - this.offset) / 8L; };
 
     public override long Position
     {
-      delegate(get) { return (this.Buffer.Position - this.offset) / 8L; };
-      delegate(set) { return this.Buffer.Position = this.offset + value * 8L; };
+      get { return (this.Buffer.Position - this.offset) / 8L; }
+      set { this.Buffer.Position = this.offset + value * 8L; }
     }
 
     public override void Flush()
@@ -62,8 +62,11 @@ namespace StardewValley.Network
       return this.Position;
     }
 
-    public override void SetLength(long value) { return throw new NotSupportedException(); }
+    public override void SetLength(long value) { throw new NotSupportedException(); }
 
-    public override void Write(byte[] buffer, int offset, int count) { return throw new NotSupportedException(); }
+    public override void Write(byte[] buffer, int offset, int count) { throw new NotSupportedException(); }
   }
 }
+
+
+

@@ -50,7 +50,7 @@ namespace StardewValley.Monsters
       });
     }
 
-    public override void reloadSprite() { return this.Sprite = new AnimatedSprite("Characters\\Monsters\\Squid Kid"); }
+    public override void reloadSprite() { this.Sprite = new AnimatedSprite("Characters\\Monsters\\Squid Kid"); }
 
     public override int takeDamage(
       int damage,
@@ -242,3 +242,4 @@ namespace StardewValley.Monsters
     }
   }
 }
+

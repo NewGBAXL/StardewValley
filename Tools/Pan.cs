@@ -70,7 +70,7 @@ namespace StardewValley.Tools
       return true;
     }
 
-    public static void playSlosh(Farmer who) { return who.currentLocation.localSound("slosh"); }
+    public static void playSlosh(Farmer who) { who.currentLocation.localSound("slosh"); }
 
     public override void tickUpdate(GameTime time, Farmer who)
     {
@@ -92,7 +92,7 @@ namespace StardewValley.Tools
       this.finish();
     }
 
-    private void finish() { return this.finishEvent.Fire(); }
+    private void finish() { this.finishEvent.Fire(); }
 
     private void doFinish()
     {
@@ -173,3 +173,4 @@ namespace StardewValley.Tools
     }
   }
 }
+

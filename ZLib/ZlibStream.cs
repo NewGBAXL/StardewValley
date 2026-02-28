@@ -283,7 +283,7 @@ namespace Ionic.Zlib
     /// </summary>
     public virtual FlushType FlushMode
     {
-      delegate(get) { return this._baseStream._flushMode; };
+      get { return this._baseStream._flushMode; }
       set
       {
         if (this._disposed)
@@ -310,7 +310,7 @@ namespace Ionic.Zlib
     /// </remarks>
     public int BufferSize
     {
-      delegate(get) { return this._baseStream._bufferSize; };
+      get { return this._baseStream._bufferSize; }
       set
       {
         if (this._disposed)
@@ -322,10 +322,10 @@ namespace Ionic.Zlib
     }
 
     /// <summary> Returns the total number of bytes input so far.</summary>
-    public virtual long delegate(TotalIn) { return this._baseStream._z.TotalBytesIn; };
+    public virtual long TotalIn { get { return this._baseStream._z.TotalBytesIn; }
 
     /// <summary> Returns the total number of bytes output so far.</summary>
-    public virtual long delegate(TotalOut) { return this._baseStream._z.TotalBytesOut; };
+    public virtual long TotalOut { get { return this._baseStream._z.TotalBytesOut; }
 
     /// <summary>Dispose the stream.</summary>
     /// <remarks>
@@ -382,7 +382,7 @@ namespace Ionic.Zlib
     /// Indicates whether the stream supports Seek operations.
     /// </summary>
     /// <remarks>Always returns false.</remarks>
-    public override bool delegate(CanSeek) { return false; };
+    public override bool CanSeek { get { return false; }
 
     /// <summary>Indicates whether the stream can be written.</summary>
     /// <remarks>
@@ -409,7 +409,7 @@ namespace Ionic.Zlib
     /// <summary>
     /// Reading this property always throws a <see cref="T:System.NotSupportedException" />.
     /// </summary>
-    public override long delegate(Length) { return throw new NotSupportedException(); };
+    public override long Length { throw new NotSupportedException(); }
 
     /// <summary>The position of the stream pointer.</summary>
     /// <remarks>
@@ -426,7 +426,7 @@ namespace Ionic.Zlib
           return this._baseStream._z.TotalBytesOut;
         return this._baseStream._streamMode == ZlibBaseStream.StreamMode.Reader ? this._baseStream._z.TotalBytesIn : 0L;
       }
-      delegate(set) { return throw new NotSupportedException(); };
+      set { throw new NotSupportedException(); }
     }
 
     /// <summary>Read data from the stream.</summary>
@@ -473,7 +473,7 @@ namespace Ionic.Zlib
     ///   THIS METHOD ACTUALLY DID ANYTHING.
     /// </param>
     /// <returns>nothing. This method always throws.</returns>
-    public override long Seek(long offset, SeekOrigin origin) { return throw new NotSupportedException(); }
+    public override long Seek(long offset, SeekOrigin origin) { throw new NotSupportedException(); }
 
     /// <summary>
     /// Calling this method always throws a <see cref="T:System.NotSupportedException" />.
@@ -482,7 +482,7 @@ namespace Ionic.Zlib
     ///   The new value for the stream length....  IF
     ///   THIS METHOD ACTUALLY DID ANYTHING.
     /// </param>
-    public override void SetLength(long value) { return throw new NotSupportedException(); }
+    public override void SetLength(long value) { throw new NotSupportedException(); }
 
     /// <summary>Write data to the stream.</summary>
     /// <remarks>
@@ -593,3 +593,7 @@ namespace Ionic.Zlib
     }
   }
 }
+
+
+
+

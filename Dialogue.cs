@@ -311,11 +311,11 @@ namespace StardewValley
 
     public string CurrentEmotion
     {
-      delegate(get) { return this.currentEmotion; };
-      delegate(set) { return this.currentEmotion = value; };
+      get { return this.currentEmotion; }
+      set { this.currentEmotion = value; }
     }
 
-    public Farmer delegate(farmer) { return Game1.CurrentEvent != null ? Game1.CurrentEvent.farmer : Game1.player; };
+    public Farmer farmer { get { return Game1.CurrentEvent != null ? Game1.CurrentEvent.farmer : Game1.player; }
 
     public Dialogue(string masterDialogue, NPC speaker)
     {
@@ -724,7 +724,7 @@ namespace StardewValley
             "マル",
             "チビ",
             "ユキダマ"
-          };
+          }
           source1 = strArray1[new Random().Next(0, strArray1.Length)];
           break;
         case LocalizedContentManager.LanguageCode.ru:
@@ -1335,7 +1335,7 @@ namespace StardewValley
 
     public List<NPCDialogueResponse> getNPCResponseOptions() { return this.playerResponses; }
 
-    public List<Response> getResponseOptions() { return new List<Response>(this.playerResponses.Select<NPCDialogueResponse, Response>((Func<NPCDialogueResponse, Response>) (delegate(x) { return (Response) x))); }; }
+    public List<Response> getResponseOptions() { return new List<Response>(this.playerResponses.Select<NPCDialogueResponse, Response>((Func<NPCDialogueResponse, Response>) (x { return (Response) x))); }; }
 
     public bool isCurrentDialogueAQuestion() { return this.isLastDialogueInteractive && this.currentDialogueIndex == this.dialogues.Count - 1; }
 
@@ -1495,3 +1495,7 @@ namespace StardewValley
     public delegate bool onAnswerQuestion(int whichResponse);
   }
 }
+
+
+
+

@@ -170,7 +170,7 @@ namespace StardewValley.Minigames
     {
     }
 
-    public void unload() { return this.content.Unload(); }
+    public void unload() { this.content.Unload(); }
 
     public void afterFade()
     {
@@ -218,3 +218,4 @@ namespace StardewValley.Minigames
     public bool forceQuit() { return false; }
   }
 }
+

@@ -92,6 +92,7 @@ namespace StardewValley.BellsAndWhistles
       b.Draw(Game1.shadowTexture, Game1.GlobalToLocal(Game1.viewport, this.GetShadowPosition()), new Rectangle?(Game1.shadowTexture.Bounds), Color.White, 0.0f, new Vector2((float) Game1.shadowTexture.Bounds.Center.X, (float) Game1.shadowTexture.Bounds.Center.Y), 3f, SpriteEffects.None, (float) (((double) this.position.Y - 1.0) / 10000.0));
     }
 
-    public override void drawAboveFrontLayer(SpriteBatch b) { return b.Draw(this._texture, Game1.GlobalToLocal(Game1.viewport, this.GetDrawPosition()), new Rectangle?(this.sourceRect), Color.White, 0.0f, new Vector2(12f, 20f), 4f, SpriteEffects.None, this.position.Y / 10000f); }
+    public override void drawAboveFrontLayer(SpriteBatch b) { b.Draw(this._texture, Game1.GlobalToLocal(Game1.viewport, this.GetDrawPosition()), new Rectangle?(this.sourceRect), Color.White, 0.0f, new Vector2(12f, 20f), 4f, SpriteEffects.None, this.position.Y / 10000f); }
   }
 }
+

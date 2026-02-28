@@ -15,16 +15,18 @@ namespace StardewValley
 
     public AudioEngineWrapper(AudioEngine engine) { return this.audioEngine = engine; }
 
-    public bool delegate(IsDisposed) { return this.audioEngine.IsDisposed; };
+    public bool IsDisposed { get { return this.audioEngine.IsDisposed; };
 
-    public void Dispose() { return this.audioEngine.Dispose(); }
+    public void Dispose() { this.audioEngine.Dispose(); }
 
     public IAudioCategory GetCategory(string name) { return (IAudioCategory) new AudioCategoryWrapper(this.audioEngine.GetCategory(name)); }
 
     public int GetCategoryIndex(string name) { return this.audioEngine.GetCategoryIndex(name); }
 
-    public void Update() { return this.audioEngine.Update(); }
+    public void Update() { this.audioEngine.Update(); }
 
-    public AudioEngine delegate(Engine) { return this.audioEngine; };
+    public AudioEngine Engine { get { return this.audioEngine; };
   }
 }
+
+

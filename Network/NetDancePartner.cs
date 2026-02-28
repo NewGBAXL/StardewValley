@@ -16,8 +16,8 @@ namespace StardewValley.Network
 
     public Character Value
     {
-      delegate(get) { return this.GetCharacter(); };
-      delegate(set) { return this.SetCharacter(value); };
+      get { return this.GetCharacter(); }
+      set { this.SetCharacter(value); }
     }
 
     public NetFields NetFields { get; } = new NetFields();
@@ -43,11 +43,11 @@ namespace StardewValley.Network
           this.farmer.Value = (Farmer) null;
           this.villager.Value = (string) null;
           return;
-        case Farmer _:
+        case Farmer:
           this.farmer.Value = value as Farmer;
           this.villager.Value = (string) null;
           return;
-        case NPC _:
+        case NPC:
           if ((value as NPC).isVillager())
           {
             this.farmer.Value = (Farmer) null;
@@ -75,3 +75,7 @@ namespace StardewValley.Network
     public int GetGender() { return this.IsFarmer() ? (!this.TryGetFarmer().IsMale ? 1 : 0) : (this.IsVillager() ? this.TryGetVillager().Gender : 2); }
   }
 }
+
+
+
+

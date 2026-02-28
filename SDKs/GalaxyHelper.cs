@@ -24,9 +24,9 @@ namespace StardewValley.SDKs
 
     public int ConnectionProgress { get; private set; }
 
-    public SDKNetHelper delegate(Networking) { return (SDKNetHelper) this.networking; };
+    public SDKNetHelper Networking { get { return (SDKNetHelper) this.networking; };
 
-    public bool delegate(HasOverlay) { return false; };
+    public bool HasOverlay { get { return false; };
 
     public void EarlyInitialize()
     {
@@ -113,9 +113,9 @@ namespace StardewValley.SDKs
 
     public string FilterDirtyWords(string words) { return words; }
 
-    public bool delegate(IsJapaneseRegionRelease) { return false; };
+    public bool IsJapaneseRegionRelease { get { return false; };
 
-    public bool delegate(IsEnterButtonAssignmentFlipped) { return false; };
+    public bool IsEnterButtonAssignmentFlipped { get { return false; };
 
     public class AuthListener : IAuthListener
     {
@@ -172,3 +172,5 @@ namespace StardewValley.SDKs
     }
   }
 }
+
+

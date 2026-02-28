@@ -71,55 +71,55 @@ namespace StardewValley.Monsters
     private int slideAnimationTimer;
 
     [XmlIgnore]
-    public Farmer delegate(Player) { return this.findPlayer(); };
+    public Farmer Player { get { return this.findPlayer(); };
 
     [XmlIgnore]
     public int DamageToFarmer
     {
-      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.damageToFarmer;
-      delegate(set) { return this.damageToFarmer.Value = value; };
+      get { return (int) (NetFieldBase<int; }, NetInt>) this.damageToFarmer;
+      set { this.damageToFarmer.Value = value; }
     }
 
     [XmlIgnore]
     public int Health
     {
-      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.health;
-      delegate(set) { return this.health.Value = value; };
+      get { return (int) (NetFieldBase<int; }, NetInt>) this.health;
+      set { this.health.Value = value; }
     }
 
     [XmlIgnore]
     public int MaxHealth
     {
-      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.maxHealth;
-      delegate(set) { return this.maxHealth.Value = value; };
+      get { return (int) (NetFieldBase<int; }, NetInt>) this.maxHealth;
+      set { this.maxHealth.Value = value; }
     }
 
     [XmlIgnore]
     public int ExperienceGained
     {
-      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.experienceGained;
-      delegate(set) { return this.experienceGained.Value = value; };
+      get { return (int) (NetFieldBase<int; }, NetInt>) this.experienceGained;
+      set { this.experienceGained.Value = value; }
     }
 
     [XmlIgnore]
     public int Slipperiness
     {
-      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.slipperiness;
-      delegate(set) { return this.slipperiness.Value = value; };
+      get { return (int) (NetFieldBase<int; }, NetInt>) this.slipperiness;
+      set { this.slipperiness.Value = value; }
     }
 
     [XmlIgnore]
     public bool focusedOnFarmers
     {
-      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.netFocusedOnFarmers;
-      delegate(set) { return this.netFocusedOnFarmers.Value = value; };
+      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.netFocusedOnFarmers;
+      set { this.netFocusedOnFarmers.Value = value; }
     }
 
     [XmlIgnore]
     public bool wildernessFarmMonster
     {
-      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.netWildernessFarmMonster;
-      delegate(set) { return this.netWildernessFarmMonster.Value = value; };
+      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.netWildernessFarmMonster;
+      set { this.netWildernessFarmMonster.Value = value; }
     }
 
     public Monster()
@@ -175,7 +175,7 @@ namespace StardewValley.Monsters
 
     public override bool withinPlayerThreshold() { return this.focusedOnFarmers || this.withinPlayerThreshold((int) (NetFieldBase<int, NetInt>) this.moveTowardPlayerThreshold); }
 
-    public override bool delegate(IsMonster) { return true; };
+    public override bool IsMonster { get { return true; }
 
     public Monster(string name, Vector2 position, int facingDir)
       : base(new AnimatedSprite("Characters\\Monsters\\" + name), position, facingDir, name)
@@ -295,9 +295,9 @@ namespace StardewValley.Monsters
       this.initializedForLocation = true;
     }
 
-    public override void reloadSprite() { return this.Sprite = new AnimatedSprite("Characters\\Monsters\\" + this.Name, 0, 16, 16); }
+    public override void reloadSprite() { this.Sprite = new AnimatedSprite("Characters\\Monsters\\" + this.Name, 0, 16, 16); }
 
-    public virtual void shedChunks(int number) { return this.shedChunks(number, 0.75f); }
+    public virtual void shedChunks(int number) { this.shedChunks(number, 0.75f); }
 
     public virtual void shedChunks(int number, float scale)
     {
@@ -323,13 +323,13 @@ namespace StardewValley.Monsters
       this.deathAnimEvent.Fire();
     }
 
-    protected virtual void sharedDeathAnimation() { return this.shedChunks(Game1.random.Next(4, 9), 0.75f); }
+    protected virtual void sharedDeathAnimation() { this.shedChunks(Game1.random.Next(4, 9), 0.75f); }
 
     protected virtual void localDeathAnimation()
     {
     }
 
-    public void parried(int damage, Farmer who) { return this.parryEvent.Fire(new ParryEventArgs(damage, who)); }
+    public void parried(int damage, Farmer who) { this.parryEvent.Fire(new ParryEventArgs(damage, who)); }
 
     private void handleParried(ParryEventArgs args)
     {
@@ -385,7 +385,7 @@ namespace StardewValley.Monsters
       return damage1;
     }
 
-    public override void setTrajectory(Vector2 trajectory) { return this.trajectoryEvent.Fire(trajectory); }
+    public override void setTrajectory(Vector2 trajectory) { this.trajectoryEvent.Fire(trajectory); }
 
     private void doSetTrajectory(Vector2 trajectory)
     {
@@ -515,7 +515,7 @@ namespace StardewValley.Monsters
     {
     }
 
-    protected virtual void updateMonsterSlaveAnimation(GameTime time) { return this.Sprite.animateOnce(time); }
+    protected virtual void updateMonsterSlaveAnimation(GameTime time) { this.Sprite.animateOnce(time); }
 
     private bool doHorizontalMovement(GameLocation location)
     {
@@ -1085,3 +1085,6 @@ namespace StardewValley.Monsters
     protected delegate void collisionBehavior(GameLocation location);
   }
 }
+
+
+

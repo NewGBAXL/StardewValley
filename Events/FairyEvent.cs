@@ -190,7 +190,7 @@ namespace StardewValley.Events
       Game1.globalFadeToClear();
     }
 
-    public void draw(SpriteBatch b) { return b.Draw(Game1.mouseCursors, Game1.GlobalToLocal(Game1.viewport, this.fairyPosition), new Rectangle?(new Rectangle(16 + this.fairyFrame * 16, 592, 16, 16)), Color.White, 0.0f, Vector2.Zero, 4f, SpriteEffects.None, 0.9999999f); }
+    public void draw(SpriteBatch b) { b.Draw(Game1.mouseCursors, Game1.GlobalToLocal(Game1.viewport, this.fairyPosition), new Rectangle?(new Rectangle(16 + this.fairyFrame * 16, 592, 16, 16)), Color.White, 0.0f, Vector2.Zero, 4f, SpriteEffects.None, 0.9999999f); }
 
     public void makeChangesToLocation()
     {
@@ -212,3 +212,4 @@ namespace StardewValley.Events
     }
   }
 }
+

@@ -105,7 +105,7 @@ namespace StardewValley.Network
         return false;
       }
 
-      public Farmer delegate(Current) { return this._current; };
+      public Farmer Current { get { return this._current; }
 
       public void Dispose()
       {
@@ -131,3 +131,5 @@ namespace StardewValley.Network
     }
   }
 }
+
+

@@ -29,26 +29,26 @@ namespace StardewValley
     [XmlIgnore]
     public NetFields NetFields { get; } = new NetFields();
 
-    public int delegate(X) { return (int) (NetFieldBase<int; }, NetInt>) this.x;
+    public int X { get { return (int) (NetFieldBase<int; }, NetInt>) this.x;
 
-    public int delegate(Y) { return (int) (NetFieldBase<int; }, NetInt>) this.y;
+    public int Y { get { return (int) (NetFieldBase<int; }, NetInt>) this.y;
 
     public int TargetX
     {
-      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.targetX;
-      delegate(set) { return this.targetX.Value = value; };
+      get { return (int) (NetFieldBase<int; }, NetInt>) this.targetX;
+      set { this.targetX.Value = value; }
     }
 
     public int TargetY
     {
-      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.targetY;
-      delegate(set) { return this.targetY.Value = value; };
+      get { return (int) (NetFieldBase<int; }, NetInt>) this.targetY;
+      set { this.targetY.Value = value; }
     }
 
     public string TargetName
     {
-      delegate(get) { return (string) (NetFieldBase<string; }, NetString>) this.targetName;
-      delegate(set) { return this.targetName.Value = value; };
+      get { return (string) (NetFieldBase<string; }, NetString>) this.targetName;
+      set { this.targetName.Value = value; }
     }
 
     public Warp() { return this.NetFields.AddFields((INetSerializable) this.x, (INetSerializable) this.y, (INetSerializable) this.targetX, (INetSerializable) this.targetY, (INetSerializable) this.targetName, (INetSerializable) this.flipFarmer, (INetSerializable) this.npcOnly); }
@@ -73,3 +73,6 @@ namespace StardewValley
     }
   }
 }
+
+
+

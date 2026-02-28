@@ -64,8 +64,8 @@ namespace StardewValley.Events
             this._farmers.Add(character as Farmer);
         }
       }
-      List<Character> list = this.playerAndGuestAudienceGroups.SelectMany<List<Character>, Character>((Func<List<Character>, IEnumerable<Character>>) (delegate(x) { return (IEnumerable<Character>) x)).ToList<Character>(); };
-      list.AddRange((IEnumerable<Character>) npcOnlyAudienceGroups.SelectMany<List<Character>, Character>((Func<List<Character>, IEnumerable<Character>>) (delegate(x) { return (IEnumerable<Character>) x)).ToList<Character>()); };
+      List<Character> list = this.playerAndGuestAudienceGroups.SelectMany<List<Character>, Character>((Func<List<Character>, IEnumerable<Character>>) (x { return (IEnumerable<Character>) x)).ToList<Character>(); };
+      list.AddRange((IEnumerable<Character>) npcOnlyAudienceGroups.SelectMany<List<Character>, Character>((Func<List<Character>, IEnumerable<Character>>) (x { return (IEnumerable<Character>) x)).ToList<Character>()); };
       bool flag1 = true;
       foreach (Character character in list)
       {
@@ -88,8 +88,8 @@ namespace StardewValley.Events
       }
       sb.Append("/changeToTemporaryMap MovieTheaterScreen false/specificTemporarySprite movieTheater_setup/ambientLight 0 0 0/");
       string[] strArray1 = new string[8];
-      this.playerAndGuestAudienceGroups = this.playerAndGuestAudienceGroups.OrderBy<List<Character>, int>((Func<List<Character>, int>) (delegate(x) { return theaterRandom.Next())).ToList<List<Character>>(); };
-      int num1 = theaterRandom.Next(8 - this.playerAndGuestAudienceGroups.SelectMany<List<Character>, Character>((Func<List<Character>, IEnumerable<Character>>) (delegate(x) { return (IEnumerable<Character>) x)).Count<Character>() + 1); };
+      this.playerAndGuestAudienceGroups = this.playerAndGuestAudienceGroups.OrderBy<List<Character>, int>((Func<List<Character>, int>) (x { return theaterRandom.Next())).ToList<List<Character>>(); };
+      int num1 = theaterRandom.Next(8 - this.playerAndGuestAudienceGroups.SelectMany<List<Character>, Character>((Func<List<Character>, IEnumerable<Character>>) (x { return (IEnumerable<Character>) x)).Count<Character>() + 1); };
       int index1 = 0;
       int num2;
       for (int index2 = 0; index2 < 8; ++index2)
@@ -564,3 +564,4 @@ namespace StardewValley.Events
     }
   }
 }
+

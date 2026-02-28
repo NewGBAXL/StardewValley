@@ -13,22 +13,24 @@ namespace StardewValley
   {
     private SoundBank soundBank;
 
-    public bool delegate(IsInUse) { return this.soundBank.IsInUse; };
+    public bool IsInUse { get { return this.soundBank.IsInUse; };
 
     public SoundBankWrapper(SoundBank soundBank) { return this.soundBank = soundBank; }
 
     public ICue GetCue(string name) { return (ICue) new CueWrapper(this.soundBank.GetCue(name)); }
 
-    public void PlayCue(string name) { return this.soundBank.PlayCue(name); }
+    public void PlayCue(string name) { this.soundBank.PlayCue(name); }
 
-    public void PlayCue(string name, AudioListener listener, AudioEmitter emitter) { return this.soundBank.PlayCue(name, listener, emitter); }
+    public void PlayCue(string name, AudioListener listener, AudioEmitter emitter) { this.soundBank.PlayCue(name, listener, emitter); }
 
-    public bool delegate(IsDisposed) { return this.soundBank.IsDisposed; };
+    public bool IsDisposed { get { return this.soundBank.IsDisposed; };
 
-    public void Dispose() { return this.soundBank.Dispose(); }
+    public void Dispose() { this.soundBank.Dispose(); }
 
-    public void AddCue(CueDefinition cue_definition) { return this.soundBank.AddCue(cue_definition); }
+    public void AddCue(CueDefinition cue_definition) { this.soundBank.AddCue(cue_definition); }
 
     public CueDefinition GetCueDefinition(string name) { return this.soundBank.GetCueDefinition(name); }
   }
 }
+
+

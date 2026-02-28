@@ -49,7 +49,7 @@ namespace StardewValley
       this.setInterpolationTarget(newValue);
     }
 
-    protected override void WriteDelta(BinaryWriter writer) { return writer.Write(this.targetValue); }
+    protected override void WriteDelta(BinaryWriter writer) { writer.Write(this.targetValue); }
 
     public void ResetLocalState()
     {
@@ -107,7 +107,7 @@ namespace StardewValley
         this.closeDoorTiles();
     }
 
-    public void CleanUpLocalState() { return this.closeDoorTiles(); }
+    public void CleanUpLocalState() { this.closeDoorTiles(); }
 
     private void closeDoorSprite()
     {
@@ -115,13 +115,13 @@ namespace StardewValley
       this.Sprite.paused = true;
     }
 
-    private void openDoorSprite() { return this.Sprite.paused = false; }
+    private void openDoorSprite() { this.Sprite.paused = false; }
 
     private void openDoorTiles()
     {
       this.Location.setTileProperty(this.Position.X, this.Position.Y, "Back", "TemporaryBarrier", "T");
       this.Location.removeTile(this.Position.X, this.Position.Y, "Buildings");
-      DelayedAction.functionAfterDelay((DelayedAction.delayedBehavior) (() => this.Location.removeTileProperty(this.Position.X, this.Position.Y, "Back", "TemporaryBarrier")), 400);
+      DelayedAction.functionAfterDelay((DelayedAction.delayedBehavior) (delegate() { return this.Location.removeTileProperty(this.Position.X, this.Position.Y, "Back", "TemporaryBarrier"; })), 400);
       this.Location.removeTile(this.Position.X, this.Position.Y - 1, "Front");
       this.Location.removeTile(this.Position.X, this.Position.Y - 2, "Front");
     }
@@ -165,3 +165,5 @@ namespace StardewValley
     }
   }
 }
+
+

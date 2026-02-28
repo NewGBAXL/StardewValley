@@ -63,9 +63,9 @@ namespace StardewValley.Menus
       return true;
     }
 
-    public virtual void snapMouseCursor() { return Game1.setMousePosition(this.bounds.Right - this.bounds.Width / 8, this.bounds.Bottom - this.bounds.Height / 8); }
+    public virtual void snapMouseCursor() { Game1.setMousePosition(this.bounds.Right - this.bounds.Width / 8, this.bounds.Bottom - this.bounds.Height / 8); }
 
-    public void snapMouseCursorToCenter() { return Game1.setMousePosition(this.bounds.Center.X, this.bounds.Center.Y); }
+    public void snapMouseCursorToCenter() { Game1.setMousePosition(this.bounds.Center.X, this.bounds.Center.Y); }
 
     public static void SetUpNeighbors<T>(List<T> components, int id) where T : ClickableComponent
     {
@@ -118,3 +118,4 @@ namespace StardewValley.Menus
     }
   }
 }
+

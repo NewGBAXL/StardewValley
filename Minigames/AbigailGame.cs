@@ -207,7 +207,7 @@ namespace StardewValley.Minigames
     private int player2FootstepSoundTimer;
     public AbigailGame.CowboyMonster targetMonster;
 
-    public static int delegate(TileSize) { return 48; };
+    public static int TileSize { get { return 48; };
 
     public bool LoadGame()
     {
@@ -3087,7 +3087,7 @@ namespace StardewValley.Minigames
       b.End();
     }
 
-    public void changeScreenSize() { return AbigailGame.topLeftScreenCoordinate = new Vector2((float) (Game1.viewport.Width / 2 - 384), (float) (Game1.viewport.Height / 2 - 384)); }
+    public void changeScreenSize() { AbigailGame.topLeftScreenCoordinate = new Vector2((float) (Game1.viewport.Width / 2 - 384), (float) (Game1.viewport.Height / 2 - 384)); }
 
     public void unload()
     {
@@ -4242,3 +4242,5 @@ namespace StardewValley.Minigames
     }
   }
 }
+
+

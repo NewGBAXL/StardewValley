@@ -252,29 +252,29 @@ namespace StardewValley
 
     public bool destroyOvernight
     {
-      delegate(get) { return this._destroyOvernight.Value; };
-      delegate(set) { return this._destroyOvernight.Value = value; };
+      get { return this._destroyOvernight.Value; }
+      set { this._destroyOvernight.Value = value; }
     }
 
     [XmlIgnore]
     public LightSource lightSource
     {
-      delegate(get) { return (LightSource) (NetFieldBase<LightSource; }, NetRef<LightSource>>) this.netLightSource;
-      delegate(set) { return this.netLightSource.Value = value; };
+      get { return (LightSource) (NetFieldBase<LightSource; }, NetRef<LightSource>>) this.netLightSource;
+      set { this.netLightSource.Value = value; }
     }
 
     [XmlIgnore]
     public Vector2 TileLocation
     {
-      delegate(get) { return (Vector2) (NetFieldBase<Vector2; }, NetVector2>) this.tileLocation;
-      delegate(set) { return this.tileLocation.Value = value; };
+      get { return (Vector2) (NetFieldBase<Vector2; }, NetVector2>) this.tileLocation;
+      set { this.tileLocation.Value = value; }
     }
 
     [XmlIgnore]
     public string name
     {
-      delegate(get) { return this.netName.Value; };
-      delegate(set) { return this.netName.Value = value; };
+      get { return this.netName.Value; }
+      set { this.netName.Value = value; }
     }
 
     [XmlIgnore]
@@ -290,125 +290,125 @@ namespace StardewValley
         }
         return this.displayName + ((bool) (NetFieldBase<bool, NetBool>) this.isRecipe ? (!CraftingRecipe.craftingRecipes.ContainsKey(this.displayName) || ((IEnumerable<string>) CraftingRecipe.craftingRecipes[this.displayName].Split('/')[2].Split(' ')).Count<string>() <= 1 ? "" : " x" + CraftingRecipe.craftingRecipes[this.displayName].Split('/')[2].Split(' ')[1]) + Game1.content.LoadString("Strings\\StringsFromCSFiles:Object.cs.12657") : "");
       }
-      delegate(set) { return this.displayName = value; };
+      set { this.displayName = value; }
     }
 
     [XmlIgnore]
     public override string Name
     {
-      delegate(get) { return this.name + ((bool) (NetFieldBase<bool; }, NetBool>) this.isRecipe ? " Recipe" : "");
-      delegate(set) { return this.name = value; };
+      get { return this.name + ((bool) (NetFieldBase<bool; }, NetBool>) this.isRecipe ? " Recipe" : "");
+      set { this.name = value; }
     }
 
     [XmlIgnore]
     public string Type
     {
-      delegate(get) { return (string) (NetFieldBase<string; }, NetString>) this.type;
-      delegate(set) { return this.type.Value = value; };
+      get { return (string) (NetFieldBase<string; }, NetString>) this.type;
+      set { this.type.Value = value; }
     }
 
     [XmlIgnore]
     public override int Stack
     {
-      delegate(get) { return Math.Max(0; }, (int) (NetFieldBase<int, NetInt>) this.stack);
-      delegate(set) { return this.stack.Value = Math.Min(Math.Max(0; }, value), value == int.MaxValue ? value : this.maximumStackSize());
+      get { return Math.Max(0; }, (int) (NetFieldBase<int, NetInt>) this.stack);
+      set { this.stack.Value = Math.Min(Math.Max(0; }, value), value == int.MaxValue ? value : this.maximumStackSize());
     }
 
     [XmlIgnore]
     public int Quality
     {
-      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.quality;
-      delegate(set) { return this.quality.Value = value; };
+      get { return (int) (NetFieldBase<int; }, NetInt>) this.quality;
+      set { this.quality.Value = value; }
     }
 
     [XmlIgnore]
     public bool CanBeSetDown
     {
-      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.canBeSetDown;
-      delegate(set) { return this.canBeSetDown.Value = value; };
+      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.canBeSetDown;
+      set { this.canBeSetDown.Value = value; }
     }
 
     [XmlIgnore]
     public bool CanBeGrabbed
     {
-      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.canBeGrabbed;
-      delegate(set) { return this.canBeGrabbed.Value = value; };
+      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.canBeGrabbed;
+      set { this.canBeGrabbed.Value = value; }
     }
 
     [XmlIgnore]
     public bool HasBeenPickedUpByFarmer
     {
-      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.hasBeenPickedUpByFarmer;
-      delegate(set) { return this.hasBeenPickedUpByFarmer.Value = value; };
+      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.hasBeenPickedUpByFarmer;
+      set { this.hasBeenPickedUpByFarmer.Value = value; }
     }
 
     [XmlIgnore]
-    public bool delegate(IsHoeDirt) { return (bool) (NetFieldBase<bool; }, NetBool>) this.isHoedirt;
+    public bool IsHoeDirt { get { return (bool) (NetFieldBase<bool; }, NetBool>) this.isHoedirt;
 
     [XmlIgnore]
     public bool IsOn
     {
-      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.isOn;
-      delegate(set) { return this.isOn.Value = value; };
+      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.isOn;
+      set { this.isOn.Value = value; }
     }
 
     [XmlIgnore]
     public bool IsSpawnedObject
     {
-      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.isSpawnedObject;
-      delegate(set) { return this.isSpawnedObject.Value = value; };
+      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.isSpawnedObject;
+      set { this.isSpawnedObject.Value = value; }
     }
 
     [XmlIgnore]
     public bool IsRecipe
     {
-      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.isRecipe;
-      delegate(set) { return this.isRecipe.Value = value; };
+      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.isRecipe;
+      set { this.isRecipe.Value = value; }
     }
 
     [XmlIgnore]
     public bool Flipped
     {
-      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.flipped;
-      delegate(set) { return this.flipped.Value = value; };
+      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.flipped;
+      set { this.flipped.Value = value; }
     }
 
     [XmlIgnore]
     public int Price
     {
-      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.price;
-      delegate(set) { return this.price.Value = value; };
+      get { return (int) (NetFieldBase<int; }, NetInt>) this.price;
+      set { this.price.Value = value; }
     }
 
     [XmlIgnore]
     public int Edibility
     {
-      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.edibility;
-      delegate(set) { return this.edibility.Value = value; };
+      get { return (int) (NetFieldBase<int; }, NetInt>) this.edibility;
+      set { this.edibility.Value = value; }
     }
 
     [XmlIgnore]
     public int Fragility
     {
-      delegate(get) { return (int) (NetFieldBase<int; }, NetInt>) this.fragility;
-      delegate(set) { return this.fragility.Value = value; };
+      get { return (int) (NetFieldBase<int; }, NetInt>) this.fragility;
+      set { this.fragility.Value = value; }
     }
 
     [XmlIgnore]
     public Vector2 Scale
     {
-      delegate(get) { return this.scale; };
-      delegate(set) { return this.scale = value; };
+      get { return this.scale; }
+      set { this.scale = value; }
     }
 
     [XmlIgnore]
     public int MinutesUntilReady
     {
-      delegate(get) { return (int) (NetFieldBase<int; }, NetIntDelta>) this.minutesUntilReady;
-      delegate(set) { return this.minutesUntilReady.Value = value; };
+      get { return (int) (NetFieldBase<int; }, NetIntDelta>) this.minutesUntilReady;
+      set { this.minutesUntilReady.Value = value; }
     }
 
-    protected virtual void initNetFields() { return this.NetFields.AddFields((INetSerializable) this.tileLocation, (INetSerializable) this.owner, (INetSerializable) this.type, (INetSerializable) this.canBeSetDown, (INetSerializable) this.canBeGrabbed, (INetSerializable) this.isHoedirt, (INetSerializable) this.isSpawnedObject, (INetSerializable) this.questItem, (INetSerializable) this.questId, (INetSerializable) this.isOn, (INetSerializable) this.fragility, (INetSerializable) this.price, (INetSerializable) this.edibility, (INetSerializable) this.stack, (INetSerializable) this.quality, (INetSerializable) this.uses, (INetSerializable) this.bigCraftable, (INetSerializable) this.setOutdoors, (INetSerializable) this.setIndoors, (INetSerializable) this.readyForHarvest, (INetSerializable) this.showNextIndex, (INetSerializable) this.flipped, (INetSerializable) this.hasBeenPickedUpByFarmer, (INetSerializable) this.isRecipe, (INetSerializable) this.isLamp, (INetSerializable) this.heldObject, (INetSerializable) this.minutesUntilReady, (INetSerializable) this.boundingBox, (INetSerializable) this.preserve, (INetSerializable) this.preservedParentSheetIndex, (INetSerializable) this.honeyType, (INetSerializable) this.netLightSource, (INetSerializable) this.orderData, (INetSerializable) this._destroyOvernight); }
+    protected virtual void initNetFields() { this.NetFields.AddFields((INetSerializable) this.tileLocation, (INetSerializable) this.owner, (INetSerializable) this.type, (INetSerializable) this.canBeSetDown, (INetSerializable) this.canBeGrabbed, (INetSerializable) this.isHoedirt, (INetSerializable) this.isSpawnedObject, (INetSerializable) this.questItem, (INetSerializable) this.questId, (INetSerializable) this.isOn, (INetSerializable) this.fragility, (INetSerializable) this.price, (INetSerializable) this.edibility, (INetSerializable) this.stack, (INetSerializable) this.quality, (INetSerializable) this.uses, (INetSerializable) this.bigCraftable, (INetSerializable) this.setOutdoors, (INetSerializable) this.setIndoors, (INetSerializable) this.readyForHarvest, (INetSerializable) this.showNextIndex, (INetSerializable) this.flipped, (INetSerializable) this.hasBeenPickedUpByFarmer, (INetSerializable) this.isRecipe, (INetSerializable) this.isLamp, (INetSerializable) this.heldObject, (INetSerializable) this.minutesUntilReady, (INetSerializable) this.boundingBox, (INetSerializable) this.preserve, (INetSerializable) this.preservedParentSheetIndex, (INetSerializable) this.honeyType, (INetSerializable) this.netLightSource, (INetSerializable) this.orderData, (INetSerializable) this._destroyOvernight); }
 
     public Object() { return this.initNetFields(); }
 
@@ -1564,7 +1564,7 @@ namespace StardewValley
           one.heldObject.Value = (Object) new Chest()
           {
             SpecialChestType = Chest.SpecialChestTypes.Enricher
-          };
+          }
         who.currentLocation.playSound("axe");
         this.heldObject.Value = one;
         this.minutesUntilReady.Value = -1;
@@ -2026,7 +2026,7 @@ namespace StardewValley
             this.heldObject.Value = new Object(Vector2.Zero, 306, (string) null, false, true, false, false)
             {
               Quality = 2
-            };
+            }
             if (!probe)
             {
               this.minutesUntilReady.Value = 180;
@@ -2072,7 +2072,7 @@ namespace StardewValley
             this.heldObject.Value = new Object(Vector2.Zero, 306, (string) null, false, true, false, false)
             {
               Quality = 2
-            };
+            }
             if (!probe)
             {
               this.minutesUntilReady.Value = 180;
@@ -2665,7 +2665,7 @@ namespace StardewValley
       }
     }
 
-    public virtual void reloadSprite() { return this.initializeLightSource((Vector2) (NetFieldBase<Vector2, NetVector2>) this.tileLocation); }
+    public virtual void reloadSprite() { this.initializeLightSource((Vector2) (NetFieldBase<Vector2, NetVector2>) this.tileLocation); }
 
     public virtual void consumeRecipe(Farmer who)
     {
@@ -3240,7 +3240,7 @@ namespace StardewValley
 
     public int getHealth() { return this.health; }
 
-    public void setHealth(int health) { return this.health = health; }
+    public void setHealth(int health) { this.health = health; }
 
     protected virtual void grabItemFromAutoGrabber(Item item, Farmer who)
     {
@@ -3742,7 +3742,7 @@ namespace StardewValley
         int num5 = -1;
         string str = "Wild";
         int num6 = 0;
-        Crop closeFlower = Utility.findCloseFlower(who.currentLocation, (Vector2) (NetFieldBase<Vector2, NetVector2>) this.tileLocation, 5, (Func<Crop, bool>) (delegate(crop) { return !crop.forageCrop.Value)); };
+        Crop closeFlower = Utility.findCloseFlower(who.currentLocation, (Vector2) (NetFieldBase<Vector2, NetVector2>) this.tileLocation, 5, (Func<Crop, bool>) (crop { return !crop.forageCrop.Value)); };
         if (closeFlower != null)
         {
           str = Game1.objectInformation[(int) (NetFieldBase<int, NetInt>) closeFlower.indexOfHarvest].Split('/')[0];
@@ -5549,3 +5549,7 @@ label_12:
     }
   }
 }
+
+
+
+

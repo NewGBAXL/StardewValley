@@ -829,8 +829,8 @@ label_26:
 
     internal bool WantRfc1950HeaderBytes
     {
-      delegate(get) { return this._WantRfc1950HeaderBytes; };
-      delegate(set) { return this._WantRfc1950HeaderBytes = value; };
+      get { return this._WantRfc1950HeaderBytes; }
+      set { this._WantRfc1950HeaderBytes = value; }
     }
 
     internal int Initialize(ZlibCodec codec, CompressionLevel level) { return this.Initialize(codec, level, 15); }
@@ -1085,7 +1085,7 @@ label_26:
         new DeflateManager.Config(8, 32, 128, 256, DeflateFlavor.Slow),
         new DeflateManager.Config(32, 128, 258, 1024, DeflateFlavor.Slow),
         new DeflateManager.Config(32, 258, 258, 4096, DeflateFlavor.Slow)
-      };
+      }
 
       private Config(
         int goodLength,
@@ -1105,3 +1105,7 @@ label_26:
     }
   }
 }
+
+
+
+

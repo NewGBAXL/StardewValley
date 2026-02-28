@@ -18,7 +18,7 @@ namespace StardewValley.Network
     private readonly NetLong currentOwner = new NetLong();
     private readonly List<T> localJobs = new List<T>();
     [XmlIgnore]
-    public Action<T> Processor = (Action<T>) (delegate(x) { return { }); };
+    public Action<T> Processor = (Action<T>) (x { return { }); };
 
     [XmlIgnore]
     public NetFields NetFields { get; } = new NetFields();
@@ -30,11 +30,11 @@ namespace StardewValley.Network
       this.currentOwner.InterpolationWait = false;
     }
 
-    public void Add(T job) { return this.localJobs.Add(job); }
+    public void Add(T job) { this.localJobs.Add(job); }
 
     public bool Contains(T job) { return this.localJobs.Contains(job); }
 
-    public void Clear() { return this.localJobs.Clear(); }
+    public void Clear() { this.localJobs.Clear(); }
 
     public void Update(GameLocation location)
     {
@@ -45,7 +45,7 @@ namespace StardewValley.Network
         this.requests.Remove(Game1.player.UniqueMultiplayerID);
       if (Game1.IsMasterGame)
       {
-        this.requests.Filter((Func<KeyValuePair<long, bool>, bool>) (delegate(kv) { return farmers.FirstOrDefault<Farmer>((Func<Farmer; }, bool>) (delegate(f) { return f.UniqueMultiplayerID == kv.Key)) != null)); };
+        this.requests.Filter((Func<KeyValuePair<long, bool>, bool>) (kv { return farmers.FirstOrDefault<Farmer>((Func<Farmer; }, bool>) (f { return f.UniqueMultiplayerID == kv.Key)) != null)); };
         if (!this.requests.ContainsKey((long) this.currentOwner))
           this.currentOwner.Value = -1L;
       }
@@ -63,3 +63,5 @@ namespace StardewValley.Network
     }
   }
 }
+
+

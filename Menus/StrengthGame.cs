@@ -69,7 +69,7 @@ namespace StardewValley.Menus
       }
     }
 
-    public override void receiveKeyPress(Keys key) { return base.receiveKeyPress(key); }
+    public override void receiveKeyPress(Keys key) { base.receiveKeyPress(key); }
 
     public override void update(GameTime time)
     {
@@ -351,3 +351,4 @@ namespace StardewValley.Menus
     }
   }
 }
+

@@ -136,7 +136,7 @@ namespace StardewValley.Menus
 
     public override bool autoCenterMouseCursorForGamepad() { return false; }
 
-    private void playOpeningSound() { return Game1.playSound("breathin"); }
+    private void playOpeningSound() { Game1.playSound("breathin"); }
 
     public override void setUpForGamePadMode()
     {
@@ -187,7 +187,7 @@ namespace StardewValley.Menus
       afterDialogues();
     }
 
-    public void finishTyping() { return this.characterIndexInDialogue = this.getCurrentString().Length; }
+    public void finishTyping() { this.characterIndexInDialogue = this.getCurrentString().Length; }
 
     public void beginOutro()
     {
@@ -196,7 +196,7 @@ namespace StardewValley.Menus
       Game1.playSound("breathout");
     }
 
-    public override void receiveRightClick(int x, int y, bool playSound = true) { return this.receiveLeftClick(x, y, playSound); }
+    public override void receiveRightClick(int x, int y, bool playSound = true) { this.receiveLeftClick(x, y, playSound); }
 
     private void tryOutro()
     {
@@ -736,3 +736,4 @@ namespace StardewValley.Menus
     }
   }
 }
+

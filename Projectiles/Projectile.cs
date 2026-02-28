@@ -80,13 +80,13 @@ namespace StardewValley.Projectiles
           this._rotation = new float?(this.startingRotation.Value);
         return this._rotation.Value;
       }
-      delegate(set) { return this._rotation = new float?(value); };
+      set { this._rotation = new float?(value); }
     }
 
     public bool IgnoreLocationCollision
     {
-      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.ignoreLocationCollision;
-      delegate(set) { return this.ignoreLocationCollision.Value = value; };
+      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.ignoreLocationCollision;
+      set { this.ignoreLocationCollision.Value = value; }
     }
 
     public NetFields NetFields { get; } = new NetFields();
@@ -148,7 +148,7 @@ namespace StardewValley.Projectiles
           this._localScale = new float?(this.startingScale.Value);
         return this._localScale.Value;
       }
-      delegate(set) { return this._localScale = new float?(value); };
+      set { this._localScale = new float?(value); }
     }
 
     public virtual bool update(GameTime time, GameLocation location)
@@ -260,3 +260,6 @@ namespace StardewValley.Projectiles
     }
   }
 }
+
+
+

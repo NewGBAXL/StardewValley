@@ -29,75 +29,75 @@ namespace StardewValley
 
     public int Points
     {
-      delegate(get) { return this.points.Value; };
-      delegate(set) { return this.points.Value = value; };
+      get { return this.points.Value; }
+      set { this.points.Value = value; }
     }
 
     public int GiftsThisWeek
     {
-      delegate(get) { return this.giftsThisWeek.Value; };
-      delegate(set) { return this.giftsThisWeek.Value = value; };
+      get { return this.giftsThisWeek.Value; }
+      set { this.giftsThisWeek.Value = value; }
     }
 
     public int GiftsToday
     {
-      delegate(get) { return this.giftsToday.Value; };
-      delegate(set) { return this.giftsToday.Value = value; };
+      get { return this.giftsToday.Value; }
+      set { this.giftsToday.Value = value; }
     }
 
     public WorldDate LastGiftDate
     {
-      delegate(get) { return this.lastGiftDate.Value; };
-      delegate(set) { return this.lastGiftDate.Value = value; };
+      get { return this.lastGiftDate.Value; }
+      set { this.lastGiftDate.Value = value; }
     }
 
     public bool TalkedToToday
     {
-      delegate(get) { return this.talkedToToday.Value; };
-      delegate(set) { return this.talkedToToday.Value = value; };
+      get { return this.talkedToToday.Value; }
+      set { this.talkedToToday.Value = value; }
     }
 
     public bool ProposalRejected
     {
-      delegate(get) { return this.proposalRejected.Value; };
-      delegate(set) { return this.proposalRejected.Value = value; };
+      get { return this.proposalRejected.Value; }
+      set { this.proposalRejected.Value = value; }
     }
 
     public WorldDate WeddingDate
     {
-      delegate(get) { return this.weddingDate.Value; };
-      delegate(set) { return this.weddingDate.Value = value; };
+      get { return this.weddingDate.Value; }
+      set { this.weddingDate.Value = value; }
     }
 
     public WorldDate NextBirthingDate
     {
-      delegate(get) { return this.nextBirthingDate.Value; };
-      delegate(set) { return this.nextBirthingDate.Value = value; };
+      get { return this.nextBirthingDate.Value; }
+      set { this.nextBirthingDate.Value = value; }
     }
 
     public FriendshipStatus Status
     {
-      delegate(get) { return this.status.Value; };
-      delegate(set) { return this.status.Value = value; };
+      get { return this.status.Value; }
+      set { this.status.Value = value; }
     }
 
     public long Proposer
     {
-      delegate(get) { return this.proposer.Value; };
-      delegate(set) { return this.proposer.Value = value; };
+      get { return this.proposer.Value; }
+      set { this.proposer.Value = value; }
     }
 
     public bool RoommateMarriage
     {
-      delegate(get) { return this.roommateMarriage.Value; };
-      delegate(set) { return this.roommateMarriage.Value = value; };
+      get { return this.roommateMarriage.Value; }
+      set { this.roommateMarriage.Value = value; }
     }
 
-    public int delegate(DaysMarried) { return this.WeddingDate == (WorldDate) null || this.WeddingDate.TotalDays > Game1.Date.TotalDays ? 0 : Game1.Date.TotalDays - this.WeddingDate.TotalDays; };
+    public int DaysMarried { get { return this.WeddingDate == (WorldDate) null || this.WeddingDate.TotalDays > Game1.Date.TotalDays ? 0 : Game1.Date.TotalDays - this.WeddingDate.TotalDays; }
 
-    public int delegate(CountdownToWedding) { return this.WeddingDate == (WorldDate) null || this.WeddingDate.TotalDays < Game1.Date.TotalDays ? 0 : this.WeddingDate.TotalDays - Game1.Date.TotalDays; };
+    public int CountdownToWedding { get { return this.WeddingDate == (WorldDate) null || this.WeddingDate.TotalDays < Game1.Date.TotalDays ? 0 : this.WeddingDate.TotalDays - Game1.Date.TotalDays; }
 
-    public int delegate(DaysUntilBirthing) { return this.NextBirthingDate == (WorldDate) null ? -1 : Math.Max(0; }, this.NextBirthingDate.TotalDays - Game1.Date.TotalDays);
+    public int DaysUntilBirthing { get { return this.NextBirthingDate == (WorldDate) null ? -1 : Math.Max(0; }, this.NextBirthingDate.TotalDays - Game1.Date.TotalDays);
 
     public Friendship() { return this.NetFields.AddFields((INetSerializable) this.points, (INetSerializable) this.giftsThisWeek, (INetSerializable) this.giftsToday, (INetSerializable) this.lastGiftDate, (INetSerializable) this.talkedToToday, (INetSerializable) this.proposalRejected, (INetSerializable) this.weddingDate, (INetSerializable) this.nextBirthingDate, (INetSerializable) this.status, (INetSerializable) this.proposer, (INetSerializable) this.roommateMarriage); }
 
@@ -133,3 +133,7 @@ namespace StardewValley
     public bool IsRoommate() { return this.IsMarried() && this.roommateMarriage.Value; }
   }
 }
+
+
+
+

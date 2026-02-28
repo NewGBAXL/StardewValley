@@ -66,8 +66,8 @@ namespace StardewValley
     [XmlElement("level")]
     public int Level
     {
-      delegate(get) { return this.level.Value; };
-      delegate(set) { return this.level.Value = value; };
+      get { return this.level.Value; }
+      set { this.level.Value = value; }
     }
 
     public BaseEnchantment() { return this.InitializeNetFields(); }
@@ -161,7 +161,7 @@ namespace StardewValley
 
     public virtual bool IsSecondaryEnchantment() { return false; }
 
-    public virtual void InitializeNetFields() { return this.NetFields.AddFields((INetSerializable) this.level); }
+    public virtual void InitializeNetFields() { this.NetFields.AddFields((INetSerializable) this.level); }
 
     public void OnEquip(Farmer farmer)
     {
@@ -198,7 +198,7 @@ namespace StardewValley
       this._OnDealDamage(monster, location, who, ref amount);
     }
 
-    public void OnDealDamage(Monster monster, GameLocation location, Farmer who, ref int amount) { return this._OnDealDamage(monster, location, who, ref amount); }
+    public void OnDealDamage(Monster monster, GameLocation location, Farmer who, ref int amount) { this._OnDealDamage(monster, location, who, ref amount); }
 
     protected virtual void _OnDealDamage(
       Monster monster,
@@ -208,13 +208,13 @@ namespace StardewValley
     {
     }
 
-    public void OnMonsterSlay(Monster m, GameLocation location, Farmer who) { return this._OnMonsterSlay(m, location, who); }
+    public void OnMonsterSlay(Monster m, GameLocation location, Farmer who) { this._OnMonsterSlay(m, location, who); }
 
     protected virtual void _OnMonsterSlay(Monster m, GameLocation location, Farmer who)
     {
     }
 
-    public void OnCutWeed(Vector2 tile_location, GameLocation location, Farmer who) { return this._OnCutWeed(tile_location, location, who); }
+    public void OnCutWeed(Vector2 tile_location, GameLocation location, Farmer who) { this._OnCutWeed(tile_location, location, who); }
 
     protected virtual void _OnCutWeed(Vector2 tile_location, GameLocation location, Farmer who)
     {
@@ -290,3 +290,6 @@ namespace StardewValley
     public virtual bool ShouldBeDisplayed() { return true; }
   }
 }
+
+
+

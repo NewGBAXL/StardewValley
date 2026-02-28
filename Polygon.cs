@@ -17,8 +17,8 @@ namespace StardewValley
 
     public List<Polygon.Line> Lines
     {
-      delegate(get) { return this.lines; };
-      delegate(set) { return this.lines = value; };
+      get { return this.lines; }
+      set { this.lines = value; }
     }
 
     public void addPoint(Vector2 point)
@@ -69,7 +69,7 @@ namespace StardewValley
       edgeBorder.Lines.Add(new Polygon.Line(vector2, new Vector2(vector2.X + 1f, vector2.Y)));
       ++vector2.X;
       int num1 = width - 12;
-      List<int> source1 = new List<int>() { 2, 2, 2 };
+      List<int> source1 = new List<int>() { 2, 2, 2 }
       int num2 = 0;
       while (num2 < num1)
       {
@@ -97,7 +97,7 @@ namespace StardewValley
       }
       int num4 = height - 4 - (int) ((double) vector2.Y - (double) room.Y);
       ++vector2.Y;
-      List<int> source2 = new List<int>() { 2, 2, 2 };
+      List<int> source2 = new List<int>() { 2, 2, 2 }
       edgeBorder.addPoint(vector2);
       int num5 = 0;
       while (num5 < num4)
@@ -464,3 +464,7 @@ namespace StardewValley
     }
   }
 }
+
+
+
+

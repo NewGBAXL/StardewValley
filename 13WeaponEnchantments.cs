@@ -18,12 +18,12 @@ namespace StardewValley
     {
       switch (monster)
       {
-        case Grub _:
-        case Fly _:
-        case Bug _:
-        case Leaper _:
-        case LavaCrab _:
-        case RockCrab _:
+        case Grub:
+        case Fly:
+        case Bug:
+        case Leaper:
+        case LavaCrab:
+        case RockCrab:
           amount = (int) ((double) amount * 2.0);
           break;
       }
@@ -32,3 +32,4 @@ namespace StardewValley
     public override string GetName() { return "Bug Killer"; }
   }
 }
+

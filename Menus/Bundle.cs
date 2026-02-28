@@ -361,7 +361,7 @@ namespace StardewValley.Menus
       this.maxShake = Math.Max(0.0f, this.maxShake - 0.0007669904f);
     }
 
-    public void draw(SpriteBatch b) { return this.sprite.draw(b, true); }
+    public void draw(SpriteBatch b) { this.sprite.draw(b, true); }
 
     public static Color getColorFromColorIndex(int color)
     {
@@ -387,3 +387,4 @@ namespace StardewValley.Menus
     }
   }
 }
+

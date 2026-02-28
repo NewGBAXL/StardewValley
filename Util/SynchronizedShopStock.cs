@@ -23,7 +23,7 @@ namespace StardewValley.Util
 
     public SynchronizedShopStock() { return this.initNetFields(); }
 
-    private void initNetFields() { return this.NetFields.AddFields((INetSerializable) this.lastDayUpdated, (INetSerializable) this.sharedKrobusStock, (INetSerializable) this.sharedSandyStock, (INetSerializable) this.sharedTravelingMerchantStock, (INetSerializable) this.sharedSaloonStock); }
+    private void initNetFields() { this.NetFields.AddFields((INetSerializable) this.lastDayUpdated, (INetSerializable) this.sharedKrobusStock, (INetSerializable) this.sharedSandyStock, (INetSerializable) this.sharedTravelingMerchantStock, (INetSerializable) this.sharedSaloonStock); }
 
     private NetStringDictionary<int, NetInt> getSharedStock(
       SynchronizedShopStock.SynchedShop shop)
@@ -126,3 +126,4 @@ namespace StardewValley.Util
     }
   }
 }
+

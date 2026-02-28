@@ -42,7 +42,7 @@ namespace StardewValley.Menus
     {
     }
 
-    public void update(GameTime time) { return this.sprite.update(time); }
+    public void update(GameTime time) { this.sprite.update(time); }
 
     public string tryHover(int x, int y)
     {
@@ -55,6 +55,7 @@ namespace StardewValley.Menus
       return (string) null;
     }
 
-    public void draw(SpriteBatch b) { return this.sprite.draw(b, true); }
+    public void draw(SpriteBatch b) { this.sprite.draw(b, true); }
   }
 }
+

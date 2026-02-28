@@ -49,7 +49,7 @@ namespace StardewValley.Buildings
 
     public override Rectangle getSourceRectForMenu() { return new Rectangle(0, 0, this.texture.Value.Bounds.Width, this.texture.Value.Bounds.Height); }
 
-    public override void load() { return base.load(); }
+    public override void load() { base.load(); }
 
     public override void resetLocalState()
     {
@@ -244,3 +244,4 @@ namespace StardewValley.Buildings
     }
   }
 }
+

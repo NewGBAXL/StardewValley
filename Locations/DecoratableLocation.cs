@@ -586,12 +586,12 @@ namespace StardewValley.Locations
       return layer != null && x < layer.LayerWidth && y < layer.LayerHeight && layer.Tiles[x, y] != null && layer.Tiles[x, y].TileSheet != null && this.IsWallAndFloorTilesheet(layer.Tiles[x, y].TileSheet.Id);
     }
 
-    public override void drawFloorDecorations(SpriteBatch b) { return base.drawFloorDecorations(b); }
+    public override void drawFloorDecorations(SpriteBatch b) { base.drawFloorDecorations(b); }
 
     public override void TransferDataFromSavedLocation(GameLocation l)
     {
-      if (l is DecoratableLocation decoratableLocation)
-      {
+      DecoratableLocation decoratableLocation = l as DecoratableLocation;
+      if (decoratableLocation != ) {
         NetDictionary<string, string, NetString, SerializableDictionary<string, string>, NetStringDictionary<string, NetString>>.KeysCollection keys = decoratableLocation.appliedWallpaper.Keys;
         if (!keys.Any())
         {
@@ -679,11 +679,13 @@ namespace StardewValley.Locations
     }
 
     [Obsolete("Replaced by SetFloor.")]
-    protected virtual void doSetVisibleFloor(int whichRoom, int which) { return this.SetFloor(which.ToString(), whichRoom.ToString()); }
+    protected virtual void doSetVisibleFloor(int whichRoom, int which) { this.SetFloor(which.ToString(), whichRoom.ToString()); }
 
     [Obsolete("Replaced by SetWallpaper.")]
-    protected virtual void doSetVisibleWallpaper(int whichRoom, int which) { return this.SetWallpaper(which.ToString(), whichRoom.ToString()); }
+    protected virtual void doSetVisibleWallpaper(int whichRoom, int which) { this.SetWallpaper(which.ToString(), whichRoom.ToString()); }
 
     public virtual List<Microsoft.Xna.Framework.Rectangle> getFloors() { return new List<Microsoft.Xna.Framework.Rectangle>(); }
   }
 }
+
+

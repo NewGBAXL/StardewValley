@@ -25,14 +25,14 @@ namespace StardewValley.Tools
 
     public int WaterLeft
     {
-      delegate(get) { return this.waterLeft; };
-      delegate(set) { return this.waterLeft = value; };
+      get { return this.waterLeft; }
+      set { this.waterLeft = value; }
     }
 
     public bool IsBottomless
     {
-      delegate(get) { return (bool) (NetFieldBase<bool; }, NetBool>) this.isBottomless;
-      delegate(set) { return this.isBottomless.Value = value; };
+      get { return (bool) (NetFieldBase<bool; }, NetBool>) this.isBottomless;
+      set { this.isBottomless.Value = value; }
     }
 
     public WateringCan()
@@ -180,3 +180,6 @@ namespace StardewValley.Tools
     }
   }
 }
+
+
+
